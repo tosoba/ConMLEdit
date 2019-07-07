@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="conml.presentation.conmlModelWizardID"
+            name="%_UI_conmlModelWizard_label"
+            class="conml.presentation.conmlModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/conmlModelFile.gif">
+         <description>%_UI_conmlModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conml -->
+      <editor
+            id="conml.presentation.conmlEditorID"
+            name="%_UI_conmlEditor_label"
+            icon="icons/full/obj16/conmlModelFile.gif"
+            extensions="conml"
+            class="conml.presentation.conmlEditor"
+            contributorClass="conml.presentation.conmlActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="conml.types.presentation.TypesModelWizardID"
+            name="%_UI_TypesModelWizard_label"
+            class="conml.types.presentation.TypesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/TypesModelFile.gif">
+         <description>%_UI_TypesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conml -->
+      <editor
+            id="conml.types.presentation.TypesEditorID"
+            name="%_UI_TypesEditor_label"
+            icon="icons/full/obj16/TypesModelFile.gif"
+            extensions="types"
+            class="conml.types.presentation.TypesEditor"
+            contributorClass="conml.types.presentation.TypesActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated conml -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="conml.instances.presentation.InstancesModelWizardID"
+            name="%_UI_InstancesModelWizard_label"
+            class="conml.instances.presentation.InstancesModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/InstancesModelFile.gif">
+         <description>%_UI_InstancesModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated conml -->
+      <editor
+            id="conml.instances.presentation.InstancesEditorID"
+            name="%_UI_InstancesEditor_label"
+            icon="icons/full/obj16/InstancesModelFile.gif"
+            extensions="instances"
+            class="conml.instances.presentation.InstancesEditor"
+            contributorClass="conml.instances.presentation.InstancesActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

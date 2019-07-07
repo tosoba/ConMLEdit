@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="conml" nsURI="http://conml.ecore" nsPrefix="conml">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HasTags" upperBound="-1"
+        eType="#//Tag" containment="true" eOpposite="#//Tag/BelongsTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="HasLanguages" upperBound="-1"
+        eType="#//Language" containment="true" eOpposite="#//Language/BelongsTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
+        eType="#//Language" eOpposite="#//Language/isDefaultIn"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsElements" upperBound="-1"
+        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/BelongsTo"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsTo" lowerBound="1"
+        eType="#//Model" eOpposite="#//Model/OwnsElements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IsTaggedWith" upperBound="-1"
+        eType="#//Tag" eOpposite="#//Tag/AppliesTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IsDocumentedBy" upperBound="-1"
+        eType="#//instances/Object" eOpposite="#//instances/Object/Documents"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//ModelPart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsTo" lowerBound="1"
+        eType="#//Model" eOpposite="#//Model/HasTags"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="AppliesTo" upperBound="-1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/IsTaggedWith"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//ModelPart">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefault" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsTo" lowerBound="1"
+        eType="#//Model" eOpposite="#//Model/HasLanguages"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="isDefaultIn" lowerBound="1"
+        eType="#//Model" eOpposite="#//Model/DefaultLanguage"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="IsTranslationQualifierOf"
+        upperBound="-1" eType="#//instances/FacetSet"/>
+  </eClassifiers>
+  <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
+    <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasElements" upperBound="-1"
+          eType="#//types/TypeModelElement" eOpposite="#//types/TypeModelElement/IsAssignedTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformedBy" eType="#//instances/InstanceModel"
+          eOpposite="#//instances/InstanceModel/ConformsTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasTemporalAspectOf"
+          eType="#//types/Class" eOpposite="#//types/Class/IsTemporalAspectOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSubjectiveAspectOf"
+          eType="#//types/Class" eOpposite="#//types/Class/IsSubjectiveAspectOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Extends" eType="#//types/TypeModel"
+          eOpposite="#//types/TypeModel/IsBaseOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsBaseOf" upperBound="-1"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/Extends"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsParticularIn" eType="#//types/TypeModel"
+          eOpposite="#//types/TypeModel/HasParticular"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasParticular" upperBound="-1"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/IsParticularIn"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//types/TypeModelElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//types/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTemporalAspect" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSubjectiveAspect" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsTemporalAspectOf" upperBound="-1"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/HasTemporalAspectOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSubjectiveAspectOf"
+          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/HasSubjectiveAspectOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Generalization" upperBound="-1"
+          eType="#//types/Generalization" eOpposite="#//types/Generalization/SpecializedClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Specialization" eType="#//types/Generalization"
+          eOpposite="#//types/Generalization/GeneralizedClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DominantGeneralization"
+          eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatesInheritanceOn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsProperties" upperBound="-1"
+          eType="#//types/Property" eOpposite="#//types/Property/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasProperties" upperBound="-1"
+          eType="#//types/Property" eOpposite="#//types/Property/AssignedTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsAttributes" upperBound="-1"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasAttributes" upperBound="-1"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/AssignedTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSemiassociations"
+          upperBound="-1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/AssignedTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsSemiassociations"
+          upperBound="-1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeClassIn" upperBound="-1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/RefersTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedBy" upperBound="-1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsInstanceOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsToPackage" eType="#//types/Package"
+          eOpposite="#//types/Package/ContainsClass"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//types/TypeModelElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminant" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializedClass" lowerBound="1"
+          upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/Generalization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="GeneralizedClass" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/Specialization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DominatesInheritanceOn"
+          lowerBound="1" upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//types/Type">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCardinality" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSorted" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTemporal" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSubjective" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConstant" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Redefines" eType="#//types/Feature"
+          eOpposite="#//types/Feature/IsRedefinedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsRedefinedBy" upperBound="-1"
+          eType="#//types/Feature" eOpposite="#//types/Feature/Redefines"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsItems" upperBound="-1"
+          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasItems" upperBound="-1"
+          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/AssignedTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSpecializedBy" upperBound="-1"
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializesFrom"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializesFrom" eType="#//types/EnumeratedType"
+          eOpposite="#//types/EnumeratedType/IsSpecializedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsToPackage" eType="#//types/Package"
+          eOpposite="#//types/Package/ContainsEnumeratedType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeModelElement" abstract="true"
+        eSuperTypes="#//ModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsAssignedTo" upperBound="-1"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/HasElements"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//types/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPrimary" lowerBound="1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsPrimaryIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSecondary" lowerBound="1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsSecondaryIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceLinks" upperBound="-1"
+          eType="#//instances/Link" eOpposite="#//instances/Link/IsInstanceOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ContainsClass" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/BelongsToPackage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ContainsEnumeratedType"
+          upperBound="-1" eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/BelongsToPackage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOwnerOf" upperBound="-1"
+          eType="#//types/Package" eOpposite="#//types/Package/isSubPackageOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isSubPackageOf" eType="#//types/Package"
+          eOpposite="#//types/Package/IsOwnerOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//types/Feature">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMultilingual" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/OwnsAttributes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/HasAttributes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceValueSets"
+          upperBound="-1" eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/IsAnInstanceOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOfType" lowerBound="1"
+          eType="#//types/DataType" eOpposite="#//types/DataType/AppliesTo"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="BaseDataType">
+      <eLiterals name="Boolean"/>
+      <eLiterals name="Number" value="1"/>
+      <eLiterals name="Text" value="2"/>
+      <eLiterals name="Time" value="3"/>
+      <eLiterals name="Data" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SemiAssociation" eSuperTypes="#//types/Feature">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWhole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStrong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/HasSemiassociations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/OwnsSemiassociations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RefersTo" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/IsOppositeClassIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInverseOf" lowerBound="1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/Inverse"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Inverse" lowerBound="1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsInverseOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPrimaryIn" eType="#//types/Association"
+          eOpposite="#//types/Association/HasPrimary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSecondaryIn" eType="#//types/Association"
+          eOpposite="#//types/Association/HasSecondary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceReferenceSets"
+          upperBound="-1" eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/IsAnInstanceOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/OwnsProperties"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/HasProperties"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleDataType" eSuperTypes="#//types/DataType">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" lowerBound="1"
+          eType="#//types/BaseDataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//types/Type">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AppliesTo" upperBound="-1"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/IsOfType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="absoluteName" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnsItems"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" lowerBound="1"
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/HasItems"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSuperItemOf" upperBound="-1"
+          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/IsSubItemOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSubItemOf" eType="#//types/EnumeratedItem"
+          eOpposite="#//types/EnumeratedItem/IsSuperItemOf"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="instances" nsURI="http://instances.ecore" nsPrefix="instances">
+    <eClassifiers xsi:type="ecore:EClass" name="Instance" abstract="true" eSuperTypes="#//instances/InstanceModelElement"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Facet" abstract="true" eSuperTypes="#//instances/InstanceModelElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="certainty" lowerBound="1"
+          eType="#//instances/DegreeOfCertainty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOwnedBy" lowerBound="1"
+          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/IsComposedOf"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RefersTo" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsOppositeIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inverse" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/isInverseOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isInverseOf" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/inverse"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPrimaryIn" eType="#//instances/Link"
+          eOpposite="#//instances/Link/HasPrimary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSecondaryIn" eType="#//instances/Link"
+          eOpposite="#//instances/Link/HasSecondary"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InstanceModelElement" abstract="true"
+        eSuperTypes="#//ModelElement"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="DegreeOfCertainty">
+      <eLiterals name="Certain"/>
+      <eLiterals name="Probable" value="1"/>
+      <eLiterals name="Possible" value="2"/>
+      <eLiterals name="Improbable" value="3"/>
+      <eLiterals name="Impossible" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="InstanceModel" eSuperTypes="#//Model">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformsTo" lowerBound="1"
+          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ConformedBy"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsAnInstanceOf" lowerBound="1"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/HasInstanceValueSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/OwnsValueSets"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsAnInstanceOf" lowerBound="1"
+          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/HasInstanceReferenceSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/OwnsReferenceSets"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//instances/Instance">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="certainty" lowerBound="1"
+          eType="#//instances/DegreeOfCertainty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Documents" upperBound="-1"
+          eType="#//ModelElement" eOpposite="#//ModelElement/IsDocumentedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInstanceOf" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/InstancedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsValueSets" upperBound="-1"
+          eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsReferenceSets" upperBound="-1"
+          eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeIn" upperBound="-1"
+          eType="#//instances/Reference" eOpposite="#//instances/Reference/RefersTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPhaseQualifierOf" upperBound="-1"
+          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/HasPhaseQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPersepectiveQualifierOf"
+          upperBound="-1" eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/HasPerspectiveQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsTemporalExistenceQualiferOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsTemporalExistenceQualiferOf"
+          upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/TemporalExistentialQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectveExistentalQualifer"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsSubjectveExistenceQualiferOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSubjectveExistenceQualiferOf"
+          upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/SubjectveExistentalQualifer"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInstanceOf" lowerBound="1"
+          eType="#//types/Association" eOpposite="#//types/Association/HasInstanceLinks"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPrimary" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/IsPrimaryIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSecondary" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/IsSecondaryIn"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//instances/Facet">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contents" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPhaseQualifier" eType="#//instances/Object"
+          eOpposite="#//instances/Object/IsPhaseQualifierOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPerspectiveQualifier"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsPersepectiveQualifierOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsComposedOf" upperBound="-1"
+          eType="#//instances/Facet" eOpposite="#//instances/Facet/IsOwnedBy"/>
+    </eClassifiers>
+  </eSubpackages>
+</ecore:EPackage>

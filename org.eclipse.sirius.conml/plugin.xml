@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated conml -->
+      <package
+            uri="http://conml.ecore"
+            class="conml.conmlPackage"
+            genModel="model/conml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated conml -->
+      <package
+            uri="http://types.ecore"
+            class="conml.types.TypesPackage"
+            genModel="model/conml.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated conml -->
+      <package
+            uri="http://instances.ecore"
+            class="conml.instances.InstancesPackage"
+            genModel="model/conml.genmodel"/>
+   </extension>
+
+</plugin>

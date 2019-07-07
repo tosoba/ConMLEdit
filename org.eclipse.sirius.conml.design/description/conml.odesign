@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
+  <ownedViewpoints name="Design" modelFileExtension="conml">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="'ConML Class Diagram'" initialisation="true" domainClass="conml::Model">
+      <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
+      <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
+      <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
+      <defaultLayer name="TypeModelElement">
+        <containerMappings name="CD_Class" semanticCandidatesExpression="service:getCDClassSemanticCandidates()" domainClass="types::Class" childrenPresentation="List">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+          </style>
+        </containerMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.Services"/>
+  </ownedViewpoints>
+</description:Group>
