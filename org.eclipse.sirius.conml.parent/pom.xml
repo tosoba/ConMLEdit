@@ -1,0 +1,97 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.eclipse.sirius.conml</groupId>
+	<artifactId>org.eclipse.sirius.conml.parent</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>ConML parent</name>
+
+	<properties>
+		<tycho.version>1.0.0</tycho.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<neon-repo.url>http://download.eclipse.org/releases/neon</neon-repo.url>
+		<sirius-repo.url>https://download.eclipse.org/sirius/updates/nightly/latest/2019-06</sirius-repo.url>
+		<orbit-repo.url>https://download.eclipse.org/tools/orbit/downloads/drops/R20190602212107/repository</orbit-repo.url>
+	</properties>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>tycho-maven-plugin</artifactId>
+				<version>${tycho.version}</version>
+				<extensions>true</extensions>
+				<configuration>
+					<includeAllDependencies>true</includeAllDependencies>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.eclipse.tycho</groupId>
+				<artifactId>target-platform-configuration</artifactId>
+				<version>${tycho.version}</version>
+				<configuration>
+					<dependency-resolution>
+						<extraRequirements>
+							<requirement>
+								<type>eclipse-plugin</type>
+								<id>org.eclipse.equinox.event</id>
+								<versionRange>0.0.0</versionRange>
+							</requirement>
+						</extraRequirements>
+					</dependency-resolution>
+
+					<environments>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86</arch>
+						</environment>
+						<environment>
+							<os>win32</os>
+							<ws>win32</ws>
+							<arch>x86_64</arch>
+						</environment>
+					</environments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<repositories>
+		<repository>
+			<id>eclipse-repo</id>
+			<url>${neon-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+
+		<repository>
+			<id>sirius-repo</id>
+			<url>${sirius-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+
+		<repository>
+			<id>orbit-repo</id>
+			<url>${orbit-repo.url}</url>
+			<layout>p2</layout>
+		</repository>
+
+		<repository>
+			<id>maven-central</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+		</repository>
+
+	</repositories>
+
+	<modules>
+		<module>../org.eclipse.sirius.conml</module>
+		<module>../org.eclipse.sirius.conml.design</module>
+		<module>../org.eclipse.sirius.conml.edit</module>
+		<module>../org.eclipse.sirius.conml.editor</module>
+		<module>../org.eclipse.sirius.conml.feature</module>
+		<module>../org.eclipse.sirius.conml.product</module>
+	</modules>
+</project>

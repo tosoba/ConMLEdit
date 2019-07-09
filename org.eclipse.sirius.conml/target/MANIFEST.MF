@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.eclipse.sirius.conml
+Bundle-SymbolicName: org.eclipse.sirius.conml;singleton:=true
+Require-Bundle: org.eclipse.emf.ecore;visibility:=reexport,org.eclipse
+ .core.runtime
+Bundle-ManifestVersion: 2
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy
+Bundle-Vendor: %providerName
+Export-Package: conml,conml.impl,conml.instances,conml.instances.impl,
+ conml.instances.util,conml.types,conml.types.impl,conml.types.util,co
+ nml.util
+Bundle-Name: %pluginName
+Bundle-Version: 1.0.0.201907071629
+Bundle-ClassPath: .
+Bundle-Localization: plugin
+
