@@ -4,25 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.eclipse.sirius.conml.feature</groupId>
 	<artifactId>org.eclipse.sirius.conml.feature</artifactId>
-  <packaging>eclipse-feature</packaging>
-  <name>ConML Feature</name>
-  <parent>
-  	<groupId>org.eclipse.sirius.conml</groupId>
-  	<artifactId>org.eclipse.sirius.conml.parent</artifactId>
-  	<version>1.0.0-SNAPSHOT</version>
-  	<relativePath>../org.eclipse.sirius.conml.parent</relativePath>
-  </parent>
-  
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-source-plugin</artifactId>
-      </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-pmd-plugin</artifactId>
-      </plugin>
-    </plugins>
-  </build>
+	<packaging>eclipse-feature</packaging>
+	<name>ConML Feature</name>
+	<parent>
+		<groupId>org.eclipse.sirius.conml</groupId>
+		<artifactId>org.eclipse.sirius.conml.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.sirius.conml.parent</relativePath>
+	</parent>
 </project>

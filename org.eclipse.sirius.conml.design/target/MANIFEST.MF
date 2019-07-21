@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Automatic-Module-Name: org.eclipse.sirius.conml.design
 Bundle-SymbolicName: org.eclipse.sirius.conml.design;singleton:=true
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201907071629
+Bundle-Version: 1.0.0.201907092104
 Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.co
  re.resources,org.eclipse.sirius,org.eclipse.sirius.common.acceleo.aql

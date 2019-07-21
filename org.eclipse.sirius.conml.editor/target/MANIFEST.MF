@@ -12,7 +12,7 @@ Bundle-Vendor: %providerName
 Export-Package: conml.instances.presentation,conml.presentation,conml.
  types.presentation
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201907071629
+Bundle-Version: 1.0.0.201907092104
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: conml.presentation.ConmlEditorPlugin$Implementation

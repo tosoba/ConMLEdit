@@ -11,7 +11,7 @@ Export-Package: conml,conml.impl,conml.instances,conml.instances.impl,
  conml.instances.util,conml.types,conml.types.impl,conml.types.util,co
  nml.util
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201907071629
+Bundle-Version: 1.0.0.201907092104
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 

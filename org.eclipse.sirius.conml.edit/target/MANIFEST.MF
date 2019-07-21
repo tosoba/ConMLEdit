@@ -10,7 +10,7 @@ Bundle-Vendor: %providerName
 Export-Package: conml.instances.provider,conml.provider,conml.types.pr
  ovider
 Bundle-Name: %pluginName
-Bundle-Version: 1.0.0.201907071629
+Bundle-Version: 1.0.0.201907092104
 Bundle-ClassPath: .
 Bundle-Localization: plugin
 Bundle-Activator: conml.provider.ConmlEditPlugin$Implementation

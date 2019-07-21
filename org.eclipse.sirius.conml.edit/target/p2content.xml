@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <units size='1'>
-  <unit id='org.eclipse.sirius.conml.edit' version='1.0.0.201907071629'>
-    <update id='org.eclipse.sirius.conml.edit' range='[0.0.0,1.0.0.201907071629)' severity='0'/>
+  <unit id='org.eclipse.sirius.conml.edit' version='1.0.0.201907092104'>
+    <update id='org.eclipse.sirius.conml.edit' range='[0.0.0,1.0.0.201907092104)' severity='0'/>
     <properties size='8'>
       <property name='df_LT.pluginName' value='conml Edit Support'/>
       <property name='df_LT.providerName' value='www.example.org'/>
@@ -13,8 +13,8 @@
       <property name='maven-version' value='1.0.0-SNAPSHOT'/>
     </properties>
     <provides size='7'>
-      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.sirius.conml.edit' version='1.0.0.201907071629'/>
-      <provided namespace='osgi.bundle' name='org.eclipse.sirius.conml.edit' version='1.0.0.201907071629'/>
+      <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.sirius.conml.edit' version='1.0.0.201907092104'/>
+      <provided namespace='osgi.bundle' name='org.eclipse.sirius.conml.edit' version='1.0.0.201907092104'/>
       <provided namespace='java.package' name='conml.instances.provider' version='0.0.0'/>
       <provided namespace='java.package' name='conml.provider' version='0.0.0'/>
       <provided namespace='java.package' name='conml.types.provider' version='0.0.0'/>
@@ -27,13 +27,13 @@
       <required namespace='osgi.bundle' name='org.eclipse.emf.edit' range='0.0.0'/>
     </requires>
     <artifacts size='1'>
-      <artifact classifier='osgi.bundle' id='org.eclipse.sirius.conml.edit' version='1.0.0.201907071629'/>
+      <artifact classifier='osgi.bundle' id='org.eclipse.sirius.conml.edit' version='1.0.0.201907092104'/>
     </artifacts>
     <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
     <touchpointData size='1'>
       <instructions size='1'>
         <instruction key='manifest'>
-          Bundle-SymbolicName: org.eclipse.sirius.conml.edit;singleton:=true&#xA;Bundle-Version: 1.0.0.201907071629&#xA;
+          Bundle-SymbolicName: org.eclipse.sirius.conml.edit;singleton:=true&#xA;Bundle-Version: 1.0.0.201907092104&#xA;
         </instruction>
       </instructions>
     </touchpointData>
