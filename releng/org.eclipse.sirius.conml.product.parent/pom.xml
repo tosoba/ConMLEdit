@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.sirius.conml</groupId>
+		<artifactId>common.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../releng/org.eclipse.sirius.conml.common.parent</relativePath>
+	</parent>
+	<groupId>org.eclipse.sirius.conml</groupId>
+	<artifactId>product.parent</artifactId>
+	<packaging>pom</packaging>
+
+	<name>Arduino Designer Product Parent</name>
+
+<!-- 	<properties> -->
+<!-- 		<arduino-site>http://update.obeo.fr/integration/arduino/repository/</arduino-site> -->
+<!-- 	</properties> -->
+
+<!-- 	<repositories> -->
+<!-- 		<repository> -->
+<!-- 			<id>org.eclipse.sirius.conml.update</id> -->
+<!-- 			<layout>p2</layout> -->
+<!-- 			<url>${arduino-site}</url> -->
+<!-- 		</repository> -->
+<!-- 	</repositories> -->
+
+	<modules>
+		<!-- Build products -->
+		<module>${root-path}/packaging/org.eclipse.sirius.conml.product</module>
+	</modules>
+
+</project>
+

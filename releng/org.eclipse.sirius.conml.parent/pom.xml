@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Copyright (c) 2013 Obeo. All rights reserved. This program and the accompanying 
+	materials are made available under the terms of the Eclipse Public License 
+	v1.0 which accompanies this distribution, and is available at http://www.eclipse.org/legal/epl-v10.html 
+	Contributors: Obeo - initial API and implementation -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.eclipse.sirius.conml</groupId>
+		<artifactId>common.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+		<relativePath>../../releng/org.eclipse.sirius.conml.common.parent</relativePath>
+	</parent>
+	<groupId>org.eclipse.sirius.conml</groupId>
+	<artifactId>parent</artifactId>
+	<packaging>pom</packaging>
+
+	<name>ConMLEdit Parent</name>
+
+	<modules>
+		<!-- Build plugins -->
+		<module>${root-path}/plugins/org.eclipse.sirius.conml</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.edit</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.editor</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.design</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.branding</module>
+		<!-- <module>${root-path}/plugins/org.eclipse.sirius.conml.gen</module> -->
+		<!-- <module>${root-path}/plugins/org.eclipse.sirius.conml.preferences</module> -->
+		<!-- <module>${root-path}/plugins/org.eclipse.sirius.conml.ui</module> -->
+		<!-- <module>${root-path}/plugins/org.eclipse.sirius.conml.build</module> -->
+
+		<!-- Build test plugins -->
+
+		<!-- Build features -->
+		<module>${root-path}/packaging/org.eclipse.sirius.conml.feature</module>
+		<!-- <module>${root-path}/packaging/org.eclipse.sirius.conml.runtime.sdk.feature</module> -->
+
+		<!-- Build update-sites -->
+		<!-- <module>${root-path}/packaging/org.eclipse.sirius.conml.update</module> -->
+
+		<!-- Build products -->
+		<module>${root-path}/packaging/org.eclipse.sirius.conml.product</module>
+	</modules>
+</project>
+
