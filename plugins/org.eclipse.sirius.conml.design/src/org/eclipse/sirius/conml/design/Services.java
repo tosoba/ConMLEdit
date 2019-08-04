@@ -1,20 +1,22 @@
 package org.eclipse.sirius.conml.design;
 
 import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
 import conml.ModelPart;
 import conml.types.Class;
+import static org.eclipse.sirius.conml.design.ConML.modelOf;
 
 public class Services {
     
 	public Collection<Class> getCDClassSemanticCandidates(ModelPart modelPart) {
-		final Set<Class> classes = new HashSet<>();
-		ConML.modelOf(modelPart).eAllContents().forEachRemaining(object -> {
-			if (object instanceof Class)
-				classes.add((Class) object);
-		});
-		return classes;
+		return ConML.getAllElementsOfTypeFrom(modelOf(modelPart), Class.class);
+	}
+	
+	public String getDefaultName(ModelPart modelPart) {
+		return ConML.labelFor(modelPart);
+	}
+	
+	public String getDefaultDefinition(ModelPart modelPart) {
+		return "";
 	}
 }
