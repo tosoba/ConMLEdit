@@ -53,15 +53,16 @@ public interface Model extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
+	 * The default value is <code>"1.0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Version</em>' attribute.
-	 * @see #setVersion(Object)
+	 * @see #setVersion(double)
 	 * @see conml.conmlPackage#getModel_Version()
-	 * @model required="true"
+	 * @model default="1.0" dataType="org.eclipse.emf.ecore.xml.type.Double" required="true"
 	 * @generated
 	 */
-	Object getVersion();
+	double getVersion();
 
 	/**
 	 * Sets the value of the '{@link conml.Model#getVersion <em>Version</em>}' attribute.
@@ -71,16 +72,17 @@ public interface Model extends EObject {
 	 * @see #getVersion()
 	 * @generated
 	 */
-	void setVersion(Object value);
+	void setVersion(double value);
 
 	/**
 	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * The default value is <code>"New model"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Description</em>' attribute.
 	 * @see #setDescription(String)
 	 * @see conml.conmlPackage#getModel_Description()
-	 * @model required="true"
+	 * @model default="New model" required="true"
 	 * @generated
 	 */
 	String getDescription();

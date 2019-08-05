@@ -20,6 +20,8 @@ public interface ModelValidator {
 	boolean validate();
 
 	boolean validateName(String value);
+	boolean validateVersion(double value);
+
 	boolean validateVersion(Object value);
 	boolean validateDescription(String value);
 	boolean validateHasTags(EList<Tag> value);

@@ -9,7 +9,7 @@ Package conml <http://conml.ecore>
 
   Class Model
     Attribute name : EString<<1..1>>
-    Attribute version : EJavaObject<<1..1>>
+    Attribute version : Double<<1..1>>
     Attribute description : EString<<1..1>>
     Reference HasTags : Tag<<0..*>>
     Reference HasLanguages : Language<<0..*>>

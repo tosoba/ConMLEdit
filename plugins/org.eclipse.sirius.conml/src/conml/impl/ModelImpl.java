@@ -72,7 +72,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object VERSION_EDEFAULT = null;
+	protected static final double VERSION_EDEFAULT = 1.0;
 
 	/**
 	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
@@ -82,7 +82,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object version = VERSION_EDEFAULT;
+	protected double version = VERSION_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -92,7 +92,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = null;
+	protected static final String DESCRIPTION_EDEFAULT = "New model";
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -192,7 +192,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 */
 	@Override
-	public Object getVersion() {
+	public double getVersion() {
 		return version;
 	}
 
@@ -202,8 +202,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 */
 	@Override
-	public void setVersion(Object newVersion) {
-		Object oldVersion = version;
+	public void setVersion(double newVersion) {
+		double oldVersion = version;
 		version = newVersion;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.MODEL__VERSION, oldVersion, version));
@@ -416,7 +416,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				setName((String)newValue);
 				return;
 			case conmlPackage.MODEL__VERSION:
-				setVersion(newValue);
+				setVersion((Double)newValue);
 				return;
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription((String)newValue);
@@ -484,7 +484,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case conmlPackage.MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case conmlPackage.MODEL__VERSION:
-				return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
+				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case conmlPackage.MODEL__HAS_TAGS:
