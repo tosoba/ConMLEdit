@@ -2,14 +2,14 @@ package org.eclipse.sirius.conml.design;
 
 import java.util.Collection;
 
+import conml.Model;
 import conml.ModelElement;
 import conml.types.Class;
-import static org.eclipse.sirius.conml.design.ConML.modelOf;
 
 public class Services {
     
-	public Collection<Class> getCDClassSemanticCandidates(ModelElement element) {
-		return ConML.getAllElementsOfTypeFrom(modelOf(element), Class.class);
+	public Collection<Class> getCDClassSemanticCandidates(Model model) {
+		return ConML.getAllElementsOfTypeFrom(model, Class.class);
 	}
 	
 	public String getDefaultName(ModelElement element) {

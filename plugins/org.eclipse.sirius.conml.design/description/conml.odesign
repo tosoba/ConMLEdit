@@ -6,7 +6,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="TypeModelElement">
-        <containerMappings name="CD_Class" domainClass="types::Class" childrenPresentation="List">
+        <containerMappings name="CD_Class" semanticCandidatesExpression="service:self.getCDClassSemanticCandidates" domainClass="types::Class" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
