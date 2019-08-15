@@ -35,5 +35,5 @@ public class ConML {
 		String name = element.getClass().getSimpleName().replace("Impl", "");
 		Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(modelOf(element), element.getClass());
 		return name + elementsOfSameType.size();
-	}
+	}	
 }
