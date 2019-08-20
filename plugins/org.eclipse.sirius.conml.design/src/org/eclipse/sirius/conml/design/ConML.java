@@ -19,7 +19,7 @@ public class ConML {
 
 	@SuppressWarnings("unchecked")
 	public static <T> Collection<T> getAllElementsOfTypeFrom(Model model, Class<T> clazz) {
-		final Set<T> candidates = new HashSet<>();
+		Set<T> candidates = new HashSet<>();
 		ConML.forEachEObjectOf(model, (object) -> {
 			if (clazz.isInstance(object))
 				candidates.add((T) object);
@@ -31,9 +31,13 @@ public class ConML {
 		model.eAllContents().forEachRemaining(action);
 	}
 
-	public static String labelFor(final EObject element) {
+	public static String labelFor(EObject element) {
 		String name = element.getClass().getSimpleName().replace("Impl", "");
 		Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(modelOf(element), element.getClass());
 		return name + elementsOfSameType.size();
-	}	
+	}
+	
+	public static String definitionFor(final EObject element) {
+		return "";
+	}
 }
