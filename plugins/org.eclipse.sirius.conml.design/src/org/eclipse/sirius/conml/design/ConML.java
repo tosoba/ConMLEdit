@@ -7,37 +7,36 @@ import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.EObject;
 
-import conml.Model;
-
 public class ConML {
 	private ConML() {
 	}
 
-	public static Model modelOf(EObject object) {
-		return (Model) object.eContainer();
-	}
-
 	@SuppressWarnings("unchecked")
-	public static <T> Collection<T> getAllElementsOfTypeFrom(Model model, Class<T> clazz) {
+	public static <T> Collection<T> getAllElementsOfTypeFrom(EObject parentObject, Class<T> clazz) {
 		Set<T> candidates = new HashSet<>();
-		ConML.forEachEObjectOf(model, (object) -> {
+		ConML.forEachEObjectOf(parentObject, (object) -> {
 			if (clazz.isInstance(object))
 				candidates.add((T) object);
 		});
 		return candidates;
 	}
 
-	public static void forEachEObjectOf(Model model, Consumer<EObject> action) {
-		model.eAllContents().forEachRemaining(action);
+	public static void forEachEObjectOf(EObject parentObject, Consumer<EObject> action) {
+		parentObject.eAllContents().forEachRemaining(action);
 	}
 
 	public static String labelFor(EObject element) {
 		String name = element.getClass().getSimpleName().replace("Impl", "");
-		Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(modelOf(element), element.getClass());
-		return name + elementsOfSameType.size();
+		EObject container = element.eContainer();
+		if (container != null) {
+			Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(container, element.getClass());
+			return name + elementsOfSameType.size();
+		} else {
+			return name;
+		}
 	}
-	
-	public static String definitionFor(final EObject element) {
+
+	public static String definitionFor(EObject element) {
 		return "";
 	}
 }
