@@ -32,7 +32,7 @@ public interface ModelElement extends ModelPart {
 	 * @see #setBelongsTo(Model)
 	 * @see conml.conmlPackage#getModelElement_BelongsTo()
 	 * @see conml.Model#getOwnsElements
-	 * @model opposite="OwnsElements" required="true" transient="false"
+	 * @model opposite="OwnsElements" transient="false"
 	 * @generated
 	 */
 	Model getBelongsTo();

@@ -43,32 +43,10 @@ public class PropertyItemProvider extends FeatureItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addOwnerPropertyDescriptor(object);
 			addAssignedToPropertyDescriptor(object);
+			addOwnerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Owner feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Property_Owner_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Property_Owner_feature", "_UI_Property_type"),
-				 TypesPackage.Literals.PROPERTY__OWNER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -85,6 +63,28 @@ public class PropertyItemProvider extends FeatureItemProvider {
 				 getString("_UI_Property_AssignedTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Property_AssignedTo_feature", "_UI_Property_type"),
 				 TypesPackage.Literals.PROPERTY__ASSIGNED_TO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Owner feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_Owner_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_Owner_feature", "_UI_Property_type"),
+				 TypesPackage.Literals.PROPERTY__OWNER,
 				 true,
 				 false,
 				 true,

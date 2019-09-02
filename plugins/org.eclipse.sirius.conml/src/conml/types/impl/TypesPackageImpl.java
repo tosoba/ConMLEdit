@@ -241,7 +241,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_HasElements() {
+	public EReference getTypeModel_ConformedBy() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -251,7 +251,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_ConformedBy() {
+	public EReference getTypeModel_HasTemporalAspectOf() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -261,7 +261,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_HasTemporalAspectOf() {
+	public EReference getTypeModel_HasSubjectiveAspectOf() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -271,7 +271,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_HasSubjectiveAspectOf() {
+	public EReference getTypeModel_Extends() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -281,7 +281,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_Extends() {
+	public EReference getTypeModel_IsBaseOf() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -291,7 +291,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_IsBaseOf() {
+	public EReference getTypeModel_IsParticularIn() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -301,18 +301,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_IsParticularIn() {
-		return (EReference)typeModelEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getTypeModel_HasParticular() {
-		return (EReference)typeModelEClass.getEStructuralFeatures().get(7);
+		return (EReference)typeModelEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -442,7 +432,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsProperties() {
-		return (EReference)classEClass.getEStructuralFeatures().get(8);
+		return (EReference)classEClass.getEStructuralFeatures().get(16);
 	}
 
 	/**
@@ -452,7 +442,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_HasProperties() {
-		return (EReference)classEClass.getEStructuralFeatures().get(9);
+		return (EReference)classEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -462,7 +452,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsAttributes() {
-		return (EReference)classEClass.getEStructuralFeatures().get(10);
+		return (EReference)classEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -472,7 +462,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_HasAttributes() {
-		return (EReference)classEClass.getEStructuralFeatures().get(11);
+		return (EReference)classEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -482,7 +472,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_HasSemiassociations() {
-		return (EReference)classEClass.getEStructuralFeatures().get(12);
+		return (EReference)classEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -492,7 +482,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsSemiassociations() {
-		return (EReference)classEClass.getEStructuralFeatures().get(13);
+		return (EReference)classEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -502,7 +492,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_IsOppositeClassIn() {
-		return (EReference)classEClass.getEStructuralFeatures().get(14);
+		return (EReference)classEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -512,7 +502,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_InstancedBy() {
-		return (EReference)classEClass.getEStructuralFeatures().get(15);
+		return (EReference)classEClass.getEStructuralFeatures().get(14);
 	}
 
 	/**
@@ -522,7 +512,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_BelongsToPackage() {
-		return (EReference)classEClass.getEStructuralFeatures().get(16);
+		return (EReference)classEClass.getEStructuralFeatures().get(15);
 	}
 
 	/**
@@ -733,16 +723,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	@Override
 	public EClass getTypeModelElement() {
 		return typeModelElementEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTypeModelElement_IsAssignedTo() {
-		return (EReference)typeModelElementEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1051,7 +1031,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProperty_Owner() {
+	public EReference getProperty_AssignedTo() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1061,7 +1041,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getProperty_AssignedTo() {
+	public EReference getProperty_Owner() {
 		return (EReference)propertyEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1225,7 +1205,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		// Create classes and their features
 		typeModelEClass = createEClass(TYPE_MODEL);
-		createEReference(typeModelEClass, TYPE_MODEL__HAS_ELEMENTS);
 		createEReference(typeModelEClass, TYPE_MODEL__CONFORMED_BY);
 		createEReference(typeModelEClass, TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF);
 		createEReference(typeModelEClass, TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF);
@@ -1247,7 +1226,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(classEClass, CLASS__GENERALIZATION);
 		createEReference(classEClass, CLASS__SPECIALIZATION);
 		createEReference(classEClass, CLASS__DOMINANT_GENERALIZATION);
-		createEReference(classEClass, CLASS__OWNS_PROPERTIES);
 		createEReference(classEClass, CLASS__HAS_PROPERTIES);
 		createEReference(classEClass, CLASS__OWNS_ATTRIBUTES);
 		createEReference(classEClass, CLASS__HAS_ATTRIBUTES);
@@ -1256,6 +1234,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(classEClass, CLASS__IS_OPPOSITE_CLASS_IN);
 		createEReference(classEClass, CLASS__INSTANCED_BY);
 		createEReference(classEClass, CLASS__BELONGS_TO_PACKAGE);
+		createEReference(classEClass, CLASS__OWNS_PROPERTIES);
 
 		generalizationEClass = createEClass(GENERALIZATION);
 		createEAttribute(generalizationEClass, GENERALIZATION__DISCRIMINANT);
@@ -1281,7 +1260,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__BELONGS_TO_PACKAGE);
 
 		typeModelElementEClass = createEClass(TYPE_MODEL_ELEMENT);
-		createEReference(typeModelElementEClass, TYPE_MODEL_ELEMENT__IS_ASSIGNED_TO);
 
 		associationEClass = createEClass(ASSOCIATION);
 		createEReference(associationEClass, ASSOCIATION__HAS_PRIMARY);
@@ -1317,8 +1295,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS);
 
 		propertyEClass = createEClass(PROPERTY);
-		createEReference(propertyEClass, PROPERTY__OWNER);
 		createEReference(propertyEClass, PROPERTY__ASSIGNED_TO);
+		createEReference(propertyEClass, PROPERTY__OWNER);
 
 		simpleDataTypeEClass = createEClass(SIMPLE_DATA_TYPE);
 		createEAttribute(simpleDataTypeEClass, SIMPLE_DATA_TYPE__BASE);
@@ -1388,7 +1366,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeModelEClass, TypeModel.class, "TypeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypeModel_HasElements(), this.getTypeModelElement(), this.getTypeModelElement_IsAssignedTo(), "HasElements", null, 0, -1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeModel_ConformedBy(), theInstancesPackage.getInstanceModel(), theInstancesPackage.getInstanceModel_ConformsTo(), "ConformedBy", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeModel_HasTemporalAspectOf(), this.getClass_(), this.getClass_IsTemporalAspectOf(), "HasTemporalAspectOf", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeModel_HasSubjectiveAspectOf(), this.getClass_(), this.getClass_IsSubjectiveAspectOf(), "HasSubjectiveAspectOf", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1410,15 +1387,15 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getClass_Generalization(), this.getGeneralization(), this.getGeneralization_SpecializedClass(), "Generalization", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Specialization(), this.getGeneralization(), this.getGeneralization_GeneralizedClass(), "Specialization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_DominantGeneralization(), this.getGeneralization(), this.getGeneralization_DominatesInheritanceOn(), "DominantGeneralization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_OwnsProperties(), this.getProperty(), this.getProperty_Owner(), "OwnsProperties", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_HasProperties(), this.getProperty(), this.getProperty_AssignedTo(), "HasProperties", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_OwnsAttributes(), this.getAttribute(), this.getAttribute_Owner(), "OwnsAttributes", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_OwnsAttributes(), this.getAttribute(), this.getAttribute_Owner(), "OwnsAttributes", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_HasAttributes(), this.getAttribute(), this.getAttribute_AssignedTo(), "HasAttributes", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_HasSemiassociations(), this.getSemiAssociation(), this.getSemiAssociation_AssignedTo(), "HasSemiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_OwnsSemiassociations(), this.getSemiAssociation(), this.getSemiAssociation_Owner(), "OwnsSemiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_IsOppositeClassIn(), this.getSemiAssociation(), this.getSemiAssociation_RefersTo(), "IsOppositeClassIn", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_InstancedBy(), theInstancesPackage.getObject(), theInstancesPackage.getObject_IsInstanceOf(), "InstancedBy", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_BelongsToPackage(), this.getPackage(), this.getPackage_ContainsClass(), "BelongsToPackage", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_OwnsProperties(), this.getProperty(), this.getProperty_Owner(), "OwnsProperties", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneralization_Discriminant(), ecorePackage.getEString(), "discriminant", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1444,7 +1421,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getEnumeratedType_BelongsToPackage(), this.getPackage(), this.getPackage_ContainsEnumeratedType(), "BelongsToPackage", null, 0, 1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeModelElementEClass, TypeModelElement.class, "TypeModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getTypeModelElement_IsAssignedTo(), this.getTypeModel(), this.getTypeModel_HasElements(), "IsAssignedTo", null, 0, -1, TypeModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(associationEClass, Association.class, "Association", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAssociation_HasPrimary(), this.getSemiAssociation(), this.getSemiAssociation_IsPrimaryIn(), "HasPrimary", null, 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1461,7 +1437,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_IsMultilingual(), ecorePackage.getEBoolean(), "isMultilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_Owner(), this.getClass_(), this.getClass_OwnsAttributes(), "Owner", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_Owner(), this.getClass_(), this.getClass_OwnsAttributes(), "Owner", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_AssignedTo(), this.getClass_(), this.getClass_HasAttributes(), "AssignedTo", null, 0, -1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_HasInstanceValueSets(), theInstancesPackage.getValueSet(), theInstancesPackage.getValueSet_IsAnInstanceOf(), "HasInstanceValueSets", null, 0, -1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_IsOfType(), this.getDataType(), this.getDataType_AppliesTo(), "IsOfType", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1480,8 +1456,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getSemiAssociation_HasInstanceReferenceSets(), theInstancesPackage.getReferenceSet(), theInstancesPackage.getReferenceSet_IsAnInstanceOf(), "HasInstanceReferenceSets", null, 0, -1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getProperty_Owner(), this.getClass_(), this.getClass_OwnsProperties(), "Owner", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getProperty_AssignedTo(), this.getClass_(), this.getClass_HasProperties(), "AssignedTo", null, 0, -1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getProperty_Owner(), this.getClass_(), this.getClass_OwnsProperties(), "Owner", null, 1, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(simpleDataTypeEClass, SimpleDataType.class, "SimpleDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSimpleDataType_Base(), this.getBaseDataType(), "base", null, 1, 1, SimpleDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

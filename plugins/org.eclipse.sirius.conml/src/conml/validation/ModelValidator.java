@@ -8,6 +8,7 @@ import conml.Language;
 import conml.ModelElement;
 import conml.Tag;
 
+import conml.TestContainer;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -28,4 +29,6 @@ public interface ModelValidator {
 	boolean validateHasLanguages(EList<Language> value);
 	boolean validateDefaultLanguage(Language value);
 	boolean validateOwnsElements(EList<ModelElement> value);
+
+	boolean validateTestContainers(EList<TestContainer> value);
 }

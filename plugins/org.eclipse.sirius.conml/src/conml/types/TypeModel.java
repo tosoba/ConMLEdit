@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.types.TypeModel#getHasElements <em>Has Elements</em>}</li>
  *   <li>{@link conml.types.TypeModel#getConformedBy <em>Conformed By</em>}</li>
  *   <li>{@link conml.types.TypeModel#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}</li>
  *   <li>{@link conml.types.TypeModel#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}</li>
@@ -32,20 +31,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface TypeModel extends Model {
-	/**
-	 * Returns the value of the '<em><b>Has Elements</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.TypeModelElement}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModelElement#getIsAssignedTo <em>Is Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Elements</em>' reference list.
-	 * @see conml.types.TypesPackage#getTypeModel_HasElements()
-	 * @see conml.types.TypeModelElement#getIsAssignedTo
-	 * @model opposite="IsAssignedTo"
-	 * @generated
-	 */
-	EList<TypeModelElement> getHasElements();
-
 	/**
 	 * Returns the value of the '<em><b>Conformed By</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.InstanceModel#getConformsTo <em>Conforms To</em>}'.

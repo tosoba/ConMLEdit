@@ -8,7 +8,6 @@ import conml.instances.InstanceModel;
 import conml.instances.InstancesPackage;
 
 import conml.types.TypeModel;
-import conml.types.TypeModelElement;
 import conml.types.TypesPackage;
 
 import java.util.Collection;
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.types.impl.TypeModelImpl#getHasElements <em>Has Elements</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getConformedBy <em>Conformed By</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}</li>
@@ -47,16 +45,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * @generated
  */
 public class TypeModelImpl extends ModelImpl implements TypeModel {
-	/**
-	 * The cached value of the '{@link #getHasElements() <em>Has Elements</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeModelElement> hasElements;
-
 	/**
 	 * The cached value of the '{@link #getConformedBy() <em>Conformed By</em>}' reference.
 	 * <!-- begin-user-doc -->
@@ -144,19 +132,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	protected EClass eStaticClass() {
 		return TypesPackage.Literals.TYPE_MODEL;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TypeModelElement> getHasElements() {
-		if (hasElements == null) {
-			hasElements = new EObjectWithInverseResolvingEList.ManyInverse<TypeModelElement>(TypeModelElement.class, this, TypesPackage.TYPE_MODEL__HAS_ELEMENTS, TypesPackage.TYPE_MODEL_ELEMENT__IS_ASSIGNED_TO);
-		}
-		return hasElements;
 	}
 
 	/**
@@ -504,8 +479,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasElements()).basicAdd(otherEnd, msgs);
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				if (conformedBy != null)
 					msgs = ((InternalEObject)conformedBy).eInverseRemove(this, InstancesPackage.INSTANCE_MODEL__CONFORMS_TO, InstanceModel.class, msgs);
@@ -542,8 +515,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				return ((InternalEList<?>)getHasElements()).basicRemove(otherEnd, msgs);
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				return basicSetConformedBy(null, msgs);
 			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
@@ -570,8 +541,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				return getHasElements();
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				if (resolve) return getConformedBy();
 				return basicGetConformedBy();
@@ -604,10 +573,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				getHasElements().clear();
-				getHasElements().addAll((Collection<? extends TypeModelElement>)newValue);
-				return;
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				setConformedBy((InstanceModel)newValue);
 				return;
@@ -643,9 +608,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				getHasElements().clear();
-				return;
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				setConformedBy((InstanceModel)null);
 				return;
@@ -679,8 +641,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypesPackage.TYPE_MODEL__HAS_ELEMENTS:
-				return hasElements != null && !hasElements.isEmpty();
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				return conformedBy != null;
 			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:

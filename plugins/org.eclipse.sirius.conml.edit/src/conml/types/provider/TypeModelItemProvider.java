@@ -48,7 +48,6 @@ public class TypeModelItemProvider extends ModelItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHasElementsPropertyDescriptor(object);
 			addConformedByPropertyDescriptor(object);
 			addHasTemporalAspectOfPropertyDescriptor(object);
 			addHasSubjectiveAspectOfPropertyDescriptor(object);
@@ -58,28 +57,6 @@ public class TypeModelItemProvider extends ModelItemProvider {
 			addHasParticularPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Elements feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasElementsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypeModel_HasElements_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_HasElements_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__HAS_ELEMENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**

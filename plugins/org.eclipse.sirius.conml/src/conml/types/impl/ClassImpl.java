@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -42,7 +43,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getOwnsProperties <em>Owns Properties</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getHasProperties <em>Has Properties</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getOwnsAttributes <em>Owns Attributes</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getHasAttributes <em>Has Attributes</em>}</li>
@@ -51,6 +51,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getInstancedBy <em>Instanced By</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getBelongsToPackage <em>Belongs To Package</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#getOwnsProperties <em>Owns Properties</em>}</li>
  * </ul>
  *
  * @generated
@@ -167,16 +168,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected Generalization dominantGeneralization;
 
 	/**
-	 * The cached value of the '{@link #getOwnsProperties() <em>Owns Properties</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnsProperties()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Property> ownsProperties;
-
-	/**
 	 * The cached value of the '{@link #getHasProperties() <em>Has Properties</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -187,7 +178,7 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected EList<Property> hasProperties;
 
 	/**
-	 * The cached value of the '{@link #getOwnsAttributes() <em>Owns Attributes</em>}' reference list.
+	 * The cached value of the '{@link #getOwnsAttributes() <em>Owns Attributes</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOwnsAttributes()
@@ -255,6 +246,16 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @ordered
 	 */
 	protected conml.types.Package belongsToPackage;
+
+	/**
+	 * The cached value of the '{@link #getOwnsProperties() <em>Owns Properties</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getOwnsProperties()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Property> ownsProperties;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -515,7 +516,7 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public EList<Property> getOwnsProperties() {
 		if (ownsProperties == null) {
-			ownsProperties = new EObjectWithInverseResolvingEList<Property>(Property.class, this, TypesPackage.CLASS__OWNS_PROPERTIES, TypesPackage.PROPERTY__OWNER);
+			ownsProperties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, TypesPackage.CLASS__OWNS_PROPERTIES, TypesPackage.PROPERTY__OWNER);
 		}
 		return ownsProperties;
 	}
@@ -541,7 +542,7 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public EList<Attribute> getOwnsAttributes() {
 		if (ownsAttributes == null) {
-			ownsAttributes = new EObjectWithInverseResolvingEList<Attribute>(Attribute.class, this, TypesPackage.CLASS__OWNS_ATTRIBUTES, TypesPackage.ATTRIBUTE__OWNER);
+			ownsAttributes = new EObjectContainmentWithInverseEList<Attribute>(Attribute.class, this, TypesPackage.CLASS__OWNS_ATTRIBUTES, TypesPackage.ATTRIBUTE__OWNER);
 		}
 		return ownsAttributes;
 	}
@@ -696,8 +697,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				if (dominantGeneralization != null)
 					msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, Generalization.class, msgs);
 				return basicSetDominantGeneralization((Generalization)otherEnd, msgs);
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsProperties()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasProperties()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -716,6 +715,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				if (belongsToPackage != null)
 					msgs = ((InternalEObject)belongsToPackage).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINS_CLASS, conml.types.Package.class, msgs);
 				return basicSetBelongsToPackage((conml.types.Package)otherEnd, msgs);
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsProperties()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -738,8 +739,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return basicSetSpecialization(null, msgs);
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return basicSetDominantGeneralization(null, msgs);
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				return ((InternalEList<?>)getOwnsProperties()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				return ((InternalEList<?>)getHasProperties()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -756,6 +755,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return ((InternalEList<?>)getInstancedBy()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
 				return basicSetBelongsToPackage(null, msgs);
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				return ((InternalEList<?>)getOwnsProperties()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -786,8 +787,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				if (resolve) return getDominantGeneralization();
 				return basicGetDominantGeneralization();
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				return getOwnsProperties();
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				return getHasProperties();
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -805,6 +804,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
 				if (resolve) return getBelongsToPackage();
 				return basicGetBelongsToPackage();
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				return getOwnsProperties();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -845,10 +846,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)newValue);
 				return;
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				getOwnsProperties().clear();
-				getOwnsProperties().addAll((Collection<? extends Property>)newValue);
-				return;
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				getHasProperties().clear();
 				getHasProperties().addAll((Collection<? extends Property>)newValue);
@@ -879,6 +876,10 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return;
 			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
 				setBelongsToPackage((conml.types.Package)newValue);
+				return;
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				getOwnsProperties().clear();
+				getOwnsProperties().addAll((Collection<? extends Property>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -916,9 +917,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)null);
 				return;
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				getOwnsProperties().clear();
-				return;
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				getHasProperties().clear();
 				return;
@@ -942,6 +940,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return;
 			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
 				setBelongsToPackage((conml.types.Package)null);
+				return;
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				getOwnsProperties().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -971,8 +972,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return specialization != null;
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return dominantGeneralization != null;
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-				return ownsProperties != null && !ownsProperties.isEmpty();
 			case TypesPackage.CLASS__HAS_PROPERTIES:
 				return hasProperties != null && !hasProperties.isEmpty();
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -989,6 +988,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return instancedBy != null && !instancedBy.isEmpty();
 			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
 				return belongsToPackage != null;
+			case TypesPackage.CLASS__OWNS_PROPERTIES:
+				return ownsProperties != null && !ownsProperties.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

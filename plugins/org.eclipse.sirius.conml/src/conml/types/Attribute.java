@@ -50,24 +50,24 @@ public interface Attribute extends Feature {
 	void setIsMultilingual(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
+	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
+	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(conml.types.Class)
 	 * @see conml.types.TypesPackage#getAttribute_Owner()
 	 * @see conml.types.Class#getOwnsAttributes
-	 * @model opposite="OwnsAttributes" required="true"
+	 * @model opposite="OwnsAttributes" required="true" transient="false"
 	 * @generated
 	 */
 	conml.types.Class getOwner();
 
 	/**
-	 * Sets the value of the '{@link conml.types.Attribute#getOwner <em>Owner</em>}' reference.
+	 * Sets the value of the '{@link conml.types.Attribute#getOwner <em>Owner</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @param value the new value of the '<em>Owner</em>' container reference.
 	 * @see #getOwner()
 	 * @generated
 	 */
