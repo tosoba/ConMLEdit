@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
   <ownedViewpoints name="Design" modelFileExtension="conml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="'ConML Class Diagram'" domainClass="conml::Model" enablePopupBars="true">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="'ConML Class Diagram'" domainClass="types::TypeModel" enablePopupBars="true">
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
@@ -66,36 +66,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Node%20Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.4/@groups.0"/>
-                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
-                      <controls xsi:type="properties:TextDescription" name="CD_Class Text Name" label="CD_Class Text Name" labelExpression="Name" helpExpression="Name of this class">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
-                      <controls xsi:type="properties:CheckboxDescription" name="CD_Class Checkbox IsAbstract" label="CD_Class Checkbox IsAbstract" labelExpression="Abstract" helpExpression="Indication whether this class is abstract">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isAbstract" valueExpression="var:newValue"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
-                      <controls xsi:type="properties:CheckboxDescription" name="CD_Class Checkbox IsTemporalAspect" labelExpression="Temporal aspect" helpExpression="Indication whether this class is used as a temporal aspect">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isTemporalAspect" valueExpression="var:newValue"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
-                      <controls xsi:type="properties:CheckboxDescription" name="CD_Class Checkbox IsSubjectiveAspect" labelExpression="Subjective aspect" helpExpression="Indication whether this class is used as a subjective aspect">
-                        <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isSubjectiveAspect" valueExpression="var:newValue"/>
-                          </firstModelOperations>
-                        </initialOperation>
-                      </controls>
-                    </groups>
+                    <groups name="D_CD_CreateClass_GeneralGroup" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -210,10 +181,11 @@
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.Services"/>
   </ownedViewpoints>
+  <ownedViewpoints name="Reused" modelFileExtension="conml"/>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="Default Category">
-      <pages name="Default Page" labelExpression="General" domainClass="conml::ModelPart" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <groups name="Props_Class" labelExpression="Properties" domainClass="types::Class" semanticCandidateExpression="var:self">
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="PR_Class" labelExpression="Properties" domainClass="types::Class" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:TextDescription" name="Props_Class Text Name" labelExpression="Name" helpExpression="Name of the class" valueExpression="feature:name">
           <initialOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
@@ -251,6 +223,59 @@
             <audits auditExpression="service:self.subjectiveAspectClassIsAssignedToTypeModel"/>
           </semanticValidationRules>
         </validationSet>
+      </groups>
+      <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="aql:self.eClass().eAllStructuralFeatures">
+          <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
+            <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.0"/>
+          </ifs>
+          <ifs name="general_multi_lines_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and input.emfEditServices(self).isMultiline(eStructuralFeature)">
+            <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.1"/>
+          </ifs>
+          <ifs name="general_boolean_if" predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
+            <widget xsi:type="properties:CheckboxDescription" name="general_rules_mono_boolean" labelExpression="aql:input.getSemanticElement().getWidgetLabel(eStructuralFeature)" isEnabledExpression="aql:input.getSemanticElement().isEnabled(eStructuralFeature)"/>
+          </ifs>
+          <ifs name="general_enum_if" predicateExpression="aql:estructuralFeature.eType.oclIsKindOf(ecore:EEEnum) and not(eStructuralFeature.many)">
+            <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.3"/>
+          </ifs>
+          <ifs name="general_attribute_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EAttribute) and eStructuralFeature.many">
+            <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.4"/>
+          </ifs>
+          <ifs name="general_reference_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference)">
+            <widget xsi:type="properties-ext-widgets-reference:ExtReferenceDescription" name="sirius_default_rules_ereference" labelExpression="aql:input.getSemanticElement().getWidgetLabel(eStructuralFeature)+':'" helpExpression="aql:input.emfEditServices(self).getDescription(eStructuralFeature)" referenceNameExpression="aql:eStructuralFeature.name">
+              <onClickOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:eStructuralFeature.many and onClickEventKind='DOUBLE_CLICK'">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->first()">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Many">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation/>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Edit Page" labelExpression="Edit" extends="//@extensions.0/@categories.0/@pages.0"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:not(eStructuralFeature.many) and onClickEventKind='SINGLE_CLICK'">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Mono">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation/>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation/>
+                        </buttons>
+                        <page name="Edit Page" labelExpression="Edit" extends="//@extensions.0/@categories.0/@pages.0"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </onClickOperation>
+            </widget>
+          </ifs>
+        </controls>
       </groups>
     </categories>
   </extensions>

@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 public class ConML {
 	private ConML() {
@@ -27,13 +28,20 @@ public class ConML {
 
 	public static String labelFor(EObject element) {
 		String name = element.getClass().getSimpleName().replace("Impl", "");
+		
 		EObject container = element.eContainer();
 		if (container != null) {
 			Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(container, element.getClass());
 			return name + elementsOfSameType.size();
-		} else {
-			return name;
 		}
+
+		EStructuralFeature containingFeature = element.eContainingFeature();
+		if (containingFeature != null) {
+			Collection<?> elementsOfSameType = getAllElementsOfTypeFrom(containingFeature, element.getClass());
+			return name + elementsOfSameType.size();
+		}
+		
+		return name;
 	}
 
 	public static String definitionFor(EObject element) {
