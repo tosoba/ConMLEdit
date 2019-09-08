@@ -163,10 +163,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Attribute)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnedAttributes"/>
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnsAttributes"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Property)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnedProperties"/>
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnsProperties"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
