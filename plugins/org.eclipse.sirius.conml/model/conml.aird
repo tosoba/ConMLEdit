@@ -2945,10 +2945,9 @@
       <target xmi:type="ecore:EReference" href="conml.ecore#//types/Package/IsOwnerOf"/>
       <semanticElements xmi:type="ecore:EReference" href="conml.ecore#//types/Package/IsOwnerOf"/>
       <semanticElements xmi:type="ecore:EReference" href="conml.ecore#//types/Package/isSubPackageOf"/>
-      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_66RmwM23EemHnuF95-MjCg" sourceArrow="InputArrow" routingStyle="manhattan" strokeColor="0,0,0">
-        <description xmi:type="style:EdgeStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']/@style"/>
-        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_66Rmwc23EemHnuF95-MjCg" showIcon="false"/>
-        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_66Rmws23EemHnuF95-MjCg" showIcon="false"/>
+      <ownedStyle xmi:type="diagram:EdgeStyle" uid="_hUgFHNTLEemM_vyzaQ6I6g" description="_65_S4M23EemHnuF95-MjCg" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
+        <beginLabelStyle xmi:type="diagram:BeginLabelStyle" uid="_hUgFHdTLEemM_vyzaQ6I6g" showIcon="false"/>
+        <endLabelStyle xmi:type="diagram:EndLabelStyle" uid="_hUgFHtTLEemM_vyzaQ6I6g" showIcon="false"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='Bi-directional%20EC_EReference%20']"/>
     </ownedDiagramElements>

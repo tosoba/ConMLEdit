@@ -161,7 +161,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ContainsEnumeratedType"
           upperBound="-1" eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/BelongsToPackage"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsOwnerOf" upperBound="-1"
-          eType="#//types/Package" eOpposite="#//types/Package/isSubPackageOf"/>
+          eType="#//types/Package" containment="true" eOpposite="#//types/Package/isSubPackageOf"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="isSubPackageOf" eType="#//types/Package"
           eOpposite="#//types/Package/IsOwnerOf"/>
     </eClassifiers>

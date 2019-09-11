@@ -28,21 +28,6 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
           </style>
         </containerMappings>
-        <containerMappings name="CD_TestContainer" domainClass="TestContainer" reusedNodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_TestContainer']/@subNodeMappings[name='CD_TestElement']" childrenPresentation="List">
-          <subNodeMappings name="CD_TestElement" semanticCandidatesExpression="feature:TestElements" domainClass="TestElement">
-            <style xsi:type="style:SquareDescription" sizeComputationExpression="1" labelPosition="node">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
-          </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="12" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
-            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
-            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
-          </style>
-        </containerMappings>
         <toolSections name="Section Types" label="Types">
           <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Node Creation Class" label="Class" containerMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" extraMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
             <variable name="container"/>
@@ -211,9 +196,9 @@
             <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.1"/>
           </ifs>
           <ifs name="general_boolean_if" predicateExpression="aql:input.emfEditServices(self).needsCheckboxWidget(eStructuralFeature)">
-            <widget xsi:type="properties:CheckboxDescription" name="general_rules_mono_boolean" labelExpression="aql:input.getSemanticElement().getWidgetLabel(eStructuralFeature)" isEnabledExpression="aql:input.getSemanticElement().isEnabled(eStructuralFeature)"/>
+            <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.2"/>
           </ifs>
-          <ifs name="general_enum_if" predicateExpression="aql:estructuralFeature.eType.oclIsKindOf(ecore:EEEnum) and not(eStructuralFeature.many)">
+          <ifs name="general_enum_if" predicateExpression="aql:eStructuralFeature.eType.oclIsKindOf(ecore:EEEnum) and not(eStructuralFeature.many)">
             <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.3"/>
           </ifs>
           <ifs name="general_attribute_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EAttribute) and eStructuralFeature.many">

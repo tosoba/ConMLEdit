@@ -99,38 +99,38 @@ public interface Package extends TypeModelElement {
 	EList<EnumeratedType> getContainsEnumeratedType();
 
 	/**
-	 * Returns the value of the '<em><b>Is Owner Of</b></em>' reference list.
+	 * Returns the value of the '<em><b>Is Owner Of</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.Package}.
 	 * It is bidirectional and its opposite is '{@link conml.types.Package#getIsSubPackageOf <em>Is Sub Package Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Owner Of</em>' reference list.
+	 * @return the value of the '<em>Is Owner Of</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getPackage_IsOwnerOf()
 	 * @see conml.types.Package#getIsSubPackageOf
-	 * @model opposite="isSubPackageOf"
+	 * @model opposite="isSubPackageOf" containment="true"
 	 * @generated
 	 */
 	EList<Package> getIsOwnerOf();
 
 	/**
-	 * Returns the value of the '<em><b>Is Sub Package Of</b></em>' reference.
+	 * Returns the value of the '<em><b>Is Sub Package Of</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Package#getIsOwnerOf <em>Is Owner Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Sub Package Of</em>' reference.
+	 * @return the value of the '<em>Is Sub Package Of</em>' container reference.
 	 * @see #setIsSubPackageOf(Package)
 	 * @see conml.types.TypesPackage#getPackage_IsSubPackageOf()
 	 * @see conml.types.Package#getIsOwnerOf
-	 * @model opposite="IsOwnerOf"
+	 * @model opposite="IsOwnerOf" transient="false"
 	 * @generated
 	 */
 	Package getIsSubPackageOf();
 
 	/**
-	 * Sets the value of the '{@link conml.types.Package#getIsSubPackageOf <em>Is Sub Package Of</em>}' reference.
+	 * Sets the value of the '{@link conml.types.Package#getIsSubPackageOf <em>Is Sub Package Of</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Sub Package Of</em>' reference.
+	 * @param value the new value of the '<em>Is Sub Package Of</em>' container reference.
 	 * @see #getIsSubPackageOf()
 	 * @generated
 	 */
