@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -327,7 +328,7 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public EList<ModelElement> getOwnsElements() {
 		if (ownsElements == null) {
-			ownsElements = new EObjectContainmentWithInverseEList<ModelElement>(ModelElement.class, this, conmlPackage.MODEL__OWNS_ELEMENTS, conmlPackage.MODEL_ELEMENT__BELONGS_TO);
+			ownsElements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, conmlPackage.MODEL__OWNS_ELEMENTS);
 		}
 		return ownsElements;
 	}
@@ -349,8 +350,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				if (defaultLanguage != null)
 					msgs = ((InternalEObject)defaultLanguage).eInverseRemove(this, conmlPackage.LANGUAGE__IS_DEFAULT_IN, Language.class, msgs);
 				return basicSetDefaultLanguage((Language)otherEnd, msgs);
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

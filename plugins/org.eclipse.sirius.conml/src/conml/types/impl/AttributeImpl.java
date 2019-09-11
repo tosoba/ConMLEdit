@@ -22,7 +22,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,8 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.AttributeImpl#isIsMultilingual <em>Is Multilingual</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getIsOfType <em>Is Of Type</em>}</li>
  * </ul>
@@ -62,16 +59,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @ordered
 	 */
 	protected boolean isMultilingual = IS_MULTILINGUAL_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getAssignedTo() <em>Assigned To</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssignedTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<conml.types.Class> assignedTo;
 
 	/**
 	 * The cached value of the '{@link #getHasInstanceValueSets() <em>Has Instance Value Sets</em>}' reference list.
@@ -133,62 +120,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		isMultilingual = newIsMultilingual;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__IS_MULTILINGUAL, oldIsMultilingual, isMultilingual));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.types.Class getOwner() {
-		if (eContainerFeatureID() != TypesPackage.ATTRIBUTE__OWNER) return null;
-		return (conml.types.Class)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOwner(conml.types.Class newOwner, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newOwner, TypesPackage.ATTRIBUTE__OWNER, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOwner(conml.types.Class newOwner) {
-		if (newOwner != eInternalContainer() || (eContainerFeatureID() != TypesPackage.ATTRIBUTE__OWNER && newOwner != null)) {
-			if (EcoreUtil.isAncestor(this, newOwner))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.CLASS__OWNS_ATTRIBUTES, conml.types.Class.class, msgs);
-			msgs = basicSetOwner(newOwner, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__OWNER, newOwner, newOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<conml.types.Class> getAssignedTo() {
-		if (assignedTo == null) {
-			assignedTo = new EObjectWithInverseResolvingEList.ManyInverse<conml.types.Class>(conml.types.Class.class, this, TypesPackage.ATTRIBUTE__ASSIGNED_TO, TypesPackage.CLASS__HAS_ATTRIBUTES);
-		}
-		return assignedTo;
 	}
 
 	/**
@@ -275,12 +206,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__OWNER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwner((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAssignedTo()).basicAdd(otherEnd, msgs);
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasInstanceValueSets()).basicAdd(otherEnd, msgs);
 			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
@@ -299,10 +224,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__OWNER:
-				return basicSetOwner(null, msgs);
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				return ((InternalEList<?>)getAssignedTo()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return ((InternalEList<?>)getHasInstanceValueSets()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
@@ -317,28 +238,10 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case TypesPackage.ATTRIBUTE__OWNER:
-				return eInternalContainer().eInverseRemove(this, TypesPackage.CLASS__OWNS_ATTRIBUTES, conml.types.Class.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
 				return isIsMultilingual();
-			case TypesPackage.ATTRIBUTE__OWNER:
-				return getOwner();
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				return getAssignedTo();
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return getHasInstanceValueSets();
 			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
@@ -359,13 +262,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
 				setIsMultilingual((Boolean)newValue);
-				return;
-			case TypesPackage.ATTRIBUTE__OWNER:
-				setOwner((conml.types.Class)newValue);
-				return;
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				getAssignedTo().clear();
-				getAssignedTo().addAll((Collection<? extends conml.types.Class>)newValue);
 				return;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				getHasInstanceValueSets().clear();
@@ -389,12 +285,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
 				setIsMultilingual(IS_MULTILINGUAL_EDEFAULT);
 				return;
-			case TypesPackage.ATTRIBUTE__OWNER:
-				setOwner((conml.types.Class)null);
-				return;
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				getAssignedTo().clear();
-				return;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				getHasInstanceValueSets().clear();
 				return;
@@ -415,10 +305,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
 				return isMultilingual != IS_MULTILINGUAL_EDEFAULT;
-			case TypesPackage.ATTRIBUTE__OWNER:
-				return getOwner() != null;
-			case TypesPackage.ATTRIBUTE__ASSIGNED_TO:
-				return assignedTo != null && !assignedTo.isEmpty();
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return hasInstanceValueSets != null && !hasInstanceValueSets.isEmpty();
 			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:

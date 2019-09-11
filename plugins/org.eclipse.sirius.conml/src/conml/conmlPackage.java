@@ -186,22 +186,13 @@ public interface conmlPackage extends EPackage {
 	int MODEL_ELEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL_ELEMENT__BELONGS_TO = MODEL_PART_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__IS_TAGGED_WITH = MODEL_PART_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT__IS_TAGGED_WITH = MODEL_PART_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
@@ -210,7 +201,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__IS_DOCUMENTED_BY = MODEL_PART_FEATURE_COUNT + 2;
+	int MODEL_ELEMENT__IS_DOCUMENTED_BY = MODEL_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -219,7 +210,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 3;
+	int MODEL_ELEMENT_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Model Element</em>' class.
@@ -476,17 +467,6 @@ public interface conmlPackage extends EPackage {
 	EClass getModelElement();
 
 	/**
-	 * Returns the meta object for the container reference '{@link conml.ModelElement#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Belongs To</em>'.
-	 * @see conml.ModelElement#getBelongsTo()
-	 * @see #getModelElement()
-	 * @generated
-	 */
-	EReference getModelElement_BelongsTo();
-
-	/**
 	 * Returns the meta object for the reference list '{@link conml.ModelElement#getIsTaggedWith <em>Is Tagged With</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -735,14 +715,6 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
-
-		/**
-		 * The meta object literal for the '<em><b>Belongs To</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL_ELEMENT__BELONGS_TO = eINSTANCE.getModelElement_BelongsTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Tagged With</b></em>' reference list feature.

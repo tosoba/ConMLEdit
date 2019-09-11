@@ -14,12 +14,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
         eType="#//Language" eOpposite="#//Language/isDefaultIn"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsElements" upperBound="-1"
-        eType="#//ModelElement" containment="true" eOpposite="#//ModelElement/BelongsTo"/>
+        eType="#//ModelElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsTo" eType="#//Model"
-        eOpposite="#//Model/OwnsElements"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="IsTaggedWith" upperBound="-1"
         eType="#//Tag" eOpposite="#//Tag/AppliesTo"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="IsDocumentedBy" upperBound="-1"
@@ -83,12 +81,6 @@
           eOpposite="#//types/Generalization/GeneralizedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DominantGeneralization"
           eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatesInheritanceOn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasProperties" upperBound="-1"
-          eType="#//types/Property" eOpposite="#//types/Property/AssignedTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsAttributes" upperBound="-1"
-          eType="#//types/Attribute" containment="true" eOpposite="#//types/Attribute/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasAttributes" upperBound="-1"
-          eType="#//types/Attribute" eOpposite="#//types/Attribute/AssignedTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasSemiassociations"
           upperBound="-1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/AssignedTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsSemiassociations"
@@ -100,7 +92,9 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="BelongsToPackage" eType="#//types/Package"
           eOpposite="#//types/Package/ContainsClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsProperties" upperBound="-1"
-          eType="#//types/Property" containment="true" eOpposite="#//types/Property/Owner"/>
+          eType="#//types/Property" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsAttributes" upperBound="-1"
+          eType="#//types/Attribute" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminant" lowerBound="1"
@@ -168,10 +162,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//types/Feature">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMultilingual" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//types/Class" eOpposite="#//types/Class/OwnsAttributes"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
-          eType="#//types/Class" eOpposite="#//types/Class/HasAttributes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceValueSets"
           upperBound="-1" eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/IsAnInstanceOf"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsOfType" lowerBound="1"
@@ -205,12 +195,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceReferenceSets"
           upperBound="-1" eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/IsAnInstanceOf"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
-          eType="#//types/Class" eOpposite="#//types/Class/HasProperties"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//types/Class" eOpposite="#//types/Class/OwnsProperties"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature"/>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleDataType" eSuperTypes="#//types/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" lowerBound="1"
           eType="#//types/BaseDataType"/>

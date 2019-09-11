@@ -248,7 +248,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModelElement_BelongsTo() {
+	public EReference getModelElement_IsTaggedWith() {
 		return (EReference)modelElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -258,18 +258,8 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModelElement_IsTaggedWith() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getModelElement_IsDocumentedBy() {
-		return (EReference)modelElementEClass.getEStructuralFeatures().get(2);
+		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -423,7 +413,6 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		modelPartEClass = createEClass(MODEL_PART);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
-		createEReference(modelElementEClass, MODEL_ELEMENT__BELONGS_TO);
 		createEReference(modelElementEClass, MODEL_ELEMENT__IS_TAGGED_WITH);
 		createEReference(modelElementEClass, MODEL_ELEMENT__IS_DOCUMENTED_BY);
 
@@ -490,12 +479,11 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		initEReference(getModel_HasTags(), this.getTag(), this.getTag_BelongsTo(), "HasTags", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_HasLanguages(), this.getLanguage(), this.getLanguage_BelongsTo(), "HasLanguages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_DefaultLanguage(), this.getLanguage(), this.getLanguage_IsDefaultIn(), "DefaultLanguage", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_OwnsElements(), this.getModelElement(), this.getModelElement_BelongsTo(), "OwnsElements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_OwnsElements(), this.getModelElement(), null, "OwnsElements", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelPartEClass, ModelPart.class, "ModelPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getModelElement_BelongsTo(), this.getModel(), this.getModel_OwnsElements(), "BelongsTo", null, 0, 1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_IsTaggedWith(), this.getTag(), this.getTag_AppliesTo(), "IsTaggedWith", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModelElement_IsDocumentedBy(), theInstancesPackage.getObject(), theInstancesPackage.getObject_Documents(), "IsDocumentedBy", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

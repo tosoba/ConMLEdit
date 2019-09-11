@@ -224,15 +224,6 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL_ELEMENT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL_ELEMENT__BELONGS_TO = conmlPackage.MODEL_ELEMENT__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -277,15 +268,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int TYPE = 1;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE__BELONGS_TO = TYPE_MODEL_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -350,15 +332,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int CLASS = 2;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__BELONGS_TO = TYPE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -469,40 +442,13 @@ public interface TypesPackage extends EPackage {
 	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Has Properties</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__HAS_PROPERTIES = TYPE_FEATURE_COUNT + 8;
-
-	/**
-	 * The feature id for the '<em><b>Owns Attributes</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__OWNS_ATTRIBUTES = TYPE_FEATURE_COUNT + 9;
-
-	/**
-	 * The feature id for the '<em><b>Has Attributes</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__HAS_ATTRIBUTES = TYPE_FEATURE_COUNT + 10;
-
-	/**
 	 * The feature id for the '<em><b>Has Semiassociations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__HAS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 11;
+	int CLASS__HAS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Owns Semiassociations</b></em>' reference list.
@@ -511,7 +457,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 12;
+	int CLASS__OWNS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Is Opposite Class In</b></em>' reference list.
@@ -520,7 +466,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_OPPOSITE_CLASS_IN = TYPE_FEATURE_COUNT + 13;
+	int CLASS__IS_OPPOSITE_CLASS_IN = TYPE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Instanced By</b></em>' reference list.
@@ -529,7 +475,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__INSTANCED_BY = TYPE_FEATURE_COUNT + 14;
+	int CLASS__INSTANCED_BY = TYPE_FEATURE_COUNT + 11;
 
 	/**
 	 * The feature id for the '<em><b>Belongs To Package</b></em>' reference.
@@ -538,7 +484,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__BELONGS_TO_PACKAGE = TYPE_FEATURE_COUNT + 15;
+	int CLASS__BELONGS_TO_PACKAGE = TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The feature id for the '<em><b>Owns Properties</b></em>' containment reference list.
@@ -547,7 +493,16 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_PROPERTIES = TYPE_FEATURE_COUNT + 16;
+	int CLASS__OWNS_PROPERTIES = TYPE_FEATURE_COUNT + 13;
+
+	/**
+	 * The feature id for the '<em><b>Owns Attributes</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__OWNS_ATTRIBUTES = TYPE_FEATURE_COUNT + 14;
 
 	/**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -556,7 +511,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 17;
+	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 15;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -576,15 +531,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int GENERALIZATION = 3;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int GENERALIZATION__BELONGS_TO = TYPE_MODEL_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -667,15 +613,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int FEATURE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__BELONGS_TO = TYPE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -814,15 +751,6 @@ public interface TypesPackage extends EPackage {
 	int DATA_TYPE = 13;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__BELONGS_TO = TYPE__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -894,15 +822,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int ENUMERATED_TYPE = 5;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__BELONGS_TO = DATA_TYPE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -1023,15 +942,6 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ASSOCIATION__BELONGS_TO = TYPE__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1121,15 +1031,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int PACKAGE = 8;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PACKAGE__BELONGS_TO = TYPE_MODEL_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -1230,15 +1131,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int ATTRIBUTE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__BELONGS_TO = FEATURE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -1358,31 +1250,13 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__IS_MULTILINGUAL = FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__OWNER = FEATURE_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Assigned To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__ASSIGNED_TO = FEATURE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Has Instance Value Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 3;
+	int ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Is Of Type</b></em>' reference.
@@ -1391,7 +1265,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_OF_TYPE = FEATURE_FEATURE_COUNT + 4;
+	int ATTRIBUTE__IS_OF_TYPE = FEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -1400,7 +1274,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 5;
+	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -1420,15 +1294,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int SEMI_ASSOCIATION = 10;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__BELONGS_TO = FEATURE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -1666,15 +1531,6 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY = 11;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__BELONGS_TO = FEATURE__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1783,31 +1639,13 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__IS_REDEFINED_BY = FEATURE__IS_REDEFINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Assigned To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__ASSIGNED_TO = FEATURE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__OWNER = FEATURE_FEATURE_COUNT + 1;
-
-	/**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
+	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -1827,15 +1665,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	int SIMPLE_DATA_TYPE = 12;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__BELONGS_TO = DATA_TYPE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -2240,17 +2069,6 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_OwnsProperties();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getHasProperties <em>Has Properties</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Properties</em>'.
-	 * @see conml.types.Class#getHasProperties()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_HasProperties();
-
-	/**
 	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2260,17 +2078,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getClass_OwnsAttributes();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getHasAttributes <em>Has Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Attributes</em>'.
-	 * @see conml.types.Class#getHasAttributes()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_HasAttributes();
 
 	/**
 	 * Returns the meta object for the reference list '{@link conml.types.Class#getHasSemiassociations <em>Has Semiassociations</em>}'.
@@ -2695,28 +2502,6 @@ public interface TypesPackage extends EPackage {
 	EAttribute getAttribute_IsMultilingual();
 
 	/**
-	 * Returns the meta object for the container reference '{@link conml.types.Attribute#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owner</em>'.
-	 * @see conml.types.Attribute#getOwner()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EReference getAttribute_Owner();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Attribute#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Assigned To</em>'.
-	 * @see conml.types.Attribute#getAssignedTo()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EReference getAttribute_AssignedTo();
-
-	/**
 	 * Returns the meta object for the reference list '{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2878,28 +2663,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getProperty();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Property#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Assigned To</em>'.
-	 * @see conml.types.Property#getAssignedTo()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_AssignedTo();
-
-	/**
-	 * Returns the meta object for the container reference '{@link conml.types.Property#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owner</em>'.
-	 * @see conml.types.Property#getOwner()
-	 * @see #getProperty()
-	 * @generated
-	 */
-	EReference getProperty_Owner();
 
 	/**
 	 * Returns the meta object for class '{@link conml.types.SimpleDataType <em>Simple Data Type</em>}'.
@@ -3238,28 +3001,12 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__OWNS_PROPERTIES = eINSTANCE.getClass_OwnsProperties();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Properties</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__HAS_PROPERTIES = eINSTANCE.getClass_HasProperties();
-
-		/**
 		 * The meta object literal for the '<em><b>Owns Attributes</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference CLASS__OWNS_ATTRIBUTES = eINSTANCE.getClass_OwnsAttributes();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Attributes</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__HAS_ATTRIBUTES = eINSTANCE.getClass_HasAttributes();
 
 		/**
 		 * The meta object literal for the '<em><b>Has Semiassociations</b></em>' reference list feature.
@@ -3588,22 +3335,6 @@ public interface TypesPackage extends EPackage {
 		EAttribute ATTRIBUTE__IS_MULTILINGUAL = eINSTANCE.getAttribute_IsMultilingual();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE__OWNER = eINSTANCE.getAttribute_Owner();
-
-		/**
-		 * The meta object literal for the '<em><b>Assigned To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE__ASSIGNED_TO = eINSTANCE.getAttribute_AssignedTo();
-
-		/**
 		 * The meta object literal for the '<em><b>Has Instance Value Sets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3726,22 +3457,6 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EClass PROPERTY = eINSTANCE.getProperty();
-
-		/**
-		 * The meta object literal for the '<em><b>Assigned To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__ASSIGNED_TO = eINSTANCE.getProperty_AssignedTo();
-
-		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PROPERTY__OWNER = eINSTANCE.getProperty_Owner();
 
 		/**
 		 * The meta object literal for the '{@link conml.types.impl.SimpleDataTypeImpl <em>Simple Data Type</em>}' class.

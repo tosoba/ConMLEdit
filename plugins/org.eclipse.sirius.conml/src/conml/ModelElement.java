@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.ModelElement#getBelongsTo <em>Belongs To</em>}</li>
  *   <li>{@link conml.ModelElement#getIsTaggedWith <em>Is Tagged With</em>}</li>
  *   <li>{@link conml.ModelElement#getIsDocumentedBy <em>Is Documented By</em>}</li>
  * </ul>
@@ -23,30 +22,6 @@ import org.eclipse.emf.common.util.EList;
  * @generated
  */
 public interface ModelElement extends ModelPart {
-	/**
-	 * Returns the value of the '<em><b>Belongs To</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link conml.Model#getOwnsElements <em>Owns Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Belongs To</em>' container reference.
-	 * @see #setBelongsTo(Model)
-	 * @see conml.conmlPackage#getModelElement_BelongsTo()
-	 * @see conml.Model#getOwnsElements
-	 * @model opposite="OwnsElements" transient="false"
-	 * @generated
-	 */
-	Model getBelongsTo();
-
-	/**
-	 * Sets the value of the '{@link conml.ModelElement#getBelongsTo <em>Belongs To</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Belongs To</em>' container reference.
-	 * @see #getBelongsTo()
-	 * @generated
-	 */
-	void setBelongsTo(Model value);
-
 	/**
 	 * Returns the value of the '<em><b>Is Tagged With</b></em>' reference list.
 	 * The list contents are of type {@link conml.Tag}.

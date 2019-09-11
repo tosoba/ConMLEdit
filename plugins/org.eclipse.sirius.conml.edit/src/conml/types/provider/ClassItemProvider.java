@@ -54,15 +54,11 @@ public class ClassItemProvider extends TypeItemProvider {
 			addGeneralizationPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
-			addHasPropertiesPropertyDescriptor(object);
-			addOwnsAttributesPropertyDescriptor(object);
-			addHasAttributesPropertyDescriptor(object);
 			addHasSemiassociationsPropertyDescriptor(object);
 			addOwnsSemiassociationsPropertyDescriptor(object);
 			addIsOppositeClassInPropertyDescriptor(object);
 			addInstancedByPropertyDescriptor(object);
 			addBelongsToPackagePropertyDescriptor(object);
-			addOwnsPropertiesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -244,28 +240,6 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Owns Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnsPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_OwnsProperties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_OwnsProperties_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__OWNS_PROPERTIES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -277,8 +251,8 @@ public class ClassItemProvider extends TypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES);
 			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_PROPERTIES);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -294,72 +268,6 @@ public class ClassItemProvider extends TypeItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Properties feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasPropertiesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_HasProperties_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_HasProperties_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__HAS_PROPERTIES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Owns Attributes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnsAttributesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_OwnsAttributes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_OwnsAttributes_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Attributes feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasAttributesPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_HasAttributes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_HasAttributes_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__HAS_ATTRIBUTES,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -504,8 +412,8 @@ public class ClassItemProvider extends TypeItemProvider {
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
+			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -525,13 +433,13 @@ public class ClassItemProvider extends TypeItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES,
-				 TypesFactory.eINSTANCE.createAttribute()));
+				(TypesPackage.Literals.CLASS__OWNS_PROPERTIES,
+				 TypesFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__OWNS_PROPERTIES,
-				 TypesFactory.eINSTANCE.createProperty()));
+				(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES,
+				 TypesFactory.eINSTANCE.createAttribute()));
 	}
 
 }

@@ -16,8 +16,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.Attribute#isIsMultilingual <em>Is Multilingual</em>}</li>
- *   <li>{@link conml.types.Attribute#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.Attribute#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.Attribute#getIsOfType <em>Is Of Type</em>}</li>
  * </ul>
@@ -48,44 +46,6 @@ public interface Attribute extends Feature {
 	 * @generated
 	 */
 	void setIsMultilingual(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' container reference.
-	 * @see #setOwner(conml.types.Class)
-	 * @see conml.types.TypesPackage#getAttribute_Owner()
-	 * @see conml.types.Class#getOwnsAttributes
-	 * @model opposite="OwnsAttributes" required="true" transient="false"
-	 * @generated
-	 */
-	conml.types.Class getOwner();
-
-	/**
-	 * Sets the value of the '{@link conml.types.Attribute#getOwner <em>Owner</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' container reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	void setOwner(conml.types.Class value);
-
-	/**
-	 * Returns the value of the '<em><b>Assigned To</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.Class}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getHasAttributes <em>Has Attributes</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assigned To</em>' reference list.
-	 * @see conml.types.TypesPackage#getAttribute_AssignedTo()
-	 * @see conml.types.Class#getHasAttributes
-	 * @model opposite="HasAttributes"
-	 * @generated
-	 */
-	EList<conml.types.Class> getAssignedTo();
 
 	/**
 	 * Returns the value of the '<em><b>Has Instance Value Sets</b></em>' reference list.

@@ -152,13 +152,11 @@ public interface Model extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Owns Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.ModelElement}.
-	 * It is bidirectional and its opposite is '{@link conml.ModelElement#getBelongsTo <em>Belongs To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owns Elements</em>' containment reference list.
 	 * @see conml.conmlPackage#getModel_OwnsElements()
-	 * @see conml.ModelElement#getBelongsTo
-	 * @model opposite="BelongsTo" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<ModelElement> getOwnsElements();

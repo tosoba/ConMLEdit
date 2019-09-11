@@ -70,15 +70,6 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL_ELEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_MODEL_ELEMENT__BELONGS_TO = conmlPackage.MODEL_ELEMENT__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,15 +116,6 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE__BELONGS_TO = INSTANCE_MODEL_ELEMENT__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,15 +160,6 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	int FACET = 1;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET__BELONGS_TO = INSTANCE_MODEL_ELEMENT__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -251,15 +224,6 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	int REFERENCE = 2;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__BELONGS_TO = FACET__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -471,15 +435,6 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET = 10;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET_SET__BELONGS_TO = INSTANCE__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -551,15 +506,6 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	int VALUE_SET = 5;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__BELONGS_TO = FACET_SET__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -653,15 +599,6 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET = 6;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_SET__BELONGS_TO = FACET_SET__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -751,15 +688,6 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	int OBJECT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__BELONGS_TO = INSTANCE__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
@@ -925,15 +853,6 @@ public interface InstancesPackage extends EPackage {
 	int LINK = 8;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LINK__BELONGS_TO = INSTANCE__BELONGS_TO;
-
-	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1005,15 +924,6 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	int VALUE = 9;
-
-	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__BELONGS_TO = FACET__BELONGS_TO;
 
 	/**
 	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.

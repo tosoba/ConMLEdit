@@ -19,7 +19,6 @@ Package conml <http://conml.ecore>
   Class ModelPart
 
   Class ModelElement -> ModelPart
-    Reference BelongsTo : Model
     Reference IsTaggedWith : Tag<<0..*>>
     Reference IsDocumentedBy : Object<<0..*>>
 

@@ -21,15 +21,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.Class#getHasProperties <em>Has Properties</em>}</li>
- *   <li>{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}</li>
- *   <li>{@link conml.types.Class#getHasAttributes <em>Has Attributes</em>}</li>
  *   <li>{@link conml.types.Class#getHasSemiassociations <em>Has Semiassociations</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
  *   <li>{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}</li>
  *   <li>{@link conml.types.Class#getBelongsToPackage <em>Belongs To Package</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsProperties <em>Owns Properties</em>}</li>
+ *   <li>{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getClass_()
@@ -196,58 +194,26 @@ public interface Class extends Type {
 	/**
 	 * Returns the value of the '<em><b>Owns Properties</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.Property}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Property#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owns Properties</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getClass_OwnsProperties()
-	 * @see conml.types.Property#getOwner
-	 * @model opposite="Owner" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Property> getOwnsProperties();
 
 	/**
-	 * Returns the value of the '<em><b>Has Properties</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.Property}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Property#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Properties</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_HasProperties()
-	 * @see conml.types.Property#getAssignedTo
-	 * @model opposite="AssignedTo"
-	 * @generated
-	 */
-	EList<Property> getHasProperties();
-
-	/**
 	 * Returns the value of the '<em><b>Owns Attributes</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.Attribute}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Attribute#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owns Attributes</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getClass_OwnsAttributes()
-	 * @see conml.types.Attribute#getOwner
-	 * @model opposite="Owner" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Attribute> getOwnsAttributes();
-
-	/**
-	 * Returns the value of the '<em><b>Has Attributes</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.Attribute}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Attribute#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Attributes</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_HasAttributes()
-	 * @see conml.types.Attribute#getAssignedTo
-	 * @model opposite="AssignedTo"
-	 * @generated
-	 */
-	EList<Attribute> getHasAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Has Semiassociations</b></em>' reference list.
