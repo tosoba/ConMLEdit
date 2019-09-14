@@ -49,7 +49,7 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MAXIMUM_CARDINALITY_EDEFAULT = 0;
+	protected static final Integer MAXIMUM_CARDINALITY_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
@@ -59,7 +59,7 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 * @ordered
 	 */
-	protected int maximumCardinality = MAXIMUM_CARDINALITY_EDEFAULT;
+	protected Integer maximumCardinality = MAXIMUM_CARDINALITY_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getMinimumCardinality() <em>Minimum Cardinality</em>}' attribute.
@@ -206,7 +206,7 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 */
 	@Override
-	public int getMaximumCardinality() {
+	public Integer getMaximumCardinality() {
 		return maximumCardinality;
 	}
 
@@ -216,8 +216,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 */
 	@Override
-	public void setMaximumCardinality(int newMaximumCardinality) {
-		int oldMaximumCardinality = maximumCardinality;
+	public void setMaximumCardinality(Integer newMaximumCardinality) {
+		Integer oldMaximumCardinality = maximumCardinality;
 		maximumCardinality = newMaximumCardinality;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__MAXIMUM_CARDINALITY, oldMaximumCardinality, maximumCardinality));
@@ -560,7 +560,7 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
-				return maximumCardinality != MAXIMUM_CARDINALITY_EDEFAULT;
+				return MAXIMUM_CARDINALITY_EDEFAULT == null ? maximumCardinality != null : !MAXIMUM_CARDINALITY_EDEFAULT.equals(maximumCardinality);
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				return minimumCardinality != MINIMUM_CARDINALITY_EDEFAULT;
 			case TypesPackage.FEATURE__IS_SORTED:

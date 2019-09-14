@@ -108,7 +108,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCardinality" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSorted" lowerBound="1"

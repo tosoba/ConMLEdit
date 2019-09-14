@@ -17,6 +17,8 @@ import org.eclipse.emf.common.util.EList;
 public interface FeatureValidator {
 	boolean validate();
 
+	boolean validateMaximumCardinality(Integer value);
+
 	boolean validateMaximumCardinality(int value);
 	boolean validateMinimumCardinality(int value);
 	boolean validateIsSorted(boolean value);

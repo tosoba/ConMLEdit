@@ -33,12 +33,12 @@ public interface Feature extends Type {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Maximum Cardinality</em>' attribute.
-	 * @see #setMaximumCardinality(int)
+	 * @see #setMaximumCardinality(Integer)
 	 * @see conml.types.TypesPackage#getFeature_MaximumCardinality()
 	 * @model required="true"
 	 * @generated
 	 */
-	int getMaximumCardinality();
+	Integer getMaximumCardinality();
 
 	/**
 	 * Sets the value of the '{@link conml.types.Feature#getMaximumCardinality <em>Maximum Cardinality</em>}' attribute.
@@ -48,7 +48,7 @@ public interface Feature extends Type {
 	 * @see #getMaximumCardinality()
 	 * @generated
 	 */
-	void setMaximumCardinality(int value);
+	void setMaximumCardinality(Integer value);
 
 	/**
 	 * Returns the value of the '<em><b>Minimum Cardinality</b></em>' attribute.
