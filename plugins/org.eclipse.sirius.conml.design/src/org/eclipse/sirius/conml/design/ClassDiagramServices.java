@@ -6,6 +6,7 @@ import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import conml.types.Association;
 import conml.types.Attribute;
@@ -114,15 +115,38 @@ public class ClassDiagramServices extends AbstractDiagramServices {
 		return association;
 	}
 
+	/**
+	 * @param object
+	 * @param source     inheriting class
+	 * @param target     the class that's inherited from
+	 * @param sourceView
+	 * @param targetView
+	 * @return either a new or an already existing Generalization
+	 */
 	public Generalization createGeneralization(EObject object, Class source, Class target, EObject sourceView,
 			EObject targetView) {
-		// TODO: figure out what to do to prevent one class inheriting from more than
-		// one class (if it's not compliant with ConML)
-		// and maybe also what to do when user attempts to create generalization between
-		// the same 2 classes but in the opposite direction (this also probably should
-		// not be possible)
-		Generalization generalization = TypesFactory.eINSTANCE.createGeneralization();
-		generalization.setDiscriminant("discriminant"); // TODO: change this
+		// Prevent the creation of generalization between the same 2 classes in the
+		// opposite direction
+		final Generalization sourceSpecialization = source.getSpecialization();
+		if (sourceSpecialization != null && sourceSpecialization.getSpecializedClass().stream()
+				.filter(clazz -> EcoreUtil.equals(clazz, target)).findAny().isPresent()) {
+			// TODO: maybe show dialog of some kind informing the user this is not allowed
+			return null;
+		}
+
+		// If multiple classes inherit from one class - don't create a new
+		// Generalization instance
+		final Generalization targetSpecialization = target.getSpecialization();
+		if (targetSpecialization != null) {
+			if (!targetSpecialization.getSpecializedClass().contains(source)) {
+				targetSpecialization.getSpecializedClass().add(source);
+			}
+			return targetSpecialization; // TODO: return existing or null - does it make any difference
+		}
+
+		// Otherwise create a new one
+		final Generalization generalization = TypesFactory.eINSTANCE.createGeneralization();
+		generalization.setDiscriminant(defaultDiscriminant(source, target));
 		generalization.getSpecializedClass().add(source);
 		source.getGeneralization().add(generalization);
 		if (generalization.getGeneralizedClass() == null) {
@@ -132,17 +156,23 @@ public class ClassDiagramServices extends AbstractDiagramServices {
 			target.setSpecialization(generalization);
 		}
 		if (source.eContainer() instanceof TypeModel) {
-			TypeModel typeModel = (TypeModel) source.eContainer();
+			final TypeModel typeModel = (TypeModel) source.eContainer();
 			typeModel.getOwnsElements().add(generalization);
 		}
 		return generalization;
 	}
 
+	/**
+	 * @param inheritingClass
+	 * @param inheritedClass
+	 * @return a default discriminant for a new Generalization
+	 */
+	private String defaultDiscriminant(Class inheritingClass, Class inheritedClass) {
+		return inheritingClass.getName() + " from " + inheritedClass.getName();
+	}
+
 	public Collection<EObject> getGeneralizationSourceType(Generalization generalization) {
 		return generalization.getSpecializedClass().stream().map(clazz -> (EObject) clazz).collect(Collectors.toList());
-		// return generalization.getSpecializedClass().isEmpty() ? null :
-		// generalization.getSpecializedClass().get(generalization.getSpecializedClass().size()
-		// - 1);
 	}
 
 	public Class getGeneralizationTargetType(Generalization generalization) {
