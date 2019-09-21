@@ -6,7 +6,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="TypeModelElement">
-        <edgeMappings name="CD_Association" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getTargetType" sourceFinderExpression="service:self.getSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
+        <edgeMappings name="CD_Association" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
@@ -178,11 +178,14 @@
         </customization>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.Services"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.AssociationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.AttributeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.ClassServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.GeneralizationServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml">
-    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="service:inactive">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
@@ -212,7 +215,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.ReusedViewpointServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.reused.ReusedViewpointServices"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="Default Category">
