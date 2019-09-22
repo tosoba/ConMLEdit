@@ -432,7 +432,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsProperties() {
-		return (EReference)classEClass.getEStructuralFeatures().get(13);
+		return (EReference)classEClass.getEStructuralFeatures().get(12);
 	}
 
 	/**
@@ -442,17 +442,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsAttributes() {
-		return (EReference)classEClass.getEStructuralFeatures().get(14);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getClass_HasSemiassociations() {
-		return (EReference)classEClass.getEStructuralFeatures().get(8);
+		return (EReference)classEClass.getEStructuralFeatures().get(13);
 	}
 
 	/**
@@ -462,7 +452,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_OwnsSemiassociations() {
-		return (EReference)classEClass.getEStructuralFeatures().get(9);
+		return (EReference)classEClass.getEStructuralFeatures().get(8);
 	}
 
 	/**
@@ -472,7 +462,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_IsOppositeClassIn() {
-		return (EReference)classEClass.getEStructuralFeatures().get(10);
+		return (EReference)classEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -482,7 +472,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_InstancedBy() {
-		return (EReference)classEClass.getEStructuralFeatures().get(11);
+		return (EReference)classEClass.getEStructuralFeatures().get(10);
 	}
 
 	/**
@@ -492,7 +482,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getClass_BelongsToPackage() {
-		return (EReference)classEClass.getEStructuralFeatures().get(12);
+		return (EReference)classEClass.getEStructuralFeatures().get(11);
 	}
 
 	/**
@@ -901,7 +891,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_AssignedTo() {
+	public EReference getSemiAssociation_Owner() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -911,7 +901,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_Owner() {
+	public EReference getSemiAssociation_RefersTo() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -921,7 +911,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_RefersTo() {
+	public EReference getSemiAssociation_IsInverseOf() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(5);
 	}
 
@@ -931,7 +921,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_IsInverseOf() {
+	public EReference getSemiAssociation_Inverse() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(6);
 	}
 
@@ -941,7 +931,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_Inverse() {
+	public EReference getSemiAssociation_IsPrimaryIn() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(7);
 	}
 
@@ -951,7 +941,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_IsPrimaryIn() {
+	public EReference getSemiAssociation_IsSecondaryIn() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -961,18 +951,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_IsSecondaryIn() {
-		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(9);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSemiAssociation_HasInstanceReferenceSets() {
-		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(10);
+		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -1166,7 +1146,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(classEClass, CLASS__GENERALIZATION);
 		createEReference(classEClass, CLASS__SPECIALIZATION);
 		createEReference(classEClass, CLASS__DOMINANT_GENERALIZATION);
-		createEReference(classEClass, CLASS__HAS_SEMIASSOCIATIONS);
 		createEReference(classEClass, CLASS__OWNS_SEMIASSOCIATIONS);
 		createEReference(classEClass, CLASS__IS_OPPOSITE_CLASS_IN);
 		createEReference(classEClass, CLASS__INSTANCED_BY);
@@ -1221,7 +1200,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__ROLE);
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__IS_WHOLE);
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__IS_STRONG);
-		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__ASSIGNED_TO);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__OWNER);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REFERS_TO);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__IS_INVERSE_OF);
@@ -1321,8 +1299,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getClass_Generalization(), this.getGeneralization(), this.getGeneralization_SpecializedClass(), "Generalization", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Specialization(), this.getGeneralization(), this.getGeneralization_GeneralizedClass(), "Specialization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_DominantGeneralization(), this.getGeneralization(), this.getGeneralization_DominatesInheritanceOn(), "DominantGeneralization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_HasSemiassociations(), this.getSemiAssociation(), this.getSemiAssociation_AssignedTo(), "HasSemiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_OwnsSemiassociations(), this.getSemiAssociation(), this.getSemiAssociation_Owner(), "OwnsSemiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_OwnsSemiassociations(), this.getSemiAssociation(), this.getSemiAssociation_Owner(), "OwnsSemiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_IsOppositeClassIn(), this.getSemiAssociation(), this.getSemiAssociation_RefersTo(), "IsOppositeClassIn", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_InstancedBy(), theInstancesPackage.getObject(), theInstancesPackage.getObject_IsInstanceOf(), "InstancedBy", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_BelongsToPackage(), this.getPackage(), this.getPackage_ContainsClass(), "BelongsToPackage", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1376,8 +1353,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getSemiAssociation_Role(), ecorePackage.getEString(), "role", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSemiAssociation_IsWhole(), ecorePackage.getEBoolean(), "isWhole", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSemiAssociation_IsStrong(), ecorePackage.getEBoolean(), "isStrong", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSemiAssociation_AssignedTo(), this.getClass_(), this.getClass_HasSemiassociations(), "AssignedTo", null, 0, -1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSemiAssociation_Owner(), this.getClass_(), this.getClass_OwnsSemiassociations(), "Owner", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemiAssociation_Owner(), this.getClass_(), this.getClass_OwnsSemiassociations(), "Owner", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_RefersTo(), this.getClass_(), this.getClass_IsOppositeClassIn(), "RefersTo", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_IsInverseOf(), this.getSemiAssociation(), this.getSemiAssociation_Inverse(), "IsInverseOf", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_Inverse(), this.getSemiAssociation(), this.getSemiAssociation_IsInverseOf(), "Inverse", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

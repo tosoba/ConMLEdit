@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -43,7 +44,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getHasSemiassociations <em>Has Semiassociations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getInstancedBy <em>Instanced By</em>}</li>
@@ -166,17 +166,7 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected Generalization dominantGeneralization;
 
 	/**
-	 * The cached value of the '{@link #getHasSemiassociations() <em>Has Semiassociations</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasSemiassociations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SemiAssociation> hasSemiassociations;
-
-	/**
-	 * The cached value of the '{@link #getOwnsSemiassociations() <em>Owns Semiassociations</em>}' reference list.
+	 * The cached value of the '{@link #getOwnsSemiassociations() <em>Owns Semiassociations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOwnsSemiassociations()
@@ -518,22 +508,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
-	public EList<SemiAssociation> getHasSemiassociations() {
-		if (hasSemiassociations == null) {
-			hasSemiassociations = new EObjectWithInverseResolvingEList.ManyInverse<SemiAssociation>(SemiAssociation.class, this, TypesPackage.CLASS__HAS_SEMIASSOCIATIONS, TypesPackage.SEMI_ASSOCIATION__ASSIGNED_TO);
-		}
-		return hasSemiassociations;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<SemiAssociation> getOwnsSemiassociations() {
 		if (ownsSemiassociations == null) {
-			ownsSemiassociations = new EObjectWithInverseResolvingEList<SemiAssociation>(SemiAssociation.class, this, TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS, TypesPackage.SEMI_ASSOCIATION__OWNER);
+			ownsSemiassociations = new EObjectContainmentWithInverseEList<SemiAssociation>(SemiAssociation.class, this, TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS, TypesPackage.SEMI_ASSOCIATION__OWNER);
 		}
 		return ownsSemiassociations;
 	}
@@ -649,8 +626,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				if (dominantGeneralization != null)
 					msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, Generalization.class, msgs);
 				return basicSetDominantGeneralization((Generalization)otherEnd, msgs);
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasSemiassociations()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsSemiassociations()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN:
@@ -683,8 +658,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return basicSetSpecialization(null, msgs);
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return basicSetDominantGeneralization(null, msgs);
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				return ((InternalEList<?>)getHasSemiassociations()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				return ((InternalEList<?>)getOwnsSemiassociations()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN:
@@ -727,8 +700,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				if (resolve) return getDominantGeneralization();
 				return basicGetDominantGeneralization();
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				return getHasSemiassociations();
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				return getOwnsSemiassociations();
 			case TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN:
@@ -781,10 +752,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return;
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)newValue);
-				return;
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				getHasSemiassociations().clear();
-				getHasSemiassociations().addAll((Collection<? extends SemiAssociation>)newValue);
 				return;
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				getOwnsSemiassociations().clear();
@@ -845,9 +812,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)null);
 				return;
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				getHasSemiassociations().clear();
-				return;
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				getOwnsSemiassociations().clear();
 				return;
@@ -894,8 +858,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return specialization != null;
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return dominantGeneralization != null;
-			case TypesPackage.CLASS__HAS_SEMIASSOCIATIONS:
-				return hasSemiassociations != null && !hasSemiassociations.isEmpty();
 			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 				return ownsSemiassociations != null && !ownsSemiassociations.isEmpty();
 			case TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN:
