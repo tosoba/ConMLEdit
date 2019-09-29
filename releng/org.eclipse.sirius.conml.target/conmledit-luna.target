@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><!-- generated with https://github.com/mbarbero/fr.obeo.releng.targetplatform --><target name="ConMLEdit-luna" sequenceNumber="1422434734">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?pde?><target name="ConMLEdit-luna" sequenceNumber="1422434734">
   <locations>
     <location includeAllPlatforms="false" includeConfigurePhase="false" includeMode="planner" includeSource="true" type="InstallableUnit">
       <unit id="org.eclipse.platform.sdk" version="0.0.0"/>
