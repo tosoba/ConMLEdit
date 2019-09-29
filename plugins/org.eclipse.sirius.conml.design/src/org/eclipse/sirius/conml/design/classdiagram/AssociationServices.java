@@ -30,6 +30,7 @@ public class AssociationServices {
 			EObject targetView) {
 		final Association association = TypesFactory.eINSTANCE.createAssociation();
 		association.setDefinition("");
+		association.setIsCompact(false);
 		final String primaryName = source.getName() + "s";
 		association.setName(primaryName);
 
@@ -63,8 +64,11 @@ public class AssociationServices {
 	public void addToAssociation(SemiAssociation primary, Class source) {
 		final Association association = TypesFactory.eINSTANCE.createAssociation();
 		association.setDefinition("");
+		association.setIsCompact(true);
 		final String primaryName = source.getName() + "s";
 		association.setName(primaryName);
+		
+		primary.setIsPrimaryIn(association);
 
 		Class target = primary.getRefersTo();
 		if (target == null) {
@@ -92,5 +96,18 @@ public class AssociationServices {
 
 	public void addToOwnedSemiAssociations(SemiAssociation semiAssociation, Class clazz) {
 		clazz.getOwnsSemiassociations().add(semiAssociation);
+	}
+
+	public boolean shouldDisplayCompactLabel(SemiAssociation semiAssociation) {
+		Association association = semiAssociation.getIsPrimaryIn();
+		if (association == null) {
+			return false;
+		} else {
+			return association.isIsCompact();
+		}
+	}
+	
+	public boolean shouldDisplayAssociationEdge(Association association) {
+		return !association.isIsCompact();
 	}
 }

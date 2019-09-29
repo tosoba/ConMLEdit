@@ -996,13 +996,22 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION__HAS_INSTANCE_LINKS = TYPE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Is Compact</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__IS_COMPACT = TYPE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 3;
+	int ASSOCIATION_FEATURE_COUNT = TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Association</em>' class.
@@ -2376,6 +2385,17 @@ public interface TypesPackage extends EPackage {
 	EReference getAssociation_HasInstanceLinks();
 
 	/**
+	 * Returns the meta object for the attribute '{@link conml.types.Association#isIsCompact <em>Is Compact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Is Compact</em>'.
+	 * @see conml.types.Association#isIsCompact()
+	 * @see #getAssociation()
+	 * @generated
+	 */
+	EAttribute getAssociation_IsCompact();
+
+	/**
 	 * Returns the meta object for class '{@link conml.types.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3209,6 +3229,14 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ASSOCIATION__HAS_INSTANCE_LINKS = eINSTANCE.getAssociation_HasInstanceLinks();
+
+		/**
+		 * The meta object literal for the '<em><b>Is Compact</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ASSOCIATION__IS_COMPACT = eINSTANCE.getAssociation_IsCompact();
 
 		/**
 		 * The meta object literal for the '{@link conml.types.impl.PackageImpl <em>Package</em>}' class.

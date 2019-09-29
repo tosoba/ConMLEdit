@@ -129,6 +129,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasSecondary"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasInstanceLinks"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Association/isCompact"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/Package">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Package/name"/>

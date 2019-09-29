@@ -41,11 +41,13 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="CD_Compact_Association" semanticCandidatesExpression="feature:OwnsSemiassociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
-            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="compactTest" labelAlignment="LEFT" sizeComputationExpression="1">
-              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
-            </style>
+            <conditionnalStyles predicateExpression="service:self.shouldDisplayCompactLabel">
+              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="compactTest" labelAlignment="LEFT" sizeComputationExpression="1">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </conditionnalStyles>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="5" arcHeight="5" borderSizeComputationExpression="1" labelSize="12" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" roundedCorner="true" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
@@ -195,7 +197,7 @@
                       </buttons>
                       <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                         <initialOperation>
-                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:addToAssociation(primary, container)"/>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.addToAssociation(container)"/>
                         </initialOperation>
                       </buttons>
                       <page name="D_CD_CreateCompactAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>

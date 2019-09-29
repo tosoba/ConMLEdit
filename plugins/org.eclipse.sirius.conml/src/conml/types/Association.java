@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Association#getHasPrimary <em>Has Primary</em>}</li>
  *   <li>{@link conml.types.Association#getHasSecondary <em>Has Secondary</em>}</li>
  *   <li>{@link conml.types.Association#getHasInstanceLinks <em>Has Instance Links</em>}</li>
+ *   <li>{@link conml.types.Association#isIsCompact <em>Is Compact</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getAssociation()
@@ -86,5 +87,28 @@ public interface Association extends Type {
 	 * @generated
 	 */
 	EList<Link> getHasInstanceLinks();
+
+	/**
+	 * Returns the value of the '<em><b>Is Compact</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Is Compact</em>' attribute.
+	 * @see #setIsCompact(boolean)
+	 * @see conml.types.TypesPackage#getAssociation_IsCompact()
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @generated
+	 */
+	boolean isIsCompact();
+
+	/**
+	 * Sets the value of the '{@link conml.types.Association#isIsCompact <em>Is Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Is Compact</em>' attribute.
+	 * @see #isIsCompact()
+	 * @generated
+	 */
+	void setIsCompact(boolean value);
 
 } // Association
