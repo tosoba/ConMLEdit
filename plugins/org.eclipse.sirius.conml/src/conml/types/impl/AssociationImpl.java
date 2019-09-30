@@ -35,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.AssociationImpl#getHasPrimary <em>Has Primary</em>}</li>
  *   <li>{@link conml.types.impl.AssociationImpl#getHasSecondary <em>Has Secondary</em>}</li>
  *   <li>{@link conml.types.impl.AssociationImpl#getHasInstanceLinks <em>Has Instance Links</em>}</li>
+ *   <li>{@link conml.types.impl.AssociationImpl#isIsCompact <em>Is Compact</em>}</li>
  * </ul>
  *
  * @generated
@@ -69,6 +70,26 @@ public class AssociationImpl extends TypeImpl implements Association {
 	 * @ordered
 	 */
 	protected EList<Link> hasInstanceLinks;
+
+	/**
+	 * The default value of the '{@link #isIsCompact() <em>Is Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsCompact()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IS_COMPACT_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIsCompact() <em>Is Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIsCompact()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean isCompact = IS_COMPACT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -231,6 +252,29 @@ public class AssociationImpl extends TypeImpl implements Association {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isIsCompact() {
+		return isCompact;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setIsCompact(boolean newIsCompact) {
+		boolean oldIsCompact = isCompact;
+		isCompact = newIsCompact;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ASSOCIATION__IS_COMPACT, oldIsCompact, isCompact));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -283,6 +327,8 @@ public class AssociationImpl extends TypeImpl implements Association {
 				return basicGetHasSecondary();
 			case TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS:
 				return getHasInstanceLinks();
+			case TypesPackage.ASSOCIATION__IS_COMPACT:
+				return isIsCompact();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -306,6 +352,9 @@ public class AssociationImpl extends TypeImpl implements Association {
 				getHasInstanceLinks().clear();
 				getHasInstanceLinks().addAll((Collection<? extends Link>)newValue);
 				return;
+			case TypesPackage.ASSOCIATION__IS_COMPACT:
+				setIsCompact((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -327,6 +376,9 @@ public class AssociationImpl extends TypeImpl implements Association {
 			case TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS:
 				getHasInstanceLinks().clear();
 				return;
+			case TypesPackage.ASSOCIATION__IS_COMPACT:
+				setIsCompact(IS_COMPACT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -345,8 +397,26 @@ public class AssociationImpl extends TypeImpl implements Association {
 				return hasSecondary != null;
 			case TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS:
 				return hasInstanceLinks != null && !hasInstanceLinks.isEmpty();
+			case TypesPackage.ASSOCIATION__IS_COMPACT:
+				return isCompact != IS_COMPACT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (isCompact: ");
+		result.append(isCompact);
+		result.append(')');
+		return result.toString();
 	}
 
 } //AssociationImpl

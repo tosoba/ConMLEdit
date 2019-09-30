@@ -77,9 +77,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Class/Specialization"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Class/DominantGeneralization"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//types/Class/HasSemiassociations"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Class/OwnsSemiassociations"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Class/IsOppositeClassIn"/>
@@ -131,6 +129,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasSecondary"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasInstanceLinks"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Association/isCompact"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/Package">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Package/name"/>
@@ -155,8 +154,6 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/role"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/isWhole"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/isStrong"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/AssignedTo"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/Owner"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

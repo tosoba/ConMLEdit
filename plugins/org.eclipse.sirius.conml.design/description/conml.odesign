@@ -6,7 +6,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="TypeModelElement">
-        <edgeMappings name="CD_Association" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
+        <edgeMappings name="CD_Association" preconditionExpression="service:self.shouldDisplayAssociationEdge" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
@@ -20,6 +20,9 @@
         <edgeMappings name="CD_Generalization" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
           <style targetArrow="InputClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="feature:discriminant">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
           </style>
         </edgeMappings>
         <containerMappings name="CD_Class" semanticCandidatesExpression="service:self.getCDClassSemanticCandidates" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
@@ -32,6 +35,13 @@
           </subNodeMappings>
           <subNodeMappings name="CD_Property" semanticCandidatesExpression="feature:OwnsProperties" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Property">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.attributeLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="CD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" semanticCandidatesExpression="feature:OwnsSemiassociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="compactTest" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -152,15 +162,6 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Section Relationships">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Association" precondition="true" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="true">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createAssociation(source, target, sourceView, targetView)"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" precondition="true" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" connectionStartPrecondition="true">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -169,6 +170,41 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createGeneralization(source, target, sourceView, targetView)"/>
             </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Associations">
+            <tools xsi:type="tool:EdgeCreationDescription" name="Association" precondition="true" edgeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="true">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createAssociation(source, target, sourceView, targetView)"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="CompactAssociation" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::SemiAssociation" referenceName="OwnsSemiassociations" variableName="primary">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="primaryName"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="primaryRole"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.addToAssociation(container)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateCompactAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
         <customization>
@@ -191,7 +227,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="Default">
         <toolSections name="properties">
-          <ownedTools xsi:type="tool:DoubleClickDescription" name="Open properties wizard" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
+          <ownedTools xsi:type="tool:DoubleClickDescription" name="Open properties wizard" mappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association']">
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>

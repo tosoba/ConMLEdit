@@ -54,7 +54,6 @@ public class ClassItemProvider extends TypeItemProvider {
 			addGeneralizationPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
-			addHasSemiassociationsPropertyDescriptor(object);
 			addOwnsSemiassociationsPropertyDescriptor(object);
 			addIsOppositeClassInPropertyDescriptor(object);
 			addInstancedByPropertyDescriptor(object);
@@ -251,6 +250,7 @@ public class ClassItemProvider extends TypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_SEMIASSOCIATIONS);
 			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_PROPERTIES);
 			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES);
 		}
@@ -268,28 +268,6 @@ public class ClassItemProvider extends TypeItemProvider {
 		// adding (see {@link AddCommand}) it as a child.
 
 		return super.getChildFeature(object, child);
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Semiassociations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasSemiassociationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_HasSemiassociations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_HasSemiassociations_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__HAS_SEMIASSOCIATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -412,6 +390,7 @@ public class ClassItemProvider extends TypeItemProvider {
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -430,6 +409,11 @@ public class ClassItemProvider extends TypeItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.CLASS__OWNS_SEMIASSOCIATIONS,
+				 TypesFactory.eINSTANCE.createSemiAssociation()));
 
 		newChildDescriptors.add
 			(createChildParameter

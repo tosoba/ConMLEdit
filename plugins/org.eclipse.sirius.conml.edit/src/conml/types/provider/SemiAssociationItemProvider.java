@@ -48,7 +48,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addRolePropertyDescriptor(object);
 			addIsWholePropertyDescriptor(object);
 			addIsStrongPropertyDescriptor(object);
-			addAssignedToPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 			addRefersToPropertyDescriptor(object);
 			addIsInverseOfPropertyDescriptor(object);
@@ -122,28 +121,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Assigned To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssignedToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_AssignedTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_AssignedTo_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__ASSIGNED_TO,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

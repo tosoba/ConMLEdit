@@ -21,7 +21,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.Class#getHasSemiassociations <em>Has Semiassociations</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
  *   <li>{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}</li>
@@ -216,29 +215,15 @@ public interface Class extends Type {
 	EList<Attribute> getOwnsAttributes();
 
 	/**
-	 * Returns the value of the '<em><b>Has Semiassociations</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.SemiAssociation}.
-	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Semiassociations</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_HasSemiassociations()
-	 * @see conml.types.SemiAssociation#getAssignedTo
-	 * @model opposite="AssignedTo"
-	 * @generated
-	 */
-	EList<SemiAssociation> getHasSemiassociations();
-
-	/**
-	 * Returns the value of the '<em><b>Owns Semiassociations</b></em>' reference list.
+	 * Returns the value of the '<em><b>Owns Semiassociations</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.SemiAssociation}.
 	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owns Semiassociations</em>' reference list.
+	 * @return the value of the '<em>Owns Semiassociations</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getClass_OwnsSemiassociations()
 	 * @see conml.types.SemiAssociation#getOwner
-	 * @model opposite="Owner"
+	 * @model opposite="Owner" containment="true"
 	 * @generated
 	 */
 	EList<SemiAssociation> getOwnsSemiassociations();

@@ -22,4 +22,6 @@ public interface AssociationValidator {
 	boolean validateHasPrimary(SemiAssociation value);
 	boolean validateHasSecondary(SemiAssociation value);
 	boolean validateHasInstanceLinks(EList<Link> value);
+
+	boolean validateIsCompact(boolean value);
 }

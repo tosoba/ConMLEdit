@@ -14,6 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link conml.types.Association} object.
@@ -46,6 +48,7 @@ public class AssociationItemProvider extends TypeItemProvider {
 			addHasPrimaryPropertyDescriptor(object);
 			addHasSecondaryPropertyDescriptor(object);
 			addHasInstanceLinksPropertyDescriptor(object);
+			addIsCompactPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -117,6 +120,28 @@ public class AssociationItemProvider extends TypeItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Is Compact feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addIsCompactPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Association_isCompact_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Association_isCompact_feature", "_UI_Association_type"),
+				 TypesPackage.Literals.ASSOCIATION__IS_COMPACT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
 	 * This returns Association.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -152,6 +177,12 @@ public class AssociationItemProvider extends TypeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Association.class)) {
+			case TypesPackage.ASSOCIATION__IS_COMPACT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

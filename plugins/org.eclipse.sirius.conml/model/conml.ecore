@@ -81,10 +81,8 @@
           eOpposite="#//types/Generalization/GeneralizedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DominantGeneralization"
           eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatesInheritanceOn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSemiassociations"
-          upperBound="-1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/AssignedTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsSemiassociations"
-          upperBound="-1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/Owner"/>
+          upperBound="-1" eType="#//types/SemiAssociation" containment="true" eOpposite="#//types/SemiAssociation/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeClassIn" upperBound="-1"
           eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/RefersTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedBy" upperBound="-1"
@@ -145,6 +143,8 @@
           eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsSecondaryIn"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceLinks" upperBound="-1"
           eType="#//instances/Link" eOpposite="#//instances/Link/IsInstanceOf"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCompact" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          changeable="false" defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
@@ -178,8 +178,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWhole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStrong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="AssignedTo" upperBound="-1"
-          eType="#//types/Class" eOpposite="#//types/Class/HasSemiassociations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/OwnsSemiassociations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="RefersTo" lowerBound="1"
