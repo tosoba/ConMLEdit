@@ -34,6 +34,17 @@ public class AttributeServices {
 
 		sb.append(" ");
 
+		ArrayList<String> markers = new ArrayList<>();
+		if (feature.isIsConstant()) {
+			markers.add("K");
+		}
+		if (feature.isIsSubjective()) {
+			markers.add("S");
+		}
+		if (feature.isIsTemporal()) {
+			markers.add("T");
+		}
+
 		if (feature instanceof Attribute) {
 			final Attribute attr = (Attribute) feature;
 			if (attr.getIsOfType() != null) {
@@ -45,24 +56,15 @@ public class AttributeServices {
 				sb.append('?');
 			}
 
-			ArrayList<String> markers = new ArrayList<>();
-			if (attr.isIsConstant()) {
-				markers.add("K");
-			}
 			if (attr.isIsMultilingual()) {
 				markers.add("M");
 			}
-			if (attr.isIsSubjective()) {
-				markers.add("S");
-			}
-			if (attr.isIsTemporal()) {
-				markers.add("T");
-			}
-			if (!markers.isEmpty()) {
-				sb.append(" (").append(markers.stream().collect(Collectors.joining(","))).append(")");
-			}
 		} else if (feature instanceof Property) {
 			sb.append('?');
+		}
+
+		if (!markers.isEmpty()) {
+			sb.append(" (").append(markers.stream().collect(Collectors.joining(","))).append(")");
 		}
 
 		return sb.toString();
