@@ -9,3 +9,5 @@ code
 *.jar
 *.war
 *.ear
+
+RemoteSystemsTempFiles/*
