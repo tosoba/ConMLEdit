@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Dialogs;
 
 import conml.types.Class;
 import conml.types.Generalization;
@@ -13,6 +14,14 @@ import conml.types.TypesFactory;
 
 public class GeneralizationServices {
 
+	private static final class Errors {
+		static final String OPPOSITE_GENERALIZATION_SAME_CLASSES = "An opposite generalization between the chosen classes already exists.";
+	}
+
+	private static final class Messages {
+		static final String GENERALIZATION_WAS_NOT_CREATED = "Generalization was not created";
+	}
+
 	public Generalization createGeneralization(EObject object, Class source, Class target, EObject sourceView,
 			EObject targetView) {
 		// Prevent the creation of generalization between the same 2 classes in the
@@ -20,7 +29,7 @@ public class GeneralizationServices {
 		final Generalization sourceSpecialization = source.getSpecialization();
 		if (sourceSpecialization != null && sourceSpecialization.getSpecializedClass().stream()
 				.filter(clazz -> EcoreUtil.equals(clazz, target)).findAny().isPresent()) {
-			// TODO: maybe show dialog of some kind informing the user this is not allowed
+			Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.OPPOSITE_GENERALIZATION_SAME_CLASSES);
 			return null;
 		}
 

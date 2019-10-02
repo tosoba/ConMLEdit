@@ -16,8 +16,10 @@ import conml.types.TypesFactory;
 
 public class AssociationServices {
 
-	private static final String ERROR_ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
-	private static final String ERROR_COMPACT_SYMMETRIC_ASSOCIATION = "Compact style cannot be used for symmetric associations.";
+	private static final class Errors {
+		static final String ERROR_ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
+		static final String ERROR_COMPACT_SYMMETRIC_ASSOCIATION = "Compact style cannot be used for symmetric associations.";
+	}
 
 	public String associationBeginLabel(Association association) {
 		return association.getHasPrimary().getRole();
@@ -86,11 +88,11 @@ public class AssociationServices {
 		Class target = primary.getRefersTo();
 		if (target == null) {
 			source.getOwnsSemiassociations().remove(primary);
-			Dialogs.showError(ERROR_ASSOCIATION_TARGET_IS_NULL);
+			Dialogs.showError(Errors.ERROR_ASSOCIATION_TARGET_IS_NULL);
 			return;
 		} else if (EcoreUtil.equals(source, target)) {
 			source.getOwnsSemiassociations().remove(primary);
-			Dialogs.showError(ERROR_COMPACT_SYMMETRIC_ASSOCIATION);
+			Dialogs.showError(Errors.ERROR_COMPACT_SYMMETRIC_ASSOCIATION);
 			return;
 		}
 
