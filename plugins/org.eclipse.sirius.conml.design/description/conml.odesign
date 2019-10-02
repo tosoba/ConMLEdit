@@ -62,9 +62,10 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="OwnsElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="isAbstract" valueExpression="false"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isTemporalAspect" valueExpression="aql:false"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isSubjectiveAspect" valueExpression="aql:false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>
@@ -76,8 +77,52 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Node%20Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.4/@groups.0"/>
-                    <groups name="D_CD_CreateClass_GeneralGroup" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
+                    <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Node%20Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@groups.0"/>
+                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
+                      <controls xsi:type="properties:TextDescription" name="Props_Class Text Name" labelExpression="Name" helpExpression="Name of the class" valueExpression="feature:name">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:TextDescription" name="Props_Class Text Definition" labelExpression="Definition" helpExpression="Definition of the class">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsAbstract" labelExpression="Abstract" helpExpression="Indication whether this class is abstract" valueExpression="feature:isAbstract">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isAbstract" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsTemporalAspect" labelExpression="Temporal aspect" helpExpression="Indication whether this class is used as a temporal aspect" valueExpression="feature:isTemporalAspect">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isTemporalAspect" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsSubjectiveAspect" labelExpression="Subjective aspect" helpExpression="Indication whether this class is used as a subjective aspect" valueExpression="feature:isSubjectiveAspect">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                            <subModelOperations xsi:type="tool_1:SetValue" featureName="isSubjectiveAspect" valueExpression="var:newValue"/>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </controls>
+                      <validationSet>
+                        <semanticValidationRules name="Props_Class Validation IsTemporalAspect" level="WARNING" message="A temporal aspect is not assigned to any TypeModel." targetClass="types::Class">
+                          <audits auditExpression="service:self.temporalAspectClassIsAssignedToTypeModel"/>
+                        </semanticValidationRules>
+                        <semanticValidationRules name="Props_Class Validation IsSubjectiveAspect" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
+                          <audits auditExpression="service:self.subjectiveAspectClassIsAssignedToTypeModel"/>
+                        </semanticValidationRules>
+                      </validationSet>
+                    </groups>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -103,7 +148,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
-                    <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
+                    <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
@@ -138,7 +183,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Node%20Creation%20Attribute']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
-                    <groups name="D_CD_CreateAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
+                    <groups name="D_CD_CreateAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -199,7 +244,7 @@
                         </initialOperation>
                       </buttons>
                       <page name="D_CD_CreateCompactAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
+                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -255,46 +300,7 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="Default Category">
-      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <groups name="PR_Class" labelExpression="Properties" domainClass="types::Class" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:TextDescription" name="Props_Class Text Name" labelExpression="Name" helpExpression="Name of the class" valueExpression="feature:name">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsAbstract" labelExpression="Abstract" helpExpression="Indication whether this class is abstract" valueExpression="feature:isAbstract">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="isAbstract" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsTemporalAspect" labelExpression="Temporal aspect" helpExpression="Indication whether this class is used as a temporal aspect" valueExpression="feature:isTemporalAspect">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="isTemporalAspect" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:CheckboxDescription" name="Props_Class Checkbox IsSubjectiveAspect" labelExpression="Subjective aspect" helpExpression="Indication whether this class is used as a subjective aspect" valueExpression="feature:isSubjectiveAspect">
-          <initialOperation>
-            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool_1:SetValue" featureName="isSubjectiveAspect" valueExpression="var:newValue"/>
-            </firstModelOperations>
-          </initialOperation>
-        </controls>
-        <controls xsi:type="properties:ListDescription" name="Props_Class List Attributes" labelExpression="Attributes" valueExpression="feature:OwnsAttributes">
-          <actions labelExpression="Create attribute"/>
-        </controls>
-        <validationSet>
-          <semanticValidationRules name="Props_Class Validation IsTemporalAspect" level="WARNING" message="A temporal aspect is not assigned to any TypeModel." targetClass="types::Class">
-            <audits auditExpression="service:self.temporalAspectClassIsAssignedToTypeModel"/>
-          </semanticValidationRules>
-          <semanticValidationRules name="Props_Class Validation IsSubjectiveAspect" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
-            <audits auditExpression="service:self.subjectiveAspectClassIsAssignedToTypeModel"/>
-          </semanticValidationRules>
-        </validationSet>
-      </groups>
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self"/>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="aql:self.eClass().eAllStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
