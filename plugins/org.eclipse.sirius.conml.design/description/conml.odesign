@@ -283,7 +283,7 @@
             </firstModelOperations>
           </initialOperation>
         </controls>
-        <controls xsi:type="properties:ListDescription" name="Props_Class List Attributes" labelExpression="Attributes" valueExpression="feature:HasAttributes">
+        <controls xsi:type="properties:ListDescription" name="Props_Class List Attributes" labelExpression="Attributes" valueExpression="feature:OwnsAttributes">
           <actions labelExpression="Create attribute"/>
         </controls>
         <validationSet>

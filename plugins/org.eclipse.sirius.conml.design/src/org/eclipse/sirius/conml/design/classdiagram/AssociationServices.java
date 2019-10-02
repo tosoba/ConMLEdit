@@ -17,8 +17,9 @@ import conml.types.TypesFactory;
 public class AssociationServices {
 
 	private static final class Errors {
-		static final String ERROR_ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
-		static final String ERROR_COMPACT_SYMMETRIC_ASSOCIATION = "Compact style cannot be used for symmetric associations.";
+		static final String ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
+		static final String COMPACT_SYMMETRIC_ASSOCIATION = "Compact style cannot be used for symmetric associations.";
+		static final String COMPACT_CARDINALITIES = "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
 	}
 
 	public String associationBeginLabel(Association association) {
@@ -73,30 +74,51 @@ public class AssociationServices {
 		return association;
 	}
 
+	private boolean compactSemiAssociationCardinalitiesAreValid(SemiAssociation primary, Class source) {
+		final int minPrimaryCardinality = primary.getMinimumCardinality();
+		final Integer maxPrimaryCardinality = primary.getMaximumCardinality();
+		// TODO: should this allow more options (for example maxCardinality = 2 or
+		// minCardinality=1)?
+		if (minPrimaryCardinality != 0
+				|| (maxPrimaryCardinality != null && !Objects.equals(maxPrimaryCardinality, 1))) {
+			source.getOwnsSemiassociations().remove(primary);
+			Dialogs.showError(Errors.COMPACT_CARDINALITIES);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	private boolean compactSemiAssociationTargetIsValid(SemiAssociation primary, Class source) {
+		Class target = primary.getRefersTo();
+		if (target == null) {
+			source.getOwnsSemiassociations().remove(primary);
+			Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
+			return false;
+		} else if (EcoreUtil.equals(source, target)) {
+			source.getOwnsSemiassociations().remove(primary);
+			Dialogs.showError(Errors.COMPACT_SYMMETRIC_ASSOCIATION);
+			return false;
+		} else {
+			return true;
+		}
+	}
+
 	public void addToAssociation(SemiAssociation primary, Class source) {
-		// TODO: validation that checks if association matches con/sha/ref patterns (p.
-		// 49)
+		if (!compactSemiAssociationCardinalitiesAreValid(primary, source)
+				|| !compactSemiAssociationTargetIsValid(primary, source)) {
+			return;
+		}
 
 		final Association association = TypesFactory.eINSTANCE.createAssociation();
 		association.setDefinition("");
 		association.setIsCompact(true);
 		final String primaryName = source.getName() + "s";
 		association.setName(primaryName);
-
 		primary.setIsPrimaryIn(association);
 
-		Class target = primary.getRefersTo();
-		if (target == null) {
-			source.getOwnsSemiassociations().remove(primary);
-			Dialogs.showError(Errors.ERROR_ASSOCIATION_TARGET_IS_NULL);
-			return;
-		} else if (EcoreUtil.equals(source, target)) {
-			source.getOwnsSemiassociations().remove(primary);
-			Dialogs.showError(Errors.ERROR_COMPACT_SYMMETRIC_ASSOCIATION);
-			return;
-		}
-
 		// TODO: cardinalities for secondary association
+		Class target = primary.getRefersTo();
 		final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
 		final String secondaryName = target.getName() + "s";
 		secondary.setName(secondaryName);
