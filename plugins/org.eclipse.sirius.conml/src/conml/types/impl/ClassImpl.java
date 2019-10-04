@@ -8,7 +8,6 @@ import conml.types.Attribute;
 import conml.types.Generalization;
 import conml.types.Property;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 import conml.types.TypesPackage;
 
 import java.util.Collection;
@@ -39,15 +38,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#isIsAbstract <em>Is Abstract</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isIsTemporalAspect <em>Is Temporal Aspect</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getIsTemporalAspectOf <em>Is Temporal Aspect Of</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getIsSubjectiveAspectOf <em>Is Subjective Aspect Of</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getInstancedBy <em>Instanced By</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getBelongsToPackage <em>Belongs To Package</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getOwnsProperties <em>Owns Properties</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getOwnsAttributes <em>Owns Attributes</em>}</li>
  * </ul>
@@ -116,26 +113,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected boolean isSubjectiveAspect = IS_SUBJECTIVE_ASPECT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIsTemporalAspectOf() <em>Is Temporal Aspect Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsTemporalAspectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeModel> isTemporalAspectOf;
-
-	/**
-	 * The cached value of the '{@link #getIsSubjectiveAspectOf() <em>Is Subjective Aspect Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsSubjectiveAspectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeModel> isSubjectiveAspectOf;
-
-	/**
 	 * The cached value of the '{@link #getGeneralization() <em>Generalization</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -196,16 +173,16 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected EList<conml.instances.Object> instancedBy;
 
 	/**
-	 * The cached value of the '{@link #getBelongsToPackage() <em>Belongs To Package</em>}' reference.
+	 * The cached value of the '{@link #getPackage() <em>Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBelongsToPackage()
+	 * @see #getPackage()
 	 * @generated
 	 * @ordered
 	 */
-	protected conml.types.Package belongsToPackage;
+	protected conml.types.Package package_;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getOwnsProperties() <em>Owns Properties</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -311,32 +288,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 		isSubjectiveAspect = newIsSubjectiveAspect;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT, oldIsSubjectiveAspect, isSubjectiveAspect));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TypeModel> getIsTemporalAspectOf() {
-		if (isTemporalAspectOf == null) {
-			isTemporalAspectOf = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF, TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF);
-		}
-		return isTemporalAspectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TypeModel> getIsSubjectiveAspectOf() {
-		if (isSubjectiveAspectOf == null) {
-			isSubjectiveAspectOf = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF, TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF);
-		}
-		return isSubjectiveAspectOf;
 	}
 
 	/**
@@ -547,63 +498,63 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
-	public conml.types.Package getBelongsToPackage() {
-		if (belongsToPackage != null && belongsToPackage.eIsProxy()) {
-			InternalEObject oldBelongsToPackage = (InternalEObject)belongsToPackage;
-			belongsToPackage = (conml.types.Package)eResolveProxy(oldBelongsToPackage);
-			if (belongsToPackage != oldBelongsToPackage) {
+	public conml.types.Package getPackage() {
+		if (package_ != null && package_.eIsProxy()) {
+			InternalEObject oldPackage = (InternalEObject)package_;
+			package_ = (conml.types.Package)eResolveProxy(oldPackage);
+			if (package_ != oldPackage) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.CLASS__BELONGS_TO_PACKAGE, oldBelongsToPackage, belongsToPackage));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.CLASS__PACKAGE, oldPackage, package_));
 			}
 		}
-		return belongsToPackage;
+		return package_;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.types.Package basicGetBelongsToPackage() {
-		return belongsToPackage;
+	public conml.types.Package basicGetPackage() {
+		return package_;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBelongsToPackage(conml.types.Package newBelongsToPackage, NotificationChain msgs) {
-		conml.types.Package oldBelongsToPackage = belongsToPackage;
-		belongsToPackage = newBelongsToPackage;
+	public NotificationChain basicSetPackage(conml.types.Package newPackage, NotificationChain msgs) {
+		conml.types.Package oldPackage = package_;
+		package_ = newPackage;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__BELONGS_TO_PACKAGE, oldBelongsToPackage, newBelongsToPackage);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__PACKAGE, oldPackage, newPackage);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setBelongsToPackage(conml.types.Package newBelongsToPackage) {
-		if (newBelongsToPackage != belongsToPackage) {
+	public void setPackage(conml.types.Package newPackage) {
+		if (newPackage != package_) {
 			NotificationChain msgs = null;
-			if (belongsToPackage != null)
-				msgs = ((InternalEObject)belongsToPackage).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINS_CLASS, conml.types.Package.class, msgs);
-			if (newBelongsToPackage != null)
-				msgs = ((InternalEObject)newBelongsToPackage).eInverseAdd(this, TypesPackage.PACKAGE__CONTAINS_CLASS, conml.types.Package.class, msgs);
-			msgs = basicSetBelongsToPackage(newBelongsToPackage, msgs);
+			if (package_ != null)
+				msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINED_CLASSES, conml.types.Package.class, msgs);
+			if (newPackage != null)
+				msgs = ((InternalEObject)newPackage).eInverseAdd(this, TypesPackage.PACKAGE__CONTAINED_CLASSES, conml.types.Package.class, msgs);
+			msgs = basicSetPackage(newPackage, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__BELONGS_TO_PACKAGE, newBelongsToPackage, newBelongsToPackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__PACKAGE, newPackage, newPackage));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -612,10 +563,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsTemporalAspectOf()).basicAdd(otherEnd, msgs);
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsSubjectiveAspectOf()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__GENERALIZATION:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeneralization()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -632,10 +579,10 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOppositeClassIn()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__INSTANCED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInstancedBy()).basicAdd(otherEnd, msgs);
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				if (belongsToPackage != null)
-					msgs = ((InternalEObject)belongsToPackage).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINS_CLASS, conml.types.Package.class, msgs);
-				return basicSetBelongsToPackage((conml.types.Package)otherEnd, msgs);
+			case TypesPackage.CLASS__PACKAGE:
+				if (package_ != null)
+					msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINED_CLASSES, conml.types.Package.class, msgs);
+				return basicSetPackage((conml.types.Package)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -648,10 +595,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				return ((InternalEList<?>)getIsTemporalAspectOf()).basicRemove(otherEnd, msgs);
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				return ((InternalEList<?>)getIsSubjectiveAspectOf()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__GENERALIZATION:
 				return ((InternalEList<?>)getGeneralization()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -664,8 +607,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return ((InternalEList<?>)getIsOppositeClassIn()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__INSTANCED_BY:
 				return ((InternalEList<?>)getInstancedBy()).basicRemove(otherEnd, msgs);
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				return basicSetBelongsToPackage(null, msgs);
+			case TypesPackage.CLASS__PACKAGE:
+				return basicSetPackage(null, msgs);
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 				return ((InternalEList<?>)getOwnsProperties()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -688,10 +631,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return isIsTemporalAspect();
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				return isIsSubjectiveAspect();
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				return getIsTemporalAspectOf();
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				return getIsSubjectiveAspectOf();
 			case TypesPackage.CLASS__GENERALIZATION:
 				return getGeneralization();
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -706,9 +645,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return getIsOppositeClassIn();
 			case TypesPackage.CLASS__INSTANCED_BY:
 				return getInstancedBy();
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				if (resolve) return getBelongsToPackage();
-				return basicGetBelongsToPackage();
+			case TypesPackage.CLASS__PACKAGE:
+				if (resolve) return getPackage();
+				return basicGetPackage();
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 				return getOwnsProperties();
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
@@ -735,14 +674,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				setIsSubjectiveAspect((Boolean)newValue);
 				return;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				getIsTemporalAspectOf().clear();
-				getIsTemporalAspectOf().addAll((Collection<? extends TypeModel>)newValue);
-				return;
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				getIsSubjectiveAspectOf().clear();
-				getIsSubjectiveAspectOf().addAll((Collection<? extends TypeModel>)newValue);
-				return;
 			case TypesPackage.CLASS__GENERALIZATION:
 				getGeneralization().clear();
 				getGeneralization().addAll((Collection<? extends Generalization>)newValue);
@@ -765,8 +696,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				getInstancedBy().clear();
 				getInstancedBy().addAll((Collection<? extends conml.instances.Object>)newValue);
 				return;
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				setBelongsToPackage((conml.types.Package)newValue);
+			case TypesPackage.CLASS__PACKAGE:
+				setPackage((conml.types.Package)newValue);
 				return;
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 				getOwnsProperties().clear();
@@ -797,12 +728,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				setIsSubjectiveAspect(IS_SUBJECTIVE_ASPECT_EDEFAULT);
 				return;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				getIsTemporalAspectOf().clear();
-				return;
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				getIsSubjectiveAspectOf().clear();
-				return;
 			case TypesPackage.CLASS__GENERALIZATION:
 				getGeneralization().clear();
 				return;
@@ -821,8 +746,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__INSTANCED_BY:
 				getInstancedBy().clear();
 				return;
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				setBelongsToPackage((conml.types.Package)null);
+			case TypesPackage.CLASS__PACKAGE:
+				setPackage((conml.types.Package)null);
 				return;
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 				getOwnsProperties().clear();
@@ -848,10 +773,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return isTemporalAspect != IS_TEMPORAL_ASPECT_EDEFAULT;
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				return isSubjectiveAspect != IS_SUBJECTIVE_ASPECT_EDEFAULT;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF:
-				return isTemporalAspectOf != null && !isTemporalAspectOf.isEmpty();
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF:
-				return isSubjectiveAspectOf != null && !isSubjectiveAspectOf.isEmpty();
 			case TypesPackage.CLASS__GENERALIZATION:
 				return generalization != null && !generalization.isEmpty();
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -864,8 +785,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return isOppositeClassIn != null && !isOppositeClassIn.isEmpty();
 			case TypesPackage.CLASS__INSTANCED_BY:
 				return instancedBy != null && !instancedBy.isEmpty();
-			case TypesPackage.CLASS__BELONGS_TO_PACKAGE:
-				return belongsToPackage != null;
+			case TypesPackage.CLASS__PACKAGE:
+				return package_ != null;
 			case TypesPackage.CLASS__OWNS_PROPERTIES:
 				return ownsProperties != null && !ownsProperties.isEmpty();
 			case TypesPackage.CLASS__OWNS_ATTRIBUTES:

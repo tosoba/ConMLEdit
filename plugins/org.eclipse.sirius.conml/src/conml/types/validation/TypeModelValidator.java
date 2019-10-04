@@ -28,4 +28,8 @@ public interface TypeModelValidator {
 	boolean validateIsBaseOf(EList<TypeModel> value);
 	boolean validateIsParticularIn(TypeModel value);
 	boolean validateHasParticular(EList<TypeModel> value);
+
+  boolean validateSubjectiveAspect(conml.types.Class value);
+
+    boolean validateTemporalAspect(conml.types.Class value);
 }

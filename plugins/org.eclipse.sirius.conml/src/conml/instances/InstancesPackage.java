@@ -70,22 +70,22 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL_ELEMENT = 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT__IS_TAGGED_WITH = conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH;
+	int INSTANCE_MODEL_ELEMENT__TAGGED_WITH = conmlPackage.MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT__IS_DOCUMENTED_BY = conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int INSTANCE_MODEL_ELEMENT__DOCUMENTED_BY = conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The number of structural features of the '<em>Instance Model Element</em>' class.
@@ -116,22 +116,22 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE = 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE__IS_TAGGED_WITH = INSTANCE_MODEL_ELEMENT__IS_TAGGED_WITH;
+	int INSTANCE__TAGGED_WITH = INSTANCE_MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE__IS_DOCUMENTED_BY = INSTANCE_MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int INSTANCE__DOCUMENTED_BY = INSTANCE_MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The number of structural features of the '<em>Instance</em>' class.
@@ -162,22 +162,22 @@ public interface InstancesPackage extends EPackage {
 	int FACET = 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET__IS_TAGGED_WITH = INSTANCE_MODEL_ELEMENT__IS_TAGGED_WITH;
+	int FACET__TAGGED_WITH = INSTANCE_MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET__IS_DOCUMENTED_BY = INSTANCE_MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int FACET__DOCUMENTED_BY = INSTANCE_MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
@@ -226,22 +226,22 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__IS_TAGGED_WITH = FACET__IS_TAGGED_WITH;
+	int REFERENCE__TAGGED_WITH = FACET__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__IS_DOCUMENTED_BY = FACET__IS_DOCUMENTED_BY;
+	int REFERENCE__DOCUMENTED_BY = FACET__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
@@ -362,22 +362,22 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Has Tags</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__HAS_TAGS = conmlPackage.MODEL__HAS_TAGS;
+	int INSTANCE_MODEL__OWNS_ELEMENTS = conmlPackage.MODEL__OWNS_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Has Languages</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__HAS_LANGUAGES = conmlPackage.MODEL__HAS_LANGUAGES;
+	int INSTANCE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -389,13 +389,13 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__DEFAULT_LANGUAGE = conmlPackage.MODEL__DEFAULT_LANGUAGE;
 
 	/**
-	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__OWNS_ELEMENTS = conmlPackage.MODEL__OWNS_ELEMENTS;
+	int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
 	 * The feature id for the '<em><b>Conforms To</b></em>' reference list.
@@ -435,22 +435,22 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET = 10;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__IS_TAGGED_WITH = INSTANCE__IS_TAGGED_WITH;
+	int FACET_SET__TAGGED_WITH = INSTANCE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__IS_DOCUMENTED_BY = INSTANCE__IS_DOCUMENTED_BY;
+	int FACET_SET__DOCUMENTED_BY = INSTANCE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
@@ -480,13 +480,22 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__IS_COMPOSED_OF = INSTANCE_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 3;
+	int FACET_SET_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Facet Set</em>' class.
@@ -508,22 +517,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET = 5;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__IS_TAGGED_WITH = FACET_SET__IS_TAGGED_WITH;
+	int VALUE_SET__TAGGED_WITH = FACET_SET__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__IS_DOCUMENTED_BY = FACET_SET__IS_DOCUMENTED_BY;
+	int VALUE_SET__DOCUMENTED_BY = FACET_SET__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
@@ -551,6 +560,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_SET__IS_COMPOSED_OF = FACET_SET__IS_COMPOSED_OF;
+
+	/**
+	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
@@ -599,22 +617,22 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET = 6;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__IS_TAGGED_WITH = FACET_SET__IS_TAGGED_WITH;
+	int REFERENCE_SET__TAGGED_WITH = FACET_SET__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__IS_DOCUMENTED_BY = FACET_SET__IS_DOCUMENTED_BY;
+	int REFERENCE_SET__DOCUMENTED_BY = FACET_SET__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
@@ -642,6 +660,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_SET__IS_COMPOSED_OF = FACET_SET__IS_COMPOSED_OF;
+
+	/**
+	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
 	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
@@ -690,22 +717,22 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT = 7;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_TAGGED_WITH = INSTANCE__IS_TAGGED_WITH;
+	int OBJECT__TAGGED_WITH = INSTANCE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_DOCUMENTED_BY = INSTANCE__IS_DOCUMENTED_BY;
+	int OBJECT__DOCUMENTED_BY = INSTANCE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
@@ -726,22 +753,13 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__CERTAINTY = INSTANCE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Documents</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__DOCUMENTS = INSTANCE_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Is Instance Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_INSTANCE_OF = INSTANCE_FEATURE_COUNT + 3;
+	int OBJECT__IS_INSTANCE_OF = INSTANCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Owns Value Sets</b></em>' reference list.
@@ -750,7 +768,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OWNS_VALUE_SETS = INSTANCE_FEATURE_COUNT + 4;
+	int OBJECT__OWNS_VALUE_SETS = INSTANCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Owns Reference Sets</b></em>' reference list.
@@ -759,7 +777,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OWNS_REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 5;
+	int OBJECT__OWNS_REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Opposite In</b></em>' reference list.
@@ -768,7 +786,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_OPPOSITE_IN = INSTANCE_FEATURE_COUNT + 6;
+	int OBJECT__IS_OPPOSITE_IN = INSTANCE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Is Phase Qualifier Of</b></em>' reference list.
@@ -777,7 +795,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_PHASE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 7;
+	int OBJECT__IS_PHASE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Is Persepective Qualifier Of</b></em>' reference list.
@@ -786,7 +804,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
@@ -795,7 +813,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 9;
+	int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 8;
 
 	/**
 	 * The feature id for the '<em><b>Is Temporal Existence Qualifer Of</b></em>' reference list.
@@ -804,7 +822,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 10;
+	int OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 9;
 
 	/**
 	 * The feature id for the '<em><b>Subjectve Existental Qualifer</b></em>' reference.
@@ -813,7 +831,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER = INSTANCE_FEATURE_COUNT + 11;
+	int OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER = INSTANCE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Is Subjectve Existence Qualifer Of</b></em>' reference list.
@@ -822,7 +840,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 12;
+	int OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -831,7 +849,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 13;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -853,22 +871,22 @@ public interface InstancesPackage extends EPackage {
 	int LINK = 8;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__IS_TAGGED_WITH = INSTANCE__IS_TAGGED_WITH;
+	int LINK__TAGGED_WITH = INSTANCE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__IS_DOCUMENTED_BY = INSTANCE__IS_DOCUMENTED_BY;
+	int LINK__DOCUMENTED_BY = INSTANCE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Is Instance Of</b></em>' reference.
@@ -926,22 +944,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__IS_TAGGED_WITH = FACET__IS_TAGGED_WITH;
+	int VALUE__TAGGED_WITH = FACET__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__IS_DOCUMENTED_BY = FACET__IS_DOCUMENTED_BY;
+	int VALUE__DOCUMENTED_BY = FACET__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
@@ -1234,17 +1252,6 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getObject_Certainty();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getDocuments <em>Documents</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Documents</em>'.
-	 * @see conml.instances.Object#getDocuments()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_Documents();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Object#getIsInstanceOf <em>Is Instance Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1460,6 +1467,17 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getFacetSet_IsComposedOf();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Translation Qualifiers</em>'.
+	 * @see conml.instances.FacetSet#getTranslationQualifiers()
+	 * @see #getFacetSet()
+	 * @generated
+	 */
+	EReference getFacetSet_TranslationQualifiers();
 
 	/**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
@@ -1687,14 +1705,6 @@ public interface InstancesPackage extends EPackage {
 		EAttribute OBJECT__CERTAINTY = eINSTANCE.getObject_Certainty();
 
 		/**
-		 * The meta object literal for the '<em><b>Documents</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__DOCUMENTS = eINSTANCE.getObject_Documents();
-
-		/**
 		 * The meta object literal for the '<em><b>Is Instance Of</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1859,6 +1869,14 @@ public interface InstancesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference FACET_SET__IS_COMPOSED_OF = eINSTANCE.getFacetSet_IsComposedOf();
+
+		/**
+		 * The meta object literal for the '<em><b>Translation Qualifiers</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FACET_SET__TRANSLATION_QUALIFIERS = eINSTANCE.getFacetSet_TranslationQualifiers();
 
 		/**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.

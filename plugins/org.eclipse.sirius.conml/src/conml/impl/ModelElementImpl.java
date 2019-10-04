@@ -5,18 +5,11 @@ package conml.impl;
 import conml.ModelElement;
 import conml.Tag;
 import conml.conmlPackage;
-
-import conml.instances.InstancesPackage;
-
 import java.util.Collection;
-import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,32 +19,32 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.impl.ModelElementImpl#getIsTaggedWith <em>Is Tagged With</em>}</li>
- *   <li>{@link conml.impl.ModelElementImpl#getIsDocumentedBy <em>Is Documented By</em>}</li>
+ *   <li>{@link conml.impl.ModelElementImpl#getTaggedWith <em>Tagged With</em>}</li>
+ *   <li>{@link conml.impl.ModelElementImpl#getDocumentedBy <em>Documented By</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class ModelElementImpl extends ModelPartImpl implements ModelElement {
 	/**
-	 * The cached value of the '{@link #getIsTaggedWith() <em>Is Tagged With</em>}' reference list.
+	 * The cached value of the '{@link #getTaggedWith() <em>Tagged With</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsTaggedWith()
+	 * @see #getTaggedWith()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Tag> isTaggedWith;
+	protected EList<Tag> taggedWith;
 
 	/**
-	 * The cached value of the '{@link #getIsDocumentedBy() <em>Is Documented By</em>}' reference list.
+	 * The cached value of the '{@link #getDocumentedBy() <em>Documented By</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsDocumentedBy()
+	 * @see #getDocumentedBy()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.instances.Object> isDocumentedBy;
+	protected EList<conml.instances.Object> documentedBy;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -78,11 +71,11 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	 * @generated
 	 */
 	@Override
-	public EList<Tag> getIsTaggedWith() {
-		if (isTaggedWith == null) {
-			isTaggedWith = new EObjectWithInverseResolvingEList.ManyInverse<Tag>(Tag.class, this, conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH, conmlPackage.TAG__APPLIES_TO);
+	public EList<Tag> getTaggedWith() {
+		if (taggedWith == null) {
+			taggedWith = new EObjectResolvingEList<Tag>(Tag.class, this, conmlPackage.MODEL_ELEMENT__TAGGED_WITH);
 		}
-		return isTaggedWith;
+		return taggedWith;
 	}
 
 	/**
@@ -91,44 +84,11 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	 * @generated
 	 */
 	@Override
-	public EList<conml.instances.Object> getIsDocumentedBy() {
-		if (isDocumentedBy == null) {
-			isDocumentedBy = new EObjectWithInverseResolvingEList.ManyInverse<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY, InstancesPackage.OBJECT__DOCUMENTS);
+	public EList<conml.instances.Object> getDocumentedBy() {
+		if (documentedBy == null) {
+			documentedBy = new EObjectResolvingEList<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY);
 		}
-		return isDocumentedBy;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsTaggedWith()).basicAdd(otherEnd, msgs);
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsDocumentedBy()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				return ((InternalEList<?>)getIsTaggedWith()).basicRemove(otherEnd, msgs);
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				return ((InternalEList<?>)getIsDocumentedBy()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
+		return documentedBy;
 	}
 
 	/**
@@ -139,10 +99,10 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				return getIsTaggedWith();
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				return getIsDocumentedBy();
+			case conmlPackage.MODEL_ELEMENT__TAGGED_WITH:
+				return getTaggedWith();
+			case conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY:
+				return getDocumentedBy();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -156,13 +116,13 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				getIsTaggedWith().clear();
-				getIsTaggedWith().addAll((Collection<? extends Tag>)newValue);
+			case conmlPackage.MODEL_ELEMENT__TAGGED_WITH:
+				getTaggedWith().clear();
+				getTaggedWith().addAll((Collection<? extends Tag>)newValue);
 				return;
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				getIsDocumentedBy().clear();
-				getIsDocumentedBy().addAll((Collection<? extends conml.instances.Object>)newValue);
+			case conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY:
+				getDocumentedBy().clear();
+				getDocumentedBy().addAll((Collection<? extends conml.instances.Object>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -176,11 +136,11 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				getIsTaggedWith().clear();
+			case conmlPackage.MODEL_ELEMENT__TAGGED_WITH:
+				getTaggedWith().clear();
 				return;
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				getIsDocumentedBy().clear();
+			case conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY:
+				getDocumentedBy().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -194,10 +154,10 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH:
-				return isTaggedWith != null && !isTaggedWith.isEmpty();
-			case conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY:
-				return isDocumentedBy != null && !isDocumentedBy.isEmpty();
+			case conmlPackage.MODEL_ELEMENT__TAGGED_WITH:
+				return taggedWith != null && !taggedWith.isEmpty();
+			case conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY:
+				return documentedBy != null && !documentedBy.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

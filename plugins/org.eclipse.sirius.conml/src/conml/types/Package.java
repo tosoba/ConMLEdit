@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.types.Package#getName <em>Name</em>}</li>
  *   <li>{@link conml.types.Package#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.types.Package#getContainsClass <em>Contains Class</em>}</li>
- *   <li>{@link conml.types.Package#getContainsEnumeratedType <em>Contains Enumerated Type</em>}</li>
+ *   <li>{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}</li>
+ *   <li>{@link conml.types.Package#getEnumeratedTypes <em>Enumerated Types</em>}</li>
  *   <li>{@link conml.types.Package#getIsOwnerOf <em>Is Owner Of</em>}</li>
  *   <li>{@link conml.types.Package#getIsSubPackageOf <em>Is Sub Package Of</em>}</li>
  * </ul>
@@ -71,32 +71,32 @@ public interface Package extends TypeModelElement {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Contains Class</b></em>' reference list.
+	 * Returns the value of the '<em><b>Contained Classes</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Class}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getBelongsToPackage <em>Belongs To Package</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contains Class</em>' reference list.
-	 * @see conml.types.TypesPackage#getPackage_ContainsClass()
-	 * @see conml.types.Class#getBelongsToPackage
-	 * @model opposite="BelongsToPackage"
+	 * @return the value of the '<em>Contained Classes</em>' reference list.
+	 * @see conml.types.TypesPackage#getPackage_ContainedClasses()
+	 * @see conml.types.Class#getPackage
+	 * @model opposite="Package"
 	 * @generated
 	 */
-	EList<conml.types.Class> getContainsClass();
+	EList<conml.types.Class> getContainedClasses();
 
-	/**
-	 * Returns the value of the '<em><b>Contains Enumerated Type</b></em>' reference list.
+  /**
+	 * Returns the value of the '<em><b>Enumerated Types</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedType}.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getBelongsToPackage <em>Belongs To Package</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contains Enumerated Type</em>' reference list.
-	 * @see conml.types.TypesPackage#getPackage_ContainsEnumeratedType()
-	 * @see conml.types.EnumeratedType#getBelongsToPackage
-	 * @model opposite="BelongsToPackage"
+	 * @return the value of the '<em>Enumerated Types</em>' reference list.
+	 * @see conml.types.TypesPackage#getPackage_EnumeratedTypes()
+	 * @see conml.types.EnumeratedType#getPackage
+	 * @model opposite="Package"
 	 * @generated
 	 */
-	EList<EnumeratedType> getContainsEnumeratedType();
+	EList<EnumeratedType> getEnumeratedTypes();
 
 	/**
 	 * Returns the value of the '<em><b>Is Owner Of</b></em>' containment reference list.

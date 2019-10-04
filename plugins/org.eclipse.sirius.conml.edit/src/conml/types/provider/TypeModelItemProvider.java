@@ -49,12 +49,12 @@ public class TypeModelItemProvider extends ModelItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addConformedByPropertyDescriptor(object);
-			addHasTemporalAspectOfPropertyDescriptor(object);
-			addHasSubjectiveAspectOfPropertyDescriptor(object);
 			addExtendsPropertyDescriptor(object);
 			addIsBaseOfPropertyDescriptor(object);
 			addIsParticularInPropertyDescriptor(object);
 			addHasParticularPropertyDescriptor(object);
+			addSubjectiveAspectPropertyDescriptor(object);
+			addTemporalAspectPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,50 +73,6 @@ public class TypeModelItemProvider extends ModelItemProvider {
 				 getString("_UI_TypeModel_ConformedBy_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_ConformedBy_feature", "_UI_TypeModel_type"),
 				 TypesPackage.Literals.TYPE_MODEL__CONFORMED_BY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Temporal Aspect Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasTemporalAspectOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypeModel_HasTemporalAspectOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_HasTemporalAspectOf_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Subjective Aspect Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasSubjectiveAspectOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypeModel_HasSubjectiveAspectOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_HasSubjectiveAspectOf_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF,
 				 true,
 				 false,
 				 true,
@@ -214,6 +170,50 @@ public class TypeModelItemProvider extends ModelItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Subjective Aspect feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSubjectiveAspectPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypeModel_SubjectiveAspect_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_SubjectiveAspect_feature", "_UI_TypeModel_type"),
+				 TypesPackage.Literals.TYPE_MODEL__SUBJECTIVE_ASPECT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Temporal Aspect feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTemporalAspectPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypeModel_TemporalAspect_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_TemporalAspect_feature", "_UI_TypeModel_type"),
+				 TypesPackage.Literals.TYPE_MODEL__TEMPORAL_ASPECT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns TypeModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

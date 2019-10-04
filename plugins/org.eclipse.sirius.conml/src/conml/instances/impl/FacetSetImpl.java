@@ -2,6 +2,7 @@
  */
 package conml.instances.impl;
 
+import conml.Language;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
 import conml.instances.InstancesPackage;
@@ -18,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.FacetSetImpl#getHasPhaseQualifier <em>Has Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getHasPerspectiveQualifier <em>Has Perspective Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getIsComposedOf <em>Is Composed Of</em>}</li>
+ *   <li>{@link conml.instances.impl.FacetSetImpl#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  * </ul>
  *
  * @generated
@@ -66,6 +69,16 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * @ordered
 	 */
 	protected EList<Facet> isComposedOf;
+
+	/**
+	 * The cached value of the '{@link #getTranslationQualifiers() <em>Translation Qualifiers</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTranslationQualifiers()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Language> translationQualifiers;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -228,6 +241,19 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<Language> getTranslationQualifiers() {
+		if (translationQualifiers == null) {
+			translationQualifiers = new EObjectResolvingEList<Language>(Language.class, this, InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS);
+		}
+		return translationQualifiers;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -280,6 +306,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				return basicGetHasPerspectiveQualifier();
 			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
 				return getIsComposedOf();
+			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
+				return getTranslationQualifiers();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -303,6 +331,10 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				getIsComposedOf().clear();
 				getIsComposedOf().addAll((Collection<? extends Facet>)newValue);
 				return;
+			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
+				getTranslationQualifiers().clear();
+				getTranslationQualifiers().addAll((Collection<? extends Language>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -324,6 +356,9 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
 				getIsComposedOf().clear();
 				return;
+			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
+				getTranslationQualifiers().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -342,6 +377,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				return hasPerspectiveQualifier != null;
 			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
 				return isComposedOf != null && !isComposedOf.isEmpty();
+			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
+				return translationQualifiers != null && !translationQualifiers.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

@@ -37,5 +37,7 @@ public interface ClassValidator {
 	boolean validateOwnsSemiassociations(EList<SemiAssociation> value);
 	boolean validateIsOppositeClassIn(EList<SemiAssociation> value);
 	boolean validateInstancedBy(EList<conml.instances.Object> value);
-	boolean validateBelongsToPackage(conml.types.Package value);
+	boolean validatePackage(conml.types.Package value);
+
+  boolean validateBelongsToPackage(conml.types.Package value);
 }

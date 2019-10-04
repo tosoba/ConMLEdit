@@ -27,5 +27,9 @@ public interface ModelValidator {
 	boolean validateHasTags(EList<Tag> value);
 	boolean validateHasLanguages(EList<Language> value);
 	boolean validateDefaultLanguage(Language value);
+	boolean validateTags(EList<Tag> value);
+
 	boolean validateOwnsElements(EList<ModelElement> value);
+
+	boolean validateLanguages(EList<Language> value);
 }

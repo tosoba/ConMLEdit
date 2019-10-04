@@ -48,8 +48,6 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addIsDefaultPropertyDescriptor(object);
-			addIsDefaultInPropertyDescriptor(object);
-			addIsTranslationQualifierOfPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,50 +114,6 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 				 false,
 				 false,
 				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Default In feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsDefaultInPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Language_isDefaultIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Language_isDefaultIn_feature", "_UI_Language_type"),
-				 conmlPackage.Literals.LANGUAGE__IS_DEFAULT_IN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Translation Qualifier Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsTranslationQualifierOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Language_IsTranslationQualifierOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Language_IsTranslationQualifierOf_feature", "_UI_Language_type"),
-				 conmlPackage.Literals.LANGUAGE__IS_TRANSLATION_QUALIFIER_OF,
-				 true,
-				 false,
-				 true,
-				 null,
 				 null,
 				 null));
 	}

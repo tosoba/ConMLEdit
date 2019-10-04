@@ -175,9 +175,9 @@ public class ModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__HAS_TAGS);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__HAS_LANGUAGES);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__OWNS_ELEMENTS);
+			childrenFeatures.add(conmlPackage.Literals.MODEL__LANGUAGES);
+			childrenFeatures.add(conmlPackage.Literals.MODEL__TAGS);
 		}
 		return childrenFeatures;
 	}
@@ -238,9 +238,9 @@ public class ModelItemProvider
 			case conmlPackage.MODEL__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case conmlPackage.MODEL__HAS_TAGS:
-			case conmlPackage.MODEL__HAS_LANGUAGES:
 			case conmlPackage.MODEL__OWNS_ELEMENTS:
+			case conmlPackage.MODEL__LANGUAGES:
+			case conmlPackage.MODEL__TAGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -257,16 +257,6 @@ public class ModelItemProvider
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.MODEL__HAS_TAGS,
-				 conmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.MODEL__HAS_LANGUAGES,
-				 conmlFactory.eINSTANCE.createLanguage()));
 
 		newChildDescriptors.add
 			(createChildParameter
@@ -347,6 +337,16 @@ public class ModelItemProvider
 			(createChildParameter
 				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
 				 InstancesFactory.eINSTANCE.createValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.MODEL__LANGUAGES,
+				 conmlFactory.eINSTANCE.createLanguage()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.MODEL__TAGS,
+				 conmlFactory.eINSTANCE.createTag()));
 	}
 
 	/**

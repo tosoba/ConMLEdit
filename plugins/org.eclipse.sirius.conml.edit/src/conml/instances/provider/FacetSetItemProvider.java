@@ -45,6 +45,7 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 			addHasPhaseQualifierPropertyDescriptor(object);
 			addHasPerspectiveQualifierPropertyDescriptor(object);
 			addIsComposedOfPropertyDescriptor(object);
+			addTranslationQualifiersPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -107,6 +108,28 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 				 getString("_UI_FacetSet_IsComposedOf_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_IsComposedOf_feature", "_UI_FacetSet_type"),
 				 InstancesPackage.Literals.FACET_SET__IS_COMPOSED_OF,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Translation Qualifiers feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTranslationQualifiersPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FacetSet_TranslationQualifiers_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_TranslationQualifiers_feature", "_UI_FacetSet_type"),
+				 InstancesPackage.Literals.FACET_SET__TRANSLATION_QUALIFIERS,
 				 true,
 				 false,
 				 true,

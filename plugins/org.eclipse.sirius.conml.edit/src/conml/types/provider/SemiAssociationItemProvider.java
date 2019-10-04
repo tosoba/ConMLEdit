@@ -50,11 +50,10 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addIsStrongPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 			addRefersToPropertyDescriptor(object);
-			addIsInverseOfPropertyDescriptor(object);
-			addInversePropertyDescriptor(object);
 			addIsPrimaryInPropertyDescriptor(object);
 			addIsSecondaryInPropertyDescriptor(object);
 			addHasInstanceReferenceSetsPropertyDescriptor(object);
+			addInversePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -161,28 +160,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 				 getString("_UI_SemiAssociation_RefersTo_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_RefersTo_feature", "_UI_SemiAssociation_type"),
 				 TypesPackage.Literals.SEMI_ASSOCIATION__REFERS_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Inverse Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsInverseOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_IsInverseOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_IsInverseOf_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__IS_INVERSE_OF,
 				 true,
 				 false,
 				 true,

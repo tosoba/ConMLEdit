@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.TypeModel#getConformedBy <em>Conformed By</em>}</li>
- *   <li>{@link conml.types.TypeModel#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}</li>
- *   <li>{@link conml.types.TypeModel#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}</li>
  *   <li>{@link conml.types.TypeModel#getExtends <em>Extends</em>}</li>
  *   <li>{@link conml.types.TypeModel#getIsBaseOf <em>Is Base Of</em>}</li>
  *   <li>{@link conml.types.TypeModel#getIsParticularIn <em>Is Particular In</em>}</li>
  *   <li>{@link conml.types.TypeModel#getHasParticular <em>Has Particular</em>}</li>
+ *   <li>{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
+ *   <li>{@link conml.types.TypeModel#getTemporalAspect <em>Temporal Aspect</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getTypeModel()
@@ -54,54 +54,6 @@ public interface TypeModel extends Model {
 	 * @generated
 	 */
 	void setConformedBy(InstanceModel value);
-
-	/**
-	 * Returns the value of the '<em><b>Has Temporal Aspect Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getIsTemporalAspectOf <em>Is Temporal Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Temporal Aspect Of</em>' reference.
-	 * @see #setHasTemporalAspectOf(conml.types.Class)
-	 * @see conml.types.TypesPackage#getTypeModel_HasTemporalAspectOf()
-	 * @see conml.types.Class#getIsTemporalAspectOf
-	 * @model opposite="IsTemporalAspectOf"
-	 * @generated
-	 */
-	conml.types.Class getHasTemporalAspectOf();
-
-	/**
-	 * Sets the value of the '{@link conml.types.TypeModel#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Has Temporal Aspect Of</em>' reference.
-	 * @see #getHasTemporalAspectOf()
-	 * @generated
-	 */
-	void setHasTemporalAspectOf(conml.types.Class value);
-
-	/**
-	 * Returns the value of the '<em><b>Has Subjective Aspect Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getIsSubjectiveAspectOf <em>Is Subjective Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Subjective Aspect Of</em>' reference.
-	 * @see #setHasSubjectiveAspectOf(conml.types.Class)
-	 * @see conml.types.TypesPackage#getTypeModel_HasSubjectiveAspectOf()
-	 * @see conml.types.Class#getIsSubjectiveAspectOf
-	 * @model opposite="IsSubjectiveAspectOf"
-	 * @generated
-	 */
-	conml.types.Class getHasSubjectiveAspectOf();
-
-	/**
-	 * Sets the value of the '{@link conml.types.TypeModel#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Has Subjective Aspect Of</em>' reference.
-	 * @see #getHasSubjectiveAspectOf()
-	 * @generated
-	 */
-	void setHasSubjectiveAspectOf(conml.types.Class value);
 
 	/**
 	 * Returns the value of the '<em><b>Extends</b></em>' reference.
@@ -178,5 +130,49 @@ public interface TypeModel extends Model {
 	 * @generated
 	 */
 	EList<TypeModel> getHasParticular();
+
+  /**
+	 * Returns the value of the '<em><b>Subjective Aspect</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Subjective Aspect</em>' reference.
+	 * @see #setSubjectiveAspect(conml.types.Class)
+	 * @see conml.types.TypesPackage#getTypeModel_SubjectiveAspect()
+	 * @model
+	 * @generated
+	 */
+	conml.types.Class getSubjectiveAspect();
+
+  /**
+	 * Sets the value of the '{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Subjective Aspect</em>' reference.
+	 * @see #getSubjectiveAspect()
+	 * @generated
+	 */
+	void setSubjectiveAspect(conml.types.Class value);
+
+    /**
+	 * Returns the value of the '<em><b>Temporal Aspect</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Temporal Aspect</em>' reference.
+	 * @see #setTemporalAspect(conml.types.Class)
+	 * @see conml.types.TypesPackage#getTypeModel_TemporalAspect()
+	 * @model
+	 * @generated
+	 */
+	conml.types.Class getTemporalAspect();
+
+    /**
+	 * Sets the value of the '{@link conml.types.TypeModel#getTemporalAspect <em>Temporal Aspect</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Temporal Aspect</em>' reference.
+	 * @see #getTemporalAspect()
+	 * @generated
+	 */
+	void setTemporalAspect(conml.types.Class value);
 
 } // TypeModel

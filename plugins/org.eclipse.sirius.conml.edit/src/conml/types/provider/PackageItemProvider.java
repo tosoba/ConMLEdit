@@ -48,8 +48,8 @@ public class PackageItemProvider extends TypeModelElementItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addContainsClassPropertyDescriptor(object);
-			addContainsEnumeratedTypePropertyDescriptor(object);
+			addContainedClassesPropertyDescriptor(object);
+			addEnumeratedTypesPropertyDescriptor(object);
 			addIsOwnerOfPropertyDescriptor(object);
 			addIsSubPackageOfPropertyDescriptor(object);
 		}
@@ -101,19 +101,19 @@ public class PackageItemProvider extends TypeModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Contains Class feature.
+	 * This adds a property descriptor for the Contained Classes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContainsClassPropertyDescriptor(Object object) {
+	protected void addContainedClassesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Package_ContainsClass_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_ContainsClass_feature", "_UI_Package_type"),
-				 TypesPackage.Literals.PACKAGE__CONTAINS_CLASS,
+				 getString("_UI_Package_ContainedClasses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_ContainedClasses_feature", "_UI_Package_type"),
+				 TypesPackage.Literals.PACKAGE__CONTAINED_CLASSES,
 				 true,
 				 false,
 				 true,
@@ -122,20 +122,20 @@ public class PackageItemProvider extends TypeModelElementItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Contains Enumerated Type feature.
+  /**
+	 * This adds a property descriptor for the Enumerated Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addContainsEnumeratedTypePropertyDescriptor(Object object) {
+	protected void addEnumeratedTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Package_ContainsEnumeratedType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_ContainsEnumeratedType_feature", "_UI_Package_type"),
-				 TypesPackage.Literals.PACKAGE__CONTAINS_ENUMERATED_TYPE,
+				 getString("_UI_Package_EnumeratedTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Package_EnumeratedTypes_feature", "_UI_Package_type"),
+				 TypesPackage.Literals.PACKAGE__ENUMERATED_TYPES,
 				 true,
 				 false,
 				 true,

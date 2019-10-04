@@ -20,11 +20,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#isIsStrong <em>Is Strong</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getRefersTo <em>Refers To</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getIsInverseOf <em>Is Inverse Of</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getSemiAssociation()
@@ -147,39 +146,13 @@ public interface SemiAssociation extends Feature {
 	void setRefersTo(conml.types.Class value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Inverse Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Inverse Of</em>' reference.
-	 * @see #setIsInverseOf(SemiAssociation)
-	 * @see conml.types.TypesPackage#getSemiAssociation_IsInverseOf()
-	 * @see conml.types.SemiAssociation#getInverse
-	 * @model opposite="Inverse" required="true"
-	 * @generated
-	 */
-	SemiAssociation getIsInverseOf();
-
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getIsInverseOf <em>Is Inverse Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Inverse Of</em>' reference.
-	 * @see #getIsInverseOf()
-	 * @generated
-	 */
-	void setIsInverseOf(SemiAssociation value);
-
-	/**
 	 * Returns the value of the '<em><b>Inverse</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getIsInverseOf <em>Is Inverse Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inverse</em>' reference.
 	 * @see #setInverse(SemiAssociation)
 	 * @see conml.types.TypesPackage#getSemiAssociation_Inverse()
-	 * @see conml.types.SemiAssociation#getIsInverseOf
-	 * @model opposite="IsInverseOf" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	SemiAssociation getInverse();

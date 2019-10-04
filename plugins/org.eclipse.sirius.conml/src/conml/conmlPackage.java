@@ -94,22 +94,22 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Has Tags</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__HAS_TAGS = 3;
+	int MODEL__OWNS_ELEMENTS = 3;
 
 	/**
-	 * The feature id for the '<em><b>Has Languages</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__HAS_LANGUAGES = 4;
+	int MODEL__LANGUAGES = 4;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -121,13 +121,13 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DEFAULT_LANGUAGE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__OWNS_ELEMENTS = 6;
+	int MODEL__TAGS = 6;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -186,22 +186,22 @@ public interface conmlPackage extends EPackage {
 	int MODEL_ELEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__IS_TAGGED_WITH = MODEL_PART_FEATURE_COUNT + 0;
+	int MODEL_ELEMENT__TAGGED_WITH = MODEL_PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__IS_DOCUMENTED_BY = MODEL_PART_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT__DOCUMENTED_BY = MODEL_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Model Element</em>' class.
@@ -241,31 +241,13 @@ public interface conmlPackage extends EPackage {
 	int TAG__NAME = MODEL_PART_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__BELONGS_TO = MODEL_PART_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Applies To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TAG__APPLIES_TO = MODEL_PART_FEATURE_COUNT + 2;
-
-	/**
 	 * The number of structural features of the '<em>Tag</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TAG_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 3;
+	int TAG_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Tag</em>' class.
@@ -314,40 +296,13 @@ public interface conmlPackage extends EPackage {
 	int LANGUAGE__IS_DEFAULT = MODEL_PART_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE__BELONGS_TO = MODEL_PART_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Is Default In</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE__IS_DEFAULT_IN = MODEL_PART_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Is Translation Qualifier Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LANGUAGE__IS_TRANSLATION_QUALIFIER_OF = MODEL_PART_FEATURE_COUNT + 5;
-
-	/**
 	 * The number of structural features of the '<em>Language</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LANGUAGE_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 6;
+	int LANGUAGE_FEATURE_COUNT = MODEL_PART_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Language</em>' class.
@@ -403,28 +358,6 @@ public interface conmlPackage extends EPackage {
 	EAttribute getModel_Description();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.Model#getHasTags <em>Has Tags</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Has Tags</em>'.
-	 * @see conml.Model#getHasTags()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_HasTags();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conml.Model#getHasLanguages <em>Has Languages</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Has Languages</em>'.
-	 * @see conml.Model#getHasLanguages()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_HasLanguages();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.Model#getDefaultLanguage <em>Default Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -436,6 +369,17 @@ public interface conmlPackage extends EPackage {
 	EReference getModel_DefaultLanguage();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link conml.Model#getTags <em>Tags</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Tags</em>'.
+	 * @see conml.Model#getTags()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Tags();
+
+	/**
 	 * Returns the meta object for the containment reference list '{@link conml.Model#getOwnsElements <em>Owns Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -445,6 +389,17 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_OwnsElements();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link conml.Model#getLanguages <em>Languages</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Languages</em>'.
+	 * @see conml.Model#getLanguages()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Languages();
 
 	/**
 	 * Returns the meta object for class '{@link conml.ModelPart <em>Model Part</em>}'.
@@ -467,26 +422,26 @@ public interface conmlPackage extends EPackage {
 	EClass getModelElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.ModelElement#getIsTaggedWith <em>Is Tagged With</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.ModelElement#getTaggedWith <em>Tagged With</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Tagged With</em>'.
-	 * @see conml.ModelElement#getIsTaggedWith()
+	 * @return the meta object for the reference list '<em>Tagged With</em>'.
+	 * @see conml.ModelElement#getTaggedWith()
 	 * @see #getModelElement()
 	 * @generated
 	 */
-	EReference getModelElement_IsTaggedWith();
+	EReference getModelElement_TaggedWith();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.ModelElement#getIsDocumentedBy <em>Is Documented By</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.ModelElement#getDocumentedBy <em>Documented By</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Documented By</em>'.
-	 * @see conml.ModelElement#getIsDocumentedBy()
+	 * @return the meta object for the reference list '<em>Documented By</em>'.
+	 * @see conml.ModelElement#getDocumentedBy()
 	 * @see #getModelElement()
 	 * @generated
 	 */
-	EReference getModelElement_IsDocumentedBy();
+	EReference getModelElement_DocumentedBy();
 
 	/**
 	 * Returns the meta object for class '{@link conml.Tag <em>Tag</em>}'.
@@ -508,28 +463,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getTag_Name();
-
-	/**
-	 * Returns the meta object for the container reference '{@link conml.Tag#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Belongs To</em>'.
-	 * @see conml.Tag#getBelongsTo()
-	 * @see #getTag()
-	 * @generated
-	 */
-	EReference getTag_BelongsTo();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.Tag#getAppliesTo <em>Applies To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applies To</em>'.
-	 * @see conml.Tag#getAppliesTo()
-	 * @see #getTag()
-	 * @generated
-	 */
-	EReference getTag_AppliesTo();
 
 	/**
 	 * Returns the meta object for class '{@link conml.Language <em>Language</em>}'.
@@ -573,39 +506,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLanguage_IsDefault();
-
-	/**
-	 * Returns the meta object for the container reference '{@link conml.Language#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Belongs To</em>'.
-	 * @see conml.Language#getBelongsTo()
-	 * @see #getLanguage()
-	 * @generated
-	 */
-	EReference getLanguage_BelongsTo();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.Language#getIsDefaultIn <em>Is Default In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Default In</em>'.
-	 * @see conml.Language#getIsDefaultIn()
-	 * @see #getLanguage()
-	 * @generated
-	 */
-	EReference getLanguage_IsDefaultIn();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.Language#getIsTranslationQualifierOf <em>Is Translation Qualifier Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Translation Qualifier Of</em>'.
-	 * @see conml.Language#getIsTranslationQualifierOf()
-	 * @see #getLanguage()
-	 * @generated
-	 */
-	EReference getLanguage_IsTranslationQualifierOf();
 
 	/**
 	 * Returns the factory that creates the instances of the model.
@@ -665,22 +565,6 @@ public interface conmlPackage extends EPackage {
 		EAttribute MODEL__DESCRIPTION = eINSTANCE.getModel_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Tags</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__HAS_TAGS = eINSTANCE.getModel_HasTags();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Languages</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__HAS_LANGUAGES = eINSTANCE.getModel_HasLanguages();
-
-		/**
 		 * The meta object literal for the '<em><b>Default Language</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -689,12 +573,28 @@ public interface conmlPackage extends EPackage {
 		EReference MODEL__DEFAULT_LANGUAGE = eINSTANCE.getModel_DefaultLanguage();
 
 		/**
+		 * The meta object literal for the '<em><b>Tags</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__TAGS = eINSTANCE.getModel_Tags();
+
+		/**
 		 * The meta object literal for the '<em><b>Owns Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference MODEL__OWNS_ELEMENTS = eINSTANCE.getModel_OwnsElements();
+
+		/**
+		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__LANGUAGES = eINSTANCE.getModel_Languages();
 
 		/**
 		 * The meta object literal for the '{@link conml.impl.ModelPartImpl <em>Model Part</em>}' class.
@@ -717,20 +617,20 @@ public interface conmlPackage extends EPackage {
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Tagged With</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Tagged With</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_ELEMENT__IS_TAGGED_WITH = eINSTANCE.getModelElement_IsTaggedWith();
+		EReference MODEL_ELEMENT__TAGGED_WITH = eINSTANCE.getModelElement_TaggedWith();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Documented By</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Documented By</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_ELEMENT__IS_DOCUMENTED_BY = eINSTANCE.getModelElement_IsDocumentedBy();
+		EReference MODEL_ELEMENT__DOCUMENTED_BY = eINSTANCE.getModelElement_DocumentedBy();
 
 		/**
 		 * The meta object literal for the '{@link conml.impl.TagImpl <em>Tag</em>}' class.
@@ -749,22 +649,6 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Belongs To</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAG__BELONGS_TO = eINSTANCE.getTag_BelongsTo();
-
-		/**
-		 * The meta object literal for the '<em><b>Applies To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TAG__APPLIES_TO = eINSTANCE.getTag_AppliesTo();
 
 		/**
 		 * The meta object literal for the '{@link conml.impl.LanguageImpl <em>Language</em>}' class.
@@ -799,30 +683,6 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LANGUAGE__IS_DEFAULT = eINSTANCE.getLanguage_IsDefault();
-
-		/**
-		 * The meta object literal for the '<em><b>Belongs To</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LANGUAGE__BELONGS_TO = eINSTANCE.getLanguage_BelongsTo();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Default In</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LANGUAGE__IS_DEFAULT_IN = eINSTANCE.getLanguage_IsDefaultIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Translation Qualifier Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference LANGUAGE__IS_TRANSLATION_QUALIFIER_OF = eINSTANCE.getLanguage_IsTranslationQualifierOf();
 
 	}
 

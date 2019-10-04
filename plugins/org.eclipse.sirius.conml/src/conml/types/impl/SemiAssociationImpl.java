@@ -38,11 +38,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isIsStrong <em>Is Strong</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getRefersTo <em>Refers To</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsInverseOf <em>Is Inverse Of</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverse <em>Inverse</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsSecondaryIn <em>Is Secondary In</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverse <em>Inverse</em>}</li>
  * </ul>
  *
  * @generated
@@ -119,26 +118,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected conml.types.Class refersTo;
 
 	/**
-	 * The cached value of the '{@link #getIsInverseOf() <em>Is Inverse Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsInverseOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected SemiAssociation isInverseOf;
-
-	/**
-	 * The cached value of the '{@link #getInverse() <em>Inverse</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInverse()
-	 * @generated
-	 * @ordered
-	 */
-	protected SemiAssociation inverse;
-
-	/**
 	 * The cached value of the '{@link #getIsPrimaryIn() <em>Is Primary In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -167,6 +146,16 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @ordered
 	 */
 	protected EList<ReferenceSet> hasInstanceReferenceSets;
+
+	/**
+	 * The cached value of the '{@link #getInverse() <em>Inverse</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInverse()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemiAssociation inverse;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -367,68 +356,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @generated
 	 */
 	@Override
-	public SemiAssociation getIsInverseOf() {
-		if (isInverseOf != null && isInverseOf.eIsProxy()) {
-			InternalEObject oldIsInverseOf = (InternalEObject)isInverseOf;
-			isInverseOf = (SemiAssociation)eResolveProxy(oldIsInverseOf);
-			if (isInverseOf != oldIsInverseOf) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, oldIsInverseOf, isInverseOf));
-			}
-		}
-		return isInverseOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SemiAssociation basicGetIsInverseOf() {
-		return isInverseOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsInverseOf(SemiAssociation newIsInverseOf, NotificationChain msgs) {
-		SemiAssociation oldIsInverseOf = isInverseOf;
-		isInverseOf = newIsInverseOf;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, oldIsInverseOf, newIsInverseOf);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsInverseOf(SemiAssociation newIsInverseOf) {
-		if (newIsInverseOf != isInverseOf) {
-			NotificationChain msgs = null;
-			if (isInverseOf != null)
-				msgs = ((InternalEObject)isInverseOf).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__INVERSE, SemiAssociation.class, msgs);
-			if (newIsInverseOf != null)
-				msgs = ((InternalEObject)newIsInverseOf).eInverseAdd(this, TypesPackage.SEMI_ASSOCIATION__INVERSE, SemiAssociation.class, msgs);
-			msgs = basicSetIsInverseOf(newIsInverseOf, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, newIsInverseOf, newIsInverseOf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public SemiAssociation getInverse() {
 		if (inverse != null && inverse.eIsProxy()) {
 			InternalEObject oldInverse = (InternalEObject)inverse;
@@ -455,34 +382,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetInverse(SemiAssociation newInverse, NotificationChain msgs) {
-		SemiAssociation oldInverse = inverse;
-		inverse = newInverse;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__INVERSE, oldInverse, newInverse);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setInverse(SemiAssociation newInverse) {
-		if (newInverse != inverse) {
-			NotificationChain msgs = null;
-			if (inverse != null)
-				msgs = ((InternalEObject)inverse).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, SemiAssociation.class, msgs);
-			if (newInverse != null)
-				msgs = ((InternalEObject)newInverse).eInverseAdd(this, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, SemiAssociation.class, msgs);
-			msgs = basicSetInverse(newInverse, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__INVERSE, newInverse, newInverse));
+		SemiAssociation oldInverse = inverse;
+		inverse = newInverse;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__INVERSE, oldInverse, inverse));
 	}
 
 	/**
@@ -639,14 +544,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				if (refersTo != null)
 					msgs = ((InternalEObject)refersTo).eInverseRemove(this, TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN, conml.types.Class.class, msgs);
 				return basicSetRefersTo((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				if (isInverseOf != null)
-					msgs = ((InternalEObject)isInverseOf).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__INVERSE, SemiAssociation.class, msgs);
-				return basicSetIsInverseOf((SemiAssociation)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				if (inverse != null)
-					msgs = ((InternalEObject)inverse).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF, SemiAssociation.class, msgs);
-				return basicSetInverse((SemiAssociation)otherEnd, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				if (isPrimaryIn != null)
 					msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_PRIMARY, Association.class, msgs);
@@ -673,10 +570,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return basicSetOwner(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
 				return basicSetRefersTo(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				return basicSetIsInverseOf(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				return basicSetInverse(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				return basicSetIsPrimaryIn(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
@@ -720,12 +613,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
 				if (resolve) return getRefersTo();
 				return basicGetRefersTo();
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				if (resolve) return getIsInverseOf();
-				return basicGetIsInverseOf();
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				if (resolve) return getInverse();
-				return basicGetInverse();
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				if (resolve) return getIsPrimaryIn();
 				return basicGetIsPrimaryIn();
@@ -734,6 +621,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return basicGetIsSecondaryIn();
 			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
 				return getHasInstanceReferenceSets();
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
+				if (resolve) return getInverse();
+				return basicGetInverse();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -762,12 +652,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
 				setRefersTo((conml.types.Class)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				setIsInverseOf((SemiAssociation)newValue);
-				return;
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				setInverse((SemiAssociation)newValue);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				setIsPrimaryIn((Association)newValue);
 				return;
@@ -777,6 +661,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
 				getHasInstanceReferenceSets().clear();
 				getHasInstanceReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
+				setInverse((SemiAssociation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -805,12 +692,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
 				setRefersTo((conml.types.Class)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				setIsInverseOf((SemiAssociation)null);
-				return;
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				setInverse((SemiAssociation)null);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				setIsPrimaryIn((Association)null);
 				return;
@@ -819,6 +700,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
 				getHasInstanceReferenceSets().clear();
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
+				setInverse((SemiAssociation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -842,16 +726,14 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return getOwner() != null;
 			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
 				return refersTo != null;
-			case TypesPackage.SEMI_ASSOCIATION__IS_INVERSE_OF:
-				return isInverseOf != null;
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				return inverse != null;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				return isPrimaryIn != null;
 			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
 				return isSecondaryIn != null;
 			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
 				return hasInstanceReferenceSets != null && !hasInstanceReferenceSets.isEmpty();
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
+				return inverse != null;
 		}
 		return super.eIsSet(featureID);
 	}

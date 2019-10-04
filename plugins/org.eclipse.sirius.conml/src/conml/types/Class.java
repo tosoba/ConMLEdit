@@ -16,15 +16,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#isIsAbstract <em>Is Abstract</em>}</li>
  *   <li>{@link conml.types.Class#isIsTemporalAspect <em>Is Temporal Aspect</em>}</li>
  *   <li>{@link conml.types.Class#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}</li>
- *   <li>{@link conml.types.Class#getIsTemporalAspectOf <em>Is Temporal Aspect Of</em>}</li>
- *   <li>{@link conml.types.Class#getIsSubjectiveAspectOf <em>Is Subjective Aspect Of</em>}</li>
  *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
  *   <li>{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
  *   <li>{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}</li>
- *   <li>{@link conml.types.Class#getBelongsToPackage <em>Belongs To Package</em>}</li>
+ *   <li>{@link conml.types.Class#getPackage <em>Package</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsProperties <em>Owns Properties</em>}</li>
  *   <li>{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}</li>
  * </ul>
@@ -99,34 +97,6 @@ public interface Class extends Type {
 	 * @generated
 	 */
 	void setIsSubjectiveAspect(boolean value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Temporal Aspect Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.TypeModel}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Temporal Aspect Of</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_IsTemporalAspectOf()
-	 * @see conml.types.TypeModel#getHasTemporalAspectOf
-	 * @model opposite="HasTemporalAspectOf"
-	 * @generated
-	 */
-	EList<TypeModel> getIsTemporalAspectOf();
-
-	/**
-	 * Returns the value of the '<em><b>Is Subjective Aspect Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.TypeModel}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Subjective Aspect Of</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_IsSubjectiveAspectOf()
-	 * @see conml.types.TypeModel#getHasSubjectiveAspectOf
-	 * @model opposite="HasSubjectiveAspectOf"
-	 * @generated
-	 */
-	EList<TypeModel> getIsSubjectiveAspectOf();
 
 	/**
 	 * Returns the value of the '<em><b>Generalization</b></em>' reference list.
@@ -257,27 +227,27 @@ public interface Class extends Type {
 	EList<conml.instances.Object> getInstancedBy();
 
 	/**
-	 * Returns the value of the '<em><b>Belongs To Package</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Package#getContainsClass <em>Contains Class</em>}'.
+	 * Returns the value of the '<em><b>Package</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Belongs To Package</em>' reference.
-	 * @see #setBelongsToPackage(conml.types.Package)
-	 * @see conml.types.TypesPackage#getClass_BelongsToPackage()
-	 * @see conml.types.Package#getContainsClass
-	 * @model opposite="ContainsClass"
+	 * @return the value of the '<em>Package</em>' reference.
+	 * @see #setPackage(conml.types.Package)
+	 * @see conml.types.TypesPackage#getClass_Package()
+	 * @see conml.types.Package#getContainedClasses
+	 * @model opposite="ContainedClasses"
 	 * @generated
 	 */
-	conml.types.Package getBelongsToPackage();
+	conml.types.Package getPackage();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Class#getBelongsToPackage <em>Belongs To Package</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.types.Class#getPackage <em>Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Belongs To Package</em>' reference.
-	 * @see #getBelongsToPackage()
+	 * @param value the new value of the '<em>Package</em>' reference.
+	 * @see #getPackage()
 	 * @generated
 	 */
-	void setBelongsToPackage(conml.types.Package value);
+	void setPackage(conml.types.Package value);
 
 } // Class

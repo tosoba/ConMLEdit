@@ -2,6 +2,7 @@
  */
 package conml.instances;
 
+import conml.Language;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.FacetSet#getHasPhaseQualifier <em>Has Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getHasPerspectiveQualifier <em>Has Perspective Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getIsComposedOf <em>Is Composed Of</em>}</li>
+ *   <li>{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacetSet()
@@ -84,5 +86,17 @@ public interface FacetSet extends Instance {
 	 * @generated
 	 */
 	EList<Facet> getIsComposedOf();
+
+	/**
+	 * Returns the value of the '<em><b>Translation Qualifiers</b></em>' reference list.
+	 * The list contents are of type {@link conml.Language}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Translation Qualifiers</em>' reference list.
+	 * @see conml.instances.InstancesPackage#getFacetSet_TranslationQualifiers()
+	 * @model
+	 * @generated
+	 */
+	EList<Language> getTranslationQualifiers();
 
 } // FacetSet

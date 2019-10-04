@@ -4,6 +4,7 @@
  */
 package conml.instances.validation;
 
+import conml.Language;
 import conml.instances.Facet;
 
 import org.eclipse.emf.common.util.EList;
@@ -20,4 +21,6 @@ public interface FacetSetValidator {
 	boolean validateHasPhaseQualifier(conml.instances.Object value);
 	boolean validateHasPerspectiveQualifier(conml.instances.Object value);
 	boolean validateIsComposedOf(EList<Facet> value);
+
+	boolean validateTranslationQualifiers(EList<Language> value);
 }

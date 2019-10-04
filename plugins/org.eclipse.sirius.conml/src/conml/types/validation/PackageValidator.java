@@ -19,7 +19,11 @@ public interface PackageValidator {
 
 	boolean validateName(String value);
 	boolean validateDescription(String value);
-	boolean validateContainsClass(EList<conml.types.Class> value);
+	boolean validateContainedClasses(EList<conml.types.Class> value);
+
+  boolean validateContainsClass(EList<conml.types.Class> value);
+	boolean validateEnumeratedTypes(EList<EnumeratedType> value);
+
 	boolean validateContainsEnumeratedType(EList<EnumeratedType> value);
 	boolean validateIsOwnerOf(EList<conml.types.Package> value);
 	boolean validateIsSubPackageOf(conml.types.Package value);

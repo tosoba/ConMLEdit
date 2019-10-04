@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.EnumeratedType#getHasItems <em>Has Items</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getIsSpecializedBy <em>Is Specialized By</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getSpecializesFrom <em>Specializes From</em>}</li>
- *   <li>{@link conml.types.EnumeratedType#getBelongsToPackage <em>Belongs To Package</em>}</li>
+ *   <li>{@link conml.types.EnumeratedType#getPackage <em>Package</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getEnumeratedType()
@@ -92,27 +92,27 @@ public interface EnumeratedType extends DataType {
 	void setSpecializesFrom(EnumeratedType value);
 
 	/**
-	 * Returns the value of the '<em><b>Belongs To Package</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Package#getContainsEnumeratedType <em>Contains Enumerated Type</em>}'.
+	 * Returns the value of the '<em><b>Package</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Package#getEnumeratedTypes <em>Enumerated Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Belongs To Package</em>' reference.
-	 * @see #setBelongsToPackage(conml.types.Package)
-	 * @see conml.types.TypesPackage#getEnumeratedType_BelongsToPackage()
-	 * @see conml.types.Package#getContainsEnumeratedType
-	 * @model opposite="ContainsEnumeratedType"
+	 * @return the value of the '<em>Package</em>' reference.
+	 * @see #setPackage(conml.types.Package)
+	 * @see conml.types.TypesPackage#getEnumeratedType_Package()
+	 * @see conml.types.Package#getEnumeratedTypes
+	 * @model opposite="EnumeratedTypes"
 	 * @generated
 	 */
-	conml.types.Package getBelongsToPackage();
+	conml.types.Package getPackage();
 
 	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedType#getBelongsToPackage <em>Belongs To Package</em>}' reference.
+	 * Sets the value of the '{@link conml.types.EnumeratedType#getPackage <em>Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Belongs To Package</em>' reference.
-	 * @see #getBelongsToPackage()
+	 * @param value the new value of the '<em>Package</em>' reference.
+	 * @see #getPackage()
 	 * @generated
 	 */
-	void setBelongsToPackage(conml.types.Package value);
+	void setPackage(conml.types.Package value);
 
 } // EnumeratedType

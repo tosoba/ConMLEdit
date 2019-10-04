@@ -13,8 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.ModelElement#getIsTaggedWith <em>Is Tagged With</em>}</li>
- *   <li>{@link conml.ModelElement#getIsDocumentedBy <em>Is Documented By</em>}</li>
+ *   <li>{@link conml.ModelElement#getTaggedWith <em>Tagged With</em>}</li>
+ *   <li>{@link conml.ModelElement#getDocumentedBy <em>Documented By</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModelElement()
@@ -23,31 +23,27 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ModelElement extends ModelPart {
 	/**
-	 * Returns the value of the '<em><b>Is Tagged With</b></em>' reference list.
+	 * Returns the value of the '<em><b>Tagged With</b></em>' reference list.
 	 * The list contents are of type {@link conml.Tag}.
-	 * It is bidirectional and its opposite is '{@link conml.Tag#getAppliesTo <em>Applies To</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Tagged With</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_IsTaggedWith()
-	 * @see conml.Tag#getAppliesTo
-	 * @model opposite="AppliesTo"
+	 * @return the value of the '<em>Tagged With</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_TaggedWith()
+	 * @model
 	 * @generated
 	 */
-	EList<Tag> getIsTaggedWith();
+	EList<Tag> getTaggedWith();
 
 	/**
-	 * Returns the value of the '<em><b>Is Documented By</b></em>' reference list.
+	 * Returns the value of the '<em><b>Documented By</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getDocuments <em>Documents</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Documented By</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_IsDocumentedBy()
-	 * @see conml.instances.Object#getDocuments
-	 * @model opposite="Documents"
+	 * @return the value of the '<em>Documented By</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_DocumentedBy()
+	 * @model
 	 * @generated
 	 */
-	EList<conml.instances.Object> getIsDocumentedBy();
+	EList<conml.instances.Object> getDocumentedBy();
 
 } // ModelElement

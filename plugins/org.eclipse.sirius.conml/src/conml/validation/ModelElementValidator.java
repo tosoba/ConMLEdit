@@ -21,4 +21,8 @@ public interface ModelElementValidator {
 	boolean validateBelongsTo(Model value);
 	boolean validateIsTaggedWith(EList<Tag> value);
 	boolean validateIsDocumentedBy(EList<conml.instances.Object> value);
+
+	boolean validateTaggedWith(EList<Tag> value);
+
+	boolean validateDocumentedBy(EList<conml.instances.Object> value);
 }

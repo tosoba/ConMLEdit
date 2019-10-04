@@ -18,10 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.Model#getName <em>Name</em>}</li>
  *   <li>{@link conml.Model#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.Model#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.Model#getHasTags <em>Has Tags</em>}</li>
- *   <li>{@link conml.Model#getHasLanguages <em>Has Languages</em>}</li>
- *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.Model#getOwnsElements <em>Owns Elements</em>}</li>
+ *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
+ *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
+ *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModel()
@@ -98,43 +98,13 @@ public interface Model extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Has Tags</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.Tag}.
-	 * It is bidirectional and its opposite is '{@link conml.Tag#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Tags</em>' containment reference list.
-	 * @see conml.conmlPackage#getModel_HasTags()
-	 * @see conml.Tag#getBelongsTo
-	 * @model opposite="BelongsTo" containment="true"
-	 * @generated
-	 */
-	EList<Tag> getHasTags();
-
-	/**
-	 * Returns the value of the '<em><b>Has Languages</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.Language}.
-	 * It is bidirectional and its opposite is '{@link conml.Language#getBelongsTo <em>Belongs To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Languages</em>' containment reference list.
-	 * @see conml.conmlPackage#getModel_HasLanguages()
-	 * @see conml.Language#getBelongsTo
-	 * @model opposite="BelongsTo" containment="true"
-	 * @generated
-	 */
-	EList<Language> getHasLanguages();
-
-	/**
 	 * Returns the value of the '<em><b>Default Language</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.Language#getIsDefaultIn <em>Is Default In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Default Language</em>' reference.
 	 * @see #setDefaultLanguage(Language)
 	 * @see conml.conmlPackage#getModel_DefaultLanguage()
-	 * @see conml.Language#getIsDefaultIn
-	 * @model opposite="isDefaultIn" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Language getDefaultLanguage();
@@ -150,6 +120,18 @@ public interface Model extends EObject {
 	void setDefaultLanguage(Language value);
 
 	/**
+	 * Returns the value of the '<em><b>Tags</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.Tag}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Tags</em>' containment reference list.
+	 * @see conml.conmlPackage#getModel_Tags()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Tag> getTags();
+
+	/**
 	 * Returns the value of the '<em><b>Owns Elements</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.ModelElement}.
 	 * <!-- begin-user-doc -->
@@ -160,5 +142,17 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	EList<ModelElement> getOwnsElements();
+
+	/**
+	 * Returns the value of the '<em><b>Languages</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.Language}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Languages</em>' containment reference list.
+	 * @see conml.conmlPackage#getModel_Languages()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Language> getLanguages();
 
 } // Model

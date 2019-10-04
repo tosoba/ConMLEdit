@@ -64,6 +64,9 @@ public class AssociationServices {
 		source.getIsOppositeClassIn().add(secondary);
 		association.setHasSecondary(secondary);
 
+		primary.setInverse(secondary);
+		secondary.setInverse(primary);
+
 		source.getOwnsSemiassociations().add(primary);
 		target.getOwnsSemiassociations().add(secondary);
 
@@ -127,6 +130,9 @@ public class AssociationServices {
 		secondary.setRefersTo(source);
 		source.getIsOppositeClassIn().add(secondary);
 		association.setHasSecondary(secondary);
+
+		primary.setInverse(secondary);
+		secondary.setInverse(primary);
 
 		source.getOwnsSemiassociations().add(primary);
 		target.getOwnsSemiassociations().add(secondary);

@@ -34,12 +34,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.TypeModelImpl#getConformedBy <em>Conformed By</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getExtends <em>Extends</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getIsBaseOf <em>Is Base Of</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getIsParticularIn <em>Is Particular In</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getHasParticular <em>Has Particular</em>}</li>
+ *   <li>{@link conml.types.impl.TypeModelImpl#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
+ *   <li>{@link conml.types.impl.TypeModelImpl#getTemporalAspect <em>Temporal Aspect</em>}</li>
  * </ul>
  *
  * @generated
@@ -54,26 +54,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	 * @ordered
 	 */
 	protected InstanceModel conformedBy;
-
-	/**
-	 * The cached value of the '{@link #getHasTemporalAspectOf() <em>Has Temporal Aspect Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasTemporalAspectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.types.Class hasTemporalAspectOf;
-
-	/**
-	 * The cached value of the '{@link #getHasSubjectiveAspectOf() <em>Has Subjective Aspect Of</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasSubjectiveAspectOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.types.Class hasSubjectiveAspectOf;
 
 	/**
 	 * The cached value of the '{@link #getExtends() <em>Extends</em>}' reference.
@@ -116,6 +96,26 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	protected EList<TypeModel> hasParticular;
 
 	/**
+	 * The cached value of the '{@link #getSubjectiveAspect() <em>Subjective Aspect</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSubjectiveAspect()
+	 * @generated
+	 * @ordered
+	 */
+	protected conml.types.Class subjectiveAspect;
+
+  /**
+	 * The cached value of the '{@link #getTemporalAspect() <em>Temporal Aspect</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTemporalAspect()
+	 * @generated
+	 * @ordered
+	 */
+	protected conml.types.Class temporalAspect;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -194,130 +194,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__CONFORMED_BY, newConformedBy, newConformedBy));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.types.Class getHasTemporalAspectOf() {
-		if (hasTemporalAspectOf != null && hasTemporalAspectOf.eIsProxy()) {
-			InternalEObject oldHasTemporalAspectOf = (InternalEObject)hasTemporalAspectOf;
-			hasTemporalAspectOf = (conml.types.Class)eResolveProxy(oldHasTemporalAspectOf);
-			if (hasTemporalAspectOf != oldHasTemporalAspectOf) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF, oldHasTemporalAspectOf, hasTemporalAspectOf));
-			}
-		}
-		return hasTemporalAspectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public conml.types.Class basicGetHasTemporalAspectOf() {
-		return hasTemporalAspectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHasTemporalAspectOf(conml.types.Class newHasTemporalAspectOf, NotificationChain msgs) {
-		conml.types.Class oldHasTemporalAspectOf = hasTemporalAspectOf;
-		hasTemporalAspectOf = newHasTemporalAspectOf;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF, oldHasTemporalAspectOf, newHasTemporalAspectOf);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHasTemporalAspectOf(conml.types.Class newHasTemporalAspectOf) {
-		if (newHasTemporalAspectOf != hasTemporalAspectOf) {
-			NotificationChain msgs = null;
-			if (hasTemporalAspectOf != null)
-				msgs = ((InternalEObject)hasTemporalAspectOf).eInverseRemove(this, TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF, conml.types.Class.class, msgs);
-			if (newHasTemporalAspectOf != null)
-				msgs = ((InternalEObject)newHasTemporalAspectOf).eInverseAdd(this, TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF, conml.types.Class.class, msgs);
-			msgs = basicSetHasTemporalAspectOf(newHasTemporalAspectOf, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF, newHasTemporalAspectOf, newHasTemporalAspectOf));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.types.Class getHasSubjectiveAspectOf() {
-		if (hasSubjectiveAspectOf != null && hasSubjectiveAspectOf.eIsProxy()) {
-			InternalEObject oldHasSubjectiveAspectOf = (InternalEObject)hasSubjectiveAspectOf;
-			hasSubjectiveAspectOf = (conml.types.Class)eResolveProxy(oldHasSubjectiveAspectOf);
-			if (hasSubjectiveAspectOf != oldHasSubjectiveAspectOf) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF, oldHasSubjectiveAspectOf, hasSubjectiveAspectOf));
-			}
-		}
-		return hasSubjectiveAspectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public conml.types.Class basicGetHasSubjectiveAspectOf() {
-		return hasSubjectiveAspectOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetHasSubjectiveAspectOf(conml.types.Class newHasSubjectiveAspectOf, NotificationChain msgs) {
-		conml.types.Class oldHasSubjectiveAspectOf = hasSubjectiveAspectOf;
-		hasSubjectiveAspectOf = newHasSubjectiveAspectOf;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF, oldHasSubjectiveAspectOf, newHasSubjectiveAspectOf);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setHasSubjectiveAspectOf(conml.types.Class newHasSubjectiveAspectOf) {
-		if (newHasSubjectiveAspectOf != hasSubjectiveAspectOf) {
-			NotificationChain msgs = null;
-			if (hasSubjectiveAspectOf != null)
-				msgs = ((InternalEObject)hasSubjectiveAspectOf).eInverseRemove(this, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF, conml.types.Class.class, msgs);
-			if (newHasSubjectiveAspectOf != null)
-				msgs = ((InternalEObject)newHasSubjectiveAspectOf).eInverseAdd(this, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF, conml.types.Class.class, msgs);
-			msgs = basicSetHasSubjectiveAspectOf(newHasSubjectiveAspectOf, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF, newHasSubjectiveAspectOf, newHasSubjectiveAspectOf));
 	}
 
 	/**
@@ -475,6 +351,86 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public conml.types.Class getSubjectiveAspect() {
+		if (subjectiveAspect != null && subjectiveAspect.eIsProxy()) {
+			InternalEObject oldSubjectiveAspect = (InternalEObject)subjectiveAspect;
+			subjectiveAspect = (conml.types.Class)eResolveProxy(oldSubjectiveAspect);
+			if (subjectiveAspect != oldSubjectiveAspect) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT, oldSubjectiveAspect, subjectiveAspect));
+			}
+		}
+		return subjectiveAspect;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public conml.types.Class basicGetSubjectiveAspect() {
+		return subjectiveAspect;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSubjectiveAspect(conml.types.Class newSubjectiveAspect) {
+		conml.types.Class oldSubjectiveAspect = subjectiveAspect;
+		subjectiveAspect = newSubjectiveAspect;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT, oldSubjectiveAspect, subjectiveAspect));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public conml.types.Class getTemporalAspect() {
+		if (temporalAspect != null && temporalAspect.eIsProxy()) {
+			InternalEObject oldTemporalAspect = (InternalEObject)temporalAspect;
+			temporalAspect = (conml.types.Class)eResolveProxy(oldTemporalAspect);
+			if (temporalAspect != oldTemporalAspect) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT, oldTemporalAspect, temporalAspect));
+			}
+		}
+		return temporalAspect;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public conml.types.Class basicGetTemporalAspect() {
+		return temporalAspect;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setTemporalAspect(conml.types.Class newTemporalAspect) {
+		conml.types.Class oldTemporalAspect = temporalAspect;
+		temporalAspect = newTemporalAspect;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT, oldTemporalAspect, temporalAspect));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -483,14 +439,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				if (conformedBy != null)
 					msgs = ((InternalEObject)conformedBy).eInverseRemove(this, InstancesPackage.INSTANCE_MODEL__CONFORMS_TO, InstanceModel.class, msgs);
 				return basicSetConformedBy((InstanceModel)otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				if (hasTemporalAspectOf != null)
-					msgs = ((InternalEObject)hasTemporalAspectOf).eInverseRemove(this, TypesPackage.CLASS__IS_TEMPORAL_ASPECT_OF, conml.types.Class.class, msgs);
-				return basicSetHasTemporalAspectOf((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				if (hasSubjectiveAspectOf != null)
-					msgs = ((InternalEObject)hasSubjectiveAspectOf).eInverseRemove(this, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT_OF, conml.types.Class.class, msgs);
-				return basicSetHasSubjectiveAspectOf((conml.types.Class)otherEnd, msgs);
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				if (extends_ != null)
 					msgs = ((InternalEObject)extends_).eInverseRemove(this, TypesPackage.TYPE_MODEL__IS_BASE_OF, TypeModel.class, msgs);
@@ -517,10 +465,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 		switch (featureID) {
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				return basicSetConformedBy(null, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				return basicSetHasTemporalAspectOf(null, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				return basicSetHasSubjectiveAspectOf(null, msgs);
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				return basicSetExtends(null, msgs);
 			case TypesPackage.TYPE_MODEL__IS_BASE_OF:
@@ -544,12 +488,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				if (resolve) return getConformedBy();
 				return basicGetConformedBy();
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				if (resolve) return getHasTemporalAspectOf();
-				return basicGetHasTemporalAspectOf();
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				if (resolve) return getHasSubjectiveAspectOf();
-				return basicGetHasSubjectiveAspectOf();
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				if (resolve) return getExtends();
 				return basicGetExtends();
@@ -560,6 +498,12 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return basicGetIsParticularIn();
 			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR:
 				return getHasParticular();
+			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
+				if (resolve) return getSubjectiveAspect();
+				return basicGetSubjectiveAspect();
+			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
+				if (resolve) return getTemporalAspect();
+				return basicGetTemporalAspect();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -576,12 +520,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				setConformedBy((InstanceModel)newValue);
 				return;
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				setHasTemporalAspectOf((conml.types.Class)newValue);
-				return;
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				setHasSubjectiveAspectOf((conml.types.Class)newValue);
-				return;
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				setExtends((TypeModel)newValue);
 				return;
@@ -595,6 +533,12 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR:
 				getHasParticular().clear();
 				getHasParticular().addAll((Collection<? extends TypeModel>)newValue);
+				return;
+			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
+				setSubjectiveAspect((conml.types.Class)newValue);
+				return;
+			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
+				setTemporalAspect((conml.types.Class)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -611,12 +555,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				setConformedBy((InstanceModel)null);
 				return;
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				setHasTemporalAspectOf((conml.types.Class)null);
-				return;
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				setHasSubjectiveAspectOf((conml.types.Class)null);
-				return;
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				setExtends((TypeModel)null);
 				return;
@@ -628,6 +566,12 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return;
 			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR:
 				getHasParticular().clear();
+				return;
+			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
+				setSubjectiveAspect((conml.types.Class)null);
+				return;
+			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
+				setTemporalAspect((conml.types.Class)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -643,10 +587,6 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 		switch (featureID) {
 			case TypesPackage.TYPE_MODEL__CONFORMED_BY:
 				return conformedBy != null;
-			case TypesPackage.TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF:
-				return hasTemporalAspectOf != null;
-			case TypesPackage.TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF:
-				return hasSubjectiveAspectOf != null;
 			case TypesPackage.TYPE_MODEL__EXTENDS:
 				return extends_ != null;
 			case TypesPackage.TYPE_MODEL__IS_BASE_OF:
@@ -655,6 +595,10 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return isParticularIn != null;
 			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR:
 				return hasParticular != null && !hasParticular.isEmpty();
+			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
+				return subjectiveAspect != null;
+			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
+				return temporalAspect != null;
 		}
 		return super.eIsSet(featureID);
 	}

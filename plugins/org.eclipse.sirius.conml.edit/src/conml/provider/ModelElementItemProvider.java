@@ -42,26 +42,26 @@ public class ModelElementItemProvider extends ModelPartItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsTaggedWithPropertyDescriptor(object);
-			addIsDocumentedByPropertyDescriptor(object);
+			addTaggedWithPropertyDescriptor(object);
+			addDocumentedByPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Tagged With feature.
+	 * This adds a property descriptor for the Tagged With feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTaggedWithPropertyDescriptor(Object object) {
+	protected void addTaggedWithPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModelElement_IsTaggedWith_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_IsTaggedWith_feature", "_UI_ModelElement_type"),
-				 conmlPackage.Literals.MODEL_ELEMENT__IS_TAGGED_WITH,
+				 getString("_UI_ModelElement_TaggedWith_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_TaggedWith_feature", "_UI_ModelElement_type"),
+				 conmlPackage.Literals.MODEL_ELEMENT__TAGGED_WITH,
 				 true,
 				 false,
 				 true,
@@ -71,19 +71,19 @@ public class ModelElementItemProvider extends ModelPartItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Documented By feature.
+	 * This adds a property descriptor for the Documented By feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsDocumentedByPropertyDescriptor(Object object) {
+	protected void addDocumentedByPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModelElement_IsDocumentedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_IsDocumentedBy_feature", "_UI_ModelElement_type"),
-				 conmlPackage.Literals.MODEL_ELEMENT__IS_DOCUMENTED_BY,
+				 getString("_UI_ModelElement_DocumentedBy_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_DocumentedBy_feature", "_UI_ModelElement_type"),
+				 conmlPackage.Literals.MODEL_ELEMENT__DOCUMENTED_BY,
 				 true,
 				 false,
 				 true,

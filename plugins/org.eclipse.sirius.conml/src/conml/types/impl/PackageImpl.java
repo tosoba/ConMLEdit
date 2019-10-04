@@ -32,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.types.impl.PackageImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.types.impl.PackageImpl#getContainsClass <em>Contains Class</em>}</li>
- *   <li>{@link conml.types.impl.PackageImpl#getContainsEnumeratedType <em>Contains Enumerated Type</em>}</li>
+ *   <li>{@link conml.types.impl.PackageImpl#getContainedClasses <em>Contained Classes</em>}</li>
+ *   <li>{@link conml.types.impl.PackageImpl#getEnumeratedTypes <em>Enumerated Types</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getIsOwnerOf <em>Is Owner Of</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getIsSubPackageOf <em>Is Sub Package Of</em>}</li>
  * </ul>
@@ -82,24 +82,24 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getContainsClass() <em>Contains Class</em>}' reference list.
+	 * The cached value of the '{@link #getContainedClasses() <em>Contained Classes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContainsClass()
+	 * @see #getContainedClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.types.Class> containsClass;
+	protected EList<conml.types.Class> containedClasses;
 
-	/**
-	 * The cached value of the '{@link #getContainsEnumeratedType() <em>Contains Enumerated Type</em>}' reference list.
+  /**
+	 * The cached value of the '{@link #getEnumeratedTypes() <em>Enumerated Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getContainsEnumeratedType()
+	 * @see #getEnumeratedTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EnumeratedType> containsEnumeratedType;
+	protected EList<EnumeratedType> enumeratedTypes;
 
 	/**
 	 * The cached value of the '{@link #getIsOwnerOf() <em>Is Owner Of</em>}' containment reference list.
@@ -182,24 +182,24 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	 * @generated
 	 */
 	@Override
-	public EList<conml.types.Class> getContainsClass() {
-		if (containsClass == null) {
-			containsClass = new EObjectWithInverseResolvingEList<conml.types.Class>(conml.types.Class.class, this, TypesPackage.PACKAGE__CONTAINS_CLASS, TypesPackage.CLASS__BELONGS_TO_PACKAGE);
+	public EList<conml.types.Class> getContainedClasses() {
+		if (containedClasses == null) {
+			containedClasses = new EObjectWithInverseResolvingEList<conml.types.Class>(conml.types.Class.class, this, TypesPackage.PACKAGE__CONTAINED_CLASSES, TypesPackage.CLASS__PACKAGE);
 		}
-		return containsClass;
+		return containedClasses;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EList<EnumeratedType> getContainsEnumeratedType() {
-		if (containsEnumeratedType == null) {
-			containsEnumeratedType = new EObjectWithInverseResolvingEList<EnumeratedType>(EnumeratedType.class, this, TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE, TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE);
+	public EList<EnumeratedType> getEnumeratedTypes() {
+		if (enumeratedTypes == null) {
+			enumeratedTypes = new EObjectWithInverseResolvingEList<EnumeratedType>(EnumeratedType.class, this, TypesPackage.PACKAGE__ENUMERATED_TYPES, TypesPackage.ENUMERATED_TYPE__PACKAGE);
 		}
-		return containsEnumeratedType;
+		return enumeratedTypes;
 	}
 
 	/**
@@ -267,10 +267,10 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainsClass()).basicAdd(otherEnd, msgs);
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainsEnumeratedType()).basicAdd(otherEnd, msgs);
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainedClasses()).basicAdd(otherEnd, msgs);
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumeratedTypes()).basicAdd(otherEnd, msgs);
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOwnerOf()).basicAdd(otherEnd, msgs);
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
@@ -289,10 +289,10 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				return ((InternalEList<?>)getContainsClass()).basicRemove(otherEnd, msgs);
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				return ((InternalEList<?>)getContainsEnumeratedType()).basicRemove(otherEnd, msgs);
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				return ((InternalEList<?>)getContainedClasses()).basicRemove(otherEnd, msgs);
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				return ((InternalEList<?>)getEnumeratedTypes()).basicRemove(otherEnd, msgs);
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				return ((InternalEList<?>)getIsOwnerOf()).basicRemove(otherEnd, msgs);
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
@@ -327,10 +327,10 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return getName();
 			case TypesPackage.PACKAGE__DESCRIPTION:
 				return getDescription();
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				return getContainsClass();
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				return getContainsEnumeratedType();
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				return getContainedClasses();
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				return getEnumeratedTypes();
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				return getIsOwnerOf();
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
@@ -354,13 +354,13 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 			case TypesPackage.PACKAGE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				getContainsClass().clear();
-				getContainsClass().addAll((Collection<? extends conml.types.Class>)newValue);
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				getContainedClasses().clear();
+				getContainedClasses().addAll((Collection<? extends conml.types.Class>)newValue);
 				return;
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				getContainsEnumeratedType().clear();
-				getContainsEnumeratedType().addAll((Collection<? extends EnumeratedType>)newValue);
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				getEnumeratedTypes().clear();
+				getEnumeratedTypes().addAll((Collection<? extends EnumeratedType>)newValue);
 				return;
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				getIsOwnerOf().clear();
@@ -387,11 +387,11 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 			case TypesPackage.PACKAGE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				getContainsClass().clear();
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				getContainedClasses().clear();
 				return;
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				getContainsEnumeratedType().clear();
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				getEnumeratedTypes().clear();
 				return;
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				getIsOwnerOf().clear();
@@ -415,10 +415,10 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case TypesPackage.PACKAGE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case TypesPackage.PACKAGE__CONTAINS_CLASS:
-				return containsClass != null && !containsClass.isEmpty();
-			case TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE:
-				return containsEnumeratedType != null && !containsEnumeratedType.isEmpty();
+			case TypesPackage.PACKAGE__CONTAINED_CLASSES:
+				return containedClasses != null && !containedClasses.isEmpty();
+			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
+				return enumeratedTypes != null && !enumeratedTypes.isEmpty();
 			case TypesPackage.PACKAGE__IS_OWNER_OF:
 				return isOwnerOf != null && !isOwnerOf.isEmpty();
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:

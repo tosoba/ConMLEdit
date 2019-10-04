@@ -2,9 +2,6 @@
  */
 package conml.instances.impl;
 
-import conml.ModelElement;
-import conml.conmlPackage;
-
 import conml.instances.DegreeOfCertainty;
 import conml.instances.FacetSet;
 import conml.instances.InstancesPackage;
@@ -39,7 +36,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getDocuments <em>Documents</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsInstanceOf <em>Is Instance Of</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
@@ -94,16 +90,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @ordered
 	 */
 	protected DegreeOfCertainty certainty = CERTAINTY_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getDocuments() <em>Documents</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDocuments()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModelElement> documents;
 
 	/**
 	 * The cached value of the '{@link #getIsInstanceOf() <em>Is Instance Of</em>}' reference.
@@ -268,19 +254,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 		certainty = newCertainty == null ? CERTAINTY_EDEFAULT : newCertainty;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__CERTAINTY, oldCertainty, certainty));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<ModelElement> getDocuments() {
-		if (documents == null) {
-			documents = new EObjectWithInverseResolvingEList.ManyInverse<ModelElement>(ModelElement.class, this, InstancesPackage.OBJECT__DOCUMENTS, conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY);
-		}
-		return documents;
 	}
 
 	/**
@@ -569,8 +542,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDocuments()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				if (isInstanceOf != null)
 					msgs = ((InternalEObject)isInstanceOf).eInverseRemove(this, TypesPackage.CLASS__INSTANCED_BY, conml.types.Class.class, msgs);
@@ -609,8 +580,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				return ((InternalEList<?>)getDocuments()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				return basicSetIsInstanceOf(null, msgs);
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
@@ -647,8 +616,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return getIdentifier();
 			case InstancesPackage.OBJECT__CERTAINTY:
 				return getCertainty();
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				return getDocuments();
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				if (resolve) return getIsInstanceOf();
 				return basicGetIsInstanceOf();
@@ -690,10 +657,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return;
 			case InstancesPackage.OBJECT__CERTAINTY:
 				setCertainty((DegreeOfCertainty)newValue);
-				return;
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				getDocuments().clear();
-				getDocuments().addAll((Collection<? extends ModelElement>)newValue);
 				return;
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				setIsInstanceOf((conml.types.Class)newValue);
@@ -750,9 +713,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__CERTAINTY:
 				setCertainty(CERTAINTY_EDEFAULT);
 				return;
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				getDocuments().clear();
-				return;
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				setIsInstanceOf((conml.types.Class)null);
 				return;
@@ -799,8 +759,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case InstancesPackage.OBJECT__CERTAINTY:
 				return certainty != CERTAINTY_EDEFAULT;
-			case InstancesPackage.OBJECT__DOCUMENTS:
-				return documents != null && !documents.isEmpty();
 			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
 				return isInstanceOf != null;
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:

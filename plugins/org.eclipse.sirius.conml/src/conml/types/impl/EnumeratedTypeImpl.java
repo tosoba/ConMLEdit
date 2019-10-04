@@ -33,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getHasItems <em>Has Items</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getIsSpecializedBy <em>Is Specialized By</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSpecializesFrom <em>Specializes From</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getBelongsToPackage <em>Belongs To Package</em>}</li>
+ *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getPackage <em>Package</em>}</li>
  * </ul>
  *
  * @generated
@@ -80,14 +80,14 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	protected EnumeratedType specializesFrom;
 
 	/**
-	 * The cached value of the '{@link #getBelongsToPackage() <em>Belongs To Package</em>}' reference.
+	 * The cached value of the '{@link #getPackage() <em>Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBelongsToPackage()
+	 * @see #getPackage()
 	 * @generated
 	 * @ordered
 	 */
-	protected conml.types.Package belongsToPackage;
+	protected conml.types.Package package_;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -215,16 +215,16 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @generated
 	 */
 	@Override
-	public conml.types.Package getBelongsToPackage() {
-		if (belongsToPackage != null && belongsToPackage.eIsProxy()) {
-			InternalEObject oldBelongsToPackage = (InternalEObject)belongsToPackage;
-			belongsToPackage = (conml.types.Package)eResolveProxy(oldBelongsToPackage);
-			if (belongsToPackage != oldBelongsToPackage) {
+	public conml.types.Package getPackage() {
+		if (package_ != null && package_.eIsProxy()) {
+			InternalEObject oldPackage = (InternalEObject)package_;
+			package_ = (conml.types.Package)eResolveProxy(oldPackage);
+			if (package_ != oldPackage) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE, oldBelongsToPackage, belongsToPackage));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_TYPE__PACKAGE, oldPackage, package_));
 			}
 		}
-		return belongsToPackage;
+		return package_;
 	}
 
 	/**
@@ -232,8 +232,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.types.Package basicGetBelongsToPackage() {
-		return belongsToPackage;
+	public conml.types.Package basicGetPackage() {
+		return package_;
 	}
 
 	/**
@@ -241,11 +241,11 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetBelongsToPackage(conml.types.Package newBelongsToPackage, NotificationChain msgs) {
-		conml.types.Package oldBelongsToPackage = belongsToPackage;
-		belongsToPackage = newBelongsToPackage;
+	public NotificationChain basicSetPackage(conml.types.Package newPackage, NotificationChain msgs) {
+		conml.types.Package oldPackage = package_;
+		package_ = newPackage;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE, oldBelongsToPackage, newBelongsToPackage);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__PACKAGE, oldPackage, newPackage);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -257,18 +257,18 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @generated
 	 */
 	@Override
-	public void setBelongsToPackage(conml.types.Package newBelongsToPackage) {
-		if (newBelongsToPackage != belongsToPackage) {
+	public void setPackage(conml.types.Package newPackage) {
+		if (newPackage != package_) {
 			NotificationChain msgs = null;
-			if (belongsToPackage != null)
-				msgs = ((InternalEObject)belongsToPackage).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE, conml.types.Package.class, msgs);
-			if (newBelongsToPackage != null)
-				msgs = ((InternalEObject)newBelongsToPackage).eInverseAdd(this, TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE, conml.types.Package.class, msgs);
-			msgs = basicSetBelongsToPackage(newBelongsToPackage, msgs);
+			if (package_ != null)
+				msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__ENUMERATED_TYPES, conml.types.Package.class, msgs);
+			if (newPackage != null)
+				msgs = ((InternalEObject)newPackage).eInverseAdd(this, TypesPackage.PACKAGE__ENUMERATED_TYPES, conml.types.Package.class, msgs);
+			msgs = basicSetPackage(newPackage, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE, newBelongsToPackage, newBelongsToPackage));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__PACKAGE, newPackage, newPackage));
 	}
 
 	/**
@@ -290,10 +290,10 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 				if (specializesFrom != null)
 					msgs = ((InternalEObject)specializesFrom).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY, EnumeratedType.class, msgs);
 				return basicSetSpecializesFrom((EnumeratedType)otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				if (belongsToPackage != null)
-					msgs = ((InternalEObject)belongsToPackage).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINS_ENUMERATED_TYPE, conml.types.Package.class, msgs);
-				return basicSetBelongsToPackage((conml.types.Package)otherEnd, msgs);
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				if (package_ != null)
+					msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__ENUMERATED_TYPES, conml.types.Package.class, msgs);
+				return basicSetPackage((conml.types.Package)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -314,8 +314,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 				return ((InternalEList<?>)getIsSpecializedBy()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
 				return basicSetSpecializesFrom(null, msgs);
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				return basicSetBelongsToPackage(null, msgs);
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				return basicSetPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -337,9 +337,9 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
 				if (resolve) return getSpecializesFrom();
 				return basicGetSpecializesFrom();
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				if (resolve) return getBelongsToPackage();
-				return basicGetBelongsToPackage();
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				if (resolve) return getPackage();
+				return basicGetPackage();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -368,8 +368,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
 				setSpecializesFrom((EnumeratedType)newValue);
 				return;
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				setBelongsToPackage((conml.types.Package)newValue);
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				setPackage((conml.types.Package)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -395,8 +395,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
 				setSpecializesFrom((EnumeratedType)null);
 				return;
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				setBelongsToPackage((conml.types.Package)null);
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				setPackage((conml.types.Package)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -418,8 +418,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 				return isSpecializedBy != null && !isSpecializedBy.isEmpty();
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
 				return specializesFrom != null;
-			case TypesPackage.ENUMERATED_TYPE__BELONGS_TO_PACKAGE:
-				return belongsToPackage != null;
+			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
+				return package_ != null;
 		}
 		return super.eIsSet(featureID);
 	}

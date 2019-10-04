@@ -97,22 +97,22 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Has Tags</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__HAS_TAGS = conmlPackage.MODEL__HAS_TAGS;
+	int TYPE_MODEL__OWNS_ELEMENTS = conmlPackage.MODEL__OWNS_ELEMENTS;
 
 	/**
-	 * The feature id for the '<em><b>Has Languages</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__HAS_LANGUAGES = conmlPackage.MODEL__HAS_LANGUAGES;
+	int TYPE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -124,13 +124,13 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__DEFAULT_LANGUAGE = conmlPackage.MODEL__DEFAULT_LANGUAGE;
 
 	/**
-	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__OWNS_ELEMENTS = conmlPackage.MODEL__OWNS_ELEMENTS;
+	int TYPE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
 	 * The feature id for the '<em><b>Conformed By</b></em>' reference.
@@ -142,31 +142,13 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__CONFORMED_BY = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Has Temporal Aspect Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF = conmlPackage.MODEL_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Has Subjective Aspect Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF = conmlPackage.MODEL_FEATURE_COUNT + 2;
-
-	/**
 	 * The feature id for the '<em><b>Extends</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__EXTENDS = conmlPackage.MODEL_FEATURE_COUNT + 3;
+	int TYPE_MODEL__EXTENDS = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Is Base Of</b></em>' reference list.
@@ -175,7 +157,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__IS_BASE_OF = conmlPackage.MODEL_FEATURE_COUNT + 4;
+	int TYPE_MODEL__IS_BASE_OF = conmlPackage.MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Is Particular In</b></em>' reference.
@@ -184,7 +166,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__IS_PARTICULAR_IN = conmlPackage.MODEL_FEATURE_COUNT + 5;
+	int TYPE_MODEL__IS_PARTICULAR_IN = conmlPackage.MODEL_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Has Particular</b></em>' reference list.
@@ -193,9 +175,27 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__HAS_PARTICULAR = conmlPackage.MODEL_FEATURE_COUNT + 6;
+	int TYPE_MODEL__HAS_PARTICULAR = conmlPackage.MODEL_FEATURE_COUNT + 4;
 
 	/**
+	 * The feature id for the '<em><b>Subjective Aspect</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_MODEL__SUBJECTIVE_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 5;
+
+  /**
+	 * The feature id for the '<em><b>Temporal Aspect</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 6;
+
+    /**
 	 * The number of structural features of the '<em>Type Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,22 +224,22 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL_ELEMENT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT__IS_TAGGED_WITH = conmlPackage.MODEL_ELEMENT__IS_TAGGED_WITH;
+	int TYPE_MODEL_ELEMENT__TAGGED_WITH = conmlPackage.MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT__IS_DOCUMENTED_BY = conmlPackage.MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int TYPE_MODEL_ELEMENT__DOCUMENTED_BY = conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The number of structural features of the '<em>Type Model Element</em>' class.
@@ -270,22 +270,22 @@ public interface TypesPackage extends EPackage {
 	int TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__IS_TAGGED_WITH = TYPE_MODEL_ELEMENT__IS_TAGGED_WITH;
+	int TYPE__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__IS_DOCUMENTED_BY = TYPE_MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int TYPE__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -334,22 +334,22 @@ public interface TypesPackage extends EPackage {
 	int CLASS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_TAGGED_WITH = TYPE__IS_TAGGED_WITH;
+	int CLASS__TAGGED_WITH = TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_DOCUMENTED_BY = TYPE__IS_DOCUMENTED_BY;
+	int CLASS__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -397,31 +397,13 @@ public interface TypesPackage extends EPackage {
 	int CLASS__IS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal Aspect Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__IS_TEMPORAL_ASPECT_OF = TYPE_FEATURE_COUNT + 3;
-
-	/**
-	 * The feature id for the '<em><b>Is Subjective Aspect Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__IS_SUBJECTIVE_ASPECT_OF = TYPE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Generalization</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__GENERALIZATION = TYPE_FEATURE_COUNT + 5;
+	int CLASS__GENERALIZATION = TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Specialization</b></em>' reference.
@@ -430,7 +412,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__SPECIALIZATION = TYPE_FEATURE_COUNT + 6;
+	int CLASS__SPECIALIZATION = TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Dominant Generalization</b></em>' reference.
@@ -439,7 +421,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 7;
+	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Owns Semiassociations</b></em>' containment reference list.
@@ -448,7 +430,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 8;
+	int CLASS__OWNS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Is Opposite Class In</b></em>' reference list.
@@ -457,7 +439,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_OPPOSITE_CLASS_IN = TYPE_FEATURE_COUNT + 9;
+	int CLASS__IS_OPPOSITE_CLASS_IN = TYPE_FEATURE_COUNT + 7;
 
 	/**
 	 * The feature id for the '<em><b>Instanced By</b></em>' reference list.
@@ -466,25 +448,25 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__INSTANCED_BY = TYPE_FEATURE_COUNT + 10;
+	int CLASS__INSTANCED_BY = TYPE_FEATURE_COUNT + 8;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To Package</b></em>' reference.
+	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__BELONGS_TO_PACKAGE = TYPE_FEATURE_COUNT + 11;
+	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 9;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Owns Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_PROPERTIES = TYPE_FEATURE_COUNT + 12;
+	int CLASS__OWNS_PROPERTIES = TYPE_FEATURE_COUNT + 10;
 
 	/**
 	 * The feature id for the '<em><b>Owns Attributes</b></em>' containment reference list.
@@ -493,7 +475,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_ATTRIBUTES = TYPE_FEATURE_COUNT + 13;
+	int CLASS__OWNS_ATTRIBUTES = TYPE_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -502,7 +484,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 14;
+	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -524,22 +506,22 @@ public interface TypesPackage extends EPackage {
 	int GENERALIZATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__IS_TAGGED_WITH = TYPE_MODEL_ELEMENT__IS_TAGGED_WITH;
+	int GENERALIZATION__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__IS_DOCUMENTED_BY = TYPE_MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int GENERALIZATION__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Discriminant</b></em>' attribute.
@@ -606,22 +588,22 @@ public interface TypesPackage extends EPackage {
 	int FEATURE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_TAGGED_WITH = TYPE__IS_TAGGED_WITH;
+	int FEATURE__TAGGED_WITH = TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_DOCUMENTED_BY = TYPE__IS_DOCUMENTED_BY;
+	int FEATURE__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -742,22 +724,22 @@ public interface TypesPackage extends EPackage {
 	int DATA_TYPE = 13;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__IS_TAGGED_WITH = TYPE__IS_TAGGED_WITH;
+	int DATA_TYPE__TAGGED_WITH = TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__IS_DOCUMENTED_BY = TYPE__IS_DOCUMENTED_BY;
+	int DATA_TYPE__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -815,22 +797,22 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__IS_TAGGED_WITH = DATA_TYPE__IS_TAGGED_WITH;
+	int ENUMERATED_TYPE__TAGGED_WITH = DATA_TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__IS_DOCUMENTED_BY = DATA_TYPE__IS_DOCUMENTED_BY;
+	int ENUMERATED_TYPE__DOCUMENTED_BY = DATA_TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -896,13 +878,13 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__SPECIALIZES_FROM = DATA_TYPE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Belongs To Package</b></em>' reference.
+	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__BELONGS_TO_PACKAGE = DATA_TYPE_FEATURE_COUNT + 4;
+	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated Type</em>' class.
@@ -933,22 +915,22 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__IS_TAGGED_WITH = TYPE__IS_TAGGED_WITH;
+	int ASSOCIATION__TAGGED_WITH = TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__IS_DOCUMENTED_BY = TYPE__IS_DOCUMENTED_BY;
+	int ASSOCIATION__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1033,22 +1015,22 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_TAGGED_WITH = TYPE_MODEL_ELEMENT__IS_TAGGED_WITH;
+	int PACKAGE__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_DOCUMENTED_BY = TYPE_MODEL_ELEMENT__IS_DOCUMENTED_BY;
+	int PACKAGE__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1069,22 +1051,22 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE__DESCRIPTION = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Contains Class</b></em>' reference list.
+	 * The feature id for the '<em><b>Contained Classes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONTAINS_CLASS = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int PACKAGE__CONTAINED_CLASSES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
-	/**
-	 * The feature id for the '<em><b>Contains Enumerated Type</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Enumerated Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__CONTAINS_ENUMERATED_TYPE = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int PACKAGE__ENUMERATED_TYPES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Is Owner Of</b></em>' containment reference list.
@@ -1133,22 +1115,22 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_TAGGED_WITH = FEATURE__IS_TAGGED_WITH;
+	int ATTRIBUTE__TAGGED_WITH = FEATURE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_DOCUMENTED_BY = FEATURE__IS_DOCUMENTED_BY;
+	int ATTRIBUTE__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1296,22 +1278,22 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_TAGGED_WITH = FEATURE__IS_TAGGED_WITH;
+	int SEMI_ASSOCIATION__TAGGED_WITH = FEATURE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_DOCUMENTED_BY = FEATURE__IS_DOCUMENTED_BY;
+	int SEMI_ASSOCIATION__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1449,31 +1431,13 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__REFERS_TO = FEATURE_FEATURE_COUNT + 4;
 
 	/**
-	 * The feature id for the '<em><b>Is Inverse Of</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__IS_INVERSE_OF = FEATURE_FEATURE_COUNT + 5;
-
-	/**
-	 * The feature id for the '<em><b>Inverse</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__INVERSE = FEATURE_FEATURE_COUNT + 6;
-
-	/**
 	 * The feature id for the '<em><b>Is Primary In</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_PRIMARY_IN = FEATURE_FEATURE_COUNT + 7;
+	int SEMI_ASSOCIATION__IS_PRIMARY_IN = FEATURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Is Secondary In</b></em>' reference.
@@ -1482,7 +1446,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_SECONDARY_IN = FEATURE_FEATURE_COUNT + 8;
+	int SEMI_ASSOCIATION__IS_SECONDARY_IN = FEATURE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Has Instance Reference Sets</b></em>' reference list.
@@ -1491,7 +1455,16 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 9;
+	int SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 7;
+
+	/**
+	 * The feature id for the '<em><b>Inverse</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__INVERSE = FEATURE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Semi Association</em>' class.
@@ -1500,7 +1473,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 10;
+	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Semi Association</em>' class.
@@ -1522,22 +1495,22 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY = 11;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_TAGGED_WITH = FEATURE__IS_TAGGED_WITH;
+	int PROPERTY__TAGGED_WITH = FEATURE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_DOCUMENTED_BY = FEATURE__IS_DOCUMENTED_BY;
+	int PROPERTY__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1658,22 +1631,22 @@ public interface TypesPackage extends EPackage {
 	int SIMPLE_DATA_TYPE = 12;
 
 	/**
-	 * The feature id for the '<em><b>Is Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_DATA_TYPE__IS_TAGGED_WITH = DATA_TYPE__IS_TAGGED_WITH;
+	int SIMPLE_DATA_TYPE__TAGGED_WITH = DATA_TYPE__TAGGED_WITH;
 
 	/**
-	 * The feature id for the '<em><b>Is Documented By</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_DATA_TYPE__IS_DOCUMENTED_BY = DATA_TYPE__IS_DOCUMENTED_BY;
+	int SIMPLE_DATA_TYPE__DOCUMENTED_BY = DATA_TYPE__DOCUMENTED_BY;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1853,28 +1826,6 @@ public interface TypesPackage extends EPackage {
 	EReference getTypeModel_ConformedBy();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getHasTemporalAspectOf <em>Has Temporal Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Temporal Aspect Of</em>'.
-	 * @see conml.types.TypeModel#getHasTemporalAspectOf()
-	 * @see #getTypeModel()
-	 * @generated
-	 */
-	EReference getTypeModel_HasTemporalAspectOf();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getHasSubjectiveAspectOf <em>Has Subjective Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Subjective Aspect Of</em>'.
-	 * @see conml.types.TypeModel#getHasSubjectiveAspectOf()
-	 * @see #getTypeModel()
-	 * @generated
-	 */
-	EReference getTypeModel_HasSubjectiveAspectOf();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getExtends <em>Extends</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1919,6 +1870,28 @@ public interface TypesPackage extends EPackage {
 	EReference getTypeModel_HasParticular();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Subjective Aspect</em>'.
+	 * @see conml.types.TypeModel#getSubjectiveAspect()
+	 * @see #getTypeModel()
+	 * @generated
+	 */
+	EReference getTypeModel_SubjectiveAspect();
+
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getTemporalAspect <em>Temporal Aspect</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Temporal Aspect</em>'.
+	 * @see conml.types.TypeModel#getTemporalAspect()
+	 * @see #getTypeModel()
+	 * @generated
+	 */
+	EReference getTypeModel_TemporalAspect();
+
+    /**
 	 * Returns the meta object for class '{@link conml.types.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1992,28 +1965,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getClass_IsSubjectiveAspect();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getIsTemporalAspectOf <em>Is Temporal Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Temporal Aspect Of</em>'.
-	 * @see conml.types.Class#getIsTemporalAspectOf()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_IsTemporalAspectOf();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getIsSubjectiveAspectOf <em>Is Subjective Aspect Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Subjective Aspect Of</em>'.
-	 * @see conml.types.Class#getIsSubjectiveAspectOf()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_IsSubjectiveAspectOf();
 
 	/**
 	 * Returns the meta object for the reference list '{@link conml.types.Class#getGeneralization <em>Generalization</em>}'.
@@ -2104,17 +2055,17 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_InstancedBy();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.Class#getBelongsToPackage <em>Belongs To Package</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.Class#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Belongs To Package</em>'.
-	 * @see conml.types.Class#getBelongsToPackage()
+	 * @return the meta object for the reference '<em>Package</em>'.
+	 * @see conml.types.Class#getPackage()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EReference getClass_BelongsToPackage();
+	EReference getClass_Package();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.types.Generalization <em>Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2321,15 +2272,15 @@ public interface TypesPackage extends EPackage {
 	EReference getEnumeratedType_SpecializesFrom();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getBelongsToPackage <em>Belongs To Package</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Belongs To Package</em>'.
-	 * @see conml.types.EnumeratedType#getBelongsToPackage()
+	 * @return the meta object for the reference '<em>Package</em>'.
+	 * @see conml.types.EnumeratedType#getPackage()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_BelongsToPackage();
+	EReference getEnumeratedType_Package();
 
 	/**
 	 * Returns the meta object for class '{@link conml.types.TypeModelElement <em>Type Model Element</em>}'.
@@ -2428,26 +2379,26 @@ public interface TypesPackage extends EPackage {
 	EAttribute getPackage_Description();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Package#getContainsClass <em>Contains Class</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Contains Class</em>'.
-	 * @see conml.types.Package#getContainsClass()
+	 * @return the meta object for the reference list '<em>Contained Classes</em>'.
+	 * @see conml.types.Package#getContainedClasses()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_ContainsClass();
+	EReference getPackage_ContainedClasses();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Package#getContainsEnumeratedType <em>Contains Enumerated Type</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.Package#getEnumeratedTypes <em>Enumerated Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Contains Enumerated Type</em>'.
-	 * @see conml.types.Package#getContainsEnumeratedType()
+	 * @return the meta object for the reference list '<em>Enumerated Types</em>'.
+	 * @see conml.types.Package#getEnumeratedTypes()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_ContainsEnumeratedType();
+	EReference getPackage_EnumeratedTypes();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link conml.types.Package#getIsOwnerOf <em>Is Owner Of</em>}'.
@@ -2578,17 +2529,6 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getSemiAssociation_RefersTo();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getIsInverseOf <em>Is Inverse Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Inverse Of</em>'.
-	 * @see conml.types.SemiAssociation#getIsInverseOf()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_IsInverseOf();
 
 	/**
 	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}'.
@@ -2825,22 +2765,6 @@ public interface TypesPackage extends EPackage {
 		EReference TYPE_MODEL__CONFORMED_BY = eINSTANCE.getTypeModel_ConformedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Temporal Aspect Of</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_MODEL__HAS_TEMPORAL_ASPECT_OF = eINSTANCE.getTypeModel_HasTemporalAspectOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Subjective Aspect Of</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_MODEL__HAS_SUBJECTIVE_ASPECT_OF = eINSTANCE.getTypeModel_HasSubjectiveAspectOf();
-
-		/**
 		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2873,6 +2797,22 @@ public interface TypesPackage extends EPackage {
 		EReference TYPE_MODEL__HAS_PARTICULAR = eINSTANCE.getTypeModel_HasParticular();
 
 		/**
+		 * The meta object literal for the '<em><b>Subjective Aspect</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_MODEL__SUBJECTIVE_ASPECT = eINSTANCE.getTypeModel_SubjectiveAspect();
+
+    /**
+		 * The meta object literal for the '<em><b>Temporal Aspect</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_MODEL__TEMPORAL_ASPECT = eINSTANCE.getTypeModel_TemporalAspect();
+
+        /**
 		 * The meta object literal for the '{@link conml.types.impl.TypeImpl <em>Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2931,22 +2871,6 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute CLASS__IS_SUBJECTIVE_ASPECT = eINSTANCE.getClass_IsSubjectiveAspect();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Temporal Aspect Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__IS_TEMPORAL_ASPECT_OF = eINSTANCE.getClass_IsTemporalAspectOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Subjective Aspect Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__IS_SUBJECTIVE_ASPECT_OF = eINSTANCE.getClass_IsSubjectiveAspectOf();
 
 		/**
 		 * The meta object literal for the '<em><b>Generalization</b></em>' reference list feature.
@@ -3013,14 +2937,14 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__INSTANCED_BY = eINSTANCE.getClass_InstancedBy();
 
 		/**
-		 * The meta object literal for the '<em><b>Belongs To Package</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASS__BELONGS_TO_PACKAGE = eINSTANCE.getClass_BelongsToPackage();
+		EReference CLASS__PACKAGE = eINSTANCE.getClass_Package();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.GeneralizationImpl <em>Generalization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3179,12 +3103,12 @@ public interface TypesPackage extends EPackage {
 		EReference ENUMERATED_TYPE__SPECIALIZES_FROM = eINSTANCE.getEnumeratedType_SpecializesFrom();
 
 		/**
-		 * The meta object literal for the '<em><b>Belongs To Package</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__BELONGS_TO_PACKAGE = eINSTANCE.getEnumeratedType_BelongsToPackage();
+		EReference ENUMERATED_TYPE__PACKAGE = eINSTANCE.getEnumeratedType_Package();
 
 		/**
 		 * The meta object literal for the '{@link conml.types.impl.TypeModelElementImpl <em>Type Model Element</em>}' class.
@@ -3265,20 +3189,20 @@ public interface TypesPackage extends EPackage {
 		EAttribute PACKAGE__DESCRIPTION = eINSTANCE.getPackage_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Contains Class</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Contained Classes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__CONTAINS_CLASS = eINSTANCE.getPackage_ContainsClass();
+		EReference PACKAGE__CONTAINED_CLASSES = eINSTANCE.getPackage_ContainedClasses();
 
-		/**
-		 * The meta object literal for the '<em><b>Contains Enumerated Type</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Enumerated Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__CONTAINS_ENUMERATED_TYPE = eINSTANCE.getPackage_ContainsEnumeratedType();
+		EReference PACKAGE__ENUMERATED_TYPES = eINSTANCE.getPackage_EnumeratedTypes();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Owner Of</b></em>' containment reference list feature.
@@ -3379,14 +3303,6 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SEMI_ASSOCIATION__REFERS_TO = eINSTANCE.getSemiAssociation_RefersTo();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Inverse Of</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__IS_INVERSE_OF = eINSTANCE.getSemiAssociation_IsInverseOf();
 
 		/**
 		 * The meta object literal for the '<em><b>Inverse</b></em>' reference feature.

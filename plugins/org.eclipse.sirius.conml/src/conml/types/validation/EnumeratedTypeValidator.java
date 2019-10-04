@@ -22,5 +22,7 @@ public interface EnumeratedTypeValidator {
 	boolean validateHasItems(EList<EnumeratedItem> value);
 	boolean validateIsSpecializedBy(EList<EnumeratedType> value);
 	boolean validateSpecializesFrom(EnumeratedType value);
+	boolean validatePackage(conml.types.Package value);
+
 	boolean validateBelongsToPackage(conml.types.Package value);
 }

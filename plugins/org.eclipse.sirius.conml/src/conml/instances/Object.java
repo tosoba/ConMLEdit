@@ -2,8 +2,6 @@
  */
 package conml.instances;
 
-import conml.ModelElement;
-
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -17,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.instances.Object#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.Object#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.Object#getDocuments <em>Documents</em>}</li>
  *   <li>{@link conml.instances.Object#getIsInstanceOf <em>Is Instance Of</em>}</li>
  *   <li>{@link conml.instances.Object#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
@@ -81,20 +78,6 @@ public interface Object extends Instance {
 	 * @generated
 	 */
 	void setCertainty(DegreeOfCertainty value);
-
-	/**
-	 * Returns the value of the '<em><b>Documents</b></em>' reference list.
-	 * The list contents are of type {@link conml.ModelElement}.
-	 * It is bidirectional and its opposite is '{@link conml.ModelElement#getIsDocumentedBy <em>Is Documented By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Documents</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_Documents()
-	 * @see conml.ModelElement#getIsDocumentedBy
-	 * @model opposite="IsDocumentedBy"
-	 * @generated
-	 */
-	EList<ModelElement> getDocuments();
 
 	/**
 	 * Returns the value of the '<em><b>Is Instance Of</b></em>' reference.
