@@ -19,12 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}</li>
- *   <li>{@link conml.instances.Object#getIsPhaseQualifierOf <em>Is Phase Qualifier Of</em>}</li>
- *   <li>{@link conml.instances.Object#getIsPersepectiveQualifierOf <em>Is Persepective Qualifier Of</em>}</li>
  *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
- *   <li>{@link conml.instances.Object#getIsTemporalExistenceQualiferOf <em>Is Temporal Existence Qualifer Of</em>}</li>
- *   <li>{@link conml.instances.Object#getSubjectveExistentalQualifer <em>Subjectve Existental Qualifer</em>}</li>
- *   <li>{@link conml.instances.Object#getIsSubjectveExistenceQualiferOf <em>Is Subjectve Existence Qualifer Of</em>}</li>
+ *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -146,43 +142,13 @@ public interface Object extends Instance {
 	EList<Reference> getIsOppositeIn();
 
 	/**
-	 * Returns the value of the '<em><b>Is Phase Qualifier Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.FacetSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.FacetSet#getHasPhaseQualifier <em>Has Phase Qualifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Phase Qualifier Of</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_IsPhaseQualifierOf()
-	 * @see conml.instances.FacetSet#getHasPhaseQualifier
-	 * @model opposite="HasPhaseQualifier"
-	 * @generated
-	 */
-	EList<FacetSet> getIsPhaseQualifierOf();
-
-	/**
-	 * Returns the value of the '<em><b>Is Persepective Qualifier Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.FacetSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.FacetSet#getHasPerspectiveQualifier <em>Has Perspective Qualifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Persepective Qualifier Of</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_IsPersepectiveQualifierOf()
-	 * @see conml.instances.FacetSet#getHasPerspectiveQualifier
-	 * @model opposite="HasPerspectiveQualifier"
-	 * @generated
-	 */
-	EList<FacetSet> getIsPersepectiveQualifierOf();
-
-	/**
 	 * Returns the value of the '<em><b>Temporal Existential Qualifier</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getIsTemporalExistenceQualiferOf <em>Is Temporal Existence Qualifer Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Temporal Existential Qualifier</em>' reference.
 	 * @see #setTemporalExistentialQualifier(Object)
 	 * @see conml.instances.InstancesPackage#getObject_TemporalExistentialQualifier()
-	 * @see conml.instances.Object#getIsTemporalExistenceQualiferOf
-	 * @model opposite="IsTemporalExistenceQualiferOf"
+	 * @model
 	 * @generated
 	 */
 	Object getTemporalExistentialQualifier();
@@ -198,55 +164,25 @@ public interface Object extends Instance {
 	void setTemporalExistentialQualifier(Object value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Temporal Existence Qualifer Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.Object}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}'.
+	 * Returns the value of the '<em><b>Subjective Existential Qualifer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Temporal Existence Qualifer Of</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_IsTemporalExistenceQualiferOf()
-	 * @see conml.instances.Object#getTemporalExistentialQualifier
-	 * @model opposite="TemporalExistentialQualifier"
+	 * @return the value of the '<em>Subjective Existential Qualifer</em>' reference.
+	 * @see #setSubjectiveExistentialQualifer(Object)
+	 * @see conml.instances.InstancesPackage#getObject_SubjectiveExistentialQualifer()
+	 * @model
 	 * @generated
 	 */
-	EList<Object> getIsTemporalExistenceQualiferOf();
+	Object getSubjectiveExistentialQualifer();
 
-	/**
-	 * Returns the value of the '<em><b>Subjectve Existental Qualifer</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getIsSubjectveExistenceQualiferOf <em>Is Subjectve Existence Qualifer Of</em>}'.
+  /**
+	 * Sets the value of the '{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subjectve Existental Qualifer</em>' reference.
-	 * @see #setSubjectveExistentalQualifer(Object)
-	 * @see conml.instances.InstancesPackage#getObject_SubjectveExistentalQualifer()
-	 * @see conml.instances.Object#getIsSubjectveExistenceQualiferOf
-	 * @model opposite="IsSubjectveExistenceQualiferOf"
+	 * @param value the new value of the '<em>Subjective Existential Qualifer</em>' reference.
+	 * @see #getSubjectiveExistentialQualifer()
 	 * @generated
 	 */
-	Object getSubjectveExistentalQualifer();
-
-	/**
-	 * Sets the value of the '{@link conml.instances.Object#getSubjectveExistentalQualifer <em>Subjectve Existental Qualifer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Subjectve Existental Qualifer</em>' reference.
-	 * @see #getSubjectveExistentalQualifer()
-	 * @generated
-	 */
-	void setSubjectveExistentalQualifer(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Subjectve Existence Qualifer Of</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.Object}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getSubjectveExistentalQualifer <em>Subjectve Existental Qualifer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Subjectve Existence Qualifer Of</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_IsSubjectveExistenceQualiferOf()
-	 * @see conml.instances.Object#getSubjectveExistentalQualifer
-	 * @model opposite="SubjectveExistentalQualifer"
-	 * @generated
-	 */
-	EList<Object> getIsSubjectveExistenceQualiferOf();
+	void setSubjectiveExistentialQualifer(Object value);
 
 } // Object

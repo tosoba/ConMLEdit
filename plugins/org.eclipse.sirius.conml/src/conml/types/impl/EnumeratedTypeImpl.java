@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -30,7 +31,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getOwnsItems <em>Owns Items</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getHasItems <em>Has Items</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getIsSpecializedBy <em>Is Specialized By</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSpecializesFrom <em>Specializes From</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getPackage <em>Package</em>}</li>
@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	/**
-	 * The cached value of the '{@link #getOwnsItems() <em>Owns Items</em>}' reference list.
+	 * The cached value of the '{@link #getOwnsItems() <em>Owns Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOwnsItems()
@@ -48,16 +48,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @ordered
 	 */
 	protected EList<EnumeratedItem> ownsItems;
-
-	/**
-	 * The cached value of the '{@link #getHasItems() <em>Has Items</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasItems()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<EnumeratedItem> hasItems;
 
 	/**
 	 * The cached value of the '{@link #getIsSpecializedBy() <em>Is Specialized By</em>}' reference list.
@@ -116,22 +106,9 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public EList<EnumeratedItem> getOwnsItems() {
 		if (ownsItems == null) {
-			ownsItems = new EObjectWithInverseResolvingEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, TypesPackage.ENUMERATED_ITEM__OWNER);
+			ownsItems = new EObjectContainmentWithInverseEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, TypesPackage.ENUMERATED_ITEM__OWNER);
 		}
 		return ownsItems;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<EnumeratedItem> getHasItems() {
-		if (hasItems == null) {
-			hasItems = new EObjectWithInverseResolvingEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_TYPE__HAS_ITEMS, TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO);
-		}
-		return hasItems;
 	}
 
 	/**
@@ -282,8 +259,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsItems()).basicAdd(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasItems()).basicAdd(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsSpecializedBy()).basicAdd(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
@@ -308,8 +283,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				return ((InternalEList<?>)getOwnsItems()).basicRemove(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				return ((InternalEList<?>)getHasItems()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				return ((InternalEList<?>)getIsSpecializedBy()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
@@ -330,8 +303,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				return getOwnsItems();
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				return getHasItems();
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				return getIsSpecializedBy();
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:
@@ -356,10 +327,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				getOwnsItems().clear();
 				getOwnsItems().addAll((Collection<? extends EnumeratedItem>)newValue);
-				return;
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				getHasItems().clear();
-				getHasItems().addAll((Collection<? extends EnumeratedItem>)newValue);
 				return;
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				getIsSpecializedBy().clear();
@@ -386,9 +353,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				getOwnsItems().clear();
 				return;
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				getHasItems().clear();
-				return;
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				getIsSpecializedBy().clear();
 				return;
@@ -412,8 +376,6 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
 				return ownsItems != null && !ownsItems.isEmpty();
-			case TypesPackage.ENUMERATED_TYPE__HAS_ITEMS:
-				return hasItems != null && !hasItems.isEmpty();
 			case TypesPackage.ENUMERATED_TYPE__IS_SPECIALIZED_BY:
 				return isSpecializedBy != null && !isSpecializedBy.isEmpty();
 			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM:

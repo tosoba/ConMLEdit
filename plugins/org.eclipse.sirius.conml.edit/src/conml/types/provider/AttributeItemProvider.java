@@ -47,7 +47,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 
 			addIsMultilingualPropertyDescriptor(object);
 			addHasInstanceValueSetsPropertyDescriptor(object);
-			addIsOfTypePropertyDescriptor(object);
+			addDatatypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,19 +97,19 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Of Type feature.
+	 * This adds a property descriptor for the Datatype feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsOfTypePropertyDescriptor(Object object) {
+	protected void addDatatypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_IsOfType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_IsOfType_feature", "_UI_Attribute_type"),
-				 TypesPackage.Literals.ATTRIBUTE__IS_OF_TYPE,
+				 getString("_UI_Attribute_Datatype_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_Datatype_feature", "_UI_Attribute_type"),
+				 TypesPackage.Literals.ATTRIBUTE__DATATYPE,
 				 true,
 				 false,
 				 true,
@@ -118,7 +118,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns Attribute.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

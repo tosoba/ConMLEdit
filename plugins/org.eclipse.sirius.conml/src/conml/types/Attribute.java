@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.types.Attribute#isIsMultilingual <em>Is Multilingual</em>}</li>
  *   <li>{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
- *   <li>{@link conml.types.Attribute#getIsOfType <em>Is Of Type</em>}</li>
+ *   <li>{@link conml.types.Attribute#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getAttribute()
@@ -62,27 +62,25 @@ public interface Attribute extends Feature {
 	EList<ValueSet> getHasInstanceValueSets();
 
 	/**
-	 * Returns the value of the '<em><b>Is Of Type</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.DataType#getAppliesTo <em>Applies To</em>}'.
+	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Of Type</em>' reference.
-	 * @see #setIsOfType(DataType)
-	 * @see conml.types.TypesPackage#getAttribute_IsOfType()
-	 * @see conml.types.DataType#getAppliesTo
-	 * @model opposite="AppliesTo" required="true"
+	 * @return the value of the '<em>Datatype</em>' reference.
+	 * @see #setDatatype(DataType)
+	 * @see conml.types.TypesPackage#getAttribute_Datatype()
+	 * @model required="true"
 	 * @generated
 	 */
-	DataType getIsOfType();
+	DataType getDatatype();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Attribute#getIsOfType <em>Is Of Type</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Of Type</em>' reference.
-	 * @see #getIsOfType()
+	 * @param value the new value of the '<em>Datatype</em>' reference.
+	 * @see #getDatatype()
 	 * @generated
 	 */
-	void setIsOfType(DataType value);
+	void setDatatype(DataType value);
 
 } // Attribute

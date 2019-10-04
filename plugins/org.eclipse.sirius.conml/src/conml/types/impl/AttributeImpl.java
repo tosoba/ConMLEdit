@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.types.impl.AttributeImpl#isIsMultilingual <em>Is Multilingual</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getIsOfType <em>Is Of Type</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
  * @generated
@@ -71,16 +71,16 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	protected EList<ValueSet> hasInstanceValueSets;
 
 	/**
-	 * The cached value of the '{@link #getIsOfType() <em>Is Of Type</em>}' reference.
+	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsOfType()
+	 * @see #getDatatype()
 	 * @generated
 	 * @ordered
 	 */
-	protected DataType isOfType;
+	protected DataType datatype;
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -141,63 +141,41 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public DataType getIsOfType() {
-		if (isOfType != null && isOfType.eIsProxy()) {
-			InternalEObject oldIsOfType = (InternalEObject)isOfType;
-			isOfType = (DataType)eResolveProxy(oldIsOfType);
-			if (isOfType != oldIsOfType) {
+	public DataType getDatatype() {
+		if (datatype != null && datatype.eIsProxy()) {
+			InternalEObject oldDatatype = (InternalEObject)datatype;
+			datatype = (DataType)eResolveProxy(oldDatatype);
+			if (datatype != oldDatatype) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ATTRIBUTE__IS_OF_TYPE, oldIsOfType, isOfType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
 			}
 		}
-		return isOfType;
+		return datatype;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public DataType basicGetIsOfType() {
-		return isOfType;
+	public DataType basicGetDatatype() {
+		return datatype;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsOfType(DataType newIsOfType, NotificationChain msgs) {
-		DataType oldIsOfType = isOfType;
-		isOfType = newIsOfType;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__IS_OF_TYPE, oldIsOfType, newIsOfType);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsOfType(DataType newIsOfType) {
-		if (newIsOfType != isOfType) {
-			NotificationChain msgs = null;
-			if (isOfType != null)
-				msgs = ((InternalEObject)isOfType).eInverseRemove(this, TypesPackage.DATA_TYPE__APPLIES_TO, DataType.class, msgs);
-			if (newIsOfType != null)
-				msgs = ((InternalEObject)newIsOfType).eInverseAdd(this, TypesPackage.DATA_TYPE__APPLIES_TO, DataType.class, msgs);
-			msgs = basicSetIsOfType(newIsOfType, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__IS_OF_TYPE, newIsOfType, newIsOfType));
+	public void setDatatype(DataType newDatatype) {
+		DataType oldDatatype = datatype;
+		datatype = newDatatype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -208,10 +186,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasInstanceValueSets()).basicAdd(otherEnd, msgs);
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				if (isOfType != null)
-					msgs = ((InternalEObject)isOfType).eInverseRemove(this, TypesPackage.DATA_TYPE__APPLIES_TO, DataType.class, msgs);
-				return basicSetIsOfType((DataType)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -226,8 +200,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return ((InternalEList<?>)getHasInstanceValueSets()).basicRemove(otherEnd, msgs);
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				return basicSetIsOfType(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -244,9 +216,9 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return isIsMultilingual();
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return getHasInstanceValueSets();
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				if (resolve) return getIsOfType();
-				return basicGetIsOfType();
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				if (resolve) return getDatatype();
+				return basicGetDatatype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -267,8 +239,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				getHasInstanceValueSets().clear();
 				getHasInstanceValueSets().addAll((Collection<? extends ValueSet>)newValue);
 				return;
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				setIsOfType((DataType)newValue);
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				setDatatype((DataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -288,8 +260,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				getHasInstanceValueSets().clear();
 				return;
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				setIsOfType((DataType)null);
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				setDatatype((DataType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -307,8 +279,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return isMultilingual != IS_MULTILINGUAL_EDEFAULT;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return hasInstanceValueSets != null && !hasInstanceValueSets.isEmpty();
-			case TypesPackage.ATTRIBUTE__IS_OF_TYPE:
-				return isOfType != null;
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				return datatype != null;
 		}
 		return super.eIsSet(featureID);
 	}

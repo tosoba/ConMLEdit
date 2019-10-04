@@ -33,7 +33,9 @@ public interface ObjectValidator {
 	boolean validateIsPhaseQualifierOf(EList<FacetSet> value);
 	boolean validateIsPersepectiveQualifierOf(EList<FacetSet> value);
 	boolean validateTemporalExistentialQualifier(conml.instances.Object value);
-	boolean validateIsTemporalExistenceQualiferOf(EList<conml.instances.Object> value);
+	boolean validateSubjectiveExistentialQualifer(conml.instances.Object value);
+
+  boolean validateIsTemporalExistenceQualiferOf(EList<conml.instances.Object> value);
 	boolean validateSubjectveExistentalQualifer(conml.instances.Object value);
 	boolean validateIsSubjectveExistenceQualiferOf(EList<conml.instances.Object> value);
 }

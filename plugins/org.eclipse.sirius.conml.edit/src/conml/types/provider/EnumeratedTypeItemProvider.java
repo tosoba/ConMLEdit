@@ -4,6 +4,7 @@ package conml.types.provider;
 
 
 import conml.types.EnumeratedType;
+import conml.types.TypesFactory;
 import conml.types.TypesPackage;
 
 import java.util.Collection;
@@ -12,8 +13,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link conml.types.EnumeratedType} object.
@@ -44,7 +47,6 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOwnsItemsPropertyDescriptor(object);
-			addHasItemsPropertyDescriptor(object);
 			addIsSpecializedByPropertyDescriptor(object);
 			addSpecializesFromPropertyDescriptor(object);
 			addPackagePropertyDescriptor(object);
@@ -66,28 +68,6 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 				 getString("_UI_EnumeratedType_OwnsItems_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_OwnsItems_feature", "_UI_EnumeratedType_type"),
 				 TypesPackage.Literals.ENUMERATED_TYPE__OWNS_ITEMS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Items feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasItemsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnumeratedType_HasItems_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_HasItems_feature", "_UI_EnumeratedType_type"),
-				 TypesPackage.Literals.ENUMERATED_TYPE__HAS_ITEMS,
 				 true,
 				 false,
 				 true,
@@ -163,6 +143,36 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	}
 
 	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(TypesPackage.Literals.ENUMERATED_TYPE__OWNS_ITEMS);
+		}
+		return childrenFeatures;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+  /**
 	 * This returns EnumeratedType.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -198,6 +208,12 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(EnumeratedType.class)) {
+			case TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -211,6 +227,11 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.ENUMERATED_TYPE__OWNS_ITEMS,
+				 TypesFactory.eINSTANCE.createEnumeratedItem()));
 	}
 
 }

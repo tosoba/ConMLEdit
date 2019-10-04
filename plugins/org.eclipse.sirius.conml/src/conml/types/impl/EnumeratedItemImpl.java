@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,7 +35,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedItemImpl#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getIsSuperItemOf <em>Is Super Item Of</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getIsSubItemOf <em>Is Sub Item Of</em>}</li>
  * </ul>
@@ -101,26 +101,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String definition = DEFINITION_EDEFAULT;
-
-	/**
-	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwner()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnumeratedType owner;
-
-	/**
-	 * The cached value of the '{@link #getAssignedTo() <em>Assigned To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAssignedTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected EnumeratedType assignedTo;
 
 	/**
 	 * The cached value of the '{@link #getIsSuperItemOf() <em>Is Super Item Of</em>}' reference list.
@@ -237,24 +217,8 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public EnumeratedType getOwner() {
-		if (owner != null && owner.eIsProxy()) {
-			InternalEObject oldOwner = (InternalEObject)owner;
-			owner = (EnumeratedType)eResolveProxy(oldOwner);
-			if (owner != oldOwner) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_ITEM__OWNER, oldOwner, owner));
-			}
-		}
-		return owner;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumeratedType basicGetOwner() {
-		return owner;
+		if (eContainerFeatureID() != TypesPackage.ENUMERATED_ITEM__OWNER) return null;
+		return (EnumeratedType)eInternalContainer();
 	}
 
 	/**
@@ -263,12 +227,7 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	public NotificationChain basicSetOwner(EnumeratedType newOwner, NotificationChain msgs) {
-		EnumeratedType oldOwner = owner;
-		owner = newOwner;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__OWNER, oldOwner, newOwner);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
+		msgs = eBasicSetContainer((InternalEObject)newOwner, TypesPackage.ENUMERATED_ITEM__OWNER, msgs);
 		return msgs;
 	}
 
@@ -279,10 +238,12 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 */
 	@Override
 	public void setOwner(EnumeratedType newOwner) {
-		if (newOwner != owner) {
+		if (newOwner != eInternalContainer() || (eContainerFeatureID() != TypesPackage.ENUMERATED_ITEM__OWNER && newOwner != null)) {
+			if (EcoreUtil.isAncestor(this, newOwner))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
-			if (owner != null)
-				msgs = ((InternalEObject)owner).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
 			if (newOwner != null)
 				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
 			msgs = basicSetOwner(newOwner, msgs);
@@ -290,68 +251,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__OWNER, newOwner, newOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EnumeratedType getAssignedTo() {
-		if (assignedTo != null && assignedTo.eIsProxy()) {
-			InternalEObject oldAssignedTo = (InternalEObject)assignedTo;
-			assignedTo = (EnumeratedType)eResolveProxy(oldAssignedTo);
-			if (assignedTo != oldAssignedTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO, oldAssignedTo, assignedTo));
-			}
-		}
-		return assignedTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EnumeratedType basicGetAssignedTo() {
-		return assignedTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetAssignedTo(EnumeratedType newAssignedTo, NotificationChain msgs) {
-		EnumeratedType oldAssignedTo = assignedTo;
-		assignedTo = newAssignedTo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO, oldAssignedTo, newAssignedTo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAssignedTo(EnumeratedType newAssignedTo) {
-		if (newAssignedTo != assignedTo) {
-			NotificationChain msgs = null;
-			if (assignedTo != null)
-				msgs = ((InternalEObject)assignedTo).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__HAS_ITEMS, EnumeratedType.class, msgs);
-			if (newAssignedTo != null)
-				msgs = ((InternalEObject)newAssignedTo).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__HAS_ITEMS, EnumeratedType.class, msgs);
-			msgs = basicSetAssignedTo(newAssignedTo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO, newAssignedTo, newAssignedTo));
 	}
 
 	/**
@@ -439,13 +338,9 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
-				if (owner != null)
-					msgs = ((InternalEObject)owner).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetOwner((EnumeratedType)otherEnd, msgs);
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				if (assignedTo != null)
-					msgs = ((InternalEObject)assignedTo).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__HAS_ITEMS, EnumeratedType.class, msgs);
-				return basicSetAssignedTo((EnumeratedType)otherEnd, msgs);
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsSuperItemOf()).basicAdd(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
@@ -466,8 +361,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				return basicSetOwner(null, msgs);
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				return basicSetAssignedTo(null, msgs);
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				return ((InternalEList<?>)getIsSuperItemOf()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
@@ -482,6 +375,20 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case TypesPackage.ENUMERATED_ITEM__OWNER:
+				return eInternalContainer().eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__NAME:
@@ -491,11 +398,7 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				return getDefinition();
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
-				if (resolve) return getOwner();
-				return basicGetOwner();
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				if (resolve) return getAssignedTo();
-				return basicGetAssignedTo();
+				return getOwner();
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				return getIsSuperItemOf();
 			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
@@ -525,9 +428,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				setOwner((EnumeratedType)newValue);
-				return;
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				setAssignedTo((EnumeratedType)newValue);
 				return;
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				getIsSuperItemOf().clear();
@@ -560,9 +460,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				setOwner((EnumeratedType)null);
 				return;
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				setAssignedTo((EnumeratedType)null);
-				return;
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				getIsSuperItemOf().clear();
 				return;
@@ -588,9 +485,7 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				return DEFINITION_EDEFAULT == null ? definition != null : !DEFINITION_EDEFAULT.equals(definition);
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
-				return owner != null;
-			case TypesPackage.ENUMERATED_ITEM__ASSIGNED_TO:
-				return assignedTo != null;
+				return getOwner() != null;
 			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
 				return isSuperItemOf != null && !isSuperItemOf.isEmpty();
 			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:

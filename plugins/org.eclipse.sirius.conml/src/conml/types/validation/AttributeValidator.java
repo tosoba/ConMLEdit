@@ -23,5 +23,7 @@ public interface AttributeValidator {
 	boolean validateOwner(conml.types.Class value);
 	boolean validateAssignedTo(EList<conml.types.Class> value);
 	boolean validateHasInstanceValueSets(EList<ValueSet> value);
-	boolean validateIsOfType(DataType value);
+	boolean validateDatatype(DataType value);
+
+  boolean validateIsOfType(DataType value);
 }

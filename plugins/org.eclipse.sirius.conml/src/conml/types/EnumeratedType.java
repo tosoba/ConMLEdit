@@ -14,7 +14,6 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}</li>
- *   <li>{@link conml.types.EnumeratedType#getHasItems <em>Has Items</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getIsSpecializedBy <em>Is Specialized By</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getSpecializesFrom <em>Specializes From</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getPackage <em>Package</em>}</li>
@@ -26,32 +25,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EnumeratedType extends DataType {
 	/**
-	 * Returns the value of the '<em><b>Owns Items</b></em>' reference list.
+	 * Returns the value of the '<em><b>Owns Items</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedItem}.
 	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owns Items</em>' reference list.
+	 * @return the value of the '<em>Owns Items</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getEnumeratedType_OwnsItems()
 	 * @see conml.types.EnumeratedItem#getOwner
-	 * @model opposite="Owner"
+	 * @model opposite="Owner" containment="true"
 	 * @generated
 	 */
 	EList<EnumeratedItem> getOwnsItems();
-
-	/**
-	 * Returns the value of the '<em><b>Has Items</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.EnumeratedItem}.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Items</em>' reference list.
-	 * @see conml.types.TypesPackage#getEnumeratedType_HasItems()
-	 * @see conml.types.EnumeratedItem#getAssignedTo
-	 * @model opposite="AssignedTo"
-	 * @generated
-	 */
-	EList<EnumeratedItem> getHasItems();
 
 	/**
 	 * Returns the value of the '<em><b>Is Specialized By</b></em>' reference list.

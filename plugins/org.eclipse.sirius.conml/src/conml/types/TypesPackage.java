@@ -760,22 +760,13 @@ public interface TypesPackage extends EPackage {
 	int DATA_TYPE__DEFINITION = TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Applies To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__APPLIES_TO = TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The number of structural features of the '<em>Data Type</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+	int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of operations of the '<em>Data Type</em>' class.
@@ -833,16 +824,7 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Applies To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__APPLIES_TO = DATA_TYPE__APPLIES_TO;
-
-	/**
-	 * The feature id for the '<em><b>Owns Items</b></em>' reference list.
+	 * The feature id for the '<em><b>Owns Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -851,22 +833,13 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__OWNS_ITEMS = DATA_TYPE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Has Items</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__HAS_ITEMS = DATA_TYPE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Is Specialized By</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__IS_SPECIALIZED_BY = DATA_TYPE_FEATURE_COUNT + 2;
+	int ENUMERATED_TYPE__IS_SPECIALIZED_BY = DATA_TYPE_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Specializes From</b></em>' reference.
@@ -875,7 +848,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SPECIALIZES_FROM = DATA_TYPE_FEATURE_COUNT + 3;
+	int ENUMERATED_TYPE__SPECIALIZES_FROM = DATA_TYPE_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -884,7 +857,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 4;
+	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated Type</em>' class.
@@ -893,7 +866,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
+	int ENUMERATED_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Type</em>' class.
@@ -1241,15 +1214,15 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Of Type</b></em>' reference.
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_OF_TYPE = FEATURE_FEATURE_COUNT + 2;
+	int ATTRIBUTE__DATATYPE = FEATURE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1667,15 +1640,6 @@ public interface TypesPackage extends EPackage {
 	int SIMPLE_DATA_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Applies To</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__APPLIES_TO = DATA_TYPE__APPLIES_TO;
-
-	/**
 	 * The feature id for the '<em><b>Base</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1740,7 +1704,7 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_ITEM__DEFINITION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' reference.
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1749,22 +1713,13 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_ITEM__OWNER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Assigned To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_ITEM__ASSIGNED_TO = 4;
-
-	/**
 	 * The feature id for the '<em><b>Is Super Item Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__IS_SUPER_ITEM_OF = 5;
+	int ENUMERATED_ITEM__IS_SUPER_ITEM_OF = 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Sub Item Of</b></em>' reference.
@@ -1773,7 +1728,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__IS_SUB_ITEM_OF = 6;
+	int ENUMERATED_ITEM__IS_SUB_ITEM_OF = 5;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated Item</em>' class.
@@ -1782,7 +1737,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM_FEATURE_COUNT = 7;
+	int ENUMERATED_ITEM_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Item</em>' class.
@@ -2228,26 +2183,15 @@ public interface TypesPackage extends EPackage {
 	EClass getEnumeratedType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}'.
+	 * Returns the meta object for the containment reference list '{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Owns Items</em>'.
+	 * @return the meta object for the containment reference list '<em>Owns Items</em>'.
 	 * @see conml.types.EnumeratedType#getOwnsItems()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
 	EReference getEnumeratedType_OwnsItems();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getHasItems <em>Has Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Items</em>'.
-	 * @see conml.types.EnumeratedType#getHasItems()
-	 * @see #getEnumeratedType()
-	 * @generated
-	 */
-	EReference getEnumeratedType_HasItems();
 
 	/**
 	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getIsSpecializedBy <em>Is Specialized By</em>}'.
@@ -2455,17 +2399,17 @@ public interface TypesPackage extends EPackage {
 	EReference getAttribute_HasInstanceValueSets();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.Attribute#getIsOfType <em>Is Of Type</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Of Type</em>'.
-	 * @see conml.types.Attribute#getIsOfType()
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see conml.types.Attribute#getDatatype()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EReference getAttribute_IsOfType();
+	EReference getAttribute_Datatype();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.types.SemiAssociation <em>Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2616,17 +2560,6 @@ public interface TypesPackage extends EPackage {
 	EClass getDataType();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.DataType#getAppliesTo <em>Applies To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Applies To</em>'.
-	 * @see conml.types.DataType#getAppliesTo()
-	 * @see #getDataType()
-	 * @generated
-	 */
-	EReference getDataType_AppliesTo();
-
-	/**
 	 * Returns the meta object for class '{@link conml.types.EnumeratedItem <em>Enumerated Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2670,26 +2603,15 @@ public interface TypesPackage extends EPackage {
 	EAttribute getEnumeratedItem_Definition();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}'.
+	 * Returns the meta object for the container reference '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner</em>'.
+	 * @return the meta object for the container reference '<em>Owner</em>'.
 	 * @see conml.types.EnumeratedItem#getOwner()
 	 * @see #getEnumeratedItem()
 	 * @generated
 	 */
 	EReference getEnumeratedItem_Owner();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getAssignedTo <em>Assigned To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Assigned To</em>'.
-	 * @see conml.types.EnumeratedItem#getAssignedTo()
-	 * @see #getEnumeratedItem()
-	 * @generated
-	 */
-	EReference getEnumeratedItem_AssignedTo();
 
 	/**
 	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedItem#getIsSuperItemOf <em>Is Super Item Of</em>}'.
@@ -3071,20 +2993,12 @@ public interface TypesPackage extends EPackage {
 		EClass ENUMERATED_TYPE = eINSTANCE.getEnumeratedType();
 
 		/**
-		 * The meta object literal for the '<em><b>Owns Items</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Owns Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ENUMERATED_TYPE__OWNS_ITEMS = eINSTANCE.getEnumeratedType_OwnsItems();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Items</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENUMERATED_TYPE__HAS_ITEMS = eINSTANCE.getEnumeratedType_HasItems();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Specialized By</b></em>' reference list feature.
@@ -3247,14 +3161,14 @@ public interface TypesPackage extends EPackage {
 		EReference ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = eINSTANCE.getAttribute_HasInstanceValueSets();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Of Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__IS_OF_TYPE = eINSTANCE.getAttribute_IsOfType();
+		EReference ATTRIBUTE__DATATYPE = eINSTANCE.getAttribute_Datatype();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.SemiAssociationImpl <em>Semi Association</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3375,14 +3289,6 @@ public interface TypesPackage extends EPackage {
 		EClass DATA_TYPE = eINSTANCE.getDataType();
 
 		/**
-		 * The meta object literal for the '<em><b>Applies To</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference DATA_TYPE__APPLIES_TO = eINSTANCE.getDataType_AppliesTo();
-
-		/**
 		 * The meta object literal for the '{@link conml.types.impl.EnumeratedItemImpl <em>Enumerated Item</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3417,20 +3323,12 @@ public interface TypesPackage extends EPackage {
 		EAttribute ENUMERATED_ITEM__DEFINITION = eINSTANCE.getEnumeratedItem_Definition();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference ENUMERATED_ITEM__OWNER = eINSTANCE.getEnumeratedItem_Owner();
-
-		/**
-		 * The meta object literal for the '<em><b>Assigned To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENUMERATED_ITEM__ASSIGNED_TO = eINSTANCE.getEnumeratedItem_AssignedTo();
 
 		/**
 		 * The meta object literal for the '<em><b>Is Super Item Of</b></em>' reference list feature.

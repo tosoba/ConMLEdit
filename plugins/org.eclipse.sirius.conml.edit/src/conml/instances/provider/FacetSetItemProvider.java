@@ -42,56 +42,12 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHasPhaseQualifierPropertyDescriptor(object);
-			addHasPerspectiveQualifierPropertyDescriptor(object);
 			addIsComposedOfPropertyDescriptor(object);
 			addTranslationQualifiersPropertyDescriptor(object);
+			addPhaseQualifierPropertyDescriptor(object);
+			addPerspectiveQualifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Phase Qualifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasPhaseQualifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FacetSet_HasPhaseQualifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_HasPhaseQualifier_feature", "_UI_FacetSet_type"),
-				 InstancesPackage.Literals.FACET_SET__HAS_PHASE_QUALIFIER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Perspective Qualifier feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasPerspectiveQualifierPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_FacetSet_HasPerspectiveQualifier_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_HasPerspectiveQualifier_feature", "_UI_FacetSet_type"),
-				 InstancesPackage.Literals.FACET_SET__HAS_PERSPECTIVE_QUALIFIER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
 	}
 
 	/**
@@ -139,6 +95,50 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Phase Qualifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPhaseQualifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FacetSet_PhaseQualifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_PhaseQualifier_feature", "_UI_FacetSet_type"),
+				 InstancesPackage.Literals.FACET_SET__PHASE_QUALIFIER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Perspective Qualifier feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPerspectiveQualifierPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_FacetSet_PerspectiveQualifier_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_PerspectiveQualifier_feature", "_UI_FacetSet_type"),
+				 InstancesPackage.Literals.FACET_SET__PERSPECTIVE_QUALIFIER,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -453,31 +453,13 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__DOCUMENTED_BY = INSTANCE__DOCUMENTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET_SET__HAS_PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Has Perspective Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET_SET__HAS_PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Is Composed Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__IS_COMPOSED_OF = INSTANCE_FEATURE_COUNT + 2;
+	int FACET_SET__IS_COMPOSED_OF = INSTANCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
@@ -486,9 +468,27 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 3;
+	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
+
+  /**
+	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 3;
+
+  /**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -535,24 +535,6 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__DOCUMENTED_BY = FACET_SET__DOCUMENTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__HAS_PHASE_QUALIFIER = FACET_SET__HAS_PHASE_QUALIFIER;
-
-	/**
-	 * The feature id for the '<em><b>Has Perspective Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__HAS_PERSPECTIVE_QUALIFIER = FACET_SET__HAS_PERSPECTIVE_QUALIFIER;
-
-	/**
 	 * The feature id for the '<em><b>Is Composed Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,6 +553,24 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
+
+  /**
+	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+  /**
 	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -635,24 +635,6 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__DOCUMENTED_BY = FACET_SET__DOCUMENTED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Has Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_SET__HAS_PHASE_QUALIFIER = FACET_SET__HAS_PHASE_QUALIFIER;
-
-	/**
-	 * The feature id for the '<em><b>Has Perspective Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_SET__HAS_PERSPECTIVE_QUALIFIER = FACET_SET__HAS_PERSPECTIVE_QUALIFIER;
-
-	/**
 	 * The feature id for the '<em><b>Is Composed Of</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,6 +653,24 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
+
+  /**
+	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+  /**
 	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -789,67 +789,31 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__IS_OPPOSITE_IN = INSTANCE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Is Phase Qualifier Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__IS_PHASE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 6;
-
-	/**
-	 * The feature id for the '<em><b>Is Persepective Qualifier Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF = INSTANCE_FEATURE_COUNT + 7;
-
-	/**
 	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 6;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal Existence Qualifer Of</b></em>' reference list.
+	 * The feature id for the '<em><b>Subjective Existential Qualifer</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 9;
+	int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 7;
 
-	/**
-	 * The feature id for the '<em><b>Subjectve Existental Qualifer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER = INSTANCE_FEATURE_COUNT + 10;
-
-	/**
-	 * The feature id for the '<em><b>Is Subjectve Existence Qualifer Of</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF = INSTANCE_FEATURE_COUNT + 11;
-
-	/**
+  /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 12;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -1296,28 +1260,6 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_IsOppositeIn();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsPhaseQualifierOf <em>Is Phase Qualifier Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Phase Qualifier Of</em>'.
-	 * @see conml.instances.Object#getIsPhaseQualifierOf()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_IsPhaseQualifierOf();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsPersepectiveQualifierOf <em>Is Persepective Qualifier Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Persepective Qualifier Of</em>'.
-	 * @see conml.instances.Object#getIsPersepectiveQualifierOf()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_IsPersepectiveQualifierOf();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1329,39 +1271,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_TemporalExistentialQualifier();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsTemporalExistenceQualiferOf <em>Is Temporal Existence Qualifer Of</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Temporal Existence Qualifer Of</em>'.
-	 * @see conml.instances.Object#getIsTemporalExistenceQualiferOf()
+	 * @return the meta object for the reference '<em>Subjective Existential Qualifer</em>'.
+	 * @see conml.instances.Object#getSubjectiveExistentialQualifer()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_IsTemporalExistenceQualiferOf();
+	EReference getObject_SubjectiveExistentialQualifer();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Object#getSubjectveExistentalQualifer <em>Subjectve Existental Qualifer</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Subjectve Existental Qualifer</em>'.
-	 * @see conml.instances.Object#getSubjectveExistentalQualifer()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_SubjectveExistentalQualifer();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsSubjectveExistenceQualiferOf <em>Is Subjectve Existence Qualifer Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Subjectve Existence Qualifer Of</em>'.
-	 * @see conml.instances.Object#getIsSubjectveExistenceQualiferOf()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_IsSubjectveExistenceQualiferOf();
-
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.instances.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1436,28 +1356,6 @@ public interface InstancesPackage extends EPackage {
 	EClass getFacetSet();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.FacetSet#getHasPhaseQualifier <em>Has Phase Qualifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Phase Qualifier</em>'.
-	 * @see conml.instances.FacetSet#getHasPhaseQualifier()
-	 * @see #getFacetSet()
-	 * @generated
-	 */
-	EReference getFacetSet_HasPhaseQualifier();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.FacetSet#getHasPerspectiveQualifier <em>Has Perspective Qualifier</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Perspective Qualifier</em>'.
-	 * @see conml.instances.FacetSet#getHasPerspectiveQualifier()
-	 * @see #getFacetSet()
-	 * @generated
-	 */
-	EReference getFacetSet_HasPerspectiveQualifier();
-
-	/**
 	 * Returns the meta object for the reference list '{@link conml.instances.FacetSet#getIsComposedOf <em>Is Composed Of</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1480,6 +1378,28 @@ public interface InstancesPackage extends EPackage {
 	EReference getFacetSet_TranslationQualifiers();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Phase Qualifier</em>'.
+	 * @see conml.instances.FacetSet#getPhaseQualifier()
+	 * @see #getFacetSet()
+	 * @generated
+	 */
+	EReference getFacetSet_PhaseQualifier();
+
+  /**
+	 * Returns the meta object for the reference '{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Perspective Qualifier</em>'.
+	 * @see conml.instances.FacetSet#getPerspectiveQualifier()
+	 * @see #getFacetSet()
+	 * @generated
+	 */
+	EReference getFacetSet_PerspectiveQualifier();
+
+  /**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1737,22 +1657,6 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__IS_OPPOSITE_IN = eINSTANCE.getObject_IsOppositeIn();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Phase Qualifier Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__IS_PHASE_QUALIFIER_OF = eINSTANCE.getObject_IsPhaseQualifierOf();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Persepective Qualifier Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF = eINSTANCE.getObject_IsPersepectiveQualifierOf();
-
-		/**
 		 * The meta object literal for the '<em><b>Temporal Existential Qualifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1761,30 +1665,14 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = eINSTANCE.getObject_TemporalExistentialQualifier();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Temporal Existence Qualifer Of</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Subjective Existential Qualifer</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF = eINSTANCE.getObject_IsTemporalExistenceQualiferOf();
+		EReference OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = eINSTANCE.getObject_SubjectiveExistentialQualifer();
 
-		/**
-		 * The meta object literal for the '<em><b>Subjectve Existental Qualifer</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER = eINSTANCE.getObject_SubjectveExistentalQualifer();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Subjectve Existence Qualifer Of</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF = eINSTANCE.getObject_IsSubjectveExistenceQualiferOf();
-
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1847,22 +1735,6 @@ public interface InstancesPackage extends EPackage {
 		EClass FACET_SET = eINSTANCE.getFacetSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Phase Qualifier</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FACET_SET__HAS_PHASE_QUALIFIER = eINSTANCE.getFacetSet_HasPhaseQualifier();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Perspective Qualifier</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FACET_SET__HAS_PERSPECTIVE_QUALIFIER = eINSTANCE.getFacetSet_HasPerspectiveQualifier();
-
-		/**
 		 * The meta object literal for the '<em><b>Is Composed Of</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1879,6 +1751,22 @@ public interface InstancesPackage extends EPackage {
 		EReference FACET_SET__TRANSLATION_QUALIFIERS = eINSTANCE.getFacetSet_TranslationQualifiers();
 
 		/**
+		 * The meta object literal for the '<em><b>Phase Qualifier</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FACET_SET__PHASE_QUALIFIER = eINSTANCE.getFacetSet_PhaseQualifier();
+
+    /**
+		 * The meta object literal for the '<em><b>Perspective Qualifier</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference FACET_SET__PERSPECTIVE_QUALIFIER = eINSTANCE.getFacetSet_PerspectiveQualifier();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.types.EnumeratedItem#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.EnumeratedItem#getAssignedTo <em>Assigned To</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getIsSuperItemOf <em>Is Super Item Of</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getIsSubItemOf <em>Is Sub Item Of</em>}</li>
  * </ul>
@@ -96,52 +95,28 @@ public interface EnumeratedItem extends EObject {
 	void setDefinition(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
+	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
+	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(EnumeratedType)
 	 * @see conml.types.TypesPackage#getEnumeratedItem_Owner()
 	 * @see conml.types.EnumeratedType#getOwnsItems
-	 * @model opposite="OwnsItems" required="true"
+	 * @model opposite="OwnsItems" required="true" transient="false"
 	 * @generated
 	 */
 	EnumeratedType getOwner();
 
 	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}' reference.
+	 * Sets the value of the '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
+	 * @param value the new value of the '<em>Owner</em>' container reference.
 	 * @see #getOwner()
 	 * @generated
 	 */
 	void setOwner(EnumeratedType value);
-
-	/**
-	 * Returns the value of the '<em><b>Assigned To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getHasItems <em>Has Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assigned To</em>' reference.
-	 * @see #setAssignedTo(EnumeratedType)
-	 * @see conml.types.TypesPackage#getEnumeratedItem_AssignedTo()
-	 * @see conml.types.EnumeratedType#getHasItems
-	 * @model opposite="HasItems" required="true"
-	 * @generated
-	 */
-	EnumeratedType getAssignedTo();
-
-	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getAssignedTo <em>Assigned To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assigned To</em>' reference.
-	 * @see #getAssignedTo()
-	 * @generated
-	 */
-	void setAssignedTo(EnumeratedType value);
 
 	/**
 	 * Returns the value of the '<em><b>Is Super Item Of</b></em>' reference list.

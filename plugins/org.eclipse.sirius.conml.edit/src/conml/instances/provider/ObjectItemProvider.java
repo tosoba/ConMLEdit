@@ -50,12 +50,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addOwnsValueSetsPropertyDescriptor(object);
 			addOwnsReferenceSetsPropertyDescriptor(object);
 			addIsOppositeInPropertyDescriptor(object);
-			addIsPhaseQualifierOfPropertyDescriptor(object);
-			addIsPersepectiveQualifierOfPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
-			addIsTemporalExistenceQualiferOfPropertyDescriptor(object);
-			addSubjectveExistentalQualiferPropertyDescriptor(object);
-			addIsSubjectveExistenceQualiferOfPropertyDescriptor(object);
+			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -193,50 +189,6 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Phase Qualifier Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsPhaseQualifierOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_IsPhaseQualifierOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsPhaseQualifierOf_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_PHASE_QUALIFIER_OF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Persepective Qualifier Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsPersepectiveQualifierOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_IsPersepectiveQualifierOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsPersepectiveQualifierOf_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Temporal Existential Qualifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -259,19 +211,19 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Temporal Existence Qualifer Of feature.
+	 * This adds a property descriptor for the Subjective Existential Qualifer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTemporalExistenceQualiferOfPropertyDescriptor(Object object) {
+	protected void addSubjectiveExistentialQualiferPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_IsTemporalExistenceQualiferOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsTemporalExistenceQualiferOf_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF,
+				 getString("_UI_Object_SubjectiveExistentialQualifer_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_SubjectiveExistentialQualifer_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER,
 				 true,
 				 false,
 				 true,
@@ -280,51 +232,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Subjectve Existental Qualifer feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSubjectveExistentalQualiferPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_SubjectveExistentalQualifer_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_SubjectveExistentalQualifer_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Subjectve Existence Qualifer Of feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsSubjectveExistenceQualiferOfPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_IsSubjectveExistenceQualiferOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsSubjectveExistenceQualiferOf_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
+  /**
 	 * This returns Object.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

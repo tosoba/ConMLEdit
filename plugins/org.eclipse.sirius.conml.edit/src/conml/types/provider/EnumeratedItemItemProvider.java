@@ -66,7 +66,6 @@ public class EnumeratedItemItemProvider
 			addAbsoluteNamePropertyDescriptor(object);
 			addDefinitionPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
-			addAssignedToPropertyDescriptor(object);
 			addIsSuperItemOfPropertyDescriptor(object);
 			addIsSubItemOfPropertyDescriptor(object);
 		}
@@ -153,28 +152,6 @@ public class EnumeratedItemItemProvider
 				 getString("_UI_EnumeratedItem_Owner_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_Owner_feature", "_UI_EnumeratedItem_type"),
 				 TypesPackage.Literals.ENUMERATED_ITEM__OWNER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Assigned To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAssignedToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_AssignedTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_AssignedTo_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__ASSIGNED_TO,
 				 true,
 				 false,
 				 true,

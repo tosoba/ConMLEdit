@@ -23,4 +23,8 @@ public interface FacetSetValidator {
 	boolean validateIsComposedOf(EList<Facet> value);
 
 	boolean validateTranslationQualifiers(EList<Language> value);
+
+  boolean validatePhaseQualifier(conml.instances.Object value);
+
+  boolean validatePerspectiveQualifier(conml.instances.Object value);
 }

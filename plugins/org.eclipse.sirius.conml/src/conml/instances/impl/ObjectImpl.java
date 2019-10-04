@@ -3,7 +3,6 @@
 package conml.instances.impl;
 
 import conml.instances.DegreeOfCertainty;
-import conml.instances.FacetSet;
 import conml.instances.InstancesPackage;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
@@ -40,12 +39,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsOppositeIn <em>Is Opposite In</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsPhaseQualifierOf <em>Is Phase Qualifier Of</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsPersepectiveQualifierOf <em>Is Persepective Qualifier Of</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsTemporalExistenceQualiferOf <em>Is Temporal Existence Qualifer Of</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectveExistentalQualifer <em>Subjectve Existental Qualifer</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsSubjectveExistenceQualiferOf <em>Is Subjectve Existence Qualifer Of</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  * </ul>
  *
  * @generated
@@ -132,26 +127,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected EList<Reference> isOppositeIn;
 
 	/**
-	 * The cached value of the '{@link #getIsPhaseQualifierOf() <em>Is Phase Qualifier Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsPhaseQualifierOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<FacetSet> isPhaseQualifierOf;
-
-	/**
-	 * The cached value of the '{@link #getIsPersepectiveQualifierOf() <em>Is Persepective Qualifier Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsPersepectiveQualifierOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<FacetSet> isPersepectiveQualifierOf;
-
-	/**
 	 * The cached value of the '{@link #getTemporalExistentialQualifier() <em>Temporal Existential Qualifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -162,36 +137,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected conml.instances.Object temporalExistentialQualifier;
 
 	/**
-	 * The cached value of the '{@link #getIsTemporalExistenceQualiferOf() <em>Is Temporal Existence Qualifer Of</em>}' reference list.
+	 * The cached value of the '{@link #getSubjectiveExistentialQualifer() <em>Subjective Existential Qualifer</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsTemporalExistenceQualiferOf()
+	 * @see #getSubjectiveExistentialQualifer()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.instances.Object> isTemporalExistenceQualiferOf;
+	protected conml.instances.Object subjectiveExistentialQualifer;
 
-	/**
-	 * The cached value of the '{@link #getSubjectveExistentalQualifer() <em>Subjectve Existental Qualifer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectveExistentalQualifer()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.instances.Object subjectveExistentalQualifer;
-
-	/**
-	 * The cached value of the '{@link #getIsSubjectveExistenceQualiferOf() <em>Is Subjectve Existence Qualifer Of</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getIsSubjectveExistenceQualiferOf()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<conml.instances.Object> isSubjectveExistenceQualiferOf;
-
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -363,32 +318,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @generated
 	 */
 	@Override
-	public EList<FacetSet> getIsPhaseQualifierOf() {
-		if (isPhaseQualifierOf == null) {
-			isPhaseQualifierOf = new EObjectWithInverseResolvingEList<FacetSet>(FacetSet.class, this, InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF, InstancesPackage.FACET_SET__HAS_PHASE_QUALIFIER);
-		}
-		return isPhaseQualifierOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<FacetSet> getIsPersepectiveQualifierOf() {
-		if (isPersepectiveQualifierOf == null) {
-			isPersepectiveQualifierOf = new EObjectWithInverseResolvingEList<FacetSet>(FacetSet.class, this, InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF, InstancesPackage.FACET_SET__HAS_PERSPECTIVE_QUALIFIER);
-		}
-		return isPersepectiveQualifierOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public conml.instances.Object getTemporalExistentialQualifier() {
 		if (temporalExistentialQualifier != null && temporalExistentialQualifier.eIsProxy()) {
 			InternalEObject oldTemporalExistentialQualifier = (InternalEObject)temporalExistentialQualifier;
@@ -415,34 +344,12 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetTemporalExistentialQualifier(conml.instances.Object newTemporalExistentialQualifier, NotificationChain msgs) {
-		conml.instances.Object oldTemporalExistentialQualifier = temporalExistentialQualifier;
-		temporalExistentialQualifier = newTemporalExistentialQualifier;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, oldTemporalExistentialQualifier, newTemporalExistentialQualifier);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setTemporalExistentialQualifier(conml.instances.Object newTemporalExistentialQualifier) {
-		if (newTemporalExistentialQualifier != temporalExistentialQualifier) {
-			NotificationChain msgs = null;
-			if (temporalExistentialQualifier != null)
-				msgs = ((InternalEObject)temporalExistentialQualifier).eInverseRemove(this, InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-			if (newTemporalExistentialQualifier != null)
-				msgs = ((InternalEObject)newTemporalExistentialQualifier).eInverseAdd(this, InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-			msgs = basicSetTemporalExistentialQualifier(newTemporalExistentialQualifier, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, newTemporalExistentialQualifier, newTemporalExistentialQualifier));
+		conml.instances.Object oldTemporalExistentialQualifier = temporalExistentialQualifier;
+		temporalExistentialQualifier = newTemporalExistentialQualifier;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, oldTemporalExistentialQualifier, temporalExistentialQualifier));
 	}
 
 	/**
@@ -451,89 +358,41 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @generated
 	 */
 	@Override
-	public EList<conml.instances.Object> getIsTemporalExistenceQualiferOf() {
-		if (isTemporalExistenceQualiferOf == null) {
-			isTemporalExistenceQualiferOf = new EObjectWithInverseResolvingEList<conml.instances.Object>(conml.instances.Object.class, this, InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER);
-		}
-		return isTemporalExistenceQualiferOf;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.instances.Object getSubjectveExistentalQualifer() {
-		if (subjectveExistentalQualifer != null && subjectveExistentalQualifer.eIsProxy()) {
-			InternalEObject oldSubjectveExistentalQualifer = (InternalEObject)subjectveExistentalQualifer;
-			subjectveExistentalQualifer = (conml.instances.Object)eResolveProxy(oldSubjectveExistentalQualifer);
-			if (subjectveExistentalQualifer != oldSubjectveExistentalQualifer) {
+	public conml.instances.Object getSubjectiveExistentialQualifer() {
+		if (subjectiveExistentialQualifer != null && subjectiveExistentialQualifer.eIsProxy()) {
+			InternalEObject oldSubjectiveExistentialQualifer = (InternalEObject)subjectiveExistentialQualifer;
+			subjectiveExistentialQualifer = (conml.instances.Object)eResolveProxy(oldSubjectiveExistentialQualifer);
+			if (subjectiveExistentialQualifer != oldSubjectiveExistentialQualifer) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER, oldSubjectveExistentalQualifer, subjectveExistentalQualifer));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, oldSubjectiveExistentialQualifer, subjectiveExistentialQualifer));
 			}
 		}
-		return subjectveExistentalQualifer;
+		return subjectiveExistentialQualifer;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetSubjectveExistentalQualifer() {
-		return subjectveExistentalQualifer;
+	public conml.instances.Object basicGetSubjectiveExistentialQualifer() {
+		return subjectiveExistentialQualifer;
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetSubjectveExistentalQualifer(conml.instances.Object newSubjectveExistentalQualifer, NotificationChain msgs) {
-		conml.instances.Object oldSubjectveExistentalQualifer = subjectveExistentalQualifer;
-		subjectveExistentalQualifer = newSubjectveExistentalQualifer;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER, oldSubjectveExistentalQualifer, newSubjectveExistentalQualifer);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setSubjectveExistentalQualifer(conml.instances.Object newSubjectveExistentalQualifer) {
-		if (newSubjectveExistentalQualifer != subjectveExistentalQualifer) {
-			NotificationChain msgs = null;
-			if (subjectveExistentalQualifer != null)
-				msgs = ((InternalEObject)subjectveExistentalQualifer).eInverseRemove(this, InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-			if (newSubjectveExistentalQualifer != null)
-				msgs = ((InternalEObject)newSubjectveExistentalQualifer).eInverseAdd(this, InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-			msgs = basicSetSubjectveExistentalQualifer(newSubjectveExistentalQualifer, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER, newSubjectveExistentalQualifer, newSubjectveExistentalQualifer));
+	public void setSubjectiveExistentialQualifer(conml.instances.Object newSubjectiveExistentialQualifer) {
+		conml.instances.Object oldSubjectiveExistentialQualifer = subjectiveExistentialQualifer;
+		subjectiveExistentialQualifer = newSubjectiveExistentialQualifer;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, oldSubjectiveExistentialQualifer, subjectiveExistentialQualifer));
 	}
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<conml.instances.Object> getIsSubjectveExistenceQualiferOf() {
-		if (isSubjectveExistenceQualiferOf == null) {
-			isSubjectveExistenceQualiferOf = new EObjectWithInverseResolvingEList<conml.instances.Object>(conml.instances.Object.class, this, InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF, InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER);
-		}
-		return isSubjectveExistenceQualiferOf;
-	}
-
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -552,22 +411,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsReferenceSets()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOppositeIn()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsPhaseQualifierOf()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsPersepectiveQualifierOf()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				if (temporalExistentialQualifier != null)
-					msgs = ((InternalEObject)temporalExistentialQualifier).eInverseRemove(this, InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-				return basicSetTemporalExistentialQualifier((conml.instances.Object)otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsTemporalExistenceQualiferOf()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				if (subjectveExistentalQualifer != null)
-					msgs = ((InternalEObject)subjectveExistentalQualifer).eInverseRemove(this, InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF, conml.instances.Object.class, msgs);
-				return basicSetSubjectveExistentalQualifer((conml.instances.Object)otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsSubjectveExistenceQualiferOf()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -588,18 +431,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return ((InternalEList<?>)getOwnsReferenceSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return ((InternalEList<?>)getIsOppositeIn()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				return ((InternalEList<?>)getIsPhaseQualifierOf()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				return ((InternalEList<?>)getIsPersepectiveQualifierOf()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				return basicSetTemporalExistentialQualifier(null, msgs);
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				return ((InternalEList<?>)getIsTemporalExistenceQualiferOf()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				return basicSetSubjectveExistentalQualifer(null, msgs);
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				return ((InternalEList<?>)getIsSubjectveExistenceQualiferOf()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -625,20 +456,12 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return getOwnsReferenceSets();
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return getIsOppositeIn();
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				return getIsPhaseQualifierOf();
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				return getIsPersepectiveQualifierOf();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				if (resolve) return getTemporalExistentialQualifier();
 				return basicGetTemporalExistentialQualifier();
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				return getIsTemporalExistenceQualiferOf();
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				if (resolve) return getSubjectveExistentalQualifer();
-				return basicGetSubjectveExistentalQualifer();
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				return getIsSubjectveExistenceQualiferOf();
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				if (resolve) return getSubjectiveExistentialQualifer();
+				return basicGetSubjectiveExistentialQualifer();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -673,27 +496,11 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				getIsOppositeIn().clear();
 				getIsOppositeIn().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				getIsPhaseQualifierOf().clear();
-				getIsPhaseQualifierOf().addAll((Collection<? extends FacetSet>)newValue);
-				return;
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				getIsPersepectiveQualifierOf().clear();
-				getIsPersepectiveQualifierOf().addAll((Collection<? extends FacetSet>)newValue);
-				return;
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				setTemporalExistentialQualifier((conml.instances.Object)newValue);
 				return;
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				getIsTemporalExistenceQualiferOf().clear();
-				getIsTemporalExistenceQualiferOf().addAll((Collection<? extends conml.instances.Object>)newValue);
-				return;
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				setSubjectveExistentalQualifer((conml.instances.Object)newValue);
-				return;
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				getIsSubjectveExistenceQualiferOf().clear();
-				getIsSubjectveExistenceQualiferOf().addAll((Collection<? extends conml.instances.Object>)newValue);
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				setSubjectiveExistentialQualifer((conml.instances.Object)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -725,23 +532,11 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				getIsOppositeIn().clear();
 				return;
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				getIsPhaseQualifierOf().clear();
-				return;
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				getIsPersepectiveQualifierOf().clear();
-				return;
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				setTemporalExistentialQualifier((conml.instances.Object)null);
 				return;
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				getIsTemporalExistenceQualiferOf().clear();
-				return;
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				setSubjectveExistentalQualifer((conml.instances.Object)null);
-				return;
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				getIsSubjectveExistenceQualiferOf().clear();
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				setSubjectiveExistentialQualifer((conml.instances.Object)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -767,18 +562,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return ownsReferenceSets != null && !ownsReferenceSets.isEmpty();
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return isOppositeIn != null && !isOppositeIn.isEmpty();
-			case InstancesPackage.OBJECT__IS_PHASE_QUALIFIER_OF:
-				return isPhaseQualifierOf != null && !isPhaseQualifierOf.isEmpty();
-			case InstancesPackage.OBJECT__IS_PERSEPECTIVE_QUALIFIER_OF:
-				return isPersepectiveQualifierOf != null && !isPersepectiveQualifierOf.isEmpty();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				return temporalExistentialQualifier != null;
-			case InstancesPackage.OBJECT__IS_TEMPORAL_EXISTENCE_QUALIFER_OF:
-				return isTemporalExistenceQualiferOf != null && !isTemporalExistenceQualiferOf.isEmpty();
-			case InstancesPackage.OBJECT__SUBJECTVE_EXISTENTAL_QUALIFER:
-				return subjectveExistentalQualifer != null;
-			case InstancesPackage.OBJECT__IS_SUBJECTVE_EXISTENCE_QUALIFER_OF:
-				return isSubjectveExistenceQualiferOf != null && !isSubjectveExistenceQualiferOf.isEmpty();
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				return subjectiveExistentialQualifer != null;
 		}
 		return super.eIsSet(featureID);
 	}
