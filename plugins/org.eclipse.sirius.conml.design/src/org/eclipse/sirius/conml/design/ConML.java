@@ -37,10 +37,10 @@ public class ConML {
     EObject rootContainer = EcoreUtil.getRootContainer(ref);
     Stream<Container> descedentContainersStream =
         getAllElementsOfTypeFrom(rootContainer, containerClass).stream();
-    @SuppressWarnings("unchecked")
     Stream<Container> containersStream =
         containerClass.isInstance(rootContainer)
-            ? Stream.concat(Stream.of((Container) rootContainer), descedentContainersStream)
+            ? Stream.concat(
+                Stream.of(containerClass.cast(rootContainer)), descedentContainersStream)
             : descedentContainersStream;
     return containersStream
         .filter(container -> EcoreUtil.equals(ref, referenceGetter.apply(container)))
