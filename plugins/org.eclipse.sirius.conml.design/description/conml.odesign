@@ -26,15 +26,15 @@
           </style>
         </edgeMappings>
         <containerMappings name="CD_Class" semanticCandidatesExpression="service:self.getCDClassSemanticCandidates" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
-          <subNodeMappings name="CD_Attribute" semanticCandidatesExpression="feature:OwnsAttributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
+          <subNodeMappings name="CD_Attribute" semanticCandidatesExpression="feature:Attributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.attributeLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="CD_Property" semanticCandidatesExpression="feature:OwnsProperties" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Property">
-            <borderedNodeMappings name="CD_Property" semanticCandidatesExpression="feature:OwnsProperties" domainClass="types::Property">
+          <subNodeMappings name="CD_Property" semanticCandidatesExpression="feature:Properties" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Property">
+            <borderedNodeMappings name="CD_Property" semanticCandidatesExpression="feature:Properties" domainClass="types::Property">
               <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.attributeLabel" labelAlignment="LEFT" sizeComputationExpression="1">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -47,7 +47,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="CD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" semanticCandidatesExpression="feature:OwnsSemiassociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
+          <subNodeMappings name="CD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" semanticCandidatesExpression="feature:Semiassociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.compactAssociationLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -67,7 +67,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="OwnsElements">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="Elements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isAbstract" valueExpression="false"/>
@@ -142,7 +142,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Property" referenceName="OwnsProperties" variableName="newProperty">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Property" referenceName="Properties" variableName="newProperty">
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New property">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>
@@ -169,7 +169,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Attribute" referenceName="OwnsAttributes">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Attribute" referenceName="Attributes">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="isTemporal" valueExpression="false"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
@@ -204,10 +204,10 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Attribute)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnsAttributes"/>
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="Attributes"/>
                 </subModelOperations>
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Property)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="OwnsProperties"/>
+                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="Properties"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -238,7 +238,7 @@
               <viewVariable name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::SemiAssociation" referenceName="OwnsSemiassociations" variableName="primary">
+                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::SemiAssociation" referenceName="Semiassociations" variableName="primary">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="primaryName"/>
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="primaryRole"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
@@ -364,8 +364,8 @@
         </controls>
       </groups>
       <groups name="PR_GeneralClassGroup" labelExpression="General" domainClass="types::Class" semanticCandidateExpression="var:self">
-        <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralClassDynamicMapping" iterator="eStructuralFeature" iterableExpression="aql:self.eClass().eAllStructuralFeatures" extends="//@extensions.0/@categories.0/@groups.0/@controls.0" filterIfsFromExtendedDynamicMappingForExpression="service:self.removeOverridenReferenceIf">
-          <ifs name="general_class_reference_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference) and not eStructuralFeature.name.equalsIgnoreCase('OwnsSemiassociations')" extends="//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.5"/>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralClassDynamicMapping" iterator="eStructuralFeature" iterableExpression="aql:self.eClass().eAllStructuralFeatures" extends="//@extensions.0/@categories.0/@groups.0/@controls.0" filterIfsFromExtendedDynamicMappingForExpression="service:self.disableOverridenReferenceIf">
+          <ifs name="general_class_reference_if" predicateExpression="aql:eStructuralFeature.oclIsKindOf(ecore::EReference) and not eStructuralFeature.name.equalsIgnoreCase('Semiassociations')" extends="//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.5"/>
         </controls>
       </groups>
     </categories>

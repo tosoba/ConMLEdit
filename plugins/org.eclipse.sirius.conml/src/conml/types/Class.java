@@ -19,12 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}</li>
- *   <li>{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}</li>
- *   <li>{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}</li>
+ *   <li>{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}</li>
+ *   <li>{@link conml.types.Class#getInstancedByObjects <em>Instanced By Objects</em>}</li>
  *   <li>{@link conml.types.Class#getPackage <em>Package</em>}</li>
- *   <li>{@link conml.types.Class#getOwnsProperties <em>Owns Properties</em>}</li>
- *   <li>{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}</li>
+ *   <li>{@link conml.types.Class#getProperties <em>Properties</em>}</li>
+ *   <li>{@link conml.types.Class#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getClass_()
@@ -161,72 +160,34 @@ public interface Class extends Type {
 	void setDominantGeneralization(Generalization value);
 
 	/**
-	 * Returns the value of the '<em><b>Owns Properties</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.types.Property}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owns Properties</em>' containment reference list.
-	 * @see conml.types.TypesPackage#getClass_OwnsProperties()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Property> getOwnsProperties();
-
-	/**
-	 * Returns the value of the '<em><b>Owns Attributes</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.types.Attribute}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owns Attributes</em>' containment reference list.
-	 * @see conml.types.TypesPackage#getClass_OwnsAttributes()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Attribute> getOwnsAttributes();
-
-	/**
-	 * Returns the value of the '<em><b>Owns Semiassociations</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Semiassociations</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.SemiAssociation}.
 	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owns Semiassociations</em>' containment reference list.
-	 * @see conml.types.TypesPackage#getClass_OwnsSemiassociations()
+	 * @return the value of the '<em>Semiassociations</em>' containment reference list.
+	 * @see conml.types.TypesPackage#getClass_Semiassociations()
 	 * @see conml.types.SemiAssociation#getOwner
 	 * @model opposite="Owner" containment="true"
 	 * @generated
 	 */
-	EList<SemiAssociation> getOwnsSemiassociations();
+	EList<SemiAssociation> getSemiassociations();
 
-	/**
-	 * Returns the value of the '<em><b>Is Opposite Class In</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.SemiAssociation}.
-	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getRefersTo <em>Refers To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Opposite Class In</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_IsOppositeClassIn()
-	 * @see conml.types.SemiAssociation#getRefersTo
-	 * @model opposite="RefersTo"
-	 * @generated
-	 */
-	EList<SemiAssociation> getIsOppositeClassIn();
-
-	/**
-	 * Returns the value of the '<em><b>Instanced By</b></em>' reference list.
+  /**
+	 * Returns the value of the '<em><b>Instanced By Objects</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getIsInstanceOf <em>Is Instance Of</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Instanced By</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_InstancedBy()
-	 * @see conml.instances.Object#getIsInstanceOf
-	 * @model opposite="IsInstanceOf"
+	 * @return the value of the '<em>Instanced By Objects</em>' reference list.
+	 * @see conml.types.TypesPackage#getClass_InstancedByObjects()
+	 * @see conml.instances.Object#getInstancedClass
+	 * @model opposite="InstancedClass"
 	 * @generated
 	 */
-	EList<conml.instances.Object> getInstancedBy();
+	EList<conml.instances.Object> getInstancedByObjects();
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Package</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}'.
 	 * <!-- begin-user-doc -->
@@ -249,5 +210,29 @@ public interface Class extends Type {
 	 * @generated
 	 */
 	void setPackage(conml.types.Package value);
+
+    /**
+	 * Returns the value of the '<em><b>Properties</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.types.Property}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Properties</em>' containment reference list.
+	 * @see conml.types.TypesPackage#getClass_Properties()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Property> getProperties();
+
+    /**
+	 * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.types.Attribute}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Attributes</em>' containment reference list.
+	 * @see conml.types.TypesPackage#getClass_Attributes()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Attribute> getAttributes();
 
 } // Class

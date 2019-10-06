@@ -49,11 +49,11 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addIsWholePropertyDescriptor(object);
 			addIsStrongPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
-			addRefersToPropertyDescriptor(object);
 			addIsPrimaryInPropertyDescriptor(object);
 			addIsSecondaryInPropertyDescriptor(object);
 			addHasInstanceReferenceSetsPropertyDescriptor(object);
 			addInversePropertyDescriptor(object);
+			addReferredClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -147,28 +147,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Refers To feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addRefersToPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_RefersTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_RefersTo_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__REFERS_TO,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Inverse feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,6 +169,28 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Referred Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferredClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_ReferredClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_ReferredClass_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__REFERRED_CLASS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This adds a property descriptor for the Is Primary In feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -37,11 +37,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isIsWhole <em>Is Whole</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isIsStrong <em>Is Strong</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getRefersTo <em>Refers To</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsSecondaryIn <em>Is Secondary In</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverse <em>Inverse</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getReferredClass <em>Referred Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -108,16 +108,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected boolean isStrong = IS_STRONG_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getRefersTo() <em>Refers To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRefersTo()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.types.Class refersTo;
-
-	/**
 	 * The cached value of the '{@link #getIsPrimaryIn() <em>Is Primary In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,6 +148,16 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected SemiAssociation inverse;
 
 	/**
+	 * The cached value of the '{@link #getReferredClass() <em>Referred Class</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferredClass()
+	 * @generated
+	 * @ordered
+	 */
+	protected conml.types.Class referredClass;
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -280,74 +280,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS, conml.types.Class.class, msgs);
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.CLASS__SEMIASSOCIATIONS, conml.types.Class.class, msgs);
 			msgs = basicSetOwner(newOwner, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__OWNER, newOwner, newOwner));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.types.Class getRefersTo() {
-		if (refersTo != null && refersTo.eIsProxy()) {
-			InternalEObject oldRefersTo = (InternalEObject)refersTo;
-			refersTo = (conml.types.Class)eResolveProxy(oldRefersTo);
-			if (refersTo != oldRefersTo) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__REFERS_TO, oldRefersTo, refersTo));
-			}
-		}
-		return refersTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public conml.types.Class basicGetRefersTo() {
-		return refersTo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetRefersTo(conml.types.Class newRefersTo, NotificationChain msgs) {
-		conml.types.Class oldRefersTo = refersTo;
-		refersTo = newRefersTo;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REFERS_TO, oldRefersTo, newRefersTo);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setRefersTo(conml.types.Class newRefersTo) {
-		if (newRefersTo != refersTo) {
-			NotificationChain msgs = null;
-			if (refersTo != null)
-				msgs = ((InternalEObject)refersTo).eInverseRemove(this, TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN, conml.types.Class.class, msgs);
-			if (newRefersTo != null)
-				msgs = ((InternalEObject)newRefersTo).eInverseAdd(this, TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN, conml.types.Class.class, msgs);
-			msgs = basicSetRefersTo(newRefersTo, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REFERS_TO, newRefersTo, newRefersTo));
 	}
 
 	/**
@@ -391,6 +329,46 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public conml.types.Class getReferredClass() {
+		if (referredClass != null && referredClass.eIsProxy()) {
+			InternalEObject oldReferredClass = (InternalEObject)referredClass;
+			referredClass = (conml.types.Class)eResolveProxy(oldReferredClass);
+			if (referredClass != oldReferredClass) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS, oldReferredClass, referredClass));
+			}
+		}
+		return referredClass;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public conml.types.Class basicGetReferredClass() {
+		return referredClass;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setReferredClass(conml.types.Class newReferredClass) {
+		conml.types.Class oldReferredClass = referredClass;
+		referredClass = newReferredClass;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS, oldReferredClass, referredClass));
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -540,10 +518,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetOwner((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				if (refersTo != null)
-					msgs = ((InternalEObject)refersTo).eInverseRemove(this, TypesPackage.CLASS__IS_OPPOSITE_CLASS_IN, conml.types.Class.class, msgs);
-				return basicSetRefersTo((conml.types.Class)otherEnd, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				if (isPrimaryIn != null)
 					msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_PRIMARY, Association.class, msgs);
@@ -568,8 +542,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		switch (featureID) {
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return basicSetOwner(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				return basicSetRefersTo(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				return basicSetIsPrimaryIn(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
@@ -589,7 +561,7 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				return eInternalContainer().eInverseRemove(this, TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS, conml.types.Class.class, msgs);
+				return eInternalContainer().eInverseRemove(this, TypesPackage.CLASS__SEMIASSOCIATIONS, conml.types.Class.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -610,9 +582,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return isIsStrong();
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner();
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				if (resolve) return getRefersTo();
-				return basicGetRefersTo();
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				if (resolve) return getIsPrimaryIn();
 				return basicGetIsPrimaryIn();
@@ -624,6 +593,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
 				if (resolve) return getInverse();
 				return basicGetInverse();
+			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
+				if (resolve) return getReferredClass();
+				return basicGetReferredClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -649,9 +621,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				setRefersTo((conml.types.Class)newValue);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				setIsPrimaryIn((Association)newValue);
 				return;
@@ -664,6 +633,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
 				setInverse((SemiAssociation)newValue);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
+				setReferredClass((conml.types.Class)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -689,9 +661,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				setRefersTo((conml.types.Class)null);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				setIsPrimaryIn((Association)null);
 				return;
@@ -703,6 +672,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
 				setInverse((SemiAssociation)null);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
+				setReferredClass((conml.types.Class)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -724,8 +696,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return isStrong != IS_STRONG_EDEFAULT;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner() != null;
-			case TypesPackage.SEMI_ASSOCIATION__REFERS_TO:
-				return refersTo != null;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
 				return isPrimaryIn != null;
 			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
@@ -734,6 +704,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return hasInstanceReferenceSets != null && !hasInstanceReferenceSets.isEmpty();
 			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
 				return inverse != null;
+			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
+				return referredClass != null;
 		}
 		return super.eIsSet(featureID);
 	}

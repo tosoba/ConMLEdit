@@ -11,7 +11,7 @@ Package conml <http://conml.ecore>
     Attribute name : EString<<1..1>>
     Attribute version : Double<<1..1>>
     Attribute description : EString<<1..1>>
-    Reference OwnsElements : ModelElement<<0..*>>
+    Reference Elements : ModelElement<<0..*>>
     Reference Languages : Language<<0..*>>
     Reference DefaultLanguage : Language<<1..1>>
     Reference Tags : Tag<<0..*>>
@@ -19,8 +19,8 @@ Package conml <http://conml.ecore>
   Class ModelPart
 
   Class ModelElement -> ModelPart
-    Reference TaggedWith : Tag<<0..*>>
-    Reference DocumentedBy : Object<<0..*>>
+    Reference Tags : Tag<<0..*>>
+    Reference DocumentingObjects : Object<<0..*>>
 
   Class Tag -> ModelPart
     Attribute name : EString<<1..1>>

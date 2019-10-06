@@ -17,6 +17,7 @@ public class GeneralizationServices {
   private static final class Errors {
     static final String OPPOSITE_GENERALIZATION_SAME_CLASSES =
         "An opposite generalization between the chosen classes already exists.";
+    static final String SELF_GENERALIZATION = "Self generalization is not allowed.";
   }
 
   private static final class Messages {
@@ -25,6 +26,11 @@ public class GeneralizationServices {
 
   public Generalization createGeneralization(
       EObject object, Class source, Class target, EObject sourceView, EObject targetView) {
+    if (EcoreUtil.equals(source, target)) {
+      Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.SELF_GENERALIZATION);
+      return null;
+    }
+
     // Prevent the creation of generalization between the same 2 classes in the
     // opposite direction
     final Generalization sourceSpecialization = source.getSpecialization();
@@ -63,7 +69,7 @@ public class GeneralizationServices {
     }
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getOwnsElements().add(generalization);
+      typeModel.getElements().add(generalization);
     }
     return generalization;
   }

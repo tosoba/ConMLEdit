@@ -25,7 +25,9 @@ public interface ObjectValidator {
 
 	boolean validateIdentifier(String value);
 	boolean validateCertainty(DegreeOfCertainty value);
-	boolean validateDocuments(EList<ModelElement> value);
+	boolean validateInstancedClass(conml.types.Class value);
+
+  boolean validateDocuments(EList<ModelElement> value);
 	boolean validateIsInstanceOf(conml.types.Class value);
 	boolean validateOwnsValueSets(EList<ValueSet> value);
 	boolean validateOwnsReferenceSets(EList<ReferenceSet> value);

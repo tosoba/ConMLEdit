@@ -19,11 +19,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#isIsWhole <em>Is Whole</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#isIsStrong <em>Is Strong</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getRefersTo <em>Refers To</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getSemiAssociation()
@@ -99,14 +99,14 @@ public interface SemiAssociation extends Feature {
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(conml.types.Class)
 	 * @see conml.types.TypesPackage#getSemiAssociation_Owner()
-	 * @see conml.types.Class#getOwnsSemiassociations
-	 * @model opposite="OwnsSemiassociations" required="true" transient="false"
+	 * @see conml.types.Class#getSemiassociations
+	 * @model opposite="Semiassociations" required="true" transient="false"
 	 * @generated
 	 */
 	conml.types.Class getOwner();
@@ -120,30 +120,6 @@ public interface SemiAssociation extends Feature {
 	 * @generated
 	 */
 	void setOwner(conml.types.Class value);
-
-	/**
-	 * Returns the value of the '<em><b>Refers To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Refers To</em>' reference.
-	 * @see #setRefersTo(conml.types.Class)
-	 * @see conml.types.TypesPackage#getSemiAssociation_RefersTo()
-	 * @see conml.types.Class#getIsOppositeClassIn
-	 * @model opposite="IsOppositeClassIn" required="true"
-	 * @generated
-	 */
-	conml.types.Class getRefersTo();
-
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getRefersTo <em>Refers To</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Refers To</em>' reference.
-	 * @see #getRefersTo()
-	 * @generated
-	 */
-	void setRefersTo(conml.types.Class value);
 
 	/**
 	 * Returns the value of the '<em><b>Inverse</b></em>' reference.
@@ -168,6 +144,28 @@ public interface SemiAssociation extends Feature {
 	void setInverse(SemiAssociation value);
 
 	/**
+	 * Returns the value of the '<em><b>Referred Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Referred Class</em>' reference.
+	 * @see #setReferredClass(conml.types.Class)
+	 * @see conml.types.TypesPackage#getSemiAssociation_ReferredClass()
+	 * @model required="true"
+	 * @generated
+	 */
+	conml.types.Class getReferredClass();
+
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Referred Class</em>' reference.
+	 * @see #getReferredClass()
+	 * @generated
+	 */
+	void setReferredClass(conml.types.Class value);
+
+  /**
 	 * Returns the value of the '<em><b>Is Primary In</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Association#getHasPrimary <em>Has Primary</em>}'.
 	 * <!-- begin-user-doc -->

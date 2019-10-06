@@ -29,15 +29,23 @@ public interface ClassValidator {
 	boolean validateGeneralization(EList<Generalization> value);
 	boolean validateSpecialization(Generalization value);
 	boolean validateDominantGeneralization(Generalization value);
-	boolean validateOwnsProperties(EList<Property> value);
+	boolean validateSemiassociations(EList<SemiAssociation> value);
+
+  boolean validateOwnsProperties(EList<Property> value);
 	boolean validateHasProperties(EList<Property> value);
 	boolean validateOwnsAttributes(EList<Attribute> value);
 	boolean validateHasAttributes(EList<Attribute> value);
 	boolean validateHasSemiassociations(EList<SemiAssociation> value);
 	boolean validateOwnsSemiassociations(EList<SemiAssociation> value);
-	boolean validateIsOppositeClassIn(EList<SemiAssociation> value);
+	boolean validateInstancedByObjects(EList<conml.instances.Object> value);
+
+  boolean validateIsOppositeClassIn(EList<SemiAssociation> value);
 	boolean validateInstancedBy(EList<conml.instances.Object> value);
 	boolean validatePackage(conml.types.Package value);
 
-  boolean validateBelongsToPackage(conml.types.Package value);
+  boolean validateProperties(EList<Property> value);
+
+  boolean validateAttributes(EList<Attribute> value);
+
+    boolean validateBelongsToPackage(conml.types.Package value);
 }

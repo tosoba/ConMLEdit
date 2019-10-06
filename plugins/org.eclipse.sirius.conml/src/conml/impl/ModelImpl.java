@@ -34,7 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getOwnsElements <em>Owns Elements</em>}</li>
+ *   <li>{@link conml.impl.ModelImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
@@ -104,16 +104,16 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getOwnsElements() <em>Owns Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getOwnsElements()
+	 * @see #getElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ModelElement> ownsElements;
+	protected EList<ModelElement> elements;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getLanguages() <em>Languages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,6 +237,19 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 */
 	@Override
+	public EList<ModelElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, conmlPackage.MODEL__ELEMENTS);
+		}
+		return elements;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Language getDefaultLanguage() {
 		if (defaultLanguage != null && defaultLanguage.eIsProxy()) {
 			InternalEObject oldDefaultLanguage = (InternalEObject)defaultLanguage;
@@ -290,19 +303,6 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	 * @generated
 	 */
 	@Override
-	public EList<ModelElement> getOwnsElements() {
-		if (ownsElements == null) {
-			ownsElements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, conmlPackage.MODEL__OWNS_ELEMENTS);
-		}
-		return ownsElements;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Language> getLanguages() {
 		if (languages == null) {
 			languages = new EObjectContainmentEList<Language>(Language.class, this, conmlPackage.MODEL__LANGUAGES);
@@ -318,8 +318,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				return ((InternalEList<?>)getOwnsElements()).basicRemove(otherEnd, msgs);
+			case conmlPackage.MODEL__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__LANGUAGES:
 				return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__TAGS:
@@ -342,8 +342,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return getVersion();
 			case conmlPackage.MODEL__DESCRIPTION:
 				return getDescription();
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				return getOwnsElements();
+			case conmlPackage.MODEL__ELEMENTS:
+				return getElements();
 			case conmlPackage.MODEL__LANGUAGES:
 				return getLanguages();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
@@ -373,9 +373,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				getOwnsElements().clear();
-				getOwnsElements().addAll((Collection<? extends ModelElement>)newValue);
+			case conmlPackage.MODEL__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends ModelElement>)newValue);
 				return;
 			case conmlPackage.MODEL__LANGUAGES:
 				getLanguages().clear();
@@ -409,8 +409,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				getOwnsElements().clear();
+			case conmlPackage.MODEL__ELEMENTS:
+				getElements().clear();
 				return;
 			case conmlPackage.MODEL__LANGUAGES:
 				getLanguages().clear();
@@ -439,8 +439,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
-				return ownsElements != null && !ownsElements.isEmpty();
+			case conmlPackage.MODEL__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 			case conmlPackage.MODEL__LANGUAGES:
 				return languages != null && !languages.isEmpty();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:

@@ -46,7 +46,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 
 			addIdentifierPropertyDescriptor(object);
 			addCertaintyPropertyDescriptor(object);
-			addIsInstanceOfPropertyDescriptor(object);
+			addInstancedClassPropertyDescriptor(object);
 			addOwnsValueSetsPropertyDescriptor(object);
 			addOwnsReferenceSetsPropertyDescriptor(object);
 			addIsOppositeInPropertyDescriptor(object);
@@ -101,19 +101,19 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Instance Of feature.
+	 * This adds a property descriptor for the Instanced Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsInstanceOfPropertyDescriptor(Object object) {
+	protected void addInstancedClassPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_IsInstanceOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsInstanceOf_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_INSTANCE_OF,
+				 getString("_UI_Object_InstancedClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_InstancedClass_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__INSTANCED_CLASS,
 				 true,
 				 false,
 				 true,
@@ -122,7 +122,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Owns Value Sets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -425,11 +425,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getObject_IsInstanceOf() {
+	public EReference getObject_InstancedClass() {
 		return (EReference)objectEClass.getEStructuralFeatures().get(2);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -657,7 +657,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__IDENTIFIER);
 		createEAttribute(objectEClass, OBJECT__CERTAINTY);
-		createEReference(objectEClass, OBJECT__IS_INSTANCE_OF);
+		createEReference(objectEClass, OBJECT__INSTANCED_CLASS);
 		createEReference(objectEClass, OBJECT__OWNS_VALUE_SETS);
 		createEReference(objectEClass, OBJECT__OWNS_REFERENCE_SETS);
 		createEReference(objectEClass, OBJECT__IS_OPPOSITE_IN);
@@ -757,7 +757,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEClass(objectEClass, conml.instances.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObject_Certainty(), this.getDegreeOfCertainty(), "certainty", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_IsInstanceOf(), theTypesPackage.getClass_(), theTypesPackage.getClass_InstancedBy(), "IsInstanceOf", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_InstancedClass(), theTypesPackage.getClass_(), theTypesPackage.getClass_InstancedByObjects(), "InstancedClass", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_OwnsValueSets(), this.getValueSet(), this.getValueSet_Owner(), "OwnsValueSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_OwnsReferenceSets(), this.getReferenceSet(), this.getReferenceSet_Owner(), "OwnsReferenceSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_IsOppositeIn(), this.getReference(), this.getReference_RefersTo(), "IsOppositeIn", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -97,15 +97,15 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__OWNS_ELEMENTS = conmlPackage.MODEL__OWNS_ELEMENTS;
+	int TYPE_MODEL__ELEMENTS = conmlPackage.MODEL__ELEMENTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,24 +224,24 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL_ELEMENT = 6;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT__TAGGED_WITH = conmlPackage.MODEL_ELEMENT__TAGGED_WITH;
+	int TYPE_MODEL_ELEMENT__TAGS = conmlPackage.MODEL_ELEMENT__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT__DOCUMENTED_BY = conmlPackage.MODEL_ELEMENT__DOCUMENTED_BY;
+	int TYPE_MODEL_ELEMENT__DOCUMENTING_OBJECTS = conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Type Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,24 +270,24 @@ public interface TypesPackage extends EPackage {
 	int TYPE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
+	int TYPE__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
+	int TYPE__DOCUMENTING_OBJECTS = TYPE_MODEL_ELEMENT__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -334,24 +334,24 @@ public interface TypesPackage extends EPackage {
 	int CLASS = 2;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__TAGGED_WITH = TYPE__TAGGED_WITH;
+	int CLASS__TAGS = TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
+	int CLASS__DOCUMENTING_OBJECTS = TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -424,67 +424,58 @@ public interface TypesPackage extends EPackage {
 	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Owns Semiassociations</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Semiassociations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 6;
+	int CLASS__SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 6;
 
-	/**
-	 * The feature id for the '<em><b>Is Opposite Class In</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Instanced By Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_OPPOSITE_CLASS_IN = TYPE_FEATURE_COUNT + 7;
+	int CLASS__INSTANCED_BY_OBJECTS = TYPE_FEATURE_COUNT + 7;
 
-	/**
-	 * The feature id for the '<em><b>Instanced By</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__INSTANCED_BY = TYPE_FEATURE_COUNT + 8;
-
-	/**
+  /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 9;
+	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 8;
 
   /**
-	 * The feature id for the '<em><b>Owns Properties</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_PROPERTIES = TYPE_FEATURE_COUNT + 10;
+	int CLASS__PROPERTIES = TYPE_FEATURE_COUNT + 9;
 
-	/**
-	 * The feature id for the '<em><b>Owns Attributes</b></em>' containment reference list.
+    /**
+	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__OWNS_ATTRIBUTES = TYPE_FEATURE_COUNT + 11;
+	int CLASS__ATTRIBUTES = TYPE_FEATURE_COUNT + 10;
 
-	/**
+    /**
 	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 12;
+	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 11;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -506,24 +497,24 @@ public interface TypesPackage extends EPackage {
 	int GENERALIZATION = 3;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
+	int GENERALIZATION__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
+	int GENERALIZATION__DOCUMENTING_OBJECTS = TYPE_MODEL_ELEMENT__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Discriminant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -588,24 +579,24 @@ public interface TypesPackage extends EPackage {
 	int FEATURE = 4;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__TAGGED_WITH = TYPE__TAGGED_WITH;
+	int FEATURE__TAGS = TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
+	int FEATURE__DOCUMENTING_OBJECTS = TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -724,24 +715,24 @@ public interface TypesPackage extends EPackage {
 	int DATA_TYPE = 13;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__TAGGED_WITH = TYPE__TAGGED_WITH;
+	int DATA_TYPE__TAGS = TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
+	int DATA_TYPE__DOCUMENTING_OBJECTS = TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -788,24 +779,24 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__TAGGED_WITH = DATA_TYPE__TAGGED_WITH;
+	int ENUMERATED_TYPE__TAGS = DATA_TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__DOCUMENTED_BY = DATA_TYPE__DOCUMENTED_BY;
+	int ENUMERATED_TYPE__DOCUMENTING_OBJECTS = DATA_TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -888,24 +879,24 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION = 7;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__TAGGED_WITH = TYPE__TAGGED_WITH;
+	int ASSOCIATION__TAGS = TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__DOCUMENTED_BY = TYPE__DOCUMENTED_BY;
+	int ASSOCIATION__DOCUMENTING_OBJECTS = TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -988,24 +979,24 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE = 8;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__TAGGED_WITH = TYPE_MODEL_ELEMENT__TAGGED_WITH;
+	int PACKAGE__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__DOCUMENTED_BY = TYPE_MODEL_ELEMENT__DOCUMENTED_BY;
+	int PACKAGE__DOCUMENTING_OBJECTS = TYPE_MODEL_ELEMENT__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1088,24 +1079,24 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE = 9;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__TAGGED_WITH = FEATURE__TAGGED_WITH;
+	int ATTRIBUTE__TAGS = FEATURE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
+	int ATTRIBUTE__DOCUMENTING_OBJECTS = FEATURE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1251,24 +1242,24 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION = 10;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__TAGGED_WITH = FEATURE__TAGGED_WITH;
+	int SEMI_ASSOCIATION__TAGS = FEATURE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
+	int SEMI_ASSOCIATION__DOCUMENTING_OBJECTS = FEATURE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1395,22 +1386,13 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__OWNER = FEATURE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Refers To</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__REFERS_TO = FEATURE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Is Primary In</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_PRIMARY_IN = FEATURE_FEATURE_COUNT + 5;
+	int SEMI_ASSOCIATION__IS_PRIMARY_IN = FEATURE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Is Secondary In</b></em>' reference.
@@ -1419,7 +1401,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_SECONDARY_IN = FEATURE_FEATURE_COUNT + 6;
+	int SEMI_ASSOCIATION__IS_SECONDARY_IN = FEATURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Has Instance Reference Sets</b></em>' reference list.
@@ -1428,7 +1410,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 7;
+	int SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Inverse</b></em>' reference.
@@ -1437,9 +1419,18 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__INVERSE = FEATURE_FEATURE_COUNT + 8;
+	int SEMI_ASSOCIATION__INVERSE = FEATURE_FEATURE_COUNT + 7;
 
 	/**
+	 * The feature id for the '<em><b>Referred Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__REFERRED_CLASS = FEATURE_FEATURE_COUNT + 8;
+
+  /**
 	 * The number of structural features of the '<em>Semi Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1468,24 +1459,24 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY = 11;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__TAGGED_WITH = FEATURE__TAGGED_WITH;
+	int PROPERTY__TAGS = FEATURE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__DOCUMENTED_BY = FEATURE__DOCUMENTED_BY;
+	int PROPERTY__DOCUMENTING_OBJECTS = FEATURE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1604,24 +1595,24 @@ public interface TypesPackage extends EPackage {
 	int SIMPLE_DATA_TYPE = 12;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_DATA_TYPE__TAGGED_WITH = DATA_TYPE__TAGGED_WITH;
+	int SIMPLE_DATA_TYPE__TAGS = DATA_TYPE__TAGS;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_DATA_TYPE__DOCUMENTED_BY = DATA_TYPE__DOCUMENTED_BY;
+	int SIMPLE_DATA_TYPE__DOCUMENTING_OBJECTS = DATA_TYPE__DOCUMENTING_OBJECTS;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1955,61 +1946,28 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_DominantGeneralization();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getOwnsProperties <em>Owns Properties</em>}'.
+	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owns Properties</em>'.
-	 * @see conml.types.Class#getOwnsProperties()
+	 * @return the meta object for the containment reference list '<em>Semiassociations</em>'.
+	 * @see conml.types.Class#getSemiassociations()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EReference getClass_OwnsProperties();
+	EReference getClass_Semiassociations();
 
-	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getOwnsAttributes <em>Owns Attributes</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.Class#getInstancedByObjects <em>Instanced By Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owns Attributes</em>'.
-	 * @see conml.types.Class#getOwnsAttributes()
+	 * @return the meta object for the reference list '<em>Instanced By Objects</em>'.
+	 * @see conml.types.Class#getInstancedByObjects()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EReference getClass_OwnsAttributes();
+	EReference getClass_InstancedByObjects();
 
-	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getOwnsSemiassociations <em>Owns Semiassociations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owns Semiassociations</em>'.
-	 * @see conml.types.Class#getOwnsSemiassociations()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_OwnsSemiassociations();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getIsOppositeClassIn <em>Is Opposite Class In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Opposite Class In</em>'.
-	 * @see conml.types.Class#getIsOppositeClassIn()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_IsOppositeClassIn();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Instanced By</em>'.
-	 * @see conml.types.Class#getInstancedBy()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_InstancedBy();
-
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.Class#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2021,6 +1979,28 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_Package();
 
   /**
+	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getProperties <em>Properties</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Properties</em>'.
+	 * @see conml.types.Class#getProperties()
+	 * @see #getClass_()
+	 * @generated
+	 */
+	EReference getClass_Properties();
+
+    /**
+	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Attributes</em>'.
+	 * @see conml.types.Class#getAttributes()
+	 * @see #getClass_()
+	 * @generated
+	 */
+	EReference getClass_Attributes();
+
+    /**
 	 * Returns the meta object for class '{@link conml.types.Generalization <em>Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2464,17 +2444,6 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_Owner();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getRefersTo <em>Refers To</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Refers To</em>'.
-	 * @see conml.types.SemiAssociation#getRefersTo()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_RefersTo();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2486,6 +2455,17 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_Inverse();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Referred Class</em>'.
+	 * @see conml.types.SemiAssociation#getReferredClass()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_ReferredClass();
+
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2819,46 +2799,22 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__DOMINANT_GENERALIZATION = eINSTANCE.getClass_DominantGeneralization();
 
 		/**
-		 * The meta object literal for the '<em><b>Owns Properties</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Semiassociations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASS__OWNS_PROPERTIES = eINSTANCE.getClass_OwnsProperties();
+		EReference CLASS__SEMIASSOCIATIONS = eINSTANCE.getClass_Semiassociations();
 
-		/**
-		 * The meta object literal for the '<em><b>Owns Attributes</b></em>' containment reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Instanced By Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASS__OWNS_ATTRIBUTES = eINSTANCE.getClass_OwnsAttributes();
+		EReference CLASS__INSTANCED_BY_OBJECTS = eINSTANCE.getClass_InstancedByObjects();
 
-		/**
-		 * The meta object literal for the '<em><b>Owns Semiassociations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__OWNS_SEMIASSOCIATIONS = eINSTANCE.getClass_OwnsSemiassociations();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Opposite Class In</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__IS_OPPOSITE_CLASS_IN = eINSTANCE.getClass_IsOppositeClassIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Instanced By</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__INSTANCED_BY = eINSTANCE.getClass_InstancedBy();
-
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2867,6 +2823,22 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__PACKAGE = eINSTANCE.getClass_Package();
 
     /**
+		 * The meta object literal for the '<em><b>Properties</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS__PROPERTIES = eINSTANCE.getClass_Properties();
+
+        /**
+		 * The meta object literal for the '<em><b>Attributes</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS__ATTRIBUTES = eINSTANCE.getClass_Attributes();
+
+        /**
 		 * The meta object literal for the '{@link conml.types.impl.GeneralizationImpl <em>Generalization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3211,14 +3183,6 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__OWNER = eINSTANCE.getSemiAssociation_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Refers To</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__REFERS_TO = eINSTANCE.getSemiAssociation_RefersTo();
-
-		/**
 		 * The meta object literal for the '<em><b>Inverse</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3227,6 +3191,14 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__INVERSE = eINSTANCE.getSemiAssociation_Inverse();
 
 		/**
+		 * The meta object literal for the '<em><b>Referred Class</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__REFERRED_CLASS = eINSTANCE.getSemiAssociation_ReferredClass();
+
+    /**
 		 * The meta object literal for the '<em><b>Is Primary In</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.instances.Object#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.Object#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.Object#getIsInstanceOf <em>Is Instance Of</em>}</li>
+ *   <li>{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}</li>
  *   <li>{@link conml.instances.Object#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}</li>
@@ -76,30 +76,30 @@ public interface Object extends Instance {
 	void setCertainty(DegreeOfCertainty value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Instance Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getInstancedBy <em>Instanced By</em>}'.
+	 * Returns the value of the '<em><b>Instanced Class</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getInstancedByObjects <em>Instanced By Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Instance Of</em>' reference.
-	 * @see #setIsInstanceOf(conml.types.Class)
-	 * @see conml.instances.InstancesPackage#getObject_IsInstanceOf()
-	 * @see conml.types.Class#getInstancedBy
-	 * @model opposite="InstancedBy" required="true"
+	 * @return the value of the '<em>Instanced Class</em>' reference.
+	 * @see #setInstancedClass(conml.types.Class)
+	 * @see conml.instances.InstancesPackage#getObject_InstancedClass()
+	 * @see conml.types.Class#getInstancedByObjects
+	 * @model opposite="InstancedByObjects" required="true"
 	 * @generated
 	 */
-	conml.types.Class getIsInstanceOf();
+	conml.types.Class getInstancedClass();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Object#getIsInstanceOf <em>Is Instance Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Instance Of</em>' reference.
-	 * @see #getIsInstanceOf()
+	 * @param value the new value of the '<em>Instanced Class</em>' reference.
+	 * @see #getInstancedClass()
 	 * @generated
 	 */
-	void setIsInstanceOf(conml.types.Class value);
+	void setInstancedClass(conml.types.Class value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Owns Value Sets</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.ValueSet}.
 	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getOwner <em>Owner</em>}'.

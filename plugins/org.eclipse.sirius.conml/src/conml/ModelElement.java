@@ -13,8 +13,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.ModelElement#getTaggedWith <em>Tagged With</em>}</li>
- *   <li>{@link conml.ModelElement#getDocumentedBy <em>Documented By</em>}</li>
+ *   <li>{@link conml.ModelElement#getTags <em>Tags</em>}</li>
+ *   <li>{@link conml.ModelElement#getDocumentingObjects <em>Documenting Objects</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModelElement()
@@ -23,27 +23,27 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ModelElement extends ModelPart {
 	/**
-	 * Returns the value of the '<em><b>Tagged With</b></em>' reference list.
+	 * Returns the value of the '<em><b>Tags</b></em>' reference list.
 	 * The list contents are of type {@link conml.Tag}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tagged With</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_TaggedWith()
+	 * @return the value of the '<em>Tags</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_Tags()
 	 * @model
 	 * @generated
 	 */
-	EList<Tag> getTaggedWith();
+	EList<Tag> getTags();
 
-	/**
-	 * Returns the value of the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * Returns the value of the '<em><b>Documenting Objects</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Documented By</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_DocumentedBy()
+	 * @return the value of the '<em>Documenting Objects</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_DocumentingObjects()
 	 * @model
 	 * @generated
 	 */
-	EList<conml.instances.Object> getDocumentedBy();
+	EList<conml.instances.Object> getDocumentingObjects();
 
 } // ModelElement

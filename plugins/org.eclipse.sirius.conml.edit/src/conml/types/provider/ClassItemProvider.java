@@ -52,9 +52,8 @@ public class ClassItemProvider extends TypeItemProvider {
 			addGeneralizationPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
-			addOwnsSemiassociationsPropertyDescriptor(object);
-			addIsOppositeClassInPropertyDescriptor(object);
-			addInstancedByPropertyDescriptor(object);
+			addSemiassociationsPropertyDescriptor(object);
+			addInstancedByObjectsPropertyDescriptor(object);
 			addPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -193,6 +192,28 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Semiassociations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSemiassociationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Class_Semiassociations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Semiassociations_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__SEMIASSOCIATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -204,9 +225,9 @@ public class ClassItemProvider extends TypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_SEMIASSOCIATIONS);
-			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_PROPERTIES);
-			childrenFeatures.add(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__SEMIASSOCIATIONS);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__PROPERTIES);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__ATTRIBUTES);
 		}
 		return childrenFeatures;
 	}
@@ -225,19 +246,19 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Owns Semiassociations feature.
+	 * This adds a property descriptor for the Instanced By Objects feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOwnsSemiassociationsPropertyDescriptor(Object object) {
+	protected void addInstancedByObjectsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Class_OwnsSemiassociations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_OwnsSemiassociations_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__OWNS_SEMIASSOCIATIONS,
+				 getString("_UI_Class_InstancedByObjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_InstancedByObjects_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__INSTANCED_BY_OBJECTS,
 				 true,
 				 false,
 				 true,
@@ -246,51 +267,7 @@ public class ClassItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Opposite Class In feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsOppositeClassInPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_IsOppositeClassIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_IsOppositeClassIn_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__IS_OPPOSITE_CLASS_IN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Instanced By feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInstancedByPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_InstancedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_InstancedBy_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__INSTANCED_BY,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
+  /**
 	 * This adds a property descriptor for the Package feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,9 +321,9 @@ public class ClassItemProvider extends TypeItemProvider {
 			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TypesPackage.CLASS__OWNS_SEMIASSOCIATIONS:
-			case TypesPackage.CLASS__OWNS_PROPERTIES:
-			case TypesPackage.CLASS__OWNS_ATTRIBUTES:
+			case TypesPackage.CLASS__SEMIASSOCIATIONS:
+			case TypesPackage.CLASS__PROPERTIES:
+			case TypesPackage.CLASS__ATTRIBUTES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -366,17 +343,17 @@ public class ClassItemProvider extends TypeItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__OWNS_SEMIASSOCIATIONS,
+				(TypesPackage.Literals.CLASS__SEMIASSOCIATIONS,
 				 TypesFactory.eINSTANCE.createSemiAssociation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__OWNS_PROPERTIES,
+				(TypesPackage.Literals.CLASS__PROPERTIES,
 				 TypesFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__OWNS_ATTRIBUTES,
+				(TypesPackage.Literals.CLASS__ATTRIBUTES,
 				 TypesFactory.eINSTANCE.createAttribute()));
 	}
 

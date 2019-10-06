@@ -53,8 +53,7 @@ public class AssociationServices {
     primary.setName(primaryName);
     primary.setRole(primaryName);
     primary.setIsPrimaryIn(association);
-    primary.setRefersTo(target);
-    target.getIsOppositeClassIn().add(primary);
+    primary.setReferredClass(target);
     association.setHasPrimary(primary);
 
     final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
@@ -62,19 +61,18 @@ public class AssociationServices {
     secondary.setName(secondaryName);
     secondary.setRole(secondaryName);
     secondary.setIsSecondaryIn(association);
-    secondary.setRefersTo(source);
-    source.getIsOppositeClassIn().add(secondary);
+    secondary.setReferredClass(source);
     association.setHasSecondary(secondary);
 
     primary.setInverse(secondary);
     secondary.setInverse(primary);
 
-    source.getOwnsSemiassociations().add(primary);
-    target.getOwnsSemiassociations().add(secondary);
+    source.getSemiassociations().add(primary);
+    target.getSemiassociations().add(secondary);
 
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getOwnsElements().add(association);
+      typeModel.getElements().add(association);
     }
     return association;
   }
@@ -87,7 +85,7 @@ public class AssociationServices {
     // minCardinality=1)?
     if (minPrimaryCardinality != 0
         || (maxPrimaryCardinality != null && !Objects.equals(maxPrimaryCardinality, 1))) {
-      source.getOwnsSemiassociations().remove(primary);
+      source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.COMPACT_CARDINALITIES);
       return false;
     } else {
@@ -96,13 +94,13 @@ public class AssociationServices {
   }
 
   private boolean compactSemiAssociationTargetIsValid(SemiAssociation primary, Class source) {
-    Class target = primary.getRefersTo();
+    Class target = primary.getReferredClass();
     if (target == null) {
-      source.getOwnsSemiassociations().remove(primary);
+      source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
       return false;
     } else if (EcoreUtil.equals(source, target)) {
-      source.getOwnsSemiassociations().remove(primary);
+      source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.COMPACT_SYMMETRIC_ASSOCIATION);
       return false;
     } else {
@@ -124,30 +122,29 @@ public class AssociationServices {
     primary.setIsPrimaryIn(association);
 
     // TODO: cardinalities for secondary association
-    Class target = primary.getRefersTo();
+    Class target = primary.getReferredClass();
     final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
     final String secondaryName = target.getName() + "s";
     secondary.setName(secondaryName);
     secondary.setRole(secondaryName);
     secondary.setIsSecondaryIn(association);
-    secondary.setRefersTo(source);
-    source.getIsOppositeClassIn().add(secondary);
+    secondary.setReferredClass(source);
     association.setHasSecondary(secondary);
 
     primary.setInverse(secondary);
     secondary.setInverse(primary);
 
-    source.getOwnsSemiassociations().add(primary);
-    target.getOwnsSemiassociations().add(secondary);
+    source.getSemiassociations().add(primary);
+    target.getSemiassociations().add(secondary);
 
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getOwnsElements().add(association);
+      typeModel.getElements().add(association);
     }
   }
 
   public void addToOwnedSemiAssociations(SemiAssociation semiAssociation, Class clazz) {
-    clazz.getOwnsSemiassociations().add(semiAssociation);
+    clazz.getSemiassociations().add(semiAssociation);
   }
 
   public boolean shouldDisplayCompactLabel(SemiAssociation semiAssociation) {
@@ -190,7 +187,7 @@ public class AssociationServices {
       sb.append(" con ");
     }
 
-    sb.append(primary.getRefersTo().getName());
+    sb.append(primary.getReferredClass().getName());
 
     final ArrayList<String> markers = new ArrayList<>();
     if (primary.isIsConstant()) {

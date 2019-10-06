@@ -94,15 +94,15 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Owns Elements</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__OWNS_ELEMENTS = 3;
+	int MODEL__ELEMENTS = 3;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,24 +186,24 @@ public interface conmlPackage extends EPackage {
 	int MODEL_ELEMENT = 2;
 
 	/**
-	 * The feature id for the '<em><b>Tagged With</b></em>' reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__TAGGED_WITH = MODEL_PART_FEATURE_COUNT + 0;
+	int MODEL_ELEMENT__TAGS = MODEL_PART_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Documented By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DOCUMENTED_BY = MODEL_PART_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT__DOCUMENTING_OBJECTS = MODEL_PART_FEATURE_COUNT + 1;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -358,6 +358,17 @@ public interface conmlPackage extends EPackage {
 	EAttribute getModel_Description();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link conml.Model#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see conml.Model#getElements()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_Elements();
+
+  /**
 	 * Returns the meta object for the reference '{@link conml.Model#getDefaultLanguage <em>Default Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -378,17 +389,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getModel_Tags();
-
-	/**
-	 * Returns the meta object for the containment reference list '{@link conml.Model#getOwnsElements <em>Owns Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owns Elements</em>'.
-	 * @see conml.Model#getOwnsElements()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_OwnsElements();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link conml.Model#getLanguages <em>Languages</em>}'.
@@ -422,28 +422,28 @@ public interface conmlPackage extends EPackage {
 	EClass getModelElement();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.ModelElement#getTaggedWith <em>Tagged With</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.ModelElement#getTags <em>Tags</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Tagged With</em>'.
-	 * @see conml.ModelElement#getTaggedWith()
+	 * @return the meta object for the reference list '<em>Tags</em>'.
+	 * @see conml.ModelElement#getTags()
 	 * @see #getModelElement()
 	 * @generated
 	 */
-	EReference getModelElement_TaggedWith();
+	EReference getModelElement_Tags();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.ModelElement#getDocumentedBy <em>Documented By</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.ModelElement#getDocumentingObjects <em>Documenting Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Documented By</em>'.
-	 * @see conml.ModelElement#getDocumentedBy()
+	 * @return the meta object for the reference list '<em>Documenting Objects</em>'.
+	 * @see conml.ModelElement#getDocumentingObjects()
 	 * @see #getModelElement()
 	 * @generated
 	 */
-	EReference getModelElement_DocumentedBy();
+	EReference getModelElement_DocumentingObjects();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.Tag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,6 +565,14 @@ public interface conmlPackage extends EPackage {
 		EAttribute MODEL__DESCRIPTION = eINSTANCE.getModel_Description();
 
 		/**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
+
+    /**
 		 * The meta object literal for the '<em><b>Default Language</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -579,14 +587,6 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference MODEL__TAGS = eINSTANCE.getModel_Tags();
-
-		/**
-		 * The meta object literal for the '<em><b>Owns Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__OWNS_ELEMENTS = eINSTANCE.getModel_OwnsElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
@@ -617,22 +617,22 @@ public interface conmlPackage extends EPackage {
 		EClass MODEL_ELEMENT = eINSTANCE.getModelElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Tagged With</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Tags</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_ELEMENT__TAGGED_WITH = eINSTANCE.getModelElement_TaggedWith();
+		EReference MODEL_ELEMENT__TAGS = eINSTANCE.getModelElement_Tags();
 
-		/**
-		 * The meta object literal for the '<em><b>Documented By</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Documenting Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_ELEMENT__DOCUMENTED_BY = eINSTANCE.getModelElement_DocumentedBy();
+		EReference MODEL_ELEMENT__DOCUMENTING_OBJECTS = eINSTANCE.getModelElement_DocumentingObjects();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.impl.TagImpl <em>Tag</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

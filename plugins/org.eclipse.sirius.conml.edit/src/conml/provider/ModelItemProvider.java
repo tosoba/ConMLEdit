@@ -175,7 +175,7 @@ public class ModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__OWNS_ELEMENTS);
+			childrenFeatures.add(conmlPackage.Literals.MODEL__ELEMENTS);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__LANGUAGES);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__TAGS);
 		}
@@ -238,7 +238,7 @@ public class ModelItemProvider
 			case conmlPackage.MODEL__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case conmlPackage.MODEL__OWNS_ELEMENTS:
+			case conmlPackage.MODEL__ELEMENTS:
 			case conmlPackage.MODEL__LANGUAGES:
 			case conmlPackage.MODEL__TAGS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
@@ -260,82 +260,82 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createClass()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createGeneralization()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createDataType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createEnumeratedType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createAssociation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createPackage()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createAttribute()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createSemiAssociation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createProperty()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createSimpleDataType()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createReference()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createValueSet()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createReferenceSet()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createObject()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createLink()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__OWNS_ELEMENTS,
+				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 InstancesFactory.eINSTANCE.createValue()));
 
 		newChildDescriptors.add

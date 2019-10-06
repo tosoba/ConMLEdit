@@ -8,11 +8,11 @@ import org.eclipse.sirius.properties.ViewExtensionDescription;
 
 public class PropertyServices {
 
-  public void removeOverridenReferenceIf(ViewExtensionDescription description) {
-    removeOverridenIfFromDynamicMapping(description, "general_reference_if");
+  public void disableOverridenReferenceIf(ViewExtensionDescription description) {
+    disableOverridenIf(description, "general_reference_if");
   }
 
-  private void removeOverridenIfFromDynamicMapping(
+  private void disableOverridenIf(
       ViewExtensionDescription description, String ifName) {
     Optional.ofNullable(description.getCategories())
         .flatMap(categories -> categories.stream().findFirst())
@@ -23,7 +23,11 @@ public class PropertyServices {
         .filter(control -> control instanceof DynamicMappingForDescription)
         .map(control -> (DynamicMappingForDescription) control)
         .flatMap(control -> Optional.ofNullable(control.getIfs()))
-        .ifPresent(
-            ifs -> ifs.removeIf(ifDescription -> Objects.equals(ifName, ifDescription.getName())));
+        .flatMap(
+            ifs ->
+                ifs.stream()
+                    .filter(ifDescription -> Objects.equals(ifName, ifDescription.getName()))
+                    .findAny())
+        .ifPresent(ifToDisable -> ifToDisable.setPredicateExpression("aql:false"));
   }
 }

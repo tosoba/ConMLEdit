@@ -35,7 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsInstanceOf <em>Is Instance Of</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getInstancedClass <em>Instanced Class</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsValueSets <em>Owns Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getOwnsReferenceSets <em>Owns Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsOppositeIn <em>Is Opposite In</em>}</li>
@@ -87,16 +87,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected DegreeOfCertainty certainty = CERTAINTY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIsInstanceOf() <em>Is Instance Of</em>}' reference.
+	 * The cached value of the '{@link #getInstancedClass() <em>Instanced Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsInstanceOf()
+	 * @see #getInstancedClass()
 	 * @generated
 	 * @ordered
 	 */
-	protected conml.types.Class isInstanceOf;
+	protected conml.types.Class instancedClass;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getOwnsValueSets() <em>Owns Value Sets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -217,63 +217,63 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @generated
 	 */
 	@Override
-	public conml.types.Class getIsInstanceOf() {
-		if (isInstanceOf != null && isInstanceOf.eIsProxy()) {
-			InternalEObject oldIsInstanceOf = (InternalEObject)isInstanceOf;
-			isInstanceOf = (conml.types.Class)eResolveProxy(oldIsInstanceOf);
-			if (isInstanceOf != oldIsInstanceOf) {
+	public conml.types.Class getInstancedClass() {
+		if (instancedClass != null && instancedClass.eIsProxy()) {
+			InternalEObject oldInstancedClass = (InternalEObject)instancedClass;
+			instancedClass = (conml.types.Class)eResolveProxy(oldInstancedClass);
+			if (instancedClass != oldInstancedClass) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__IS_INSTANCE_OF, oldIsInstanceOf, isInstanceOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__INSTANCED_CLASS, oldInstancedClass, instancedClass));
 			}
 		}
-		return isInstanceOf;
+		return instancedClass;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.types.Class basicGetIsInstanceOf() {
-		return isInstanceOf;
+	public conml.types.Class basicGetInstancedClass() {
+		return instancedClass;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsInstanceOf(conml.types.Class newIsInstanceOf, NotificationChain msgs) {
-		conml.types.Class oldIsInstanceOf = isInstanceOf;
-		isInstanceOf = newIsInstanceOf;
+	public NotificationChain basicSetInstancedClass(conml.types.Class newInstancedClass, NotificationChain msgs) {
+		conml.types.Class oldInstancedClass = instancedClass;
+		instancedClass = newInstancedClass;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__IS_INSTANCE_OF, oldIsInstanceOf, newIsInstanceOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__INSTANCED_CLASS, oldInstancedClass, newInstancedClass);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsInstanceOf(conml.types.Class newIsInstanceOf) {
-		if (newIsInstanceOf != isInstanceOf) {
+	public void setInstancedClass(conml.types.Class newInstancedClass) {
+		if (newInstancedClass != instancedClass) {
 			NotificationChain msgs = null;
-			if (isInstanceOf != null)
-				msgs = ((InternalEObject)isInstanceOf).eInverseRemove(this, TypesPackage.CLASS__INSTANCED_BY, conml.types.Class.class, msgs);
-			if (newIsInstanceOf != null)
-				msgs = ((InternalEObject)newIsInstanceOf).eInverseAdd(this, TypesPackage.CLASS__INSTANCED_BY, conml.types.Class.class, msgs);
-			msgs = basicSetIsInstanceOf(newIsInstanceOf, msgs);
+			if (instancedClass != null)
+				msgs = ((InternalEObject)instancedClass).eInverseRemove(this, TypesPackage.CLASS__INSTANCED_BY_OBJECTS, conml.types.Class.class, msgs);
+			if (newInstancedClass != null)
+				msgs = ((InternalEObject)newInstancedClass).eInverseAdd(this, TypesPackage.CLASS__INSTANCED_BY_OBJECTS, conml.types.Class.class, msgs);
+			msgs = basicSetInstancedClass(newInstancedClass, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__IS_INSTANCE_OF, newIsInstanceOf, newIsInstanceOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__INSTANCED_CLASS, newInstancedClass, newInstancedClass));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -401,10 +401,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				if (isInstanceOf != null)
-					msgs = ((InternalEObject)isInstanceOf).eInverseRemove(this, TypesPackage.CLASS__INSTANCED_BY, conml.types.Class.class, msgs);
-				return basicSetIsInstanceOf((conml.types.Class)otherEnd, msgs);
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				if (instancedClass != null)
+					msgs = ((InternalEObject)instancedClass).eInverseRemove(this, TypesPackage.CLASS__INSTANCED_BY_OBJECTS, conml.types.Class.class, msgs);
+				return basicSetInstancedClass((conml.types.Class)otherEnd, msgs);
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnsValueSets()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__OWNS_REFERENCE_SETS:
@@ -423,8 +423,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				return basicSetIsInstanceOf(null, msgs);
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				return basicSetInstancedClass(null, msgs);
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				return ((InternalEList<?>)getOwnsValueSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__OWNS_REFERENCE_SETS:
@@ -447,9 +447,9 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return getIdentifier();
 			case InstancesPackage.OBJECT__CERTAINTY:
 				return getCertainty();
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				if (resolve) return getIsInstanceOf();
-				return basicGetIsInstanceOf();
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				if (resolve) return getInstancedClass();
+				return basicGetInstancedClass();
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				return getOwnsValueSets();
 			case InstancesPackage.OBJECT__OWNS_REFERENCE_SETS:
@@ -481,8 +481,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__CERTAINTY:
 				setCertainty((DegreeOfCertainty)newValue);
 				return;
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				setIsInstanceOf((conml.types.Class)newValue);
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				setInstancedClass((conml.types.Class)newValue);
 				return;
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				getOwnsValueSets().clear();
@@ -520,8 +520,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__CERTAINTY:
 				setCertainty(CERTAINTY_EDEFAULT);
 				return;
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				setIsInstanceOf((conml.types.Class)null);
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				setInstancedClass((conml.types.Class)null);
 				return;
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				getOwnsValueSets().clear();
@@ -554,8 +554,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return IDENTIFIER_EDEFAULT == null ? identifier != null : !IDENTIFIER_EDEFAULT.equals(identifier);
 			case InstancesPackage.OBJECT__CERTAINTY:
 				return certainty != CERTAINTY_EDEFAULT;
-			case InstancesPackage.OBJECT__IS_INSTANCE_OF:
-				return isInstanceOf != null;
+			case InstancesPackage.OBJECT__INSTANCED_CLASS:
+				return instancedClass != null;
 			case InstancesPackage.OBJECT__OWNS_VALUE_SETS:
 				return ownsValueSets != null && !ownsValueSets.isEmpty();
 			case InstancesPackage.OBJECT__OWNS_REFERENCE_SETS:

@@ -18,7 +18,11 @@ import org.eclipse.emf.common.util.EList;
 public interface ModelElementValidator {
 	boolean validate();
 
-	boolean validateBelongsTo(Model value);
+	boolean validateTags(EList<Tag> value);
+
+  boolean validateDocumentingObjects(EList<conml.instances.Object> value);
+
+  boolean validateBelongsTo(Model value);
 	boolean validateIsTaggedWith(EList<Tag> value);
 	boolean validateIsDocumentedBy(EList<conml.instances.Object> value);
 
