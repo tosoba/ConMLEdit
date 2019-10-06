@@ -1,33 +1,25 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
-import java.util.Objects;
-import java.util.Optional;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.eclipse.sirius.properties.DynamicMappingForDescription;
-import org.eclipse.sirius.properties.ViewExtensionDescription;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 public class PropertyServices {
 
-  public void disableOverridenReferenceIf(ViewExtensionDescription description) {
-    disableOverridenIf(description, "general_reference_if");
+  private static final HashMap<Class<?>, Set<String>> ignoredReferences = new HashMap<>();
+
+  static {
+    ignoredReferences.put(
+        conml.types.Class.class, new HashSet<>(Arrays.asList("Semiassociations")));
   }
 
-  private void disableOverridenIf(
-      ViewExtensionDescription description, String ifName) {
-    Optional.ofNullable(description.getCategories())
-        .flatMap(categories -> categories.stream().findFirst())
-        .flatMap(category -> Optional.ofNullable(category.getGroups()))
-        .flatMap(groups -> groups.stream().findFirst())
-        .flatMap(group -> Optional.ofNullable(group.getControls()))
-        .flatMap(controls -> controls.stream().findFirst())
-        .filter(control -> control instanceof DynamicMappingForDescription)
-        .map(control -> (DynamicMappingForDescription) control)
-        .flatMap(control -> Optional.ofNullable(control.getIfs()))
-        .flatMap(
-            ifs ->
-                ifs.stream()
-                    .filter(ifDescription -> Objects.equals(ifName, ifDescription.getName()))
-                    .findAny())
-        .ifPresent(ifToDisable -> ifToDisable.setPredicateExpression("aql:false"));
+  public boolean referenceIfPredicate(EStructuralFeature feature) {
+    return EReference.class.isInstance(feature)
+        && (!ignoredReferences.containsKey(feature.getContainerClass())
+            || !ignoredReferences.get(feature.getContainerClass()).contains(feature.getName()));
   }
 }
