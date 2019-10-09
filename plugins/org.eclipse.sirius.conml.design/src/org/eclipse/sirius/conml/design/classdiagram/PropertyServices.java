@@ -1,13 +1,16 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
+import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -37,13 +40,40 @@ public class PropertyServices {
         .getEAllStructuralFeatures()
         .stream()
         .sorted(Comparator.comparing(EStructuralFeature::getName))
-        .sorted(
-            (o1, o2) -> {
-              if (o1 instanceof EReference && o2 instanceof EReference) return 0;
-              else if (o1 instanceof EReference && !(o2 instanceof EReference)) return 1;
-              else if (!(o1 instanceof EReference) && o2 instanceof EReference) return -1;
-              return 0;
+        .map(
+            feature -> {
+              short weight = 100;
+              if (feature instanceof EAttribute) {
+                EAttribute attribute = (EAttribute) feature;
+                if (attribute
+                    .getEAttributeType()
+                    .getInstanceClass()
+                    .isAssignableFrom(String.class)) {
+                  weight = 0;
+                } else if (attribute
+                    .getEAttributeType()
+                    .getInstanceClass()
+                    .isAssignableFrom(Integer.class)) {
+                  weight = 1;
+                } else if (attribute
+                    .getEAttributeType()
+                    .getInstanceClass()
+                    .isAssignableFrom(Boolean.class)) {
+                  weight = 2;
+                } else {
+                  weight = 3;
+                }
+              } else if (feature instanceof EReference) {
+                if (feature.getUpperBound() == 1) {
+                  weight = 4;
+                } else {
+                  weight = 5;
+                }
+              }
+              return new AbstractMap.SimpleImmutableEntry<>(weight, feature);
             })
+        .sorted(Comparator.comparing(Map.Entry::getKey))
+        .map(Map.Entry::getValue)
         .collect(Collectors.toList());
   }
 }
