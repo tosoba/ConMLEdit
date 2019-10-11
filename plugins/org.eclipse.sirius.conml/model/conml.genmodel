@@ -89,7 +89,7 @@
       <genClasses image="false" ecoreClass="conml.ecore#//types/Feature">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/maximumCardinality"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/minimumCardinality"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/isSorted"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/sorted"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/temporal"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/subjective"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/constant"/>

@@ -633,15 +633,15 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__MINIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Sorted</b></em>' attribute.
+	 * The feature id for the '<em><b>Sorted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_SORTED = TYPE_FEATURE_COUNT + 2;
+	int FEATURE__SORTED = TYPE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1133,15 +1133,15 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__MINIMUM_CARDINALITY = FEATURE__MINIMUM_CARDINALITY;
 
 	/**
-	 * The feature id for the '<em><b>Is Sorted</b></em>' attribute.
+	 * The feature id for the '<em><b>Sorted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_SORTED = FEATURE__IS_SORTED;
+	int ATTRIBUTE__SORTED = FEATURE__SORTED;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1296,15 +1296,15 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__MINIMUM_CARDINALITY = FEATURE__MINIMUM_CARDINALITY;
 
 	/**
-	 * The feature id for the '<em><b>Is Sorted</b></em>' attribute.
+	 * The feature id for the '<em><b>Sorted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_SORTED = FEATURE__IS_SORTED;
+	int SEMI_ASSOCIATION__SORTED = FEATURE__SORTED;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1513,15 +1513,15 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__MINIMUM_CARDINALITY = FEATURE__MINIMUM_CARDINALITY;
 
 	/**
-	 * The feature id for the '<em><b>Is Sorted</b></em>' attribute.
+	 * The feature id for the '<em><b>Sorted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_SORTED = FEATURE__IS_SORTED;
+	int PROPERTY__SORTED = FEATURE__SORTED;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2087,17 +2087,17 @@ public interface TypesPackage extends EPackage {
 	EAttribute getFeature_MinimumCardinality();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Feature#isIsSorted <em>Is Sorted</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.Feature#isSorted <em>Sorted</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Sorted</em>'.
-	 * @see conml.types.Feature#isIsSorted()
+	 * @return the meta object for the attribute '<em>Sorted</em>'.
+	 * @see conml.types.Feature#isSorted()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_IsSorted();
+	EAttribute getFeature_Sorted();
 
-	/**
+  /**
 	 * Returns the meta object for the attribute '{@link conml.types.Feature#isTemporal <em>Temporal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2907,14 +2907,14 @@ public interface TypesPackage extends EPackage {
 		EAttribute FEATURE__MINIMUM_CARDINALITY = eINSTANCE.getFeature_MinimumCardinality();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Sorted</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Sorted</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FEATURE__IS_SORTED = eINSTANCE.getFeature_IsSorted();
+		EAttribute FEATURE__SORTED = eINSTANCE.getFeature_Sorted();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Temporal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

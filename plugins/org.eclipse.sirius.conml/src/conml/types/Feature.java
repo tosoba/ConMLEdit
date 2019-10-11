@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.types.Feature#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.Feature#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
- *   <li>{@link conml.types.Feature#isIsSorted <em>Is Sorted</em>}</li>
+ *   <li>{@link conml.types.Feature#isSorted <em>Sorted</em>}</li>
  *   <li>{@link conml.types.Feature#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.Feature#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.Feature#isConstant <em>Constant</em>}</li>
@@ -73,28 +73,28 @@ public interface Feature extends Type {
 	void setMinimumCardinality(int value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Sorted</b></em>' attribute.
+	 * Returns the value of the '<em><b>Sorted</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Sorted</em>' attribute.
-	 * @see #setIsSorted(boolean)
-	 * @see conml.types.TypesPackage#getFeature_IsSorted()
+	 * @return the value of the '<em>Sorted</em>' attribute.
+	 * @see #setSorted(boolean)
+	 * @see conml.types.TypesPackage#getFeature_Sorted()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsSorted();
+	boolean isSorted();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Feature#isIsSorted <em>Is Sorted</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Feature#isSorted <em>Sorted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Sorted</em>' attribute.
-	 * @see #isIsSorted()
+	 * @param value the new value of the '<em>Sorted</em>' attribute.
+	 * @see #isSorted()
 	 * @generated
 	 */
-	void setIsSorted(boolean value);
+	void setSorted(boolean value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

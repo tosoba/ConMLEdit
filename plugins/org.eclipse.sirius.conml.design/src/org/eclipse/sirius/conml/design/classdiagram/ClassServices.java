@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.ConML;
 
 import conml.Model;
@@ -16,14 +17,22 @@ public class ClassServices {
     return ConML.getAllElementsOfTypeFrom(model, Class.class);
   }
 
-  public boolean isUsedAsSubjectiveAspectClassAssignedToTypeModel(Class clazz) {
+  public boolean isSubjectiveAspectClassAssignedToTypeModel(EObject object) {
+    if (!(object instanceof Class)) {
+      return true;
+    }
+    Class clazz = (Class) object;
     return !clazz.isUsedAsSubjectiveAspect()
         || (clazz.isUsedAsSubjectiveAspect()
             && ConML.anyExistingContainerHasReferenceTo(
                 clazz, TypeModel::getSubjectiveAspect, TypeModel.class));
   }
 
-  public boolean isTemporalAspectClassAssignedToTypeModel(Class clazz) {
+  public boolean isTemporalAspectClassAssignedToTypeModel(EObject object) {
+    if (!(object instanceof Class)) {
+      return true;
+    }
+    Class clazz = (Class) object;
     return !clazz.isUsedAsTemporalAspect()
         || (clazz.isUsedAsTemporalAspect()
             && ConML.anyExistingContainerHasReferenceTo(
@@ -43,7 +52,6 @@ public class ClassServices {
     if (clazz.isUsedAsTemporalAspect()) {
       markers.add("T");
     }
-
     if (!markers.isEmpty()) {
       sb.append('[').append(markers.stream().collect(Collectors.joining(","))).append("] ");
     }

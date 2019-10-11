@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.types.impl.FeatureImpl#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#isIsSorted <em>Is Sorted</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#isSorted <em>Sorted</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isConstant <em>Constant</em>}</li>
@@ -82,26 +82,26 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	protected int minimumCardinality = MINIMUM_CARDINALITY_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsSorted() <em>Is Sorted</em>}' attribute.
+	 * The default value of the '{@link #isSorted() <em>Sorted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSorted()
+	 * @see #isSorted()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_SORTED_EDEFAULT = false;
+	protected static final boolean SORTED_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsSorted() <em>Is Sorted</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isSorted() <em>Sorted</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSorted()
+	 * @see #isSorted()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isSorted = IS_SORTED_EDEFAULT;
+	protected boolean sorted = SORTED_EDEFAULT;
 
-	/**
+  /**
 	 * The default value of the '{@link #isTemporal() <em>Temporal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,24 +252,24 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsSorted() {
-		return isSorted;
+	public boolean isSorted() {
+		return sorted;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSorted(boolean newIsSorted) {
-		boolean oldIsSorted = isSorted;
-		isSorted = newIsSorted;
+	public void setSorted(boolean newSorted) {
+		boolean oldSorted = sorted;
+		sorted = newSorted;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__IS_SORTED, oldIsSorted, isSorted));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__SORTED, oldSorted, sorted));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -460,8 +460,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return getMaximumCardinality();
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				return getMinimumCardinality();
-			case TypesPackage.FEATURE__IS_SORTED:
-				return isIsSorted();
+			case TypesPackage.FEATURE__SORTED:
+				return isSorted();
 			case TypesPackage.FEATURE__TEMPORAL:
 				return isTemporal();
 			case TypesPackage.FEATURE__SUBJECTIVE:
@@ -492,8 +492,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				setMinimumCardinality((Integer)newValue);
 				return;
-			case TypesPackage.FEATURE__IS_SORTED:
-				setIsSorted((Boolean)newValue);
+			case TypesPackage.FEATURE__SORTED:
+				setSorted((Boolean)newValue);
 				return;
 			case TypesPackage.FEATURE__TEMPORAL:
 				setTemporal((Boolean)newValue);
@@ -529,8 +529,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				setMinimumCardinality(MINIMUM_CARDINALITY_EDEFAULT);
 				return;
-			case TypesPackage.FEATURE__IS_SORTED:
-				setIsSorted(IS_SORTED_EDEFAULT);
+			case TypesPackage.FEATURE__SORTED:
+				setSorted(SORTED_EDEFAULT);
 				return;
 			case TypesPackage.FEATURE__TEMPORAL:
 				setTemporal(TEMPORAL_EDEFAULT);
@@ -563,8 +563,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return MAXIMUM_CARDINALITY_EDEFAULT == null ? maximumCardinality != null : !MAXIMUM_CARDINALITY_EDEFAULT.equals(maximumCardinality);
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				return minimumCardinality != MINIMUM_CARDINALITY_EDEFAULT;
-			case TypesPackage.FEATURE__IS_SORTED:
-				return isSorted != IS_SORTED_EDEFAULT;
+			case TypesPackage.FEATURE__SORTED:
+				return sorted != SORTED_EDEFAULT;
 			case TypesPackage.FEATURE__TEMPORAL:
 				return temporal != TEMPORAL_EDEFAULT;
 			case TypesPackage.FEATURE__SUBJECTIVE:
@@ -593,8 +593,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 		result.append(maximumCardinality);
 		result.append(", minimumCardinality: ");
 		result.append(minimumCardinality);
-		result.append(", isSorted: ");
-		result.append(isSorted);
+		result.append(", sorted: ");
+		result.append(sorted);
 		result.append(", temporal: ");
 		result.append(temporal);
 		result.append(", subjective: ");

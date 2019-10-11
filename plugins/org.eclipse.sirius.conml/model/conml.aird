@@ -1802,9 +1802,9 @@
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
         </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" uid="_FZoDMDdaEemeMZJ6ZNx36Q" name="isSorted : EBoolean = false" tooltipText="">
-          <target xmi:type="ecore:EAttribute" href="conml.ecore#//types/Feature/isSorted"/>
-          <semanticElements xmi:type="ecore:EAttribute" href="conml.ecore#//types/Feature/isSorted"/>
+        <ownedElements xmi:type="diagram:DNodeListElement" uid="_FZoDMDdaEemeMZJ6ZNx36Q" name="sorted : EBoolean = false" tooltipText="">
+          <target xmi:type="ecore:EAttribute" href="conml.ecore#//types/Feature/sorted"/>
+          <semanticElements xmi:type="ecore:EAttribute" href="conml.ecore#//types/Feature/sorted"/>
           <ownedStyle xmi:type="diagram:BundledImage" uid="_KdMDuDdaEemeMZJ6ZNx36Q" labelAlignment="LEFT" description="_JC2l8jdVEemeMZJ6ZNx36Q">
             <labelFormat>bold</labelFormat>
           </ownedStyle>

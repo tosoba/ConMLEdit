@@ -47,7 +47,7 @@ public class FeatureItemProvider extends TypeItemProvider {
 
 			addMaximumCardinalityPropertyDescriptor(object);
 			addMinimumCardinalityPropertyDescriptor(object);
-			addIsSortedPropertyDescriptor(object);
+			addSortedPropertyDescriptor(object);
 			addTemporalPropertyDescriptor(object);
 			addSubjectivePropertyDescriptor(object);
 			addConstantPropertyDescriptor(object);
@@ -102,19 +102,19 @@ public class FeatureItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Sorted feature.
+	 * This adds a property descriptor for the Sorted feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSortedPropertyDescriptor(Object object) {
+	protected void addSortedPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_isSorted_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isSorted_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__IS_SORTED,
+				 getString("_UI_Feature_sorted_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_sorted_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__SORTED,
 				 true,
 				 false,
 				 false,
@@ -123,7 +123,7 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Temporal feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -262,7 +262,7 @@ public class FeatureItemProvider extends TypeItemProvider {
 		switch (notification.getFeatureID(Feature.class)) {
 			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
-			case TypesPackage.FEATURE__IS_SORTED:
+			case TypesPackage.FEATURE__SORTED:
 			case TypesPackage.FEATURE__TEMPORAL:
 			case TypesPackage.FEATURE__SUBJECTIVE:
 			case TypesPackage.FEATURE__CONSTANT:

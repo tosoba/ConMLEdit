@@ -21,7 +21,9 @@ public interface FeatureValidator {
 
 	boolean validateMaximumCardinality(int value);
 	boolean validateMinimumCardinality(int value);
-	boolean validateIsSorted(boolean value);
+	boolean validateSorted(boolean value);
+
+  boolean validateIsSorted(boolean value);
 	boolean validateTemporal(boolean value);
 
   boolean validateSubjective(boolean value);
