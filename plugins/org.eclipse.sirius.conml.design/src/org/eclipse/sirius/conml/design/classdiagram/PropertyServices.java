@@ -48,10 +48,8 @@ public class PropertyServices {
               short weight = 100;
               if (feature instanceof EAttribute) {
                 final EAttribute attribute = (EAttribute) feature;
-                if (attribute
-                    .getEAttributeType()
-                    .getInstanceClass()
-                    .isAssignableFrom(String.class)) {
+                final Class<?> instanceClass = attribute.getEAttributeType().getInstanceClass();
+                if (String.class.isAssignableFrom(instanceClass)) {
                   if (Objects.equals(feature.getName(), "name")) {
                     weight = 0;
                   } else if (Objects.equals(feature.getName(), "definition")
@@ -60,24 +58,21 @@ public class PropertyServices {
                   } else {
                     weight = 2;
                   }
-                } else if (attribute
-                    .getEAttributeType()
-                    .getInstanceClass()
-                    .isAssignableFrom(Integer.class)) {
+                } else if (int.class.isAssignableFrom(instanceClass)) {
                   weight = 3;
-                } else if (attribute
-                    .getEAttributeType()
-                    .getInstanceClass()
-                    .isAssignableFrom(Boolean.class)) {
+                } else if (Integer.class.isAssignableFrom(instanceClass)) {
                   weight = 4;
-                } else {
+                } else if (Boolean.class.isAssignableFrom(instanceClass)
+                    || boolean.class.isAssignableFrom(instanceClass)) {
                   weight = 5;
+                } else {
+                  weight = 6;
                 }
               } else if (feature instanceof EReference) {
                 if (feature.getUpperBound() == 1) {
-                  weight = 6;
-                } else {
                   weight = 7;
+                } else {
+                  weight = 8;
                 }
               }
               return new AbstractMap.SimpleImmutableEntry<>(weight, feature);
