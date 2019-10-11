@@ -1,6 +1,8 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.eclipse.sirius.conml.design.ConML;
 
@@ -26,5 +28,32 @@ public class ClassServices {
         || (clazz.isIsTemporalAspect()
             && ConML.anyExistingContainerHasReferenceTo(
                 clazz, TypeModel::getTemporalAspect, TypeModel.class));
+  }
+
+  public String classLabel(Class clazz) {
+    if (clazz == null) {
+      return "";
+    }
+
+    final StringBuilder sb = new StringBuilder();
+    ArrayList<String> markers = new ArrayList<>();
+    if (clazz.isIsSubjectiveAspect()) {
+      markers.add("S");
+    }
+    if (clazz.isIsTemporalAspect()) {
+      markers.add("T");
+    }
+
+    if (!markers.isEmpty()) {
+      sb.append('[').append(markers.stream().collect(Collectors.joining(","))).append("] ");
+    }
+
+    sb.append(clazz.getName());
+
+    if (clazz.isIsAbstract()) {
+      sb.append(" (A)");
+    }
+
+    return sb.toString();
   }
 }
