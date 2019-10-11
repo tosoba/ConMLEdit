@@ -2,6 +2,7 @@ package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.ArrayList;
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -24,12 +25,34 @@ public class AssociationServices {
         "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
   }
 
+  public String associationCenterLabel(Association association) {
+    return associationCenterTopLabel(association)
+        + "\n"
+        + associationCenterBottomLabel(association);
+  }
+
+  public String associationCenterTopLabel(Association association) {
+    return buildSemiAssociationAttributeLabel(
+            association.getPrimarySemiAssociation(), SemiAssociation::getName)
+        .toString();
+  }
+
+  public String associationCenterBottomLabel(Association association) {
+    return buildSemiAssociationAttributeLabel(
+            association.getSecondarySemiAssociation(), SemiAssociation::getName)
+        .toString();
+  }
+
   public String associationBeginLabel(Association association) {
-    return association.getPrimarySemiAssociation().getRole();
+    return buildSemiAssociationAttributeLabel(
+            association.getPrimarySemiAssociation(), SemiAssociation::getRole)
+        .toString();
   }
 
   public String associationEndLabel(Association association) {
-    return association.getSecondarySemiAssociation().getRole();
+    return buildSemiAssociationAttributeLabel(
+            association.getSecondarySemiAssociation(), SemiAssociation::getRole)
+        .toString();
   }
 
   public Class getAssociationSourceType(Association association) {
@@ -52,7 +75,7 @@ public class AssociationServices {
     final String primaryName = source.getName() + "s";
     association.setName(primaryName);
 
-    // TODO: default cardinalities???
+    // TODO: default cardinalities - currently it's 0..*
     final SemiAssociation primary = TypesFactory.eINSTANCE.createSemiAssociation();
     primary.setName(primaryName);
     primary.setRole(primaryName);
@@ -97,8 +120,10 @@ public class AssociationServices {
     }
   }
 
+  // TODO: should this stay like that? Why not let the user create the invalid compact semi and then
+  // set referredClass after validating the diagram?
   private boolean compactSemiAssociationTargetIsValid(SemiAssociation primary, Class source) {
-    Class target = primary.getReferredClass();
+    final Class target = primary.getReferredClass();
     if (target == null) {
       source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
@@ -164,17 +189,44 @@ public class AssociationServices {
     return !association.isCompact();
   }
 
+  private StringBuilder buildSemiAssociationAttributeLabel(
+      SemiAssociation semiAssociation,
+      Function<SemiAssociation, String> attributeNameGetter,
+      StringBuilder sb) {
+    if (semiAssociation.getRedefinedFeature() != null
+        && semiAssociation.getRedefinedFeature() instanceof SemiAssociation) {
+      final SemiAssociation redefinedSemiAssociation =
+          (SemiAssociation) semiAssociation.getRedefinedFeature();
+      if (!Objects.equals(
+          attributeNameGetter.apply(redefinedSemiAssociation),
+          attributeNameGetter.apply(semiAssociation))) {
+        sb.append(attributeNameGetter.apply(semiAssociation))
+            .append('[')
+            .append(attributeNameGetter.apply(redefinedSemiAssociation))
+            .append("] ");
+      } else {
+        sb.append('[').append(attributeNameGetter.apply(semiAssociation)).append("]");
+      }
+    } else {
+      sb.append(attributeNameGetter.apply(semiAssociation));
+    }
+    return sb;
+  }
+
+  private StringBuilder buildSemiAssociationAttributeLabel(
+      SemiAssociation semiAssociation, Function<SemiAssociation, String> attributeNameGetter) {
+    return buildSemiAssociationAttributeLabel(
+        semiAssociation, attributeNameGetter, new StringBuilder());
+  }
+
   public String compactAssociationLabel(SemiAssociation primary) {
     final Association association = primary.getPrimaryInAssociation();
     if (association == null) {
       return "";
     }
 
-    final StringBuilder sb = new StringBuilder(primary.getRole());
-    if (primary.getRedefinedFeature() != null
-        && !Objects.equals(primary.getRedefinedFeature().getName(), primary.getName())) {
-      sb.append(" [").append(primary.getRedefinedFeature().getName()).append(']');
-    }
+    final StringBuilder sb = new StringBuilder();
+    buildSemiAssociationAttributeLabel(primary, SemiAssociation::getRole, sb);
 
     sb.append(": ")
         .append(primary.getMinimumCardinality())

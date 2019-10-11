@@ -12,6 +12,9 @@
             <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
             <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>

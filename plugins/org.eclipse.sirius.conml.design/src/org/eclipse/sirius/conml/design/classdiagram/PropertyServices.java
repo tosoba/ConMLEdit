@@ -81,7 +81,7 @@ public class PropertyServices {
             })
         .sorted(Comparator.comparing(Map.Entry::getKey))
         .map(Map.Entry::getValue)
-        .filter(this::combinedFeaturePredicate)
+        .filter(this::combinedFeaturePredicates)
         .collect(Collectors.toList());
   }
 
@@ -90,7 +90,7 @@ public class PropertyServices {
         && "compact".equalsIgnoreCase(feature.getName()));
   }
 
-  private boolean combinedFeaturePredicate(EStructuralFeature feature) {
+  private boolean combinedFeaturePredicates(EStructuralFeature feature) {
     return PropertyServices.featurePredicates
         .stream()
         .map(predicate -> predicate.test(feature))
