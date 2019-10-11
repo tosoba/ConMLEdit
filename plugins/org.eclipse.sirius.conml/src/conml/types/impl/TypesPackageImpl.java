@@ -355,31 +355,31 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getClass_IsAbstract() {
+	public EAttribute getClass_Abstract() {
 		return (EAttribute)classEClass.getEStructuralFeatures().get(0);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EAttribute getClass_IsTemporalAspect() {
+	public EAttribute getClass_UsedAsTemporalAspect() {
 		return (EAttribute)classEClass.getEStructuralFeatures().get(1);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EAttribute getClass_IsSubjectiveAspect() {
+	public EAttribute getClass_UsedAsSubjectiveAspect() {
 		return (EAttribute)classEClass.getEStructuralFeatures().get(2);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -555,31 +555,31 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeature_IsTemporal() {
+	public EAttribute getFeature_Temporal() {
 		return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeature_IsSubjective() {
+	public EAttribute getFeature_Subjective() {
 		return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EAttribute getFeature_IsConstant() {
+	public EAttribute getFeature_Constant() {
 		return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -705,11 +705,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAssociation_IsCompact() {
+	public EAttribute getAssociation_Compact() {
 		return (EAttribute)associationEClass.getEStructuralFeatures().get(3);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -795,11 +795,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAttribute_IsMultilingual() {
+	public EAttribute getAttribute_Multilingual() {
 		return (EAttribute)attributeEClass.getEStructuralFeatures().get(0);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -845,21 +845,21 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSemiAssociation_IsWhole() {
+	public EAttribute getSemiAssociation_Whole() {
 		return (EAttribute)semiAssociationEClass.getEStructuralFeatures().get(1);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSemiAssociation_IsStrong() {
+	public EAttribute getSemiAssociation_Strong() {
 		return (EAttribute)semiAssociationEClass.getEStructuralFeatures().get(2);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1082,9 +1082,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(typeEClass, TYPE__DEFINITION);
 
 		classEClass = createEClass(CLASS);
-		createEAttribute(classEClass, CLASS__IS_ABSTRACT);
-		createEAttribute(classEClass, CLASS__IS_TEMPORAL_ASPECT);
-		createEAttribute(classEClass, CLASS__IS_SUBJECTIVE_ASPECT);
+		createEAttribute(classEClass, CLASS__ABSTRACT);
+		createEAttribute(classEClass, CLASS__USED_AS_TEMPORAL_ASPECT);
+		createEAttribute(classEClass, CLASS__USED_AS_SUBJECTIVE_ASPECT);
 		createEReference(classEClass, CLASS__GENERALIZATION);
 		createEReference(classEClass, CLASS__SPECIALIZATION);
 		createEReference(classEClass, CLASS__DOMINANT_GENERALIZATION);
@@ -1104,9 +1104,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(featureEClass, FEATURE__MAXIMUM_CARDINALITY);
 		createEAttribute(featureEClass, FEATURE__MINIMUM_CARDINALITY);
 		createEAttribute(featureEClass, FEATURE__IS_SORTED);
-		createEAttribute(featureEClass, FEATURE__IS_TEMPORAL);
-		createEAttribute(featureEClass, FEATURE__IS_SUBJECTIVE);
-		createEAttribute(featureEClass, FEATURE__IS_CONSTANT);
+		createEAttribute(featureEClass, FEATURE__TEMPORAL);
+		createEAttribute(featureEClass, FEATURE__SUBJECTIVE);
+		createEAttribute(featureEClass, FEATURE__CONSTANT);
 		createEReference(featureEClass, FEATURE__REDEFINES);
 		createEReference(featureEClass, FEATURE__IS_REDEFINED_BY);
 
@@ -1122,7 +1122,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(associationEClass, ASSOCIATION__HAS_PRIMARY);
 		createEReference(associationEClass, ASSOCIATION__HAS_SECONDARY);
 		createEReference(associationEClass, ASSOCIATION__HAS_INSTANCE_LINKS);
-		createEAttribute(associationEClass, ASSOCIATION__IS_COMPACT);
+		createEAttribute(associationEClass, ASSOCIATION__COMPACT);
 
 		packageEClass = createEClass(PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__NAME);
@@ -1133,14 +1133,14 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(packageEClass, PACKAGE__IS_SUB_PACKAGE_OF);
 
 		attributeEClass = createEClass(ATTRIBUTE);
-		createEAttribute(attributeEClass, ATTRIBUTE__IS_MULTILINGUAL);
+		createEAttribute(attributeEClass, ATTRIBUTE__MULTILINGUAL);
 		createEReference(attributeEClass, ATTRIBUTE__HAS_INSTANCE_VALUE_SETS);
 		createEReference(attributeEClass, ATTRIBUTE__DATATYPE);
 
 		semiAssociationEClass = createEClass(SEMI_ASSOCIATION);
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__ROLE);
-		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__IS_WHOLE);
-		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__IS_STRONG);
+		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__WHOLE);
+		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__STRONG);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__OWNER);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__IS_PRIMARY_IN);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__IS_SECONDARY_IN);
@@ -1230,9 +1230,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getType_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, Type.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(classEClass, conml.types.Class.class, "Class", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getClass_IsAbstract(), ecorePackage.getEBoolean(), "isAbstract", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClass_IsTemporalAspect(), ecorePackage.getEBoolean(), "isTemporalAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getClass_IsSubjectiveAspect(), ecorePackage.getEBoolean(), "isSubjectiveAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClass_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClass_UsedAsTemporalAspect(), ecorePackage.getEBoolean(), "usedAsTemporalAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getClass_UsedAsSubjectiveAspect(), ecorePackage.getEBoolean(), "usedAsSubjectiveAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Generalization(), this.getGeneralization(), this.getGeneralization_SpecializedClass(), "Generalization", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Specialization(), this.getGeneralization(), this.getGeneralization_GeneralizedClass(), "Specialization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_DominantGeneralization(), this.getGeneralization(), this.getGeneralization_DominatesInheritanceOn(), "DominantGeneralization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1252,9 +1252,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getFeature_MaximumCardinality(), ecorePackage.getEIntegerObject(), "maximumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_MinimumCardinality(), ecorePackage.getEInt(), "minimumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_IsSorted(), ecorePackage.getEBoolean(), "isSorted", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFeature_IsTemporal(), ecorePackage.getEBoolean(), "isTemporal", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFeature_IsSubjective(), ecorePackage.getEBoolean(), "isSubjective", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFeature_IsConstant(), ecorePackage.getEBoolean(), "isConstant", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_Temporal(), ecorePackage.getEBoolean(), "temporal", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_Subjective(), ecorePackage.getEBoolean(), "subjective", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_Constant(), ecorePackage.getEBoolean(), "constant", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeature_Redefines(), this.getFeature(), this.getFeature_IsRedefinedBy(), "Redefines", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFeature_IsRedefinedBy(), this.getFeature(), this.getFeature_Redefines(), "IsRedefinedBy", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1270,7 +1270,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getAssociation_HasPrimary(), this.getSemiAssociation(), this.getSemiAssociation_IsPrimaryIn(), "HasPrimary", null, 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssociation_HasSecondary(), this.getSemiAssociation(), this.getSemiAssociation_IsSecondaryIn(), "HasSecondary", null, 1, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAssociation_HasInstanceLinks(), theInstancesPackage.getLink(), theInstancesPackage.getLink_IsInstanceOf(), "HasInstanceLinks", null, 0, -1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAssociation_IsCompact(), theXMLTypePackage.getBoolean(), "isCompact", "false", 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAssociation_Compact(), theXMLTypePackage.getBoolean(), "compact", "false", 0, 1, Association.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(packageEClass, conml.types.Package.class, "Package", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getPackage_Name(), ecorePackage.getEString(), "name", null, 1, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1281,14 +1281,14 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getPackage_IsSubPackageOf(), this.getPackage(), this.getPackage_IsOwnerOf(), "isSubPackageOf", null, 0, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttribute_IsMultilingual(), ecorePackage.getEBoolean(), "isMultilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Multilingual(), ecorePackage.getEBoolean(), "multilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_HasInstanceValueSets(), theInstancesPackage.getValueSet(), theInstancesPackage.getValueSet_IsAnInstanceOf(), "HasInstanceValueSets", null, 0, -1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_Datatype(), this.getDataType(), null, "Datatype", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semiAssociationEClass, SemiAssociation.class, "SemiAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemiAssociation_Role(), ecorePackage.getEString(), "role", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSemiAssociation_IsWhole(), ecorePackage.getEBoolean(), "isWhole", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSemiAssociation_IsStrong(), ecorePackage.getEBoolean(), "isStrong", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemiAssociation_Whole(), ecorePackage.getEBoolean(), "whole", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemiAssociation_Strong(), ecorePackage.getEBoolean(), "strong", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_Owner(), this.getClass_(), this.getClass_Semiassociations(), "Owner", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_IsPrimaryIn(), this.getAssociation(), this.getAssociation_HasPrimary(), "IsPrimaryIn", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_IsSecondaryIn(), this.getAssociation(), this.getAssociation_HasSecondary(), "IsSecondaryIn", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

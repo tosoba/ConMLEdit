@@ -46,8 +46,8 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addRolePropertyDescriptor(object);
-			addIsWholePropertyDescriptor(object);
-			addIsStrongPropertyDescriptor(object);
+			addWholePropertyDescriptor(object);
+			addStrongPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 			addIsPrimaryInPropertyDescriptor(object);
 			addIsSecondaryInPropertyDescriptor(object);
@@ -81,19 +81,19 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Whole feature.
+	 * This adds a property descriptor for the Whole feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsWholePropertyDescriptor(Object object) {
+	protected void addWholePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_isWhole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_isWhole_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__IS_WHOLE,
+				 getString("_UI_SemiAssociation_whole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_whole_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__WHOLE,
 				 true,
 				 false,
 				 false,
@@ -102,20 +102,20 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Strong feature.
+  /**
+	 * This adds a property descriptor for the Strong feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsStrongPropertyDescriptor(Object object) {
+	protected void addStrongPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_isStrong_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_isStrong_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__IS_STRONG,
+				 getString("_UI_SemiAssociation_strong_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_strong_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__STRONG,
 				 true,
 				 false,
 				 false,
@@ -124,7 +124,7 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Owner feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -295,8 +295,8 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 
 		switch (notification.getFeatureID(SemiAssociation.class)) {
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
-			case TypesPackage.SEMI_ASSOCIATION__IS_WHOLE:
-			case TypesPackage.SEMI_ASSOCIATION__IS_STRONG:
+			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
+			case TypesPackage.SEMI_ASSOCIATION__STRONG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

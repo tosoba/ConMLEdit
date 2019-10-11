@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.types.impl.AttributeImpl#isIsMultilingual <em>Is Multilingual</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#isMultilingual <em>Multilingual</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
  * </ul>
@@ -40,26 +40,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class AttributeImpl extends FeatureImpl implements Attribute {
 	/**
-	 * The default value of the '{@link #isIsMultilingual() <em>Is Multilingual</em>}' attribute.
+	 * The default value of the '{@link #isMultilingual() <em>Multilingual</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsMultilingual()
+	 * @see #isMultilingual()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_MULTILINGUAL_EDEFAULT = false;
+	protected static final boolean MULTILINGUAL_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsMultilingual() <em>Is Multilingual</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isMultilingual() <em>Multilingual</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsMultilingual()
+	 * @see #isMultilingual()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isMultilingual = IS_MULTILINGUAL_EDEFAULT;
+	protected boolean multilingual = MULTILINGUAL_EDEFAULT;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getHasInstanceValueSets() <em>Has Instance Value Sets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,24 +104,24 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsMultilingual() {
-		return isMultilingual;
+	public boolean isMultilingual() {
+		return multilingual;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsMultilingual(boolean newIsMultilingual) {
-		boolean oldIsMultilingual = isMultilingual;
-		isMultilingual = newIsMultilingual;
+	public void setMultilingual(boolean newMultilingual) {
+		boolean oldMultilingual = multilingual;
+		multilingual = newMultilingual;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__IS_MULTILINGUAL, oldIsMultilingual, isMultilingual));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__MULTILINGUAL, oldMultilingual, multilingual));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -211,8 +211,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
-				return isIsMultilingual();
+			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
+				return isMultilingual();
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return getHasInstanceValueSets();
 			case TypesPackage.ATTRIBUTE__DATATYPE:
@@ -231,8 +231,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
-				setIsMultilingual((Boolean)newValue);
+			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
+				setMultilingual((Boolean)newValue);
 				return;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				getHasInstanceValueSets().clear();
@@ -253,8 +253,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
-				setIsMultilingual(IS_MULTILINGUAL_EDEFAULT);
+			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
+				setMultilingual(MULTILINGUAL_EDEFAULT);
 				return;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				getHasInstanceValueSets().clear();
@@ -274,8 +274,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
-				return isMultilingual != IS_MULTILINGUAL_EDEFAULT;
+			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
+				return multilingual != MULTILINGUAL_EDEFAULT;
 			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
 				return hasInstanceValueSets != null && !hasInstanceValueSets.isEmpty();
 			case TypesPackage.ATTRIBUTE__DATATYPE:
@@ -294,8 +294,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isMultilingual: ");
-		result.append(isMultilingual);
+		result.append(" (multilingual: ");
+		result.append(multilingual);
 		result.append(')');
 		return result.toString();
 	}

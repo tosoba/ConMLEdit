@@ -22,7 +22,13 @@ public interface FeatureValidator {
 	boolean validateMaximumCardinality(int value);
 	boolean validateMinimumCardinality(int value);
 	boolean validateIsSorted(boolean value);
-	boolean validateIsTemporal(boolean value);
+	boolean validateTemporal(boolean value);
+
+  boolean validateSubjective(boolean value);
+
+  boolean validateConstant(boolean value);
+
+  boolean validateIsTemporal(boolean value);
 	boolean validateIsSubjective(boolean value);
 	boolean validateIsConstant(boolean value);
 	boolean validateRedefines(Feature value);

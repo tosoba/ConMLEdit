@@ -28,4 +28,4 @@ Package conml <http://conml.ecore>
   Class Language -> ModelPart
     Attribute name : EString<<1..1>>
     Attribute description : EString
-    Attribute isDefault : EBoolean<<1..1>>
+    Attribute default : EBoolean<<1..1>>

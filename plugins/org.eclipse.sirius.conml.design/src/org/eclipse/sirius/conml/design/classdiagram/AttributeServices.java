@@ -36,13 +36,13 @@ public class AttributeServices {
     sb.append(" ");
 
     ArrayList<String> markers = new ArrayList<>();
-    if (feature.isIsConstant()) {
+    if (feature.isConstant()) {
       markers.add("K");
     }
-    if (feature.isIsSubjective()) {
+    if (feature.isSubjective()) {
       markers.add("S");
     }
-    if (feature.isIsTemporal()) {
+    if (feature.isTemporal()) {
       markers.add("T");
     }
 
@@ -57,7 +57,7 @@ public class AttributeServices {
         sb.append('?');
       }
 
-      if (attr.isIsMultilingual()) {
+      if (attr.isMultilingual()) {
         markers.add("M");
       }
     } else if (feature instanceof Property) {

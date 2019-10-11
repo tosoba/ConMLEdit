@@ -44,7 +44,7 @@ public class AssociationServices {
       EObject object, Class source, Class target, EObject sourceView, EObject targetView) {
     final Association association = TypesFactory.eINSTANCE.createAssociation();
     association.setDefinition("");
-    association.setIsCompact(false);
+    association.setCompact(false);
     final String primaryName = source.getName() + "s";
     association.setName(primaryName);
 
@@ -116,7 +116,7 @@ public class AssociationServices {
 
     final Association association = TypesFactory.eINSTANCE.createAssociation();
     association.setDefinition("");
-    association.setIsCompact(true);
+    association.setCompact(true);
     final String primaryName = source.getName() + "s";
     association.setName(primaryName);
     primary.setIsPrimaryIn(association);
@@ -152,12 +152,12 @@ public class AssociationServices {
     if (association == null) {
       return false;
     } else {
-      return association.isIsCompact();
+      return association.isCompact();
     }
   }
 
   public boolean shouldDisplayAssociationEdge(Association association) {
-    return !association.isIsCompact();
+    return !association.isCompact();
   }
 
   public String compactAssociationLabel(SemiAssociation primary) {
@@ -178,7 +178,7 @@ public class AssociationServices {
         .append(primary.getMaximumCardinality() == null ? "*" : primary.getMaximumCardinality());
 
     if (primary.getMaximumCardinality() == null) {
-      if (primary.isIsWhole()) {
+      if (primary.isWhole()) {
         sb.append(" sha ");
       } else {
         sb.append(" ref ");
@@ -190,13 +190,13 @@ public class AssociationServices {
     sb.append(primary.getReferredClass().getName());
 
     final ArrayList<String> markers = new ArrayList<>();
-    if (primary.isIsConstant()) {
+    if (primary.isConstant()) {
       markers.add("K");
     }
-    if (primary.isIsSubjective()) {
+    if (primary.isSubjective()) {
       markers.add("S");
     }
-    if (primary.isIsTemporal()) {
+    if (primary.isTemporal()) {
       markers.add("T");
     }
     if (!markers.isEmpty()) {

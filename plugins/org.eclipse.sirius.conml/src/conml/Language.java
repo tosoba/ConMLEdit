@@ -13,7 +13,7 @@ package conml;
  * <ul>
  *   <li>{@link conml.Language#getName <em>Name</em>}</li>
  *   <li>{@link conml.Language#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.Language#isIsDefault <em>Is Default</em>}</li>
+ *   <li>{@link conml.Language#isDefault <em>Default</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getLanguage()
@@ -66,25 +66,25 @@ public interface Language extends ModelPart {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Default</b></em>' attribute.
+	 * Returns the value of the '<em><b>Default</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Default</em>' attribute.
-	 * @see #setIsDefault(boolean)
-	 * @see conml.conmlPackage#getLanguage_IsDefault()
+	 * @return the value of the '<em>Default</em>' attribute.
+	 * @see #setDefault(boolean)
+	 * @see conml.conmlPackage#getLanguage_Default()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsDefault();
+	boolean isDefault();
 
-	/**
-	 * Sets the value of the '{@link conml.Language#isIsDefault <em>Is Default</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.Language#isDefault <em>Default</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Default</em>' attribute.
-	 * @see #isIsDefault()
+	 * @param value the new value of the '<em>Default</em>' attribute.
+	 * @see #isDefault()
 	 * @generated
 	 */
-	void setIsDefault(boolean value);
+	void setDefault(boolean value);
 
 } // Language

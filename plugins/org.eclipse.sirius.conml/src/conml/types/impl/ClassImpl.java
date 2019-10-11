@@ -35,9 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.types.impl.ClassImpl#isIsAbstract <em>Is Abstract</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#isIsTemporalAspect <em>Is Temporal Aspect</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
@@ -52,66 +52,66 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ClassImpl extends TypeImpl implements conml.types.Class {
 	/**
-	 * The default value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.
+	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_ABSTRACT_EDEFAULT = false;
+	protected static final boolean ABSTRACT_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsAbstract() <em>Is Abstract</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsAbstract()
+	 * @see #isAbstract()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isAbstract = IS_ABSTRACT_EDEFAULT;
+	protected boolean abstract_ = ABSTRACT_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #isIsTemporalAspect() <em>Is Temporal Aspect</em>}' attribute.
+  /**
+	 * The default value of the '{@link #isUsedAsTemporalAspect() <em>Used As Temporal Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsTemporalAspect()
+	 * @see #isUsedAsTemporalAspect()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_TEMPORAL_ASPECT_EDEFAULT = false;
+	protected static final boolean USED_AS_TEMPORAL_ASPECT_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsTemporalAspect() <em>Is Temporal Aspect</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isUsedAsTemporalAspect() <em>Used As Temporal Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsTemporalAspect()
+	 * @see #isUsedAsTemporalAspect()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isTemporalAspect = IS_TEMPORAL_ASPECT_EDEFAULT;
+	protected boolean usedAsTemporalAspect = USED_AS_TEMPORAL_ASPECT_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #isIsSubjectiveAspect() <em>Is Subjective Aspect</em>}' attribute.
+  /**
+	 * The default value of the '{@link #isUsedAsSubjectiveAspect() <em>Used As Subjective Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSubjectiveAspect()
+	 * @see #isUsedAsSubjectiveAspect()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_SUBJECTIVE_ASPECT_EDEFAULT = false;
+	protected static final boolean USED_AS_SUBJECTIVE_ASPECT_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsSubjectiveAspect() <em>Is Subjective Aspect</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isUsedAsSubjectiveAspect() <em>Used As Subjective Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSubjectiveAspect()
+	 * @see #isUsedAsSubjectiveAspect()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isSubjectiveAspect = IS_SUBJECTIVE_ASPECT_EDEFAULT;
+	protected boolean usedAsSubjectiveAspect = USED_AS_SUBJECTIVE_ASPECT_EDEFAULT;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getGeneralization() <em>Generalization</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -216,70 +216,70 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsAbstract() {
-		return isAbstract;
+	public boolean isAbstract() {
+		return abstract_;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsAbstract(boolean newIsAbstract) {
-		boolean oldIsAbstract = isAbstract;
-		isAbstract = newIsAbstract;
+	public void setAbstract(boolean newAbstract) {
+		boolean oldAbstract = abstract_;
+		abstract_ = newAbstract;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__IS_ABSTRACT, oldIsAbstract, isAbstract));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__ABSTRACT, oldAbstract, abstract_));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean isIsTemporalAspect() {
-		return isTemporalAspect;
+	public boolean isUsedAsTemporalAspect() {
+		return usedAsTemporalAspect;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsTemporalAspect(boolean newIsTemporalAspect) {
-		boolean oldIsTemporalAspect = isTemporalAspect;
-		isTemporalAspect = newIsTemporalAspect;
+	public void setUsedAsTemporalAspect(boolean newUsedAsTemporalAspect) {
+		boolean oldUsedAsTemporalAspect = usedAsTemporalAspect;
+		usedAsTemporalAspect = newUsedAsTemporalAspect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__IS_TEMPORAL_ASPECT, oldIsTemporalAspect, isTemporalAspect));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT, oldUsedAsTemporalAspect, usedAsTemporalAspect));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean isIsSubjectiveAspect() {
-		return isSubjectiveAspect;
+	public boolean isUsedAsSubjectiveAspect() {
+		return usedAsSubjectiveAspect;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSubjectiveAspect(boolean newIsSubjectiveAspect) {
-		boolean oldIsSubjectiveAspect = isSubjectiveAspect;
-		isSubjectiveAspect = newIsSubjectiveAspect;
+	public void setUsedAsSubjectiveAspect(boolean newUsedAsSubjectiveAspect) {
+		boolean oldUsedAsSubjectiveAspect = usedAsSubjectiveAspect;
+		usedAsSubjectiveAspect = newUsedAsSubjectiveAspect;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT, oldIsSubjectiveAspect, isSubjectiveAspect));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT, oldUsedAsSubjectiveAspect, usedAsSubjectiveAspect));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -597,12 +597,12 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_ABSTRACT:
-				return isIsAbstract();
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT:
-				return isIsTemporalAspect();
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
-				return isIsSubjectiveAspect();
+			case TypesPackage.CLASS__ABSTRACT:
+				return isAbstract();
+			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
+				return isUsedAsTemporalAspect();
+			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
+				return isUsedAsSubjectiveAspect();
 			case TypesPackage.CLASS__GENERALIZATION:
 				return getGeneralization();
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -635,14 +635,14 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_ABSTRACT:
-				setIsAbstract((Boolean)newValue);
+			case TypesPackage.CLASS__ABSTRACT:
+				setAbstract((Boolean)newValue);
 				return;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT:
-				setIsTemporalAspect((Boolean)newValue);
+			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
+				setUsedAsTemporalAspect((Boolean)newValue);
 				return;
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
-				setIsSubjectiveAspect((Boolean)newValue);
+			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
+				setUsedAsSubjectiveAspect((Boolean)newValue);
 				return;
 			case TypesPackage.CLASS__GENERALIZATION:
 				getGeneralization().clear();
@@ -685,14 +685,14 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_ABSTRACT:
-				setIsAbstract(IS_ABSTRACT_EDEFAULT);
+			case TypesPackage.CLASS__ABSTRACT:
+				setAbstract(ABSTRACT_EDEFAULT);
 				return;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT:
-				setIsTemporalAspect(IS_TEMPORAL_ASPECT_EDEFAULT);
+			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
+				setUsedAsTemporalAspect(USED_AS_TEMPORAL_ASPECT_EDEFAULT);
 				return;
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
-				setIsSubjectiveAspect(IS_SUBJECTIVE_ASPECT_EDEFAULT);
+			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
+				setUsedAsSubjectiveAspect(USED_AS_SUBJECTIVE_ASPECT_EDEFAULT);
 				return;
 			case TypesPackage.CLASS__GENERALIZATION:
 				getGeneralization().clear();
@@ -730,12 +730,12 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypesPackage.CLASS__IS_ABSTRACT:
-				return isAbstract != IS_ABSTRACT_EDEFAULT;
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT:
-				return isTemporalAspect != IS_TEMPORAL_ASPECT_EDEFAULT;
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
-				return isSubjectiveAspect != IS_SUBJECTIVE_ASPECT_EDEFAULT;
+			case TypesPackage.CLASS__ABSTRACT:
+				return abstract_ != ABSTRACT_EDEFAULT;
+			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
+				return usedAsTemporalAspect != USED_AS_TEMPORAL_ASPECT_EDEFAULT;
+			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
+				return usedAsSubjectiveAspect != USED_AS_SUBJECTIVE_ASPECT_EDEFAULT;
 			case TypesPackage.CLASS__GENERALIZATION:
 				return generalization != null && !generalization.isEmpty();
 			case TypesPackage.CLASS__SPECIALIZATION:
@@ -766,12 +766,12 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (isAbstract: ");
-		result.append(isAbstract);
-		result.append(", isTemporalAspect: ");
-		result.append(isTemporalAspect);
-		result.append(", isSubjectiveAspect: ");
-		result.append(isSubjectiveAspect);
+		result.append(" (abstract: ");
+		result.append(abstract_);
+		result.append(", usedAsTemporalAspect: ");
+		result.append(usedAsTemporalAspect);
+		result.append(", usedAsSubjectiveAspect: ");
+		result.append(usedAsSubjectiveAspect);
 		result.append(')');
 		return result.toString();
 	}

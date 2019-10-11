@@ -21,7 +21,13 @@ import org.eclipse.emf.common.util.EList;
 public interface ClassValidator {
 	boolean validate();
 
-	boolean validateIsAbstract(boolean value);
+	boolean validateAbstract(boolean value);
+
+  boolean validateUsedAsTemporalAspect(boolean value);
+
+  boolean validateUsedAsSubjectiveAspect(boolean value);
+
+  boolean validateIsAbstract(boolean value);
 	boolean validateIsTemporalAspect(boolean value);
 	boolean validateIsSubjectiveAspect(boolean value);
 	boolean validateIsTemporalAspectOf(EList<TypeModel> value);

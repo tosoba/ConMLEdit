@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <ul>
  *   <li>{@link conml.impl.LanguageImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.impl.LanguageImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.impl.LanguageImpl#isIsDefault <em>Is Default</em>}</li>
+ *   <li>{@link conml.impl.LanguageImpl#isDefault <em>Default</em>}</li>
  * </ul>
  *
  * @generated
@@ -65,26 +65,26 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsDefault() <em>Is Default</em>}' attribute.
+	 * The default value of the '{@link #isDefault() <em>Default</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsDefault()
+	 * @see #isDefault()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_DEFAULT_EDEFAULT = false;
+	protected static final boolean DEFAULT_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsDefault() <em>Is Default</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isDefault() <em>Default</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsDefault()
+	 * @see #isDefault()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isDefault = IS_DEFAULT_EDEFAULT;
+	protected boolean default_ = DEFAULT_EDEFAULT;
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -155,24 +155,24 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsDefault() {
-		return isDefault;
+	public boolean isDefault() {
+		return default_;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsDefault(boolean newIsDefault) {
-		boolean oldIsDefault = isDefault;
-		isDefault = newIsDefault;
+	public void setDefault(boolean newDefault) {
+		boolean oldDefault = default_;
+		default_ = newDefault;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.LANGUAGE__IS_DEFAULT, oldIsDefault, isDefault));
+			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.LANGUAGE__DEFAULT, oldDefault, default_));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -184,8 +184,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 				return getName();
 			case conmlPackage.LANGUAGE__DESCRIPTION:
 				return getDescription();
-			case conmlPackage.LANGUAGE__IS_DEFAULT:
-				return isIsDefault();
+			case conmlPackage.LANGUAGE__DEFAULT:
+				return isDefault();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -205,8 +205,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 			case conmlPackage.LANGUAGE__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case conmlPackage.LANGUAGE__IS_DEFAULT:
-				setIsDefault((Boolean)newValue);
+			case conmlPackage.LANGUAGE__DEFAULT:
+				setDefault((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -226,8 +226,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 			case conmlPackage.LANGUAGE__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case conmlPackage.LANGUAGE__IS_DEFAULT:
-				setIsDefault(IS_DEFAULT_EDEFAULT);
+			case conmlPackage.LANGUAGE__DEFAULT:
+				setDefault(DEFAULT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -245,8 +245,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case conmlPackage.LANGUAGE__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case conmlPackage.LANGUAGE__IS_DEFAULT:
-				return isDefault != IS_DEFAULT_EDEFAULT;
+			case conmlPackage.LANGUAGE__DEFAULT:
+				return default_ != DEFAULT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -265,8 +265,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
-		result.append(", isDefault: ");
-		result.append(isDefault);
+		result.append(", default: ");
+		result.append(default_);
 		result.append(')');
 		return result.toString();
 	}

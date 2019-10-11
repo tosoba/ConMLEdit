@@ -47,7 +47,7 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 
 			addNamePropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
-			addIsDefaultPropertyDescriptor(object);
+			addDefaultPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,19 +97,19 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Default feature.
+	 * This adds a property descriptor for the Default feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsDefaultPropertyDescriptor(Object object) {
+	protected void addDefaultPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Language_isDefault_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Language_isDefault_feature", "_UI_Language_type"),
-				 conmlPackage.Literals.LANGUAGE__IS_DEFAULT,
+				 getString("_UI_Language_default_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Language_default_feature", "_UI_Language_type"),
+				 conmlPackage.Literals.LANGUAGE__DEFAULT,
 				 true,
 				 false,
 				 false,
@@ -118,7 +118,7 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns Language.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -158,7 +158,7 @@ public class LanguageItemProvider extends ModelPartItemProvider {
 		switch (notification.getFeatureID(Language.class)) {
 			case conmlPackage.LANGUAGE__NAME:
 			case conmlPackage.LANGUAGE__DESCRIPTION:
-			case conmlPackage.LANGUAGE__IS_DEFAULT:
+			case conmlPackage.LANGUAGE__DEFAULT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

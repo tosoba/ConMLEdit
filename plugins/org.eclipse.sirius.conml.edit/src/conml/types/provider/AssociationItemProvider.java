@@ -48,7 +48,7 @@ public class AssociationItemProvider extends TypeItemProvider {
 			addHasPrimaryPropertyDescriptor(object);
 			addHasSecondaryPropertyDescriptor(object);
 			addHasInstanceLinksPropertyDescriptor(object);
-			addIsCompactPropertyDescriptor(object);
+			addCompactPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -120,19 +120,19 @@ public class AssociationItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Compact feature.
+	 * This adds a property descriptor for the Compact feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsCompactPropertyDescriptor(Object object) {
+	protected void addCompactPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Association_isCompact_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Association_isCompact_feature", "_UI_Association_type"),
-				 TypesPackage.Literals.ASSOCIATION__IS_COMPACT,
+				 getString("_UI_Association_compact_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Association_compact_feature", "_UI_Association_type"),
+				 TypesPackage.Literals.ASSOCIATION__COMPACT,
 				 true,
 				 false,
 				 false,
@@ -141,7 +141,7 @@ public class AssociationItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns Association.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -179,7 +179,7 @@ public class AssociationItemProvider extends TypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Association.class)) {
-			case TypesPackage.ASSOCIATION__IS_COMPACT:
+			case TypesPackage.ASSOCIATION__COMPACT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -28,7 +28,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isDefault" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
@@ -52,12 +52,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//types/Type">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTemporalAspect" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSubjectiveAspect" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usedAsTemporalAspect"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="usedAsSubjectiveAspect"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Generalization" upperBound="-1"
           eType="#//types/Generalization" eOpposite="#//types/Generalization/SpecializedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Specialization" eType="#//types/Generalization"
@@ -92,11 +92,11 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSorted" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isTemporal" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="temporal" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isSubjective" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="subjective" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isConstant" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Redefines" eType="#//types/Feature"
           eOpposite="#//types/Feature/IsRedefinedBy"/>
@@ -122,7 +122,7 @@
           eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsSecondaryIn"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceLinks" upperBound="-1"
           eType="#//instances/Link" eOpposite="#//instances/Link/IsInstanceOf"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isCompact" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement">
@@ -139,7 +139,7 @@
           eOpposite="#//types/Package/IsOwnerOf"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//types/Feature">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isMultilingual" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="multilingual" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceValueSets"
           upperBound="-1" eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/IsAnInstanceOf"/>
@@ -155,8 +155,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SemiAssociation" eSuperTypes="#//types/Feature">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isWhole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isStrong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="strong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Semiassociations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsPrimaryIn" eType="#//types/Association"

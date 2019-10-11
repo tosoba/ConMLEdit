@@ -16,8 +16,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.SemiAssociation#getRole <em>Role</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#isIsWhole <em>Is Whole</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#isIsStrong <em>Is Strong</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#isWhole <em>Whole</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#isStrong <em>Strong</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}</li>
@@ -54,50 +54,50 @@ public interface SemiAssociation extends Feature {
 	void setRole(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Whole</b></em>' attribute.
+	 * Returns the value of the '<em><b>Whole</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Whole</em>' attribute.
-	 * @see #setIsWhole(boolean)
-	 * @see conml.types.TypesPackage#getSemiAssociation_IsWhole()
+	 * @return the value of the '<em>Whole</em>' attribute.
+	 * @see #setWhole(boolean)
+	 * @see conml.types.TypesPackage#getSemiAssociation_Whole()
 	 * @model
 	 * @generated
 	 */
-	boolean isIsWhole();
+	boolean isWhole();
 
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#isIsWhole <em>Is Whole</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#isWhole <em>Whole</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Whole</em>' attribute.
-	 * @see #isIsWhole()
+	 * @param value the new value of the '<em>Whole</em>' attribute.
+	 * @see #isWhole()
 	 * @generated
 	 */
-	void setIsWhole(boolean value);
+	void setWhole(boolean value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Strong</b></em>' attribute.
+  /**
+	 * Returns the value of the '<em><b>Strong</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Strong</em>' attribute.
-	 * @see #setIsStrong(boolean)
-	 * @see conml.types.TypesPackage#getSemiAssociation_IsStrong()
+	 * @return the value of the '<em>Strong</em>' attribute.
+	 * @see #setStrong(boolean)
+	 * @see conml.types.TypesPackage#getSemiAssociation_Strong()
 	 * @model
 	 * @generated
 	 */
-	boolean isIsStrong();
+	boolean isStrong();
 
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#isIsStrong <em>Is Strong</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#isStrong <em>Strong</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Strong</em>' attribute.
-	 * @see #isIsStrong()
+	 * @param value the new value of the '<em>Strong</em>' attribute.
+	 * @see #isStrong()
 	 * @generated
 	 */
-	void setIsStrong(boolean value);
+	void setStrong(boolean value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}'.
 	 * <!-- begin-user-doc -->

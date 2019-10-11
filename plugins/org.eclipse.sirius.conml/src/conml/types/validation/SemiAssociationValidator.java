@@ -21,7 +21,11 @@ public interface SemiAssociationValidator {
 	boolean validate();
 
 	boolean validateRole(String value);
-	boolean validateIsWhole(boolean value);
+	boolean validateWhole(boolean value);
+
+  boolean validateStrong(boolean value);
+
+  boolean validateIsWhole(boolean value);
 	boolean validateIsStrong(boolean value);
 	boolean validateAssignedTo(EList<conml.types.Class> value);
 	boolean validateOwner(conml.types.Class value);

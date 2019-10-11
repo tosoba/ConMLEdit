@@ -370,33 +370,33 @@ public interface TypesPackage extends EPackage {
 	int CLASS__DEFINITION = TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Is Abstract</b></em>' attribute.
+	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_ABSTRACT = TYPE_FEATURE_COUNT + 0;
+	int CLASS__ABSTRACT = TYPE_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Is Temporal Aspect</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Used As Temporal Aspect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_TEMPORAL_ASPECT = TYPE_FEATURE_COUNT + 1;
+	int CLASS__USED_AS_TEMPORAL_ASPECT = TYPE_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Is Subjective Aspect</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Used As Subjective Aspect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__IS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 2;
+	int CLASS__USED_AS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Generalization</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -642,33 +642,33 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__IS_SORTED = TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal</b></em>' attribute.
+	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_TEMPORAL = TYPE_FEATURE_COUNT + 3;
+	int FEATURE__TEMPORAL = TYPE_FEATURE_COUNT + 3;
 
-	/**
-	 * The feature id for the '<em><b>Is Subjective</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Subjective</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_SUBJECTIVE = TYPE_FEATURE_COUNT + 4;
+	int FEATURE__SUBJECTIVE = TYPE_FEATURE_COUNT + 4;
 
-	/**
-	 * The feature id for the '<em><b>Is Constant</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Constant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_CONSTANT = TYPE_FEATURE_COUNT + 5;
+	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 5;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Redefines</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -942,15 +942,15 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION__HAS_INSTANCE_LINKS = TYPE_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Is Compact</b></em>' attribute.
+	 * The feature id for the '<em><b>Compact</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__IS_COMPACT = TYPE_FEATURE_COUNT + 3;
+	int ASSOCIATION__COMPACT = TYPE_FEATURE_COUNT + 3;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1142,33 +1142,33 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__IS_SORTED = FEATURE__IS_SORTED;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal</b></em>' attribute.
+	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_TEMPORAL = FEATURE__IS_TEMPORAL;
+	int ATTRIBUTE__TEMPORAL = FEATURE__TEMPORAL;
 
-	/**
-	 * The feature id for the '<em><b>Is Subjective</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Subjective</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_SUBJECTIVE = FEATURE__IS_SUBJECTIVE;
+	int ATTRIBUTE__SUBJECTIVE = FEATURE__SUBJECTIVE;
 
-	/**
-	 * The feature id for the '<em><b>Is Constant</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Constant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_CONSTANT = FEATURE__IS_CONSTANT;
+	int ATTRIBUTE__CONSTANT = FEATURE__CONSTANT;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Redefines</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1187,15 +1187,15 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__IS_REDEFINED_BY = FEATURE__IS_REDEFINED_BY;
 
 	/**
-	 * The feature id for the '<em><b>Is Multilingual</b></em>' attribute.
+	 * The feature id for the '<em><b>Multilingual</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_MULTILINGUAL = FEATURE_FEATURE_COUNT + 0;
+	int ATTRIBUTE__MULTILINGUAL = FEATURE_FEATURE_COUNT + 0;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Has Instance Value Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1305,33 +1305,33 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__IS_SORTED = FEATURE__IS_SORTED;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal</b></em>' attribute.
+	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_TEMPORAL = FEATURE__IS_TEMPORAL;
+	int SEMI_ASSOCIATION__TEMPORAL = FEATURE__TEMPORAL;
 
-	/**
-	 * The feature id for the '<em><b>Is Subjective</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Subjective</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_SUBJECTIVE = FEATURE__IS_SUBJECTIVE;
+	int SEMI_ASSOCIATION__SUBJECTIVE = FEATURE__SUBJECTIVE;
 
-	/**
-	 * The feature id for the '<em><b>Is Constant</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Constant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_CONSTANT = FEATURE__IS_CONSTANT;
+	int SEMI_ASSOCIATION__CONSTANT = FEATURE__CONSTANT;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Redefines</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1359,24 +1359,24 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__ROLE = FEATURE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Is Whole</b></em>' attribute.
+	 * The feature id for the '<em><b>Whole</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_WHOLE = FEATURE_FEATURE_COUNT + 1;
+	int SEMI_ASSOCIATION__WHOLE = FEATURE_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Is Strong</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Strong</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_STRONG = FEATURE_FEATURE_COUNT + 2;
+	int SEMI_ASSOCIATION__STRONG = FEATURE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1522,33 +1522,33 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__IS_SORTED = FEATURE__IS_SORTED;
 
 	/**
-	 * The feature id for the '<em><b>Is Temporal</b></em>' attribute.
+	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_TEMPORAL = FEATURE__IS_TEMPORAL;
+	int PROPERTY__TEMPORAL = FEATURE__TEMPORAL;
 
-	/**
-	 * The feature id for the '<em><b>Is Subjective</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Subjective</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_SUBJECTIVE = FEATURE__IS_SUBJECTIVE;
+	int PROPERTY__SUBJECTIVE = FEATURE__SUBJECTIVE;
 
-	/**
-	 * The feature id for the '<em><b>Is Constant</b></em>' attribute.
+  /**
+	 * The feature id for the '<em><b>Constant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_CONSTANT = FEATURE__IS_CONSTANT;
+	int PROPERTY__CONSTANT = FEATURE__CONSTANT;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Redefines</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1880,39 +1880,39 @@ public interface TypesPackage extends EPackage {
 	EClass getClass_();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Class#isIsAbstract <em>Is Abstract</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.Class#isAbstract <em>Abstract</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Abstract</em>'.
-	 * @see conml.types.Class#isIsAbstract()
+	 * @return the meta object for the attribute '<em>Abstract</em>'.
+	 * @see conml.types.Class#isAbstract()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EAttribute getClass_IsAbstract();
+	EAttribute getClass_Abstract();
 
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Class#isIsTemporalAspect <em>Is Temporal Aspect</em>}'.
+  /**
+	 * Returns the meta object for the attribute '{@link conml.types.Class#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Temporal Aspect</em>'.
-	 * @see conml.types.Class#isIsTemporalAspect()
+	 * @return the meta object for the attribute '<em>Used As Temporal Aspect</em>'.
+	 * @see conml.types.Class#isUsedAsTemporalAspect()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EAttribute getClass_IsTemporalAspect();
+	EAttribute getClass_UsedAsTemporalAspect();
 
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Class#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}'.
+  /**
+	 * Returns the meta object for the attribute '{@link conml.types.Class#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Subjective Aspect</em>'.
-	 * @see conml.types.Class#isIsSubjectiveAspect()
+	 * @return the meta object for the attribute '<em>Used As Subjective Aspect</em>'.
+	 * @see conml.types.Class#isUsedAsSubjectiveAspect()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EAttribute getClass_IsSubjectiveAspect();
+	EAttribute getClass_UsedAsSubjectiveAspect();
 
-	/**
+  /**
 	 * Returns the meta object for the reference list '{@link conml.types.Class#getGeneralization <em>Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2098,39 +2098,39 @@ public interface TypesPackage extends EPackage {
 	EAttribute getFeature_IsSorted();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Feature#isIsTemporal <em>Is Temporal</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.Feature#isTemporal <em>Temporal</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Temporal</em>'.
-	 * @see conml.types.Feature#isIsTemporal()
+	 * @return the meta object for the attribute '<em>Temporal</em>'.
+	 * @see conml.types.Feature#isTemporal()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_IsTemporal();
+	EAttribute getFeature_Temporal();
 
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Feature#isIsSubjective <em>Is Subjective</em>}'.
+  /**
+	 * Returns the meta object for the attribute '{@link conml.types.Feature#isSubjective <em>Subjective</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Subjective</em>'.
-	 * @see conml.types.Feature#isIsSubjective()
+	 * @return the meta object for the attribute '<em>Subjective</em>'.
+	 * @see conml.types.Feature#isSubjective()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_IsSubjective();
+	EAttribute getFeature_Subjective();
 
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Feature#isIsConstant <em>Is Constant</em>}'.
+  /**
+	 * Returns the meta object for the attribute '{@link conml.types.Feature#isConstant <em>Constant</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Constant</em>'.
-	 * @see conml.types.Feature#isIsConstant()
+	 * @return the meta object for the attribute '<em>Constant</em>'.
+	 * @see conml.types.Feature#isConstant()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EAttribute getFeature_IsConstant();
+	EAttribute getFeature_Constant();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.Feature#getRedefines <em>Redefines</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2260,17 +2260,17 @@ public interface TypesPackage extends EPackage {
 	EReference getAssociation_HasInstanceLinks();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Association#isIsCompact <em>Is Compact</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.Association#isCompact <em>Compact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Compact</em>'.
-	 * @see conml.types.Association#isIsCompact()
+	 * @return the meta object for the attribute '<em>Compact</em>'.
+	 * @see conml.types.Association#isCompact()
 	 * @see #getAssociation()
 	 * @generated
 	 */
-	EAttribute getAssociation_IsCompact();
+	EAttribute getAssociation_Compact();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.types.Package <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2357,17 +2357,17 @@ public interface TypesPackage extends EPackage {
 	EClass getAttribute();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Attribute#isIsMultilingual <em>Is Multilingual</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.Attribute#isMultilingual <em>Multilingual</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Multilingual</em>'.
-	 * @see conml.types.Attribute#isIsMultilingual()
+	 * @return the meta object for the attribute '<em>Multilingual</em>'.
+	 * @see conml.types.Attribute#isMultilingual()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EAttribute getAttribute_IsMultilingual();
+	EAttribute getAttribute_Multilingual();
 
-	/**
+  /**
 	 * Returns the meta object for the reference list '{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2411,28 +2411,28 @@ public interface TypesPackage extends EPackage {
 	EAttribute getSemiAssociation_Role();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isIsWhole <em>Is Whole</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isWhole <em>Whole</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Whole</em>'.
-	 * @see conml.types.SemiAssociation#isIsWhole()
+	 * @return the meta object for the attribute '<em>Whole</em>'.
+	 * @see conml.types.SemiAssociation#isWhole()
 	 * @see #getSemiAssociation()
 	 * @generated
 	 */
-	EAttribute getSemiAssociation_IsWhole();
+	EAttribute getSemiAssociation_Whole();
 
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isIsStrong <em>Is Strong</em>}'.
+  /**
+	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isStrong <em>Strong</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Strong</em>'.
-	 * @see conml.types.SemiAssociation#isIsStrong()
+	 * @return the meta object for the attribute '<em>Strong</em>'.
+	 * @see conml.types.SemiAssociation#isStrong()
 	 * @see #getSemiAssociation()
 	 * @generated
 	 */
-	EAttribute getSemiAssociation_IsStrong();
+	EAttribute getSemiAssociation_Strong();
 
-	/**
+  /**
 	 * Returns the meta object for the container reference '{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2751,30 +2751,30 @@ public interface TypesPackage extends EPackage {
 		EClass CLASS = eINSTANCE.getClass_();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Abstract</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Abstract</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASS__IS_ABSTRACT = eINSTANCE.getClass_IsAbstract();
+		EAttribute CLASS__ABSTRACT = eINSTANCE.getClass_Abstract();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Temporal Aspect</b></em>' attribute feature.
+    /**
+		 * The meta object literal for the '<em><b>Used As Temporal Aspect</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASS__IS_TEMPORAL_ASPECT = eINSTANCE.getClass_IsTemporalAspect();
+		EAttribute CLASS__USED_AS_TEMPORAL_ASPECT = eINSTANCE.getClass_UsedAsTemporalAspect();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Subjective Aspect</b></em>' attribute feature.
+    /**
+		 * The meta object literal for the '<em><b>Used As Subjective Aspect</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CLASS__IS_SUBJECTIVE_ASPECT = eINSTANCE.getClass_IsSubjectiveAspect();
+		EAttribute CLASS__USED_AS_SUBJECTIVE_ASPECT = eINSTANCE.getClass_UsedAsSubjectiveAspect();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Generalization</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2915,30 +2915,30 @@ public interface TypesPackage extends EPackage {
 		EAttribute FEATURE__IS_SORTED = eINSTANCE.getFeature_IsSorted();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Temporal</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Temporal</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FEATURE__IS_TEMPORAL = eINSTANCE.getFeature_IsTemporal();
+		EAttribute FEATURE__TEMPORAL = eINSTANCE.getFeature_Temporal();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Subjective</b></em>' attribute feature.
+    /**
+		 * The meta object literal for the '<em><b>Subjective</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FEATURE__IS_SUBJECTIVE = eINSTANCE.getFeature_IsSubjective();
+		EAttribute FEATURE__SUBJECTIVE = eINSTANCE.getFeature_Subjective();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Constant</b></em>' attribute feature.
+    /**
+		 * The meta object literal for the '<em><b>Constant</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute FEATURE__IS_CONSTANT = eINSTANCE.getFeature_IsConstant();
+		EAttribute FEATURE__CONSTANT = eINSTANCE.getFeature_Constant();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Redefines</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3041,14 +3041,14 @@ public interface TypesPackage extends EPackage {
 		EReference ASSOCIATION__HAS_INSTANCE_LINKS = eINSTANCE.getAssociation_HasInstanceLinks();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Compact</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Compact</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ASSOCIATION__IS_COMPACT = eINSTANCE.getAssociation_IsCompact();
+		EAttribute ASSOCIATION__COMPACT = eINSTANCE.getAssociation_Compact();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.PackageImpl <em>Package</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3117,14 +3117,14 @@ public interface TypesPackage extends EPackage {
 		EClass ATTRIBUTE = eINSTANCE.getAttribute();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Multilingual</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Multilingual</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ATTRIBUTE__IS_MULTILINGUAL = eINSTANCE.getAttribute_IsMultilingual();
+		EAttribute ATTRIBUTE__MULTILINGUAL = eINSTANCE.getAttribute_Multilingual();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Has Instance Value Sets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3159,22 +3159,22 @@ public interface TypesPackage extends EPackage {
 		EAttribute SEMI_ASSOCIATION__ROLE = eINSTANCE.getSemiAssociation_Role();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Whole</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Whole</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SEMI_ASSOCIATION__IS_WHOLE = eINSTANCE.getSemiAssociation_IsWhole();
+		EAttribute SEMI_ASSOCIATION__WHOLE = eINSTANCE.getSemiAssociation_Whole();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Strong</b></em>' attribute feature.
+    /**
+		 * The meta object literal for the '<em><b>Strong</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SEMI_ASSOCIATION__IS_STRONG = eINSTANCE.getSemiAssociation_IsStrong();
+		EAttribute SEMI_ASSOCIATION__STRONG = eINSTANCE.getSemiAssociation_Strong();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

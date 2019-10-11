@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.types.Class#isIsAbstract <em>Is Abstract</em>}</li>
- *   <li>{@link conml.types.Class#isIsTemporalAspect <em>Is Temporal Aspect</em>}</li>
- *   <li>{@link conml.types.Class#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}</li>
+ *   <li>{@link conml.types.Class#isAbstract <em>Abstract</em>}</li>
+ *   <li>{@link conml.types.Class#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}</li>
+ *   <li>{@link conml.types.Class#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
@@ -32,72 +32,72 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface Class extends Type {
 	/**
-	 * Returns the value of the '<em><b>Is Abstract</b></em>' attribute.
+	 * Returns the value of the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Abstract</em>' attribute.
-	 * @see #setIsAbstract(boolean)
-	 * @see conml.types.TypesPackage#getClass_IsAbstract()
+	 * @return the value of the '<em>Abstract</em>' attribute.
+	 * @see #setAbstract(boolean)
+	 * @see conml.types.TypesPackage#getClass_Abstract()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsAbstract();
+	boolean isAbstract();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Class#isIsAbstract <em>Is Abstract</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Class#isAbstract <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Abstract</em>' attribute.
-	 * @see #isIsAbstract()
+	 * @param value the new value of the '<em>Abstract</em>' attribute.
+	 * @see #isAbstract()
 	 * @generated
 	 */
-	void setIsAbstract(boolean value);
+	void setAbstract(boolean value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Temporal Aspect</b></em>' attribute.
+  /**
+	 * Returns the value of the '<em><b>Used As Temporal Aspect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Temporal Aspect</em>' attribute.
-	 * @see #setIsTemporalAspect(boolean)
-	 * @see conml.types.TypesPackage#getClass_IsTemporalAspect()
+	 * @return the value of the '<em>Used As Temporal Aspect</em>' attribute.
+	 * @see #setUsedAsTemporalAspect(boolean)
+	 * @see conml.types.TypesPackage#getClass_UsedAsTemporalAspect()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsTemporalAspect();
+	boolean isUsedAsTemporalAspect();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Class#isIsTemporalAspect <em>Is Temporal Aspect</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Class#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Temporal Aspect</em>' attribute.
-	 * @see #isIsTemporalAspect()
+	 * @param value the new value of the '<em>Used As Temporal Aspect</em>' attribute.
+	 * @see #isUsedAsTemporalAspect()
 	 * @generated
 	 */
-	void setIsTemporalAspect(boolean value);
+	void setUsedAsTemporalAspect(boolean value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Subjective Aspect</b></em>' attribute.
+  /**
+	 * Returns the value of the '<em><b>Used As Subjective Aspect</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Subjective Aspect</em>' attribute.
-	 * @see #setIsSubjectiveAspect(boolean)
-	 * @see conml.types.TypesPackage#getClass_IsSubjectiveAspect()
+	 * @return the value of the '<em>Used As Subjective Aspect</em>' attribute.
+	 * @see #setUsedAsSubjectiveAspect(boolean)
+	 * @see conml.types.TypesPackage#getClass_UsedAsSubjectiveAspect()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsSubjectiveAspect();
+	boolean isUsedAsSubjectiveAspect();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Class#isIsSubjectiveAspect <em>Is Subjective Aspect</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Class#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Subjective Aspect</em>' attribute.
-	 * @see #isIsSubjectiveAspect()
+	 * @param value the new value of the '<em>Used As Subjective Aspect</em>' attribute.
+	 * @see #isUsedAsSubjectiveAspect()
 	 * @generated
 	 */
-	void setIsSubjectiveAspect(boolean value);
+	void setUsedAsSubjectiveAspect(boolean value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Generalization</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Generalization}.
 	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getSpecializedClass <em>Specialized Class</em>}'.

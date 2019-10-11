@@ -45,7 +45,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsMultilingualPropertyDescriptor(object);
+			addMultilingualPropertyDescriptor(object);
 			addHasInstanceValueSetsPropertyDescriptor(object);
 			addDatatypePropertyDescriptor(object);
 		}
@@ -53,19 +53,19 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Multilingual feature.
+	 * This adds a property descriptor for the Multilingual feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsMultilingualPropertyDescriptor(Object object) {
+	protected void addMultilingualPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_isMultilingual_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_isMultilingual_feature", "_UI_Attribute_type"),
-				 TypesPackage.Literals.ATTRIBUTE__IS_MULTILINGUAL,
+				 getString("_UI_Attribute_multilingual_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_multilingual_feature", "_UI_Attribute_type"),
+				 TypesPackage.Literals.ATTRIBUTE__MULTILINGUAL,
 				 true,
 				 false,
 				 false,
@@ -74,7 +74,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Has Instance Value Sets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -156,7 +156,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Attribute.class)) {
-			case TypesPackage.ATTRIBUTE__IS_MULTILINGUAL:
+			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

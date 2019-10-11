@@ -16,9 +16,9 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Feature#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.Feature#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
  *   <li>{@link conml.types.Feature#isIsSorted <em>Is Sorted</em>}</li>
- *   <li>{@link conml.types.Feature#isIsTemporal <em>Is Temporal</em>}</li>
- *   <li>{@link conml.types.Feature#isIsSubjective <em>Is Subjective</em>}</li>
- *   <li>{@link conml.types.Feature#isIsConstant <em>Is Constant</em>}</li>
+ *   <li>{@link conml.types.Feature#isTemporal <em>Temporal</em>}</li>
+ *   <li>{@link conml.types.Feature#isSubjective <em>Subjective</em>}</li>
+ *   <li>{@link conml.types.Feature#isConstant <em>Constant</em>}</li>
  *   <li>{@link conml.types.Feature#getRedefines <em>Redefines</em>}</li>
  *   <li>{@link conml.types.Feature#getIsRedefinedBy <em>Is Redefined By</em>}</li>
  * </ul>
@@ -95,72 +95,72 @@ public interface Feature extends Type {
 	void setIsSorted(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Temporal</b></em>' attribute.
+	 * Returns the value of the '<em><b>Temporal</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Temporal</em>' attribute.
-	 * @see #setIsTemporal(boolean)
-	 * @see conml.types.TypesPackage#getFeature_IsTemporal()
+	 * @return the value of the '<em>Temporal</em>' attribute.
+	 * @see #setTemporal(boolean)
+	 * @see conml.types.TypesPackage#getFeature_Temporal()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsTemporal();
+	boolean isTemporal();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Feature#isIsTemporal <em>Is Temporal</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Feature#isTemporal <em>Temporal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Temporal</em>' attribute.
-	 * @see #isIsTemporal()
+	 * @param value the new value of the '<em>Temporal</em>' attribute.
+	 * @see #isTemporal()
 	 * @generated
 	 */
-	void setIsTemporal(boolean value);
+	void setTemporal(boolean value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Subjective</b></em>' attribute.
+  /**
+	 * Returns the value of the '<em><b>Subjective</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Subjective</em>' attribute.
-	 * @see #setIsSubjective(boolean)
-	 * @see conml.types.TypesPackage#getFeature_IsSubjective()
+	 * @return the value of the '<em>Subjective</em>' attribute.
+	 * @see #setSubjective(boolean)
+	 * @see conml.types.TypesPackage#getFeature_Subjective()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsSubjective();
+	boolean isSubjective();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Feature#isIsSubjective <em>Is Subjective</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Feature#isSubjective <em>Subjective</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Subjective</em>' attribute.
-	 * @see #isIsSubjective()
+	 * @param value the new value of the '<em>Subjective</em>' attribute.
+	 * @see #isSubjective()
 	 * @generated
 	 */
-	void setIsSubjective(boolean value);
+	void setSubjective(boolean value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Constant</b></em>' attribute.
+  /**
+	 * Returns the value of the '<em><b>Constant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Constant</em>' attribute.
-	 * @see #setIsConstant(boolean)
-	 * @see conml.types.TypesPackage#getFeature_IsConstant()
+	 * @return the value of the '<em>Constant</em>' attribute.
+	 * @see #setConstant(boolean)
+	 * @see conml.types.TypesPackage#getFeature_Constant()
 	 * @model required="true"
 	 * @generated
 	 */
-	boolean isIsConstant();
+	boolean isConstant();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Feature#isIsConstant <em>Is Constant</em>}' attribute.
+  /**
+	 * Sets the value of the '{@link conml.types.Feature#isConstant <em>Constant</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Constant</em>' attribute.
-	 * @see #isIsConstant()
+	 * @param value the new value of the '<em>Constant</em>' attribute.
+	 * @see #isConstant()
 	 * @generated
 	 */
-	void setIsConstant(boolean value);
+	void setConstant(boolean value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Redefines</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getIsRedefinedBy <em>Is Redefined By</em>}'.
 	 * <!-- begin-user-doc -->

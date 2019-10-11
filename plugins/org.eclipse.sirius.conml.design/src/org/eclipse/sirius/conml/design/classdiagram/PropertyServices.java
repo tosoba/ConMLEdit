@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,9 @@ public class PropertyServices {
   static {
     ignoredReferences.put(
         conml.types.Class.class,
-        new HashSet<>(Arrays.asList("Semiassociations", "Specialization", "Generalization")));
+        new HashSet<>(
+            Arrays.asList(
+                "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
     ignoredReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
   }
 
@@ -49,25 +52,32 @@ public class PropertyServices {
                     .getEAttributeType()
                     .getInstanceClass()
                     .isAssignableFrom(String.class)) {
-                  weight = 0;
+                  if (Objects.equals(feature.getName(), "name")) {
+                    weight = 0;
+                  } else if (Objects.equals(feature.getName(), "definition")
+                      || Objects.equals(feature.getName(), "description")) {
+                    weight = 1;
+                  } else {
+                    weight = 2;
+                  }
                 } else if (attribute
                     .getEAttributeType()
                     .getInstanceClass()
                     .isAssignableFrom(Integer.class)) {
-                  weight = 1;
+                  weight = 3;
                 } else if (attribute
                     .getEAttributeType()
                     .getInstanceClass()
                     .isAssignableFrom(Boolean.class)) {
-                  weight = 2;
-                } else {
-                  weight = 3;
-                }
-              } else if (feature instanceof EReference) {
-                if (feature.getUpperBound() == 1) {
                   weight = 4;
                 } else {
                   weight = 5;
+                }
+              } else if (feature instanceof EReference) {
+                if (feature.getUpperBound() == 1) {
+                  weight = 6;
+                } else {
+                  weight = 7;
                 }
               }
               return new AbstractMap.SimpleImmutableEntry<>(weight, feature);

@@ -48,9 +48,9 @@ public class FeatureItemProvider extends TypeItemProvider {
 			addMaximumCardinalityPropertyDescriptor(object);
 			addMinimumCardinalityPropertyDescriptor(object);
 			addIsSortedPropertyDescriptor(object);
-			addIsTemporalPropertyDescriptor(object);
-			addIsSubjectivePropertyDescriptor(object);
-			addIsConstantPropertyDescriptor(object);
+			addTemporalPropertyDescriptor(object);
+			addSubjectivePropertyDescriptor(object);
+			addConstantPropertyDescriptor(object);
 			addRedefinesPropertyDescriptor(object);
 			addIsRedefinedByPropertyDescriptor(object);
 		}
@@ -124,19 +124,19 @@ public class FeatureItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Temporal feature.
+	 * This adds a property descriptor for the Temporal feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTemporalPropertyDescriptor(Object object) {
+	protected void addTemporalPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_isTemporal_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isTemporal_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__IS_TEMPORAL,
+				 getString("_UI_Feature_temporal_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_temporal_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__TEMPORAL,
 				 true,
 				 false,
 				 false,
@@ -145,20 +145,20 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Subjective feature.
+  /**
+	 * This adds a property descriptor for the Subjective feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSubjectivePropertyDescriptor(Object object) {
+	protected void addSubjectivePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_isSubjective_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isSubjective_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__IS_SUBJECTIVE,
+				 getString("_UI_Feature_subjective_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_subjective_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__SUBJECTIVE,
 				 true,
 				 false,
 				 false,
@@ -167,20 +167,20 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Constant feature.
+  /**
+	 * This adds a property descriptor for the Constant feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsConstantPropertyDescriptor(Object object) {
+	protected void addConstantPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_isConstant_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_isConstant_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__IS_CONSTANT,
+				 getString("_UI_Feature_constant_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_constant_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__CONSTANT,
 				 true,
 				 false,
 				 false,
@@ -189,7 +189,7 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Redefines feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -263,9 +263,9 @@ public class FeatureItemProvider extends TypeItemProvider {
 			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 			case TypesPackage.FEATURE__IS_SORTED:
-			case TypesPackage.FEATURE__IS_TEMPORAL:
-			case TypesPackage.FEATURE__IS_SUBJECTIVE:
-			case TypesPackage.FEATURE__IS_CONSTANT:
+			case TypesPackage.FEATURE__TEMPORAL:
+			case TypesPackage.FEATURE__SUBJECTIVE:
+			case TypesPackage.FEATURE__CONSTANT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

@@ -16,7 +16,9 @@ import conml.types.DataType;
 public interface AttributeValidator {
   boolean validate();
 
-  boolean validateIsMultilingual(boolean value);
+  boolean validateMultilingual(boolean value);
+
+    boolean validateIsMultilingual(boolean value);
 
   boolean validateOwner(conml.types.Class value);
 

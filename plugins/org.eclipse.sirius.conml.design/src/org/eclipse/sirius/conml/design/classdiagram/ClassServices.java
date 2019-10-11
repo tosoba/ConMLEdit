@@ -16,16 +16,16 @@ public class ClassServices {
     return ConML.getAllElementsOfTypeFrom(model, Class.class);
   }
 
-  public boolean isSubjectiveAspectClassAssignedToTypeModel(Class clazz) {
-    return !clazz.isIsSubjectiveAspect()
-        || (clazz.isIsSubjectiveAspect()
+  public boolean isUsedAsSubjectiveAspectClassAssignedToTypeModel(Class clazz) {
+    return !clazz.isUsedAsSubjectiveAspect()
+        || (clazz.isUsedAsSubjectiveAspect()
             && ConML.anyExistingContainerHasReferenceTo(
                 clazz, TypeModel::getSubjectiveAspect, TypeModel.class));
   }
 
   public boolean isTemporalAspectClassAssignedToTypeModel(Class clazz) {
-    return !clazz.isIsTemporalAspect()
-        || (clazz.isIsTemporalAspect()
+    return !clazz.isUsedAsTemporalAspect()
+        || (clazz.isUsedAsTemporalAspect()
             && ConML.anyExistingContainerHasReferenceTo(
                 clazz, TypeModel::getTemporalAspect, TypeModel.class));
   }
@@ -37,10 +37,10 @@ public class ClassServices {
 
     final StringBuilder sb = new StringBuilder();
     ArrayList<String> markers = new ArrayList<>();
-    if (clazz.isIsSubjectiveAspect()) {
+    if (clazz.isUsedAsSubjectiveAspect()) {
       markers.add("S");
     }
-    if (clazz.isIsTemporalAspect()) {
+    if (clazz.isUsedAsTemporalAspect()) {
       markers.add("T");
     }
 
@@ -50,7 +50,7 @@ public class ClassServices {
 
     sb.append(clazz.getName());
 
-    if (clazz.isIsAbstract()) {
+    if (clazz.isAbstract()) {
       sb.append(" (A)");
     }
 

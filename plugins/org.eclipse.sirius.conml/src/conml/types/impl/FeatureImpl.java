@@ -31,9 +31,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.FeatureImpl#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isIsSorted <em>Is Sorted</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#isIsTemporal <em>Is Temporal</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#isIsSubjective <em>Is Subjective</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#isIsConstant <em>Is Constant</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#isTemporal <em>Temporal</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#isSubjective <em>Subjective</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#isConstant <em>Constant</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#getRedefines <em>Redefines</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#getIsRedefinedBy <em>Is Redefined By</em>}</li>
  * </ul>
@@ -102,66 +102,66 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	protected boolean isSorted = IS_SORTED_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsTemporal() <em>Is Temporal</em>}' attribute.
+	 * The default value of the '{@link #isTemporal() <em>Temporal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsTemporal()
+	 * @see #isTemporal()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_TEMPORAL_EDEFAULT = false;
+	protected static final boolean TEMPORAL_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsTemporal() <em>Is Temporal</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isTemporal() <em>Temporal</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsTemporal()
+	 * @see #isTemporal()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isTemporal = IS_TEMPORAL_EDEFAULT;
+	protected boolean temporal = TEMPORAL_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #isIsSubjective() <em>Is Subjective</em>}' attribute.
+  /**
+	 * The default value of the '{@link #isSubjective() <em>Subjective</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSubjective()
+	 * @see #isSubjective()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_SUBJECTIVE_EDEFAULT = false;
+	protected static final boolean SUBJECTIVE_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsSubjective() <em>Is Subjective</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isSubjective() <em>Subjective</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsSubjective()
+	 * @see #isSubjective()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isSubjective = IS_SUBJECTIVE_EDEFAULT;
+	protected boolean subjective = SUBJECTIVE_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #isIsConstant() <em>Is Constant</em>}' attribute.
+  /**
+	 * The default value of the '{@link #isConstant() <em>Constant</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsConstant()
+	 * @see #isConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_CONSTANT_EDEFAULT = false;
+	protected static final boolean CONSTANT_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsConstant() <em>Is Constant</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isConstant() <em>Constant</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsConstant()
+	 * @see #isConstant()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isConstant = IS_CONSTANT_EDEFAULT;
+	protected boolean constant = CONSTANT_EDEFAULT;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getRedefines() <em>Redefines</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -275,70 +275,70 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 */
 	@Override
-	public boolean isIsTemporal() {
-		return isTemporal;
+	public boolean isTemporal() {
+		return temporal;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsTemporal(boolean newIsTemporal) {
-		boolean oldIsTemporal = isTemporal;
-		isTemporal = newIsTemporal;
+	public void setTemporal(boolean newTemporal) {
+		boolean oldTemporal = temporal;
+		temporal = newTemporal;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__IS_TEMPORAL, oldIsTemporal, isTemporal));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__TEMPORAL, oldTemporal, temporal));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean isIsSubjective() {
-		return isSubjective;
+	public boolean isSubjective() {
+		return subjective;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSubjective(boolean newIsSubjective) {
-		boolean oldIsSubjective = isSubjective;
-		isSubjective = newIsSubjective;
+	public void setSubjective(boolean newSubjective) {
+		boolean oldSubjective = subjective;
+		subjective = newSubjective;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__IS_SUBJECTIVE, oldIsSubjective, isSubjective));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__SUBJECTIVE, oldSubjective, subjective));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean isIsConstant() {
-		return isConstant;
+	public boolean isConstant() {
+		return constant;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsConstant(boolean newIsConstant) {
-		boolean oldIsConstant = isConstant;
-		isConstant = newIsConstant;
+	public void setConstant(boolean newConstant) {
+		boolean oldConstant = constant;
+		constant = newConstant;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__IS_CONSTANT, oldIsConstant, isConstant));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__CONSTANT, oldConstant, constant));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -462,12 +462,12 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return getMinimumCardinality();
 			case TypesPackage.FEATURE__IS_SORTED:
 				return isIsSorted();
-			case TypesPackage.FEATURE__IS_TEMPORAL:
-				return isIsTemporal();
-			case TypesPackage.FEATURE__IS_SUBJECTIVE:
-				return isIsSubjective();
-			case TypesPackage.FEATURE__IS_CONSTANT:
-				return isIsConstant();
+			case TypesPackage.FEATURE__TEMPORAL:
+				return isTemporal();
+			case TypesPackage.FEATURE__SUBJECTIVE:
+				return isSubjective();
+			case TypesPackage.FEATURE__CONSTANT:
+				return isConstant();
 			case TypesPackage.FEATURE__REDEFINES:
 				if (resolve) return getRedefines();
 				return basicGetRedefines();
@@ -495,14 +495,14 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__IS_SORTED:
 				setIsSorted((Boolean)newValue);
 				return;
-			case TypesPackage.FEATURE__IS_TEMPORAL:
-				setIsTemporal((Boolean)newValue);
+			case TypesPackage.FEATURE__TEMPORAL:
+				setTemporal((Boolean)newValue);
 				return;
-			case TypesPackage.FEATURE__IS_SUBJECTIVE:
-				setIsSubjective((Boolean)newValue);
+			case TypesPackage.FEATURE__SUBJECTIVE:
+				setSubjective((Boolean)newValue);
 				return;
-			case TypesPackage.FEATURE__IS_CONSTANT:
-				setIsConstant((Boolean)newValue);
+			case TypesPackage.FEATURE__CONSTANT:
+				setConstant((Boolean)newValue);
 				return;
 			case TypesPackage.FEATURE__REDEFINES:
 				setRedefines((Feature)newValue);
@@ -532,14 +532,14 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__IS_SORTED:
 				setIsSorted(IS_SORTED_EDEFAULT);
 				return;
-			case TypesPackage.FEATURE__IS_TEMPORAL:
-				setIsTemporal(IS_TEMPORAL_EDEFAULT);
+			case TypesPackage.FEATURE__TEMPORAL:
+				setTemporal(TEMPORAL_EDEFAULT);
 				return;
-			case TypesPackage.FEATURE__IS_SUBJECTIVE:
-				setIsSubjective(IS_SUBJECTIVE_EDEFAULT);
+			case TypesPackage.FEATURE__SUBJECTIVE:
+				setSubjective(SUBJECTIVE_EDEFAULT);
 				return;
-			case TypesPackage.FEATURE__IS_CONSTANT:
-				setIsConstant(IS_CONSTANT_EDEFAULT);
+			case TypesPackage.FEATURE__CONSTANT:
+				setConstant(CONSTANT_EDEFAULT);
 				return;
 			case TypesPackage.FEATURE__REDEFINES:
 				setRedefines((Feature)null);
@@ -565,12 +565,12 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return minimumCardinality != MINIMUM_CARDINALITY_EDEFAULT;
 			case TypesPackage.FEATURE__IS_SORTED:
 				return isSorted != IS_SORTED_EDEFAULT;
-			case TypesPackage.FEATURE__IS_TEMPORAL:
-				return isTemporal != IS_TEMPORAL_EDEFAULT;
-			case TypesPackage.FEATURE__IS_SUBJECTIVE:
-				return isSubjective != IS_SUBJECTIVE_EDEFAULT;
-			case TypesPackage.FEATURE__IS_CONSTANT:
-				return isConstant != IS_CONSTANT_EDEFAULT;
+			case TypesPackage.FEATURE__TEMPORAL:
+				return temporal != TEMPORAL_EDEFAULT;
+			case TypesPackage.FEATURE__SUBJECTIVE:
+				return subjective != SUBJECTIVE_EDEFAULT;
+			case TypesPackage.FEATURE__CONSTANT:
+				return constant != CONSTANT_EDEFAULT;
 			case TypesPackage.FEATURE__REDEFINES:
 				return redefines != null;
 			case TypesPackage.FEATURE__IS_REDEFINED_BY:
@@ -595,12 +595,12 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 		result.append(minimumCardinality);
 		result.append(", isSorted: ");
 		result.append(isSorted);
-		result.append(", isTemporal: ");
-		result.append(isTemporal);
-		result.append(", isSubjective: ");
-		result.append(isSubjective);
-		result.append(", isConstant: ");
-		result.append(isConstant);
+		result.append(", temporal: ");
+		result.append(temporal);
+		result.append(", subjective: ");
+		result.append(subjective);
+		result.append(", constant: ");
+		result.append(constant);
 		result.append(')');
 		return result.toString();
 	}

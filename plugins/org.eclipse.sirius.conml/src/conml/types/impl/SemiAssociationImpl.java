@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getRole <em>Role</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#isIsWhole <em>Is Whole</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#isIsStrong <em>Is Strong</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#isWhole <em>Whole</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#isStrong <em>Strong</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsPrimaryIn <em>Is Primary In</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsSecondaryIn <em>Is Secondary In</em>}</li>
@@ -68,46 +68,46 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected String role = ROLE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #isIsWhole() <em>Is Whole</em>}' attribute.
+	 * The default value of the '{@link #isWhole() <em>Whole</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsWhole()
+	 * @see #isWhole()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_WHOLE_EDEFAULT = false;
+	protected static final boolean WHOLE_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsWhole() <em>Is Whole</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isWhole() <em>Whole</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsWhole()
+	 * @see #isWhole()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isWhole = IS_WHOLE_EDEFAULT;
+	protected boolean whole = WHOLE_EDEFAULT;
 
-	/**
-	 * The default value of the '{@link #isIsStrong() <em>Is Strong</em>}' attribute.
+  /**
+	 * The default value of the '{@link #isStrong() <em>Strong</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsStrong()
+	 * @see #isStrong()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final boolean IS_STRONG_EDEFAULT = false;
+	protected static final boolean STRONG_EDEFAULT = false;
 
-	/**
-	 * The cached value of the '{@link #isIsStrong() <em>Is Strong</em>}' attribute.
+  /**
+	 * The cached value of the '{@link #isStrong() <em>Strong</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isIsStrong()
+	 * @see #isStrong()
 	 * @generated
 	 * @ordered
 	 */
-	protected boolean isStrong = IS_STRONG_EDEFAULT;
+	protected boolean strong = STRONG_EDEFAULT;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getIsPrimaryIn() <em>Is Primary In</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -205,47 +205,47 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @generated
 	 */
 	@Override
-	public boolean isIsWhole() {
-		return isWhole;
+	public boolean isWhole() {
+		return whole;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsWhole(boolean newIsWhole) {
-		boolean oldIsWhole = isWhole;
-		isWhole = newIsWhole;
+	public void setWhole(boolean newWhole) {
+		boolean oldWhole = whole;
+		whole = newWhole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_WHOLE, oldIsWhole, isWhole));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__WHOLE, oldWhole, whole));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public boolean isIsStrong() {
-		return isStrong;
+	public boolean isStrong() {
+		return strong;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsStrong(boolean newIsStrong) {
-		boolean oldIsStrong = isStrong;
-		isStrong = newIsStrong;
+	public void setStrong(boolean newStrong) {
+		boolean oldStrong = strong;
+		strong = newStrong;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_STRONG, oldIsStrong, isStrong));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__STRONG, oldStrong, strong));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -576,10 +576,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		switch (featureID) {
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
 				return getRole();
-			case TypesPackage.SEMI_ASSOCIATION__IS_WHOLE:
-				return isIsWhole();
-			case TypesPackage.SEMI_ASSOCIATION__IS_STRONG:
-				return isIsStrong();
+			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
+				return isWhole();
+			case TypesPackage.SEMI_ASSOCIATION__STRONG:
+				return isStrong();
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner();
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
@@ -612,11 +612,11 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
 				setRole((String)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_WHOLE:
-				setIsWhole((Boolean)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
+				setWhole((Boolean)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_STRONG:
-				setIsStrong((Boolean)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__STRONG:
+				setStrong((Boolean)newValue);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)newValue);
@@ -652,11 +652,11 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
 				setRole(ROLE_EDEFAULT);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_WHOLE:
-				setIsWhole(IS_WHOLE_EDEFAULT);
+			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
+				setWhole(WHOLE_EDEFAULT);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_STRONG:
-				setIsStrong(IS_STRONG_EDEFAULT);
+			case TypesPackage.SEMI_ASSOCIATION__STRONG:
+				setStrong(STRONG_EDEFAULT);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)null);
@@ -690,10 +690,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		switch (featureID) {
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
 				return ROLE_EDEFAULT == null ? role != null : !ROLE_EDEFAULT.equals(role);
-			case TypesPackage.SEMI_ASSOCIATION__IS_WHOLE:
-				return isWhole != IS_WHOLE_EDEFAULT;
-			case TypesPackage.SEMI_ASSOCIATION__IS_STRONG:
-				return isStrong != IS_STRONG_EDEFAULT;
+			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
+				return whole != WHOLE_EDEFAULT;
+			case TypesPackage.SEMI_ASSOCIATION__STRONG:
+				return strong != STRONG_EDEFAULT;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner() != null;
 			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
@@ -722,10 +722,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (role: ");
 		result.append(role);
-		result.append(", isWhole: ");
-		result.append(isWhole);
-		result.append(", isStrong: ");
-		result.append(isStrong);
+		result.append(", whole: ");
+		result.append(whole);
+		result.append(", strong: ");
+		result.append(strong);
 		result.append(')');
 		return result.toString();
 	}

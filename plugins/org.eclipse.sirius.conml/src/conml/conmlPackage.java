@@ -287,15 +287,15 @@ public interface conmlPackage extends EPackage {
 	int LANGUAGE__DESCRIPTION = MODEL_PART_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Default</b></em>' attribute.
+	 * The feature id for the '<em><b>Default</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LANGUAGE__IS_DEFAULT = MODEL_PART_FEATURE_COUNT + 2;
+	int LANGUAGE__DEFAULT = MODEL_PART_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Language</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -497,17 +497,17 @@ public interface conmlPackage extends EPackage {
 	EAttribute getLanguage_Description();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.Language#isIsDefault <em>Is Default</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.Language#isDefault <em>Default</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Is Default</em>'.
-	 * @see conml.Language#isIsDefault()
+	 * @return the meta object for the attribute '<em>Default</em>'.
+	 * @see conml.Language#isDefault()
 	 * @see #getLanguage()
 	 * @generated
 	 */
-	EAttribute getLanguage_IsDefault();
+	EAttribute getLanguage_Default();
 
-	/**
+  /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -677,12 +677,12 @@ public interface conmlPackage extends EPackage {
 		EAttribute LANGUAGE__DESCRIPTION = eINSTANCE.getLanguage_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Default</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute LANGUAGE__IS_DEFAULT = eINSTANCE.getLanguage_IsDefault();
+		EAttribute LANGUAGE__DEFAULT = eINSTANCE.getLanguage_Default();
 
 	}
 

@@ -27,7 +27,7 @@
     <genClasses ecoreClass="conml.ecore#//Language">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Language/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Language/description"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Language/isDefault"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Language/default"/>
     </genClasses>
     <nestedGenPackages prefix="Types" basePackage="conml" disposableProviderFactory="true"
         ecorePackage="conml.ecore#//types">
@@ -59,9 +59,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Type/definition"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//types/Class">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/isAbstract"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/isTemporalAspect"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/isSubjectiveAspect"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/abstract"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/usedAsTemporalAspect"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Class/usedAsSubjectiveAspect"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Class/Generalization"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -90,9 +90,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/maximumCardinality"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/minimumCardinality"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/isSorted"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/isTemporal"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/isSubjective"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/isConstant"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/temporal"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/subjective"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/constant"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Feature/Redefines"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -116,7 +116,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasSecondary"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Association/HasInstanceLinks"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Association/isCompact"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Association/compact"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/Package">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Package/name"/>
@@ -131,7 +131,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Package/isSubPackageOf"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/Attribute">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Attribute/isMultilingual"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Attribute/multilingual"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/HasInstanceValueSets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -139,8 +139,8 @@
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/SemiAssociation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/role"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/isWhole"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/isStrong"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/whole"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/strong"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/Owner"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

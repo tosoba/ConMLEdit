@@ -46,9 +46,9 @@ public class ClassItemProvider extends TypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsAbstractPropertyDescriptor(object);
-			addIsTemporalAspectPropertyDescriptor(object);
-			addIsSubjectiveAspectPropertyDescriptor(object);
+			addAbstractPropertyDescriptor(object);
+			addUsedAsTemporalAspectPropertyDescriptor(object);
+			addUsedAsSubjectiveAspectPropertyDescriptor(object);
 			addGeneralizationPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
@@ -60,19 +60,19 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Abstract feature.
+	 * This adds a property descriptor for the Abstract feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsAbstractPropertyDescriptor(Object object) {
+	protected void addAbstractPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Class_isAbstract_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_isAbstract_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__IS_ABSTRACT,
+				 getString("_UI_Class_abstract_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_abstract_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__ABSTRACT,
 				 true,
 				 false,
 				 false,
@@ -81,20 +81,20 @@ public class ClassItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Temporal Aspect feature.
+  /**
+	 * This adds a property descriptor for the Used As Temporal Aspect feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsTemporalAspectPropertyDescriptor(Object object) {
+	protected void addUsedAsTemporalAspectPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Class_isTemporalAspect_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_isTemporalAspect_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__IS_TEMPORAL_ASPECT,
+				 getString("_UI_Class_usedAsTemporalAspect_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_usedAsTemporalAspect_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__USED_AS_TEMPORAL_ASPECT,
 				 true,
 				 false,
 				 false,
@@ -103,20 +103,20 @@ public class ClassItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Subjective Aspect feature.
+  /**
+	 * This adds a property descriptor for the Used As Subjective Aspect feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSubjectiveAspectPropertyDescriptor(Object object) {
+	protected void addUsedAsSubjectiveAspectPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Class_isSubjectiveAspect_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_isSubjectiveAspect_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__IS_SUBJECTIVE_ASPECT,
+				 getString("_UI_Class_usedAsSubjectiveAspect_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_usedAsSubjectiveAspect_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__USED_AS_SUBJECTIVE_ASPECT,
 				 true,
 				 false,
 				 false,
@@ -125,7 +125,7 @@ public class ClassItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Generalization feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -316,9 +316,9 @@ public class ClassItemProvider extends TypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(conml.types.Class.class)) {
-			case TypesPackage.CLASS__IS_ABSTRACT:
-			case TypesPackage.CLASS__IS_TEMPORAL_ASPECT:
-			case TypesPackage.CLASS__IS_SUBJECTIVE_ASPECT:
+			case TypesPackage.CLASS__ABSTRACT:
+			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
+			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TypesPackage.CLASS__SEMIASSOCIATIONS:
