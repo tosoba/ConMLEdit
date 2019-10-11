@@ -1,6 +1,7 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.AbstractMap;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -16,34 +18,19 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import conml.Model;
 import conml.types.Association;
 import conml.types.Feature;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 
 public class PropertyServices {
 
   private static final HashMap<Class<?>, Set<String>> ignoredReferences = new HashMap<>();
+  private static final List<Predicate<EStructuralFeature>> featurePredicates = new ArrayList<>();
 
   static {
-    ignoredReferences.put(
-        conml.types.Class.class,
-        new HashSet<>(
-            Arrays.asList(
-                "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
-    ignoredReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
-    ignoredReferences.put(
-        Association.class,
-        new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
-    ignoredReferences.put(Feature.class, new HashSet<>(Arrays.asList("RedefinedByFeatures")));
-    ignoredReferences.put(
-        SemiAssociation.class,
-        new HashSet<>(
-            Arrays.asList(
-                "InverseSemiAssociation",
-                "Owner",
-                "PrimaryInAssociation",
-                "SecondaryInAssociation")));
+    setupIgnoredReferences();
+    setupStructuralFeaturesPredicates();
   }
 
   public boolean referenceIfPredicate(EStructuralFeature feature) {
@@ -94,6 +81,44 @@ public class PropertyServices {
             })
         .sorted(Comparator.comparing(Map.Entry::getKey))
         .map(Map.Entry::getValue)
+        .filter(this::combinedFeaturePredicate)
         .collect(Collectors.toList());
+  }
+
+  private static boolean compactAssociationFeaturePredicate(EStructuralFeature feature) {
+    return !(Association.class.isAssignableFrom(feature.getContainerClass())
+        && "compact".equalsIgnoreCase(feature.getName()));
+  }
+
+  private boolean combinedFeaturePredicate(EStructuralFeature feature) {
+    return PropertyServices.featurePredicates
+        .stream()
+        .map(predicate -> predicate.test(feature))
+        .allMatch(result -> result);
+  }
+
+  private static void setupStructuralFeaturesPredicates() {
+    featurePredicates.add(PropertyServices::compactAssociationFeaturePredicate);
+  }
+
+  private static void setupIgnoredReferences() {
+    ignoredReferences.put(
+        conml.types.Class.class,
+        new HashSet<>(
+            Arrays.asList(
+                "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
+    ignoredReferences.put(Model.class, new HashSet<>(Arrays.asList("Elements")));
+    ignoredReferences.put(
+        Association.class,
+        new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
+    ignoredReferences.put(Feature.class, new HashSet<>(Arrays.asList("RedefinedByFeatures")));
+    ignoredReferences.put(
+        SemiAssociation.class,
+        new HashSet<>(
+            Arrays.asList(
+                "InverseSemiAssociation",
+                "Owner",
+                "PrimaryInAssociation",
+                "SecondaryInAssociation")));
   }
 }
