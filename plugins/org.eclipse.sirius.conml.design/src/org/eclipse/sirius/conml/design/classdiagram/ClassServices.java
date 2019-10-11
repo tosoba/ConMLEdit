@@ -2,6 +2,7 @@ package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -17,26 +18,27 @@ public class ClassServices {
     return ConML.getAllElementsOfTypeFrom(model, Class.class);
   }
 
+  private boolean isAspectAssignedToTypeModel(
+      EObject object,
+      Function<Class, Boolean> isUsedAsAspectGetter,
+      Function<TypeModel, Class> aspectGetter) {
+    if (!(object instanceof Class)) return true;
+    
+    final Class clazz = (Class) object;
+    final boolean usedAsAspect = isUsedAsAspectGetter.apply(clazz);
+    return !usedAsAspect
+        || (usedAsAspect
+            && ConML.anyExistingContainerHasReferenceTo(clazz, aspectGetter, TypeModel.class));
+  }
+
   public boolean isSubjectiveAspectClassAssignedToTypeModel(EObject object) {
-    if (!(object instanceof Class)) {
-      return true;
-    }
-    Class clazz = (Class) object;
-    return !clazz.isUsedAsSubjectiveAspect()
-        || (clazz.isUsedAsSubjectiveAspect()
-            && ConML.anyExistingContainerHasReferenceTo(
-                clazz, TypeModel::getSubjectiveAspect, TypeModel.class));
+    return isAspectAssignedToTypeModel(
+        object, Class::isUsedAsSubjectiveAspect, TypeModel::getSubjectiveAspect);
   }
 
   public boolean isTemporalAspectClassAssignedToTypeModel(EObject object) {
-    if (!(object instanceof Class)) {
-      return true;
-    }
-    Class clazz = (Class) object;
-    return !clazz.isUsedAsTemporalAspect()
-        || (clazz.isUsedAsTemporalAspect()
-            && ConML.anyExistingContainerHasReferenceTo(
-                clazz, TypeModel::getTemporalAspect, TypeModel.class));
+    return isAspectAssignedToTypeModel(
+        object, Class::isUsedAsTemporalAspect, TypeModel::getTemporalAspect);
   }
 
   public String classLabel(Class clazz) {
