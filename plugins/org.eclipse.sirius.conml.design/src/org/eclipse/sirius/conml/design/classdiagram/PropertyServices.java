@@ -16,6 +16,9 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
+import conml.types.Association;
+import conml.types.Feature;
+import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 
 public class PropertyServices {
@@ -29,6 +32,18 @@ public class PropertyServices {
             Arrays.asList(
                 "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
     ignoredReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
+    ignoredReferences.put(
+        Association.class,
+        new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
+    ignoredReferences.put(Feature.class, new HashSet<>(Arrays.asList("RedefinedByFeatures")));
+    ignoredReferences.put(
+        SemiAssociation.class,
+        new HashSet<>(
+            Arrays.asList(
+                "InverseSemiAssociation",
+                "Owner",
+                "PrimaryInAssociation",
+                "SecondaryInAssociation")));
   }
 
   public boolean referenceIfPredicate(EStructuralFeature feature) {
