@@ -31,4 +31,11 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>
+	<linkedResources>
+		<link>
+			<name>icons/full/obj16/CompactAssociation.gif</name>
+			<type>1</type>
+			<location>D:/code/conml/ConMLEdit/plugins/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif</location>
+		</link>
+	</linkedResources>
 </projectDescription>
