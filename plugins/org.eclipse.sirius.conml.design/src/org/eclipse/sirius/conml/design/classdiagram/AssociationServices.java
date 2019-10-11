@@ -122,7 +122,7 @@ public class AssociationServices {
     primary.setIsPrimaryIn(association);
 
     // TODO: cardinalities for secondary association
-    Class target = primary.getReferredClass();
+    final Class target = primary.getReferredClass();
     final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
     final String secondaryName = target.getName() + "s";
     secondary.setName(secondaryName);
@@ -161,7 +161,7 @@ public class AssociationServices {
   }
 
   public String compactAssociationLabel(SemiAssociation primary) {
-    Association association = primary.getIsPrimaryIn();
+    final Association association = primary.getIsPrimaryIn();
     if (association == null) {
       return "";
     }

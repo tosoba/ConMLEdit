@@ -16,7 +16,7 @@ public class ConML {
 
   @SuppressWarnings("unchecked")
   public static <T> Collection<T> getAllElementsOfTypeFrom(EObject parentObject, Class<T> clazz) {
-    Set<T> candidates = new HashSet<>();
+    final Set<T> candidates = new HashSet<>();
     forEachEObjectOf(
         parentObject,
         object -> {
@@ -34,10 +34,10 @@ public class ConML {
           RefType ref,
           Function<Container, RefType> referenceGetter,
           Class<Container> containerClass) {
-    EObject rootContainer = EcoreUtil.getRootContainer(ref);
-    Stream<Container> descedentContainersStream =
+    final EObject rootContainer = EcoreUtil.getRootContainer(ref);
+    final Stream<Container> descedentContainersStream =
         getAllElementsOfTypeFrom(rootContainer, containerClass).stream();
-    Stream<Container> containersStream =
+    final Stream<Container> containersStream =
         containerClass.isInstance(rootContainer)
             ? Stream.concat(
                 Stream.of(containerClass.cast(rootContainer)), descedentContainersStream)

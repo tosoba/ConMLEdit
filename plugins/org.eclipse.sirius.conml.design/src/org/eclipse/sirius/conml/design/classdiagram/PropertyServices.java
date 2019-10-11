@@ -47,7 +47,7 @@ public class PropertyServices {
             feature -> {
               short weight = 100;
               if (feature instanceof EAttribute) {
-                EAttribute attribute = (EAttribute) feature;
+                final EAttribute attribute = (EAttribute) feature;
                 if (attribute
                     .getEAttributeType()
                     .getInstanceClass()

@@ -36,7 +36,7 @@ public class ClassServices {
     }
 
     final StringBuilder sb = new StringBuilder();
-    ArrayList<String> markers = new ArrayList<>();
+    final ArrayList<String> markers = new ArrayList<>();
     if (clazz.isUsedAsSubjectiveAspect()) {
       markers.add("S");
     }

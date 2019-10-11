@@ -35,7 +35,7 @@ public class AttributeServices {
 
     sb.append(" ");
 
-    ArrayList<String> markers = new ArrayList<>();
+    final ArrayList<String> markers = new ArrayList<>();
     if (feature.isConstant()) {
       markers.add("K");
     }
