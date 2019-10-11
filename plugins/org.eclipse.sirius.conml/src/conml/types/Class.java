@@ -20,7 +20,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}</li>
- *   <li>{@link conml.types.Class#getInstancedByObjects <em>Instanced By Objects</em>}</li>
+ *   <li>{@link conml.types.Class#getInstanceObjects <em>Instance Objects</em>}</li>
  *   <li>{@link conml.types.Class#getPackage <em>Package</em>}</li>
  *   <li>{@link conml.types.Class#getProperties <em>Properties</em>}</li>
  *   <li>{@link conml.types.Class#getAttributes <em>Attributes</em>}</li>
@@ -174,20 +174,20 @@ public interface Class extends Type {
 	EList<SemiAssociation> getSemiassociations();
 
   /**
-	 * Returns the value of the '<em><b>Instanced By Objects</b></em>' reference list.
+	 * Returns the value of the '<em><b>Instance Objects</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Instanced By Objects</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_InstancedByObjects()
+	 * @return the value of the '<em>Instance Objects</em>' reference list.
+	 * @see conml.types.TypesPackage#getClass_InstanceObjects()
 	 * @see conml.instances.Object#getInstancedClass
 	 * @model opposite="InstancedClass"
 	 * @generated
 	 */
-	EList<conml.instances.Object> getInstancedByObjects();
+	EList<conml.instances.Object> getInstanceObjects();
 
-  /**
+    /**
 	 * Returns the value of the '<em><b>Package</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}'.
 	 * <!-- begin-user-doc -->

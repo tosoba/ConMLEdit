@@ -48,25 +48,25 @@ public class InstanceModelItemProvider extends ModelItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addConformsToPropertyDescriptor(object);
+			addConformedTypeModelsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Conforms To feature.
+	 * This adds a property descriptor for the Conformed Type Models feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addConformsToPropertyDescriptor(Object object) {
+	protected void addConformedTypeModelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_InstanceModel_ConformsTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_InstanceModel_ConformsTo_feature", "_UI_InstanceModel_type"),
-				 InstancesPackage.Literals.INSTANCE_MODEL__CONFORMS_TO,
+				 getString("_UI_InstanceModel_ConformedTypeModels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstanceModel_ConformedTypeModels_feature", "_UI_InstanceModel_type"),
+				 InstancesPackage.Literals.INSTANCE_MODEL__CONFORMED_TYPE_MODELS,
 				 true,
 				 false,
 				 true,
@@ -75,7 +75,7 @@ public class InstanceModelItemProvider extends ModelItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns InstanceModel.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

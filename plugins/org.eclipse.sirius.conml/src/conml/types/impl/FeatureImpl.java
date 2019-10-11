@@ -34,8 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.FeatureImpl#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isConstant <em>Constant</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#getRedefines <em>Redefines</em>}</li>
- *   <li>{@link conml.types.impl.FeatureImpl#getIsRedefinedBy <em>Is Redefined By</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#getRedefinedFeature <em>Redefined Feature</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#getRedefinedByFeatures <em>Redefined By Features</em>}</li>
  * </ul>
  *
  * @generated
@@ -162,26 +162,26 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	protected boolean constant = CONSTANT_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getRedefines() <em>Redefines</em>}' reference.
+	 * The cached value of the '{@link #getRedefinedFeature() <em>Redefined Feature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRedefines()
+	 * @see #getRedefinedFeature()
 	 * @generated
 	 * @ordered
 	 */
-	protected Feature redefines;
+	protected Feature redefinedFeature;
 
-	/**
-	 * The cached value of the '{@link #getIsRedefinedBy() <em>Is Redefined By</em>}' reference list.
+    /**
+	 * The cached value of the '{@link #getRedefinedByFeatures() <em>Redefined By Features</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsRedefinedBy()
+	 * @see #getRedefinedByFeatures()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Feature> isRedefinedBy;
+	protected EList<Feature> redefinedByFeatures;
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -344,76 +344,76 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @generated
 	 */
 	@Override
-	public Feature getRedefines() {
-		if (redefines != null && redefines.eIsProxy()) {
-			InternalEObject oldRedefines = (InternalEObject)redefines;
-			redefines = (Feature)eResolveProxy(oldRedefines);
-			if (redefines != oldRedefines) {
+	public Feature getRedefinedFeature() {
+		if (redefinedFeature != null && redefinedFeature.eIsProxy()) {
+			InternalEObject oldRedefinedFeature = (InternalEObject)redefinedFeature;
+			redefinedFeature = (Feature)eResolveProxy(oldRedefinedFeature);
+			if (redefinedFeature != oldRedefinedFeature) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.FEATURE__REDEFINES, oldRedefines, redefines));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.FEATURE__REDEFINED_FEATURE, oldRedefinedFeature, redefinedFeature));
 			}
 		}
-		return redefines;
+		return redefinedFeature;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Feature basicGetRedefines() {
-		return redefines;
+	public Feature basicGetRedefinedFeature() {
+		return redefinedFeature;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRedefines(Feature newRedefines, NotificationChain msgs) {
-		Feature oldRedefines = redefines;
-		redefines = newRedefines;
+	public NotificationChain basicSetRedefinedFeature(Feature newRedefinedFeature, NotificationChain msgs) {
+		Feature oldRedefinedFeature = redefinedFeature;
+		redefinedFeature = newRedefinedFeature;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__REDEFINES, oldRedefines, newRedefines);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__REDEFINED_FEATURE, oldRedefinedFeature, newRedefinedFeature);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setRedefines(Feature newRedefines) {
-		if (newRedefines != redefines) {
+	public void setRedefinedFeature(Feature newRedefinedFeature) {
+		if (newRedefinedFeature != redefinedFeature) {
 			NotificationChain msgs = null;
-			if (redefines != null)
-				msgs = ((InternalEObject)redefines).eInverseRemove(this, TypesPackage.FEATURE__IS_REDEFINED_BY, Feature.class, msgs);
-			if (newRedefines != null)
-				msgs = ((InternalEObject)newRedefines).eInverseAdd(this, TypesPackage.FEATURE__IS_REDEFINED_BY, Feature.class, msgs);
-			msgs = basicSetRedefines(newRedefines, msgs);
+			if (redefinedFeature != null)
+				msgs = ((InternalEObject)redefinedFeature).eInverseRemove(this, TypesPackage.FEATURE__REDEFINED_BY_FEATURES, Feature.class, msgs);
+			if (newRedefinedFeature != null)
+				msgs = ((InternalEObject)newRedefinedFeature).eInverseAdd(this, TypesPackage.FEATURE__REDEFINED_BY_FEATURES, Feature.class, msgs);
+			msgs = basicSetRedefinedFeature(newRedefinedFeature, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__REDEFINES, newRedefines, newRedefines));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.FEATURE__REDEFINED_FEATURE, newRedefinedFeature, newRedefinedFeature));
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EList<Feature> getIsRedefinedBy() {
-		if (isRedefinedBy == null) {
-			isRedefinedBy = new EObjectWithInverseResolvingEList<Feature>(Feature.class, this, TypesPackage.FEATURE__IS_REDEFINED_BY, TypesPackage.FEATURE__REDEFINES);
+	public EList<Feature> getRedefinedByFeatures() {
+		if (redefinedByFeatures == null) {
+			redefinedByFeatures = new EObjectWithInverseResolvingEList<Feature>(Feature.class, this, TypesPackage.FEATURE__REDEFINED_BY_FEATURES, TypesPackage.FEATURE__REDEFINED_FEATURE);
 		}
-		return isRedefinedBy;
+		return redefinedByFeatures;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -422,12 +422,12 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__REDEFINES:
-				if (redefines != null)
-					msgs = ((InternalEObject)redefines).eInverseRemove(this, TypesPackage.FEATURE__IS_REDEFINED_BY, Feature.class, msgs);
-				return basicSetRedefines((Feature)otherEnd, msgs);
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsRedefinedBy()).basicAdd(otherEnd, msgs);
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				if (redefinedFeature != null)
+					msgs = ((InternalEObject)redefinedFeature).eInverseRemove(this, TypesPackage.FEATURE__REDEFINED_BY_FEATURES, Feature.class, msgs);
+				return basicSetRedefinedFeature((Feature)otherEnd, msgs);
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRedefinedByFeatures()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -440,10 +440,10 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__REDEFINES:
-				return basicSetRedefines(null, msgs);
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				return ((InternalEList<?>)getIsRedefinedBy()).basicRemove(otherEnd, msgs);
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				return basicSetRedefinedFeature(null, msgs);
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				return ((InternalEList<?>)getRedefinedByFeatures()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -468,11 +468,11 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return isSubjective();
 			case TypesPackage.FEATURE__CONSTANT:
 				return isConstant();
-			case TypesPackage.FEATURE__REDEFINES:
-				if (resolve) return getRedefines();
-				return basicGetRedefines();
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				return getIsRedefinedBy();
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				if (resolve) return getRedefinedFeature();
+				return basicGetRedefinedFeature();
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				return getRedefinedByFeatures();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -504,12 +504,12 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__CONSTANT:
 				setConstant((Boolean)newValue);
 				return;
-			case TypesPackage.FEATURE__REDEFINES:
-				setRedefines((Feature)newValue);
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				setRedefinedFeature((Feature)newValue);
 				return;
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				getIsRedefinedBy().clear();
-				getIsRedefinedBy().addAll((Collection<? extends Feature>)newValue);
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				getRedefinedByFeatures().clear();
+				getRedefinedByFeatures().addAll((Collection<? extends Feature>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -541,11 +541,11 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__CONSTANT:
 				setConstant(CONSTANT_EDEFAULT);
 				return;
-			case TypesPackage.FEATURE__REDEFINES:
-				setRedefines((Feature)null);
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				setRedefinedFeature((Feature)null);
 				return;
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				getIsRedefinedBy().clear();
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				getRedefinedByFeatures().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -571,10 +571,10 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return subjective != SUBJECTIVE_EDEFAULT;
 			case TypesPackage.FEATURE__CONSTANT:
 				return constant != CONSTANT_EDEFAULT;
-			case TypesPackage.FEATURE__REDEFINES:
-				return redefines != null;
-			case TypesPackage.FEATURE__IS_REDEFINED_BY:
-				return isRedefinedBy != null && !isRedefinedBy.isEmpty();
+			case TypesPackage.FEATURE__REDEFINED_FEATURE:
+				return redefinedFeature != null;
+			case TypesPackage.FEATURE__REDEFINED_BY_FEATURES:
+				return redefinedByFeatures != null && !redefinedByFeatures.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

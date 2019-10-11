@@ -18,7 +18,9 @@ public interface AttributeValidator {
 
   boolean validateMultilingual(boolean value);
 
-    boolean validateIsMultilingual(boolean value);
+    boolean validateInstanceValueSets(EList<ValueSet> value);
+
+        boolean validateIsMultilingual(boolean value);
 
   boolean validateOwner(conml.types.Class value);
 

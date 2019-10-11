@@ -22,7 +22,11 @@ public interface EnumeratedItemValidator {
 	boolean validateAbsoluteName(String value);
 	boolean validateDefinition(String value);
 	boolean validateOwner(EnumeratedType value);
-	boolean validateAssignedTo(EnumeratedType value);
+	boolean validateSuperItemOfEnumeratedItems(EList<EnumeratedItem> value);
+
+  boolean validateSubItemOfEnumeratedItem(EnumeratedItem value);
+
+  boolean validateAssignedTo(EnumeratedType value);
 	boolean validateIsSuperItemOf(EList<EnumeratedItem> value);
 	boolean validateIsSubItemOf(EnumeratedItem value);
 }

@@ -19,7 +19,13 @@ import org.eclipse.emf.common.util.EList;
 public interface AssociationValidator {
 	boolean validate();
 
-	boolean validateHasPrimary(SemiAssociation value);
+	boolean validatePrimarySemiAssociation(SemiAssociation value);
+
+  boolean validateSecondarySemiAssociation(SemiAssociation value);
+
+  boolean validateInstanceLinks(EList<Link> value);
+
+  boolean validateHasPrimary(SemiAssociation value);
 	boolean validateHasSecondary(SemiAssociation value);
 	boolean validateHasInstanceLinks(EList<Link> value);
 

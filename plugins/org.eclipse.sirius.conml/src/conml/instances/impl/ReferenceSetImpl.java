@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.ReferenceSetImpl#getIsAnInstanceOf <em>Is An Instance Of</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceSetImpl#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceSetImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -32,16 +32,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	/**
-	 * The cached value of the '{@link #getIsAnInstanceOf() <em>Is An Instance Of</em>}' reference.
+	 * The cached value of the '{@link #getInstancedSemiAssociation() <em>Instanced Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsAnInstanceOf()
+	 * @see #getInstancedSemiAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected SemiAssociation isAnInstanceOf;
+	protected SemiAssociation instancedSemiAssociation;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,63 +76,63 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	 * @generated
 	 */
 	@Override
-	public SemiAssociation getIsAnInstanceOf() {
-		if (isAnInstanceOf != null && isAnInstanceOf.eIsProxy()) {
-			InternalEObject oldIsAnInstanceOf = (InternalEObject)isAnInstanceOf;
-			isAnInstanceOf = (SemiAssociation)eResolveProxy(oldIsAnInstanceOf);
-			if (isAnInstanceOf != oldIsAnInstanceOf) {
+	public SemiAssociation getInstancedSemiAssociation() {
+		if (instancedSemiAssociation != null && instancedSemiAssociation.eIsProxy()) {
+			InternalEObject oldInstancedSemiAssociation = (InternalEObject)instancedSemiAssociation;
+			instancedSemiAssociation = (SemiAssociation)eResolveProxy(oldInstancedSemiAssociation);
+			if (instancedSemiAssociation != oldInstancedSemiAssociation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF, oldIsAnInstanceOf, isAnInstanceOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION, oldInstancedSemiAssociation, instancedSemiAssociation));
 			}
 		}
-		return isAnInstanceOf;
+		return instancedSemiAssociation;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SemiAssociation basicGetIsAnInstanceOf() {
-		return isAnInstanceOf;
+	public SemiAssociation basicGetInstancedSemiAssociation() {
+		return instancedSemiAssociation;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsAnInstanceOf(SemiAssociation newIsAnInstanceOf, NotificationChain msgs) {
-		SemiAssociation oldIsAnInstanceOf = isAnInstanceOf;
-		isAnInstanceOf = newIsAnInstanceOf;
+	public NotificationChain basicSetInstancedSemiAssociation(SemiAssociation newInstancedSemiAssociation, NotificationChain msgs) {
+		SemiAssociation oldInstancedSemiAssociation = instancedSemiAssociation;
+		instancedSemiAssociation = newInstancedSemiAssociation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF, oldIsAnInstanceOf, newIsAnInstanceOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION, oldInstancedSemiAssociation, newInstancedSemiAssociation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsAnInstanceOf(SemiAssociation newIsAnInstanceOf) {
-		if (newIsAnInstanceOf != isAnInstanceOf) {
+	public void setInstancedSemiAssociation(SemiAssociation newInstancedSemiAssociation) {
+		if (newInstancedSemiAssociation != instancedSemiAssociation) {
 			NotificationChain msgs = null;
-			if (isAnInstanceOf != null)
-				msgs = ((InternalEObject)isAnInstanceOf).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
-			if (newIsAnInstanceOf != null)
-				msgs = ((InternalEObject)newIsAnInstanceOf).eInverseAdd(this, TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
-			msgs = basicSetIsAnInstanceOf(newIsAnInstanceOf, msgs);
+			if (instancedSemiAssociation != null)
+				msgs = ((InternalEObject)instancedSemiAssociation).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
+			if (newInstancedSemiAssociation != null)
+				msgs = ((InternalEObject)newInstancedSemiAssociation).eInverseAdd(this, TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
+			msgs = basicSetInstancedSemiAssociation(newInstancedSemiAssociation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF, newIsAnInstanceOf, newIsAnInstanceOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION, newInstancedSemiAssociation, newInstancedSemiAssociation));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -184,9 +184,9 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 		if (newOwner != owner) {
 			NotificationChain msgs = null;
 			if (owner != null)
-				msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNS_REFERENCE_SETS, conml.instances.Object.class, msgs);
+				msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNED_REFERENCE_SETS, conml.instances.Object.class, msgs);
 			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__OWNS_REFERENCE_SETS, conml.instances.Object.class, msgs);
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__OWNED_REFERENCE_SETS, conml.instances.Object.class, msgs);
 			msgs = basicSetOwner(newOwner, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -202,13 +202,13 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				if (isAnInstanceOf != null)
-					msgs = ((InternalEObject)isAnInstanceOf).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
-				return basicSetIsAnInstanceOf((SemiAssociation)otherEnd, msgs);
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				if (instancedSemiAssociation != null)
+					msgs = ((InternalEObject)instancedSemiAssociation).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
+				return basicSetInstancedSemiAssociation((SemiAssociation)otherEnd, msgs);
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				if (owner != null)
-					msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNS_REFERENCE_SETS, conml.instances.Object.class, msgs);
+					msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNED_REFERENCE_SETS, conml.instances.Object.class, msgs);
 				return basicSetOwner((conml.instances.Object)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -222,8 +222,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				return basicSetIsAnInstanceOf(null, msgs);
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				return basicSetInstancedSemiAssociation(null, msgs);
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				return basicSetOwner(null, msgs);
 		}
@@ -238,9 +238,9 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				if (resolve) return getIsAnInstanceOf();
-				return basicGetIsAnInstanceOf();
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				if (resolve) return getInstancedSemiAssociation();
+				return basicGetInstancedSemiAssociation();
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
@@ -256,8 +256,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				setIsAnInstanceOf((SemiAssociation)newValue);
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				setInstancedSemiAssociation((SemiAssociation)newValue);
 				return;
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				setOwner((conml.instances.Object)newValue);
@@ -274,8 +274,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				setIsAnInstanceOf((SemiAssociation)null);
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				setInstancedSemiAssociation((SemiAssociation)null);
 				return;
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				setOwner((conml.instances.Object)null);
@@ -292,8 +292,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF:
-				return isAnInstanceOf != null;
+			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
+				return instancedSemiAssociation != null;
 			case InstancesPackage.REFERENCE_SET__OWNER:
 				return owner != null;
 		}

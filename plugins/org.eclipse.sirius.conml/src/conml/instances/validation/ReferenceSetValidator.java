@@ -15,6 +15,8 @@ import conml.types.SemiAssociation;
 public interface ReferenceSetValidator {
 	boolean validate();
 
-	boolean validateIsAnInstanceOf(SemiAssociation value);
+	boolean validateInstancedSemiAssociation(SemiAssociation value);
+
+  boolean validateIsAnInstanceOf(SemiAssociation value);
 	boolean validateOwner(conml.instances.Object value);
 }

@@ -51,8 +51,8 @@ public class FeatureItemProvider extends TypeItemProvider {
 			addTemporalPropertyDescriptor(object);
 			addSubjectivePropertyDescriptor(object);
 			addConstantPropertyDescriptor(object);
-			addRedefinesPropertyDescriptor(object);
-			addIsRedefinedByPropertyDescriptor(object);
+			addRedefinedFeaturePropertyDescriptor(object);
+			addRedefinedByFeaturesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -190,19 +190,19 @@ public class FeatureItemProvider extends TypeItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Redefines feature.
+	 * This adds a property descriptor for the Redefined Feature feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRedefinesPropertyDescriptor(Object object) {
+	protected void addRedefinedFeaturePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_Redefines_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_Redefines_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__REDEFINES,
+				 getString("_UI_Feature_RedefinedFeature_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_RedefinedFeature_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__REDEFINED_FEATURE,
 				 true,
 				 false,
 				 true,
@@ -211,20 +211,20 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Redefined By feature.
+    /**
+	 * This adds a property descriptor for the Redefined By Features feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsRedefinedByPropertyDescriptor(Object object) {
+	protected void addRedefinedByFeaturesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Feature_IsRedefinedBy_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_IsRedefinedBy_feature", "_UI_Feature_type"),
-				 TypesPackage.Literals.FEATURE__IS_REDEFINED_BY,
+				 getString("_UI_Feature_RedefinedByFeatures_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Feature_RedefinedByFeatures_feature", "_UI_Feature_type"),
+				 TypesPackage.Literals.FEATURE__REDEFINED_BY_FEATURES,
 				 true,
 				 false,
 				 true,
@@ -233,7 +233,7 @@ public class FeatureItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

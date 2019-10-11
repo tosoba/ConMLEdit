@@ -17,7 +17,9 @@ import conml.types.Association;
 public interface LinkValidator {
 	boolean validate();
 
-	boolean validateIsInstanceOf(Association value);
+	boolean validateInstancedAssociation(Association value);
+
+  boolean validateIsInstanceOf(Association value);
 	boolean validateHasPrimary(Reference value);
 	boolean validateHasSecondary(Reference value);
 }

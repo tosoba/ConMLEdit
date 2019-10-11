@@ -13,7 +13,7 @@ import conml.types.Attribute;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.ValueSet#getIsAnInstanceOf <em>Is An Instance Of</em>}</li>
+ *   <li>{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}</li>
  *   <li>{@link conml.instances.ValueSet#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -23,39 +23,39 @@ import conml.types.Attribute;
  */
 public interface ValueSet extends FacetSet {
 	/**
-	 * Returns the value of the '<em><b>Is An Instance Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}'.
+	 * Returns the value of the '<em><b>Instanced Attribute</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Attribute#getInstanceValueSets <em>Instance Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is An Instance Of</em>' reference.
-	 * @see #setIsAnInstanceOf(Attribute)
-	 * @see conml.instances.InstancesPackage#getValueSet_IsAnInstanceOf()
-	 * @see conml.types.Attribute#getHasInstanceValueSets
-	 * @model opposite="HasInstanceValueSets" required="true"
+	 * @return the value of the '<em>Instanced Attribute</em>' reference.
+	 * @see #setInstancedAttribute(Attribute)
+	 * @see conml.instances.InstancesPackage#getValueSet_InstancedAttribute()
+	 * @see conml.types.Attribute#getInstanceValueSets
+	 * @model opposite="InstanceValueSets" required="true"
 	 * @generated
 	 */
-	Attribute getIsAnInstanceOf();
+	Attribute getInstancedAttribute();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.ValueSet#getIsAnInstanceOf <em>Is An Instance Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is An Instance Of</em>' reference.
-	 * @see #getIsAnInstanceOf()
+	 * @param value the new value of the '<em>Instanced Attribute</em>' reference.
+	 * @see #getInstancedAttribute()
 	 * @generated
 	 */
-	void setIsAnInstanceOf(Attribute value);
+	void setInstancedAttribute(Attribute value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnsValueSets <em>Owns Value Sets</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnedValueSets <em>Owned Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(conml.instances.Object)
 	 * @see conml.instances.InstancesPackage#getValueSet_Owner()
-	 * @see conml.instances.Object#getOwnsValueSets
-	 * @model opposite="OwnsValueSets" required="true"
+	 * @see conml.instances.Object#getOwnedValueSets
+	 * @model opposite="OwnedValueSets" required="true"
 	 * @generated
 	 */
 	conml.instances.Object getOwner();

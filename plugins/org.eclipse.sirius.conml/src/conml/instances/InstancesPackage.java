@@ -398,15 +398,15 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Conforms To</b></em>' reference list.
+	 * The feature id for the '<em><b>Conformed Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__CONFORMS_TO = conmlPackage.MODEL_FEATURE_COUNT + 0;
+	int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Instance Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -571,15 +571,15 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
   /**
-	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
+	 * The feature id for the '<em><b>Instanced Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__IS_AN_INSTANCE_OF = FACET_SET_FEATURE_COUNT + 0;
+	int VALUE_SET__INSTANCED_ATTRIBUTE = FACET_SET_FEATURE_COUNT + 0;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -671,15 +671,15 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
   /**
-	 * The feature id for the '<em><b>Is An Instance Of</b></em>' reference.
+	 * The feature id for the '<em><b>Instanced Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__IS_AN_INSTANCE_OF = FACET_SET_FEATURE_COUNT + 0;
+	int REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = FACET_SET_FEATURE_COUNT + 0;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Owner</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -762,24 +762,24 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__INSTANCED_CLASS = INSTANCE_FEATURE_COUNT + 2;
 
   /**
-	 * The feature id for the '<em><b>Owns Value Sets</b></em>' reference list.
+	 * The feature id for the '<em><b>Owned Value Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OWNS_VALUE_SETS = INSTANCE_FEATURE_COUNT + 3;
+	int OBJECT__OWNED_VALUE_SETS = INSTANCE_FEATURE_COUNT + 3;
 
-	/**
-	 * The feature id for the '<em><b>Owns Reference Sets</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Owned Reference Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OWNS_REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 4;
+	int OBJECT__OWNED_REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 4;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Is Opposite In</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -853,15 +853,15 @@ public interface InstancesPackage extends EPackage {
 	int LINK__DOCUMENTING_OBJECTS = INSTANCE__DOCUMENTING_OBJECTS;
 
   /**
-	 * The feature id for the '<em><b>Is Instance Of</b></em>' reference.
+	 * The feature id for the '<em><b>Instanced Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__IS_INSTANCE_OF = INSTANCE_FEATURE_COUNT + 0;
+	int LINK__INSTANCED_ASSOCIATION = INSTANCE_FEATURE_COUNT + 0;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Has Primary</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1109,17 +1109,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getInstanceModel();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.InstanceModel#getConformsTo <em>Conforms To</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.instances.InstanceModel#getConformedTypeModels <em>Conformed Type Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Conforms To</em>'.
-	 * @see conml.instances.InstanceModel#getConformsTo()
+	 * @return the meta object for the reference list '<em>Conformed Type Models</em>'.
+	 * @see conml.instances.InstanceModel#getConformedTypeModels()
 	 * @see #getInstanceModel()
 	 * @generated
 	 */
-	EReference getInstanceModel_ConformsTo();
+	EReference getInstanceModel_ConformedTypeModels();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.instances.ValueSet <em>Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1130,17 +1130,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getValueSet();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.ValueSet#getIsAnInstanceOf <em>Is An Instance Of</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is An Instance Of</em>'.
-	 * @see conml.instances.ValueSet#getIsAnInstanceOf()
+	 * @return the meta object for the reference '<em>Instanced Attribute</em>'.
+	 * @see conml.instances.ValueSet#getInstancedAttribute()
 	 * @see #getValueSet()
 	 * @generated
 	 */
-	EReference getValueSet_IsAnInstanceOf();
+	EReference getValueSet_InstancedAttribute();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.instances.ValueSet#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1162,17 +1162,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getReferenceSet();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.ReferenceSet#getIsAnInstanceOf <em>Is An Instance Of</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is An Instance Of</em>'.
-	 * @see conml.instances.ReferenceSet#getIsAnInstanceOf()
+	 * @return the meta object for the reference '<em>Instanced Semi Association</em>'.
+	 * @see conml.instances.ReferenceSet#getInstancedSemiAssociation()
 	 * @see #getReferenceSet()
 	 * @generated
 	 */
-	EReference getReferenceSet_IsAnInstanceOf();
+	EReference getReferenceSet_InstancedSemiAssociation();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1227,28 +1227,28 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_InstancedClass();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getOwnsValueSets <em>Owns Value Sets</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.instances.Object#getOwnedValueSets <em>Owned Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Owns Value Sets</em>'.
-	 * @see conml.instances.Object#getOwnsValueSets()
+	 * @return the meta object for the reference list '<em>Owned Value Sets</em>'.
+	 * @see conml.instances.Object#getOwnedValueSets()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_OwnsValueSets();
+	EReference getObject_OwnedValueSets();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getOwnsReferenceSets <em>Owns Reference Sets</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.instances.Object#getOwnedReferenceSets <em>Owned Reference Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Owns Reference Sets</em>'.
-	 * @see conml.instances.Object#getOwnsReferenceSets()
+	 * @return the meta object for the reference list '<em>Owned Reference Sets</em>'.
+	 * @see conml.instances.Object#getOwnedReferenceSets()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_OwnsReferenceSets();
+	EReference getObject_OwnedReferenceSets();
 
-	/**
+    /**
 	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1292,17 +1292,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getLink();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Link#getIsInstanceOf <em>Is Instance Of</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Link#getInstancedAssociation <em>Instanced Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Instance Of</em>'.
-	 * @see conml.instances.Link#getIsInstanceOf()
+	 * @return the meta object for the reference '<em>Instanced Association</em>'.
+	 * @see conml.instances.Link#getInstancedAssociation()
 	 * @see #getLink()
 	 * @generated
 	 */
-	EReference getLink_IsInstanceOf();
+	EReference getLink_InstancedAssociation();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1539,14 +1539,14 @@ public interface InstancesPackage extends EPackage {
 		EClass INSTANCE_MODEL = eINSTANCE.getInstanceModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Conforms To</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Conformed Type Models</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INSTANCE_MODEL__CONFORMS_TO = eINSTANCE.getInstanceModel_ConformsTo();
+		EReference INSTANCE_MODEL__CONFORMED_TYPE_MODELS = eINSTANCE.getInstanceModel_ConformedTypeModels();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueSetImpl <em>Value Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1557,14 +1557,14 @@ public interface InstancesPackage extends EPackage {
 		EClass VALUE_SET = eINSTANCE.getValueSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Is An Instance Of</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Instanced Attribute</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference VALUE_SET__IS_AN_INSTANCE_OF = eINSTANCE.getValueSet_IsAnInstanceOf();
+		EReference VALUE_SET__INSTANCED_ATTRIBUTE = eINSTANCE.getValueSet_InstancedAttribute();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1583,14 +1583,14 @@ public interface InstancesPackage extends EPackage {
 		EClass REFERENCE_SET = eINSTANCE.getReferenceSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Is An Instance Of</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Instanced Semi Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE_SET__IS_AN_INSTANCE_OF = eINSTANCE.getReferenceSet_IsAnInstanceOf();
+		EReference REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = eINSTANCE.getReferenceSet_InstancedSemiAssociation();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Owner</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1633,22 +1633,22 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__INSTANCED_CLASS = eINSTANCE.getObject_InstancedClass();
 
     /**
-		 * The meta object literal for the '<em><b>Owns Value Sets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Owned Value Sets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__OWNS_VALUE_SETS = eINSTANCE.getObject_OwnsValueSets();
+		EReference OBJECT__OWNED_VALUE_SETS = eINSTANCE.getObject_OwnedValueSets();
 
-		/**
-		 * The meta object literal for the '<em><b>Owns Reference Sets</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Owned Reference Sets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__OWNS_REFERENCE_SETS = eINSTANCE.getObject_OwnsReferenceSets();
+		EReference OBJECT__OWNED_REFERENCE_SETS = eINSTANCE.getObject_OwnedReferenceSets();
 
-		/**
+        /**
 		 * The meta object literal for the '<em><b>Is Opposite In</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1683,14 +1683,14 @@ public interface InstancesPackage extends EPackage {
 		EClass LINK = eINSTANCE.getLink();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Instance Of</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Instanced Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__IS_INSTANCE_OF = eINSTANCE.getLink_IsInstanceOf();
+		EReference LINK__INSTANCED_ASSOCIATION = eINSTANCE.getLink_InstancedAssociation();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Has Primary</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

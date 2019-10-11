@@ -66,8 +66,8 @@ public class EnumeratedItemItemProvider
 			addAbsoluteNamePropertyDescriptor(object);
 			addDefinitionPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
-			addIsSuperItemOfPropertyDescriptor(object);
-			addIsSubItemOfPropertyDescriptor(object);
+			addSuperItemOfEnumeratedItemsPropertyDescriptor(object);
+			addSubItemOfEnumeratedItemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -161,19 +161,19 @@ public class EnumeratedItemItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Super Item Of feature.
+	 * This adds a property descriptor for the Super Item Of Enumerated Items feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSuperItemOfPropertyDescriptor(Object object) {
+	protected void addSuperItemOfEnumeratedItemsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_IsSuperItemOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_IsSuperItemOf_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__IS_SUPER_ITEM_OF,
+				 getString("_UI_EnumeratedItem_SuperItemOfEnumeratedItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SuperItemOfEnumeratedItems_feature", "_UI_EnumeratedItem_type"),
+				 TypesPackage.Literals.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS,
 				 true,
 				 false,
 				 true,
@@ -182,20 +182,20 @@ public class EnumeratedItemItemProvider
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Sub Item Of feature.
+  /**
+	 * This adds a property descriptor for the Sub Item Of Enumerated Item feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSubItemOfPropertyDescriptor(Object object) {
+	protected void addSubItemOfEnumeratedItemPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_IsSubItemOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_IsSubItemOf_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__IS_SUB_ITEM_OF,
+				 getString("_UI_EnumeratedItem_SubItemOfEnumeratedItem_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SubItemOfEnumeratedItem_feature", "_UI_EnumeratedItem_type"),
+				 TypesPackage.Literals.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM,
 				 true,
 				 false,
 				 true,
@@ -204,7 +204,7 @@ public class EnumeratedItemItemProvider
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns EnumeratedItem.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

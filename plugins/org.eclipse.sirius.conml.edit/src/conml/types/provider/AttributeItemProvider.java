@@ -46,7 +46,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addMultilingualPropertyDescriptor(object);
-			addHasInstanceValueSetsPropertyDescriptor(object);
+			addInstanceValueSetsPropertyDescriptor(object);
 			addDatatypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -75,19 +75,19 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Has Instance Value Sets feature.
+	 * This adds a property descriptor for the Instance Value Sets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasInstanceValueSetsPropertyDescriptor(Object object) {
+	protected void addInstanceValueSetsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Attribute_HasInstanceValueSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_HasInstanceValueSets_feature", "_UI_Attribute_type"),
-				 TypesPackage.Literals.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS,
+				 getString("_UI_Attribute_InstanceValueSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_InstanceValueSets_feature", "_UI_Attribute_type"),
+				 TypesPackage.Literals.ATTRIBUTE__INSTANCE_VALUE_SETS,
 				 true,
 				 false,
 				 true,
@@ -96,7 +96,7 @@ public class AttributeItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This adds a property descriptor for the Datatype feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

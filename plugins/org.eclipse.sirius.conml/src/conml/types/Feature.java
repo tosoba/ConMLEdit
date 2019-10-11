@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Feature#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.Feature#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.Feature#isConstant <em>Constant</em>}</li>
- *   <li>{@link conml.types.Feature#getRedefines <em>Redefines</em>}</li>
- *   <li>{@link conml.types.Feature#getIsRedefinedBy <em>Is Redefined By</em>}</li>
+ *   <li>{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}</li>
+ *   <li>{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getFeature()
@@ -161,41 +161,41 @@ public interface Feature extends Type {
 	void setConstant(boolean value);
 
   /**
-	 * Returns the value of the '<em><b>Redefines</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getIsRedefinedBy <em>Is Redefined By</em>}'.
+	 * Returns the value of the '<em><b>Redefined Feature</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Redefines</em>' reference.
-	 * @see #setRedefines(Feature)
-	 * @see conml.types.TypesPackage#getFeature_Redefines()
-	 * @see conml.types.Feature#getIsRedefinedBy
-	 * @model opposite="IsRedefinedBy"
+	 * @return the value of the '<em>Redefined Feature</em>' reference.
+	 * @see #setRedefinedFeature(Feature)
+	 * @see conml.types.TypesPackage#getFeature_RedefinedFeature()
+	 * @see conml.types.Feature#getRedefinedByFeatures
+	 * @model opposite="RedefinedByFeatures"
 	 * @generated
 	 */
-	Feature getRedefines();
+	Feature getRedefinedFeature();
 
-	/**
-	 * Sets the value of the '{@link conml.types.Feature#getRedefines <em>Redefines</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Redefines</em>' reference.
-	 * @see #getRedefines()
+	 * @param value the new value of the '<em>Redefined Feature</em>' reference.
+	 * @see #getRedefinedFeature()
 	 * @generated
 	 */
-	void setRedefines(Feature value);
+	void setRedefinedFeature(Feature value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Redefined By</b></em>' reference list.
+    /**
+	 * Returns the value of the '<em><b>Redefined By Features</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Feature}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getRedefines <em>Redefines</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Redefined By</em>' reference list.
-	 * @see conml.types.TypesPackage#getFeature_IsRedefinedBy()
-	 * @see conml.types.Feature#getRedefines
-	 * @model opposite="Redefines"
+	 * @return the value of the '<em>Redefined By Features</em>' reference list.
+	 * @see conml.types.TypesPackage#getFeature_RedefinedByFeatures()
+	 * @see conml.types.Feature#getRedefinedFeature
+	 * @model opposite="RedefinedFeature"
 	 * @generated
 	 */
-	EList<Feature> getIsRedefinedBy();
+	EList<Feature> getRedefinedByFeatures();
 
 } // Feature

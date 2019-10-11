@@ -133,51 +133,51 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Conformed By</b></em>' reference.
+	 * The feature id for the '<em><b>Conforming Instance Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__CONFORMED_BY = conmlPackage.MODEL_FEATURE_COUNT + 0;
+	int TYPE_MODEL__CONFORMING_INSTANCE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Extends</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Extended Type Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__EXTENDS = conmlPackage.MODEL_FEATURE_COUNT + 1;
+	int TYPE_MODEL__EXTENDED_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Is Base Of</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Extending Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__IS_BASE_OF = conmlPackage.MODEL_FEATURE_COUNT + 2;
+	int TYPE_MODEL__EXTENDING_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 2;
 
-	/**
-	 * The feature id for the '<em><b>Is Particular In</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Particular In Type Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__IS_PARTICULAR_IN = conmlPackage.MODEL_FEATURE_COUNT + 3;
+	int TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 3;
 
-	/**
-	 * The feature id for the '<em><b>Has Particular</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Has Particular Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__HAS_PARTICULAR = conmlPackage.MODEL_FEATURE_COUNT + 4;
+	int TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 4;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Subjective Aspect</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -433,15 +433,15 @@ public interface TypesPackage extends EPackage {
 	int CLASS__SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 6;
 
   /**
-	 * The feature id for the '<em><b>Instanced By Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Instance Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__INSTANCED_BY_OBJECTS = TYPE_FEATURE_COUNT + 7;
+	int CLASS__INSTANCE_OBJECTS = TYPE_FEATURE_COUNT + 7;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,24 +669,24 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 5;
 
   /**
-	 * The feature id for the '<em><b>Redefines</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__REDEFINES = TYPE_FEATURE_COUNT + 6;
+	int FEATURE__REDEFINED_FEATURE = TYPE_FEATURE_COUNT + 6;
 
-	/**
-	 * The feature id for the '<em><b>Is Redefined By</b></em>' reference list.
+    /**
+	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__IS_REDEFINED_BY = TYPE_FEATURE_COUNT + 7;
+	int FEATURE__REDEFINED_BY_FEATURES = TYPE_FEATURE_COUNT + 7;
 
-	/**
+    /**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -815,33 +815,33 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Owns Items</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Owned Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__OWNS_ITEMS = DATA_TYPE_FEATURE_COUNT + 0;
+	int ENUMERATED_TYPE__OWNED_ITEMS = DATA_TYPE_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Is Specialized By</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Specialized By Enumerated Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__IS_SPECIALIZED_BY = DATA_TYPE_FEATURE_COUNT + 1;
+	int ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES = DATA_TYPE_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Specializes From</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Specializes From Enumerated Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SPECIALIZES_FROM = DATA_TYPE_FEATURE_COUNT + 2;
+	int ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE = DATA_TYPE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -915,33 +915,33 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION__DEFINITION = TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Has Primary</b></em>' reference.
+	 * The feature id for the '<em><b>Primary Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__HAS_PRIMARY = TYPE_FEATURE_COUNT + 0;
+	int ASSOCIATION__PRIMARY_SEMI_ASSOCIATION = TYPE_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Has Secondary</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Secondary Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__HAS_SECONDARY = TYPE_FEATURE_COUNT + 1;
+	int ASSOCIATION__SECONDARY_SEMI_ASSOCIATION = TYPE_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Has Instance Links</b></em>' reference list.
+  /**
+	 * The feature id for the '<em><b>Instance Links</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__HAS_INSTANCE_LINKS = TYPE_FEATURE_COUNT + 2;
+	int ASSOCIATION__INSTANCE_LINKS = TYPE_FEATURE_COUNT + 2;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Compact</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1169,24 +1169,24 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefines</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__REDEFINES = FEATURE__REDEFINES;
+	int ATTRIBUTE__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
 
-	/**
-	 * The feature id for the '<em><b>Is Redefined By</b></em>' reference list.
+    /**
+	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__IS_REDEFINED_BY = FEATURE__IS_REDEFINED_BY;
+	int ATTRIBUTE__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Multilingual</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1196,15 +1196,15 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__MULTILINGUAL = FEATURE_FEATURE_COUNT + 0;
 
   /**
-	 * The feature id for the '<em><b>Has Instance Value Sets</b></em>' reference list.
+	 * The feature id for the '<em><b>Instance Value Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 1;
+	int ATTRIBUTE__INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 1;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1332,24 +1332,24 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefines</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__REDEFINES = FEATURE__REDEFINES;
+	int SEMI_ASSOCIATION__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
 
-	/**
-	 * The feature id for the '<em><b>Is Redefined By</b></em>' reference list.
+    /**
+	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_REDEFINED_BY = FEATURE__IS_REDEFINED_BY;
+	int SEMI_ASSOCIATION__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1386,42 +1386,42 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__OWNER = FEATURE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Primary In</b></em>' reference.
+	 * The feature id for the '<em><b>Primary In Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_PRIMARY_IN = FEATURE_FEATURE_COUNT + 4;
+	int SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 4;
 
-	/**
-	 * The feature id for the '<em><b>Is Secondary In</b></em>' reference.
+    /**
+	 * The feature id for the '<em><b>Secondary In Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__IS_SECONDARY_IN = FEATURE_FEATURE_COUNT + 5;
+	int SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 5;
 
-	/**
-	 * The feature id for the '<em><b>Has Instance Reference Sets</b></em>' reference list.
+    /**
+	 * The feature id for the '<em><b>Instance Reference Sets</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 6;
+	int SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 6;
 
-	/**
-	 * The feature id for the '<em><b>Inverse</b></em>' reference.
+    /**
+	 * The feature id for the '<em><b>Inverse Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__INVERSE = FEATURE_FEATURE_COUNT + 7;
+	int SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION = FEATURE_FEATURE_COUNT + 7;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Referred Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1549,24 +1549,24 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefines</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REDEFINES = FEATURE__REDEFINES;
+	int PROPERTY__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
 
-	/**
-	 * The feature id for the '<em><b>Is Redefined By</b></em>' reference list.
+    /**
+	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__IS_REDEFINED_BY = FEATURE__IS_REDEFINED_BY;
+	int PROPERTY__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
 
-	/**
+    /**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1704,24 +1704,24 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_ITEM__OWNER = 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Super Item Of</b></em>' reference list.
+	 * The feature id for the '<em><b>Super Item Of Enumerated Items</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__IS_SUPER_ITEM_OF = 4;
+	int ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = 4;
 
-	/**
-	 * The feature id for the '<em><b>Is Sub Item Of</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Sub Item Of Enumerated Item</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__IS_SUB_ITEM_OF = 5;
+	int ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = 5;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Enumerated Item</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1761,61 +1761,61 @@ public interface TypesPackage extends EPackage {
 	EClass getTypeModel();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getConformedBy <em>Conformed By</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getConformingInstanceModel <em>Conforming Instance Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Conformed By</em>'.
-	 * @see conml.types.TypeModel#getConformedBy()
+	 * @return the meta object for the reference '<em>Conforming Instance Model</em>'.
+	 * @see conml.types.TypeModel#getConformingInstanceModel()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_ConformedBy();
+	EReference getTypeModel_ConformingInstanceModel();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getExtends <em>Extends</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getExtendedTypeModel <em>Extended Type Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extends</em>'.
-	 * @see conml.types.TypeModel#getExtends()
+	 * @return the meta object for the reference '<em>Extended Type Model</em>'.
+	 * @see conml.types.TypeModel#getExtendedTypeModel()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_Extends();
+	EReference getTypeModel_ExtendedTypeModel();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getIsBaseOf <em>Is Base Of</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getExtendingTypeModels <em>Extending Type Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Base Of</em>'.
-	 * @see conml.types.TypeModel#getIsBaseOf()
+	 * @return the meta object for the reference list '<em>Extending Type Models</em>'.
+	 * @see conml.types.TypeModel#getExtendingTypeModels()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_IsBaseOf();
+	EReference getTypeModel_ExtendingTypeModels();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getIsParticularIn <em>Is Particular In</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getParticularInTypeModel <em>Particular In Type Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Particular In</em>'.
-	 * @see conml.types.TypeModel#getIsParticularIn()
+	 * @return the meta object for the reference '<em>Particular In Type Model</em>'.
+	 * @see conml.types.TypeModel#getParticularInTypeModel()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_IsParticularIn();
+	EReference getTypeModel_ParticularInTypeModel();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getHasParticular <em>Has Particular</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getHasParticularTypeModels <em>Has Particular Type Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Particular</em>'.
-	 * @see conml.types.TypeModel#getHasParticular()
+	 * @return the meta object for the reference list '<em>Has Particular Type Models</em>'.
+	 * @see conml.types.TypeModel#getHasParticularTypeModels()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_HasParticular();
+	EReference getTypeModel_HasParticularTypeModels();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1957,17 +1957,17 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_Semiassociations();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getInstancedByObjects <em>Instanced By Objects</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Class#getInstanceObjects <em>Instance Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Instanced By Objects</em>'.
-	 * @see conml.types.Class#getInstancedByObjects()
+	 * @return the meta object for the reference list '<em>Instance Objects</em>'.
+	 * @see conml.types.Class#getInstanceObjects()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EReference getClass_InstancedByObjects();
+	EReference getClass_InstanceObjects();
 
-  /**
+    /**
 	 * Returns the meta object for the reference '{@link conml.types.Class#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2131,28 +2131,28 @@ public interface TypesPackage extends EPackage {
 	EAttribute getFeature_Constant();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.Feature#getRedefines <em>Redefines</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Redefines</em>'.
-	 * @see conml.types.Feature#getRedefines()
+	 * @return the meta object for the reference '<em>Redefined Feature</em>'.
+	 * @see conml.types.Feature#getRedefinedFeature()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EReference getFeature_Redefines();
+	EReference getFeature_RedefinedFeature();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Feature#getIsRedefinedBy <em>Is Redefined By</em>}'.
+    /**
+	 * Returns the meta object for the reference list '{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Redefined By</em>'.
-	 * @see conml.types.Feature#getIsRedefinedBy()
+	 * @return the meta object for the reference list '<em>Redefined By Features</em>'.
+	 * @see conml.types.Feature#getRedefinedByFeatures()
 	 * @see #getFeature()
 	 * @generated
 	 */
-	EReference getFeature_IsRedefinedBy();
+	EReference getFeature_RedefinedByFeatures();
 
-	/**
+    /**
 	 * Returns the meta object for class '{@link conml.types.EnumeratedType <em>Enumerated Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2163,39 +2163,39 @@ public interface TypesPackage extends EPackage {
 	EClass getEnumeratedType();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}'.
+	 * Returns the meta object for the containment reference list '{@link conml.types.EnumeratedType#getOwnedItems <em>Owned Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Owns Items</em>'.
-	 * @see conml.types.EnumeratedType#getOwnsItems()
+	 * @return the meta object for the containment reference list '<em>Owned Items</em>'.
+	 * @see conml.types.EnumeratedType#getOwnedItems()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_OwnsItems();
+	EReference getEnumeratedType_OwnedItems();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getIsSpecializedBy <em>Is Specialized By</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getSpecializedByEnumeratedTypes <em>Specialized By Enumerated Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Specialized By</em>'.
-	 * @see conml.types.EnumeratedType#getIsSpecializedBy()
+	 * @return the meta object for the reference list '<em>Specialized By Enumerated Types</em>'.
+	 * @see conml.types.EnumeratedType#getSpecializedByEnumeratedTypes()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_IsSpecializedBy();
+	EReference getEnumeratedType_SpecializedByEnumeratedTypes();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getSpecializesFrom <em>Specializes From</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Specializes From</em>'.
-	 * @see conml.types.EnumeratedType#getSpecializesFrom()
+	 * @return the meta object for the reference '<em>Specializes From Enumerated Type</em>'.
+	 * @see conml.types.EnumeratedType#getSpecializesFromEnumeratedType()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_SpecializesFrom();
+	EReference getEnumeratedType_SpecializesFromEnumeratedType();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2227,39 +2227,39 @@ public interface TypesPackage extends EPackage {
 	EClass getAssociation();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.Association#getHasPrimary <em>Has Primary</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.Association#getPrimarySemiAssociation <em>Primary Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Primary</em>'.
-	 * @see conml.types.Association#getHasPrimary()
+	 * @return the meta object for the reference '<em>Primary Semi Association</em>'.
+	 * @see conml.types.Association#getPrimarySemiAssociation()
 	 * @see #getAssociation()
 	 * @generated
 	 */
-	EReference getAssociation_HasPrimary();
+	EReference getAssociation_PrimarySemiAssociation();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.Association#getHasSecondary <em>Has Secondary</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.Association#getSecondarySemiAssociation <em>Secondary Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Secondary</em>'.
-	 * @see conml.types.Association#getHasSecondary()
+	 * @return the meta object for the reference '<em>Secondary Semi Association</em>'.
+	 * @see conml.types.Association#getSecondarySemiAssociation()
 	 * @see #getAssociation()
 	 * @generated
 	 */
-	EReference getAssociation_HasSecondary();
+	EReference getAssociation_SecondarySemiAssociation();
 
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Association#getHasInstanceLinks <em>Has Instance Links</em>}'.
+  /**
+	 * Returns the meta object for the reference list '{@link conml.types.Association#getInstanceLinks <em>Instance Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Instance Links</em>'.
-	 * @see conml.types.Association#getHasInstanceLinks()
+	 * @return the meta object for the reference list '<em>Instance Links</em>'.
+	 * @see conml.types.Association#getInstanceLinks()
 	 * @see #getAssociation()
 	 * @generated
 	 */
-	EReference getAssociation_HasInstanceLinks();
+	EReference getAssociation_InstanceLinks();
 
-	/**
+  /**
 	 * Returns the meta object for the attribute '{@link conml.types.Association#isCompact <em>Compact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2368,17 +2368,17 @@ public interface TypesPackage extends EPackage {
 	EAttribute getAttribute_Multilingual();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Attribute#getInstanceValueSets <em>Instance Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Instance Value Sets</em>'.
-	 * @see conml.types.Attribute#getHasInstanceValueSets()
+	 * @return the meta object for the reference list '<em>Instance Value Sets</em>'.
+	 * @see conml.types.Attribute#getInstanceValueSets()
 	 * @see #getAttribute()
 	 * @generated
 	 */
-	EReference getAttribute_HasInstanceValueSets();
+	EReference getAttribute_InstanceValueSets();
 
-	/**
+    /**
 	 * Returns the meta object for the reference '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2444,17 +2444,50 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_Owner();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getPrimaryInAssociation <em>Primary In Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inverse</em>'.
-	 * @see conml.types.SemiAssociation#getInverse()
+	 * @return the meta object for the reference '<em>Primary In Association</em>'.
+	 * @see conml.types.SemiAssociation#getPrimaryInAssociation()
 	 * @see #getSemiAssociation()
 	 * @generated
 	 */
-	EReference getSemiAssociation_Inverse();
+	EReference getSemiAssociation_PrimaryInAssociation();
 
-	/**
+    /**
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getSecondaryInAssociation <em>Secondary In Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Secondary In Association</em>'.
+	 * @see conml.types.SemiAssociation#getSecondaryInAssociation()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_SecondaryInAssociation();
+
+    /**
+	 * Returns the meta object for the reference list '{@link conml.types.SemiAssociation#getInstanceReferenceSets <em>Instance Reference Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Instance Reference Sets</em>'.
+	 * @see conml.types.SemiAssociation#getInstanceReferenceSets()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_InstanceReferenceSets();
+
+    /**
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getInverseSemiAssociation <em>Inverse Semi Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Inverse Semi Association</em>'.
+	 * @see conml.types.SemiAssociation#getInverseSemiAssociation()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_InverseSemiAssociation();
+
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2466,39 +2499,6 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_ReferredClass();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Primary In</em>'.
-	 * @see conml.types.SemiAssociation#getIsPrimaryIn()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_IsPrimaryIn();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Secondary In</em>'.
-	 * @see conml.types.SemiAssociation#getIsSecondaryIn()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_IsSecondaryIn();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.SemiAssociation#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Instance Reference Sets</em>'.
-	 * @see conml.types.SemiAssociation#getHasInstanceReferenceSets()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_HasInstanceReferenceSets();
-
-	/**
 	 * Returns the meta object for class '{@link conml.types.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2594,28 +2594,28 @@ public interface TypesPackage extends EPackage {
 	EReference getEnumeratedItem_Owner();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedItem#getIsSuperItemOf <em>Is Super Item Of</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Super Item Of</em>'.
-	 * @see conml.types.EnumeratedItem#getIsSuperItemOf()
+	 * @return the meta object for the reference list '<em>Super Item Of Enumerated Items</em>'.
+	 * @see conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems()
 	 * @see #getEnumeratedItem()
 	 * @generated
 	 */
-	EReference getEnumeratedItem_IsSuperItemOf();
+	EReference getEnumeratedItem_SuperItemOfEnumeratedItems();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getIsSubItemOf <em>Is Sub Item Of</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Sub Item Of</em>'.
-	 * @see conml.types.EnumeratedItem#getIsSubItemOf()
+	 * @return the meta object for the reference '<em>Sub Item Of Enumerated Item</em>'.
+	 * @see conml.types.EnumeratedItem#getSubItemOfEnumeratedItem()
 	 * @see #getEnumeratedItem()
 	 * @generated
 	 */
-	EReference getEnumeratedItem_IsSubItemOf();
+	EReference getEnumeratedItem_SubItemOfEnumeratedItem();
 
-	/**
+  /**
 	 * Returns the meta object for enum '{@link conml.types.BaseDataType <em>Base Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2659,46 +2659,46 @@ public interface TypesPackage extends EPackage {
 		EClass TYPE_MODEL = eINSTANCE.getTypeModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Conformed By</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Conforming Instance Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__CONFORMED_BY = eINSTANCE.getTypeModel_ConformedBy();
+		EReference TYPE_MODEL__CONFORMING_INSTANCE_MODEL = eINSTANCE.getTypeModel_ConformingInstanceModel();
 
-		/**
-		 * The meta object literal for the '<em><b>Extends</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Extended Type Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__EXTENDS = eINSTANCE.getTypeModel_Extends();
+		EReference TYPE_MODEL__EXTENDED_TYPE_MODEL = eINSTANCE.getTypeModel_ExtendedTypeModel();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Base Of</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Extending Type Models</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__IS_BASE_OF = eINSTANCE.getTypeModel_IsBaseOf();
+		EReference TYPE_MODEL__EXTENDING_TYPE_MODELS = eINSTANCE.getTypeModel_ExtendingTypeModels();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Particular In</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Particular In Type Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__IS_PARTICULAR_IN = eINSTANCE.getTypeModel_IsParticularIn();
+		EReference TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL = eINSTANCE.getTypeModel_ParticularInTypeModel();
 
-		/**
-		 * The meta object literal for the '<em><b>Has Particular</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Has Particular Type Models</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__HAS_PARTICULAR = eINSTANCE.getTypeModel_HasParticular();
+		EReference TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS = eINSTANCE.getTypeModel_HasParticularTypeModels();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Subjective Aspect</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2807,14 +2807,14 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__SEMIASSOCIATIONS = eINSTANCE.getClass_Semiassociations();
 
     /**
-		 * The meta object literal for the '<em><b>Instanced By Objects</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Instance Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASS__INSTANCED_BY_OBJECTS = eINSTANCE.getClass_InstancedByObjects();
+		EReference CLASS__INSTANCE_OBJECTS = eINSTANCE.getClass_InstanceObjects();
 
-    /**
+        /**
 		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2939,22 +2939,22 @@ public interface TypesPackage extends EPackage {
 		EAttribute FEATURE__CONSTANT = eINSTANCE.getFeature_Constant();
 
     /**
-		 * The meta object literal for the '<em><b>Redefines</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Redefined Feature</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FEATURE__REDEFINES = eINSTANCE.getFeature_Redefines();
+		EReference FEATURE__REDEFINED_FEATURE = eINSTANCE.getFeature_RedefinedFeature();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Redefined By</b></em>' reference list feature.
+        /**
+		 * The meta object literal for the '<em><b>Redefined By Features</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference FEATURE__IS_REDEFINED_BY = eINSTANCE.getFeature_IsRedefinedBy();
+		EReference FEATURE__REDEFINED_BY_FEATURES = eINSTANCE.getFeature_RedefinedByFeatures();
 
-		/**
+        /**
 		 * The meta object literal for the '{@link conml.types.impl.EnumeratedTypeImpl <em>Enumerated Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2965,30 +2965,30 @@ public interface TypesPackage extends EPackage {
 		EClass ENUMERATED_TYPE = eINSTANCE.getEnumeratedType();
 
 		/**
-		 * The meta object literal for the '<em><b>Owns Items</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Owned Items</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__OWNS_ITEMS = eINSTANCE.getEnumeratedType_OwnsItems();
+		EReference ENUMERATED_TYPE__OWNED_ITEMS = eINSTANCE.getEnumeratedType_OwnedItems();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Specialized By</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Specialized By Enumerated Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__IS_SPECIALIZED_BY = eINSTANCE.getEnumeratedType_IsSpecializedBy();
+		EReference ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES = eINSTANCE.getEnumeratedType_SpecializedByEnumeratedTypes();
 
-		/**
-		 * The meta object literal for the '<em><b>Specializes From</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Specializes From Enumerated Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__SPECIALIZES_FROM = eINSTANCE.getEnumeratedType_SpecializesFrom();
+		EReference ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE = eINSTANCE.getEnumeratedType_SpecializesFromEnumeratedType();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3017,30 +3017,30 @@ public interface TypesPackage extends EPackage {
 		EClass ASSOCIATION = eINSTANCE.getAssociation();
 
 		/**
-		 * The meta object literal for the '<em><b>Has Primary</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primary Semi Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSOCIATION__HAS_PRIMARY = eINSTANCE.getAssociation_HasPrimary();
+		EReference ASSOCIATION__PRIMARY_SEMI_ASSOCIATION = eINSTANCE.getAssociation_PrimarySemiAssociation();
 
-		/**
-		 * The meta object literal for the '<em><b>Has Secondary</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Secondary Semi Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSOCIATION__HAS_SECONDARY = eINSTANCE.getAssociation_HasSecondary();
+		EReference ASSOCIATION__SECONDARY_SEMI_ASSOCIATION = eINSTANCE.getAssociation_SecondarySemiAssociation();
 
-		/**
-		 * The meta object literal for the '<em><b>Has Instance Links</b></em>' reference list feature.
+    /**
+		 * The meta object literal for the '<em><b>Instance Links</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ASSOCIATION__HAS_INSTANCE_LINKS = eINSTANCE.getAssociation_HasInstanceLinks();
+		EReference ASSOCIATION__INSTANCE_LINKS = eINSTANCE.getAssociation_InstanceLinks();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Compact</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3125,14 +3125,14 @@ public interface TypesPackage extends EPackage {
 		EAttribute ATTRIBUTE__MULTILINGUAL = eINSTANCE.getAttribute_Multilingual();
 
     /**
-		 * The meta object literal for the '<em><b>Has Instance Value Sets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Instance Value Sets</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ATTRIBUTE__HAS_INSTANCE_VALUE_SETS = eINSTANCE.getAttribute_HasInstanceValueSets();
+		EReference ATTRIBUTE__INSTANCE_VALUE_SETS = eINSTANCE.getAttribute_InstanceValueSets();
 
-		/**
+        /**
 		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3183,14 +3183,38 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__OWNER = eINSTANCE.getSemiAssociation_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Inverse</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primary In Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEMI_ASSOCIATION__INVERSE = eINSTANCE.getSemiAssociation_Inverse();
+		EReference SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION = eINSTANCE.getSemiAssociation_PrimaryInAssociation();
 
-		/**
+        /**
+		 * The meta object literal for the '<em><b>Secondary In Association</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION = eINSTANCE.getSemiAssociation_SecondaryInAssociation();
+
+        /**
+		 * The meta object literal for the '<em><b>Instance Reference Sets</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS = eINSTANCE.getSemiAssociation_InstanceReferenceSets();
+
+        /**
+		 * The meta object literal for the '<em><b>Inverse Semi Association</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION = eINSTANCE.getSemiAssociation_InverseSemiAssociation();
+
+    /**
 		 * The meta object literal for the '<em><b>Referred Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3199,30 +3223,6 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__REFERRED_CLASS = eINSTANCE.getSemiAssociation_ReferredClass();
 
     /**
-		 * The meta object literal for the '<em><b>Is Primary In</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__IS_PRIMARY_IN = eINSTANCE.getSemiAssociation_IsPrimaryIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Secondary In</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__IS_SECONDARY_IN = eINSTANCE.getSemiAssociation_IsSecondaryIn();
-
-		/**
-		 * The meta object literal for the '<em><b>Has Instance Reference Sets</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS = eINSTANCE.getSemiAssociation_HasInstanceReferenceSets();
-
-		/**
 		 * The meta object literal for the '{@link conml.types.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3303,22 +3303,22 @@ public interface TypesPackage extends EPackage {
 		EReference ENUMERATED_ITEM__OWNER = eINSTANCE.getEnumeratedItem_Owner();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Super Item Of</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Super Item Of Enumerated Items</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_ITEM__IS_SUPER_ITEM_OF = eINSTANCE.getEnumeratedItem_IsSuperItemOf();
+		EReference ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = eINSTANCE.getEnumeratedItem_SuperItemOfEnumeratedItems();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Sub Item Of</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Sub Item Of Enumerated Item</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_ITEM__IS_SUB_ITEM_OF = eINSTANCE.getEnumeratedItem_IsSubItemOf();
+		EReference ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = eINSTANCE.getEnumeratedItem_SubItemOfEnumeratedItem();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.types.BaseDataType <em>Base Data Type</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

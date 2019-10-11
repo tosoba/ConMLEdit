@@ -17,9 +17,9 @@ public class AttributeServices {
     }
 
     final StringBuilder sb = new StringBuilder(feature.getName());
-    if (feature.getRedefines() != null
-        && !Objects.equals(feature.getRedefines().getName(), feature.getName())) {
-      sb.append(" [").append(feature.getRedefines().getName()).append(']');
+    if (feature.getRedefinedFeature() != null
+        && !Objects.equals(feature.getRedefinedFeature().getName(), feature.getName())) {
+      sb.append(" [").append(feature.getRedefinedFeature().getName()).append(']');
     }
     sb.append(": ");
 

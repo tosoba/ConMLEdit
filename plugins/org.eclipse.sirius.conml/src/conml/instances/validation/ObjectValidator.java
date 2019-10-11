@@ -27,7 +27,11 @@ public interface ObjectValidator {
 	boolean validateCertainty(DegreeOfCertainty value);
 	boolean validateInstancedClass(conml.types.Class value);
 
-  boolean validateDocuments(EList<ModelElement> value);
+  boolean validateOwnedValueSets(EList<ValueSet> value);
+
+  boolean validateOwnedReferenceSets(EList<ReferenceSet> value);
+
+    boolean validateDocuments(EList<ModelElement> value);
 	boolean validateIsInstanceOf(conml.types.Class value);
 	boolean validateOwnsValueSets(EList<ValueSet> value);
 	boolean validateOwnsReferenceSets(EList<ReferenceSet> value);

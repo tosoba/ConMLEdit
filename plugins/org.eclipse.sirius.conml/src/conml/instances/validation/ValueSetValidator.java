@@ -15,6 +15,8 @@ import conml.types.Attribute;
 public interface ValueSetValidator {
 	boolean validate();
 
-	boolean validateIsAnInstanceOf(Attribute value);
+	boolean validateInstancedAttribute(Attribute value);
+
+  boolean validateIsAnInstanceOf(Attribute value);
 	boolean validateOwner(conml.instances.Object value);
 }

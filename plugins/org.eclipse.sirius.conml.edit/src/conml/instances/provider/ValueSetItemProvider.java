@@ -42,26 +42,26 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsAnInstanceOfPropertyDescriptor(object);
+			addInstancedAttributePropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is An Instance Of feature.
+	 * This adds a property descriptor for the Instanced Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsAnInstanceOfPropertyDescriptor(Object object) {
+	protected void addInstancedAttributePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ValueSet_IsAnInstanceOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_IsAnInstanceOf_feature", "_UI_ValueSet_type"),
-				 InstancesPackage.Literals.VALUE_SET__IS_AN_INSTANCE_OF,
+				 getString("_UI_ValueSet_InstancedAttribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_InstancedAttribute_feature", "_UI_ValueSet_type"),
+				 InstancesPackage.Literals.VALUE_SET__INSTANCED_ATTRIBUTE,
 				 true,
 				 false,
 				 true,
@@ -70,7 +70,7 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Owner feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

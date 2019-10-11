@@ -24,7 +24,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.ValueSetImpl#getIsAnInstanceOf <em>Is An Instance Of</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueSetImpl#getInstancedAttribute <em>Instanced Attribute</em>}</li>
  *   <li>{@link conml.instances.impl.ValueSetImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -32,16 +32,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	/**
-	 * The cached value of the '{@link #getIsAnInstanceOf() <em>Is An Instance Of</em>}' reference.
+	 * The cached value of the '{@link #getInstancedAttribute() <em>Instanced Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsAnInstanceOf()
+	 * @see #getInstancedAttribute()
 	 * @generated
 	 * @ordered
 	 */
-	protected Attribute isAnInstanceOf;
+	protected Attribute instancedAttribute;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getOwner() <em>Owner</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -76,63 +76,63 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	 * @generated
 	 */
 	@Override
-	public Attribute getIsAnInstanceOf() {
-		if (isAnInstanceOf != null && isAnInstanceOf.eIsProxy()) {
-			InternalEObject oldIsAnInstanceOf = (InternalEObject)isAnInstanceOf;
-			isAnInstanceOf = (Attribute)eResolveProxy(oldIsAnInstanceOf);
-			if (isAnInstanceOf != oldIsAnInstanceOf) {
+	public Attribute getInstancedAttribute() {
+		if (instancedAttribute != null && instancedAttribute.eIsProxy()) {
+			InternalEObject oldInstancedAttribute = (InternalEObject)instancedAttribute;
+			instancedAttribute = (Attribute)eResolveProxy(oldInstancedAttribute);
+			if (instancedAttribute != oldInstancedAttribute) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF, oldIsAnInstanceOf, isAnInstanceOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE, oldInstancedAttribute, instancedAttribute));
 			}
 		}
-		return isAnInstanceOf;
+		return instancedAttribute;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Attribute basicGetIsAnInstanceOf() {
-		return isAnInstanceOf;
+	public Attribute basicGetInstancedAttribute() {
+		return instancedAttribute;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsAnInstanceOf(Attribute newIsAnInstanceOf, NotificationChain msgs) {
-		Attribute oldIsAnInstanceOf = isAnInstanceOf;
-		isAnInstanceOf = newIsAnInstanceOf;
+	public NotificationChain basicSetInstancedAttribute(Attribute newInstancedAttribute, NotificationChain msgs) {
+		Attribute oldInstancedAttribute = instancedAttribute;
+		instancedAttribute = newInstancedAttribute;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF, oldIsAnInstanceOf, newIsAnInstanceOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE, oldInstancedAttribute, newInstancedAttribute);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsAnInstanceOf(Attribute newIsAnInstanceOf) {
-		if (newIsAnInstanceOf != isAnInstanceOf) {
+	public void setInstancedAttribute(Attribute newInstancedAttribute) {
+		if (newInstancedAttribute != instancedAttribute) {
 			NotificationChain msgs = null;
-			if (isAnInstanceOf != null)
-				msgs = ((InternalEObject)isAnInstanceOf).eInverseRemove(this, TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS, Attribute.class, msgs);
-			if (newIsAnInstanceOf != null)
-				msgs = ((InternalEObject)newIsAnInstanceOf).eInverseAdd(this, TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS, Attribute.class, msgs);
-			msgs = basicSetIsAnInstanceOf(newIsAnInstanceOf, msgs);
+			if (instancedAttribute != null)
+				msgs = ((InternalEObject)instancedAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS, Attribute.class, msgs);
+			if (newInstancedAttribute != null)
+				msgs = ((InternalEObject)newInstancedAttribute).eInverseAdd(this, TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS, Attribute.class, msgs);
+			msgs = basicSetInstancedAttribute(newInstancedAttribute, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF, newIsAnInstanceOf, newIsAnInstanceOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE, newInstancedAttribute, newInstancedAttribute));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -184,9 +184,9 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 		if (newOwner != owner) {
 			NotificationChain msgs = null;
 			if (owner != null)
-				msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNS_VALUE_SETS, conml.instances.Object.class, msgs);
+				msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNED_VALUE_SETS, conml.instances.Object.class, msgs);
 			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__OWNS_VALUE_SETS, conml.instances.Object.class, msgs);
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__OWNED_VALUE_SETS, conml.instances.Object.class, msgs);
 			msgs = basicSetOwner(newOwner, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -202,13 +202,13 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				if (isAnInstanceOf != null)
-					msgs = ((InternalEObject)isAnInstanceOf).eInverseRemove(this, TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS, Attribute.class, msgs);
-				return basicSetIsAnInstanceOf((Attribute)otherEnd, msgs);
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				if (instancedAttribute != null)
+					msgs = ((InternalEObject)instancedAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS, Attribute.class, msgs);
+				return basicSetInstancedAttribute((Attribute)otherEnd, msgs);
 			case InstancesPackage.VALUE_SET__OWNER:
 				if (owner != null)
-					msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNS_VALUE_SETS, conml.instances.Object.class, msgs);
+					msgs = ((InternalEObject)owner).eInverseRemove(this, InstancesPackage.OBJECT__OWNED_VALUE_SETS, conml.instances.Object.class, msgs);
 				return basicSetOwner((conml.instances.Object)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
@@ -222,8 +222,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				return basicSetIsAnInstanceOf(null, msgs);
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				return basicSetInstancedAttribute(null, msgs);
 			case InstancesPackage.VALUE_SET__OWNER:
 				return basicSetOwner(null, msgs);
 		}
@@ -238,9 +238,9 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				if (resolve) return getIsAnInstanceOf();
-				return basicGetIsAnInstanceOf();
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				if (resolve) return getInstancedAttribute();
+				return basicGetInstancedAttribute();
 			case InstancesPackage.VALUE_SET__OWNER:
 				if (resolve) return getOwner();
 				return basicGetOwner();
@@ -256,8 +256,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				setIsAnInstanceOf((Attribute)newValue);
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				setInstancedAttribute((Attribute)newValue);
 				return;
 			case InstancesPackage.VALUE_SET__OWNER:
 				setOwner((conml.instances.Object)newValue);
@@ -274,8 +274,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				setIsAnInstanceOf((Attribute)null);
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				setInstancedAttribute((Attribute)null);
 				return;
 			case InstancesPackage.VALUE_SET__OWNER:
 				setOwner((conml.instances.Object)null);
@@ -292,8 +292,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF:
-				return isAnInstanceOf != null;
+			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
+				return instancedAttribute != null;
 			case InstancesPackage.VALUE_SET__OWNER:
 				return owner != null;
 		}

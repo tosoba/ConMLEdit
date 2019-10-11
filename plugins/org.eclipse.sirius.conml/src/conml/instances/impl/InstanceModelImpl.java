@@ -30,23 +30,22 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.InstanceModelImpl#getConformsTo <em>Conforms To</em>}</li>
+ *   <li>{@link conml.instances.impl.InstanceModelImpl#getConformedTypeModels <em>Conformed Type Models</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	/**
-	 * The cached value of the '{@link #getConformsTo() <em>Conforms To</em>}' reference list.
+	 * The cached value of the '{@link #getConformedTypeModels() <em>Conformed Type Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getConformsTo()
+	 * @see #getConformedTypeModels()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TypeModel> conformsTo;
-
-	/**
+	protected EList<TypeModel> conformedTypeModels;
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -71,14 +70,14 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	 * @generated
 	 */
 	@Override
-	public EList<TypeModel> getConformsTo() {
-		if (conformsTo == null) {
-			conformsTo = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, InstancesPackage.INSTANCE_MODEL__CONFORMS_TO, TypesPackage.TYPE_MODEL__CONFORMED_BY);
+	public EList<TypeModel> getConformedTypeModels() {
+		if (conformedTypeModels == null) {
+			conformedTypeModels = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS, TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL);
 		}
-		return conformsTo;
+		return conformedTypeModels;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -87,8 +86,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConformsTo()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConformedTypeModels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -101,8 +100,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				return ((InternalEList<?>)getConformsTo()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				return ((InternalEList<?>)getConformedTypeModels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -115,8 +114,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				return getConformsTo();
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				return getConformedTypeModels();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -130,9 +129,9 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				getConformsTo().clear();
-				getConformsTo().addAll((Collection<? extends TypeModel>)newValue);
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				getConformedTypeModels().clear();
+				getConformedTypeModels().addAll((Collection<? extends TypeModel>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -146,8 +145,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				getConformsTo().clear();
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				getConformedTypeModels().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -161,8 +160,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.INSTANCE_MODEL__CONFORMS_TO:
-				return conformsTo != null && !conformsTo.isEmpty();
+			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
+				return conformedTypeModels != null && !conformedTypeModels.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

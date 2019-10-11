@@ -25,19 +25,23 @@ public class AssociationServices {
   }
 
   public String associationBeginLabel(Association association) {
-    return association.getHasPrimary().getRole();
+    return association.getPrimarySemiAssociation().getRole();
   }
 
   public String associationEndLabel(Association association) {
-    return association.getHasSecondary().getRole();
+    return association.getSecondarySemiAssociation().getRole();
   }
 
   public Class getAssociationSourceType(Association association) {
-    return association.getHasPrimary() != null ? association.getHasPrimary().getOwner() : null;
+    return association.getPrimarySemiAssociation() != null
+        ? association.getPrimarySemiAssociation().getOwner()
+        : null;
   }
 
   public Class getAssociationTargetType(Association association) {
-    return association.getHasSecondary() != null ? association.getHasSecondary().getOwner() : null;
+    return association.getSecondarySemiAssociation() != null
+        ? association.getSecondarySemiAssociation().getOwner()
+        : null;
   }
 
   public Association createAssociation(
@@ -52,20 +56,20 @@ public class AssociationServices {
     final SemiAssociation primary = TypesFactory.eINSTANCE.createSemiAssociation();
     primary.setName(primaryName);
     primary.setRole(primaryName);
-    primary.setIsPrimaryIn(association);
+    primary.setPrimaryInAssociation(association);
     primary.setReferredClass(target);
-    association.setHasPrimary(primary);
+    association.setPrimarySemiAssociation(primary);
 
     final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
     final String secondaryName = target.getName() + "s";
     secondary.setName(secondaryName);
     secondary.setRole(secondaryName);
-    secondary.setIsSecondaryIn(association);
+    secondary.setSecondaryInAssociation(association);
     secondary.setReferredClass(source);
-    association.setHasSecondary(secondary);
+    association.setSecondarySemiAssociation(secondary);
 
-    primary.setInverse(secondary);
-    secondary.setInverse(primary);
+    primary.setInverseSemiAssociation(secondary);
+    secondary.setInverseSemiAssociation(primary);
 
     source.getSemiassociations().add(primary);
     target.getSemiassociations().add(secondary);
@@ -119,7 +123,7 @@ public class AssociationServices {
     association.setCompact(true);
     final String primaryName = source.getName() + "s";
     association.setName(primaryName);
-    primary.setIsPrimaryIn(association);
+    primary.setPrimaryInAssociation(association);
 
     // TODO: cardinalities for secondary association
     final Class target = primary.getReferredClass();
@@ -127,12 +131,12 @@ public class AssociationServices {
     final String secondaryName = target.getName() + "s";
     secondary.setName(secondaryName);
     secondary.setRole(secondaryName);
-    secondary.setIsSecondaryIn(association);
+    secondary.setSecondaryInAssociation(association);
     secondary.setReferredClass(source);
-    association.setHasSecondary(secondary);
+    association.setSecondarySemiAssociation(secondary);
 
-    primary.setInverse(secondary);
-    secondary.setInverse(primary);
+    primary.setInverseSemiAssociation(secondary);
+    secondary.setInverseSemiAssociation(primary);
 
     source.getSemiassociations().add(primary);
     target.getSemiassociations().add(secondary);
@@ -148,7 +152,7 @@ public class AssociationServices {
   }
 
   public boolean shouldDisplayCompactLabel(SemiAssociation semiAssociation) {
-    final Association association = semiAssociation.getIsPrimaryIn();
+    final Association association = semiAssociation.getPrimaryInAssociation();
     if (association == null) {
       return false;
     } else {
@@ -161,15 +165,15 @@ public class AssociationServices {
   }
 
   public String compactAssociationLabel(SemiAssociation primary) {
-    final Association association = primary.getIsPrimaryIn();
+    final Association association = primary.getPrimaryInAssociation();
     if (association == null) {
       return "";
     }
 
     final StringBuilder sb = new StringBuilder(primary.getRole());
-    if (primary.getRedefines() != null
-        && !Objects.equals(primary.getRedefines().getName(), primary.getName())) {
-      sb.append(" [").append(primary.getRedefines().getName()).append(']');
+    if (primary.getRedefinedFeature() != null
+        && !Objects.equals(primary.getRedefinedFeature().getName(), primary.getName())) {
+      sb.append(" [").append(primary.getRedefinedFeature().getName()).append(']');
     }
 
     sb.append(": ")

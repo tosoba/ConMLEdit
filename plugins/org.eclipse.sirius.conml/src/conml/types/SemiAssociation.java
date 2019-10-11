@@ -19,10 +19,10 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#isWhole <em>Whole</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#isStrong <em>Strong</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getPrimaryInAssociation <em>Primary In Association</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getSecondaryInAssociation <em>Secondary In Association</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}</li>
  * </ul>
  *
@@ -122,28 +122,90 @@ public interface SemiAssociation extends Feature {
 	void setOwner(conml.types.Class value);
 
 	/**
-	 * Returns the value of the '<em><b>Inverse</b></em>' reference.
+	 * Returns the value of the '<em><b>Primary In Association</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Association#getPrimarySemiAssociation <em>Primary Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inverse</em>' reference.
-	 * @see #setInverse(SemiAssociation)
-	 * @see conml.types.TypesPackage#getSemiAssociation_Inverse()
+	 * @return the value of the '<em>Primary In Association</em>' reference.
+	 * @see #setPrimaryInAssociation(Association)
+	 * @see conml.types.TypesPackage#getSemiAssociation_PrimaryInAssociation()
+	 * @see conml.types.Association#getPrimarySemiAssociation
+	 * @model opposite="PrimarySemiAssociation"
+	 * @generated
+	 */
+	Association getPrimaryInAssociation();
+
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getPrimaryInAssociation <em>Primary In Association</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Primary In Association</em>' reference.
+	 * @see #getPrimaryInAssociation()
+	 * @generated
+	 */
+	void setPrimaryInAssociation(Association value);
+
+  /**
+	 * Returns the value of the '<em><b>Secondary In Association</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Association#getSecondarySemiAssociation <em>Secondary Semi Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Secondary In Association</em>' reference.
+	 * @see #setSecondaryInAssociation(Association)
+	 * @see conml.types.TypesPackage#getSemiAssociation_SecondaryInAssociation()
+	 * @see conml.types.Association#getSecondarySemiAssociation
+	 * @model opposite="SecondarySemiAssociation"
+	 * @generated
+	 */
+	Association getSecondaryInAssociation();
+
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getSecondaryInAssociation <em>Secondary In Association</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Secondary In Association</em>' reference.
+	 * @see #getSecondaryInAssociation()
+	 * @generated
+	 */
+	void setSecondaryInAssociation(Association value);
+
+  /**
+	 * Returns the value of the '<em><b>Instance Reference Sets</b></em>' reference list.
+	 * The list contents are of type {@link conml.instances.ReferenceSet}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Instance Reference Sets</em>' reference list.
+	 * @see conml.types.TypesPackage#getSemiAssociation_InstanceReferenceSets()
+	 * @see conml.instances.ReferenceSet#getInstancedSemiAssociation
+	 * @model opposite="InstancedSemiAssociation"
+	 * @generated
+	 */
+	EList<ReferenceSet> getInstanceReferenceSets();
+
+  /**
+	 * Returns the value of the '<em><b>Inverse Semi Association</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inverse Semi Association</em>' reference.
+	 * @see #setInverseSemiAssociation(SemiAssociation)
+	 * @see conml.types.TypesPackage#getSemiAssociation_InverseSemiAssociation()
 	 * @model required="true"
 	 * @generated
 	 */
-	SemiAssociation getInverse();
+	SemiAssociation getInverseSemiAssociation();
 
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getInverse <em>Inverse</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getInverseSemiAssociation <em>Inverse Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inverse</em>' reference.
-	 * @see #getInverse()
+	 * @param value the new value of the '<em>Inverse Semi Association</em>' reference.
+	 * @see #getInverseSemiAssociation()
 	 * @generated
 	 */
-	void setInverse(SemiAssociation value);
+	void setInverseSemiAssociation(SemiAssociation value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Referred Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -164,67 +226,5 @@ public interface SemiAssociation extends Feature {
 	 * @generated
 	 */
 	void setReferredClass(conml.types.Class value);
-
-  /**
-	 * Returns the value of the '<em><b>Is Primary In</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Association#getHasPrimary <em>Has Primary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Primary In</em>' reference.
-	 * @see #setIsPrimaryIn(Association)
-	 * @see conml.types.TypesPackage#getSemiAssociation_IsPrimaryIn()
-	 * @see conml.types.Association#getHasPrimary
-	 * @model opposite="HasPrimary"
-	 * @generated
-	 */
-	Association getIsPrimaryIn();
-
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getIsPrimaryIn <em>Is Primary In</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Primary In</em>' reference.
-	 * @see #getIsPrimaryIn()
-	 * @generated
-	 */
-	void setIsPrimaryIn(Association value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Secondary In</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Association#getHasSecondary <em>Has Secondary</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Secondary In</em>' reference.
-	 * @see #setIsSecondaryIn(Association)
-	 * @see conml.types.TypesPackage#getSemiAssociation_IsSecondaryIn()
-	 * @see conml.types.Association#getHasSecondary
-	 * @model opposite="HasSecondary"
-	 * @generated
-	 */
-	Association getIsSecondaryIn();
-
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getIsSecondaryIn <em>Is Secondary In</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Secondary In</em>' reference.
-	 * @see #getIsSecondaryIn()
-	 * @generated
-	 */
-	void setIsSecondaryIn(Association value);
-
-	/**
-	 * Returns the value of the '<em><b>Has Instance Reference Sets</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.ReferenceSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.ReferenceSet#getIsAnInstanceOf <em>Is An Instance Of</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Instance Reference Sets</em>' reference list.
-	 * @see conml.types.TypesPackage#getSemiAssociation_HasInstanceReferenceSets()
-	 * @see conml.instances.ReferenceSet#getIsAnInstanceOf
-	 * @model opposite="IsAnInstanceOf"
-	 * @generated
-	 */
-	EList<ReferenceSet> getHasInstanceReferenceSets();
 
 } // SemiAssociation

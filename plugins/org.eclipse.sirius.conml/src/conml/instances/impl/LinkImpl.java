@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.LinkImpl#getIsInstanceOf <em>Is Instance Of</em>}</li>
+ *   <li>{@link conml.instances.impl.LinkImpl#getInstancedAssociation <em>Instanced Association</em>}</li>
  *   <li>{@link conml.instances.impl.LinkImpl#getHasPrimary <em>Has Primary</em>}</li>
  *   <li>{@link conml.instances.impl.LinkImpl#getHasSecondary <em>Has Secondary</em>}</li>
  * </ul>
@@ -34,16 +34,16 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LinkImpl extends InstanceImpl implements Link {
 	/**
-	 * The cached value of the '{@link #getIsInstanceOf() <em>Is Instance Of</em>}' reference.
+	 * The cached value of the '{@link #getInstancedAssociation() <em>Instanced Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsInstanceOf()
+	 * @see #getInstancedAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Association isInstanceOf;
+	protected Association instancedAssociation;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getHasPrimary() <em>Has Primary</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -88,63 +88,63 @@ public class LinkImpl extends InstanceImpl implements Link {
 	 * @generated
 	 */
 	@Override
-	public Association getIsInstanceOf() {
-		if (isInstanceOf != null && isInstanceOf.eIsProxy()) {
-			InternalEObject oldIsInstanceOf = (InternalEObject)isInstanceOf;
-			isInstanceOf = (Association)eResolveProxy(oldIsInstanceOf);
-			if (isInstanceOf != oldIsInstanceOf) {
+	public Association getInstancedAssociation() {
+		if (instancedAssociation != null && instancedAssociation.eIsProxy()) {
+			InternalEObject oldInstancedAssociation = (InternalEObject)instancedAssociation;
+			instancedAssociation = (Association)eResolveProxy(oldInstancedAssociation);
+			if (instancedAssociation != oldInstancedAssociation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__IS_INSTANCE_OF, oldIsInstanceOf, isInstanceOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__INSTANCED_ASSOCIATION, oldInstancedAssociation, instancedAssociation));
 			}
 		}
-		return isInstanceOf;
+		return instancedAssociation;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Association basicGetIsInstanceOf() {
-		return isInstanceOf;
+	public Association basicGetInstancedAssociation() {
+		return instancedAssociation;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsInstanceOf(Association newIsInstanceOf, NotificationChain msgs) {
-		Association oldIsInstanceOf = isInstanceOf;
-		isInstanceOf = newIsInstanceOf;
+	public NotificationChain basicSetInstancedAssociation(Association newInstancedAssociation, NotificationChain msgs) {
+		Association oldInstancedAssociation = instancedAssociation;
+		instancedAssociation = newInstancedAssociation;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__IS_INSTANCE_OF, oldIsInstanceOf, newIsInstanceOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__INSTANCED_ASSOCIATION, oldInstancedAssociation, newInstancedAssociation);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsInstanceOf(Association newIsInstanceOf) {
-		if (newIsInstanceOf != isInstanceOf) {
+	public void setInstancedAssociation(Association newInstancedAssociation) {
+		if (newInstancedAssociation != instancedAssociation) {
 			NotificationChain msgs = null;
-			if (isInstanceOf != null)
-				msgs = ((InternalEObject)isInstanceOf).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS, Association.class, msgs);
-			if (newIsInstanceOf != null)
-				msgs = ((InternalEObject)newIsInstanceOf).eInverseAdd(this, TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS, Association.class, msgs);
-			msgs = basicSetIsInstanceOf(newIsInstanceOf, msgs);
+			if (instancedAssociation != null)
+				msgs = ((InternalEObject)instancedAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__INSTANCE_LINKS, Association.class, msgs);
+			if (newInstancedAssociation != null)
+				msgs = ((InternalEObject)newInstancedAssociation).eInverseAdd(this, TypesPackage.ASSOCIATION__INSTANCE_LINKS, Association.class, msgs);
+			msgs = basicSetInstancedAssociation(newInstancedAssociation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__IS_INSTANCE_OF, newIsInstanceOf, newIsInstanceOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__INSTANCED_ASSOCIATION, newInstancedAssociation, newInstancedAssociation));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -276,10 +276,10 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				if (isInstanceOf != null)
-					msgs = ((InternalEObject)isInstanceOf).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_INSTANCE_LINKS, Association.class, msgs);
-				return basicSetIsInstanceOf((Association)otherEnd, msgs);
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				if (instancedAssociation != null)
+					msgs = ((InternalEObject)instancedAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__INSTANCE_LINKS, Association.class, msgs);
+				return basicSetInstancedAssociation((Association)otherEnd, msgs);
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				if (hasPrimary != null)
 					msgs = ((InternalEObject)hasPrimary).eInverseRemove(this, InstancesPackage.REFERENCE__IS_PRIMARY_IN, Reference.class, msgs);
@@ -300,8 +300,8 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				return basicSetIsInstanceOf(null, msgs);
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				return basicSetInstancedAssociation(null, msgs);
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				return basicSetHasPrimary(null, msgs);
 			case InstancesPackage.LINK__HAS_SECONDARY:
@@ -318,9 +318,9 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				if (resolve) return getIsInstanceOf();
-				return basicGetIsInstanceOf();
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				if (resolve) return getInstancedAssociation();
+				return basicGetInstancedAssociation();
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				if (resolve) return getHasPrimary();
 				return basicGetHasPrimary();
@@ -339,8 +339,8 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				setIsInstanceOf((Association)newValue);
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				setInstancedAssociation((Association)newValue);
 				return;
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				setHasPrimary((Reference)newValue);
@@ -360,8 +360,8 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				setIsInstanceOf((Association)null);
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				setInstancedAssociation((Association)null);
 				return;
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				setHasPrimary((Reference)null);
@@ -381,8 +381,8 @@ public class LinkImpl extends InstanceImpl implements Link {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.LINK__IS_INSTANCE_OF:
-				return isInstanceOf != null;
+			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
+				return instancedAssociation != null;
 			case InstancesPackage.LINK__HAS_PRIMARY:
 				return hasPrimary != null;
 			case InstancesPackage.LINK__HAS_SECONDARY:

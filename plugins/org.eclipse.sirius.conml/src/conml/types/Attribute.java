@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.Attribute#isMultilingual <em>Multilingual</em>}</li>
- *   <li>{@link conml.types.Attribute#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
+ *   <li>{@link conml.types.Attribute#getInstanceValueSets <em>Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.Attribute#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
@@ -48,20 +48,20 @@ public interface Attribute extends Feature {
 	void setMultilingual(boolean value);
 
   /**
-	 * Returns the value of the '<em><b>Has Instance Value Sets</b></em>' reference list.
+	 * Returns the value of the '<em><b>Instance Value Sets</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.ValueSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getIsAnInstanceOf <em>Is An Instance Of</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Instance Value Sets</em>' reference list.
-	 * @see conml.types.TypesPackage#getAttribute_HasInstanceValueSets()
-	 * @see conml.instances.ValueSet#getIsAnInstanceOf
-	 * @model opposite="IsAnInstanceOf"
+	 * @return the value of the '<em>Instance Value Sets</em>' reference list.
+	 * @see conml.types.TypesPackage#getAttribute_InstanceValueSets()
+	 * @see conml.instances.ValueSet#getInstancedAttribute
+	 * @model opposite="InstancedAttribute"
 	 * @generated
 	 */
-	EList<ValueSet> getHasInstanceValueSets();
+	EList<ValueSet> getInstanceValueSets();
 
-	/**
+    /**
 	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

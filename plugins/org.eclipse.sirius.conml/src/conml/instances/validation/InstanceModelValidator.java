@@ -17,5 +17,7 @@ import org.eclipse.emf.common.util.EList;
 public interface InstanceModelValidator {
 	boolean validate();
 
-	boolean validateConformsTo(EList<TypeModel> value);
+	boolean validateConformedTypeModels(EList<TypeModel> value);
+
+  boolean validateConformsTo(EList<TypeModel> value);
 }

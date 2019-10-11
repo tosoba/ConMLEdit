@@ -18,7 +18,13 @@ import org.eclipse.emf.common.util.EList;
 public interface EnumeratedTypeValidator {
 	boolean validate();
 
-	boolean validateOwnsItems(EList<EnumeratedItem> value);
+	boolean validateOwnedItems(EList<EnumeratedItem> value);
+
+  boolean validateSpecializedByEnumeratedTypes(EList<EnumeratedType> value);
+
+  boolean validateSpecializesFromEnumeratedType(EnumeratedType value);
+
+  boolean validateOwnsItems(EList<EnumeratedItem> value);
 	boolean validateHasItems(EList<EnumeratedItem> value);
 	boolean validateIsSpecializedBy(EList<EnumeratedType> value);
 	boolean validateSpecializesFrom(EnumeratedType value);

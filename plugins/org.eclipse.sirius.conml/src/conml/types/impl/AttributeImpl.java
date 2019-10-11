@@ -32,7 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.AttributeImpl#isMultilingual <em>Multilingual</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getHasInstanceValueSets <em>Has Instance Value Sets</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#getInstanceValueSets <em>Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
@@ -60,16 +60,16 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	protected boolean multilingual = MULTILINGUAL_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getHasInstanceValueSets() <em>Has Instance Value Sets</em>}' reference list.
+	 * The cached value of the '{@link #getInstanceValueSets() <em>Instance Value Sets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasInstanceValueSets()
+	 * @see #getInstanceValueSets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ValueSet> hasInstanceValueSets;
+	protected EList<ValueSet> instanceValueSets;
 
-	/**
+    /**
 	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -127,14 +127,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
-	public EList<ValueSet> getHasInstanceValueSets() {
-		if (hasInstanceValueSets == null) {
-			hasInstanceValueSets = new EObjectWithInverseResolvingEList<ValueSet>(ValueSet.class, this, TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS, InstancesPackage.VALUE_SET__IS_AN_INSTANCE_OF);
+	public EList<ValueSet> getInstanceValueSets() {
+		if (instanceValueSets == null) {
+			instanceValueSets = new EObjectWithInverseResolvingEList<ValueSet>(ValueSet.class, this, TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS, InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE);
 		}
-		return hasInstanceValueSets;
+		return instanceValueSets;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -183,8 +183,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasInstanceValueSets()).basicAdd(otherEnd, msgs);
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInstanceValueSets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -197,8 +197,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				return ((InternalEList<?>)getHasInstanceValueSets()).basicRemove(otherEnd, msgs);
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				return ((InternalEList<?>)getInstanceValueSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,8 +213,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
 				return isMultilingual();
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				return getHasInstanceValueSets();
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				return getInstanceValueSets();
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
@@ -234,9 +234,9 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
 				setMultilingual((Boolean)newValue);
 				return;
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				getHasInstanceValueSets().clear();
-				getHasInstanceValueSets().addAll((Collection<? extends ValueSet>)newValue);
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				getInstanceValueSets().clear();
+				getInstanceValueSets().addAll((Collection<? extends ValueSet>)newValue);
 				return;
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				setDatatype((DataType)newValue);
@@ -256,8 +256,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
 				setMultilingual(MULTILINGUAL_EDEFAULT);
 				return;
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				getHasInstanceValueSets().clear();
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				getInstanceValueSets().clear();
 				return;
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				setDatatype((DataType)null);
@@ -276,8 +276,8 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 		switch (featureID) {
 			case TypesPackage.ATTRIBUTE__MULTILINGUAL:
 				return multilingual != MULTILINGUAL_EDEFAULT;
-			case TypesPackage.ATTRIBUTE__HAS_INSTANCE_VALUE_SETS:
-				return hasInstanceValueSets != null && !hasInstanceValueSets.isEmpty();
+			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
+				return instanceValueSets != null && !instanceValueSets.isEmpty();
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				return datatype != null;
 		}

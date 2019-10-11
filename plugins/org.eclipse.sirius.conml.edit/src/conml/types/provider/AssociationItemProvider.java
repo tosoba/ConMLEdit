@@ -45,28 +45,28 @@ public class AssociationItemProvider extends TypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addHasPrimaryPropertyDescriptor(object);
-			addHasSecondaryPropertyDescriptor(object);
-			addHasInstanceLinksPropertyDescriptor(object);
+			addPrimarySemiAssociationPropertyDescriptor(object);
+			addSecondarySemiAssociationPropertyDescriptor(object);
+			addInstanceLinksPropertyDescriptor(object);
 			addCompactPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Has Primary feature.
+	 * This adds a property descriptor for the Primary Semi Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasPrimaryPropertyDescriptor(Object object) {
+	protected void addPrimarySemiAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Association_HasPrimary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Association_HasPrimary_feature", "_UI_Association_type"),
-				 TypesPackage.Literals.ASSOCIATION__HAS_PRIMARY,
+				 getString("_UI_Association_PrimarySemiAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Association_PrimarySemiAssociation_feature", "_UI_Association_type"),
+				 TypesPackage.Literals.ASSOCIATION__PRIMARY_SEMI_ASSOCIATION,
 				 true,
 				 false,
 				 true,
@@ -75,20 +75,20 @@ public class AssociationItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Has Secondary feature.
+  /**
+	 * This adds a property descriptor for the Secondary Semi Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasSecondaryPropertyDescriptor(Object object) {
+	protected void addSecondarySemiAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Association_HasSecondary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Association_HasSecondary_feature", "_UI_Association_type"),
-				 TypesPackage.Literals.ASSOCIATION__HAS_SECONDARY,
+				 getString("_UI_Association_SecondarySemiAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Association_SecondarySemiAssociation_feature", "_UI_Association_type"),
+				 TypesPackage.Literals.ASSOCIATION__SECONDARY_SEMI_ASSOCIATION,
 				 true,
 				 false,
 				 true,
@@ -97,20 +97,20 @@ public class AssociationItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Has Instance Links feature.
+  /**
+	 * This adds a property descriptor for the Instance Links feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasInstanceLinksPropertyDescriptor(Object object) {
+	protected void addInstanceLinksPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Association_HasInstanceLinks_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Association_HasInstanceLinks_feature", "_UI_Association_type"),
-				 TypesPackage.Literals.ASSOCIATION__HAS_INSTANCE_LINKS,
+				 getString("_UI_Association_InstanceLinks_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Association_InstanceLinks_feature", "_UI_Association_type"),
+				 TypesPackage.Literals.ASSOCIATION__INSTANCE_LINKS,
 				 true,
 				 false,
 				 true,
@@ -119,7 +119,7 @@ public class AssociationItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Compact feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

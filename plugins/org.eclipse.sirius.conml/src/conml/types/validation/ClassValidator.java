@@ -37,7 +37,9 @@ public interface ClassValidator {
 	boolean validateDominantGeneralization(Generalization value);
 	boolean validateSemiassociations(EList<SemiAssociation> value);
 
-  boolean validateOwnsProperties(EList<Property> value);
+  boolean validateInstanceObjects(EList<conml.instances.Object> value);
+
+    boolean validateOwnsProperties(EList<Property> value);
 	boolean validateHasProperties(EList<Property> value);
 	boolean validateOwnsAttributes(EList<Attribute> value);
 	boolean validateHasAttributes(EList<Attribute> value);

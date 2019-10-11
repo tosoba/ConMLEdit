@@ -47,8 +47,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addIdentifierPropertyDescriptor(object);
 			addCertaintyPropertyDescriptor(object);
 			addInstancedClassPropertyDescriptor(object);
-			addOwnsValueSetsPropertyDescriptor(object);
-			addOwnsReferenceSetsPropertyDescriptor(object);
+			addOwnedValueSetsPropertyDescriptor(object);
+			addOwnedReferenceSetsPropertyDescriptor(object);
 			addIsOppositeInPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
@@ -123,19 +123,19 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Owns Value Sets feature.
+	 * This adds a property descriptor for the Owned Value Sets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOwnsValueSetsPropertyDescriptor(Object object) {
+	protected void addOwnedValueSetsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_OwnsValueSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnsValueSets_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__OWNS_VALUE_SETS,
+				 getString("_UI_Object_OwnedValueSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnedValueSets_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__OWNED_VALUE_SETS,
 				 true,
 				 false,
 				 true,
@@ -144,20 +144,20 @@ public class ObjectItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Owns Reference Sets feature.
+  /**
+	 * This adds a property descriptor for the Owned Reference Sets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOwnsReferenceSetsPropertyDescriptor(Object object) {
+	protected void addOwnedReferenceSetsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_OwnsReferenceSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnsReferenceSets_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__OWNS_REFERENCE_SETS,
+				 getString("_UI_Object_OwnedReferenceSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnedReferenceSets_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__OWNED_REFERENCE_SETS,
 				 true,
 				 false,
 				 true,
@@ -166,7 +166,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This adds a property descriptor for the Is Opposite In feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

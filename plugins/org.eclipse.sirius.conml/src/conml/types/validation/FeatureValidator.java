@@ -30,7 +30,11 @@ public interface FeatureValidator {
 
   boolean validateConstant(boolean value);
 
-  boolean validateIsTemporal(boolean value);
+  boolean validateRedefinedFeature(Feature value);
+
+    boolean validateRedefinedByFeatures(EList<Feature> value);
+
+    boolean validateIsTemporal(boolean value);
 	boolean validateIsSubjective(boolean value);
 	boolean validateIsConstant(boolean value);
 	boolean validateRedefines(Feature value);

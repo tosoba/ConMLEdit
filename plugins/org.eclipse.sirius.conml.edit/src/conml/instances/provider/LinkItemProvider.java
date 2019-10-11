@@ -42,7 +42,7 @@ public class LinkItemProvider extends InstanceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsInstanceOfPropertyDescriptor(object);
+			addInstancedAssociationPropertyDescriptor(object);
 			addHasPrimaryPropertyDescriptor(object);
 			addHasSecondaryPropertyDescriptor(object);
 		}
@@ -50,19 +50,19 @@ public class LinkItemProvider extends InstanceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Instance Of feature.
+	 * This adds a property descriptor for the Instanced Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsInstanceOfPropertyDescriptor(Object object) {
+	protected void addInstancedAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Link_IsInstanceOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_IsInstanceOf_feature", "_UI_Link_type"),
-				 InstancesPackage.Literals.LINK__IS_INSTANCE_OF,
+				 getString("_UI_Link_InstancedAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Link_InstancedAssociation_feature", "_UI_Link_type"),
+				 InstancesPackage.Literals.LINK__INSTANCED_ASSOCIATION,
 				 true,
 				 false,
 				 true,
@@ -71,7 +71,7 @@ public class LinkItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Has Primary feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

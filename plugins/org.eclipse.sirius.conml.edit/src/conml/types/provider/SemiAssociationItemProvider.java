@@ -49,10 +49,10 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addWholePropertyDescriptor(object);
 			addStrongPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
-			addIsPrimaryInPropertyDescriptor(object);
-			addIsSecondaryInPropertyDescriptor(object);
-			addHasInstanceReferenceSetsPropertyDescriptor(object);
-			addInversePropertyDescriptor(object);
+			addPrimaryInAssociationPropertyDescriptor(object);
+			addSecondaryInAssociationPropertyDescriptor(object);
+			addInstanceReferenceSetsPropertyDescriptor(object);
+			addInverseSemiAssociationPropertyDescriptor(object);
 			addReferredClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -147,19 +147,19 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Inverse feature.
+	 * This adds a property descriptor for the Primary In Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addInversePropertyDescriptor(Object object) {
+	protected void addPrimaryInAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_Inverse_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_Inverse_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__INVERSE,
+				 getString("_UI_SemiAssociation_PrimaryInAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_PrimaryInAssociation_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION,
 				 true,
 				 false,
 				 true,
@@ -168,7 +168,73 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 				 null));
 	}
 
-	/**
+    /**
+	 * This adds a property descriptor for the Secondary In Association feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSecondaryInAssociationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_SecondaryInAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_SecondaryInAssociation_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
+	 * This adds a property descriptor for the Instance Reference Sets feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInstanceReferenceSetsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_InstanceReferenceSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_InstanceReferenceSets_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
+	 * This adds a property descriptor for the Inverse Semi Association feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInverseSemiAssociationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_InverseSemiAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_InverseSemiAssociation_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This adds a property descriptor for the Referred Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -191,72 +257,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Is Primary In feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsPrimaryInPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_IsPrimaryIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_IsPrimaryIn_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__IS_PRIMARY_IN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Secondary In feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsSecondaryInPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_IsSecondaryIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_IsSecondaryIn_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__IS_SECONDARY_IN,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Has Instance Reference Sets feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasInstanceReferenceSetsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_HasInstanceReferenceSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_HasInstanceReferenceSets_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This returns SemiAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

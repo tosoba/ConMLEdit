@@ -33,16 +33,16 @@
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformedBy" eType="#//instances/InstanceModel"
-          eOpposite="#//instances/InstanceModel/ConformsTo"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Extends" eType="#//types/TypeModel"
-          eOpposite="#//types/TypeModel/IsBaseOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsBaseOf" upperBound="-1"
-          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/Extends"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsParticularIn" eType="#//types/TypeModel"
-          eOpposite="#//types/TypeModel/HasParticular"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasParticular" upperBound="-1"
-          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/IsParticularIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingInstanceModel"
+          eType="#//instances/InstanceModel" eOpposite="#//instances/InstanceModel/ConformedTypeModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtendedTypeModel" eType="#//types/TypeModel"
+          eOpposite="#//types/TypeModel/ExtendingTypeModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtendingTypeModels"
+          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ExtendedTypeModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticularInTypeModel"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/HasParticularTypeModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="HasParticularTypeModels"
+          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ParticularInTypeModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveAspect" eType="#//types/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalAspect" eType="#//types/Class"/>
     </eClassifiers>
@@ -66,7 +66,7 @@
           eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatesInheritanceOn"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Semiassociations" upperBound="-1"
           eType="#//types/SemiAssociation" containment="true" eOpposite="#//types/SemiAssociation/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedByObjects" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceObjects" upperBound="-1"
           eType="#//instances/Object" eOpposite="#//instances/Object/InstancedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//types/Package"
           eOpposite="#//types/Package/ContainedClasses"/>
@@ -98,30 +98,30 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Redefines" eType="#//types/Feature"
-          eOpposite="#//types/Feature/IsRedefinedBy"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsRedefinedBy" upperBound="-1"
-          eType="#//types/Feature" eOpposite="#//types/Feature/Redefines"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedFeature" eType="#//types/Feature"
+          eOpposite="#//types/Feature/RedefinedByFeatures"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedByFeatures"
+          upperBound="-1" eType="#//types/Feature" eOpposite="#//types/Feature/RedefinedFeature"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsItems" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedItems" upperBound="-1"
           eType="#//types/EnumeratedItem" containment="true" eOpposite="#//types/EnumeratedItem/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSpecializedBy" upperBound="-1"
-          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializesFrom"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializesFrom" eType="#//types/EnumeratedType"
-          eOpposite="#//types/EnumeratedType/IsSpecializedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializedByEnumeratedTypes"
+          upperBound="-1" eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializesFromEnumeratedType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializesFromEnumeratedType"
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializedByEnumeratedTypes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//types/Package"
           eOpposite="#//types/Package/EnumeratedTypes"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeModelElement" abstract="true"
         eSuperTypes="#//ModelElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//types/Type">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPrimary" lowerBound="1"
-          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsPrimaryIn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSecondary" lowerBound="1"
-          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/IsSecondaryIn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceLinks" upperBound="-1"
-          eType="#//instances/Link" eOpposite="#//instances/Link/IsInstanceOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimarySemiAssociation"
+          lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/PrimaryInAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondarySemiAssociation"
+          lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/SecondaryInAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceLinks" upperBound="-1"
+          eType="#//instances/Link" eOpposite="#//instances/Link/InstancedAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
@@ -141,8 +141,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//types/Feature">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="multilingual" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceValueSets"
-          upperBound="-1" eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/IsAnInstanceOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceValueSets" upperBound="-1"
+          eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/InstancedAttribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Datatype" lowerBound="1"
           eType="#//types/DataType"/>
     </eClassifiers>
@@ -159,14 +159,14 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="strong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Semiassociations"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPrimaryIn" eType="#//types/Association"
-          eOpposite="#//types/Association/HasPrimary"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSecondaryIn" eType="#//types/Association"
-          eOpposite="#//types/Association/HasSecondary"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasInstanceReferenceSets"
-          upperBound="-1" eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/IsAnInstanceOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Inverse" lowerBound="1"
-          eType="#//types/SemiAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryInAssociation"
+          eType="#//types/Association" eOpposite="#//types/Association/PrimarySemiAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryInAssociation"
+          eType="#//types/Association" eOpposite="#//types/Association/SecondarySemiAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceReferenceSets"
+          upperBound="-1" eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/InstancedSemiAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InverseSemiAssociation"
+          lowerBound="1" eType="#//types/SemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredClass" lowerBound="1"
           eType="#//types/Class"/>
     </eClassifiers>
@@ -183,11 +183,11 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnsItems"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSuperItemOf" upperBound="-1"
-          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/IsSubItemOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSubItemOf" eType="#//types/EnumeratedItem"
-          eOpposite="#//types/EnumeratedItem/IsSuperItemOf"/>
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnedItems"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SuperItemOfEnumeratedItems"
+          upperBound="-1" eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/SubItemOfEnumeratedItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubItemOfEnumeratedItem"
+          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/SuperItemOfEnumeratedItems"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="instances" nsURI="http://instances.ecore" nsPrefix="instances">
@@ -220,20 +220,20 @@
       <eLiterals name="Impossible" value="4"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstanceModel" eSuperTypes="#//Model">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformsTo" lowerBound="1"
-          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ConformedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ConformedTypeModels"
+          lowerBound="1" upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ConformingInstanceModel"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsAnInstanceOf" lowerBound="1"
-          eType="#//types/Attribute" eOpposite="#//types/Attribute/HasInstanceValueSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAttribute" lowerBound="1"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/InstanceValueSets"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//instances/Object" eOpposite="#//instances/Object/OwnsValueSets"/>
+          eType="#//instances/Object" eOpposite="#//instances/Object/OwnedValueSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsAnInstanceOf" lowerBound="1"
-          eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/HasInstanceReferenceSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedSemiAssociation"
+          lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/InstanceReferenceSets"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//instances/Object" eOpposite="#//instances/Object/OwnsReferenceSets"/>
+          eType="#//instances/Object" eOpposite="#//instances/Object/OwnedReferenceSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -241,10 +241,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="certainty" lowerBound="1"
           eType="#//instances/DegreeOfCertainty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedClass" lowerBound="1"
-          eType="#//types/Class" eOpposite="#//types/Class/InstancedByObjects"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsValueSets" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/InstanceObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedValueSets" upperBound="-1"
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnsReferenceSets" upperBound="-1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedReferenceSets" upperBound="-1"
           eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeIn" upperBound="-1"
           eType="#//instances/Reference" eOpposite="#//instances/Reference/RefersTo"/>
@@ -254,8 +254,8 @@
           eType="#//instances/Object"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInstanceOf" lowerBound="1"
-          eType="#//types/Association" eOpposite="#//types/Association/HasInstanceLinks"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
+          lowerBound="1" eType="#//types/Association" eOpposite="#//types/Association/InstanceLinks"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasPrimary" eType="#//instances/Reference"
           eOpposite="#//instances/Reference/IsPrimaryIn"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="HasSecondary" eType="#//instances/Reference"

@@ -20,7 +20,17 @@ import org.eclipse.emf.common.util.EList;
 public interface TypeModelValidator {
 	boolean validate();
 
-	boolean validateHasElements(EList<TypeModelElement> value);
+	boolean validateConformingInstanceModel(InstanceModel value);
+
+  boolean validateExtendedTypeModel(TypeModel value);
+
+  boolean validateExtendingTypeModels(EList<TypeModel> value);
+
+  boolean validateParticularInTypeModel(TypeModel value);
+
+  boolean validateHasParticularTypeModels(EList<TypeModel> value);
+
+  boolean validateHasElements(EList<TypeModelElement> value);
 	boolean validateConformedBy(InstanceModel value);
 	boolean validateHasTemporalAspectOf(conml.types.Class value);
 	boolean validateHasSubjectiveAspectOf(conml.types.Class value);

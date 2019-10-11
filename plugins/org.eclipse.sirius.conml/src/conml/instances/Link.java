@@ -13,7 +13,7 @@ import conml.types.Association;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.Link#getIsInstanceOf <em>Is Instance Of</em>}</li>
+ *   <li>{@link conml.instances.Link#getInstancedAssociation <em>Instanced Association</em>}</li>
  *   <li>{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}</li>
  *   <li>{@link conml.instances.Link#getHasSecondary <em>Has Secondary</em>}</li>
  * </ul>
@@ -24,30 +24,30 @@ import conml.types.Association;
  */
 public interface Link extends Instance {
 	/**
-	 * Returns the value of the '<em><b>Is Instance Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Association#getHasInstanceLinks <em>Has Instance Links</em>}'.
+	 * Returns the value of the '<em><b>Instanced Association</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Association#getInstanceLinks <em>Instance Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Instance Of</em>' reference.
-	 * @see #setIsInstanceOf(Association)
-	 * @see conml.instances.InstancesPackage#getLink_IsInstanceOf()
-	 * @see conml.types.Association#getHasInstanceLinks
-	 * @model opposite="HasInstanceLinks" required="true"
+	 * @return the value of the '<em>Instanced Association</em>' reference.
+	 * @see #setInstancedAssociation(Association)
+	 * @see conml.instances.InstancesPackage#getLink_InstancedAssociation()
+	 * @see conml.types.Association#getInstanceLinks
+	 * @model opposite="InstanceLinks" required="true"
 	 * @generated
 	 */
-	Association getIsInstanceOf();
+	Association getInstancedAssociation();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Link#getIsInstanceOf <em>Is Instance Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Link#getInstancedAssociation <em>Instanced Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Instance Of</em>' reference.
-	 * @see #getIsInstanceOf()
+	 * @param value the new value of the '<em>Instanced Association</em>' reference.
+	 * @see #getInstancedAssociation()
 	 * @generated
 	 */
-	void setIsInstanceOf(Association value);
+	void setInstancedAssociation(Association value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Has Primary</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsPrimaryIn <em>Is Primary In</em>}'.
 	 * <!-- begin-user-doc -->

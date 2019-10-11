@@ -35,8 +35,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedItemImpl#getIsSuperItemOf <em>Is Super Item Of</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedItemImpl#getIsSubItemOf <em>Is Sub Item Of</em>}</li>
+ *   <li>{@link conml.types.impl.EnumeratedItemImpl#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}</li>
+ *   <li>{@link conml.types.impl.EnumeratedItemImpl#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}</li>
  * </ul>
  *
  * @generated
@@ -103,26 +103,26 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	protected String definition = DEFINITION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getIsSuperItemOf() <em>Is Super Item Of</em>}' reference list.
+	 * The cached value of the '{@link #getSuperItemOfEnumeratedItems() <em>Super Item Of Enumerated Items</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsSuperItemOf()
+	 * @see #getSuperItemOfEnumeratedItems()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EnumeratedItem> isSuperItemOf;
+	protected EList<EnumeratedItem> superItemOfEnumeratedItems;
 
-	/**
-	 * The cached value of the '{@link #getIsSubItemOf() <em>Is Sub Item Of</em>}' reference.
+  /**
+	 * The cached value of the '{@link #getSubItemOfEnumeratedItem() <em>Sub Item Of Enumerated Item</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsSubItemOf()
+	 * @see #getSubItemOfEnumeratedItem()
 	 * @generated
 	 * @ordered
 	 */
-	protected EnumeratedItem isSubItemOf;
+	protected EnumeratedItem subItemOfEnumeratedItem;
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -245,7 +245,7 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS, EnumeratedType.class, msgs);
 			msgs = basicSetOwner(newOwner, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -259,76 +259,76 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public EList<EnumeratedItem> getIsSuperItemOf() {
-		if (isSuperItemOf == null) {
-			isSuperItemOf = new EObjectWithInverseResolvingEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF, TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF);
+	public EList<EnumeratedItem> getSuperItemOfEnumeratedItems() {
+		if (superItemOfEnumeratedItems == null) {
+			superItemOfEnumeratedItems = new EObjectWithInverseResolvingEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS, TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM);
 		}
-		return isSuperItemOf;
+		return superItemOfEnumeratedItems;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EnumeratedItem getIsSubItemOf() {
-		if (isSubItemOf != null && isSubItemOf.eIsProxy()) {
-			InternalEObject oldIsSubItemOf = (InternalEObject)isSubItemOf;
-			isSubItemOf = (EnumeratedItem)eResolveProxy(oldIsSubItemOf);
-			if (isSubItemOf != oldIsSubItemOf) {
+	public EnumeratedItem getSubItemOfEnumeratedItem() {
+		if (subItemOfEnumeratedItem != null && subItemOfEnumeratedItem.eIsProxy()) {
+			InternalEObject oldSubItemOfEnumeratedItem = (InternalEObject)subItemOfEnumeratedItem;
+			subItemOfEnumeratedItem = (EnumeratedItem)eResolveProxy(oldSubItemOfEnumeratedItem);
+			if (subItemOfEnumeratedItem != oldSubItemOfEnumeratedItem) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF, oldIsSubItemOf, isSubItemOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM, oldSubItemOfEnumeratedItem, subItemOfEnumeratedItem));
 			}
 		}
-		return isSubItemOf;
+		return subItemOfEnumeratedItem;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumeratedItem basicGetIsSubItemOf() {
-		return isSubItemOf;
+	public EnumeratedItem basicGetSubItemOfEnumeratedItem() {
+		return subItemOfEnumeratedItem;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsSubItemOf(EnumeratedItem newIsSubItemOf, NotificationChain msgs) {
-		EnumeratedItem oldIsSubItemOf = isSubItemOf;
-		isSubItemOf = newIsSubItemOf;
+	public NotificationChain basicSetSubItemOfEnumeratedItem(EnumeratedItem newSubItemOfEnumeratedItem, NotificationChain msgs) {
+		EnumeratedItem oldSubItemOfEnumeratedItem = subItemOfEnumeratedItem;
+		subItemOfEnumeratedItem = newSubItemOfEnumeratedItem;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF, oldIsSubItemOf, newIsSubItemOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM, oldSubItemOfEnumeratedItem, newSubItemOfEnumeratedItem);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSubItemOf(EnumeratedItem newIsSubItemOf) {
-		if (newIsSubItemOf != isSubItemOf) {
+	public void setSubItemOfEnumeratedItem(EnumeratedItem newSubItemOfEnumeratedItem) {
+		if (newSubItemOfEnumeratedItem != subItemOfEnumeratedItem) {
 			NotificationChain msgs = null;
-			if (isSubItemOf != null)
-				msgs = ((InternalEObject)isSubItemOf).eInverseRemove(this, TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF, EnumeratedItem.class, msgs);
-			if (newIsSubItemOf != null)
-				msgs = ((InternalEObject)newIsSubItemOf).eInverseAdd(this, TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF, EnumeratedItem.class, msgs);
-			msgs = basicSetIsSubItemOf(newIsSubItemOf, msgs);
+			if (subItemOfEnumeratedItem != null)
+				msgs = ((InternalEObject)subItemOfEnumeratedItem).eInverseRemove(this, TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS, EnumeratedItem.class, msgs);
+			if (newSubItemOfEnumeratedItem != null)
+				msgs = ((InternalEObject)newSubItemOfEnumeratedItem).eInverseAdd(this, TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS, EnumeratedItem.class, msgs);
+			msgs = basicSetSubItemOfEnumeratedItem(newSubItemOfEnumeratedItem, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF, newIsSubItemOf, newIsSubItemOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM, newSubItemOfEnumeratedItem, newSubItemOfEnumeratedItem));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -341,12 +341,12 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetOwner((EnumeratedType)otherEnd, msgs);
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsSuperItemOf()).basicAdd(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				if (isSubItemOf != null)
-					msgs = ((InternalEObject)isSubItemOf).eInverseRemove(this, TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF, EnumeratedItem.class, msgs);
-				return basicSetIsSubItemOf((EnumeratedItem)otherEnd, msgs);
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSuperItemOfEnumeratedItems()).basicAdd(otherEnd, msgs);
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				if (subItemOfEnumeratedItem != null)
+					msgs = ((InternalEObject)subItemOfEnumeratedItem).eInverseRemove(this, TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS, EnumeratedItem.class, msgs);
+				return basicSetSubItemOfEnumeratedItem((EnumeratedItem)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -361,10 +361,10 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				return basicSetOwner(null, msgs);
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				return ((InternalEList<?>)getIsSuperItemOf()).basicRemove(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				return basicSetIsSubItemOf(null, msgs);
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				return ((InternalEList<?>)getSuperItemOfEnumeratedItems()).basicRemove(otherEnd, msgs);
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				return basicSetSubItemOfEnumeratedItem(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -378,7 +378,7 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
-				return eInternalContainer().eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__OWNS_ITEMS, EnumeratedType.class, msgs);
+				return eInternalContainer().eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS, EnumeratedType.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -399,11 +399,11 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 				return getDefinition();
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				return getOwner();
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				return getIsSuperItemOf();
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				if (resolve) return getIsSubItemOf();
-				return basicGetIsSubItemOf();
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				return getSuperItemOfEnumeratedItems();
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				if (resolve) return getSubItemOfEnumeratedItem();
+				return basicGetSubItemOfEnumeratedItem();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -429,12 +429,12 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				setOwner((EnumeratedType)newValue);
 				return;
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				getIsSuperItemOf().clear();
-				getIsSuperItemOf().addAll((Collection<? extends EnumeratedItem>)newValue);
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				getSuperItemOfEnumeratedItems().clear();
+				getSuperItemOfEnumeratedItems().addAll((Collection<? extends EnumeratedItem>)newValue);
 				return;
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				setIsSubItemOf((EnumeratedItem)newValue);
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				setSubItemOfEnumeratedItem((EnumeratedItem)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -460,11 +460,11 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				setOwner((EnumeratedType)null);
 				return;
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				getIsSuperItemOf().clear();
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				getSuperItemOfEnumeratedItems().clear();
 				return;
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				setIsSubItemOf((EnumeratedItem)null);
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				setSubItemOfEnumeratedItem((EnumeratedItem)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -486,10 +486,10 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 				return DEFINITION_EDEFAULT == null ? definition != null : !DEFINITION_EDEFAULT.equals(definition);
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
 				return getOwner() != null;
-			case TypesPackage.ENUMERATED_ITEM__IS_SUPER_ITEM_OF:
-				return isSuperItemOf != null && !isSuperItemOf.isEmpty();
-			case TypesPackage.ENUMERATED_ITEM__IS_SUB_ITEM_OF:
-				return isSubItemOf != null;
+			case TypesPackage.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS:
+				return superItemOfEnumeratedItems != null && !superItemOfEnumeratedItems.isEmpty();
+			case TypesPackage.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM:
+				return subItemOfEnumeratedItem != null;
 		}
 		return super.eIsSet(featureID);
 	}

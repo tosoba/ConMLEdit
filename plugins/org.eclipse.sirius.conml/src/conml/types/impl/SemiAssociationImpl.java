@@ -37,10 +37,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isWhole <em>Whole</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isStrong <em>Strong</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsPrimaryIn <em>Is Primary In</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getIsSecondaryIn <em>Is Secondary In</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverse <em>Inverse</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getPrimaryInAssociation <em>Primary In Association</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getSecondaryInAssociation <em>Secondary In Association</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getReferredClass <em>Referred Class</em>}</li>
  * </ul>
  *
@@ -108,46 +108,46 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected boolean strong = STRONG_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getIsPrimaryIn() <em>Is Primary In</em>}' reference.
+	 * The cached value of the '{@link #getPrimaryInAssociation() <em>Primary In Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsPrimaryIn()
+	 * @see #getPrimaryInAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Association isPrimaryIn;
+	protected Association primaryInAssociation;
 
-	/**
-	 * The cached value of the '{@link #getIsSecondaryIn() <em>Is Secondary In</em>}' reference.
+    /**
+	 * The cached value of the '{@link #getSecondaryInAssociation() <em>Secondary In Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsSecondaryIn()
+	 * @see #getSecondaryInAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected Association isSecondaryIn;
+	protected Association secondaryInAssociation;
 
-	/**
-	 * The cached value of the '{@link #getHasInstanceReferenceSets() <em>Has Instance Reference Sets</em>}' reference list.
+    /**
+	 * The cached value of the '{@link #getInstanceReferenceSets() <em>Instance Reference Sets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasInstanceReferenceSets()
+	 * @see #getInstanceReferenceSets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<ReferenceSet> hasInstanceReferenceSets;
+	protected EList<ReferenceSet> instanceReferenceSets;
 
-	/**
-	 * The cached value of the '{@link #getInverse() <em>Inverse</em>}' reference.
+    /**
+	 * The cached value of the '{@link #getInverseSemiAssociation() <em>Inverse Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInverse()
+	 * @see #getInverseSemiAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected SemiAssociation inverse;
+	protected SemiAssociation inverseSemiAssociation;
 
-	/**
+    /**
 	 * The cached value of the '{@link #getReferredClass() <em>Referred Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -294,41 +294,178 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @generated
 	 */
 	@Override
-	public SemiAssociation getInverse() {
-		if (inverse != null && inverse.eIsProxy()) {
-			InternalEObject oldInverse = (InternalEObject)inverse;
-			inverse = (SemiAssociation)eResolveProxy(oldInverse);
-			if (inverse != oldInverse) {
+	public Association getPrimaryInAssociation() {
+		if (primaryInAssociation != null && primaryInAssociation.eIsProxy()) {
+			InternalEObject oldPrimaryInAssociation = (InternalEObject)primaryInAssociation;
+			primaryInAssociation = (Association)eResolveProxy(oldPrimaryInAssociation);
+			if (primaryInAssociation != oldPrimaryInAssociation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__INVERSE, oldInverse, inverse));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION, oldPrimaryInAssociation, primaryInAssociation));
 			}
 		}
-		return inverse;
+		return primaryInAssociation;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SemiAssociation basicGetInverse() {
-		return inverse;
+	public Association basicGetPrimaryInAssociation() {
+		return primaryInAssociation;
 	}
 
-	/**
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetPrimaryInAssociation(Association newPrimaryInAssociation, NotificationChain msgs) {
+		Association oldPrimaryInAssociation = primaryInAssociation;
+		primaryInAssociation = newPrimaryInAssociation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION, oldPrimaryInAssociation, newPrimaryInAssociation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setInverse(SemiAssociation newInverse) {
-		SemiAssociation oldInverse = inverse;
-		inverse = newInverse;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__INVERSE, oldInverse, inverse));
+	public void setPrimaryInAssociation(Association newPrimaryInAssociation) {
+		if (newPrimaryInAssociation != primaryInAssociation) {
+			NotificationChain msgs = null;
+			if (primaryInAssociation != null)
+				msgs = ((InternalEObject)primaryInAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__PRIMARY_SEMI_ASSOCIATION, Association.class, msgs);
+			if (newPrimaryInAssociation != null)
+				msgs = ((InternalEObject)newPrimaryInAssociation).eInverseAdd(this, TypesPackage.ASSOCIATION__PRIMARY_SEMI_ASSOCIATION, Association.class, msgs);
+			msgs = basicSetPrimaryInAssociation(newPrimaryInAssociation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION, newPrimaryInAssociation, newPrimaryInAssociation));
 	}
 
-	/**
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Association getSecondaryInAssociation() {
+		if (secondaryInAssociation != null && secondaryInAssociation.eIsProxy()) {
+			InternalEObject oldSecondaryInAssociation = (InternalEObject)secondaryInAssociation;
+			secondaryInAssociation = (Association)eResolveProxy(oldSecondaryInAssociation);
+			if (secondaryInAssociation != oldSecondaryInAssociation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION, oldSecondaryInAssociation, secondaryInAssociation));
+			}
+		}
+		return secondaryInAssociation;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Association basicGetSecondaryInAssociation() {
+		return secondaryInAssociation;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetSecondaryInAssociation(Association newSecondaryInAssociation, NotificationChain msgs) {
+		Association oldSecondaryInAssociation = secondaryInAssociation;
+		secondaryInAssociation = newSecondaryInAssociation;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION, oldSecondaryInAssociation, newSecondaryInAssociation);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSecondaryInAssociation(Association newSecondaryInAssociation) {
+		if (newSecondaryInAssociation != secondaryInAssociation) {
+			NotificationChain msgs = null;
+			if (secondaryInAssociation != null)
+				msgs = ((InternalEObject)secondaryInAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__SECONDARY_SEMI_ASSOCIATION, Association.class, msgs);
+			if (newSecondaryInAssociation != null)
+				msgs = ((InternalEObject)newSecondaryInAssociation).eInverseAdd(this, TypesPackage.ASSOCIATION__SECONDARY_SEMI_ASSOCIATION, Association.class, msgs);
+			msgs = basicSetSecondaryInAssociation(newSecondaryInAssociation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION, newSecondaryInAssociation, newSecondaryInAssociation));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ReferenceSet> getInstanceReferenceSets() {
+		if (instanceReferenceSets == null) {
+			instanceReferenceSets = new EObjectWithInverseResolvingEList<ReferenceSet>(ReferenceSet.class, this, TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS, InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION);
+		}
+		return instanceReferenceSets;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public SemiAssociation getInverseSemiAssociation() {
+		if (inverseSemiAssociation != null && inverseSemiAssociation.eIsProxy()) {
+			InternalEObject oldInverseSemiAssociation = (InternalEObject)inverseSemiAssociation;
+			inverseSemiAssociation = (SemiAssociation)eResolveProxy(oldInverseSemiAssociation);
+			if (inverseSemiAssociation != oldInverseSemiAssociation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION, oldInverseSemiAssociation, inverseSemiAssociation));
+			}
+		}
+		return inverseSemiAssociation;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SemiAssociation basicGetInverseSemiAssociation() {
+		return inverseSemiAssociation;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setInverseSemiAssociation(SemiAssociation newInverseSemiAssociation) {
+		SemiAssociation oldInverseSemiAssociation = inverseSemiAssociation;
+		inverseSemiAssociation = newInverseSemiAssociation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION, oldInverseSemiAssociation, inverseSemiAssociation));
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -373,143 +510,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Association getIsPrimaryIn() {
-		if (isPrimaryIn != null && isPrimaryIn.eIsProxy()) {
-			InternalEObject oldIsPrimaryIn = (InternalEObject)isPrimaryIn;
-			isPrimaryIn = (Association)eResolveProxy(oldIsPrimaryIn);
-			if (isPrimaryIn != oldIsPrimaryIn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN, oldIsPrimaryIn, isPrimaryIn));
-			}
-		}
-		return isPrimaryIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Association basicGetIsPrimaryIn() {
-		return isPrimaryIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsPrimaryIn(Association newIsPrimaryIn, NotificationChain msgs) {
-		Association oldIsPrimaryIn = isPrimaryIn;
-		isPrimaryIn = newIsPrimaryIn;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN, oldIsPrimaryIn, newIsPrimaryIn);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsPrimaryIn(Association newIsPrimaryIn) {
-		if (newIsPrimaryIn != isPrimaryIn) {
-			NotificationChain msgs = null;
-			if (isPrimaryIn != null)
-				msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_PRIMARY, Association.class, msgs);
-			if (newIsPrimaryIn != null)
-				msgs = ((InternalEObject)newIsPrimaryIn).eInverseAdd(this, TypesPackage.ASSOCIATION__HAS_PRIMARY, Association.class, msgs);
-			msgs = basicSetIsPrimaryIn(newIsPrimaryIn, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN, newIsPrimaryIn, newIsPrimaryIn));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Association getIsSecondaryIn() {
-		if (isSecondaryIn != null && isSecondaryIn.eIsProxy()) {
-			InternalEObject oldIsSecondaryIn = (InternalEObject)isSecondaryIn;
-			isSecondaryIn = (Association)eResolveProxy(oldIsSecondaryIn);
-			if (isSecondaryIn != oldIsSecondaryIn) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN, oldIsSecondaryIn, isSecondaryIn));
-			}
-		}
-		return isSecondaryIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Association basicGetIsSecondaryIn() {
-		return isSecondaryIn;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetIsSecondaryIn(Association newIsSecondaryIn, NotificationChain msgs) {
-		Association oldIsSecondaryIn = isSecondaryIn;
-		isSecondaryIn = newIsSecondaryIn;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN, oldIsSecondaryIn, newIsSecondaryIn);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setIsSecondaryIn(Association newIsSecondaryIn) {
-		if (newIsSecondaryIn != isSecondaryIn) {
-			NotificationChain msgs = null;
-			if (isSecondaryIn != null)
-				msgs = ((InternalEObject)isSecondaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_SECONDARY, Association.class, msgs);
-			if (newIsSecondaryIn != null)
-				msgs = ((InternalEObject)newIsSecondaryIn).eInverseAdd(this, TypesPackage.ASSOCIATION__HAS_SECONDARY, Association.class, msgs);
-			msgs = basicSetIsSecondaryIn(newIsSecondaryIn, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN, newIsSecondaryIn, newIsSecondaryIn));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<ReferenceSet> getHasInstanceReferenceSets() {
-		if (hasInstanceReferenceSets == null) {
-			hasInstanceReferenceSets = new EObjectWithInverseResolvingEList<ReferenceSet>(ReferenceSet.class, this, TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS, InstancesPackage.REFERENCE_SET__IS_AN_INSTANCE_OF);
-		}
-		return hasInstanceReferenceSets;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -518,16 +518,16 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetOwner((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				if (isPrimaryIn != null)
-					msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_PRIMARY, Association.class, msgs);
-				return basicSetIsPrimaryIn((Association)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				if (isSecondaryIn != null)
-					msgs = ((InternalEObject)isSecondaryIn).eInverseRemove(this, TypesPackage.ASSOCIATION__HAS_SECONDARY, Association.class, msgs);
-				return basicSetIsSecondaryIn((Association)otherEnd, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasInstanceReferenceSets()).basicAdd(otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				if (primaryInAssociation != null)
+					msgs = ((InternalEObject)primaryInAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__PRIMARY_SEMI_ASSOCIATION, Association.class, msgs);
+				return basicSetPrimaryInAssociation((Association)otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				if (secondaryInAssociation != null)
+					msgs = ((InternalEObject)secondaryInAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__SECONDARY_SEMI_ASSOCIATION, Association.class, msgs);
+				return basicSetSecondaryInAssociation((Association)otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInstanceReferenceSets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -542,12 +542,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		switch (featureID) {
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return basicSetOwner(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				return basicSetIsPrimaryIn(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				return basicSetIsSecondaryIn(null, msgs);
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				return ((InternalEList<?>)getHasInstanceReferenceSets()).basicRemove(otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				return basicSetPrimaryInAssociation(null, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				return basicSetSecondaryInAssociation(null, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				return ((InternalEList<?>)getInstanceReferenceSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -582,17 +582,17 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return isStrong();
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner();
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				if (resolve) return getIsPrimaryIn();
-				return basicGetIsPrimaryIn();
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				if (resolve) return getIsSecondaryIn();
-				return basicGetIsSecondaryIn();
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				return getHasInstanceReferenceSets();
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				if (resolve) return getInverse();
-				return basicGetInverse();
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				if (resolve) return getPrimaryInAssociation();
+				return basicGetPrimaryInAssociation();
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				if (resolve) return getSecondaryInAssociation();
+				return basicGetSecondaryInAssociation();
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				return getInstanceReferenceSets();
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION:
+				if (resolve) return getInverseSemiAssociation();
+				return basicGetInverseSemiAssociation();
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				if (resolve) return getReferredClass();
 				return basicGetReferredClass();
@@ -621,18 +621,18 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				setIsPrimaryIn((Association)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				setPrimaryInAssociation((Association)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				setIsSecondaryIn((Association)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				setSecondaryInAssociation((Association)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				getHasInstanceReferenceSets().clear();
-				getHasInstanceReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				getInstanceReferenceSets().clear();
+				getInstanceReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				setInverse((SemiAssociation)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION:
+				setInverseSemiAssociation((SemiAssociation)newValue);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)newValue);
@@ -661,17 +661,17 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				setOwner((conml.types.Class)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				setIsPrimaryIn((Association)null);
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				setPrimaryInAssociation((Association)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				setIsSecondaryIn((Association)null);
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				setSecondaryInAssociation((Association)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				getHasInstanceReferenceSets().clear();
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				getInstanceReferenceSets().clear();
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				setInverse((SemiAssociation)null);
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION:
+				setInverseSemiAssociation((SemiAssociation)null);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)null);
@@ -696,14 +696,14 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return strong != STRONG_EDEFAULT;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER:
 				return getOwner() != null;
-			case TypesPackage.SEMI_ASSOCIATION__IS_PRIMARY_IN:
-				return isPrimaryIn != null;
-			case TypesPackage.SEMI_ASSOCIATION__IS_SECONDARY_IN:
-				return isSecondaryIn != null;
-			case TypesPackage.SEMI_ASSOCIATION__HAS_INSTANCE_REFERENCE_SETS:
-				return hasInstanceReferenceSets != null && !hasInstanceReferenceSets.isEmpty();
-			case TypesPackage.SEMI_ASSOCIATION__INVERSE:
-				return inverse != null;
+			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
+				return primaryInAssociation != null;
+			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
+				return secondaryInAssociation != null;
+			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
+				return instanceReferenceSets != null && !instanceReferenceSets.isEmpty();
+			case TypesPackage.SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION:
+				return inverseSemiAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				return referredClass != null;
 		}

@@ -17,7 +17,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.InstanceModel#getConformsTo <em>Conforms To</em>}</li>
+ *   <li>{@link conml.instances.InstanceModel#getConformedTypeModels <em>Conformed Type Models</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getInstanceModel()
@@ -26,17 +26,17 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface InstanceModel extends Model {
 	/**
-	 * Returns the value of the '<em><b>Conforms To</b></em>' reference list.
+	 * Returns the value of the '<em><b>Conformed Type Models</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.TypeModel}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getConformedBy <em>Conformed By</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getConformingInstanceModel <em>Conforming Instance Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Conforms To</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getInstanceModel_ConformsTo()
-	 * @see conml.types.TypeModel#getConformedBy
-	 * @model opposite="ConformedBy" required="true"
+	 * @return the value of the '<em>Conformed Type Models</em>' reference list.
+	 * @see conml.instances.InstancesPackage#getInstanceModel_ConformedTypeModels()
+	 * @see conml.types.TypeModel#getConformingInstanceModel
+	 * @model opposite="ConformingInstanceModel" required="true"
 	 * @generated
 	 */
-	EList<TypeModel> getConformsTo();
+	EList<TypeModel> getConformedTypeModels();
 
 } // InstanceModel

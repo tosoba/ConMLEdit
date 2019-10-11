@@ -42,26 +42,26 @@ public class ReferenceSetItemProvider extends FacetSetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsAnInstanceOfPropertyDescriptor(object);
+			addInstancedSemiAssociationPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Is An Instance Of feature.
+	 * This adds a property descriptor for the Instanced Semi Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsAnInstanceOfPropertyDescriptor(Object object) {
+	protected void addInstancedSemiAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ReferenceSet_IsAnInstanceOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ReferenceSet_IsAnInstanceOf_feature", "_UI_ReferenceSet_type"),
-				 InstancesPackage.Literals.REFERENCE_SET__IS_AN_INSTANCE_OF,
+				 getString("_UI_ReferenceSet_InstancedSemiAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ReferenceSet_InstancedSemiAssociation_feature", "_UI_ReferenceSet_type"),
+				 InstancesPackage.Literals.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION,
 				 true,
 				 false,
 				 true,
@@ -70,7 +70,7 @@ public class ReferenceSetItemProvider extends FacetSetItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Owner feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

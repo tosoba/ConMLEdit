@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.types.EnumeratedItem#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}</li>
- *   <li>{@link conml.types.EnumeratedItem#getIsSuperItemOf <em>Is Super Item Of</em>}</li>
- *   <li>{@link conml.types.EnumeratedItem#getIsSubItemOf <em>Is Sub Item Of</em>}</li>
+ *   <li>{@link conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}</li>
+ *   <li>{@link conml.types.EnumeratedItem#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getEnumeratedItem()
@@ -96,14 +96,14 @@ public interface EnumeratedItem extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getOwnsItems <em>Owns Items</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getOwnedItems <em>Owned Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' container reference.
 	 * @see #setOwner(EnumeratedType)
 	 * @see conml.types.TypesPackage#getEnumeratedItem_Owner()
-	 * @see conml.types.EnumeratedType#getOwnsItems
-	 * @model opposite="OwnsItems" required="true" transient="false"
+	 * @see conml.types.EnumeratedType#getOwnedItems
+	 * @model opposite="OwnedItems" required="true" transient="false"
 	 * @generated
 	 */
 	EnumeratedType getOwner();
@@ -119,41 +119,41 @@ public interface EnumeratedItem extends EObject {
 	void setOwner(EnumeratedType value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Super Item Of</b></em>' reference list.
+	 * Returns the value of the '<em><b>Super Item Of Enumerated Items</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedItem}.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getIsSubItemOf <em>Is Sub Item Of</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Super Item Of</em>' reference list.
-	 * @see conml.types.TypesPackage#getEnumeratedItem_IsSuperItemOf()
-	 * @see conml.types.EnumeratedItem#getIsSubItemOf
-	 * @model opposite="IsSubItemOf"
+	 * @return the value of the '<em>Super Item Of Enumerated Items</em>' reference list.
+	 * @see conml.types.TypesPackage#getEnumeratedItem_SuperItemOfEnumeratedItems()
+	 * @see conml.types.EnumeratedItem#getSubItemOfEnumeratedItem
+	 * @model opposite="SubItemOfEnumeratedItem"
 	 * @generated
 	 */
-	EList<EnumeratedItem> getIsSuperItemOf();
+	EList<EnumeratedItem> getSuperItemOfEnumeratedItems();
 
-	/**
-	 * Returns the value of the '<em><b>Is Sub Item Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getIsSuperItemOf <em>Is Super Item Of</em>}'.
+  /**
+	 * Returns the value of the '<em><b>Sub Item Of Enumerated Item</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Sub Item Of</em>' reference.
-	 * @see #setIsSubItemOf(EnumeratedItem)
-	 * @see conml.types.TypesPackage#getEnumeratedItem_IsSubItemOf()
-	 * @see conml.types.EnumeratedItem#getIsSuperItemOf
-	 * @model opposite="IsSuperItemOf"
+	 * @return the value of the '<em>Sub Item Of Enumerated Item</em>' reference.
+	 * @see #setSubItemOfEnumeratedItem(EnumeratedItem)
+	 * @see conml.types.TypesPackage#getEnumeratedItem_SubItemOfEnumeratedItem()
+	 * @see conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems
+	 * @model opposite="SuperItemOfEnumeratedItems"
 	 * @generated
 	 */
-	EnumeratedItem getIsSubItemOf();
+	EnumeratedItem getSubItemOfEnumeratedItem();
 
-	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getIsSubItemOf <em>Is Sub Item Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.types.EnumeratedItem#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Sub Item Of</em>' reference.
-	 * @see #getIsSubItemOf()
+	 * @param value the new value of the '<em>Sub Item Of Enumerated Item</em>' reference.
+	 * @see #getSubItemOfEnumeratedItem()
 	 * @generated
 	 */
-	void setIsSubItemOf(EnumeratedItem value);
+	void setSubItemOfEnumeratedItem(EnumeratedItem value);
 
 } // EnumeratedItem

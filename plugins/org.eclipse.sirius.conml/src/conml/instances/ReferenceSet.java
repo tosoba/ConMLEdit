@@ -13,7 +13,7 @@ import conml.types.SemiAssociation;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.ReferenceSet#getIsAnInstanceOf <em>Is An Instance Of</em>}</li>
+ *   <li>{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
  *   <li>{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}</li>
  * </ul>
  *
@@ -23,39 +23,39 @@ import conml.types.SemiAssociation;
  */
 public interface ReferenceSet extends FacetSet {
 	/**
-	 * Returns the value of the '<em><b>Is An Instance Of</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getHasInstanceReferenceSets <em>Has Instance Reference Sets</em>}'.
+	 * Returns the value of the '<em><b>Instanced Semi Association</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.SemiAssociation#getInstanceReferenceSets <em>Instance Reference Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is An Instance Of</em>' reference.
-	 * @see #setIsAnInstanceOf(SemiAssociation)
-	 * @see conml.instances.InstancesPackage#getReferenceSet_IsAnInstanceOf()
-	 * @see conml.types.SemiAssociation#getHasInstanceReferenceSets
-	 * @model opposite="HasInstanceReferenceSets" required="true"
+	 * @return the value of the '<em>Instanced Semi Association</em>' reference.
+	 * @see #setInstancedSemiAssociation(SemiAssociation)
+	 * @see conml.instances.InstancesPackage#getReferenceSet_InstancedSemiAssociation()
+	 * @see conml.types.SemiAssociation#getInstanceReferenceSets
+	 * @model opposite="InstanceReferenceSets" required="true"
 	 * @generated
 	 */
-	SemiAssociation getIsAnInstanceOf();
+	SemiAssociation getInstancedSemiAssociation();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.ReferenceSet#getIsAnInstanceOf <em>Is An Instance Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is An Instance Of</em>' reference.
-	 * @see #getIsAnInstanceOf()
+	 * @param value the new value of the '<em>Instanced Semi Association</em>' reference.
+	 * @see #getInstancedSemiAssociation()
 	 * @generated
 	 */
-	void setIsAnInstanceOf(SemiAssociation value);
+	void setInstancedSemiAssociation(SemiAssociation value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnsReferenceSets <em>Owns Reference Sets</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnedReferenceSets <em>Owned Reference Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owner</em>' reference.
 	 * @see #setOwner(conml.instances.Object)
 	 * @see conml.instances.InstancesPackage#getReferenceSet_Owner()
-	 * @see conml.instances.Object#getOwnsReferenceSets
-	 * @model opposite="OwnsReferenceSets" required="true"
+	 * @see conml.instances.Object#getOwnedReferenceSets
+	 * @model opposite="OwnedReferenceSets" required="true"
 	 * @generated
 	 */
 	conml.instances.Object getOwner();
