@@ -6,7 +6,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="TypeModelElement">
-        <edgeMappings name="CD_Association" preconditionExpression="service:self.shouldDisplayAssociationEdge" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
+        <edgeMappings name="CD_Association" preconditionExpression="service:self.shouldDisplayAssociationEdge" semanticElements="service:self.semiAssociationsList" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
           <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
@@ -20,7 +20,7 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <edgeMappings name="CD_Generalization" semanticElements="service:getSemanticElements" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
+        <edgeMappings name="CD_Generalization" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
           <style targetArrow="InputClosedArrow">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <endLabelStyleDescription showIcon="false" labelExpression="feature:discriminant">
@@ -254,7 +254,7 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="PR_General">
-      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1"/>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
@@ -315,6 +315,33 @@
             <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
         </validationSet>
+      </groups>
+      <groups name="PR_PrimarySemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
+        <controls xsi:type="properties:ContainerDescription" name="SemiAssociationsContainer" label="SemiAssociations">
+          <controls xsi:type="properties:DynamicMappingForDescription" name="SemiAssociationsDynamicMapping" iterator="semi" iterableExpression="service:self.semiAssociationsList">
+            <ifs name="semiAssociationNameIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Name_Text" labelExpression="Name" valueExpression="aql:semi.name">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationName(newValue)"/>
+                </initialOperation>
+              </widget>
+            </ifs>
+            <ifs name="semiAssociationDefinitionIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Definition_Text" labelExpression="Definition" valueExpression="aql:semi.definition">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="var:newValue"/>
+                </initialOperation>
+              </widget>
+            </ifs>
+            <ifs name="semiAssociationMinCardinalityIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_MinCardinality_Text" labelExpression="Minimum Cardinality" valueExpression="aql:semi.minimumCardinality">
+                <initialOperation>
+                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="minimumCardinality" valueExpression="var:newValue"/>
+                </initialOperation>
+              </widget>
+            </ifs>
+          </controls>
+        </controls>
       </groups>
     </categories>
   </extensions>

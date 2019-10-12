@@ -1,6 +1,8 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -23,6 +25,15 @@ public class AssociationServices {
         "Compact style cannot be used for symmetric associations.";
     static final String COMPACT_CARDINALITIES =
         "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
+  }
+
+  public List<SemiAssociation> semiAssociationsList(Association association) {
+    return Arrays.asList(
+        association.getPrimarySemiAssociation(), association.getSecondarySemiAssociation());
+  }
+
+  public void setSemiAssociationName(SemiAssociation semiAssociation, String name) {
+    semiAssociation.setName(name);
   }
 
   public String associationCenterLabel(Association association) {
