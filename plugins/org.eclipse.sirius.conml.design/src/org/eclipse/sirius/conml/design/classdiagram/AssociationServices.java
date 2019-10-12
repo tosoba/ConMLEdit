@@ -25,6 +25,11 @@ public class AssociationServices {
         "Compact style cannot be used for symmetric associations.";
     static final String COMPACT_CARDINALITIES =
         "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
+    static final String EXPECTED_INTEGER_INPUT = "Invalid input - must be a non-negative integer.";
+  }
+
+  private static final class Messages {
+    static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
   }
 
   public List<SemiAssociation> semiAssociationsList(Association association) {
@@ -34,6 +39,25 @@ public class AssociationServices {
 
   public void setSemiAssociationName(SemiAssociation semiAssociation, String name) {
     semiAssociation.setName(name);
+  }
+
+  public void setSemiAssociationDefinition(SemiAssociation semiAssociation, String definition) {
+    semiAssociation.setDefinition(definition);
+  }
+
+  public void setSemiAssociationMinimumCardinality(
+      SemiAssociation semiAssociation, String cardinalityStr) {
+    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
+      semiAssociation.setMinimumCardinality(0);
+    } else {
+      try {
+        int cardinality = Integer.parseInt(cardinalityStr);
+        if (cardinality >= 0) semiAssociation.setMinimumCardinality(cardinality);
+        else Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_INTEGER_INPUT);
+      } catch (NumberFormatException e) {
+        Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_INTEGER_INPUT);
+      }
+    }
   }
 
   public String associationCenterLabel(Association association) {

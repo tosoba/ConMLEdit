@@ -317,30 +317,28 @@
         </validationSet>
       </groups>
       <groups name="PR_PrimarySemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
-        <controls xsi:type="properties:ContainerDescription" name="SemiAssociationsContainer" label="SemiAssociations">
-          <controls xsi:type="properties:DynamicMappingForDescription" name="SemiAssociationsDynamicMapping" iterator="semi" iterableExpression="service:self.semiAssociationsList">
-            <ifs name="semiAssociationNameIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
-              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Name_Text" labelExpression="Name" valueExpression="aql:semi.name">
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationName(newValue)"/>
-                </initialOperation>
-              </widget>
-            </ifs>
-            <ifs name="semiAssociationDefinitionIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
-              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Definition_Text" labelExpression="Definition" valueExpression="aql:semi.definition">
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="var:newValue"/>
-                </initialOperation>
-              </widget>
-            </ifs>
-            <ifs name="semiAssociationMinCardinalityIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
-              <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_MinCardinality_Text" labelExpression="Minimum Cardinality" valueExpression="aql:semi.minimumCardinality">
-                <initialOperation>
-                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="minimumCardinality" valueExpression="var:newValue"/>
-                </initialOperation>
-              </widget>
-            </ifs>
-          </controls>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="SemiAssociationsDynamicMapping" iterator="semi" iterableExpression="service:self.semiAssociationsList">
+          <ifs name="semiAssociationNameIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Name_Text" labelExpression="Name:" helpExpression="Name of the SemiAssociation" valueExpression="aql:semi.name">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationName(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationDefinitionIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Definition_Text" labelExpression="Definition:" helpExpression="Definition of the SemiAssociation" valueExpression="aql:semi.definition">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationDefinition(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationMinCardinalityIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_MinCardinality_Text" labelExpression="Minimum Cardinality" helpExpression="Minimum Cardinality of the SemiAssociation" valueExpression="aql:semi.minimumCardinality">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationMinimumCardinality(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
       </groups>
     </categories>
