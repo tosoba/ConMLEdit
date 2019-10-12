@@ -785,6 +785,16 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getPackage_Overall() {
+		return (EAttribute)packageEClass.getEStructuralFeatures().get(6);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getAttribute() {
 		return attributeEClass;
 	}
@@ -1131,6 +1141,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(packageEClass, PACKAGE__ENUMERATED_TYPES);
 		createEReference(packageEClass, PACKAGE__IS_OWNER_OF);
 		createEReference(packageEClass, PACKAGE__IS_SUB_PACKAGE_OF);
+		createEAttribute(packageEClass, PACKAGE__OVERALL);
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__MULTILINGUAL);
@@ -1279,6 +1290,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getPackage_EnumeratedTypes(), this.getEnumeratedType(), this.getEnumeratedType_Package(), "EnumeratedTypes", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_IsOwnerOf(), this.getPackage(), this.getPackage_IsSubPackageOf(), "IsOwnerOf", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_IsSubPackageOf(), this.getPackage(), this.getPackage_IsOwnerOf(), "isSubPackageOf", null, 0, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPackage_Overall(), theXMLTypePackage.getBoolean(), "overall", "false", 1, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Multilingual(), ecorePackage.getEBoolean(), "multilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

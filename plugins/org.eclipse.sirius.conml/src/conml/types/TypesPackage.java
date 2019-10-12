@@ -1051,13 +1051,22 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE__IS_SUB_PACKAGE_OF = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
+	 * The feature id for the '<em><b>Overall</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__OVERALL = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 6;
+
+  /**
 	 * The number of structural features of the '<em>Package</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE_FEATURE_COUNT = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 6;
+	int PACKAGE_FEATURE_COUNT = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 7;
 
 	/**
 	 * The number of operations of the '<em>Package</em>' class.
@@ -2347,6 +2356,17 @@ public interface TypesPackage extends EPackage {
 	EReference getPackage_IsSubPackageOf();
 
 	/**
+	 * Returns the meta object for the attribute '{@link conml.types.Package#isOverall <em>Overall</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Overall</em>'.
+	 * @see conml.types.Package#isOverall()
+	 * @see #getPackage()
+	 * @generated
+	 */
+	EAttribute getPackage_Overall();
+
+  /**
 	 * Returns the meta object for class '{@link conml.types.Attribute <em>Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3107,6 +3127,14 @@ public interface TypesPackage extends EPackage {
 		EReference PACKAGE__IS_SUB_PACKAGE_OF = eINSTANCE.getPackage_IsSubPackageOf();
 
 		/**
+		 * The meta object literal for the '<em><b>Overall</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute PACKAGE__OVERALL = eINSTANCE.getPackage_Overall();
+
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.AttributeImpl <em>Attribute</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

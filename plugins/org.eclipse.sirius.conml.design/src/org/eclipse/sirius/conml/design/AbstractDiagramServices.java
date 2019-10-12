@@ -45,6 +45,10 @@ public abstract class AbstractDiagramServices {
     return 10;
   }
 
+  public int defaultSingleDimensionSize(EObject object) {
+    return 10;
+  }
+
   public String getWidgetLabel(EObject element, EStructuralFeature structuralFeature) {
     return structuralFeature != null ? structuralFeature.getName() : "New element";
   }

@@ -129,6 +129,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Package/IsOwnerOf"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Package/isSubPackageOf"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Package/overall"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/Attribute">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Attribute/multilingual"/>

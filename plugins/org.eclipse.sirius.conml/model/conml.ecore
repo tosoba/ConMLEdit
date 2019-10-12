@@ -137,6 +137,9 @@
           eType="#//types/Package" containment="true" eOpposite="#//types/Package/isSubPackageOf"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="isSubPackageOf" eType="#//types/Package"
           eOpposite="#//types/Package/IsOwnerOf"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="overall" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Attribute" eSuperTypes="#//types/Feature">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="multilingual" lowerBound="1"

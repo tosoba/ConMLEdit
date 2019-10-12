@@ -36,6 +36,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.PackageImpl#getEnumeratedTypes <em>Enumerated Types</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getIsOwnerOf <em>Is Owner Of</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getIsSubPackageOf <em>Is Sub Package Of</em>}</li>
+ *   <li>{@link conml.types.impl.PackageImpl#isOverall <em>Overall</em>}</li>
  * </ul>
  *
  * @generated
@@ -112,6 +113,26 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	protected EList<conml.types.Package> isOwnerOf;
 
 	/**
+	 * The default value of the '{@link #isOverall() <em>Overall</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOverall()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean OVERALL_EDEFAULT = false;
+
+  /**
+	 * The cached value of the '{@link #isOverall() <em>Overall</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isOverall()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean overall = OVERALL_EDEFAULT;
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -263,6 +284,29 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isOverall() {
+		return overall;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOverall(boolean newOverall) {
+		boolean oldOverall = overall;
+		overall = newOverall;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.PACKAGE__OVERALL, oldOverall, overall));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -335,6 +379,8 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return getIsOwnerOf();
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
 				return getIsSubPackageOf();
+			case TypesPackage.PACKAGE__OVERALL:
+				return isOverall();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -369,6 +415,9 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
 				setIsSubPackageOf((conml.types.Package)newValue);
 				return;
+			case TypesPackage.PACKAGE__OVERALL:
+				setOverall((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -399,6 +448,9 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
 				setIsSubPackageOf((conml.types.Package)null);
 				return;
+			case TypesPackage.PACKAGE__OVERALL:
+				setOverall(OVERALL_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -423,6 +475,8 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return isOwnerOf != null && !isOwnerOf.isEmpty();
 			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
 				return getIsSubPackageOf() != null;
+			case TypesPackage.PACKAGE__OVERALL:
+				return overall != OVERALL_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -441,6 +495,8 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 		result.append(name);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", overall: ");
+		result.append(overall);
 		result.append(')');
 		return result.toString();
 	}

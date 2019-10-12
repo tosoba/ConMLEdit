@@ -27,4 +27,6 @@ public interface PackageValidator {
 	boolean validateContainsEnumeratedType(EList<EnumeratedType> value);
 	boolean validateIsOwnerOf(EList<conml.types.Package> value);
 	boolean validateIsSubPackageOf(conml.types.Package value);
+
+  boolean validateOverall(boolean value);
 }
