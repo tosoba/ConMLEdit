@@ -19,7 +19,105 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
-          <conditionnalStyles predicateExpression="service:self.primarySemiAssociationIsWhole">
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndStrongAndSecondaryStrong">
+            <style targetArrow="Diamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryStrongAndWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.areBothSemiAssociationsStrong">
+            <style targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimaryAssociationWholeAndStrong">
+            <style targetArrow="Diamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondaryAssociationWholeAndStrong">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndSecondaryStrong">
+            <style targetArrow="Diamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWhole">
             <style targetArrow="Diamond">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
@@ -29,6 +127,48 @@
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </centerLabelStyleDescription>
               <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrong">
+            <style targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationStrong">
+            <style targetArrow="NoDecoration">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               </endLabelStyleDescription>
             </style>
@@ -367,6 +507,13 @@
             <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Whole_Checkbox" labelExpression="Whole" helpExpression="Indicates whether the partcipant class possesses &quot;whole&quot; semantics in a &quot;whole/part&quot; relationship" valueExpression="aql:semi.whole">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setWhole(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationStrongIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Strong_Checkbox" labelExpression="Strong" helpExpression="Indicates whether the SemiAssociation captures information that is directly relevant to the defniton of the partcipant class" valueExpression="aql:semi.strong">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setStrong(newValue)"/>
               </initialOperation>
             </widget>
           </ifs>

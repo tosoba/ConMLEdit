@@ -35,8 +35,57 @@ public class AssociationServices extends FeatureServices {
     static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
   }
 
-  public boolean primarySemiAssociationIsWhole(Association association) {
+  public boolean isPrimarySemiAssociationWhole(Association association) {
     return association.getPrimarySemiAssociation().isWhole();
+  }
+
+  public boolean isSecondarySemiAssociationWhole(Association association) {
+    return association.getSecondarySemiAssociation().isWhole();
+  }
+
+  public boolean isPrimarySemiAssociationStrong(Association association) {
+    return association.getPrimarySemiAssociation().isStrong();
+  }
+
+  public boolean isSecondarySemiAssociationStrong(Association association) {
+    return association.getSecondarySemiAssociation().isStrong();
+  }
+
+  public boolean areBothSemiAssociationsStrong(Association association) {
+    return association.getPrimarySemiAssociation().isStrong()
+        && association.getSecondarySemiAssociation().isStrong();
+  }
+
+  public boolean isPrimaryAssociationWholeAndStrong(Association association) {
+    return association.getPrimarySemiAssociation().isStrong()
+        && association.getPrimarySemiAssociation().isWhole();
+  }
+
+  public boolean isSecondaryAssociationWholeAndStrong(Association association) {
+    return association.getSecondarySemiAssociation().isStrong()
+        && association.getSecondarySemiAssociation().isWhole();
+  }
+
+  public boolean isPrimarySemiAssociationWholeAndStrongAndSecondaryStrong(Association association) {
+    return association.getPrimarySemiAssociation().isWhole()
+        && association.getPrimarySemiAssociation().isStrong()
+        && association.getSecondarySemiAssociation().isStrong();
+  }
+
+  public boolean isPrimarySemiAssociationStrongAndSecondaryStrongAndWhole(Association association) {
+    return association.getPrimarySemiAssociation().isStrong()
+        && association.getSecondarySemiAssociation().isWhole()
+        && association.getSecondarySemiAssociation().isStrong();
+  }
+
+  public boolean isPrimarySemiAssociationStrongAndSecondaryWhole(Association association) {
+    return association.getPrimarySemiAssociation().isStrong()
+        && association.getSecondarySemiAssociation().isWhole();
+  }
+
+  public boolean isPrimarySemiAssociationWholeAndSecondaryStrong(Association association) {
+    return association.getPrimarySemiAssociation().isWhole()
+        && association.getSecondarySemiAssociation().isStrong();
   }
 
   public List<SemiAssociation> primarySemiAssociationAsList(Association association) {
@@ -117,6 +166,10 @@ public class AssociationServices extends FeatureServices {
 
   public void setWhole(SemiAssociation semiAssociation, Boolean whole) {
     semiAssociation.setWhole(whole);
+  }
+
+  public void setStrong(SemiAssociation semiAssociation, Boolean strong) {
+    semiAssociation.setStrong(strong);
   }
 
   public String associationCenterLabel(Association association) {
