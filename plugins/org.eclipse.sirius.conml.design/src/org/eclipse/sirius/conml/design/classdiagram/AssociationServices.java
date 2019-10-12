@@ -17,7 +17,7 @@ import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
-public class AssociationServices {
+public class AssociationServices extends FeatureServices {
 
   private static final class Errors {
     static final String ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
@@ -58,7 +58,7 @@ public class AssociationServices {
 
   private boolean areCardinalitiesValid(SemiAssociation semiAssociation) {
     if (semiAssociation.getMaximumCardinality() == null) return true;
-    else return semiAssociation.getMaximumCardinality() > semiAssociation.getMinimumCardinality();
+    else return semiAssociation.getMaximumCardinality() >= semiAssociation.getMinimumCardinality();
   }
 
   public void setSemiAssociationName(SemiAssociation semiAssociation, String name) {
@@ -123,15 +123,21 @@ public class AssociationServices {
   }
 
   public String associationBeginLabel(Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getPrimarySemiAssociation(), SemiAssociation::getRole)
-        .toString();
+    StringBuilder sb =
+        buildSemiAssociationAttributeLabel(
+                association.getPrimarySemiAssociation(), SemiAssociation::getRole)
+            .append(' ');
+    buildCardinalityLabelPart(association.getPrimarySemiAssociation(), sb);
+    return sb.toString();
   }
 
   public String associationEndLabel(Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getSecondarySemiAssociation(), SemiAssociation::getRole)
-        .toString();
+    StringBuilder sb =
+        buildSemiAssociationAttributeLabel(
+                association.getSecondarySemiAssociation(), SemiAssociation::getRole)
+            .append(' ');
+    buildCardinalityLabelPart(association.getSecondarySemiAssociation(), sb);
+    return sb.toString();
   }
 
   public Class getAssociationSourceType(Association association) {
@@ -305,12 +311,8 @@ public class AssociationServices {
     }
 
     final StringBuilder sb = new StringBuilder();
-    buildSemiAssociationAttributeLabel(primary, SemiAssociation::getRole, sb);
-
-    sb.append(": ")
-        .append(primary.getMinimumCardinality())
-        .append("..")
-        .append(primary.getMaximumCardinality() == null ? "*" : primary.getMaximumCardinality());
+    buildSemiAssociationAttributeLabel(primary, SemiAssociation::getRole, sb).append(": ");
+    buildCardinalityLabelPart(primary, sb).append(" ");
 
     if (primary.getMaximumCardinality() == null) {
       if (primary.isWhole()) {

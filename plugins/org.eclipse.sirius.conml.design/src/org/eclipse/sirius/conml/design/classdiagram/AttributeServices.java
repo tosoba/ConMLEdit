@@ -9,7 +9,7 @@ import conml.types.EnumeratedType;
 import conml.types.Feature;
 import conml.types.Property;
 
-public class AttributeServices {
+public class AttributeServices extends FeatureServices {
 
   public String attributeLabel(Feature feature) {
     if (feature == null) {
@@ -23,17 +23,7 @@ public class AttributeServices {
     }
     sb.append(": ");
 
-    sb.append(feature.getMinimumCardinality());
-    if (!Objects.equals(feature.getMinimumCardinality(), feature.getMaximumCardinality())) {
-      sb.append("..");
-      if (feature.getMaximumCardinality() != null) {
-        sb.append(feature.getMaximumCardinality());
-      } else {
-        sb.append("*");
-      }
-    }
-
-    sb.append(" ");
+    buildCardinalityLabelPart(feature, sb).append(" ");
 
     final ArrayList<String> markers = new ArrayList<>();
     if (feature.isConstant()) {
