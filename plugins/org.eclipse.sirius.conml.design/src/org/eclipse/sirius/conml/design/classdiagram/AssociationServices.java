@@ -35,6 +35,10 @@ public class AssociationServices extends FeatureServices {
     static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
   }
 
+  public boolean primarySemiAssociationIsWhole(Association association) {
+    return association.getPrimarySemiAssociation().isWhole();
+  }
+
   public List<SemiAssociation> primarySemiAssociationAsList(Association association) {
     return Arrays.asList(association.getPrimarySemiAssociation());
   }
@@ -46,6 +50,13 @@ public class AssociationServices extends FeatureServices {
   public List<SemiAssociation> semiAssociationsList(Association association) {
     return Arrays.asList(
         association.getPrimarySemiAssociation(), association.getSecondarySemiAssociation());
+  }
+
+  public boolean areSemiAssociationsWholeSemanticsValid(EObject object) {
+    if (!(object instanceof Association)) return true;
+    final Association association = (Association) object;
+    return !association.getPrimarySemiAssociation().isWhole()
+        || !association.getSecondarySemiAssociation().isWhole();
   }
 
   public boolean arePrimarySemiAssociationCardinalitiesValid(Association association) {
@@ -104,6 +115,10 @@ public class AssociationServices extends FeatureServices {
     }
   }
 
+  public void setWhole(SemiAssociation semiAssociation, Boolean whole) {
+    semiAssociation.setWhole(whole);
+  }
+
   public String associationCenterLabel(Association association) {
     return associationCenterTopLabel(association)
         + "\n"
@@ -123,7 +138,7 @@ public class AssociationServices extends FeatureServices {
   }
 
   public String associationBeginLabel(Association association) {
-    StringBuilder sb =
+    final StringBuilder sb =
         buildSemiAssociationAttributeLabel(
                 association.getPrimarySemiAssociation(), SemiAssociation::getRole)
             .append(' ');
@@ -132,7 +147,7 @@ public class AssociationServices extends FeatureServices {
   }
 
   public String associationEndLabel(Association association) {
-    StringBuilder sb =
+    final StringBuilder sb =
         buildSemiAssociationAttributeLabel(
                 association.getSecondarySemiAssociation(), SemiAssociation::getRole)
             .append(' ');

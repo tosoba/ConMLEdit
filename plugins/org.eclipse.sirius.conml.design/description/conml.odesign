@@ -19,6 +19,20 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="service:self.primarySemiAssociationIsWhole">
+            <style targetArrow="Diamond">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="CD_Generalization" sourceMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
           <style targetArrow="InputClosedArrow">
@@ -314,6 +328,9 @@
           <semanticValidationRules name="Props_Class Validation IsSubjectiveAspect" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
             <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_Association Validation WholeSemantics" level="ERROR" message="Only one of the SemiAssociations may have whole semantics." targetClass="types::Association">
+            <audits auditExpression="service:self.areSemiAssociationsWholeSemanticsValid"/>
+          </semanticValidationRules>
         </validationSet>
       </groups>
       <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
@@ -343,6 +360,13 @@
             <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_MaxCardinality_Text" labelExpression="Maximum Cardinality" helpExpression="Maximum Cardinality of the SemiAssociation" valueExpression="aql:semi.maximumCardinality">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationMaximumCardinality(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationWholeIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Whole_Checkbox" labelExpression="Whole" helpExpression="Indicates whether the partcipant class possesses &quot;whole&quot; semantics in a &quot;whole/part&quot; relationship" valueExpression="aql:semi.whole">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setWhole(newValue)"/>
               </initialOperation>
             </widget>
           </ifs>
