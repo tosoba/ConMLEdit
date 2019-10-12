@@ -32,6 +32,14 @@ public class AssociationServices {
     static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
   }
 
+  public List<SemiAssociation> primarySemiAssociationAsList(Association association) {
+    return Arrays.asList(association.getPrimarySemiAssociation());
+  }
+
+  public List<SemiAssociation> secondarySemiAssociationAsList(Association association) {
+    return Arrays.asList(association.getSecondarySemiAssociation());
+  }
+
   public List<SemiAssociation> semiAssociationsList(Association association) {
     return Arrays.asList(
         association.getPrimarySemiAssociation(), association.getSecondarySemiAssociation());

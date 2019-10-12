@@ -254,7 +254,7 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="PR_General">
-      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.1"/>
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3"/>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
@@ -316,7 +316,7 @@
           </semanticValidationRules>
         </validationSet>
       </groups>
-      <groups name="PR_PrimarySemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
+      <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="SemiAssociationsDynamicMapping" iterator="semi" iterableExpression="service:self.semiAssociationsList">
           <ifs name="semiAssociationNameIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
             <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Name_Text" labelExpression="Name:" helpExpression="Name of the SemiAssociation" valueExpression="aql:semi.name">
@@ -340,6 +340,12 @@
             </widget>
           </ifs>
         </controls>
+      </groups>
+      <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+      </groups>
+      <groups name="PR_SecondarySemiAssociationGroup" labelExpression="Secondary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="SecondarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.secondarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
       </groups>
     </categories>
   </extensions>
