@@ -339,13 +339,30 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="semiAssociationMaxCardinalityIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_MaxCardinality_Text" labelExpression="Maximum Cardinality" helpExpression="Maximum Cardinality of the SemiAssociation" valueExpression="aql:semi.maximumCardinality">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationMaximumCardinality(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
       </groups>
       <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <validationSet>
+          <semanticValidationRules name="Props_Association Validation Primary Cardinalities" level="ERROR" message="Primary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.arePrimarySemiAssociationCardinalitiesValid"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="PR_SecondarySemiAssociationGroup" labelExpression="Secondary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="SecondarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.secondarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <validationSet>
+          <semanticValidationRules name="Props_Association Validation Secondary Cardinalities" level="ERROR" message="Secondary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.areSecondarySemiAssociationCardinalitiesValid"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
     </categories>
   </extensions>

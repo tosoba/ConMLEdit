@@ -25,7 +25,10 @@ public class AssociationServices {
         "Compact style cannot be used for symmetric associations.";
     static final String COMPACT_CARDINALITIES =
         "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
-    static final String EXPECTED_INTEGER_INPUT = "Invalid input - must be a non-negative integer.";
+    static final String EXPECTED_NON_NEGATIVE_INTEGER_INPUT =
+        "Invalid input - must be a non-negative integer.";
+    static final String EXPECTED_POSITIVE_INTEGER_INPUT =
+        "Invalid input - must be a positive integer.";
   }
 
   private static final class Messages {
@@ -45,6 +48,19 @@ public class AssociationServices {
         association.getPrimarySemiAssociation(), association.getSecondarySemiAssociation());
   }
 
+  public boolean arePrimarySemiAssociationCardinalitiesValid(Association association) {
+    return areCardinalitiesValid(association.getPrimarySemiAssociation());
+  }
+
+  public boolean areSecondarySemiAssociationCardinalitiesValid(Association association) {
+    return areCardinalitiesValid(association.getSecondarySemiAssociation());
+  }
+
+  private boolean areCardinalitiesValid(SemiAssociation semiAssociation) {
+    if (semiAssociation.getMaximumCardinality() == null) return true;
+    else return semiAssociation.getMaximumCardinality() > semiAssociation.getMinimumCardinality();
+  }
+
   public void setSemiAssociationName(SemiAssociation semiAssociation, String name) {
     semiAssociation.setName(name);
   }
@@ -61,9 +77,29 @@ public class AssociationServices {
       try {
         int cardinality = Integer.parseInt(cardinalityStr);
         if (cardinality >= 0) semiAssociation.setMinimumCardinality(cardinality);
-        else Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_INTEGER_INPUT);
+        else
+          Dialogs.showError(
+              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
       } catch (NumberFormatException e) {
-        Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_INTEGER_INPUT);
+        Dialogs.showError(
+            Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
+      }
+    }
+  }
+
+  public void setSemiAssociationMaximumCardinality(
+      SemiAssociation semiAssociation, String cardinalityStr) {
+    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
+      semiAssociation.setMaximumCardinality(null);
+    } else {
+      try {
+        int cardinality = Integer.parseInt(cardinalityStr);
+        if (cardinality > 0) semiAssociation.setMaximumCardinality(cardinality);
+        else
+          Dialogs.showError(
+              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
+      } catch (NumberFormatException e) {
+        Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
       }
     }
   }
