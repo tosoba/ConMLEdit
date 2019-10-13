@@ -47,4 +47,9 @@ public class ConML {
         .findAny()
         .isPresent();
   }
+
+  public enum ElementMovementDirection {
+    UP,
+    DOWN
+  }
 }

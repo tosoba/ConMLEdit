@@ -13,7 +13,7 @@ import conml.types.EnumeratedType;
 import conml.types.Package;
 import conml.types.TypeModel;
 
-public class PackageServices {
+public class PackageServices extends ModelElementServices {
 
   public void removePackage(EObject object) {
     if (!(object instanceof Package)) return;
@@ -40,6 +40,18 @@ public class PackageServices {
             });
 
     typeModel.getElements().remove(_package);
+  }
+
+  public void movePackageUp(EObject object) {
+    if (!(object instanceof Package)) return;
+    final Package _package = (Package) object;
+    moveElement(_package, Package.class, ConML.ElementMovementDirection.UP);
+  }
+
+  public void movePackageDown(EObject object) {
+    if (!(object instanceof Package)) return;
+    final Package _package = (Package) object;
+    moveElement(_package, Package.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public String getPackageName(EObject object) {
