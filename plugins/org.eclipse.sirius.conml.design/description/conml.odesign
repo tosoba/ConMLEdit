@@ -631,12 +631,16 @@
           </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageUp()"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageUp(self)"/>
+              </firstModelOperations>
             </initialOperation>
           </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/down.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageDown()"/>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageDown(self)"/>
+              </firstModelOperations>
             </initialOperation>
           </actions>
         </controls>

@@ -1,5 +1,7 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.ConML;
 
@@ -9,39 +11,47 @@ import conml.ModelElement;
 public class ModelElementServices {
 
   protected <T extends EObject> void moveElement(
-      T element, Class<T> elementClass, ConML.ElementMovementDirection direction) {
-    final EObject container = element.eContainer();
-    if (!(container instanceof Model)) return;
-    final Model model = (Model) container;
-
-    int elementIndex = model.getElements().indexOf(element);
-    if (elementIndex == -1) return;
+      List<T> elements,
+      Model model,
+      Class<T> elementClass,
+      ConML.ElementMovementDirection direction) {
+    if (elements.isEmpty()) return;
 
     int indexToSwapWith = -1;
 
     switch (direction) {
       case UP:
-        for (int i = elementIndex - 1; i >= 0; i--) {
-          ModelElement other = model.getElements().get(i);
-          if (elementClass.isInstance(other)) {
-            indexToSwapWith = i;
-            break;
+        {
+          int firstElementIndex = model.getElements().indexOf(elements.get(0));
+          if (firstElementIndex == -1) return;
+          for (int i = firstElementIndex - 1; i >= 0; i--) {
+            ModelElement other = model.getElements().get(i);
+            if (elementClass.isInstance(other)) {
+              indexToSwapWith = i;
+              break;
+            }
           }
+          break;
         }
-        break;
       case DOWN:
-        for (int i = elementIndex + 1; i < model.getElements().size(); i++) {
-          ModelElement other = model.getElements().get(i);
-          if (elementClass.isInstance(other)) {
-            indexToSwapWith = i;
-            break;
+        {
+          int lastElementIndex = model.getElements().indexOf(elements.get(elements.size() - 1));
+          if (lastElementIndex == -1) return;
+          for (int i = lastElementIndex + 1; i < model.getElements().size(); i++) {
+            ModelElement other = model.getElements().get(i);
+            if (elementClass.isInstance(other)) {
+              indexToSwapWith = i;
+              break;
+            }
           }
+          break;
         }
-        break;
     }
 
     if (indexToSwapWith != -1) {
-      model.getElements().move(indexToSwapWith, elementIndex);
+      for (int i = elements.size() - 1; i >= 0; i--) {
+        model.getElements().move(indexToSwapWith, model.getElements().indexOf(elements.get(i)));
+      }
     }
   }
 }
