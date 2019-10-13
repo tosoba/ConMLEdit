@@ -3,6 +3,7 @@ package org.eclipse.sirius.conml.design;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -46,6 +47,47 @@ public class ConML {
         .filter(container -> EcoreUtil.equals(ref, referenceGetter.apply(container)))
         .findAny()
         .isPresent();
+  }
+
+  public static <E extends EObject, C extends EObject>
+      ElementContainerPair<E, C> castElementAndContainer(
+          EObject element, Class<E> elementClass, EObject container, Class<C> containerClass) {
+    return new ElementContainerPair<E, C>(element, elementClass, container, containerClass);
+  }
+
+  public static <E extends EObject, C extends EObject>
+      ElementContainerPair<E, C> castElementAndContainer(
+          EObject element, Class<E> elementClass, Class<C> containerClass) {
+    return new ElementContainerPair<E, C>(
+        element, elementClass, element.eContainer(), containerClass);
+  }
+
+  public static class ElementContainerPair<E extends EObject, C extends EObject> {
+    private final E element;
+    private final C container;
+
+    public ElementContainerPair(E element, C container) {
+      this.element = element;
+      this.container = container;
+    }
+
+    public ElementContainerPair(
+        EObject element, Class<E> elementClass, EObject container, Class<C> containerClass) {
+      this.element = elementClass.isInstance(element) ? elementClass.cast(element) : null;
+      this.container = containerClass.isInstance(container) ? containerClass.cast(container) : null;
+    }
+
+    public E getElement() {
+      return element;
+    }
+
+    public C getContainer() {
+      return container;
+    }
+
+    public void ifBothCastsSuccessful(BiConsumer<E, C> action) {
+      if (element != null && container != null) action.accept(element, container);
+    }
   }
 
   public enum ElementMovementDirection {

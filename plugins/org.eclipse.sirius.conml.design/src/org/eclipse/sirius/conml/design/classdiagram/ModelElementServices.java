@@ -10,7 +10,7 @@ import conml.ModelElement;
 
 public class ModelElementServices {
 
-  protected <T extends EObject> void moveElement(
+  protected <T extends EObject> void moveElements(
       List<T> elements,
       Model model,
       Class<T> elementClass,

@@ -44,21 +44,18 @@ public class PackageServices extends ModelElementServices {
   }
 
   public void movePackageUp(EObject object) {
-    if (!(object instanceof Package)) return;
-    final Package _package = (Package) object;
-    final EObject containerObject = object.eContainer();
-    if (!(containerObject instanceof Model)) return;
-    final Model model = (Model) containerObject;
-    moveElement(Arrays.asList(_package), model, Package.class, ConML.ElementMovementDirection.UP);
+    movePackage(object, ConML.ElementMovementDirection.UP);
   }
 
   public void movePackageDown(EObject object) {
-    if (!(object instanceof Package)) return;
-    final Package _package = (Package) object;
-    final EObject containerObject = object.eContainer();
-    if (!(containerObject instanceof Model)) return;
-    final Model model = (Model) containerObject;
-    moveElement(Arrays.asList(_package), model, Package.class, ConML.ElementMovementDirection.DOWN);
+    movePackage(object, ConML.ElementMovementDirection.DOWN);
+  }
+
+  private void movePackage(EObject object, ConML.ElementMovementDirection direction) {
+    ConML.castElementAndContainer(object, Package.class, Model.class)
+        .ifBothCastsSuccessful(
+            (_package, model) ->
+                moveElements(Arrays.asList(_package), model, Package.class, direction));
   }
 
   public String getPackageName(EObject object) {
