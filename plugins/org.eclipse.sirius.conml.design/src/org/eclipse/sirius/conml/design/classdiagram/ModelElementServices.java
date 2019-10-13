@@ -22,10 +22,10 @@ public class ModelElementServices {
     switch (direction) {
       case UP:
         {
-          int firstElementIndex = model.getElements().indexOf(elements.get(0));
+          final int firstElementIndex = model.getElements().indexOf(elements.get(0));
           if (firstElementIndex == -1) return;
           for (int i = firstElementIndex - 1; i >= 0; i--) {
-            ModelElement other = model.getElements().get(i);
+            final ModelElement other = model.getElements().get(i);
             if (elementClass.isInstance(other)) {
               indexToSwapWith = i;
               break;
@@ -35,10 +35,11 @@ public class ModelElementServices {
         }
       case DOWN:
         {
-          int lastElementIndex = model.getElements().indexOf(elements.get(elements.size() - 1));
+          final int lastElementIndex =
+              model.getElements().indexOf(elements.get(elements.size() - 1));
           if (lastElementIndex == -1) return;
           for (int i = lastElementIndex + 1; i < model.getElements().size(); i++) {
-            ModelElement other = model.getElements().get(i);
+            final ModelElement other = model.getElements().get(i);
             if (elementClass.isInstance(other)) {
               indexToSwapWith = i;
               break;

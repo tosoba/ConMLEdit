@@ -1,46 +1,71 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.conml.design.ConML;
+import org.eclipse.sirius.conml.design.Dialogs;
 
 import conml.Model;
 import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Package;
-import conml.types.TypeModel;
 
 public class PackageServices extends ModelElementServices {
 
   public void removePackage(EObject object) {
-    if (!(object instanceof Package)) return;
-    final Package _package = (Package) object;
-    final EObject container = _package.eContainer();
-    if (!(container instanceof TypeModel)) return;
-    final TypeModel typeModel = (TypeModel) container;
+    ConML.castElementAndContainer(object, Package.class, Model.class)
+        .ifBothCastsSuccessful(
+            (packageToRemove, model) -> {
+              final int result =
+                  Dialogs.openWith(
+                      "Delete package",
+                      "Delete subpackages recursively?",
+                      new String[] {"Cancel", "Yes", "No"},
+                      MessageDialog.QUESTION);
+
+              if (result != 1 && result != 2) return;
+
+              removePackage(packageToRemove, model, result == 1);
+            });
+  }
+
+  private void removePackage(
+      Package packageToRemove, Model typeModel, boolean removeSubPackagesRecursively) {
+    final ArrayList<Package> subPackagesToRemove = new ArrayList<>();
 
     typeModel
         .getElements()
+        .stream()
+        .filter(element -> !EcoreUtil.equals(packageToRemove, element))
         .forEach(
             element -> {
               if (element instanceof Class) {
-                Class clazz = (Class) element;
-                if (EcoreUtil.equals(_package, clazz.getPackage())) {
+                final Class clazz = (Class) element;
+                if (EcoreUtil.equals(packageToRemove, clazz.getPackage())) {
                   clazz.setPackage(null);
                 }
               } else if (element instanceof EnumeratedType) {
-                EnumeratedType enumType = (EnumeratedType) element;
-                if (EcoreUtil.equals(enumType.getPackage(), _package)) {
+                final EnumeratedType enumType = (EnumeratedType) element;
+                if (EcoreUtil.equals(enumType.getPackage(), packageToRemove)) {
                   enumType.setPackage(null);
+                }
+              } else if (element instanceof Package) {
+                final Package otherPackage = (Package) element;
+                if (EcoreUtil.equals(otherPackage.getIsSubPackageOf(), packageToRemove)) {
+                  if (removeSubPackagesRecursively) subPackagesToRemove.add(otherPackage);
+                  else otherPackage.setIsSubPackageOf(packageToRemove.getIsSubPackageOf());
                 }
               }
             });
 
-    typeModel.getElements().remove(_package);
+    subPackagesToRemove.forEach(subPackage -> removePackage(subPackage, typeModel, true));
+    typeModel.getElements().remove(packageToRemove);
   }
 
   public void movePackageUp(EObject object) {

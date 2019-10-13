@@ -7,6 +7,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.swt.widgets.Display;
 
 public class Dialogs {
@@ -21,6 +22,13 @@ public class Dialogs {
   public static void showError(String msg, String reason) {
     ErrorDialog.openError(
         Display.getCurrent().getActiveShell(), "Error", msg, createStatus(reason));
+  }
+
+  public static int openWith(String title, String message, String[] buttons, int type) {
+    MessageDialog dialog =
+        new MessageDialog(
+            Display.getCurrent().getActiveShell(), title, null, message, type, buttons, 0);
+    return dialog.open();
   }
 
   private static Status createStatus(String msg) {
