@@ -49,6 +49,13 @@ public class ConML {
         .isPresent();
   }
 
+  public static <R, T extends EObject> R castAndRunOrReturn(
+      EObject object, Class<T> clazz, Function<T, R> action, R unsuccessfulCastResult) {
+    if (!clazz.isInstance(object)) return unsuccessfulCastResult;
+    final T castedObject = clazz.cast(object);
+    return action.apply(castedObject);
+  }
+
   public static <E extends EObject, C extends EObject>
       ElementContainerPair<E, C> castElementAndContainer(
           EObject element, Class<E> elementClass, EObject container, Class<C> containerClass) {

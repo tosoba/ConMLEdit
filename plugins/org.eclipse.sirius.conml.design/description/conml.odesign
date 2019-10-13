@@ -211,7 +211,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="service:self.classLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.classLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -509,6 +509,9 @@
           </semanticValidationRules>
           <semanticValidationRules name="Props_Association Validation WholeSemantics" level="ERROR" message="Only one of the SemiAssociations may have whole semantics." targetClass="types::Association">
             <audits auditExpression="service:self.areSemiAssociationsWholeSemanticsValid"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Package Validation SelfContainment" level="ERROR" message="Package cannot be a SubPackage of itself." targetClass="types::Package">
+            <audits auditExpression="service:self.isNotSubPackageOfItself"/>
           </semanticValidationRules>
         </validationSet>
       </groups>

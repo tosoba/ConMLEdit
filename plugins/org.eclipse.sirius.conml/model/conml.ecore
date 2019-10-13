@@ -178,7 +178,7 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" lowerBound="1"
           eType="#//types/BaseDataType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataType" eSuperTypes="#//types/Type"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//types/Type"/>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

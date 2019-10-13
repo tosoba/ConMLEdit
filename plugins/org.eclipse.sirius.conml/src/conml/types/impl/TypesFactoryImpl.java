@@ -5,7 +5,6 @@ package conml.types.impl;
 import conml.types.Association;
 import conml.types.Attribute;
 import conml.types.BaseDataType;
-import conml.types.DataType;
 import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.Generalization;
@@ -79,7 +78,6 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 			case TypesPackage.SEMI_ASSOCIATION: return createSemiAssociation();
 			case TypesPackage.PROPERTY: return createProperty();
 			case TypesPackage.SIMPLE_DATA_TYPE: return createSimpleDataType();
-			case TypesPackage.DATA_TYPE: return createDataType();
 			case TypesPackage.ENUMERATED_ITEM: return createEnumeratedItem();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
@@ -224,17 +222,6 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 	public SimpleDataType createSimpleDataType() {
 		SimpleDataTypeImpl simpleDataType = new SimpleDataTypeImpl();
 		return simpleDataType;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DataType createDataType() {
-		DataTypeImpl dataType = new DataTypeImpl();
-		return dataType;
 	}
 
 	/**

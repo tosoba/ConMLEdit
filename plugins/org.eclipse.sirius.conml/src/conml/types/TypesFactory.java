@@ -112,15 +112,6 @@ public interface TypesFactory extends EFactory {
 	SimpleDataType createSimpleDataType();
 
 	/**
-	 * Returns a new object of class '<em>Data Type</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Data Type</em>'.
-	 * @generated
-	 */
-	DataType createDataType();
-
-	/**
 	 * Returns a new object of class '<em>Enumerated Item</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

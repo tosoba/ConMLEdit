@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EClass;
  *
  * @generated
  */
-public class DataTypeImpl extends TypeImpl implements DataType {
+public abstract class DataTypeImpl extends TypeImpl implements DataType {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

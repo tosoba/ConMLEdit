@@ -9,7 +9,7 @@ package conml.types;
  *
  *
  * @see conml.types.TypesPackage#getDataType()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface DataType extends Type {

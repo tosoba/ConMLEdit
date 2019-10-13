@@ -271,11 +271,6 @@ public class ModelItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(conmlPackage.Literals.MODEL__ELEMENTS,
-				 TypesFactory.eINSTANCE.createDataType()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.MODEL__ELEMENTS,
 				 TypesFactory.eINSTANCE.createEnumeratedType()));
 
 		newChildDescriptors.add

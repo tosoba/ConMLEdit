@@ -302,29 +302,6 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link conml.types.DataType} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected DataTypeItemProvider dataTypeItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link conml.types.DataType}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createDataTypeAdapter() {
-		if (dataTypeItemProvider == null) {
-			dataTypeItemProvider = new DataTypeItemProvider(this);
-		}
-
-		return dataTypeItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link conml.types.EnumeratedItem} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -462,7 +439,6 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 		if (semiAssociationItemProvider != null) semiAssociationItemProvider.dispose();
 		if (propertyItemProvider != null) propertyItemProvider.dispose();
 		if (simpleDataTypeItemProvider != null) simpleDataTypeItemProvider.dispose();
-		if (dataTypeItemProvider != null) dataTypeItemProvider.dispose();
 		if (enumeratedItemItemProvider != null) enumeratedItemItemProvider.dispose();
 	}
 

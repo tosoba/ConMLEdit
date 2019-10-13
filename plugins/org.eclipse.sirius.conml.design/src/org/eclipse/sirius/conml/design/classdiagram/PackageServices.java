@@ -90,10 +90,21 @@ public class PackageServices extends ModelElementServices {
     final ArrayList<String> packageNames = new ArrayList<>();
     while (packageIterator != null) {
       packageNames.add(packageIterator.getName());
+      // prevents endless loop if user makes a mistake and sets package as a container of itself
+      if (EcoreUtil.equals(packageIterator, packageIterator.getContainerPackage())) break;
       packageIterator = packageIterator.getContainerPackage();
     }
     Collections.reverse(packageNames);
     return packageNames.stream().collect(Collectors.joining("."));
+  }
+
+  public boolean isNotSubPackageOfItself(EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Package.class,
+        packageToValidate ->
+            !EcoreUtil.equals(packageToValidate, packageToValidate.getContainerPackage()),
+        true);
   }
 
   public Collection<Package> getCDOverallPackageSemanticCandidates(Model model) {
