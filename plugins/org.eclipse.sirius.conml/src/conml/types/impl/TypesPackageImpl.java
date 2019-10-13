@@ -765,21 +765,21 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_IsOwnerOf() {
+	public EReference getPackage_SubPackages() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(4);
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EReference getPackage_IsSubPackageOf() {
+	public EReference getPackage_ContainerPackage() {
 		return (EReference)packageEClass.getEStructuralFeatures().get(5);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1139,8 +1139,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(packageEClass, PACKAGE__DESCRIPTION);
 		createEReference(packageEClass, PACKAGE__CONTAINED_CLASSES);
 		createEReference(packageEClass, PACKAGE__ENUMERATED_TYPES);
-		createEReference(packageEClass, PACKAGE__IS_OWNER_OF);
-		createEReference(packageEClass, PACKAGE__IS_SUB_PACKAGE_OF);
+		createEReference(packageEClass, PACKAGE__SUB_PACKAGES);
+		createEReference(packageEClass, PACKAGE__CONTAINER_PACKAGE);
 		createEAttribute(packageEClass, PACKAGE__OVERALL);
 
 		attributeEClass = createEClass(ATTRIBUTE);
@@ -1288,8 +1288,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getPackage_Description(), ecorePackage.getEString(), "description", null, 0, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_ContainedClasses(), this.getClass_(), this.getClass_Package(), "ContainedClasses", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getPackage_EnumeratedTypes(), this.getEnumeratedType(), this.getEnumeratedType_Package(), "EnumeratedTypes", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_IsOwnerOf(), this.getPackage(), this.getPackage_IsSubPackageOf(), "IsOwnerOf", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getPackage_IsSubPackageOf(), this.getPackage(), this.getPackage_IsOwnerOf(), "isSubPackageOf", null, 0, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_SubPackages(), this.getPackage(), this.getPackage_ContainerPackage(), "SubPackages", null, 0, -1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPackage_ContainerPackage(), this.getPackage(), this.getPackage_SubPackages(), "ContainerPackage", null, 0, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPackage_Overall(), theXMLTypePackage.getBoolean(), "overall", "false", 1, 1, conml.types.Package.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

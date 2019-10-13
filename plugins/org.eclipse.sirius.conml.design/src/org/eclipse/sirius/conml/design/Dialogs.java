@@ -24,11 +24,10 @@ public class Dialogs {
         Display.getCurrent().getActiveShell(), "Error", msg, createStatus(reason));
   }
 
-  public static int openWith(String title, String message, String[] buttons, int type) {
-    MessageDialog dialog =
-        new MessageDialog(
-            Display.getCurrent().getActiveShell(), title, null, message, type, buttons, 0);
-    return dialog.open();
+  public static int show(String title, String message, String[] buttons, int type) {
+    return new MessageDialog(
+            Display.getCurrent().getActiveShell(), title, null, message, type, buttons, 0)
+        .open();
   }
 
   private static Status createStatus(String msg) {
@@ -36,11 +35,11 @@ public class Dialogs {
   }
 
   private static MultiStatus createMultiStatus(String msg, Throwable trowable) {
-    List<Status> childStatuses = new ArrayList<>();
-    StackTraceElement[] stackTraces = Thread.currentThread().getStackTrace();
+    final List<Status> childStatuses = new ArrayList<>();
+    final StackTraceElement[] stackTraces = Thread.currentThread().getStackTrace();
 
     for (StackTraceElement stackTrace : stackTraces) {
-      Status status = new Status(IStatus.ERROR, pluginId, stackTrace.toString());
+      final Status status = new Status(IStatus.ERROR, pluginId, stackTrace.toString());
       childStatuses.add(status);
     }
 

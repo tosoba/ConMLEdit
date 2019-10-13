@@ -1033,24 +1033,24 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE__ENUMERATED_TYPES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Is Owner Of</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Sub Packages</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_OWNER_OF = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int PACKAGE__SUB_PACKAGES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 4;
 
-	/**
-	 * The feature id for the '<em><b>Is Sub Package Of</b></em>' container reference.
+    /**
+	 * The feature id for the '<em><b>Container Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__IS_SUB_PACKAGE_OF = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 5;
+	int PACKAGE__CONTAINER_PACKAGE = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 5;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Overall</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2334,28 +2334,28 @@ public interface TypesPackage extends EPackage {
 	EReference getPackage_EnumeratedTypes();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.Package#getIsOwnerOf <em>Is Owner Of</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Package#getSubPackages <em>Sub Packages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Is Owner Of</em>'.
-	 * @see conml.types.Package#getIsOwnerOf()
+	 * @return the meta object for the reference list '<em>Sub Packages</em>'.
+	 * @see conml.types.Package#getSubPackages()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_IsOwnerOf();
+	EReference getPackage_SubPackages();
 
-	/**
-	 * Returns the meta object for the container reference '{@link conml.types.Package#getIsSubPackageOf <em>Is Sub Package Of</em>}'.
+    /**
+	 * Returns the meta object for the reference '{@link conml.types.Package#getContainerPackage <em>Container Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Is Sub Package Of</em>'.
-	 * @see conml.types.Package#getIsSubPackageOf()
+	 * @return the meta object for the reference '<em>Container Package</em>'.
+	 * @see conml.types.Package#getContainerPackage()
 	 * @see #getPackage()
 	 * @generated
 	 */
-	EReference getPackage_IsSubPackageOf();
+	EReference getPackage_ContainerPackage();
 
-	/**
+  /**
 	 * Returns the meta object for the attribute '{@link conml.types.Package#isOverall <em>Overall</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3111,22 +3111,22 @@ public interface TypesPackage extends EPackage {
 		EReference PACKAGE__ENUMERATED_TYPES = eINSTANCE.getPackage_EnumeratedTypes();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Owner Of</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Sub Packages</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__IS_OWNER_OF = eINSTANCE.getPackage_IsOwnerOf();
+		EReference PACKAGE__SUB_PACKAGES = eINSTANCE.getPackage_SubPackages();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Sub Package Of</b></em>' container reference feature.
+        /**
+		 * The meta object literal for the '<em><b>Container Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PACKAGE__IS_SUB_PACKAGE_OF = eINSTANCE.getPackage_IsSubPackageOf();
+		EReference PACKAGE__CONTAINER_PACKAGE = eINSTANCE.getPackage_ContainerPackage();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Overall</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

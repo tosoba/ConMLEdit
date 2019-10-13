@@ -16,10 +16,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.PackageImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getContainedClasses <em>Contained Classes</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#getEnumeratedTypes <em>Enumerated Types</em>}</li>
- *   <li>{@link conml.types.impl.PackageImpl#getIsOwnerOf <em>Is Owner Of</em>}</li>
- *   <li>{@link conml.types.impl.PackageImpl#getIsSubPackageOf <em>Is Sub Package Of</em>}</li>
+ *   <li>{@link conml.types.impl.PackageImpl#getSubPackages <em>Sub Packages</em>}</li>
+ *   <li>{@link conml.types.impl.PackageImpl#getContainerPackage <em>Container Package</em>}</li>
  *   <li>{@link conml.types.impl.PackageImpl#isOverall <em>Overall</em>}</li>
  * </ul>
  *
@@ -103,16 +100,26 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	protected EList<EnumeratedType> enumeratedTypes;
 
 	/**
-	 * The cached value of the '{@link #getIsOwnerOf() <em>Is Owner Of</em>}' containment reference list.
+	 * The cached value of the '{@link #getSubPackages() <em>Sub Packages</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsOwnerOf()
+	 * @see #getSubPackages()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.types.Package> isOwnerOf;
+	protected EList<conml.types.Package> subPackages;
 
-	/**
+    /**
+	 * The cached value of the '{@link #getContainerPackage() <em>Container Package</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContainerPackage()
+	 * @generated
+	 * @ordered
+	 */
+	protected conml.types.Package containerPackage;
+
+  /**
 	 * The default value of the '{@link #isOverall() <em>Overall</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -229,57 +236,76 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	 * @generated
 	 */
 	@Override
-	public EList<conml.types.Package> getIsOwnerOf() {
-		if (isOwnerOf == null) {
-			isOwnerOf = new EObjectContainmentWithInverseEList<conml.types.Package>(conml.types.Package.class, this, TypesPackage.PACKAGE__IS_OWNER_OF, TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF);
+	public EList<conml.types.Package> getSubPackages() {
+		if (subPackages == null) {
+			subPackages = new EObjectWithInverseResolvingEList<conml.types.Package>(conml.types.Package.class, this, TypesPackage.PACKAGE__SUB_PACKAGES, TypesPackage.PACKAGE__CONTAINER_PACKAGE);
 		}
-		return isOwnerOf;
+		return subPackages;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public conml.types.Package getIsSubPackageOf() {
-		if (eContainerFeatureID() != TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF) return null;
-		return (conml.types.Package)eInternalContainer();
+	public conml.types.Package getContainerPackage() {
+		if (containerPackage != null && containerPackage.eIsProxy()) {
+			InternalEObject oldContainerPackage = (InternalEObject)containerPackage;
+			containerPackage = (conml.types.Package)eResolveProxy(oldContainerPackage);
+			if (containerPackage != oldContainerPackage) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.PACKAGE__CONTAINER_PACKAGE, oldContainerPackage, containerPackage));
+			}
+		}
+		return containerPackage;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsSubPackageOf(conml.types.Package newIsSubPackageOf, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newIsSubPackageOf, TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF, msgs);
+	public conml.types.Package basicGetContainerPackage() {
+		return containerPackage;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetContainerPackage(conml.types.Package newContainerPackage, NotificationChain msgs) {
+		conml.types.Package oldContainerPackage = containerPackage;
+		containerPackage = newContainerPackage;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.PACKAGE__CONTAINER_PACKAGE, oldContainerPackage, newContainerPackage);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
 		return msgs;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSubPackageOf(conml.types.Package newIsSubPackageOf) {
-		if (newIsSubPackageOf != eInternalContainer() || (eContainerFeatureID() != TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF && newIsSubPackageOf != null)) {
-			if (EcoreUtil.isAncestor(this, newIsSubPackageOf))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+	public void setContainerPackage(conml.types.Package newContainerPackage) {
+		if (newContainerPackage != containerPackage) {
 			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newIsSubPackageOf != null)
-				msgs = ((InternalEObject)newIsSubPackageOf).eInverseAdd(this, TypesPackage.PACKAGE__IS_OWNER_OF, conml.types.Package.class, msgs);
-			msgs = basicSetIsSubPackageOf(newIsSubPackageOf, msgs);
+			if (containerPackage != null)
+				msgs = ((InternalEObject)containerPackage).eInverseRemove(this, TypesPackage.PACKAGE__SUB_PACKAGES, conml.types.Package.class, msgs);
+			if (newContainerPackage != null)
+				msgs = ((InternalEObject)newContainerPackage).eInverseAdd(this, TypesPackage.PACKAGE__SUB_PACKAGES, conml.types.Package.class, msgs);
+			msgs = basicSetContainerPackage(newContainerPackage, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF, newIsSubPackageOf, newIsSubPackageOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.PACKAGE__CONTAINER_PACKAGE, newContainerPackage, newContainerPackage));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -315,12 +341,12 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getContainedClasses()).basicAdd(otherEnd, msgs);
 			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEnumeratedTypes()).basicAdd(otherEnd, msgs);
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOwnerOf()).basicAdd(otherEnd, msgs);
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetIsSubPackageOf((conml.types.Package)otherEnd, msgs);
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubPackages()).basicAdd(otherEnd, msgs);
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				if (containerPackage != null)
+					msgs = ((InternalEObject)containerPackage).eInverseRemove(this, TypesPackage.PACKAGE__SUB_PACKAGES, conml.types.Package.class, msgs);
+				return basicSetContainerPackage((conml.types.Package)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -337,26 +363,12 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return ((InternalEList<?>)getContainedClasses()).basicRemove(otherEnd, msgs);
 			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
 				return ((InternalEList<?>)getEnumeratedTypes()).basicRemove(otherEnd, msgs);
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				return ((InternalEList<?>)getIsOwnerOf()).basicRemove(otherEnd, msgs);
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				return basicSetIsSubPackageOf(null, msgs);
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				return ((InternalEList<?>)getSubPackages()).basicRemove(otherEnd, msgs);
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				return basicSetContainerPackage(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				return eInternalContainer().eInverseRemove(this, TypesPackage.PACKAGE__IS_OWNER_OF, conml.types.Package.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
 
 	/**
@@ -375,10 +387,11 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return getContainedClasses();
 			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
 				return getEnumeratedTypes();
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				return getIsOwnerOf();
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				return getIsSubPackageOf();
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				return getSubPackages();
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				if (resolve) return getContainerPackage();
+				return basicGetContainerPackage();
 			case TypesPackage.PACKAGE__OVERALL:
 				return isOverall();
 		}
@@ -408,12 +421,12 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				getEnumeratedTypes().clear();
 				getEnumeratedTypes().addAll((Collection<? extends EnumeratedType>)newValue);
 				return;
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				getIsOwnerOf().clear();
-				getIsOwnerOf().addAll((Collection<? extends conml.types.Package>)newValue);
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				getSubPackages().clear();
+				getSubPackages().addAll((Collection<? extends conml.types.Package>)newValue);
 				return;
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				setIsSubPackageOf((conml.types.Package)newValue);
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				setContainerPackage((conml.types.Package)newValue);
 				return;
 			case TypesPackage.PACKAGE__OVERALL:
 				setOverall((Boolean)newValue);
@@ -442,11 +455,11 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
 				getEnumeratedTypes().clear();
 				return;
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				getIsOwnerOf().clear();
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				getSubPackages().clear();
 				return;
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				setIsSubPackageOf((conml.types.Package)null);
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				setContainerPackage((conml.types.Package)null);
 				return;
 			case TypesPackage.PACKAGE__OVERALL:
 				setOverall(OVERALL_EDEFAULT);
@@ -471,10 +484,10 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 				return containedClasses != null && !containedClasses.isEmpty();
 			case TypesPackage.PACKAGE__ENUMERATED_TYPES:
 				return enumeratedTypes != null && !enumeratedTypes.isEmpty();
-			case TypesPackage.PACKAGE__IS_OWNER_OF:
-				return isOwnerOf != null && !isOwnerOf.isEmpty();
-			case TypesPackage.PACKAGE__IS_SUB_PACKAGE_OF:
-				return getIsSubPackageOf() != null;
+			case TypesPackage.PACKAGE__SUB_PACKAGES:
+				return subPackages != null && !subPackages.isEmpty();
+			case TypesPackage.PACKAGE__CONTAINER_PACKAGE:
+				return containerPackage != null;
 			case TypesPackage.PACKAGE__OVERALL:
 				return overall != OVERALL_EDEFAULT;
 		}

@@ -23,7 +23,7 @@ public class PackageServices extends ModelElementServices {
         .ifBothCastsSuccessful(
             (packageToRemove, model) -> {
               final int result =
-                  Dialogs.openWith(
+                  Dialogs.show(
                       "Delete package",
                       "Delete subpackages recursively?",
                       new String[] {"Cancel", "Yes", "No"},
@@ -57,9 +57,9 @@ public class PackageServices extends ModelElementServices {
                 }
               } else if (element instanceof Package) {
                 final Package otherPackage = (Package) element;
-                if (EcoreUtil.equals(otherPackage.getIsSubPackageOf(), packageToRemove)) {
+                if (EcoreUtil.equals(otherPackage.getContainerPackage(), packageToRemove)) {
                   if (removeSubPackagesRecursively) subPackagesToRemove.add(otherPackage);
-                  else otherPackage.setIsSubPackageOf(packageToRemove.getIsSubPackageOf());
+                  else otherPackage.setContainerPackage(packageToRemove.getContainerPackage());
                 }
               }
             });

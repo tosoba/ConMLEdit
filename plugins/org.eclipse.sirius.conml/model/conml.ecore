@@ -133,10 +133,10 @@
           eType="#//types/Class" eOpposite="#//types/Class/Package"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="EnumeratedTypes" upperBound="-1"
           eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/Package"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOwnerOf" upperBound="-1"
-          eType="#//types/Package" containment="true" eOpposite="#//types/Package/isSubPackageOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="isSubPackageOf" eType="#//types/Package"
-          eOpposite="#//types/Package/IsOwnerOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubPackages" upperBound="-1"
+          eType="#//types/Package" eOpposite="#//types/Package/ContainerPackage"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ContainerPackage" eType="#//types/Package"
+          eOpposite="#//types/Package/SubPackages"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="overall" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
