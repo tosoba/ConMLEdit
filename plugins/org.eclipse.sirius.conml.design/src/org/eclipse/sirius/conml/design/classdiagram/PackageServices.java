@@ -23,16 +23,20 @@ public class PackageServices extends ModelElementServices {
     ConML.castElementAndContainer(object, Package.class, Model.class)
         .ifBothCastsSuccessful(
             (packageToRemove, model) -> {
-              final int result =
-                  Dialogs.show(
-                      "Delete package",
-                      "Delete subpackages recursively?",
-                      new String[] {"Cancel", "Yes", "No"},
-                      MessageDialog.QUESTION);
+              if (packageToRemove.getSubPackages().isEmpty()) {
+                removePackage(packageToRemove, model, false);
+              } else {
+                final int result =
+                    Dialogs.show(
+                        "Delete package",
+                        "Delete subpackages recursively?",
+                        new String[] {"Cancel", "Yes", "No"},
+                        MessageDialog.QUESTION);
 
-              if (result != 1 && result != 2) return;
+                if (result != 1 && result != 2) return;
 
-              removePackage(packageToRemove, model, result == 1);
+                removePackage(packageToRemove, model, result == 1);
+              }
             });
   }
 
