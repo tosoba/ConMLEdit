@@ -2,7 +2,6 @@ package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -44,38 +43,22 @@ public class PackageServices extends ModelElementServices {
     typeModel.getElements().remove(_package);
   }
 
-  public void movePackageUp(EObject object, EObject containerObject) {
+  public void movePackageUp(EObject object) {
     if (!(object instanceof Package)) return;
     final Package _package = (Package) object;
+    final EObject containerObject = object.eContainer();
     if (!(containerObject instanceof Model)) return;
     final Model model = (Model) containerObject;
     moveElement(Arrays.asList(_package), model, Package.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void movePackageDown(EObject object, EObject containerObject) {
+  public void movePackageDown(EObject object) {
     if (!(object instanceof Package)) return;
     final Package _package = (Package) object;
+    final EObject containerObject = object.eContainer();
     if (!(containerObject instanceof Model)) return;
     final Model model = (Model) containerObject;
     moveElement(Arrays.asList(_package), model, Package.class, ConML.ElementMovementDirection.DOWN);
-  }
-
-  public void movePackagesUp(Collection<EObject> objects, EObject containerObject) {
-    if (!objects.stream().map(obj -> obj instanceof Package).allMatch(result -> result)) return;
-    final List<Package> packages =
-        objects.stream().map(obj -> (Package) obj).collect(Collectors.toList());
-    if (!(containerObject instanceof Model)) return;
-    final Model model = (Model) containerObject;
-    moveElement(packages, model, Package.class, ConML.ElementMovementDirection.UP);
-  }
-
-  public void movePackagesDown(Collection<EObject> objects, EObject containerObject) {
-    if (!objects.stream().map(obj -> obj instanceof Package).allMatch(result -> result)) return;
-    final List<Package> packages =
-        objects.stream().map(obj -> (Package) obj).collect(Collectors.toList());
-    if (!(containerObject instanceof Model)) return;
-    final Model model = (Model) containerObject;
-    moveElement(packages, model, Package.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public String getPackageName(EObject object) {

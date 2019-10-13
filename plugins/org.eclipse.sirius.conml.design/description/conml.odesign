@@ -631,15 +631,15 @@
           </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageUp(self)"/>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection" iteratorName="package">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:package.movePackageUp()"/>
               </firstModelOperations>
             </initialOperation>
           </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/down.gif">
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection.movePackageDown(self)"/>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection->reverse()" iteratorName="package">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:package.movePackageDown()"/>
               </firstModelOperations>
             </initialOperation>
           </actions>
