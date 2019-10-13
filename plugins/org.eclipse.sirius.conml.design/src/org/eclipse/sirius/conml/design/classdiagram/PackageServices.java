@@ -3,6 +3,7 @@ package org.eclipse.sirius.conml.design.classdiagram;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -83,10 +84,16 @@ public class PackageServices extends ModelElementServices {
                 moveElements(Arrays.asList(_package), model, Package.class, direction));
   }
 
-  public String getPackageName(EObject object) {
+  public String packageLabel(EObject object) {
     if (!(object instanceof Package)) return "";
-    final Package _package = (Package) object;
-    return _package.getName();
+    Package packageIterator = (Package) object;
+    final ArrayList<String> packageNames = new ArrayList<>();
+    while (packageIterator != null) {
+      packageNames.add(packageIterator.getName());
+      packageIterator = packageIterator.getContainerPackage();
+    }
+    Collections.reverse(packageNames);
+    return packageNames.stream().collect(Collectors.joining("."));
   }
 
   public Collection<Package> getCDOverallPackageSemanticCandidates(Model model) {
