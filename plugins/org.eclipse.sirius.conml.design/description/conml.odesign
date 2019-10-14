@@ -513,6 +513,9 @@
           <semanticValidationRules name="Props_Package Validation SelfContainment" level="ERROR" message="Package cannot be a SubPackage of itself." targetClass="types::Package">
             <audits auditExpression="service:self.isNotSubPackageOfItself"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_Package Validation PackageNameConflict" level="ERROR" message="Another package with the same name exists." targetClass="types::Package">
+            <audits auditExpression="service:self.packageWithSameNameDoesNotExist"/>
+          </semanticValidationRules>
         </validationSet>
       </groups>
       <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -109,6 +110,36 @@ public class PackageServices extends ModelElementServices {
         packageToValidate ->
             !EcoreUtil.equals(packageToValidate, packageToValidate.getContainerPackage()),
         true);
+  }
+
+  public boolean packageWithSameNameDoesNotExist(EObject object) {
+    return ConML.castElementAndContainer(object, Package.class, Model.class)
+        .runIfBothCastsSuccessful(
+            (packageToCheck, model) ->
+                !model
+                        .getElements()
+                        .stream()
+                        .filter(
+                            element -> {
+                              if (element instanceof Package) {
+                                final Package otherPackage = (Package) element;
+                                return Objects.equals(
+                                        otherPackage.getName(), packageToCheck.getName())
+                                    && !EcoreUtil.equals(packageToCheck, otherPackage)
+                                    && EcoreUtil.equals(
+                                        otherPackage.getContainerPackage(),
+                                        packageToCheck.getContainerPackage());
+                              } else return false;
+                            })
+                        .findAny()
+                        .isPresent()
+                    && model
+                            .getElements()
+                            .stream()
+                            .filter(element -> EcoreUtil.equals(element, packageToCheck))
+                            .count()
+                        == 1,
+            true);
   }
 
   public Collection<Package> getCDOverallPackageSemanticCandidates(Model model) {

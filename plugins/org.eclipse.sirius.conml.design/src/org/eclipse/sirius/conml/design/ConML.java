@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -94,6 +95,15 @@ public class ConML {
 
     public void ifBothCastsSuccessful(BiConsumer<E, C> action) {
       if (element != null && container != null) action.accept(element, container);
+    }
+
+    public <R> R runIfBothCastsSuccessful(BiFunction<E, C, R> action) {
+      return runIfBothCastsSuccessful(action, null);
+    }
+
+    public <R> R runIfBothCastsSuccessful(BiFunction<E, C, R> action, R unsuccessfulCastResult) {
+      if (element != null && container != null) return action.apply(element, container);
+      else return unsuccessfulCastResult;
     }
   }
 
