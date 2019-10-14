@@ -450,6 +450,15 @@
     <categories name="PR_General">
       <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4"/>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
+          <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
+            <widget xsi:type="properties:ButtonDescription" labelExpression="Expand" helpExpression="Display association using expanded style.">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.expandAssociation"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
             <extends href="platform:/plugin/org.eclipse.sirius.properties.defaultrules/model/properties.odesign#//@extensions.0/@categories.0/@groups.0/@controls.0/@ifs.0"/>

@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.ConML;
 import org.eclipse.sirius.conml.design.Dialogs;
 
 import conml.types.Association;
@@ -33,6 +34,21 @@ public class AssociationServices extends FeatureServices {
 
   private static final class Messages {
     static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
+  }
+
+  public void expandAssociation(SemiAssociation semi) {
+    if (semi.getPrimaryInAssociation() != null) semi.getPrimaryInAssociation().setCompact(false);
+  }
+
+  public boolean isPrimarySemiInCompactAssociation(EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        SemiAssociation.class,
+        (SemiAssociation semi) ->
+            semi.getPrimaryInAssociation() != null
+                ? semi.getPrimaryInAssociation().isCompact()
+                : false,
+        false);
   }
 
   public boolean isPrimarySemiAssociationWhole(Association association) {
