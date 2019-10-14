@@ -1,7 +1,6 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
@@ -75,18 +74,11 @@ public class PackageServices extends ModelElementServices {
   }
 
   public void movePackageUp(EObject object) {
-    movePackage(object, ConML.ElementMovementDirection.UP);
+    moveElement(object, Package.class, ConML.ElementMovementDirection.UP);
   }
 
   public void movePackageDown(EObject object) {
-    movePackage(object, ConML.ElementMovementDirection.DOWN);
-  }
-
-  private void movePackage(EObject object, ConML.ElementMovementDirection direction) {
-    ConML.castElementAndContainer(object, Package.class, Model.class)
-        .ifBothCastsSuccessful(
-            (_package, model) ->
-                moveElements(Arrays.asList(_package), model, Package.class, direction));
+    moveElement(object, Package.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public String packageLabel(EObject object) {

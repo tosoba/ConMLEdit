@@ -1,14 +1,28 @@
 package org.eclipse.sirius.conml.design.classdiagram;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.ConML;
 
 import conml.Model;
 import conml.ModelElement;
 
 public class ModelElementServices {
+
+  public void removeElement(EObject object) {
+    EcoreUtil.delete(object);
+  }
+
+  protected <T extends EObject> void moveElement(
+      EObject object, Class<T> objectClass, ConML.ElementMovementDirection direction) {
+    ConML.castElementAndContainer(object, objectClass, Model.class)
+        .ifBothCastsSuccessful(
+            (objectToMove, model) ->
+                moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
+  }
 
   protected <T extends EObject> void moveElements(
       List<T> elements,

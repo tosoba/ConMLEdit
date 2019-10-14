@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 
 import conml.Model;
 import conml.types.Package;
+import conml.types.SimpleDataType;
 
 public class ModelServices {
 
@@ -15,6 +16,12 @@ public class ModelServices {
     if (!(object instanceof Model)) return Arrays.asList();
     final Model model = (Model) object;
     return getOwnedElementsOfType(model, Package.class);
+  }
+
+  public Collection<EObject> getOwnedSimpleDataTypeElements(EObject object) {
+    if (!(object instanceof Model)) return Arrays.asList();
+    final Model model = (Model) object;
+    return getOwnedElementsOfType(model, SimpleDataType.class);
   }
 
   private Collection<EObject> getOwnedElementsOfType(Model model, Class<?> clazz) {
