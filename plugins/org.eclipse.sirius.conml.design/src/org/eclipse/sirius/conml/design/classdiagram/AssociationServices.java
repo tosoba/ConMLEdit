@@ -40,6 +40,25 @@ public class AssociationServices extends FeatureServices {
     if (semi.getPrimaryInAssociation() != null) semi.getPrimaryInAssociation().setCompact(false);
   }
 
+  public void compactAssociation(Association association) {
+    if (!association.isCompact()
+        && compactSemiAssociationCardinalitiesAreValid(
+            association.getPrimarySemiAssociation(),
+            association.getSecondarySemiAssociation().getReferredClass(),
+            false)
+        && compactSemiAssociationTargetIsValid(
+            association.getPrimarySemiAssociation(),
+            association.getSecondarySemiAssociation().getReferredClass(),
+            false)) {
+      association.setCompact(true);
+    }
+  }
+
+  public boolean isExpandedAssociation(EObject object) {
+    return ConML.castAndRunOrReturn(
+        object, Association.class, (Association association) -> !association.isCompact(), false);
+  }
+
   public boolean isPrimarySemiInCompactAssociation(EObject object) {
     return ConML.castAndRunOrReturn(
         object,
@@ -274,14 +293,14 @@ public class AssociationServices extends FeatureServices {
   }
 
   private boolean compactSemiAssociationCardinalitiesAreValid(
-      SemiAssociation primary, Class source) {
+      SemiAssociation primary, Class source, boolean removePrimaryIfInvalid) {
     final int minPrimaryCardinality = primary.getMinimumCardinality();
     final Integer maxPrimaryCardinality = primary.getMaximumCardinality();
     // TODO: should this allow more options (for example maxCardinality = 2 or
     // minCardinality=1)?
     if (minPrimaryCardinality != 0
         || (maxPrimaryCardinality != null && !Objects.equals(maxPrimaryCardinality, 1))) {
-      source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.COMPACT_CARDINALITIES);
       return false;
     } else {
@@ -291,14 +310,15 @@ public class AssociationServices extends FeatureServices {
 
   // TODO: should this stay like that? Why not let the user create the invalid compact semi and then
   // set referredClass after validating the diagram?
-  private boolean compactSemiAssociationTargetIsValid(SemiAssociation primary, Class source) {
+  private boolean compactSemiAssociationTargetIsValid(
+      SemiAssociation primary, Class source, boolean removePrimaryIfInvalid) {
     final Class target = primary.getReferredClass();
     if (target == null) {
-      source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
       return false;
     } else if (EcoreUtil.equals(source, target)) {
-      source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
       Dialogs.showError(Errors.COMPACT_SYMMETRIC_ASSOCIATION);
       return false;
     } else {
@@ -307,8 +327,8 @@ public class AssociationServices extends FeatureServices {
   }
 
   public void addToAssociation(SemiAssociation primary, Class source) {
-    if (!compactSemiAssociationCardinalitiesAreValid(primary, source)
-        || !compactSemiAssociationTargetIsValid(primary, source)) {
+    if (!compactSemiAssociationCardinalitiesAreValid(primary, source, true)
+        || !compactSemiAssociationTargetIsValid(primary, source, true)) {
       return;
     }
 

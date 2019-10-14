@@ -458,6 +458,13 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="if_it_is_expandedAssociation" predicateExpression="service:self.isExpandedAssociation">
+            <widget xsi:type="properties:ButtonDescription" labelExpression="Compact" helpExpression="Display association using compact style.">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.compactAssociation"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
