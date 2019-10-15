@@ -20,6 +20,22 @@ import conml.types.Package;
 
 public class PackageServices extends ModelElementServices {
 
+  public boolean overallPackageDoesNotExist(EObject containerObject) {
+    if (!(containerObject instanceof Model)) return false;
+    final Model model = (Model) containerObject;
+    return model
+        .getElements()
+        .stream()
+        .filter(
+            element -> {
+              if (!(element instanceof Package)) return false;
+              final Package packageToCheck = (Package) element;
+              return packageToCheck.isOverall();
+            })
+        .findAny()
+        .isPresent();
+  }
+
   public void setOverall(Package packageToSet) {
     if (!(packageToSet.eContainer() instanceof Model)) return;
     final Model model = (Model) packageToSet.eContainer();

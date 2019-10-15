@@ -220,7 +220,7 @@
           </style>
         </containerMappings>
         <toolSections name="Section General" label="General">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="Node Creation Package" label="Package" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Overall_Package']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Node Creation Package" label="Overall Package" precondition="aql:container.overallPackageDoesNotExist()" nodeMappings="//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Overall_Package']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
