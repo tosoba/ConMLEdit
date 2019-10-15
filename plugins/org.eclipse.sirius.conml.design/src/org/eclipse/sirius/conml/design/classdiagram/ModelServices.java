@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 
 import conml.Model;
+import conml.types.EnumeratedType;
 import conml.types.Package;
 import conml.types.SimpleDataType;
 
@@ -18,6 +19,10 @@ public class ModelServices {
 
   public Collection<EObject> getOwnedSimpleDataTypeElements(EObject object) {
     return getOwnedElementsOfType(object, SimpleDataType.class);
+  }
+
+  public Collection<EObject> getOwnedEnumeratedTypeElements(EObject object) {
+    return getOwnedElementsOfType(object, EnumeratedType.class);
   }
 
   public Collection<EObject> getOwnedClassElements(EObject object) {
