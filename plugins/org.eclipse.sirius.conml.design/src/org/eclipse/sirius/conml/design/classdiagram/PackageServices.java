@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -18,6 +19,39 @@ import conml.types.EnumeratedType;
 import conml.types.Package;
 
 public class PackageServices extends ModelElementServices {
+
+  public void setOverall(Package packageToSet) {
+    if (!(packageToSet.eContainer() instanceof Model)) return;
+    final Model model = (Model) packageToSet.eContainer();
+    final Optional<Package> currentOverallPackage =
+        model
+            .getElements()
+            .stream()
+            .filter(
+                element -> {
+                  if (!(element instanceof Package)) return false;
+                  final Package otherPackage = (Package) element;
+                  return otherPackage.isOverall();
+                })
+            .map(Package.class::cast)
+            .findAny();
+    if (currentOverallPackage.isPresent()) {
+      final int result =
+          Dialogs.show(
+              "Overall package already set.",
+              "Unset current overall package : " + packageLabel(currentOverallPackage.get()) + "?",
+              new String[] {"Yes", "No"},
+              MessageDialog.CONFIRM);
+      if (result == 0) currentOverallPackage.get().setOverall(false);
+      else return;
+    }
+    packageToSet.setOverall(true);
+  }
+
+  public boolean isNonOverallPackage(EObject object) {
+    return ConML.castAndRunOrReturn(
+        object, Package.class, (Package packageToCheck) -> !packageToCheck.isOverall(), false);
+  }
 
   public void removePackage(EObject object) {
     ConML.castElementAndContainer(object, Package.class, Model.class)

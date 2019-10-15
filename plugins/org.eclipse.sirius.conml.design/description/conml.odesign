@@ -7,7 +7,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="TypeModelElement">
         <nodeMappings name="CD_Overall_Package" semanticCandidatesExpression="service:self.getCDOverallPackageSemanticCandidates" domainClass="types::Package">
-          <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelExpression="service:self.packageLabel" tooltipExpression="Overall package" labelPosition="node" resizeKind="NSEW">
+          <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelExpression="service:self.packageLabel" tooltipExpression="Overall package" sizeComputationExpression="1" labelPosition="node" resizeKind="NSEW" width="12" height="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
@@ -452,16 +452,23 @@
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
           <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
-            <widget xsi:type="properties:ButtonDescription" labelExpression="Expand" helpExpression="Display association using expanded style.">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Display association using expanded style." buttonLabelExpression="Expand">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.expandAssociation"/>
               </initialOperation>
             </widget>
           </ifs>
           <ifs name="if_it_is_expandedAssociation" predicateExpression="service:self.isExpandedAssociation">
-            <widget xsi:type="properties:ButtonDescription" labelExpression="Compact" helpExpression="Display association using compact style.">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Display association using compact style." buttonLabelExpression="Compact">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.compactAssociation"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_nonOverallPackage" predicateExpression="service:self.isNonOverallPackage">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Make this package overall in TypeModel" buttonLabelExpression="Make overall">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.setOverall"/>
               </initialOperation>
             </widget>
           </ifs>

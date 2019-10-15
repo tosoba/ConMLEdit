@@ -21,6 +21,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import conml.Model;
 import conml.types.Association;
 import conml.types.Feature;
+import conml.types.Package;
 import conml.types.SemiAssociation;
 
 public class PropertyServices {
@@ -90,6 +91,11 @@ public class PropertyServices {
         && "compact".equalsIgnoreCase(feature.getName()));
   }
 
+  private static boolean overallPackageFeaturePredicate(EStructuralFeature feature) {
+    return !(Package.class.isAssignableFrom(feature.getContainerClass())
+        && "overall".equalsIgnoreCase(feature.getName()));
+  }
+
   private boolean combinedFeaturePredicates(EStructuralFeature feature) {
     return PropertyServices.featurePredicates
         .stream()
@@ -99,6 +105,7 @@ public class PropertyServices {
 
   private static void setupStructuralFeaturesPredicates() {
     featurePredicates.add(PropertyServices::compactAssociationFeaturePredicate);
+    featurePredicates.add(PropertyServices::overallPackageFeaturePredicate);
   }
 
   private static void setupIgnoredReferences() {
