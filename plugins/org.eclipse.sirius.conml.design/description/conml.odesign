@@ -540,6 +540,9 @@
           <semanticValidationRules name="Props_Package Validation PackageNameConflict" level="ERROR" message="Another package with the same name exists." targetClass="types::Package">
             <audits auditExpression="service:self.packageWithSameNameDoesNotExist"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_TypeModel Validation NoOverallPackage" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
+            <audits auditExpression="service:self.overallPackageExists"/>
+          </semanticValidationRules>
         </validationSet>
       </groups>
       <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">

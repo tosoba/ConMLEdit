@@ -17,13 +17,18 @@ import conml.Model;
 import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Package;
+import conml.types.TypeModel;
 
 public class PackageServices extends ModelElementServices {
 
+  public boolean overallPackageExists(EObject containerObject) {
+    return !overallPackageDoesNotExist(containerObject);
+  }
+
   public boolean overallPackageDoesNotExist(EObject containerObject) {
-    if (!(containerObject instanceof Model)) return false;
-    final Model model = (Model) containerObject;
-    return model
+    if (!(containerObject instanceof TypeModel)) return false;
+    final TypeModel model = (TypeModel) containerObject;
+    return !model
         .getElements()
         .stream()
         .filter(
