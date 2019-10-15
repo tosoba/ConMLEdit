@@ -13,18 +13,20 @@ import conml.types.SimpleDataType;
 public class ModelServices {
 
   public Collection<EObject> getOwnedPackageElements(EObject object) {
-    if (!(object instanceof Model)) return Arrays.asList();
-    final Model model = (Model) object;
-    return getOwnedElementsOfType(model, Package.class);
+    return getOwnedElementsOfType(object, Package.class);
   }
 
   public Collection<EObject> getOwnedSimpleDataTypeElements(EObject object) {
-    if (!(object instanceof Model)) return Arrays.asList();
-    final Model model = (Model) object;
-    return getOwnedElementsOfType(model, SimpleDataType.class);
+    return getOwnedElementsOfType(object, SimpleDataType.class);
   }
 
-  private Collection<EObject> getOwnedElementsOfType(Model model, Class<?> clazz) {
+  public Collection<EObject> getOwnedClassElements(EObject object) {
+    return getOwnedElementsOfType(object, conml.types.Class.class);
+  }
+
+  private Collection<EObject> getOwnedElementsOfType(EObject object, Class<?> clazz) {
+    if (!(object instanceof Model)) return Arrays.asList();
+    final Model model = (Model) object;
     return model
         .getElements()
         .stream()
