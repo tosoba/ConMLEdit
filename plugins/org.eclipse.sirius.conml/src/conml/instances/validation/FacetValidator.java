@@ -17,5 +17,7 @@ public interface FacetValidator {
 	boolean validate();
 
 	boolean validateCertainty(DegreeOfCertainty value);
-	boolean validateIsOwnedBy(FacetSet value);
+	boolean validateOwnerSet(FacetSet value);
+
+  boolean validateIsOwnedBy(FacetSet value);
 }

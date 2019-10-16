@@ -41,7 +41,11 @@ public interface ObjectValidator {
 	boolean validateTemporalExistentialQualifier(conml.instances.Object value);
 	boolean validateSubjectiveExistentialQualifer(conml.instances.Object value);
 
-  boolean validateIsTemporalExistenceQualiferOf(EList<conml.instances.Object> value);
+  boolean validateReferenceSets(EList<ReferenceSet> value);
+
+  boolean validateValueSets(EList<ValueSet> value);
+
+    boolean validateIsTemporalExistenceQualiferOf(EList<conml.instances.Object> value);
 	boolean validateSubjectveExistentalQualifer(conml.instances.Object value);
 	boolean validateIsSubjectveExistenceQualiferOf(EList<conml.instances.Object> value);
 }

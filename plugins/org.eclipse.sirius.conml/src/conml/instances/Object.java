@@ -16,11 +16,11 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.Object#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}</li>
- *   <li>{@link conml.instances.Object#getOwnedValueSets <em>Owned Value Sets</em>}</li>
- *   <li>{@link conml.instances.Object#getOwnedReferenceSets <em>Owned Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}</li>
  *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
+ *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
+ *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -100,34 +100,6 @@ public interface Object extends Instance {
 	void setInstancedClass(conml.types.Class value);
 
   /**
-	 * Returns the value of the '<em><b>Owned Value Sets</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.ValueSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Value Sets</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_OwnedValueSets()
-	 * @see conml.instances.ValueSet#getOwner
-	 * @model opposite="Owner"
-	 * @generated
-	 */
-	EList<ValueSet> getOwnedValueSets();
-
-    /**
-	 * Returns the value of the '<em><b>Owned Reference Sets</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.ReferenceSet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owned Reference Sets</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_OwnedReferenceSets()
-	 * @see conml.instances.ReferenceSet#getOwner
-	 * @model opposite="Owner"
-	 * @generated
-	 */
-	EList<ReferenceSet> getOwnedReferenceSets();
-
-    /**
 	 * Returns the value of the '<em><b>Is Opposite In</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Reference}.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getRefersTo <em>Refers To</em>}'.
@@ -184,5 +156,29 @@ public interface Object extends Instance {
 	 * @generated
 	 */
 	void setSubjectiveExistentialQualifer(Object value);
+
+    /**
+	 * Returns the value of the '<em><b>Reference Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.instances.ReferenceSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Reference Sets</em>' containment reference list.
+	 * @see conml.instances.InstancesPackage#getObject_ReferenceSets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ReferenceSet> getReferenceSets();
+
+    /**
+	 * Returns the value of the '<em><b>Value Sets</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.instances.ValueSet}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Value Sets</em>' containment reference list.
+	 * @see conml.instances.InstancesPackage#getObject_ValueSets()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<ValueSet> getValueSets();
 
 } // Object

@@ -198,8 +198,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="Facet" abstract="true" eSuperTypes="#//instances/InstanceModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="certainty" lowerBound="1"
           eType="#//instances/DegreeOfCertainty"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOwnedBy" lowerBound="1"
-          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/IsComposedOf"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerSet" lowerBound="1"
+          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/Facets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="RefersTo" lowerBound="1"
@@ -229,14 +229,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAttribute" lowerBound="1"
           eType="#//types/Attribute" eOpposite="#//types/Attribute/InstanceValueSets"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//instances/Object" eOpposite="#//instances/Object/OwnedValueSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedSemiAssociation"
           lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/InstanceReferenceSets"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//instances/Object" eOpposite="#//instances/Object/OwnedReferenceSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -245,16 +241,16 @@
           eType="#//instances/DegreeOfCertainty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/InstanceObjects"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedValueSets" upperBound="-1"
-          eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedReferenceSets" upperBound="-1"
-          eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeIn" upperBound="-1"
           eType="#//instances/Reference" eOpposite="#//instances/Reference/RefersTo"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
           eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveExistentialQualifer"
           eType="#//instances/Object"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
+          eType="#//instances/ReferenceSet" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ValueSets" upperBound="-1"
+          eType="#//instances/ValueSet" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
@@ -269,8 +265,8 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsComposedOf" upperBound="-1"
-          eType="#//instances/Facet" eOpposite="#//instances/Facet/IsOwnedBy"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Facets" upperBound="-1"
+          eType="#//instances/Facet" eOpposite="#//instances/Facet/OwnerSet"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TranslationQualifiers"
           upperBound="-1" eType="#//Language"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/Object"/>

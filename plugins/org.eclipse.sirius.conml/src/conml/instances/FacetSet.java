@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.FacetSet#getIsComposedOf <em>Is Composed Of</em>}</li>
+ *   <li>{@link conml.instances.FacetSet#getFacets <em>Facets</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
@@ -26,20 +26,20 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface FacetSet extends Instance {
 	/**
-	 * Returns the value of the '<em><b>Is Composed Of</b></em>' reference list.
+	 * Returns the value of the '<em><b>Facets</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Facet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Facet#getIsOwnedBy <em>Is Owned By</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Composed Of</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getFacetSet_IsComposedOf()
-	 * @see conml.instances.Facet#getIsOwnedBy
-	 * @model opposite="IsOwnedBy"
+	 * @return the value of the '<em>Facets</em>' reference list.
+	 * @see conml.instances.InstancesPackage#getFacetSet_Facets()
+	 * @see conml.instances.Facet#getOwnerSet
+	 * @model opposite="OwnerSet"
 	 * @generated
 	 */
-	EList<Facet> getIsComposedOf();
+	EList<Facet> getFacets();
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * The list contents are of type {@link conml.Language}.
 	 * <!-- begin-user-doc -->

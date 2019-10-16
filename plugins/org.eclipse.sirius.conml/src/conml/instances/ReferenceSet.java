@@ -14,7 +14,6 @@ import conml.types.SemiAssociation;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
- *   <li>{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReferenceSet()
@@ -45,29 +44,5 @@ public interface ReferenceSet extends FacetSet {
 	 * @generated
 	 */
 	void setInstancedSemiAssociation(SemiAssociation value);
-
-  /**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnedReferenceSets <em>Owned Reference Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(conml.instances.Object)
-	 * @see conml.instances.InstancesPackage#getReferenceSet_Owner()
-	 * @see conml.instances.Object#getOwnedReferenceSets
-	 * @model opposite="OwnedReferenceSets" required="true"
-	 * @generated
-	 */
-	conml.instances.Object getOwner();
-
-	/**
-	 * Sets the value of the '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	void setOwner(conml.instances.Object value);
 
 } // ReferenceSet

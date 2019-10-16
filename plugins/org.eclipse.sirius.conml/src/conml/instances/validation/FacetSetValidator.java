@@ -18,7 +18,9 @@ import org.eclipse.emf.common.util.EList;
 public interface FacetSetValidator {
 	boolean validate();
 
-	boolean validateHasPhaseQualifier(conml.instances.Object value);
+	boolean validateFacets(EList<Facet> value);
+
+  boolean validateHasPhaseQualifier(conml.instances.Object value);
 	boolean validateHasPerspectiveQualifier(conml.instances.Object value);
 	boolean validateIsComposedOf(EList<Facet> value);
 

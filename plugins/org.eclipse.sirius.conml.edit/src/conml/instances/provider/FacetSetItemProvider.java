@@ -42,7 +42,7 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addIsComposedOfPropertyDescriptor(object);
+			addFacetsPropertyDescriptor(object);
 			addTranslationQualifiersPropertyDescriptor(object);
 			addPhaseQualifierPropertyDescriptor(object);
 			addPerspectiveQualifierPropertyDescriptor(object);
@@ -51,19 +51,19 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Composed Of feature.
+	 * This adds a property descriptor for the Facets feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsComposedOfPropertyDescriptor(Object object) {
+	protected void addFacetsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_FacetSet_IsComposedOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_IsComposedOf_feature", "_UI_FacetSet_type"),
-				 InstancesPackage.Literals.FACET_SET__IS_COMPOSED_OF,
+				 getString("_UI_FacetSet_Facets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_FacetSet_Facets_feature", "_UI_FacetSet_type"),
+				 InstancesPackage.Literals.FACET_SET__FACETS,
 				 true,
 				 false,
 				 true,
@@ -72,7 +72,7 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Translation Qualifiers feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

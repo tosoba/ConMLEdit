@@ -409,7 +409,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="InstanceModelElement">
         <containerMappings name="OD_Object" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
-          <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:OwnedValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
+          <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -456,7 +456,7 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="instances::ValueSet" referenceName="OwnedValueSets" variableName="newValueSet">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="instances::ValueSet" referenceName="ValueSets" variableName="newValueSet">
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New ValueSet">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>

@@ -3,6 +3,7 @@
 package conml.instances.provider;
 
 
+import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 
 import java.util.Collection;
@@ -11,6 +12,7 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
@@ -47,8 +49,6 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addIdentifierPropertyDescriptor(object);
 			addCertaintyPropertyDescriptor(object);
 			addInstancedClassPropertyDescriptor(object);
-			addOwnedValueSetsPropertyDescriptor(object);
-			addOwnedReferenceSetsPropertyDescriptor(object);
 			addIsOppositeInPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
@@ -123,50 +123,6 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Owned Value Sets feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnedValueSetsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_OwnedValueSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnedValueSets_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__OWNED_VALUE_SETS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
-	 * This adds a property descriptor for the Owned Reference Sets feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnedReferenceSetsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Object_OwnedReferenceSets_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_OwnedReferenceSets_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__OWNED_REFERENCE_SETS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-    /**
 	 * This adds a property descriptor for the Is Opposite In feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -233,6 +189,37 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
   /**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(InstancesPackage.Literals.OBJECT__REFERENCE_SETS);
+			childrenFeatures.add(InstancesPackage.Literals.OBJECT__VALUE_SETS);
+		}
+		return childrenFeatures;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
+	}
+
+    /**
 	 * This returns Object.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -274,6 +261,10 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			case InstancesPackage.OBJECT__CERTAINTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+				return;
 		}
 		super.notifyChanged(notification);
 	}
@@ -288,6 +279,16 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
+				 InstancesFactory.eINSTANCE.createReferenceSet()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.OBJECT__VALUE_SETS,
+				 InstancesFactory.eINSTANCE.createValueSet()));
 	}
 
 }

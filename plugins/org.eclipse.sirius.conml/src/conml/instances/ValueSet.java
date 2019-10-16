@@ -14,7 +14,6 @@ import conml.types.Attribute;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}</li>
- *   <li>{@link conml.instances.ValueSet#getOwner <em>Owner</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValueSet()
@@ -45,29 +44,5 @@ public interface ValueSet extends FacetSet {
 	 * @generated
 	 */
 	void setInstancedAttribute(Attribute value);
-
-  /**
-	 * Returns the value of the '<em><b>Owner</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getOwnedValueSets <em>Owned Value Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' reference.
-	 * @see #setOwner(conml.instances.Object)
-	 * @see conml.instances.InstancesPackage#getValueSet_Owner()
-	 * @see conml.instances.Object#getOwnedValueSets
-	 * @model opposite="OwnedValueSets" required="true"
-	 * @generated
-	 */
-	conml.instances.Object getOwner();
-
-	/**
-	 * Sets the value of the '{@link conml.instances.ValueSet#getOwner <em>Owner</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	void setOwner(conml.instances.Object value);
 
 } // ValueSet

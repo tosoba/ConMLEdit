@@ -13,7 +13,7 @@ package conml.instances;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Facet#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.Facet#getIsOwnedBy <em>Is Owned By</em>}</li>
+ *   <li>{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacet()
@@ -47,27 +47,27 @@ public interface Facet extends InstanceModelElement {
 	void setCertainty(DegreeOfCertainty value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Owned By</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.FacetSet#getIsComposedOf <em>Is Composed Of</em>}'.
+	 * Returns the value of the '<em><b>Owner Set</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.FacetSet#getFacets <em>Facets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Owned By</em>' reference.
-	 * @see #setIsOwnedBy(FacetSet)
-	 * @see conml.instances.InstancesPackage#getFacet_IsOwnedBy()
-	 * @see conml.instances.FacetSet#getIsComposedOf
-	 * @model opposite="IsComposedOf" required="true"
+	 * @return the value of the '<em>Owner Set</em>' reference.
+	 * @see #setOwnerSet(FacetSet)
+	 * @see conml.instances.InstancesPackage#getFacet_OwnerSet()
+	 * @see conml.instances.FacetSet#getFacets
+	 * @model opposite="Facets" required="true"
 	 * @generated
 	 */
-	FacetSet getIsOwnedBy();
+	FacetSet getOwnerSet();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Facet#getIsOwnedBy <em>Is Owned By</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Owned By</em>' reference.
-	 * @see #getIsOwnedBy()
+	 * @param value the new value of the '<em>Owner Set</em>' reference.
+	 * @see #getOwnerSet()
 	 * @generated
 	 */
-	void setIsOwnedBy(FacetSet value);
+	void setOwnerSet(FacetSet value);
 
 } // Facet

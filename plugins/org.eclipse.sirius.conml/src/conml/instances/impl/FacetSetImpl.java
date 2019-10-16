@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.FacetSetImpl#getIsComposedOf <em>Is Composed Of</em>}</li>
+ *   <li>{@link conml.instances.impl.FacetSetImpl#getFacets <em>Facets</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
@@ -41,16 +41,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	/**
-	 * The cached value of the '{@link #getIsComposedOf() <em>Is Composed Of</em>}' reference list.
+	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsComposedOf()
+	 * @see #getFacets()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Facet> isComposedOf;
+	protected EList<Facet> facets;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getTranslationQualifiers() <em>Translation Qualifiers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -105,14 +105,14 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * @generated
 	 */
 	@Override
-	public EList<Facet> getIsComposedOf() {
-		if (isComposedOf == null) {
-			isComposedOf = new EObjectWithInverseResolvingEList<Facet>(Facet.class, this, InstancesPackage.FACET_SET__IS_COMPOSED_OF, InstancesPackage.FACET__IS_OWNED_BY);
+	public EList<Facet> getFacets() {
+		if (facets == null) {
+			facets = new EObjectWithInverseResolvingEList<Facet>(Facet.class, this, InstancesPackage.FACET_SET__FACETS, InstancesPackage.FACET__OWNER_SET);
 		}
-		return isComposedOf;
+		return facets;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -214,8 +214,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsComposedOf()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.FACET_SET__FACETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFacets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -228,8 +228,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				return ((InternalEList<?>)getIsComposedOf()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.FACET_SET__FACETS:
+				return ((InternalEList<?>)getFacets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -242,8 +242,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				return getIsComposedOf();
+			case InstancesPackage.FACET_SET__FACETS:
+				return getFacets();
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return getTranslationQualifiers();
 			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
@@ -265,9 +265,9 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				getIsComposedOf().clear();
-				getIsComposedOf().addAll((Collection<? extends Facet>)newValue);
+			case InstancesPackage.FACET_SET__FACETS:
+				getFacets().clear();
+				getFacets().addAll((Collection<? extends Facet>)newValue);
 				return;
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				getTranslationQualifiers().clear();
@@ -291,8 +291,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				getIsComposedOf().clear();
+			case InstancesPackage.FACET_SET__FACETS:
+				getFacets().clear();
 				return;
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				getTranslationQualifiers().clear();
@@ -315,8 +315,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__IS_COMPOSED_OF:
-				return isComposedOf != null && !isComposedOf.isEmpty();
+			case InstancesPackage.FACET_SET__FACETS:
+				return facets != null && !facets.isEmpty();
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return translationQualifiers != null && !translationQualifiers.isEmpty();
 			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:

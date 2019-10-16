@@ -22,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -36,11 +37,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getInstancedClass <em>Instanced Class</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getOwnedValueSets <em>Owned Value Sets</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getOwnedReferenceSets <em>Owned Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsOppositeIn <em>Is Opposite In</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  * </ul>
  *
  * @generated
@@ -97,26 +98,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected conml.types.Class instancedClass;
 
   /**
-	 * The cached value of the '{@link #getOwnedValueSets() <em>Owned Value Sets</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedValueSets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ValueSet> ownedValueSets;
-
-  /**
-	 * The cached value of the '{@link #getOwnedReferenceSets() <em>Owned Reference Sets</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getOwnedReferenceSets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ReferenceSet> ownedReferenceSets;
-
-    /**
 	 * The cached value of the '{@link #getIsOppositeIn() <em>Is Opposite In</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -147,6 +128,26 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected conml.instances.Object subjectiveExistentialQualifer;
 
   /**
+	 * The cached value of the '{@link #getReferenceSets() <em>Reference Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferenceSets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ReferenceSet> referenceSets;
+
+  /**
+	 * The cached value of the '{@link #getValueSets() <em>Value Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValueSets()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ValueSet> valueSets;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -279,32 +280,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @generated
 	 */
 	@Override
-	public EList<ValueSet> getOwnedValueSets() {
-		if (ownedValueSets == null) {
-			ownedValueSets = new EObjectWithInverseResolvingEList<ValueSet>(ValueSet.class, this, InstancesPackage.OBJECT__OWNED_VALUE_SETS, InstancesPackage.VALUE_SET__OWNER);
-		}
-		return ownedValueSets;
-	}
-
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<ReferenceSet> getOwnedReferenceSets() {
-		if (ownedReferenceSets == null) {
-			ownedReferenceSets = new EObjectWithInverseResolvingEList<ReferenceSet>(ReferenceSet.class, this, InstancesPackage.OBJECT__OWNED_REFERENCE_SETS, InstancesPackage.REFERENCE_SET__OWNER);
-		}
-		return ownedReferenceSets;
-	}
-
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Reference> getIsOppositeIn() {
 		if (isOppositeIn == null) {
 			isOppositeIn = new EObjectWithInverseResolvingEList<Reference>(Reference.class, this, InstancesPackage.OBJECT__IS_OPPOSITE_IN, InstancesPackage.REFERENCE__REFERS_TO);
@@ -397,6 +372,32 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<ReferenceSet> getReferenceSets() {
+		if (referenceSets == null) {
+			referenceSets = new EObjectContainmentEList<ReferenceSet>(ReferenceSet.class, this, InstancesPackage.OBJECT__REFERENCE_SETS);
+		}
+		return referenceSets;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<ValueSet> getValueSets() {
+		if (valueSets == null) {
+			valueSets = new EObjectContainmentEList<ValueSet>(ValueSet.class, this, InstancesPackage.OBJECT__VALUE_SETS);
+		}
+		return valueSets;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -405,10 +406,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				if (instancedClass != null)
 					msgs = ((InternalEObject)instancedClass).eInverseRemove(this, TypesPackage.CLASS__INSTANCE_OBJECTS, conml.types.Class.class, msgs);
 				return basicSetInstancedClass((conml.types.Class)otherEnd, msgs);
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedValueSets()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedReferenceSets()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOppositeIn()).basicAdd(otherEnd, msgs);
 		}
@@ -425,12 +422,12 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 		switch (featureID) {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				return basicSetInstancedClass(null, msgs);
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				return ((InternalEList<?>)getOwnedValueSets()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				return ((InternalEList<?>)getOwnedReferenceSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return ((InternalEList<?>)getIsOppositeIn()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				return ((InternalEList<?>)getValueSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -450,10 +447,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				if (resolve) return getInstancedClass();
 				return basicGetInstancedClass();
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				return getOwnedValueSets();
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				return getOwnedReferenceSets();
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return getIsOppositeIn();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
@@ -462,6 +455,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				if (resolve) return getSubjectiveExistentialQualifer();
 				return basicGetSubjectiveExistentialQualifer();
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return getReferenceSets();
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				return getValueSets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -484,14 +481,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				setInstancedClass((conml.types.Class)newValue);
 				return;
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				getOwnedValueSets().clear();
-				getOwnedValueSets().addAll((Collection<? extends ValueSet>)newValue);
-				return;
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				getOwnedReferenceSets().clear();
-				getOwnedReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
-				return;
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				getIsOppositeIn().clear();
 				getIsOppositeIn().addAll((Collection<? extends Reference>)newValue);
@@ -501,6 +490,14 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return;
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				setSubjectiveExistentialQualifer((conml.instances.Object)newValue);
+				return;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				getReferenceSets().clear();
+				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
+				return;
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				getValueSets().clear();
+				getValueSets().addAll((Collection<? extends ValueSet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -523,12 +520,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				setInstancedClass((conml.types.Class)null);
 				return;
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				getOwnedValueSets().clear();
-				return;
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				getOwnedReferenceSets().clear();
-				return;
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				getIsOppositeIn().clear();
 				return;
@@ -537,6 +528,12 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return;
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				setSubjectiveExistentialQualifer((conml.instances.Object)null);
+				return;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				getReferenceSets().clear();
+				return;
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				getValueSets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -556,16 +553,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return certainty != CERTAINTY_EDEFAULT;
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				return instancedClass != null;
-			case InstancesPackage.OBJECT__OWNED_VALUE_SETS:
-				return ownedValueSets != null && !ownedValueSets.isEmpty();
-			case InstancesPackage.OBJECT__OWNED_REFERENCE_SETS:
-				return ownedReferenceSets != null && !ownedReferenceSets.isEmpty();
 			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
 				return isOppositeIn != null && !isOppositeIn.isEmpty();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				return temporalExistentialQualifier != null;
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				return subjectiveExistentialQualifer != null;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return referenceSets != null && !referenceSets.isEmpty();
+			case InstancesPackage.OBJECT__VALUE_SETS:
+				return valueSets != null && !valueSets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}
