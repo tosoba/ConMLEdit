@@ -37,7 +37,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getInstancedClass <em>Instanced Class</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getIsOppositeIn <em>Is Opposite In</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getIsReferredByReferences <em>Is Referred By References</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
@@ -98,16 +98,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected conml.types.Class instancedClass;
 
   /**
-	 * The cached value of the '{@link #getIsOppositeIn() <em>Is Opposite In</em>}' reference list.
+	 * The cached value of the '{@link #getIsReferredByReferences() <em>Is Referred By References</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsOppositeIn()
+	 * @see #getIsReferredByReferences()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Reference> isOppositeIn;
+	protected EList<Reference> isReferredByReferences;
 
-	/**
+    /**
 	 * The cached value of the '{@link #getTemporalExistentialQualifier() <em>Temporal Existential Qualifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,14 +280,14 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @generated
 	 */
 	@Override
-	public EList<Reference> getIsOppositeIn() {
-		if (isOppositeIn == null) {
-			isOppositeIn = new EObjectWithInverseResolvingEList<Reference>(Reference.class, this, InstancesPackage.OBJECT__IS_OPPOSITE_IN, InstancesPackage.REFERENCE__REFERS_TO);
+	public EList<Reference> getIsReferredByReferences() {
+		if (isReferredByReferences == null) {
+			isReferredByReferences = new EObjectWithInverseResolvingEList<Reference>(Reference.class, this, InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES, InstancesPackage.REFERENCE__REFERRED_OBJECT);
 		}
-		return isOppositeIn;
+		return isReferredByReferences;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -406,8 +406,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				if (instancedClass != null)
 					msgs = ((InternalEObject)instancedClass).eInverseRemove(this, TypesPackage.CLASS__INSTANCE_OBJECTS, conml.types.Class.class, msgs);
 				return basicSetInstancedClass((conml.types.Class)otherEnd, msgs);
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsOppositeIn()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsReferredByReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -422,8 +422,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 		switch (featureID) {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				return basicSetInstancedClass(null, msgs);
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				return ((InternalEList<?>)getIsOppositeIn()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				return ((InternalEList<?>)getIsReferredByReferences()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__VALUE_SETS:
@@ -447,8 +447,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				if (resolve) return getInstancedClass();
 				return basicGetInstancedClass();
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				return getIsOppositeIn();
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				return getIsReferredByReferences();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				if (resolve) return getTemporalExistentialQualifier();
 				return basicGetTemporalExistentialQualifier();
@@ -481,9 +481,9 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				setInstancedClass((conml.types.Class)newValue);
 				return;
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				getIsOppositeIn().clear();
-				getIsOppositeIn().addAll((Collection<? extends Reference>)newValue);
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				getIsReferredByReferences().clear();
+				getIsReferredByReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				setTemporalExistentialQualifier((conml.instances.Object)newValue);
@@ -520,8 +520,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				setInstancedClass((conml.types.Class)null);
 				return;
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				getIsOppositeIn().clear();
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				getIsReferredByReferences().clear();
 				return;
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				setTemporalExistentialQualifier((conml.instances.Object)null);
@@ -553,8 +553,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return certainty != CERTAINTY_EDEFAULT;
 			case InstancesPackage.OBJECT__INSTANCED_CLASS:
 				return instancedClass != null;
-			case InstancesPackage.OBJECT__IS_OPPOSITE_IN:
-				return isOppositeIn != null && !isOppositeIn.isEmpty();
+			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
+				return isReferredByReferences != null && !isReferredByReferences.isEmpty();
 			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
 				return temporalExistentialQualifier != null;
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:

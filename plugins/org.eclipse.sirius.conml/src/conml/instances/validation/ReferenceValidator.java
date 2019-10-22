@@ -16,9 +16,17 @@ import conml.instances.Reference;
 public interface ReferenceValidator {
 	boolean validate();
 
-	boolean validateRefersTo(conml.instances.Object value);
+	boolean validateReferredObject(conml.instances.Object value);
+
+  boolean validateRefersTo(conml.instances.Object value);
 	boolean validateInverse(Reference value);
-	boolean validateIsInverseOf(Reference value);
+	boolean validateIsInverseOfReference(Reference value);
+
+  boolean validatePrimaryInLink(Link value);
+
+  boolean validateSecondaryLink(Link value);
+
+  boolean validateIsInverseOf(Reference value);
 	boolean validateIsPrimaryIn(Link value);
 	boolean validateIsSecondaryIn(Link value);
 }

@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getIdentifier <em>Identifier</em>}</li>
  *   <li>{@link conml.instances.Object#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}</li>
- *   <li>{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}</li>
+ *   <li>{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}</li>
  *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
@@ -100,20 +100,20 @@ public interface Object extends Instance {
 	void setInstancedClass(conml.types.Class value);
 
   /**
-	 * Returns the value of the '<em><b>Is Opposite In</b></em>' reference list.
+	 * Returns the value of the '<em><b>Is Referred By References</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.Reference}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getRefersTo <em>Refers To</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Opposite In</em>' reference list.
-	 * @see conml.instances.InstancesPackage#getObject_IsOppositeIn()
-	 * @see conml.instances.Reference#getRefersTo
-	 * @model opposite="RefersTo"
+	 * @return the value of the '<em>Is Referred By References</em>' reference list.
+	 * @see conml.instances.InstancesPackage#getObject_IsReferredByReferences()
+	 * @see conml.instances.Reference#getReferredObject
+	 * @model opposite="ReferredObject"
 	 * @generated
 	 */
-	EList<Reference> getIsOppositeIn();
+	EList<Reference> getIsReferredByReferences();
 
-	/**
+    /**
 	 * Returns the value of the '<em><b>Temporal Existential Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

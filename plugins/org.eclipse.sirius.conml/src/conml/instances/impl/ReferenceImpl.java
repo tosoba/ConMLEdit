@@ -22,27 +22,27 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.ReferenceImpl#getRefersTo <em>Refers To</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getReferredObject <em>Referred Object</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getInverse <em>Inverse</em>}</li>
- *   <li>{@link conml.instances.impl.ReferenceImpl#getIsInverseOf <em>Is Inverse Of</em>}</li>
- *   <li>{@link conml.instances.impl.ReferenceImpl#getIsPrimaryIn <em>Is Primary In</em>}</li>
- *   <li>{@link conml.instances.impl.ReferenceImpl#getIsSecondaryIn <em>Is Secondary In</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getIsInverseOfReference <em>Is Inverse Of Reference</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getPrimaryInLink <em>Primary In Link</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getSecondaryLink <em>Secondary Link</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class ReferenceImpl extends FacetImpl implements Reference {
 	/**
-	 * The cached value of the '{@link #getRefersTo() <em>Refers To</em>}' reference.
+	 * The cached value of the '{@link #getReferredObject() <em>Referred Object</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRefersTo()
+	 * @see #getReferredObject()
 	 * @generated
 	 * @ordered
 	 */
-	protected conml.instances.Object refersTo;
+	protected conml.instances.Object referredObject;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getInverse() <em>Inverse</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -53,36 +53,36 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	protected Reference inverse;
 
 	/**
-	 * The cached value of the '{@link #getIsInverseOf() <em>Is Inverse Of</em>}' reference.
+	 * The cached value of the '{@link #getIsInverseOfReference() <em>Is Inverse Of Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsInverseOf()
+	 * @see #getIsInverseOfReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference isInverseOf;
+	protected Reference isInverseOfReference;
 
-	/**
-	 * The cached value of the '{@link #getIsPrimaryIn() <em>Is Primary In</em>}' reference.
+  /**
+	 * The cached value of the '{@link #getPrimaryInLink() <em>Primary In Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsPrimaryIn()
+	 * @see #getPrimaryInLink()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link isPrimaryIn;
+	protected Link primaryInLink;
 
-	/**
-	 * The cached value of the '{@link #getIsSecondaryIn() <em>Is Secondary In</em>}' reference.
+  /**
+	 * The cached value of the '{@link #getSecondaryLink() <em>Secondary Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIsSecondaryIn()
+	 * @see #getSecondaryLink()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link isSecondaryIn;
+	protected Link secondaryLink;
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -107,63 +107,63 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public conml.instances.Object getRefersTo() {
-		if (refersTo != null && refersTo.eIsProxy()) {
-			InternalEObject oldRefersTo = (InternalEObject)refersTo;
-			refersTo = (conml.instances.Object)eResolveProxy(oldRefersTo);
-			if (refersTo != oldRefersTo) {
+	public conml.instances.Object getReferredObject() {
+		if (referredObject != null && referredObject.eIsProxy()) {
+			InternalEObject oldReferredObject = (InternalEObject)referredObject;
+			referredObject = (conml.instances.Object)eResolveProxy(oldReferredObject);
+			if (referredObject != oldReferredObject) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__REFERS_TO, oldRefersTo, refersTo));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__REFERRED_OBJECT, oldReferredObject, referredObject));
 			}
 		}
-		return refersTo;
+		return referredObject;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetRefersTo() {
-		return refersTo;
+	public conml.instances.Object basicGetReferredObject() {
+		return referredObject;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetRefersTo(conml.instances.Object newRefersTo, NotificationChain msgs) {
-		conml.instances.Object oldRefersTo = refersTo;
-		refersTo = newRefersTo;
+	public NotificationChain basicSetReferredObject(conml.instances.Object newReferredObject, NotificationChain msgs) {
+		conml.instances.Object oldReferredObject = referredObject;
+		referredObject = newReferredObject;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__REFERS_TO, oldRefersTo, newRefersTo);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__REFERRED_OBJECT, oldReferredObject, newReferredObject);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setRefersTo(conml.instances.Object newRefersTo) {
-		if (newRefersTo != refersTo) {
+	public void setReferredObject(conml.instances.Object newReferredObject) {
+		if (newReferredObject != referredObject) {
 			NotificationChain msgs = null;
-			if (refersTo != null)
-				msgs = ((InternalEObject)refersTo).eInverseRemove(this, InstancesPackage.OBJECT__IS_OPPOSITE_IN, conml.instances.Object.class, msgs);
-			if (newRefersTo != null)
-				msgs = ((InternalEObject)newRefersTo).eInverseAdd(this, InstancesPackage.OBJECT__IS_OPPOSITE_IN, conml.instances.Object.class, msgs);
-			msgs = basicSetRefersTo(newRefersTo, msgs);
+			if (referredObject != null)
+				msgs = ((InternalEObject)referredObject).eInverseRemove(this, InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES, conml.instances.Object.class, msgs);
+			if (newReferredObject != null)
+				msgs = ((InternalEObject)newReferredObject).eInverseAdd(this, InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES, conml.instances.Object.class, msgs);
+			msgs = basicSetReferredObject(newReferredObject, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__REFERS_TO, newRefersTo, newRefersTo));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__REFERRED_OBJECT, newReferredObject, newReferredObject));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -215,9 +215,9 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 		if (newInverse != inverse) {
 			NotificationChain msgs = null;
 			if (inverse != null)
-				msgs = ((InternalEObject)inverse).eInverseRemove(this, InstancesPackage.REFERENCE__IS_INVERSE_OF, Reference.class, msgs);
+				msgs = ((InternalEObject)inverse).eInverseRemove(this, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, Reference.class, msgs);
 			if (newInverse != null)
-				msgs = ((InternalEObject)newInverse).eInverseAdd(this, InstancesPackage.REFERENCE__IS_INVERSE_OF, Reference.class, msgs);
+				msgs = ((InternalEObject)newInverse).eInverseAdd(this, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, Reference.class, msgs);
 			msgs = basicSetInverse(newInverse, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -231,187 +231,187 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public Reference getIsInverseOf() {
-		if (isInverseOf != null && isInverseOf.eIsProxy()) {
-			InternalEObject oldIsInverseOf = (InternalEObject)isInverseOf;
-			isInverseOf = (Reference)eResolveProxy(oldIsInverseOf);
-			if (isInverseOf != oldIsInverseOf) {
+	public Reference getIsInverseOfReference() {
+		if (isInverseOfReference != null && isInverseOfReference.eIsProxy()) {
+			InternalEObject oldIsInverseOfReference = (InternalEObject)isInverseOfReference;
+			isInverseOfReference = (Reference)eResolveProxy(oldIsInverseOfReference);
+			if (isInverseOfReference != oldIsInverseOfReference) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__IS_INVERSE_OF, oldIsInverseOf, isInverseOf));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, oldIsInverseOfReference, isInverseOfReference));
 			}
 		}
-		return isInverseOf;
+		return isInverseOfReference;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference basicGetIsInverseOf() {
-		return isInverseOf;
+	public Reference basicGetIsInverseOfReference() {
+		return isInverseOfReference;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsInverseOf(Reference newIsInverseOf, NotificationChain msgs) {
-		Reference oldIsInverseOf = isInverseOf;
-		isInverseOf = newIsInverseOf;
+	public NotificationChain basicSetIsInverseOfReference(Reference newIsInverseOfReference, NotificationChain msgs) {
+		Reference oldIsInverseOfReference = isInverseOfReference;
+		isInverseOfReference = newIsInverseOfReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_INVERSE_OF, oldIsInverseOf, newIsInverseOf);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, oldIsInverseOfReference, newIsInverseOfReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsInverseOf(Reference newIsInverseOf) {
-		if (newIsInverseOf != isInverseOf) {
+	public void setIsInverseOfReference(Reference newIsInverseOfReference) {
+		if (newIsInverseOfReference != isInverseOfReference) {
 			NotificationChain msgs = null;
-			if (isInverseOf != null)
-				msgs = ((InternalEObject)isInverseOf).eInverseRemove(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
-			if (newIsInverseOf != null)
-				msgs = ((InternalEObject)newIsInverseOf).eInverseAdd(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
-			msgs = basicSetIsInverseOf(newIsInverseOf, msgs);
+			if (isInverseOfReference != null)
+				msgs = ((InternalEObject)isInverseOfReference).eInverseRemove(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
+			if (newIsInverseOfReference != null)
+				msgs = ((InternalEObject)newIsInverseOfReference).eInverseAdd(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
+			msgs = basicSetIsInverseOfReference(newIsInverseOfReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_INVERSE_OF, newIsInverseOf, newIsInverseOf));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, newIsInverseOfReference, newIsInverseOfReference));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Link getIsPrimaryIn() {
-		if (isPrimaryIn != null && isPrimaryIn.eIsProxy()) {
-			InternalEObject oldIsPrimaryIn = (InternalEObject)isPrimaryIn;
-			isPrimaryIn = (Link)eResolveProxy(oldIsPrimaryIn);
-			if (isPrimaryIn != oldIsPrimaryIn) {
+	public Link getPrimaryInLink() {
+		if (primaryInLink != null && primaryInLink.eIsProxy()) {
+			InternalEObject oldPrimaryInLink = (InternalEObject)primaryInLink;
+			primaryInLink = (Link)eResolveProxy(oldPrimaryInLink);
+			if (primaryInLink != oldPrimaryInLink) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__IS_PRIMARY_IN, oldIsPrimaryIn, isPrimaryIn));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, oldPrimaryInLink, primaryInLink));
 			}
 		}
-		return isPrimaryIn;
+		return primaryInLink;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetIsPrimaryIn() {
-		return isPrimaryIn;
+	public Link basicGetPrimaryInLink() {
+		return primaryInLink;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsPrimaryIn(Link newIsPrimaryIn, NotificationChain msgs) {
-		Link oldIsPrimaryIn = isPrimaryIn;
-		isPrimaryIn = newIsPrimaryIn;
+	public NotificationChain basicSetPrimaryInLink(Link newPrimaryInLink, NotificationChain msgs) {
+		Link oldPrimaryInLink = primaryInLink;
+		primaryInLink = newPrimaryInLink;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_PRIMARY_IN, oldIsPrimaryIn, newIsPrimaryIn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, oldPrimaryInLink, newPrimaryInLink);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsPrimaryIn(Link newIsPrimaryIn) {
-		if (newIsPrimaryIn != isPrimaryIn) {
+	public void setPrimaryInLink(Link newPrimaryInLink) {
+		if (newPrimaryInLink != primaryInLink) {
 			NotificationChain msgs = null;
-			if (isPrimaryIn != null)
-				msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, InstancesPackage.LINK__HAS_PRIMARY, Link.class, msgs);
-			if (newIsPrimaryIn != null)
-				msgs = ((InternalEObject)newIsPrimaryIn).eInverseAdd(this, InstancesPackage.LINK__HAS_PRIMARY, Link.class, msgs);
-			msgs = basicSetIsPrimaryIn(newIsPrimaryIn, msgs);
+			if (primaryInLink != null)
+				msgs = ((InternalEObject)primaryInLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+			if (newPrimaryInLink != null)
+				msgs = ((InternalEObject)newPrimaryInLink).eInverseAdd(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+			msgs = basicSetPrimaryInLink(newPrimaryInLink, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_PRIMARY_IN, newIsPrimaryIn, newIsPrimaryIn));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, newPrimaryInLink, newPrimaryInLink));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Link getIsSecondaryIn() {
-		if (isSecondaryIn != null && isSecondaryIn.eIsProxy()) {
-			InternalEObject oldIsSecondaryIn = (InternalEObject)isSecondaryIn;
-			isSecondaryIn = (Link)eResolveProxy(oldIsSecondaryIn);
-			if (isSecondaryIn != oldIsSecondaryIn) {
+	public Link getSecondaryLink() {
+		if (secondaryLink != null && secondaryLink.eIsProxy()) {
+			InternalEObject oldSecondaryLink = (InternalEObject)secondaryLink;
+			secondaryLink = (Link)eResolveProxy(oldSecondaryLink);
+			if (secondaryLink != oldSecondaryLink) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__IS_SECONDARY_IN, oldIsSecondaryIn, isSecondaryIn));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__SECONDARY_LINK, oldSecondaryLink, secondaryLink));
 			}
 		}
-		return isSecondaryIn;
+		return secondaryLink;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetIsSecondaryIn() {
-		return isSecondaryIn;
+	public Link basicGetSecondaryLink() {
+		return secondaryLink;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetIsSecondaryIn(Link newIsSecondaryIn, NotificationChain msgs) {
-		Link oldIsSecondaryIn = isSecondaryIn;
-		isSecondaryIn = newIsSecondaryIn;
+	public NotificationChain basicSetSecondaryLink(Link newSecondaryLink, NotificationChain msgs) {
+		Link oldSecondaryLink = secondaryLink;
+		secondaryLink = newSecondaryLink;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_SECONDARY_IN, oldIsSecondaryIn, newIsSecondaryIn);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__SECONDARY_LINK, oldSecondaryLink, newSecondaryLink);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setIsSecondaryIn(Link newIsSecondaryIn) {
-		if (newIsSecondaryIn != isSecondaryIn) {
+	public void setSecondaryLink(Link newSecondaryLink) {
+		if (newSecondaryLink != secondaryLink) {
 			NotificationChain msgs = null;
-			if (isSecondaryIn != null)
-				msgs = ((InternalEObject)isSecondaryIn).eInverseRemove(this, InstancesPackage.LINK__HAS_SECONDARY, Link.class, msgs);
-			if (newIsSecondaryIn != null)
-				msgs = ((InternalEObject)newIsSecondaryIn).eInverseAdd(this, InstancesPackage.LINK__HAS_SECONDARY, Link.class, msgs);
-			msgs = basicSetIsSecondaryIn(newIsSecondaryIn, msgs);
+			if (secondaryLink != null)
+				msgs = ((InternalEObject)secondaryLink).eInverseRemove(this, InstancesPackage.LINK__SECONDARY_REFERENCE, Link.class, msgs);
+			if (newSecondaryLink != null)
+				msgs = ((InternalEObject)newSecondaryLink).eInverseAdd(this, InstancesPackage.LINK__SECONDARY_REFERENCE, Link.class, msgs);
+			msgs = basicSetSecondaryLink(newSecondaryLink, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__IS_SECONDARY_IN, newIsSecondaryIn, newIsSecondaryIn));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__SECONDARY_LINK, newSecondaryLink, newSecondaryLink));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -419,26 +419,26 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				if (refersTo != null)
-					msgs = ((InternalEObject)refersTo).eInverseRemove(this, InstancesPackage.OBJECT__IS_OPPOSITE_IN, conml.instances.Object.class, msgs);
-				return basicSetRefersTo((conml.instances.Object)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				if (referredObject != null)
+					msgs = ((InternalEObject)referredObject).eInverseRemove(this, InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES, conml.instances.Object.class, msgs);
+				return basicSetReferredObject((conml.instances.Object)otherEnd, msgs);
 			case InstancesPackage.REFERENCE__INVERSE:
 				if (inverse != null)
-					msgs = ((InternalEObject)inverse).eInverseRemove(this, InstancesPackage.REFERENCE__IS_INVERSE_OF, Reference.class, msgs);
+					msgs = ((InternalEObject)inverse).eInverseRemove(this, InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE, Reference.class, msgs);
 				return basicSetInverse((Reference)otherEnd, msgs);
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				if (isInverseOf != null)
-					msgs = ((InternalEObject)isInverseOf).eInverseRemove(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
-				return basicSetIsInverseOf((Reference)otherEnd, msgs);
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				if (isPrimaryIn != null)
-					msgs = ((InternalEObject)isPrimaryIn).eInverseRemove(this, InstancesPackage.LINK__HAS_PRIMARY, Link.class, msgs);
-				return basicSetIsPrimaryIn((Link)otherEnd, msgs);
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				if (isSecondaryIn != null)
-					msgs = ((InternalEObject)isSecondaryIn).eInverseRemove(this, InstancesPackage.LINK__HAS_SECONDARY, Link.class, msgs);
-				return basicSetIsSecondaryIn((Link)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				if (isInverseOfReference != null)
+					msgs = ((InternalEObject)isInverseOfReference).eInverseRemove(this, InstancesPackage.REFERENCE__INVERSE, Reference.class, msgs);
+				return basicSetIsInverseOfReference((Reference)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				if (primaryInLink != null)
+					msgs = ((InternalEObject)primaryInLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+				return basicSetPrimaryInLink((Link)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				if (secondaryLink != null)
+					msgs = ((InternalEObject)secondaryLink).eInverseRemove(this, InstancesPackage.LINK__SECONDARY_REFERENCE, Link.class, msgs);
+				return basicSetSecondaryLink((Link)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -451,16 +451,16 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				return basicSetRefersTo(null, msgs);
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				return basicSetReferredObject(null, msgs);
 			case InstancesPackage.REFERENCE__INVERSE:
 				return basicSetInverse(null, msgs);
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				return basicSetIsInverseOf(null, msgs);
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				return basicSetIsPrimaryIn(null, msgs);
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				return basicSetIsSecondaryIn(null, msgs);
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				return basicSetIsInverseOfReference(null, msgs);
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				return basicSetPrimaryInLink(null, msgs);
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				return basicSetSecondaryLink(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -473,21 +473,21 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				if (resolve) return getRefersTo();
-				return basicGetRefersTo();
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				if (resolve) return getReferredObject();
+				return basicGetReferredObject();
 			case InstancesPackage.REFERENCE__INVERSE:
 				if (resolve) return getInverse();
 				return basicGetInverse();
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				if (resolve) return getIsInverseOf();
-				return basicGetIsInverseOf();
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				if (resolve) return getIsPrimaryIn();
-				return basicGetIsPrimaryIn();
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				if (resolve) return getIsSecondaryIn();
-				return basicGetIsSecondaryIn();
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				if (resolve) return getIsInverseOfReference();
+				return basicGetIsInverseOfReference();
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				if (resolve) return getPrimaryInLink();
+				return basicGetPrimaryInLink();
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				if (resolve) return getSecondaryLink();
+				return basicGetSecondaryLink();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -500,20 +500,20 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				setRefersTo((conml.instances.Object)newValue);
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				setReferredObject((conml.instances.Object)newValue);
 				return;
 			case InstancesPackage.REFERENCE__INVERSE:
 				setInverse((Reference)newValue);
 				return;
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				setIsInverseOf((Reference)newValue);
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				setIsInverseOfReference((Reference)newValue);
 				return;
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				setIsPrimaryIn((Link)newValue);
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				setPrimaryInLink((Link)newValue);
 				return;
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				setIsSecondaryIn((Link)newValue);
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				setSecondaryLink((Link)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -527,20 +527,20 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				setRefersTo((conml.instances.Object)null);
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				setReferredObject((conml.instances.Object)null);
 				return;
 			case InstancesPackage.REFERENCE__INVERSE:
 				setInverse((Reference)null);
 				return;
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				setIsInverseOf((Reference)null);
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				setIsInverseOfReference((Reference)null);
 				return;
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				setIsPrimaryIn((Link)null);
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				setPrimaryInLink((Link)null);
 				return;
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				setIsSecondaryIn((Link)null);
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				setSecondaryLink((Link)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -554,16 +554,16 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.REFERENCE__REFERS_TO:
-				return refersTo != null;
+			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
+				return referredObject != null;
 			case InstancesPackage.REFERENCE__INVERSE:
 				return inverse != null;
-			case InstancesPackage.REFERENCE__IS_INVERSE_OF:
-				return isInverseOf != null;
-			case InstancesPackage.REFERENCE__IS_PRIMARY_IN:
-				return isPrimaryIn != null;
-			case InstancesPackage.REFERENCE__IS_SECONDARY_IN:
-				return isSecondaryIn != null;
+			case InstancesPackage.REFERENCE__IS_INVERSE_OF_REFERENCE:
+				return isInverseOfReference != null;
+			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
+				return primaryInLink != null;
+			case InstancesPackage.REFERENCE__SECONDARY_LINK:
+				return secondaryLink != null;
 		}
 		return super.eIsSet(featureID);
 	}

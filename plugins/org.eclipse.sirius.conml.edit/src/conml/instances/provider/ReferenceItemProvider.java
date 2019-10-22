@@ -44,29 +44,29 @@ public class ReferenceItemProvider extends FacetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRefersToPropertyDescriptor(object);
+			addReferredObjectPropertyDescriptor(object);
 			addInversePropertyDescriptor(object);
-			addIsInverseOfPropertyDescriptor(object);
-			addIsPrimaryInPropertyDescriptor(object);
-			addIsSecondaryInPropertyDescriptor(object);
+			addIsInverseOfReferencePropertyDescriptor(object);
+			addPrimaryInLinkPropertyDescriptor(object);
+			addSecondaryLinkPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Refers To feature.
+	 * This adds a property descriptor for the Referred Object feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRefersToPropertyDescriptor(Object object) {
+	protected void addReferredObjectPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_RefersTo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_RefersTo_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__REFERS_TO,
+				 getString("_UI_Reference_ReferredObject_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_ReferredObject_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__REFERRED_OBJECT,
 				 true,
 				 false,
 				 true,
@@ -75,7 +75,7 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Inverse feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -86,8 +86,8 @@ public class ReferenceItemProvider extends FacetItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_inverse_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_inverse_feature", "_UI_Reference_type"),
+				 getString("_UI_Reference_Inverse_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_Inverse_feature", "_UI_Reference_type"),
 				 InstancesPackage.Literals.REFERENCE__INVERSE,
 				 true,
 				 false,
@@ -98,19 +98,19 @@ public class ReferenceItemProvider extends FacetItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Is Inverse Of feature.
+	 * This adds a property descriptor for the Is Inverse Of Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsInverseOfPropertyDescriptor(Object object) {
+	protected void addIsInverseOfReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_isInverseOf_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_isInverseOf_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__IS_INVERSE_OF,
+				 getString("_UI_Reference_IsInverseOfReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_IsInverseOfReference_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__IS_INVERSE_OF_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -119,20 +119,20 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Primary In feature.
+  /**
+	 * This adds a property descriptor for the Primary In Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsPrimaryInPropertyDescriptor(Object object) {
+	protected void addPrimaryInLinkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_IsPrimaryIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_IsPrimaryIn_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__IS_PRIMARY_IN,
+				 getString("_UI_Reference_PrimaryInLink_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_PrimaryInLink_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__PRIMARY_IN_LINK,
 				 true,
 				 false,
 				 true,
@@ -141,20 +141,20 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Is Secondary In feature.
+  /**
+	 * This adds a property descriptor for the Secondary Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsSecondaryInPropertyDescriptor(Object object) {
+	protected void addSecondaryLinkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_IsSecondaryIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_IsSecondaryIn_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__IS_SECONDARY_IN,
+				 getString("_UI_Reference_SecondaryLink_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_SecondaryLink_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__SECONDARY_LINK,
 				 true,
 				 false,
 				 true,
@@ -163,7 +163,7 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns Reference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

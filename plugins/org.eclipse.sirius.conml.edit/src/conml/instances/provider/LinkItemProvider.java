@@ -43,8 +43,8 @@ public class LinkItemProvider extends InstanceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addInstancedAssociationPropertyDescriptor(object);
-			addHasPrimaryPropertyDescriptor(object);
-			addHasSecondaryPropertyDescriptor(object);
+			addPrimaryReferencePropertyDescriptor(object);
+			addSecondaryReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -72,19 +72,19 @@ public class LinkItemProvider extends InstanceItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Has Primary feature.
+	 * This adds a property descriptor for the Primary Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasPrimaryPropertyDescriptor(Object object) {
+	protected void addPrimaryReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Link_HasPrimary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_HasPrimary_feature", "_UI_Link_type"),
-				 InstancesPackage.Literals.LINK__HAS_PRIMARY,
+				 getString("_UI_Link_PrimaryReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Link_PrimaryReference_feature", "_UI_Link_type"),
+				 InstancesPackage.Literals.LINK__PRIMARY_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -93,20 +93,20 @@ public class LinkItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
-	 * This adds a property descriptor for the Has Secondary feature.
+  /**
+	 * This adds a property descriptor for the Secondary Reference feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addHasSecondaryPropertyDescriptor(Object object) {
+	protected void addSecondaryReferencePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Link_HasSecondary_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Link_HasSecondary_feature", "_UI_Link_type"),
-				 InstancesPackage.Literals.LINK__HAS_SECONDARY,
+				 getString("_UI_Link_SecondaryReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Link_SecondaryReference_feature", "_UI_Link_type"),
+				 InstancesPackage.Literals.LINK__SECONDARY_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -115,7 +115,7 @@ public class LinkItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This returns Link.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

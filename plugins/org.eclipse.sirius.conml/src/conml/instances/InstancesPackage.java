@@ -262,15 +262,15 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__OWNER_SET = FACET__OWNER_SET;
 
   /**
-	 * The feature id for the '<em><b>Refers To</b></em>' reference.
+	 * The feature id for the '<em><b>Referred Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__REFERS_TO = FACET_FEATURE_COUNT + 0;
+	int REFERENCE__REFERRED_OBJECT = FACET_FEATURE_COUNT + 0;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Inverse</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -280,33 +280,33 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__INVERSE = FACET_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Is Inverse Of</b></em>' reference.
+	 * The feature id for the '<em><b>Is Inverse Of Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__IS_INVERSE_OF = FACET_FEATURE_COUNT + 2;
+	int REFERENCE__IS_INVERSE_OF_REFERENCE = FACET_FEATURE_COUNT + 2;
 
-	/**
-	 * The feature id for the '<em><b>Is Primary In</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Primary In Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__IS_PRIMARY_IN = FACET_FEATURE_COUNT + 3;
+	int REFERENCE__PRIMARY_IN_LINK = FACET_FEATURE_COUNT + 3;
 
-	/**
-	 * The feature id for the '<em><b>Is Secondary In</b></em>' reference.
+  /**
+	 * The feature id for the '<em><b>Secondary Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__IS_SECONDARY_IN = FACET_FEATURE_COUNT + 4;
+	int REFERENCE__SECONDARY_LINK = FACET_FEATURE_COUNT + 4;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -744,15 +744,15 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__INSTANCED_CLASS = INSTANCE_FEATURE_COUNT + 2;
 
   /**
-	 * The feature id for the '<em><b>Is Opposite In</b></em>' reference list.
+	 * The feature id for the '<em><b>Is Referred By References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__IS_OPPOSITE_IN = INSTANCE_FEATURE_COUNT + 3;
+	int OBJECT__IS_REFERRED_BY_REFERENCES = INSTANCE_FEATURE_COUNT + 3;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -844,24 +844,24 @@ public interface InstancesPackage extends EPackage {
 	int LINK__INSTANCED_ASSOCIATION = INSTANCE_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Has Primary</b></em>' reference.
+	 * The feature id for the '<em><b>Primary Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__HAS_PRIMARY = INSTANCE_FEATURE_COUNT + 1;
+	int LINK__PRIMARY_REFERENCE = INSTANCE_FEATURE_COUNT + 1;
 
-	/**
-	 * The feature id for the '<em><b>Has Secondary</b></em>' reference.
+    /**
+	 * The feature id for the '<em><b>Secondary Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__HAS_SECONDARY = INSTANCE_FEATURE_COUNT + 2;
+	int LINK__SECONDARY_REFERENCE = INSTANCE_FEATURE_COUNT + 2;
 
-	/**
+        /**
 	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1016,17 +1016,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getRefersTo <em>Refers To</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Refers To</em>'.
-	 * @see conml.instances.Reference#getRefersTo()
+	 * @return the meta object for the reference '<em>Referred Object</em>'.
+	 * @see conml.instances.Reference#getReferredObject()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_RefersTo();
+	EReference getReference_ReferredObject();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getInverse <em>Inverse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1038,39 +1038,39 @@ public interface InstancesPackage extends EPackage {
 	EReference getReference_Inverse();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getIsInverseOf <em>Is Inverse Of</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Inverse Of</em>'.
-	 * @see conml.instances.Reference#getIsInverseOf()
+	 * @return the meta object for the reference '<em>Is Inverse Of Reference</em>'.
+	 * @see conml.instances.Reference#getIsInverseOfReference()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_IsInverseOf();
+	EReference getReference_IsInverseOfReference();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getIsPrimaryIn <em>Is Primary In</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Primary In</em>'.
-	 * @see conml.instances.Reference#getIsPrimaryIn()
+	 * @return the meta object for the reference '<em>Primary In Link</em>'.
+	 * @see conml.instances.Reference#getPrimaryInLink()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_IsPrimaryIn();
+	EReference getReference_PrimaryInLink();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getIsSecondaryIn <em>Is Secondary In</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Secondary In</em>'.
-	 * @see conml.instances.Reference#getIsSecondaryIn()
+	 * @return the meta object for the reference '<em>Secondary Link</em>'.
+	 * @see conml.instances.Reference#getSecondaryLink()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_IsSecondaryIn();
+	EReference getReference_SecondaryLink();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.instances.InstanceModelElement <em>Instance Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1187,17 +1187,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_InstancedClass();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Is Opposite In</em>'.
-	 * @see conml.instances.Object#getIsOppositeIn()
+	 * @return the meta object for the reference list '<em>Is Referred By References</em>'.
+	 * @see conml.instances.Object#getIsReferredByReferences()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_IsOppositeIn();
+	EReference getObject_IsReferredByReferences();
 
-	/**
+    /**
 	 * Returns the meta object for the reference '{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1263,28 +1263,28 @@ public interface InstancesPackage extends EPackage {
 	EReference getLink_InstancedAssociation();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Primary</em>'.
-	 * @see conml.instances.Link#getHasPrimary()
+	 * @return the meta object for the reference '<em>Primary Reference</em>'.
+	 * @see conml.instances.Link#getPrimaryReference()
 	 * @see #getLink()
 	 * @generated
 	 */
-	EReference getLink_HasPrimary();
+	EReference getLink_PrimaryReference();
 
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Link#getHasSecondary <em>Has Secondary</em>}'.
+  /**
+	 * Returns the meta object for the reference '{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Has Secondary</em>'.
-	 * @see conml.instances.Link#getHasSecondary()
+	 * @return the meta object for the reference '<em>Secondary Reference</em>'.
+	 * @see conml.instances.Link#getSecondaryReference()
 	 * @see #getLink()
 	 * @generated
 	 */
-	EReference getLink_HasSecondary();
+	EReference getLink_SecondaryReference();
 
-	/**
+    /**
 	 * Returns the meta object for class '{@link conml.instances.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1439,14 +1439,14 @@ public interface InstancesPackage extends EPackage {
 		EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Refers To</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Referred Object</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__REFERS_TO = eINSTANCE.getReference_RefersTo();
+		EReference REFERENCE__REFERRED_OBJECT = eINSTANCE.getReference_ReferredObject();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Inverse</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1455,30 +1455,30 @@ public interface InstancesPackage extends EPackage {
 		EReference REFERENCE__INVERSE = eINSTANCE.getReference_Inverse();
 
 		/**
-		 * The meta object literal for the '<em><b>Is Inverse Of</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Is Inverse Of Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__IS_INVERSE_OF = eINSTANCE.getReference_IsInverseOf();
+		EReference REFERENCE__IS_INVERSE_OF_REFERENCE = eINSTANCE.getReference_IsInverseOfReference();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Primary In</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Primary In Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__IS_PRIMARY_IN = eINSTANCE.getReference_IsPrimaryIn();
+		EReference REFERENCE__PRIMARY_IN_LINK = eINSTANCE.getReference_PrimaryInLink();
 
-		/**
-		 * The meta object literal for the '<em><b>Is Secondary In</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Secondary Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__IS_SECONDARY_IN = eINSTANCE.getReference_IsSecondaryIn();
+		EReference REFERENCE__SECONDARY_LINK = eINSTANCE.getReference_SecondaryLink();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.InstanceModelElementImpl <em>Instance Model Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1577,14 +1577,14 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__INSTANCED_CLASS = eINSTANCE.getObject_InstancedClass();
 
     /**
-		 * The meta object literal for the '<em><b>Is Opposite In</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Is Referred By References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__IS_OPPOSITE_IN = eINSTANCE.getObject_IsOppositeIn();
+		EReference OBJECT__IS_REFERRED_BY_REFERENCES = eINSTANCE.getObject_IsReferredByReferences();
 
-		/**
+        /**
 		 * The meta object literal for the '<em><b>Temporal Existential Qualifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1635,22 +1635,22 @@ public interface InstancesPackage extends EPackage {
 		EReference LINK__INSTANCED_ASSOCIATION = eINSTANCE.getLink_InstancedAssociation();
 
     /**
-		 * The meta object literal for the '<em><b>Has Primary</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primary Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__HAS_PRIMARY = eINSTANCE.getLink_HasPrimary();
+		EReference LINK__PRIMARY_REFERENCE = eINSTANCE.getLink_PrimaryReference();
 
-		/**
-		 * The meta object literal for the '<em><b>Has Secondary</b></em>' reference feature.
+    /**
+		 * The meta object literal for the '<em><b>Secondary Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference LINK__HAS_SECONDARY = eINSTANCE.getLink_HasSecondary();
+		EReference LINK__SECONDARY_REFERENCE = eINSTANCE.getLink_SecondaryReference();
 
-		/**
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

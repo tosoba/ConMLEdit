@@ -19,7 +19,11 @@ public interface LinkValidator {
 
 	boolean validateInstancedAssociation(Association value);
 
-  boolean validateIsInstanceOf(Association value);
+  boolean validatePrimaryReference(Reference value);
+
+  boolean validateSecondaryReference(Reference value);
+
+    boolean validateIsInstanceOf(Association value);
 	boolean validateHasPrimary(Reference value);
 	boolean validateHasSecondary(Reference value);
 }

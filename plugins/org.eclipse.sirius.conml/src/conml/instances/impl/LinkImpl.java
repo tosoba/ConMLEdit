@@ -26,8 +26,8 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.LinkImpl#getInstancedAssociation <em>Instanced Association</em>}</li>
- *   <li>{@link conml.instances.impl.LinkImpl#getHasPrimary <em>Has Primary</em>}</li>
- *   <li>{@link conml.instances.impl.LinkImpl#getHasSecondary <em>Has Secondary</em>}</li>
+ *   <li>{@link conml.instances.impl.LinkImpl#getPrimaryReference <em>Primary Reference</em>}</li>
+ *   <li>{@link conml.instances.impl.LinkImpl#getSecondaryReference <em>Secondary Reference</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,26 +44,26 @@ public class LinkImpl extends InstanceImpl implements Link {
 	protected Association instancedAssociation;
 
   /**
-	 * The cached value of the '{@link #getHasPrimary() <em>Has Primary</em>}' reference.
+	 * The cached value of the '{@link #getPrimaryReference() <em>Primary Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasPrimary()
+	 * @see #getPrimaryReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference hasPrimary;
+	protected Reference primaryReference;
 
-	/**
-	 * The cached value of the '{@link #getHasSecondary() <em>Has Secondary</em>}' reference.
+  /**
+	 * The cached value of the '{@link #getSecondaryReference() <em>Secondary Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getHasSecondary()
+	 * @see #getSecondaryReference()
 	 * @generated
 	 * @ordered
 	 */
-	protected Reference hasSecondary;
+	protected Reference secondaryReference;
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -150,125 +150,125 @@ public class LinkImpl extends InstanceImpl implements Link {
 	 * @generated
 	 */
 	@Override
-	public Reference getHasPrimary() {
-		if (hasPrimary != null && hasPrimary.eIsProxy()) {
-			InternalEObject oldHasPrimary = (InternalEObject)hasPrimary;
-			hasPrimary = (Reference)eResolveProxy(oldHasPrimary);
-			if (hasPrimary != oldHasPrimary) {
+	public Reference getPrimaryReference() {
+		if (primaryReference != null && primaryReference.eIsProxy()) {
+			InternalEObject oldPrimaryReference = (InternalEObject)primaryReference;
+			primaryReference = (Reference)eResolveProxy(oldPrimaryReference);
+			if (primaryReference != oldPrimaryReference) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__HAS_PRIMARY, oldHasPrimary, hasPrimary));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__PRIMARY_REFERENCE, oldPrimaryReference, primaryReference));
 			}
 		}
-		return hasPrimary;
+		return primaryReference;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference basicGetHasPrimary() {
-		return hasPrimary;
+	public Reference basicGetPrimaryReference() {
+		return primaryReference;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHasPrimary(Reference newHasPrimary, NotificationChain msgs) {
-		Reference oldHasPrimary = hasPrimary;
-		hasPrimary = newHasPrimary;
+	public NotificationChain basicSetPrimaryReference(Reference newPrimaryReference, NotificationChain msgs) {
+		Reference oldPrimaryReference = primaryReference;
+		primaryReference = newPrimaryReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__HAS_PRIMARY, oldHasPrimary, newHasPrimary);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__PRIMARY_REFERENCE, oldPrimaryReference, newPrimaryReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setHasPrimary(Reference newHasPrimary) {
-		if (newHasPrimary != hasPrimary) {
+	public void setPrimaryReference(Reference newPrimaryReference) {
+		if (newPrimaryReference != primaryReference) {
 			NotificationChain msgs = null;
-			if (hasPrimary != null)
-				msgs = ((InternalEObject)hasPrimary).eInverseRemove(this, InstancesPackage.REFERENCE__IS_PRIMARY_IN, Reference.class, msgs);
-			if (newHasPrimary != null)
-				msgs = ((InternalEObject)newHasPrimary).eInverseAdd(this, InstancesPackage.REFERENCE__IS_PRIMARY_IN, Reference.class, msgs);
-			msgs = basicSetHasPrimary(newHasPrimary, msgs);
+			if (primaryReference != null)
+				msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+			if (newPrimaryReference != null)
+				msgs = ((InternalEObject)newPrimaryReference).eInverseAdd(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+			msgs = basicSetPrimaryReference(newPrimaryReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__HAS_PRIMARY, newHasPrimary, newHasPrimary));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__PRIMARY_REFERENCE, newPrimaryReference, newPrimaryReference));
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Reference getHasSecondary() {
-		if (hasSecondary != null && hasSecondary.eIsProxy()) {
-			InternalEObject oldHasSecondary = (InternalEObject)hasSecondary;
-			hasSecondary = (Reference)eResolveProxy(oldHasSecondary);
-			if (hasSecondary != oldHasSecondary) {
+	public Reference getSecondaryReference() {
+		if (secondaryReference != null && secondaryReference.eIsProxy()) {
+			InternalEObject oldSecondaryReference = (InternalEObject)secondaryReference;
+			secondaryReference = (Reference)eResolveProxy(oldSecondaryReference);
+			if (secondaryReference != oldSecondaryReference) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__HAS_SECONDARY, oldHasSecondary, hasSecondary));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.LINK__SECONDARY_REFERENCE, oldSecondaryReference, secondaryReference));
 			}
 		}
-		return hasSecondary;
+		return secondaryReference;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Reference basicGetHasSecondary() {
-		return hasSecondary;
+	public Reference basicGetSecondaryReference() {
+		return secondaryReference;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetHasSecondary(Reference newHasSecondary, NotificationChain msgs) {
-		Reference oldHasSecondary = hasSecondary;
-		hasSecondary = newHasSecondary;
+	public NotificationChain basicSetSecondaryReference(Reference newSecondaryReference, NotificationChain msgs) {
+		Reference oldSecondaryReference = secondaryReference;
+		secondaryReference = newSecondaryReference;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__HAS_SECONDARY, oldHasSecondary, newHasSecondary);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__SECONDARY_REFERENCE, oldSecondaryReference, newSecondaryReference);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setHasSecondary(Reference newHasSecondary) {
-		if (newHasSecondary != hasSecondary) {
+	public void setSecondaryReference(Reference newSecondaryReference) {
+		if (newSecondaryReference != secondaryReference) {
 			NotificationChain msgs = null;
-			if (hasSecondary != null)
-				msgs = ((InternalEObject)hasSecondary).eInverseRemove(this, InstancesPackage.REFERENCE__IS_SECONDARY_IN, Reference.class, msgs);
-			if (newHasSecondary != null)
-				msgs = ((InternalEObject)newHasSecondary).eInverseAdd(this, InstancesPackage.REFERENCE__IS_SECONDARY_IN, Reference.class, msgs);
-			msgs = basicSetHasSecondary(newHasSecondary, msgs);
+			if (secondaryReference != null)
+				msgs = ((InternalEObject)secondaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__SECONDARY_LINK, Reference.class, msgs);
+			if (newSecondaryReference != null)
+				msgs = ((InternalEObject)newSecondaryReference).eInverseAdd(this, InstancesPackage.REFERENCE__SECONDARY_LINK, Reference.class, msgs);
+			msgs = basicSetSecondaryReference(newSecondaryReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__HAS_SECONDARY, newHasSecondary, newHasSecondary));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__SECONDARY_REFERENCE, newSecondaryReference, newSecondaryReference));
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -280,14 +280,14 @@ public class LinkImpl extends InstanceImpl implements Link {
 				if (instancedAssociation != null)
 					msgs = ((InternalEObject)instancedAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__INSTANCE_LINKS, Association.class, msgs);
 				return basicSetInstancedAssociation((Association)otherEnd, msgs);
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				if (hasPrimary != null)
-					msgs = ((InternalEObject)hasPrimary).eInverseRemove(this, InstancesPackage.REFERENCE__IS_PRIMARY_IN, Reference.class, msgs);
-				return basicSetHasPrimary((Reference)otherEnd, msgs);
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				if (hasSecondary != null)
-					msgs = ((InternalEObject)hasSecondary).eInverseRemove(this, InstancesPackage.REFERENCE__IS_SECONDARY_IN, Reference.class, msgs);
-				return basicSetHasSecondary((Reference)otherEnd, msgs);
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				if (primaryReference != null)
+					msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+				return basicSetPrimaryReference((Reference)otherEnd, msgs);
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				if (secondaryReference != null)
+					msgs = ((InternalEObject)secondaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__SECONDARY_LINK, Reference.class, msgs);
+				return basicSetSecondaryReference((Reference)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -302,10 +302,10 @@ public class LinkImpl extends InstanceImpl implements Link {
 		switch (featureID) {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
 				return basicSetInstancedAssociation(null, msgs);
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				return basicSetHasPrimary(null, msgs);
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				return basicSetHasSecondary(null, msgs);
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				return basicSetPrimaryReference(null, msgs);
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				return basicSetSecondaryReference(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -321,12 +321,12 @@ public class LinkImpl extends InstanceImpl implements Link {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
 				if (resolve) return getInstancedAssociation();
 				return basicGetInstancedAssociation();
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				if (resolve) return getHasPrimary();
-				return basicGetHasPrimary();
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				if (resolve) return getHasSecondary();
-				return basicGetHasSecondary();
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				if (resolve) return getPrimaryReference();
+				return basicGetPrimaryReference();
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				if (resolve) return getSecondaryReference();
+				return basicGetSecondaryReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -342,11 +342,11 @@ public class LinkImpl extends InstanceImpl implements Link {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
 				setInstancedAssociation((Association)newValue);
 				return;
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				setHasPrimary((Reference)newValue);
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				setPrimaryReference((Reference)newValue);
 				return;
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				setHasSecondary((Reference)newValue);
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				setSecondaryReference((Reference)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -363,11 +363,11 @@ public class LinkImpl extends InstanceImpl implements Link {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
 				setInstancedAssociation((Association)null);
 				return;
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				setHasPrimary((Reference)null);
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				setPrimaryReference((Reference)null);
 				return;
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				setHasSecondary((Reference)null);
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				setSecondaryReference((Reference)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -383,10 +383,10 @@ public class LinkImpl extends InstanceImpl implements Link {
 		switch (featureID) {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
 				return instancedAssociation != null;
-			case InstancesPackage.LINK__HAS_PRIMARY:
-				return hasPrimary != null;
-			case InstancesPackage.LINK__HAS_SECONDARY:
-				return hasSecondary != null;
+			case InstancesPackage.LINK__PRIMARY_REFERENCE:
+				return primaryReference != null;
+			case InstancesPackage.LINK__SECONDARY_REFERENCE:
+				return secondaryReference != null;
 		}
 		return super.eIsSet(featureID);
 	}

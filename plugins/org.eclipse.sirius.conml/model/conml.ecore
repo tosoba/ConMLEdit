@@ -202,16 +202,16 @@
           eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/Facets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="RefersTo" lowerBound="1"
-          eType="#//instances/Object" eOpposite="#//instances/Object/IsOppositeIn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="inverse" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/isInverseOf"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="isInverseOf" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/inverse"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsPrimaryIn" eType="#//instances/Link"
-          eOpposite="#//instances/Link/HasPrimary"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsSecondaryIn" eType="#//instances/Link"
-          eOpposite="#//instances/Link/HasSecondary"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredObject" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/IsReferredByReferences"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Inverse" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/IsInverseOfReference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInverseOfReference"
+          eType="#//instances/Reference" eOpposite="#//instances/Reference/Inverse"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryInLink" eType="#//instances/Link"
+          eOpposite="#//instances/Link/PrimaryReference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryLink" eType="#//instances/Link"
+          eOpposite="#//instances/Link/SecondaryReference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstanceModelElement" abstract="true"
         eSuperTypes="#//ModelElement"/>
@@ -241,8 +241,8 @@
           eType="#//instances/DegreeOfCertainty"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/InstanceObjects"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsOppositeIn" upperBound="-1"
-          eType="#//instances/Reference" eOpposite="#//instances/Reference/RefersTo"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="IsReferredByReferences"
+          upperBound="-1" eType="#//instances/Reference" eOpposite="#//instances/Reference/ReferredObject"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
           eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveExistentialQualifer"
@@ -255,10 +255,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
           lowerBound="1" eType="#//types/Association" eOpposite="#//types/Association/InstanceLinks"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasPrimary" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/IsPrimaryIn"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasSecondary" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/IsSecondaryIn"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryReference" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/PrimaryInLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryReference" eType="#//instances/Reference"
+          eOpposite="#//instances/Reference/SecondaryLink"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="contents" lowerBound="1"

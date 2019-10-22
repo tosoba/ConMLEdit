@@ -49,7 +49,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addIdentifierPropertyDescriptor(object);
 			addCertaintyPropertyDescriptor(object);
 			addInstancedClassPropertyDescriptor(object);
-			addIsOppositeInPropertyDescriptor(object);
+			addIsReferredByReferencesPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 		}
@@ -123,19 +123,19 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Is Opposite In feature.
+	 * This adds a property descriptor for the Is Referred By References feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addIsOppositeInPropertyDescriptor(Object object) {
+	protected void addIsReferredByReferencesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_IsOppositeIn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsOppositeIn_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__IS_OPPOSITE_IN,
+				 getString("_UI_Object_IsReferredByReferences_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_IsReferredByReferences_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__IS_REFERRED_BY_REFERENCES,
 				 true,
 				 false,
 				 true,
@@ -144,7 +144,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This adds a property descriptor for the Temporal Existential Qualifier feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

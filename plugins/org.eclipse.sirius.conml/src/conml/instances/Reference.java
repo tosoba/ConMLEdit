@@ -12,11 +12,11 @@ package conml.instances;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.Reference#getRefersTo <em>Refers To</em>}</li>
+ *   <li>{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}</li>
  *   <li>{@link conml.instances.Reference#getInverse <em>Inverse</em>}</li>
- *   <li>{@link conml.instances.Reference#getIsInverseOf <em>Is Inverse Of</em>}</li>
- *   <li>{@link conml.instances.Reference#getIsPrimaryIn <em>Is Primary In</em>}</li>
- *   <li>{@link conml.instances.Reference#getIsSecondaryIn <em>Is Secondary In</em>}</li>
+ *   <li>{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}</li>
+ *   <li>{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}</li>
+ *   <li>{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReference()
@@ -25,39 +25,39 @@ package conml.instances;
  */
 public interface Reference extends Facet {
 	/**
-	 * Returns the value of the '<em><b>Refers To</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getIsOppositeIn <em>Is Opposite In</em>}'.
+	 * Returns the value of the '<em><b>Referred Object</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Refers To</em>' reference.
-	 * @see #setRefersTo(conml.instances.Object)
-	 * @see conml.instances.InstancesPackage#getReference_RefersTo()
-	 * @see conml.instances.Object#getIsOppositeIn
-	 * @model opposite="IsOppositeIn" required="true"
+	 * @return the value of the '<em>Referred Object</em>' reference.
+	 * @see #setReferredObject(conml.instances.Object)
+	 * @see conml.instances.InstancesPackage#getReference_ReferredObject()
+	 * @see conml.instances.Object#getIsReferredByReferences
+	 * @model opposite="IsReferredByReferences" required="true"
 	 * @generated
 	 */
-	conml.instances.Object getRefersTo();
+	conml.instances.Object getReferredObject();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Reference#getRefersTo <em>Refers To</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Refers To</em>' reference.
-	 * @see #getRefersTo()
+	 * @param value the new value of the '<em>Referred Object</em>' reference.
+	 * @see #getReferredObject()
 	 * @generated
 	 */
-	void setRefersTo(conml.instances.Object value);
+	void setReferredObject(conml.instances.Object value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Inverse</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsInverseOf <em>Is Inverse Of</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Inverse</em>' reference.
 	 * @see #setInverse(Reference)
 	 * @see conml.instances.InstancesPackage#getReference_Inverse()
-	 * @see conml.instances.Reference#getIsInverseOf
-	 * @model opposite="isInverseOf"
+	 * @see conml.instances.Reference#getIsInverseOfReference
+	 * @model opposite="IsInverseOfReference"
 	 * @generated
 	 */
 	Reference getInverse();
@@ -73,75 +73,75 @@ public interface Reference extends Facet {
 	void setInverse(Reference value);
 
 	/**
-	 * Returns the value of the '<em><b>Is Inverse Of</b></em>' reference.
+	 * Returns the value of the '<em><b>Is Inverse Of Reference</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getInverse <em>Inverse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Inverse Of</em>' reference.
-	 * @see #setIsInverseOf(Reference)
-	 * @see conml.instances.InstancesPackage#getReference_IsInverseOf()
+	 * @return the value of the '<em>Is Inverse Of Reference</em>' reference.
+	 * @see #setIsInverseOfReference(Reference)
+	 * @see conml.instances.InstancesPackage#getReference_IsInverseOfReference()
 	 * @see conml.instances.Reference#getInverse
-	 * @model opposite="inverse"
+	 * @model opposite="Inverse"
 	 * @generated
 	 */
-	Reference getIsInverseOf();
+	Reference getIsInverseOfReference();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Reference#getIsInverseOf <em>Is Inverse Of</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Inverse Of</em>' reference.
-	 * @see #getIsInverseOf()
+	 * @param value the new value of the '<em>Is Inverse Of Reference</em>' reference.
+	 * @see #getIsInverseOfReference()
 	 * @generated
 	 */
-	void setIsInverseOf(Reference value);
+	void setIsInverseOfReference(Reference value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Primary In</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}'.
+  /**
+	 * Returns the value of the '<em><b>Primary In Link</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Primary In</em>' reference.
-	 * @see #setIsPrimaryIn(Link)
-	 * @see conml.instances.InstancesPackage#getReference_IsPrimaryIn()
-	 * @see conml.instances.Link#getHasPrimary
-	 * @model opposite="HasPrimary"
+	 * @return the value of the '<em>Primary In Link</em>' reference.
+	 * @see #setPrimaryInLink(Link)
+	 * @see conml.instances.InstancesPackage#getReference_PrimaryInLink()
+	 * @see conml.instances.Link#getPrimaryReference
+	 * @model opposite="PrimaryReference"
 	 * @generated
 	 */
-	Link getIsPrimaryIn();
+	Link getPrimaryInLink();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Reference#getIsPrimaryIn <em>Is Primary In</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Primary In</em>' reference.
-	 * @see #getIsPrimaryIn()
+	 * @param value the new value of the '<em>Primary In Link</em>' reference.
+	 * @see #getPrimaryInLink()
 	 * @generated
 	 */
-	void setIsPrimaryIn(Link value);
+	void setPrimaryInLink(Link value);
 
-	/**
-	 * Returns the value of the '<em><b>Is Secondary In</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getHasSecondary <em>Has Secondary</em>}'.
+  /**
+	 * Returns the value of the '<em><b>Secondary Link</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Secondary In</em>' reference.
-	 * @see #setIsSecondaryIn(Link)
-	 * @see conml.instances.InstancesPackage#getReference_IsSecondaryIn()
-	 * @see conml.instances.Link#getHasSecondary
-	 * @model opposite="HasSecondary"
+	 * @return the value of the '<em>Secondary Link</em>' reference.
+	 * @see #setSecondaryLink(Link)
+	 * @see conml.instances.InstancesPackage#getReference_SecondaryLink()
+	 * @see conml.instances.Link#getSecondaryReference
+	 * @model opposite="SecondaryReference"
 	 * @generated
 	 */
-	Link getIsSecondaryIn();
+	Link getSecondaryLink();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Reference#getIsSecondaryIn <em>Is Secondary In</em>}' reference.
+  /**
+	 * Sets the value of the '{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Secondary In</em>' reference.
-	 * @see #getIsSecondaryIn()
+	 * @param value the new value of the '<em>Secondary Link</em>' reference.
+	 * @see #getSecondaryLink()
 	 * @generated
 	 */
-	void setIsSecondaryIn(Link value);
+	void setSecondaryLink(Link value);
 
 } // Reference

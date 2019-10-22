@@ -14,8 +14,8 @@ import conml.types.Association;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Link#getInstancedAssociation <em>Instanced Association</em>}</li>
- *   <li>{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}</li>
- *   <li>{@link conml.instances.Link#getHasSecondary <em>Has Secondary</em>}</li>
+ *   <li>{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}</li>
+ *   <li>{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getLink()
@@ -48,51 +48,51 @@ public interface Link extends Instance {
 	void setInstancedAssociation(Association value);
 
   /**
-	 * Returns the value of the '<em><b>Has Primary</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsPrimaryIn <em>Is Primary In</em>}'.
+	 * Returns the value of the '<em><b>Primary Reference</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Primary</em>' reference.
-	 * @see #setHasPrimary(Reference)
-	 * @see conml.instances.InstancesPackage#getLink_HasPrimary()
-	 * @see conml.instances.Reference#getIsPrimaryIn
-	 * @model opposite="IsPrimaryIn"
+	 * @return the value of the '<em>Primary Reference</em>' reference.
+	 * @see #setPrimaryReference(Reference)
+	 * @see conml.instances.InstancesPackage#getLink_PrimaryReference()
+	 * @see conml.instances.Reference#getPrimaryInLink
+	 * @model opposite="PrimaryInLink"
 	 * @generated
 	 */
-	Reference getHasPrimary();
+	Reference getPrimaryReference();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Link#getHasPrimary <em>Has Primary</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Has Primary</em>' reference.
-	 * @see #getHasPrimary()
+	 * @param value the new value of the '<em>Primary Reference</em>' reference.
+	 * @see #getPrimaryReference()
 	 * @generated
 	 */
-	void setHasPrimary(Reference value);
+	void setPrimaryReference(Reference value);
 
-	/**
-	 * Returns the value of the '<em><b>Has Secondary</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsSecondaryIn <em>Is Secondary In</em>}'.
+    /**
+	 * Returns the value of the '<em><b>Secondary Reference</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Secondary</em>' reference.
-	 * @see #setHasSecondary(Reference)
-	 * @see conml.instances.InstancesPackage#getLink_HasSecondary()
-	 * @see conml.instances.Reference#getIsSecondaryIn
-	 * @model opposite="IsSecondaryIn"
+	 * @return the value of the '<em>Secondary Reference</em>' reference.
+	 * @see #setSecondaryReference(Reference)
+	 * @see conml.instances.InstancesPackage#getLink_SecondaryReference()
+	 * @see conml.instances.Reference#getSecondaryLink
+	 * @model opposite="SecondaryLink"
 	 * @generated
 	 */
-	Reference getHasSecondary();
+	Reference getSecondaryReference();
 
-	/**
-	 * Sets the value of the '{@link conml.instances.Link#getHasSecondary <em>Has Secondary</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Has Secondary</em>' reference.
-	 * @see #getHasSecondary()
+	 * @param value the new value of the '<em>Secondary Reference</em>' reference.
+	 * @see #getSecondaryReference()
 	 * @generated
 	 */
-	void setHasSecondary(Reference value);
+	void setSecondaryReference(Reference value);
 
 } // Link

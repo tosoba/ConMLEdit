@@ -11,3 +11,4 @@ code
 *.ear
 
 RemoteSystemsTempFiles/*
+External Plug-in Libraries/*
