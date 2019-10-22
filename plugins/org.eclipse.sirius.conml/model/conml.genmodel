@@ -162,7 +162,6 @@
       <genClasses ecoreClass="conml.ecore#//types/DataType"/>
       <genClasses ecoreClass="conml.ecore#//types/EnumeratedItem">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/EnumeratedItem/name"/>
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/EnumeratedItem/absoluteName"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/EnumeratedItem/definition"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/EnumeratedItem/Owner"/>
@@ -184,8 +183,6 @@
       <genClasses image="false" ecoreClass="conml.ecore#//instances/Instance"/>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/Facet">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Facet/certainty"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/Facet/OwnerSet"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Reference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -239,13 +236,12 @@
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/FacetSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/Facets"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/TranslationQualifiers"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PhaseQualifier"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PerspectiveQualifier"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/Facets"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

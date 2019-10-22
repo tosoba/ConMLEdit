@@ -17,6 +17,8 @@ import conml.types.SimpleDataType;
 
 public class ValueSetServices {
 
+  private static final int CONTENT_LABELS_LIMIT = 3;
+
   private static class FacetValidation {
     final boolean success;
     final String errorMsg;
@@ -70,10 +72,11 @@ public class ValueSetServices {
     if (valueSet.getFacets() == null || valueSet.getFacets().isEmpty()) {
       sb.append("null");
     } else {
+      final ArrayList<String> contentLabels = new ArrayList<>();
+
       if (dataType instanceof SimpleDataType) {
         final SimpleDataType simpleDataType = (SimpleDataType) dataType;
         final BaseDataType baseDataType = simpleDataType.getBase();
-        final ArrayList<String> contentLabels = new ArrayList<>();
         switch (baseDataType) {
           case BOOLEAN:
             for (final Facet facet : valueSet.getFacets()) {
@@ -113,11 +116,19 @@ public class ValueSetServices {
             // TODO:
             break;
         }
-        // TODO: think about what to do when there is a lot of values...
-        sb.append(contentLabels.stream().collect(Collectors.joining("; ")));
+        // TODO: think about what to do when there is a lot of values... CONTENT_LABELS_LIMIT is a
+        // temporary solution
+        sb.append(
+            contentLabels.stream().limit(CONTENT_LABELS_LIMIT).collect(Collectors.joining("; ")));
+        if (contentLabels.size() > CONTENT_LABELS_LIMIT) sb.append(";...");
+
       } else if (dataType instanceof EnumeratedType) {
         final EnumeratedType enumType = (EnumeratedType) dataType;
-        // TODO:
+        // TODO: depending on the situation (p. 52)?
+        // absolute name: subItemOf/Item
+        // full name: enumTypeName.subItemOf/Item
+        // fully qualified name: packageName.enumTypeName.subItemOf/Item
+
       }
     }
 

@@ -1686,22 +1686,13 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_ITEM__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Absolute Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_ITEM__ABSOLUTE_NAME = 1;
-
-	/**
 	 * The feature id for the '<em><b>Definition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__DEFINITION = 2;
+	int ENUMERATED_ITEM__DEFINITION = 1;
 
 	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
@@ -1710,7 +1701,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__OWNER = 3;
+	int ENUMERATED_ITEM__OWNER = 2;
 
 	/**
 	 * The feature id for the '<em><b>Super Item Of Enumerated Items</b></em>' reference list.
@@ -1719,7 +1710,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = 4;
+	int ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = 3;
 
   /**
 	 * The feature id for the '<em><b>Sub Item Of Enumerated Item</b></em>' reference.
@@ -1728,7 +1719,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = 5;
+	int ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = 4;
 
   /**
 	 * The number of structural features of the '<em>Enumerated Item</em>' class.
@@ -1737,7 +1728,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM_FEATURE_COUNT = 6;
+	int ENUMERATED_ITEM_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Item</em>' class.
@@ -2581,17 +2572,6 @@ public interface TypesPackage extends EPackage {
 	EAttribute getEnumeratedItem_Name();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.EnumeratedItem#getAbsoluteName <em>Absolute Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Absolute Name</em>'.
-	 * @see conml.types.EnumeratedItem#getAbsoluteName()
-	 * @see #getEnumeratedItem()
-	 * @generated
-	 */
-	EAttribute getEnumeratedItem_AbsoluteName();
-
-	/**
 	 * Returns the meta object for the attribute '{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3305,14 +3285,6 @@ public interface TypesPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ENUMERATED_ITEM__NAME = eINSTANCE.getEnumeratedItem_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Absolute Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ENUMERATED_ITEM__ABSOLUTE_NAME = eINSTANCE.getEnumeratedItem_AbsoluteName();
 
 		/**
 		 * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.

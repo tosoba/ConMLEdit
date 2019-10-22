@@ -182,8 +182,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="absoluteName" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
           eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnedItems"/>
@@ -198,8 +196,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="Facet" abstract="true" eSuperTypes="#//instances/InstanceModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="certainty" lowerBound="1"
           eType="#//instances/DegreeOfCertainty"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerSet" lowerBound="1"
-          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/Facets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredObject" lowerBound="1"
@@ -265,13 +261,13 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Facets" upperBound="-1"
-          eType="#//instances/Facet" eOpposite="#//instances/Facet/OwnerSet"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TranslationQualifiers"
           upperBound="-1" eType="#//Language"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PerspectiveQualifier"
           eType="#//instances/Object"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Facets" upperBound="-1"
+          eType="#//instances/Facet" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

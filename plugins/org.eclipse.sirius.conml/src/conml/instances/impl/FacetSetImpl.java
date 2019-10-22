@@ -19,8 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,26 +31,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.FacetSetImpl#getFacets <em>Facets</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
+ *   <li>{@link conml.instances.impl.FacetSetImpl#getFacets <em>Facets</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	/**
-	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFacets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Facet> facets;
-
-  /**
 	 * The cached value of the '{@link #getTranslationQualifiers() <em>Translation Qualifiers</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -80,6 +70,16 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 */
 	protected conml.instances.Object perspectiveQualifier;
 
+    /**
+	 * The cached value of the '{@link #getFacets() <em>Facets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getFacets()
+	 * @generated
+	 * @ordered
+	 */
+    protected EList<Facet> facets;
+
   /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -107,7 +107,7 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public EList<Facet> getFacets() {
 		if (facets == null) {
-			facets = new EObjectWithInverseResolvingEList<Facet>(Facet.class, this, InstancesPackage.FACET_SET__FACETS, InstancesPackage.FACET__OWNER_SET);
+			facets = new EObjectContainmentEList<Facet>(Facet.class, this, InstancesPackage.FACET_SET__FACETS);
 		}
 		return facets;
 	}
@@ -210,21 +210,6 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@SuppressWarnings("unchecked")
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case InstancesPackage.FACET_SET__FACETS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getFacets()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -242,8 +227,6 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__FACETS:
-				return getFacets();
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return getTranslationQualifiers();
 			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
@@ -252,6 +235,8 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				if (resolve) return getPerspectiveQualifier();
 				return basicGetPerspectiveQualifier();
+			case InstancesPackage.FACET_SET__FACETS:
+				return getFacets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -265,10 +250,6 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__FACETS:
-				getFacets().clear();
-				getFacets().addAll((Collection<? extends Facet>)newValue);
-				return;
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				getTranslationQualifiers().clear();
 				getTranslationQualifiers().addAll((Collection<? extends Language>)newValue);
@@ -278,6 +259,10 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				return;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				setPerspectiveQualifier((conml.instances.Object)newValue);
+				return;
+			case InstancesPackage.FACET_SET__FACETS:
+				getFacets().clear();
+				getFacets().addAll((Collection<? extends Facet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,9 +276,6 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__FACETS:
-				getFacets().clear();
-				return;
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				getTranslationQualifiers().clear();
 				return;
@@ -302,6 +284,9 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				return;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				setPerspectiveQualifier((conml.instances.Object)null);
+				return;
+			case InstancesPackage.FACET_SET__FACETS:
+				getFacets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -315,14 +300,14 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.FACET_SET__FACETS:
-				return facets != null && !facets.isEmpty();
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return translationQualifiers != null && !translationQualifiers.isEmpty();
 			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
 				return phaseQualifier != null;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				return perspectiveQualifier != null;
+			case InstancesPackage.FACET_SET__FACETS:
+				return facets != null && !facets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

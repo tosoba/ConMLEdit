@@ -47,7 +47,6 @@ public class FacetItemProvider extends InstanceModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCertaintyPropertyDescriptor(object);
-			addOwnerSetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -75,28 +74,6 @@ public class FacetItemProvider extends InstanceModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Owner Set feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnerSetPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Facet_OwnerSet_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Facet_OwnerSet_feature", "_UI_Facet_type"),
-				 InstancesPackage.Literals.FACET__OWNER_SET,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

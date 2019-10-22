@@ -32,7 +32,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getName <em>Name</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedItemImpl#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedItemImpl#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}</li>
@@ -61,26 +60,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String name = NAME_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getAbsoluteName() <em>Absolute Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbsoluteName()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String ABSOLUTE_NAME_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getAbsoluteName() <em>Absolute Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAbsoluteName()
-	 * @generated
-	 * @ordered
-	 */
-	protected String absoluteName = ABSOLUTE_NAME_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getDefinition() <em>Definition</em>}' attribute.
@@ -162,29 +141,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		name = newName;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__NAME, oldName, name));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getAbsoluteName() {
-		return absoluteName;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setAbsoluteName(String newAbsoluteName) {
-		String oldAbsoluteName = absoluteName;
-		absoluteName = newAbsoluteName;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME, oldAbsoluteName, absoluteName));
 	}
 
 	/**
@@ -393,8 +349,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__NAME:
 				return getName();
-			case TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME:
-				return getAbsoluteName();
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				return getDefinition();
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
@@ -419,9 +373,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__NAME:
 				setName((String)newValue);
-				return;
-			case TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME:
-				setAbsoluteName((String)newValue);
 				return;
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				setDefinition((String)newValue);
@@ -451,9 +402,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 			case TypesPackage.ENUMERATED_ITEM__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME:
-				setAbsoluteName(ABSOLUTE_NAME_EDEFAULT);
-				return;
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				setDefinition(DEFINITION_EDEFAULT);
 				return;
@@ -480,8 +428,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_ITEM__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME:
-				return ABSOLUTE_NAME_EDEFAULT == null ? absoluteName != null : !ABSOLUTE_NAME_EDEFAULT.equals(absoluteName);
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				return DEFINITION_EDEFAULT == null ? definition != null : !DEFINITION_EDEFAULT.equals(definition);
 			case TypesPackage.ENUMERATED_ITEM__OWNER:
@@ -506,8 +452,6 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", absoluteName: ");
-		result.append(absoluteName);
 		result.append(", definition: ");
 		result.append(definition);
 		result.append(')');

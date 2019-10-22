@@ -16,7 +16,6 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link conml.types.EnumeratedItem#getName <em>Name</em>}</li>
- *   <li>{@link conml.types.EnumeratedItem#getAbsoluteName <em>Absolute Name</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}</li>
@@ -49,28 +48,6 @@ public interface EnumeratedItem extends EObject {
 	 * @generated
 	 */
 	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Absolute Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Absolute Name</em>' attribute.
-	 * @see #setAbsoluteName(String)
-	 * @see conml.types.TypesPackage#getEnumeratedItem_AbsoluteName()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getAbsoluteName();
-
-	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getAbsoluteName <em>Absolute Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Absolute Name</em>' attribute.
-	 * @see #getAbsoluteName()
-	 * @generated
-	 */
-	void setAbsoluteName(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Definition</b></em>' attribute.

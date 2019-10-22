@@ -14,10 +14,10 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.FacetSet#getFacets <em>Facets</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
+ *   <li>{@link conml.instances.FacetSet#getFacets <em>Facets</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacetSet()
@@ -26,15 +26,13 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface FacetSet extends Instance {
 	/**
-	 * Returns the value of the '<em><b>Facets</b></em>' reference list.
+	 * Returns the value of the '<em><b>Facets</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Facet}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facets</em>' reference list.
+	 * @return the value of the '<em>Facets</em>' containment reference list.
 	 * @see conml.instances.InstancesPackage#getFacetSet_Facets()
-	 * @see conml.instances.Facet#getOwnerSet
-	 * @model opposite="OwnerSet"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Facet> getFacets();

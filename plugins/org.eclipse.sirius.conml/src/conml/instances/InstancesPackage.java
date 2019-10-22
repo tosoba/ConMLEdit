@@ -189,22 +189,13 @@ public interface InstancesPackage extends EPackage {
 	int FACET__CERTAINTY = INSTANCE_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Owner Set</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET__OWNER_SET = INSTANCE_MODEL_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
 	 * The number of structural features of the '<em>Facet</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_FEATURE_COUNT = INSTANCE_MODEL_ELEMENT_FEATURE_COUNT + 2;
+	int FACET_FEATURE_COUNT = INSTANCE_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Facet</em>' class.
@@ -253,15 +244,6 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__CERTAINTY = FACET__CERTAINTY;
 
 	/**
-	 * The feature id for the '<em><b>Owner Set</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__OWNER_SET = FACET__OWNER_SET;
-
-  /**
 	 * The feature id for the '<em><b>Referred Object</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -453,22 +435,13 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__DOCUMENTING_OBJECTS = INSTANCE__DOCUMENTING_OBJECTS;
 
   /**
-	 * The feature id for the '<em><b>Facets</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET_SET__FACETS = INSTANCE_FEATURE_COUNT + 0;
-
-    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 1;
+	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
@@ -477,7 +450,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
+	int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
@@ -486,7 +459,16 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 3;
+	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
+
+    /**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int FACET_SET__FACETS = INSTANCE_FEATURE_COUNT + 3;
 
   /**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
@@ -535,15 +517,6 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__DOCUMENTING_OBJECTS = FACET_SET__DOCUMENTING_OBJECTS;
 
   /**
-	 * The feature id for the '<em><b>Facets</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__FACETS = FACET_SET__FACETS;
-
-    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -569,6 +542,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+    /**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int VALUE_SET__FACETS = FACET_SET__FACETS;
 
   /**
 	 * The feature id for the '<em><b>Instanced Attribute</b></em>' reference.
@@ -626,15 +608,6 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__DOCUMENTING_OBJECTS = FACET_SET__DOCUMENTING_OBJECTS;
 
   /**
-	 * The feature id for the '<em><b>Facets</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_SET__FACETS = FACET_SET__FACETS;
-
-    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -660,6 +633,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+    /**
+	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 
   /**
 	 * The feature id for the '<em><b>Instanced Semi Association</b></em>' reference.
@@ -917,15 +899,6 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__CERTAINTY = FACET__CERTAINTY;
 
 	/**
-	 * The feature id for the '<em><b>Owner Set</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__OWNER_SET = FACET__OWNER_SET;
-
-  /**
 	 * The feature id for the '<em><b>Contents</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -995,17 +968,6 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getFacet_Certainty();
 
 	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Owner Set</em>'.
-	 * @see conml.instances.Facet#getOwnerSet()
-	 * @see #getFacet()
-	 * @generated
-	 */
-	EReference getFacet_OwnerSet();
-
-  /**
 	 * Returns the meta object for class '{@link conml.instances.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1316,10 +1278,10 @@ public interface InstancesPackage extends EPackage {
 	EClass getFacetSet();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.FacetSet#getFacets <em>Facets</em>}'.
+	 * Returns the meta object for the containment reference list '{@link conml.instances.FacetSet#getFacets <em>Facets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Facets</em>'.
+	 * @return the meta object for the containment reference list '<em>Facets</em>'.
 	 * @see conml.instances.FacetSet#getFacets()
 	 * @see #getFacetSet()
 	 * @generated
@@ -1421,14 +1383,6 @@ public interface InstancesPackage extends EPackage {
 		EAttribute FACET__CERTAINTY = eINSTANCE.getFacet_Certainty();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner Set</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FACET__OWNER_SET = eINSTANCE.getFacet_OwnerSet();
-
-    /**
 		 * The meta object literal for the '{@link conml.instances.impl.ReferenceImpl <em>Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1679,7 +1633,7 @@ public interface InstancesPackage extends EPackage {
 		EClass FACET_SET = eINSTANCE.getFacetSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Facets</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Facets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated

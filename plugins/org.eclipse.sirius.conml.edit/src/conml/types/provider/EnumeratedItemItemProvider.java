@@ -63,7 +63,6 @@ public class EnumeratedItemItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addAbsoluteNamePropertyDescriptor(object);
 			addDefinitionPropertyDescriptor(object);
 			addOwnerPropertyDescriptor(object);
 			addSuperItemOfEnumeratedItemsPropertyDescriptor(object);
@@ -86,28 +85,6 @@ public class EnumeratedItemItemProvider
 				 getString("_UI_EnumeratedItem_name_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_name_feature", "_UI_EnumeratedItem_type"),
 				 TypesPackage.Literals.ENUMERATED_ITEM__NAME,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Absolute Name feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addAbsoluteNamePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_absoluteName_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_absoluteName_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__ABSOLUTE_NAME,
 				 true,
 				 false,
 				 false,
@@ -243,7 +220,6 @@ public class EnumeratedItemItemProvider
 
 		switch (notification.getFeatureID(EnumeratedItem.class)) {
 			case TypesPackage.ENUMERATED_ITEM__NAME:
-			case TypesPackage.ENUMERATED_ITEM__ABSOLUTE_NAME:
 			case TypesPackage.ENUMERATED_ITEM__DEFINITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

@@ -995,7 +995,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getEnumeratedItem_AbsoluteName() {
+	public EAttribute getEnumeratedItem_Definition() {
 		return (EAttribute)enumeratedItemEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -1005,18 +1005,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EAttribute getEnumeratedItem_Definition() {
-		return (EAttribute)enumeratedItemEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getEnumeratedItem_Owner() {
-		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(3);
+		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1026,7 +1016,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getEnumeratedItem_SuperItemOfEnumeratedItems() {
-		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(4);
+		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(3);
 	}
 
   /**
@@ -1036,7 +1026,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getEnumeratedItem_SubItemOfEnumeratedItem() {
-		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(5);
+		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(4);
 	}
 
   /**
@@ -1168,7 +1158,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		enumeratedItemEClass = createEClass(ENUMERATED_ITEM);
 		createEAttribute(enumeratedItemEClass, ENUMERATED_ITEM__NAME);
-		createEAttribute(enumeratedItemEClass, ENUMERATED_ITEM__ABSOLUTE_NAME);
 		createEAttribute(enumeratedItemEClass, ENUMERATED_ITEM__DEFINITION);
 		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__OWNER);
 		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS);
@@ -1317,7 +1306,6 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		initEClass(enumeratedItemEClass, EnumeratedItem.class, "EnumeratedItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnumeratedItem_Name(), ecorePackage.getEString(), "name", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getEnumeratedItem_AbsoluteName(), ecorePackage.getEString(), "absoluteName", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumeratedItem_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumeratedItem_Owner(), this.getEnumeratedType(), this.getEnumeratedType_OwnedItems(), "Owner", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumeratedItem_SuperItemOfEnumeratedItems(), this.getEnumeratedItem(), this.getEnumeratedItem_SubItemOfEnumeratedItem(), "SuperItemOfEnumeratedItems", null, 0, -1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -13,7 +13,6 @@ package conml.instances;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Facet#getCertainty <em>Certainty</em>}</li>
- *   <li>{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacet()
@@ -45,29 +44,5 @@ public interface Facet extends InstanceModelElement {
 	 * @generated
 	 */
 	void setCertainty(DegreeOfCertainty value);
-
-	/**
-	 * Returns the value of the '<em><b>Owner Set</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.FacetSet#getFacets <em>Facets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner Set</em>' reference.
-	 * @see #setOwnerSet(FacetSet)
-	 * @see conml.instances.InstancesPackage#getFacet_OwnerSet()
-	 * @see conml.instances.FacetSet#getFacets
-	 * @model opposite="Facets" required="true"
-	 * @generated
-	 */
-	FacetSet getOwnerSet();
-
-  /**
-	 * Sets the value of the '{@link conml.instances.Facet#getOwnerSet <em>Owner Set</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner Set</em>' reference.
-	 * @see #getOwnerSet()
-	 * @generated
-	 */
-	void setOwnerSet(FacetSet value);
 
 } // Facet
