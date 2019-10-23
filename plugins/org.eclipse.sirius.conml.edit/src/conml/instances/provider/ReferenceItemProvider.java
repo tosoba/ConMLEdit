@@ -49,6 +49,7 @@ public class ReferenceItemProvider extends FacetItemProvider {
 			addIsInverseOfReferencePropertyDescriptor(object);
 			addPrimaryInLinkPropertyDescriptor(object);
 			addSecondaryLinkPropertyDescriptor(object);
+			addOwnerReferenceSetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -164,6 +165,28 @@ public class ReferenceItemProvider extends FacetItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Owner Reference Set feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerReferenceSetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Reference_OwnerReferenceSet_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_OwnerReferenceSet_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__OWNER_REFERENCE_SET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns Reference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

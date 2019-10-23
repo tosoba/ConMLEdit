@@ -6,6 +6,7 @@ import conml.instances.InstancesPackage;
 import conml.instances.Link;
 import conml.instances.Reference;
 
+import conml.instances.ReferenceSet;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -13,6 +14,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,6 +29,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link conml.instances.impl.ReferenceImpl#getIsInverseOfReference <em>Is Inverse Of Reference</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getPrimaryInLink <em>Primary In Link</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getSecondaryLink <em>Secondary Link</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getOwnerReferenceSet <em>Owner Reference Set</em>}</li>
  * </ul>
  *
  * @generated
@@ -417,6 +420,49 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	 * @generated
 	 */
 	@Override
+	public ReferenceSet getOwnerReferenceSet() {
+		if (eContainerFeatureID() != InstancesPackage.REFERENCE__OWNER_REFERENCE_SET) return null;
+		return (ReferenceSet)eInternalContainer();
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwnerReferenceSet(ReferenceSet newOwnerReferenceSet, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwnerReferenceSet, InstancesPackage.REFERENCE__OWNER_REFERENCE_SET, msgs);
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOwnerReferenceSet(ReferenceSet newOwnerReferenceSet) {
+		if (newOwnerReferenceSet != eInternalContainer() || (eContainerFeatureID() != InstancesPackage.REFERENCE__OWNER_REFERENCE_SET && newOwnerReferenceSet != null)) {
+			if (EcoreUtil.isAncestor(this, newOwnerReferenceSet))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwnerReferenceSet != null)
+				msgs = ((InternalEObject)newOwnerReferenceSet).eInverseAdd(this, InstancesPackage.REFERENCE_SET__REFERENCES, ReferenceSet.class, msgs);
+			msgs = basicSetOwnerReferenceSet(newOwnerReferenceSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__OWNER_REFERENCE_SET, newOwnerReferenceSet, newOwnerReferenceSet));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
@@ -439,6 +485,10 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 				if (secondaryLink != null)
 					msgs = ((InternalEObject)secondaryLink).eInverseRemove(this, InstancesPackage.LINK__SECONDARY_REFERENCE, Link.class, msgs);
 				return basicSetSecondaryLink((Link)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwnerReferenceSet((ReferenceSet)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -461,11 +511,27 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 				return basicSetPrimaryInLink(null, msgs);
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				return basicSetSecondaryLink(null, msgs);
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				return basicSetOwnerReferenceSet(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				return eInternalContainer().eInverseRemove(this, InstancesPackage.REFERENCE_SET__REFERENCES, ReferenceSet.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -488,6 +554,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				if (resolve) return getSecondaryLink();
 				return basicGetSecondaryLink();
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				return getOwnerReferenceSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -514,6 +582,9 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 				return;
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				setSecondaryLink((Link)newValue);
+				return;
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				setOwnerReferenceSet((ReferenceSet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -542,6 +613,9 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				setSecondaryLink((Link)null);
 				return;
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				setOwnerReferenceSet((ReferenceSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -564,6 +638,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 				return primaryInLink != null;
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				return secondaryLink != null;
+			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
+				return getOwnerReferenceSet() != null;
 		}
 		return super.eIsSet(featureID);
 	}

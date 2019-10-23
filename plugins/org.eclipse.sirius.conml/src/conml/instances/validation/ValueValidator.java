@@ -4,6 +4,8 @@
  */
 package conml.instances.validation;
 
+import conml.instances.ValueSet;
+
 
 /**
  * A sample validator interface for {@link conml.instances.Value}.
@@ -15,4 +17,6 @@ public interface ValueValidator {
 	boolean validate();
 
 	boolean validateContents(Object value);
+
+  boolean validateOwnerValueSet(ValueSet value);
 }

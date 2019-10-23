@@ -50,11 +50,13 @@ public interface ReferenceSet extends FacetSet {
     /**
 	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Reference}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>References</em>' containment reference list.
 	 * @see conml.instances.InstancesPackage#getReferenceSet_References()
-	 * @model containment="true"
+	 * @see conml.instances.Reference#getOwnerReferenceSet
+	 * @model opposite="OwnerReferenceSet" containment="true"
 	 * @generated
 	 */
 	EList<Reference> getReferences();

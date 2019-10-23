@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -145,7 +145,7 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	@Override
 	public EList<Value> getValues() {
 		if (values == null) {
-			values = new EObjectContainmentEList<Value>(Value.class, this, InstancesPackage.VALUE_SET__VALUES);
+			values = new EObjectContainmentWithInverseEList<Value>(Value.class, this, InstancesPackage.VALUE_SET__VALUES, InstancesPackage.VALUE__OWNER_VALUE_SET);
 		}
 		return values;
 	}
@@ -155,13 +155,16 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@SuppressWarnings("unchecked")
+  @Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				if (instancedAttribute != null)
 					msgs = ((InternalEObject)instancedAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS, Attribute.class, msgs);
 				return basicSetInstancedAttribute((Attribute)otherEnd, msgs);
+			case InstancesPackage.VALUE_SET__VALUES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getValues()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

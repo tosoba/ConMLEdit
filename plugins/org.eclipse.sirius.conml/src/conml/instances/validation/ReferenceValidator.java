@@ -6,6 +6,7 @@ package conml.instances.validation;
 
 import conml.instances.Link;
 import conml.instances.Reference;
+import conml.instances.ReferenceSet;
 
 /**
  * A sample validator interface for {@link conml.instances.Reference}.
@@ -26,7 +27,9 @@ public interface ReferenceValidator {
 
   boolean validateSecondaryLink(Link value);
 
-  boolean validateIsInverseOf(Reference value);
+  boolean validateOwnerReferenceSet(ReferenceSet value);
+
+    boolean validateIsInverseOf(Reference value);
 	boolean validateIsPrimaryIn(Link value);
 	boolean validateIsSecondaryIn(Link value);
 }

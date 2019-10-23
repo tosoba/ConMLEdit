@@ -17,6 +17,7 @@ package conml.instances;
  *   <li>{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}</li>
  *   <li>{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}</li>
  *   <li>{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}</li>
+ *   <li>{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReference()
@@ -143,5 +144,29 @@ public interface Reference extends Facet {
 	 * @generated
 	 */
 	void setSecondaryLink(Link value);
+
+    /**
+	 * Returns the value of the '<em><b>Owner Reference Set</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.ReferenceSet#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner Reference Set</em>' container reference.
+	 * @see #setOwnerReferenceSet(ReferenceSet)
+	 * @see conml.instances.InstancesPackage#getReference_OwnerReferenceSet()
+	 * @see conml.instances.ReferenceSet#getReferences
+	 * @model opposite="References" required="true" transient="false"
+	 * @generated
+	 */
+	ReferenceSet getOwnerReferenceSet();
+
+    /**
+	 * Sets the value of the '{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner Reference Set</em>' container reference.
+	 * @see #getOwnerReferenceSet()
+	 * @generated
+	 */
+	void setOwnerReferenceSet(ReferenceSet value);
 
 } // Reference

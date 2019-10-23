@@ -5,13 +5,17 @@ package conml.instances.impl;
 import conml.instances.InstancesPackage;
 import conml.instances.Value;
 
+import conml.instances.ValueSet;
 import java.lang.Object;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,6 +26,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.ValueImpl#getContents <em>Contents</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueImpl#getOwnerValueSet <em>Owner Value Set</em>}</li>
  * </ul>
  *
  * @generated
@@ -95,10 +100,99 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * @generated
 	 */
 	@Override
+	public ValueSet getOwnerValueSet() {
+		if (eContainerFeatureID() != InstancesPackage.VALUE__OWNER_VALUE_SET) return null;
+		return (ValueSet)eInternalContainer();
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwnerValueSet(ValueSet newOwnerValueSet, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwnerValueSet, InstancesPackage.VALUE__OWNER_VALUE_SET, msgs);
+		return msgs;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOwnerValueSet(ValueSet newOwnerValueSet) {
+		if (newOwnerValueSet != eInternalContainer() || (eContainerFeatureID() != InstancesPackage.VALUE__OWNER_VALUE_SET && newOwnerValueSet != null)) {
+			if (EcoreUtil.isAncestor(this, newOwnerValueSet))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwnerValueSet != null)
+				msgs = ((InternalEObject)newOwnerValueSet).eInverseAdd(this, InstancesPackage.VALUE_SET__VALUES, ValueSet.class, msgs);
+			msgs = basicSetOwnerValueSet(newOwnerValueSet, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE__OWNER_VALUE_SET, newOwnerValueSet, newOwnerValueSet));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwnerValueSet((ValueSet)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				return basicSetOwnerValueSet(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				return eInternalContainer().eInverseRemove(this, InstancesPackage.VALUE_SET__VALUES, ValueSet.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case InstancesPackage.VALUE__CONTENTS:
 				return getContents();
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				return getOwnerValueSet();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -113,6 +207,9 @@ public class ValueImpl extends FacetImpl implements Value {
 		switch (featureID) {
 			case InstancesPackage.VALUE__CONTENTS:
 				setContents(newValue);
+				return;
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				setOwnerValueSet((ValueSet)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -129,6 +226,9 @@ public class ValueImpl extends FacetImpl implements Value {
 			case InstancesPackage.VALUE__CONTENTS:
 				setContents(CONTENTS_EDEFAULT);
 				return;
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				setOwnerValueSet((ValueSet)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -143,6 +243,8 @@ public class ValueImpl extends FacetImpl implements Value {
 		switch (featureID) {
 			case InstancesPackage.VALUE__CONTENTS:
 				return CONTENTS_EDEFAULT == null ? contents != null : !CONTENTS_EDEFAULT.equals(contents);
+			case InstancesPackage.VALUE__OWNER_VALUE_SET:
+				return getOwnerValueSet() != null;
 		}
 		return super.eIsSet(featureID);
 	}

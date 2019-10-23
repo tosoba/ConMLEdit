@@ -14,6 +14,7 @@ import java.lang.Object;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Value#getContents <em>Contents</em>}</li>
+ *   <li>{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValue()
@@ -42,5 +43,29 @@ public interface Value extends Facet {
 	 * @generated
 	 */
 	void setContents(Object value);
+
+  /**
+	 * Returns the value of the '<em><b>Owner Value Set</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner Value Set</em>' container reference.
+	 * @see #setOwnerValueSet(ValueSet)
+	 * @see conml.instances.InstancesPackage#getValue_OwnerValueSet()
+	 * @see conml.instances.ValueSet#getValues
+	 * @model opposite="Values" required="true" transient="false"
+	 * @generated
+	 */
+	ValueSet getOwnerValueSet();
+
+  /**
+	 * Sets the value of the '{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner Value Set</em>' container reference.
+	 * @see #getOwnerValueSet()
+	 * @generated
+	 */
+	void setOwnerValueSet(ValueSet value);
 
 } // Value

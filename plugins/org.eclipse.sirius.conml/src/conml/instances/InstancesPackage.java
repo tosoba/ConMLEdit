@@ -289,13 +289,22 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__SECONDARY_LINK = FACET_FEATURE_COUNT + 4;
 
   /**
+	 * The feature id for the '<em><b>Owner Reference Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__OWNER_REFERENCE_SET = FACET_FEATURE_COUNT + 5;
+
+    /**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = FACET_FEATURE_COUNT + 5;
+	int REFERENCE_FEATURE_COUNT = FACET_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -899,13 +908,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__CONTENTS = FACET_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__OWNER_VALUE_SET = FACET_FEATURE_COUNT + 1;
+
+  /**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 1;
+	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Value</em>' class.
@@ -1024,6 +1042,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getReference_SecondaryLink();
 
   /**
+	 * Returns the meta object for the container reference '{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner Reference Set</em>'.
+	 * @see conml.instances.Reference#getOwnerReferenceSet()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_OwnerReferenceSet();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.InstanceModelElement <em>Instance Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1281,6 +1310,17 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getValue_Contents();
 
 	/**
+	 * Returns the meta object for the container reference '{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner Value Set</em>'.
+	 * @see conml.instances.Value#getOwnerValueSet()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EReference getValue_OwnerValueSet();
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.FacetSet <em>Facet Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1435,6 +1475,14 @@ public interface InstancesPackage extends EPackage {
 		EReference REFERENCE__SECONDARY_LINK = eINSTANCE.getReference_SecondaryLink();
 
     /**
+		 * The meta object literal for the '<em><b>Owner Reference Set</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__OWNER_REFERENCE_SET = eINSTANCE.getReference_OwnerReferenceSet();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.InstanceModelElementImpl <em>Instance Model Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1641,6 +1689,14 @@ public interface InstancesPackage extends EPackage {
 		EAttribute VALUE__CONTENTS = eINSTANCE.getValue_Contents();
 
 		/**
+		 * The meta object literal for the '<em><b>Owner Value Set</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE__OWNER_VALUE_SET = eINSTANCE.getValue_OwnerValueSet();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.FacetSetImpl <em>Facet Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

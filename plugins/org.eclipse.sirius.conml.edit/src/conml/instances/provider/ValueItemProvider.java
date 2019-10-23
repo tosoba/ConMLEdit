@@ -47,6 +47,7 @@ public class ValueItemProvider extends FacetItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addContentsPropertyDescriptor(object);
+			addOwnerValueSetPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -74,6 +75,28 @@ public class ValueItemProvider extends FacetItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Owner Value Set feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerValueSetPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Value_OwnerValueSet_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Value_OwnerValueSet_feature", "_UI_Value_type"),
+				 InstancesPackage.Literals.VALUE__OWNER_VALUE_SET,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns Value.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

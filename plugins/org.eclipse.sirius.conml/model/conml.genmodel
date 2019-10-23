@@ -195,6 +195,8 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/PrimaryInLink"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/SecondaryLink"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/OwnerReferenceSet"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/InstanceModelElement"/>
       <genClasses ecoreClass="conml.ecore#//instances/InstanceModel">
@@ -204,12 +206,14 @@
       <genClasses ecoreClass="conml.ecore#//instances/ValueSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/InstancedAttribute"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Values"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Values"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/ReferenceSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/InstancedSemiAssociation"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/References"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/References"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Object">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Object/identifier"/>
@@ -235,6 +239,8 @@
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Value">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Value/contents"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Value/OwnerValueSet"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/FacetSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

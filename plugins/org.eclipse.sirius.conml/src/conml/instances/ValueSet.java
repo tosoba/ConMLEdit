@@ -50,11 +50,13 @@ public interface ValueSet extends FacetSet {
     /**
 	 * Returns the value of the '<em><b>Values</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Value}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Values</em>' containment reference list.
 	 * @see conml.instances.InstancesPackage#getValueSet_Values()
-	 * @model containment="true"
+	 * @see conml.instances.Value#getOwnerValueSet
+	 * @model opposite="OwnerValueSet" containment="true"
 	 * @generated
 	 */
 	EList<Value> getValues();

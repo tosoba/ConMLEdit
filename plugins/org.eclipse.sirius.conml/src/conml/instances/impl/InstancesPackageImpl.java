@@ -295,6 +295,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getReference_OwnerReferenceSet() {
+		return (EReference)referenceEClass.getEStructuralFeatures().get(5);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInstanceModelElement() {
 		return instanceModelElementEClass;
 	}
@@ -535,6 +545,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getValue_OwnerValueSet() {
+		return (EReference)valueEClass.getEStructuralFeatures().get(1);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFacetSet() {
 		return facetSetEClass;
 	}
@@ -619,6 +639,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEReference(referenceEClass, REFERENCE__IS_INVERSE_OF_REFERENCE);
 		createEReference(referenceEClass, REFERENCE__PRIMARY_IN_LINK);
 		createEReference(referenceEClass, REFERENCE__SECONDARY_LINK);
+		createEReference(referenceEClass, REFERENCE__OWNER_REFERENCE_SET);
 
 		instanceModelElementEClass = createEClass(INSTANCE_MODEL_ELEMENT);
 
@@ -650,6 +671,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		valueEClass = createEClass(VALUE);
 		createEAttribute(valueEClass, VALUE__CONTENTS);
+		createEReference(valueEClass, VALUE__OWNER_VALUE_SET);
 
 		facetSetEClass = createEClass(FACET_SET);
 		createEReference(facetSetEClass, FACET_SET__TRANSLATION_QUALIFIERS);
@@ -717,6 +739,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEReference(getReference_IsInverseOfReference(), this.getReference(), this.getReference_Inverse(), "IsInverseOfReference", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_PrimaryInLink(), this.getLink(), this.getLink_PrimaryReference(), "PrimaryInLink", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_SecondaryLink(), this.getLink(), this.getLink_SecondaryReference(), "SecondaryLink", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_OwnerReferenceSet(), this.getReferenceSet(), this.getReferenceSet_References(), "OwnerReferenceSet", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instanceModelElementEClass, InstanceModelElement.class, "InstanceModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -725,11 +748,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_InstancedAttribute(), theTypesPackage.getAttribute(), theTypesPackage.getAttribute_InstanceValueSets(), "InstancedAttribute", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getValueSet_Values(), this.getValue(), null, "Values", null, 0, -1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueSet_Values(), this.getValue(), this.getValue_OwnerValueSet(), "Values", null, 0, -1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceSetEClass, ReferenceSet.class, "ReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceSet_InstancedSemiAssociation(), theTypesPackage.getSemiAssociation(), theTypesPackage.getSemiAssociation_InstanceReferenceSets(), "InstancedSemiAssociation", null, 1, 1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReferenceSet_References(), this.getReference(), null, "References", null, 0, -1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferenceSet_References(), this.getReference(), this.getReference_OwnerReferenceSet(), "References", null, 0, -1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectEClass, conml.instances.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -748,6 +771,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValue_Contents(), theXMLTypePackage.getAnySimpleType(), "contents", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValue_OwnerValueSet(), this.getValueSet(), this.getValueSet_Values(), "OwnerValueSet", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(facetSetEClass, FacetSet.class, "FacetSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFacetSet_TranslationQualifiers(), theconmlPackage.getLanguage(), null, "TranslationQualifiers", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

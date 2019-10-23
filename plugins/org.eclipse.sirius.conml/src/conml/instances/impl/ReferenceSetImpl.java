@@ -18,7 +18,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -145,7 +145,7 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	@Override
 	public EList<Reference> getReferences() {
 		if (references == null) {
-			references = new EObjectContainmentEList<Reference>(Reference.class, this, InstancesPackage.REFERENCE_SET__REFERENCES);
+			references = new EObjectContainmentWithInverseEList<Reference>(Reference.class, this, InstancesPackage.REFERENCE_SET__REFERENCES, InstancesPackage.REFERENCE__OWNER_REFERENCE_SET);
 		}
 		return references;
 	}
@@ -155,13 +155,16 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@SuppressWarnings("unchecked")
+  @Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				if (instancedSemiAssociation != null)
 					msgs = ((InternalEObject)instancedSemiAssociation).eInverseRemove(this, TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS, SemiAssociation.class, msgs);
 				return basicSetInstancedSemiAssociation((SemiAssociation)otherEnd, msgs);
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
