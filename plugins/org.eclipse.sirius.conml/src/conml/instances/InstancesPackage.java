@@ -462,22 +462,13 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
 
     /**
-	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-int FACET_SET__FACETS = INSTANCE_FEATURE_COUNT + 3;
-
-  /**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 4;
+	int FACET_SET_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Facet Set</em>' class.
@@ -544,15 +535,6 @@ int FACET_SET__FACETS = INSTANCE_FEATURE_COUNT + 3;
 	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
     /**
-	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-int VALUE_SET__FACETS = FACET_SET__FACETS;
-
-  /**
 	 * The feature id for the '<em><b>Instanced Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -562,13 +544,22 @@ int VALUE_SET__FACETS = FACET_SET__FACETS;
 	int VALUE_SET__INSTANCED_ATTRIBUTE = FACET_SET_FEATURE_COUNT + 0;
 
     /**
+	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__VALUES = FACET_SET_FEATURE_COUNT + 1;
+
+        /**
 	 * The number of structural features of the '<em>Value Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 1;
+	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Value Set</em>' class.
@@ -635,15 +626,6 @@ int VALUE_SET__FACETS = FACET_SET__FACETS;
 	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
     /**
-	 * The feature id for the '<em><b>Facets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-int REFERENCE_SET__FACETS = FACET_SET__FACETS;
-
-  /**
 	 * The feature id for the '<em><b>Instanced Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -653,13 +635,22 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 	int REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = FACET_SET_FEATURE_COUNT + 0;
 
     /**
+	 * The feature id for the '<em><b>References</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__REFERENCES = FACET_SET_FEATURE_COUNT + 1;
+
+        /**
 	 * The number of structural features of the '<em>Reference Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 1;
+	int REFERENCE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Reference Set</em>' class.
@@ -1085,6 +1076,17 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 	EReference getValueSet_InstancedAttribute();
 
   /**
+	 * Returns the meta object for the containment reference list '{@link conml.instances.ValueSet#getValues <em>Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Values</em>'.
+	 * @see conml.instances.ValueSet#getValues()
+	 * @see #getValueSet()
+	 * @generated
+	 */
+	EReference getValueSet_Values();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.ReferenceSet <em>Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1106,6 +1108,17 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 	EReference getReferenceSet_InstancedSemiAssociation();
 
   /**
+	 * Returns the meta object for the containment reference list '{@link conml.instances.ReferenceSet#getReferences <em>References</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>References</em>'.
+	 * @see conml.instances.ReferenceSet#getReferences()
+	 * @see #getReferenceSet()
+	 * @generated
+	 */
+	EReference getReferenceSet_References();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.Object <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1278,17 +1291,6 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 	EClass getFacetSet();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.instances.FacetSet#getFacets <em>Facets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Facets</em>'.
-	 * @see conml.instances.FacetSet#getFacets()
-	 * @see #getFacetSet()
-	 * @generated
-	 */
-	EReference getFacetSet_Facets();
-
-  /**
 	 * Returns the meta object for the reference list '{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1479,6 +1481,14 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 		EReference VALUE_SET__INSTANCED_ATTRIBUTE = eINSTANCE.getValueSet_InstancedAttribute();
 
     /**
+		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_SET__VALUES = eINSTANCE.getValueSet_Values();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.ReferenceSetImpl <em>Reference Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1497,6 +1507,14 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 		EReference REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = eINSTANCE.getReferenceSet_InstancedSemiAssociation();
 
     /**
+		 * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE_SET__REFERENCES = eINSTANCE.getReferenceSet_References();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.ObjectImpl <em>Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1633,14 +1651,6 @@ int REFERENCE_SET__FACETS = FACET_SET__FACETS;
 		EClass FACET_SET = eINSTANCE.getFacetSet();
 
 		/**
-		 * The meta object literal for the '<em><b>Facets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FACET_SET__FACETS = eINSTANCE.getFacetSet_Facets();
-
-    /**
 		 * The meta object literal for the '<em><b>Translation Qualifiers</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

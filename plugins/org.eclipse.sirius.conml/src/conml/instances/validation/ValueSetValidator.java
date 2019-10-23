@@ -4,7 +4,9 @@
  */
 package conml.instances.validation;
 
+import conml.instances.Value;
 import conml.types.Attribute;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link conml.instances.ValueSet}.
@@ -17,6 +19,8 @@ public interface ValueSetValidator {
 
 	boolean validateInstancedAttribute(Attribute value);
 
-  boolean validateIsAnInstanceOf(Attribute value);
+  boolean validateValues(EList<Value> value);
+
+    boolean validateIsAnInstanceOf(Attribute value);
 	boolean validateOwner(conml.instances.Object value);
 }

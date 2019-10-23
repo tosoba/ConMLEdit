@@ -69,7 +69,7 @@ public class ValueSetServices {
 
     final StringBuilder sb = new StringBuilder(attribute.getName()).append(" = ");
 
-    if (valueSet.getFacets() == null || valueSet.getFacets().isEmpty()) {
+    if (valueSet.getValues() == null || valueSet.getValues().isEmpty()) {
       sb.append("null");
     } else {
       final ArrayList<String> contentLabels = new ArrayList<>();
@@ -79,7 +79,7 @@ public class ValueSetServices {
         final BaseDataType baseDataType = simpleDataType.getBase();
         switch (baseDataType) {
           case BOOLEAN:
-            for (final Facet facet : valueSet.getFacets()) {
+            for (final Facet facet : valueSet.getValues()) {
               final FacetValidation facetValidation =
                   validateFacet(
                       facet,
@@ -93,7 +93,7 @@ public class ValueSetServices {
             contentLabels.add("...");
             break;
           case NUMBER:
-            for (final Facet facet : valueSet.getFacets()) {
+            for (final Facet facet : valueSet.getValues()) {
               final FacetValidation facetValidation =
                   validateFacet(
                       facet,
@@ -104,7 +104,7 @@ public class ValueSetServices {
             }
             break;
           case TEXT:
-            for (final Facet facet : valueSet.getFacets()) {
+            for (final Facet facet : valueSet.getValues()) {
               final FacetValidation facetValidation =
                   validateFacet(
                       facet, Arrays.asList(String.class), contents -> String.class.cast(contents));

@@ -3,18 +3,23 @@
 package conml.instances.impl;
 
 import conml.instances.InstancesPackage;
+import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 
 import conml.types.SemiAssociation;
 import conml.types.TypesPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.ReferenceSetImpl#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceSetImpl#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +47,16 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	protected SemiAssociation instancedSemiAssociation;
 
   /**
+	 * The cached value of the '{@link #getReferences() <em>References</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getReferences()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Reference> references;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -127,6 +143,19 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	 * @generated
 	 */
 	@Override
+	public EList<Reference> getReferences() {
+		if (references == null) {
+			references = new EObjectContainmentEList<Reference>(Reference.class, this, InstancesPackage.REFERENCE_SET__REFERENCES);
+		}
+		return references;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
@@ -147,6 +176,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				return basicSetInstancedSemiAssociation(null, msgs);
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -162,6 +193,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				if (resolve) return getInstancedSemiAssociation();
 				return basicGetInstancedSemiAssociation();
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				return getReferences();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,11 +204,16 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@SuppressWarnings("unchecked")
+  @Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				setInstancedSemiAssociation((SemiAssociation)newValue);
+				return;
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				getReferences().clear();
+				getReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +230,9 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				setInstancedSemiAssociation((SemiAssociation)null);
 				return;
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				getReferences().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +247,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION:
 				return instancedSemiAssociation != null;
+			case InstancesPackage.REFERENCE_SET__REFERENCES:
+				return references != null && !references.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

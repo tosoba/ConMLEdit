@@ -3,18 +3,23 @@
 package conml.instances.impl;
 
 import conml.instances.InstancesPackage;
+import conml.instances.Value;
 import conml.instances.ValueSet;
 
 import conml.types.Attribute;
 import conml.types.TypesPackage;
 
+import java.util.Collection;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -25,6 +30,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.ValueSetImpl#getInstancedAttribute <em>Instanced Attribute</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueSetImpl#getValues <em>Values</em>}</li>
  * </ul>
  *
  * @generated
@@ -41,6 +47,16 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	protected Attribute instancedAttribute;
 
   /**
+	 * The cached value of the '{@link #getValues() <em>Values</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getValues()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<Value> values;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -127,6 +143,19 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	 * @generated
 	 */
 	@Override
+	public EList<Value> getValues() {
+		if (values == null) {
+			values = new EObjectContainmentEList<Value>(Value.class, this, InstancesPackage.VALUE_SET__VALUES);
+		}
+		return values;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
@@ -147,6 +176,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 		switch (featureID) {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				return basicSetInstancedAttribute(null, msgs);
+			case InstancesPackage.VALUE_SET__VALUES:
+				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -162,6 +193,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				if (resolve) return getInstancedAttribute();
 				return basicGetInstancedAttribute();
+			case InstancesPackage.VALUE_SET__VALUES:
+				return getValues();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -171,11 +204,16 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@SuppressWarnings("unchecked")
+  @Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				setInstancedAttribute((Attribute)newValue);
+				return;
+			case InstancesPackage.VALUE_SET__VALUES:
+				getValues().clear();
+				getValues().addAll((Collection<? extends Value>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -192,6 +230,9 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				setInstancedAttribute((Attribute)null);
 				return;
+			case InstancesPackage.VALUE_SET__VALUES:
+				getValues().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -206,6 +247,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 		switch (featureID) {
 			case InstancesPackage.VALUE_SET__INSTANCED_ATTRIBUTE:
 				return instancedAttribute != null;
+			case InstancesPackage.VALUE_SET__VALUES:
+				return values != null && !values.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

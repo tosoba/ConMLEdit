@@ -204,10 +204,12 @@
       <genClasses ecoreClass="conml.ecore#//instances/ValueSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/InstancedAttribute"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Values"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/ReferenceSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/InstancedSemiAssociation"/>
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/References"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Object">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Object/identifier"/>
@@ -241,7 +243,6 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PhaseQualifier"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PerspectiveQualifier"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/Facets"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

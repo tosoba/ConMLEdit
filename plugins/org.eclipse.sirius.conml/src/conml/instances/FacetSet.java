@@ -17,7 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
- *   <li>{@link conml.instances.FacetSet#getFacets <em>Facets</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacetSet()
@@ -26,18 +25,6 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface FacetSet extends Instance {
 	/**
-	 * Returns the value of the '<em><b>Facets</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.instances.Facet}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Facets</em>' containment reference list.
-	 * @see conml.instances.InstancesPackage#getFacetSet_Facets()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<Facet> getFacets();
-
-  /**
 	 * Returns the value of the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * The list contents are of type {@link conml.Language}.
 	 * <!-- begin-user-doc -->

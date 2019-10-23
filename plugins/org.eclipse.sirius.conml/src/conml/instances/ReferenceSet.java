@@ -3,6 +3,7 @@
 package conml.instances;
 
 import conml.types.SemiAssociation;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -14,6 +15,7 @@ import conml.types.SemiAssociation;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
+ *   <li>{@link conml.instances.ReferenceSet#getReferences <em>References</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReferenceSet()
@@ -44,5 +46,17 @@ public interface ReferenceSet extends FacetSet {
 	 * @generated
 	 */
 	void setInstancedSemiAssociation(SemiAssociation value);
+
+    /**
+	 * Returns the value of the '<em><b>References</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.instances.Reference}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>References</em>' containment reference list.
+	 * @see conml.instances.InstancesPackage#getReferenceSet_References()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<Reference> getReferences();
 
 } // ReferenceSet

@@ -225,10 +225,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAttribute" lowerBound="1"
           eType="#//types/Attribute" eOpposite="#//types/Attribute/InstanceValueSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Values" upperBound="-1"
+          eType="#//instances/Value" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedSemiAssociation"
           lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/InstanceReferenceSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="References" upperBound="-1"
+          eType="#//instances/Reference" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -266,8 +270,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PerspectiveQualifier"
           eType="#//instances/Object"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Facets" upperBound="-1"
-          eType="#//instances/Facet" containment="true"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

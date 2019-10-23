@@ -4,7 +4,9 @@
  */
 package conml.instances.validation;
 
+import conml.instances.Reference;
 import conml.types.SemiAssociation;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * A sample validator interface for {@link conml.instances.ReferenceSet}.
@@ -17,6 +19,8 @@ public interface ReferenceSetValidator {
 
 	boolean validateInstancedSemiAssociation(SemiAssociation value);
 
-  boolean validateIsAnInstanceOf(SemiAssociation value);
+  boolean validateReferences(EList<Reference> value);
+
+    boolean validateIsAnInstanceOf(SemiAssociation value);
 	boolean validateOwner(conml.instances.Object value);
 }

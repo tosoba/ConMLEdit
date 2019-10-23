@@ -345,6 +345,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getValueSet_Values() {
+		return (EReference)valueSetEClass.getEStructuralFeatures().get(1);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getReferenceSet() {
 		return referenceSetEClass;
 	}
@@ -360,6 +370,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getReferenceSet_References() {
+		return (EReference)referenceSetEClass.getEStructuralFeatures().get(1);
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -525,16 +545,6 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getFacetSet_Facets() {
-		return (EReference)facetSetEClass.getEStructuralFeatures().get(3);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getFacetSet_TranslationQualifiers() {
 		return (EReference)facetSetEClass.getEStructuralFeatures().get(0);
 	}
@@ -617,9 +627,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		valueSetEClass = createEClass(VALUE_SET);
 		createEReference(valueSetEClass, VALUE_SET__INSTANCED_ATTRIBUTE);
+		createEReference(valueSetEClass, VALUE_SET__VALUES);
 
 		referenceSetEClass = createEClass(REFERENCE_SET);
 		createEReference(referenceSetEClass, REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION);
+		createEReference(referenceSetEClass, REFERENCE_SET__REFERENCES);
 
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__IDENTIFIER);
@@ -643,7 +655,6 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEReference(facetSetEClass, FACET_SET__TRANSLATION_QUALIFIERS);
 		createEReference(facetSetEClass, FACET_SET__PHASE_QUALIFIER);
 		createEReference(facetSetEClass, FACET_SET__PERSPECTIVE_QUALIFIER);
-		createEReference(facetSetEClass, FACET_SET__FACETS);
 
 		// Create enums
 		degreeOfCertaintyEEnum = createEEnum(DEGREE_OF_CERTAINTY);
@@ -714,9 +725,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_InstancedAttribute(), theTypesPackage.getAttribute(), theTypesPackage.getAttribute_InstanceValueSets(), "InstancedAttribute", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getValueSet_Values(), this.getValue(), null, "Values", null, 0, -1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceSetEClass, ReferenceSet.class, "ReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceSet_InstancedSemiAssociation(), theTypesPackage.getSemiAssociation(), theTypesPackage.getSemiAssociation_InstanceReferenceSets(), "InstancedSemiAssociation", null, 1, 1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferenceSet_References(), this.getReference(), null, "References", null, 0, -1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectEClass, conml.instances.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -740,7 +753,6 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEReference(getFacetSet_TranslationQualifiers(), theconmlPackage.getLanguage(), null, "TranslationQualifiers", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFacetSet_PhaseQualifier(), this.getObject(), null, "PhaseQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFacetSet_PerspectiveQualifier(), this.getObject(), null, "PerspectiveQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFacetSet_Facets(), this.getFacet(), null, "Facets", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(degreeOfCertaintyEEnum, DegreeOfCertainty.class, "DegreeOfCertainty");
