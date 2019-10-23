@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -31,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.instances.impl.ReferenceSetImpl#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceSetImpl#getReferences <em>References</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceSetImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  *
  * @generated
@@ -155,6 +157,49 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public conml.instances.Object getOwner() {
+		if (eContainerFeatureID() != InstancesPackage.REFERENCE_SET__OWNER) return null;
+		return (conml.instances.Object)eInternalContainer();
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwner(conml.instances.Object newOwner, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwner, InstancesPackage.REFERENCE_SET__OWNER, msgs);
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOwner(conml.instances.Object newOwner) {
+		if (newOwner != eInternalContainer() || (eContainerFeatureID() != InstancesPackage.REFERENCE_SET__OWNER && newOwner != null)) {
+			if (EcoreUtil.isAncestor(this, newOwner))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwner != null)
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__REFERENCE_SETS, conml.instances.Object.class, msgs);
+			msgs = basicSetOwner(newOwner, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE_SET__OWNER, newOwner, newOwner));
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
   @Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -165,6 +210,10 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 				return basicSetInstancedSemiAssociation((SemiAssociation)otherEnd, msgs);
 			case InstancesPackage.REFERENCE_SET__REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferences()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwner((conml.instances.Object)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -181,11 +230,27 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 				return basicSetInstancedSemiAssociation(null, msgs);
 			case InstancesPackage.REFERENCE_SET__REFERENCES:
 				return ((InternalEList<?>)getReferences()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				return basicSetOwner(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				return eInternalContainer().eInverseRemove(this, InstancesPackage.OBJECT__REFERENCE_SETS, conml.instances.Object.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -198,6 +263,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 				return basicGetInstancedSemiAssociation();
 			case InstancesPackage.REFERENCE_SET__REFERENCES:
 				return getReferences();
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				return getOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -218,6 +285,9 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 				getReferences().clear();
 				getReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				setOwner((conml.instances.Object)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -236,6 +306,9 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 			case InstancesPackage.REFERENCE_SET__REFERENCES:
 				getReferences().clear();
 				return;
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				setOwner((conml.instances.Object)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -252,6 +325,8 @@ public class ReferenceSetImpl extends FacetSetImpl implements ReferenceSet {
 				return instancedSemiAssociation != null;
 			case InstancesPackage.REFERENCE_SET__REFERENCES:
 				return references != null && !references.isEmpty();
+			case InstancesPackage.REFERENCE_SET__OWNER:
+				return getOwner() != null;
 		}
 		return super.eIsSet(featureID);
 	}

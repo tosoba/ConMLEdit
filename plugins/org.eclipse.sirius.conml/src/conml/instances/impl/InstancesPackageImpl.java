@@ -395,6 +395,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getReferenceSet_Owner() {
+		return (EReference)referenceSetEClass.getEStructuralFeatures().get(2);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getObject() {
 		return objectEClass;
 	}
@@ -466,7 +476,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_ReferenceSets() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(6);
+		return (EReference)objectEClass.getEStructuralFeatures().get(7);
 	}
 
   /**
@@ -476,7 +486,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_ValueSets() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(7);
+		return (EReference)objectEClass.getEStructuralFeatures().get(6);
 	}
 
     /**
@@ -520,6 +530,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getLink_Compact() {
+		return (EAttribute)linkEClass.getEStructuralFeatures().get(3);
+	}
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -653,6 +673,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		referenceSetEClass = createEClass(REFERENCE_SET);
 		createEReference(referenceSetEClass, REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION);
 		createEReference(referenceSetEClass, REFERENCE_SET__REFERENCES);
+		createEReference(referenceSetEClass, REFERENCE_SET__OWNER);
 
 		objectEClass = createEClass(OBJECT);
 		createEAttribute(objectEClass, OBJECT__IDENTIFIER);
@@ -661,13 +682,14 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEReference(objectEClass, OBJECT__IS_REFERRED_BY_REFERENCES);
 		createEReference(objectEClass, OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER);
 		createEReference(objectEClass, OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER);
-		createEReference(objectEClass, OBJECT__REFERENCE_SETS);
 		createEReference(objectEClass, OBJECT__VALUE_SETS);
+		createEReference(objectEClass, OBJECT__REFERENCE_SETS);
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__INSTANCED_ASSOCIATION);
 		createEReference(linkEClass, LINK__PRIMARY_REFERENCE);
 		createEReference(linkEClass, LINK__SECONDARY_REFERENCE);
+		createEAttribute(linkEClass, LINK__COMPACT);
 
 		valueEClass = createEClass(VALUE);
 		createEAttribute(valueEClass, VALUE__CONTENTS);
@@ -753,6 +775,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEClass(referenceSetEClass, ReferenceSet.class, "ReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceSet_InstancedSemiAssociation(), theTypesPackage.getSemiAssociation(), theTypesPackage.getSemiAssociation_InstanceReferenceSets(), "InstancedSemiAssociation", null, 1, 1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReferenceSet_References(), this.getReference(), this.getReference_OwnerReferenceSet(), "References", null, 0, -1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReferenceSet_Owner(), this.getObject(), this.getObject_ReferenceSets(), "Owner", null, 1, 1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(objectEClass, conml.instances.Object.class, "Object", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getObject_Identifier(), ecorePackage.getEString(), "identifier", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -761,13 +784,14 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEReference(getObject_IsReferredByReferences(), this.getReference(), this.getReference_ReferredObject(), "IsReferredByReferences", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_TemporalExistentialQualifier(), this.getObject(), null, "TemporalExistentialQualifier", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_SubjectiveExistentialQualifer(), this.getObject(), null, "SubjectiveExistentialQualifer", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_ReferenceSets(), this.getReferenceSet(), null, "ReferenceSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_ValueSets(), this.getValueSet(), null, "ValueSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_ReferenceSets(), this.getReferenceSet(), this.getReferenceSet_Owner(), "ReferenceSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_InstancedAssociation(), theTypesPackage.getAssociation(), theTypesPackage.getAssociation_InstanceLinks(), "InstancedAssociation", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_PrimaryReference(), this.getReference(), this.getReference_PrimaryInLink(), "PrimaryReference", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLink_SecondaryReference(), this.getReference(), this.getReference_SecondaryLink(), "SecondaryReference", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getLink_Compact(), theXMLTypePackage.getBoolean(), "compact", "false", 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValue_Contents(), theXMLTypePackage.getAnySimpleType(), "contents", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

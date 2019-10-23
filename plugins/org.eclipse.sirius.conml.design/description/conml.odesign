@@ -219,7 +219,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <toolSections name="Section General" label="General">
+        <toolSections name="CD_Section_General" label="General">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Node Creation Package" label="Overall Package" precondition="aql:container.overallPackageDoesNotExist()" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Overall_Package']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -248,7 +248,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Section Types" label="Types">
+        <toolSections name="CD_Section_Types" label="Types">
           <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Node Creation Class" label="Class" containerMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" extraMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -279,7 +279,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Section Features" label="Features">
+        <toolSections name="CD_Section_Features" label="Features">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="Node Creation Property" label="Property" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -354,7 +354,7 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
-        <toolSections name="Section Relationships">
+        <toolSections name="CD_Section_Relationships" label="Relationships">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" connectionStartPrecondition="true">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
@@ -364,7 +364,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createGeneralization(source, target, sourceView, targetView)"/>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolGroup" name="Associations">
+          <ownedTools xsi:type="tool:ToolGroup" name="CD_Group_Associations" label="Associations">
             <tools xsi:type="tool:EdgeCreationDescription" name="Association" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="true">
               <sourceVariable name="source"/>
               <targetVariable name="target"/>
@@ -391,7 +391,7 @@
                           <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.addToAssociation(container)"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateCompactAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                      <page name="D_CD_CreateCompactAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='CD_Group_Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                       <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -408,6 +408,11 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="InstanceModelElement">
+        <edgeMappings name="OD_Link" preconditionExpression="service:self.shouldDisplayLinkEdge" semanticElements="service:self.referencesList" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetFinderExpression="service:self.getLinkTargetType" sourceFinderExpression="service:self.getLinkSourceType" targetExpression="var:self" domainClass="instances::Link" useDomainElement="true">
+          <style>
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
         <containerMappings name="OD_Object" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
           <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
@@ -424,7 +429,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <toolSections name="Instances">
+        <toolSections name="OD_Section_Instances" label="Instances">
           <ownedTools xsi:type="tool:ContainerCreationDescription" name="Object" containerMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']">
             <variable name="container"/>
             <viewVariable name="containerView"/>
@@ -476,6 +481,19 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="OD_Section_Relationships" label="Relationships">
+          <ownedTools xsi:type="tool:ToolGroup" name="OD_Group_Links" label="Links">
+            <tools xsi:type="tool:EdgeCreationDescription" name="Link" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@edgeMappings[name='OD_Link']" connectionStartPrecondition="true">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createLink(source, target, sourceView, targetView)"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.ClassDiagramServices"/>
@@ -490,6 +508,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ObjectServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueSetServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.LinkServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">

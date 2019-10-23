@@ -23,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -40,8 +41,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsReferredByReferences <em>Is Referred By References</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
  * </ul>
  *
  * @generated
@@ -128,16 +129,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected conml.instances.Object subjectiveExistentialQualifer;
 
   /**
-	 * The cached value of the '{@link #getReferenceSets() <em>Reference Sets</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getReferenceSets()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ReferenceSet> referenceSets;
-
-  /**
 	 * The cached value of the '{@link #getValueSets() <em>Value Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -146,6 +137,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	 * @ordered
 	 */
 	protected EList<ValueSet> valueSets;
+
+    /**
+	 * The cached value of the '{@link #getReferenceSets() <em>Reference Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+	 * @see #getReferenceSets()
+	 * @generated
+	 * @ordered
+	 */
+protected EList<ReferenceSet> referenceSets;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -375,7 +376,7 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	@Override
 	public EList<ReferenceSet> getReferenceSets() {
 		if (referenceSets == null) {
-			referenceSets = new EObjectContainmentEList<ReferenceSet>(ReferenceSet.class, this, InstancesPackage.OBJECT__REFERENCE_SETS);
+			referenceSets = new EObjectContainmentWithInverseEList<ReferenceSet>(ReferenceSet.class, this, InstancesPackage.OBJECT__REFERENCE_SETS, InstancesPackage.REFERENCE_SET__OWNER);
 		}
 		return referenceSets;
 	}
@@ -408,6 +409,8 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return basicSetInstancedClass((conml.types.Class)otherEnd, msgs);
 			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsReferredByReferences()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferenceSets()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -424,10 +427,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return basicSetInstancedClass(null, msgs);
 			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
 				return ((InternalEList<?>)getIsReferredByReferences()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
-				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				return ((InternalEList<?>)getValueSets()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -455,10 +458,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				if (resolve) return getSubjectiveExistentialQualifer();
 				return basicGetSubjectiveExistentialQualifer();
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
-				return getReferenceSets();
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				return getValueSets();
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return getReferenceSets();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -491,13 +494,13 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				setSubjectiveExistentialQualifer((conml.instances.Object)newValue);
 				return;
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
-				getReferenceSets().clear();
-				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
-				return;
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				getValueSets().clear();
 				getValueSets().addAll((Collection<? extends ValueSet>)newValue);
+				return;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				getReferenceSets().clear();
+				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -529,11 +532,11 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				setSubjectiveExistentialQualifer((conml.instances.Object)null);
 				return;
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
-				getReferenceSets().clear();
-				return;
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				getValueSets().clear();
+				return;
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				getReferenceSets().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -559,10 +562,10 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 				return temporalExistentialQualifier != null;
 			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
 				return subjectiveExistentialQualifer != null;
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
-				return referenceSets != null && !referenceSets.isEmpty();
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				return valueSets != null && !valueSets.isEmpty();
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
+				return referenceSets != null && !referenceSets.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

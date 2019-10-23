@@ -22,9 +22,10 @@ public class ValueServices {
         Value.class,
         value -> {
           final Object contents = value.getContents();
-          // TODO: theoretically there's no need to check if contents' type is correct since its
-          // value is set via checkbox...
-          return contents == null ? false : (boolean) contents;
+          return contents == null
+                  || (!Boolean.class.isInstance(contents) && !boolean.class.isInstance(contents))
+              ? false
+              : (boolean) contents;
         },
         false);
   }

@@ -52,6 +52,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addIsReferredByReferencesPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
+			addReferenceSetsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -189,6 +190,28 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Reference Sets feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addReferenceSetsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Object_ReferenceSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_ReferenceSets_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -200,8 +223,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(InstancesPackage.Literals.OBJECT__REFERENCE_SETS);
 			childrenFeatures.add(InstancesPackage.Literals.OBJECT__VALUE_SETS);
+			childrenFeatures.add(InstancesPackage.Literals.OBJECT__REFERENCE_SETS);
 		}
 		return childrenFeatures;
 	}
@@ -261,8 +284,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			case InstancesPackage.OBJECT__CERTAINTY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case InstancesPackage.OBJECT__REFERENCE_SETS:
 			case InstancesPackage.OBJECT__VALUE_SETS:
+			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -282,13 +305,13 @@ public class ObjectItemProvider extends InstanceItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
-				 InstancesFactory.eINSTANCE.createReferenceSet()));
+				(InstancesPackage.Literals.OBJECT__VALUE_SETS,
+				 InstancesFactory.eINSTANCE.createValueSet()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InstancesPackage.Literals.OBJECT__VALUE_SETS,
-				 InstancesFactory.eINSTANCE.createValueSet()));
+				(InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
+				 InstancesFactory.eINSTANCE.createReferenceSet()));
 	}
 
 }

@@ -5,6 +5,7 @@ package conml.instances.provider;
 
 import conml.instances.InstancesPackage;
 
+import conml.instances.Link;
 import java.util.Collection;
 import java.util.List;
 
@@ -13,6 +14,8 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link conml.instances.Link} object.
@@ -45,6 +48,7 @@ public class LinkItemProvider extends InstanceItemProvider {
 			addInstancedAssociationPropertyDescriptor(object);
 			addPrimaryReferencePropertyDescriptor(object);
 			addSecondaryReferencePropertyDescriptor(object);
+			addCompactPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,6 +120,28 @@ public class LinkItemProvider extends InstanceItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Compact feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCompactPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Link_compact_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Link_compact_feature", "_UI_Link_type"),
+				 InstancesPackage.Literals.LINK__COMPACT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This returns Link.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -134,7 +160,8 @@ public class LinkItemProvider extends InstanceItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_Link_type");
+		Link link = (Link)object;
+		return getString("_UI_Link_type") + " " + link.isCompact();
 	}
 
 
@@ -148,6 +175,12 @@ public class LinkItemProvider extends InstanceItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Link.class)) {
+			case InstancesPackage.LINK__COMPACT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

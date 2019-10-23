@@ -96,7 +96,7 @@ public interface Association extends Type {
 	 * @return the value of the '<em>Compact</em>' attribute.
 	 * @see #setCompact(boolean)
 	 * @see conml.types.TypesPackage#getAssociation_Compact()
-	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean"
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
 	 * @generated
 	 */
 	boolean isCompact();

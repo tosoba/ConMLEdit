@@ -28,6 +28,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link conml.instances.impl.LinkImpl#getInstancedAssociation <em>Instanced Association</em>}</li>
  *   <li>{@link conml.instances.impl.LinkImpl#getPrimaryReference <em>Primary Reference</em>}</li>
  *   <li>{@link conml.instances.impl.LinkImpl#getSecondaryReference <em>Secondary Reference</em>}</li>
+ *   <li>{@link conml.instances.impl.LinkImpl#isCompact <em>Compact</em>}</li>
  * </ul>
  *
  * @generated
@@ -64,6 +65,26 @@ public class LinkImpl extends InstanceImpl implements Link {
 	protected Reference secondaryReference;
 
     /**
+	 * The default value of the '{@link #isCompact() <em>Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCompact()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean COMPACT_EDEFAULT = false;
+
+    /**
+	 * The cached value of the '{@link #isCompact() <em>Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isCompact()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean compact = COMPACT_EDEFAULT;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -274,6 +295,29 @@ public class LinkImpl extends InstanceImpl implements Link {
 	 * @generated
 	 */
 	@Override
+	public boolean isCompact() {
+		return compact;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setCompact(boolean newCompact) {
+		boolean oldCompact = compact;
+		compact = newCompact;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.LINK__COMPACT, oldCompact, compact));
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.LINK__INSTANCED_ASSOCIATION:
@@ -327,6 +371,8 @@ public class LinkImpl extends InstanceImpl implements Link {
 			case InstancesPackage.LINK__SECONDARY_REFERENCE:
 				if (resolve) return getSecondaryReference();
 				return basicGetSecondaryReference();
+			case InstancesPackage.LINK__COMPACT:
+				return isCompact();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -347,6 +393,9 @@ public class LinkImpl extends InstanceImpl implements Link {
 				return;
 			case InstancesPackage.LINK__SECONDARY_REFERENCE:
 				setSecondaryReference((Reference)newValue);
+				return;
+			case InstancesPackage.LINK__COMPACT:
+				setCompact((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -369,6 +418,9 @@ public class LinkImpl extends InstanceImpl implements Link {
 			case InstancesPackage.LINK__SECONDARY_REFERENCE:
 				setSecondaryReference((Reference)null);
 				return;
+			case InstancesPackage.LINK__COMPACT:
+				setCompact(COMPACT_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -387,8 +439,26 @@ public class LinkImpl extends InstanceImpl implements Link {
 				return primaryReference != null;
 			case InstancesPackage.LINK__SECONDARY_REFERENCE:
 				return secondaryReference != null;
+			case InstancesPackage.LINK__COMPACT:
+				return compact != COMPACT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (compact: ");
+		result.append(compact);
+		result.append(')');
+		return result.toString();
 	}
 
 } //LinkImpl

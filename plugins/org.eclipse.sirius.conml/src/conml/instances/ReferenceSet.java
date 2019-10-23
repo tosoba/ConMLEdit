@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.instances.ReferenceSet#getInstancedSemiAssociation <em>Instanced Semi Association</em>}</li>
  *   <li>{@link conml.instances.ReferenceSet#getReferences <em>References</em>}</li>
+ *   <li>{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReferenceSet()
@@ -60,5 +61,29 @@ public interface ReferenceSet extends FacetSet {
 	 * @generated
 	 */
 	EList<Reference> getReferences();
+
+        /**
+	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner</em>' container reference.
+	 * @see #setOwner(conml.instances.Object)
+	 * @see conml.instances.InstancesPackage#getReferenceSet_Owner()
+	 * @see conml.instances.Object#getReferenceSets
+	 * @model opposite="ReferenceSets" required="true" transient="false"
+	 * @generated
+	 */
+	conml.instances.Object getOwner();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner</em>' container reference.
+	 * @see #getOwner()
+	 * @generated
+	 */
+	void setOwner(conml.instances.Object value);
 
 } // ReferenceSet

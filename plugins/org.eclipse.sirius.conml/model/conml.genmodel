@@ -214,6 +214,8 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/InstancedSemiAssociation"/>
         <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/References"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/ReferenceSet/Owner"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Object">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Object/identifier"/>
@@ -226,8 +228,9 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/TemporalExistentialQualifier"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/SubjectiveExistentialQualifer"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ReferenceSets"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ValueSets"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ReferenceSets"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Link">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -236,6 +239,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Link/PrimaryReference"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Link/SecondaryReference"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Link/compact"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Value">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Value/contents"/>

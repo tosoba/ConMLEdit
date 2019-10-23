@@ -16,6 +16,7 @@ import conml.types.Association;
  *   <li>{@link conml.instances.Link#getInstancedAssociation <em>Instanced Association</em>}</li>
  *   <li>{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}</li>
  *   <li>{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}</li>
+ *   <li>{@link conml.instances.Link#isCompact <em>Compact</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getLink()
@@ -94,5 +95,28 @@ public interface Link extends Instance {
 	 * @generated
 	 */
 	void setSecondaryReference(Reference value);
+
+        /**
+	 * Returns the value of the '<em><b>Compact</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Compact</em>' attribute.
+	 * @see #setCompact(boolean)
+	 * @see conml.instances.InstancesPackage#getLink_Compact()
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isCompact();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.Link#isCompact <em>Compact</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Compact</em>' attribute.
+	 * @see #isCompact()
+	 * @generated
+	 */
+	void setCompact(boolean value);
 
 } // Link

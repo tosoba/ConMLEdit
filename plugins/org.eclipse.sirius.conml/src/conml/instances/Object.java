@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}</li>
  *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
- *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
+ *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -160,11 +160,13 @@ public interface Object extends Instance {
     /**
 	 * Returns the value of the '<em><b>Reference Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.ReferenceSet}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Reference Sets</em>' containment reference list.
 	 * @see conml.instances.InstancesPackage#getObject_ReferenceSets()
-	 * @model containment="true"
+	 * @see conml.instances.ReferenceSet#getOwner
+	 * @model opposite="Owner" containment="true"
 	 * @generated
 	 */
 	EList<ReferenceSet> getReferenceSets();

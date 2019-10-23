@@ -122,7 +122,8 @@
           lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/SecondaryInAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceLinks" upperBound="-1"
           eType="#//instances/Link" eOpposite="#//instances/Link/InstancedAssociation"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement">
@@ -235,6 +236,8 @@
           lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/InstanceReferenceSets"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="References" upperBound="-1"
           eType="#//instances/Reference" containment="true" eOpposite="#//instances/Reference/OwnerReferenceSet"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/ReferenceSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Object" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="identifier" lowerBound="1"
@@ -249,10 +252,10 @@
           eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveExistentialQualifer"
           eType="#//instances/Object"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
-          eType="#//instances/ReferenceSet" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ValueSets" upperBound="-1"
           eType="#//instances/ValueSet" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
+          eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
@@ -261,6 +264,9 @@
           eOpposite="#//instances/Reference/PrimaryInLink"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryReference" eType="#//instances/Reference"
           eOpposite="#//instances/Reference/SecondaryLink"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="contents" lowerBound="1"

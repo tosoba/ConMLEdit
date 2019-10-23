@@ -653,13 +653,22 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__REFERENCES = FACET_SET_FEATURE_COUNT + 1;
 
         /**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__OWNER = FACET_SET_FEATURE_COUNT + 2;
+
+                /**
 	 * The number of structural features of the '<em>Reference Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 2;
+	int REFERENCE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Reference Set</em>' class.
@@ -753,22 +762,22 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 5;
 
   /**
-	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 6;
-
-  /**
 	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 7;
+	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 6;
+
+    /**
+	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 
     /**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -844,13 +853,22 @@ public interface InstancesPackage extends EPackage {
 	int LINK__SECONDARY_REFERENCE = INSTANCE_FEATURE_COUNT + 2;
 
         /**
+	 * The feature id for the '<em><b>Compact</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__COMPACT = INSTANCE_FEATURE_COUNT + 3;
+
+                /**
 	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 3;
+	int LINK_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Link</em>' class.
@@ -1148,6 +1166,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getReferenceSet_References();
 
     /**
+	 * Returns the meta object for the container reference '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner</em>'.
+	 * @see conml.instances.ReferenceSet#getOwner()
+	 * @see #getReferenceSet()
+	 * @generated
+	 */
+	EReference getReferenceSet_Owner();
+
+        /**
 	 * Returns the meta object for class '{@link conml.instances.Object <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1289,6 +1318,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getLink_SecondaryReference();
 
     /**
+	 * Returns the meta object for the attribute '{@link conml.instances.Link#isCompact <em>Compact</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Compact</em>'.
+	 * @see conml.instances.Link#isCompact()
+	 * @see #getLink()
+	 * @generated
+	 */
+	EAttribute getLink_Compact();
+
+        /**
 	 * Returns the meta object for class '{@link conml.instances.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1563,6 +1603,14 @@ public interface InstancesPackage extends EPackage {
 		EReference REFERENCE_SET__REFERENCES = eINSTANCE.getReferenceSet_References();
 
         /**
+		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE_SET__OWNER = eINSTANCE.getReferenceSet_Owner();
+
+                /**
 		 * The meta object literal for the '{@link conml.instances.impl.ObjectImpl <em>Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1671,6 +1719,14 @@ public interface InstancesPackage extends EPackage {
 		EReference LINK__SECONDARY_REFERENCE = eINSTANCE.getLink_SecondaryReference();
 
         /**
+		 * The meta object literal for the '<em><b>Compact</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute LINK__COMPACT = eINSTANCE.getLink_Compact();
+
+                /**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
