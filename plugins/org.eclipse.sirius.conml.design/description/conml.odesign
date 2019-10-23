@@ -489,6 +489,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.DataTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ObjectServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueSetServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
@@ -546,6 +547,13 @@
             <widget xsi:type="properties:ButtonDescription" helpExpression="Make this package overall in TypeModel" buttonLabelExpression="Make overall">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.setOverall"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_booleanValue" predicateExpression="service:self.isBooleanValue">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_GeneralGroup isBooleanValue Checkbox" labelExpression="Content" helpExpression="Content of the boolean value" valueExpression="service:self.booleanValueContent">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.setBooleanValueContent(newValue)"/>
               </initialOperation>
             </widget>
           </ifs>

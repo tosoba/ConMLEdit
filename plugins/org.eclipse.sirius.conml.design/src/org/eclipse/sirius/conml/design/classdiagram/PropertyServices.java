@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import conml.Model;
+import conml.instances.Value;
 import conml.types.Association;
 import conml.types.Feature;
 import conml.types.Package;
@@ -127,5 +128,6 @@ public class PropertyServices {
                 "Owner",
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
+    ignoredReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
   }
 }
