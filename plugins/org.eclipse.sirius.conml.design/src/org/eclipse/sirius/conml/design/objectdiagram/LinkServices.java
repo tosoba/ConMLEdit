@@ -4,13 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.conml.design.ConML;
+import org.eclipse.sirius.conml.design.classdiagram.ModelElementServices;
 
 import conml.instances.InstanceModel;
 import conml.instances.InstancesFactory;
 import conml.instances.Link;
 import conml.instances.Reference;
 
-public class LinkServices {
+public class LinkServices extends ModelElementServices {
 
   public conml.instances.Object getLinkSourceType(Link link) {
     return link.getPrimaryReference() != null
@@ -60,5 +62,13 @@ public class LinkServices {
       instanceModel.getElements().add(link);
     }
     return link;
+  }
+
+  public void moveLinkUp(EObject object) {
+    moveElement(object, Link.class, ConML.ElementMovementDirection.UP);
+  }
+
+  public void moveLinkDown(EObject object) {
+    moveElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
   }
 }
