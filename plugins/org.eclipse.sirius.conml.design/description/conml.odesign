@@ -695,6 +695,9 @@
           <semanticValidationRules name="Props_TypeModel Validation NoOverallPackage" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
             <audits auditExpression="service:self.overallPackageExists"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
+            <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
+          </semanticValidationRules>
         </validationSet>
       </groups>
       <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
