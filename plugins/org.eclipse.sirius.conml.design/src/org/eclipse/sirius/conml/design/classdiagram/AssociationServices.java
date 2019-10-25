@@ -455,7 +455,7 @@ public class AssociationServices implements FeatureServices, ModelElementService
     moveElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public void deleteAssociation(final Association association) {
+  public static void deleteAssociationStatic(final Association association) {
     final SemiAssociation primary = association.getPrimarySemiAssociation();
     if (primary != null) deleteSemiAssociation(primary);
 
@@ -463,7 +463,11 @@ public class AssociationServices implements FeatureServices, ModelElementService
     if (secondary != null) deleteSemiAssociation(secondary);
   }
 
-  private void deleteSemiAssociation(final SemiAssociation semi) {
+  public void deleteAssociation(final Association association) {
+    deleteAssociationStatic(association);
+  }
+
+  private static void deleteSemiAssociation(final SemiAssociation semi) {
     if (semi == null) return;
 
     final ArrayList<EObject> eObjectsToDelete = new ArrayList<>();

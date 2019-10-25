@@ -29,7 +29,7 @@ public class ObjectServices implements ModelElementServices {
     moveElement(object, Object.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public void deleteObject(final Object object) {
+  public static void deleteObjectStatic(final Object object) {
     final EObject container = object.eContainer();
     if (container == null || !(container instanceof InstanceModel)) {
       EcoreUtil.delete(object);
@@ -46,11 +46,13 @@ public class ObjectServices implements ModelElementServices {
                       && primaryRef.getOwnerReferenceSet() != null
                       && EcoreUtil.equals(object, primaryRef.getOwnerReferenceSet().getOwner()))
                     return true;
+
                   final Reference secondaryRef = link.getSecondaryReference();
                   if (secondaryRef != null
                       && secondaryRef.getOwnerReferenceSet() != null
                       && EcoreUtil.equals(object, secondaryRef.getOwnerReferenceSet().getOwner()))
                     return true;
+
                   return false;
                 })
             .collect(Collectors.toList());
@@ -59,5 +61,9 @@ public class ObjectServices implements ModelElementServices {
     }
 
     EcoreUtil.delete(object);
+  }
+
+  public void deleteObject(final Object object) {
+    deleteObjectStatic(object);
   }
 }
