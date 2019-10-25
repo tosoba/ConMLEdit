@@ -409,7 +409,7 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <defaultLayer name="InstanceModelElement">
         <edgeMappings name="OD_Link" preconditionExpression="service:self.shouldDisplayLinkEdge" semanticElements="service:self.referencesList" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetFinderExpression="service:self.getLinkTargetType" sourceFinderExpression="service:self.getLinkSourceType" targetExpression="var:self" domainClass="instances::Link" useDomainElement="true">
-          <style>
+          <style targetArrow="NoDecoration">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </edgeMappings>

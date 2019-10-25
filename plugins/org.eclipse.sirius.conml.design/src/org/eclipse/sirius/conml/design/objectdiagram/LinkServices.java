@@ -11,7 +11,6 @@ import org.eclipse.sirius.conml.design.ConML;
 import org.eclipse.sirius.conml.design.Dialogs;
 import org.eclipse.sirius.conml.design.classdiagram.ModelElementServices;
 
-import conml.instances.InstanceModel;
 import conml.instances.InstancesFactory;
 import conml.instances.Link;
 import conml.instances.Reference;
@@ -40,61 +39,33 @@ public class LinkServices extends ModelElementServices {
     static final String LINK_CANNOT_BE_CREATED = "Cannot create a Link between chosen Objects.";
   }
 
-  public conml.instances.Object getLinkSourceType(Link link) {
+  public conml.instances.Object getLinkSourceType(final Link link) {
     return link.getPrimaryReference() != null
             && link.getPrimaryReference().getOwnerReferenceSet() != null
         ? link.getPrimaryReference().getOwnerReferenceSet().getOwner()
         : null;
   }
 
-  public conml.instances.Object getLinkTargetType(Link link) {
+  public conml.instances.Object getLinkTargetType(final Link link) {
     return link.getSecondaryReference() != null
             && link.getSecondaryReference().getOwnerReferenceSet() != null
         ? link.getSecondaryReference().getOwnerReferenceSet().getOwner()
         : null;
   }
 
-  public List<Reference> referencesList(Link link) {
+  public List<Reference> referencesList(final Link link) {
     return Arrays.asList(link.getPrimaryReference(), link.getSecondaryReference());
   }
 
-  public boolean shouldDisplayLinkEdge(Link link) {
+  public boolean shouldDisplayLinkEdge(final Link link) {
     return !link.isCompact();
   }
 
-  public Link createLink(
-      EObject object,
-      conml.instances.Object source,
-      conml.instances.Object target,
-      EObject sourceView,
-      EObject targetView) {
-    final Link link = InstancesFactory.eINSTANCE.createLink();
-    link.setCompact(false);
-
-    // TODO: currently these references are not contained in any ReferenceSet
-    // org.eclipse.emf.ecore.resource.Resource$IOWrappedException: The object
-    // 'conml.instances.impl.ReferenceImpl@3ccb0ba6 (certainty: Certain)' is not contained in a
-    // resource.
-    final Reference primary = InstancesFactory.eINSTANCE.createReference();
-    primary.setReferredObject(target);
-    link.setPrimaryReference(primary);
-
-    final Reference secondary = InstancesFactory.eINSTANCE.createReference();
-    secondary.setReferredObject(source);
-    link.setSecondaryReference(secondary);
-
-    if (source.eContainer() instanceof InstanceModel) {
-      final InstanceModel instanceModel = (InstanceModel) source.eContainer();
-      instanceModel.getElements().add(link);
-    }
-    return link;
-  }
-
-  public void moveLinkUp(EObject object) {
+  public void moveLinkUp(final EObject object) {
     moveElement(object, Link.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void moveLinkDown(EObject object) {
+  public void moveLinkDown(final EObject object) {
     moveElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
   }
 
@@ -110,7 +81,7 @@ public class LinkServices extends ModelElementServices {
 
     final Class sourceClass = source.getInstancedClass();
     final Class targetClass = target.getInstancedClass();
-    final EObject instancedClassesContainer = source.eContainer();
+    final EObject instancedClassesContainer = sourceClass.eContainer();
     final TypeModel typeModel = (TypeModel) instancedClassesContainer;
     if (!ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
         .filter(
@@ -160,7 +131,7 @@ public class LinkServices extends ModelElementServices {
       final conml.instances.Object referenceSetContainer,
       final SemiAssociation instancedSemiAssociation,
       final Reference reference) {
-    Optional<ReferenceSet> primaryRefSet =
+    final Optional<ReferenceSet> existingRefSet =
         referenceSetContainer
             .getReferenceSets()
             .stream()
@@ -169,9 +140,9 @@ public class LinkServices extends ModelElementServices {
                     EcoreUtil.equals(
                         refSet.getInstancedSemiAssociation(), instancedSemiAssociation))
             .findFirst();
-    if (primaryRefSet.isPresent()) {
-      primaryRefSet.get().getReferences().add(reference);
-      reference.setOwnerReferenceSet(primaryRefSet.get());
+    if (existingRefSet.isPresent()) {
+      existingRefSet.get().getReferences().add(reference);
+      reference.setOwnerReferenceSet(existingRefSet.get());
     } else {
       final ReferenceSet refSet = InstancesFactory.eINSTANCE.createReferenceSet();
       refSet.setInstancedSemiAssociation(instancedSemiAssociation);
