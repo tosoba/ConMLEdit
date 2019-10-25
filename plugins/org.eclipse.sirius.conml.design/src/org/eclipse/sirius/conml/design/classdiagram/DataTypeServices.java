@@ -9,25 +9,25 @@ import conml.types.SimpleDataType;
 
 public class DataTypeServices implements ModelElementServices {
 
-  public String dataTypeLabel(EObject object) {
+  public String dataTypeLabel(final EObject object) {
     if (!(object instanceof DataType)) return "";
     final DataType dataType = (DataType) object;
     return dataType.getName();
   }
 
-  public void moveSimpleDataTypeUp(EObject object) {
+  public void moveSimpleDataTypeUp(final EObject object) {
     moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void moveSimpleDataTypeDown(EObject object) {
+  public void moveSimpleDataTypeDown(final EObject object) {
     moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public void moveEnumTypeUp(EObject object) {
+  public void moveEnumTypeUp(final EObject object) {
     moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void moveEnumTypeDown(EObject object) {
+  public void moveEnumTypeDown(final EObject object) {
     moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
   }
 }

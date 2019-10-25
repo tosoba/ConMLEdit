@@ -25,7 +25,11 @@ public class GeneralizationServices {
   }
 
   public Generalization createGeneralization(
-      EObject object, Class source, Class target, EObject sourceView, EObject targetView) {
+      final EObject object,
+      final Class source,
+      final Class target,
+      final EObject sourceView,
+      final EObject targetView) {
     if (EcoreUtil.equals(source, target)) {
       Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.SELF_GENERALIZATION);
       return null;
@@ -74,11 +78,11 @@ public class GeneralizationServices {
     return generalization;
   }
 
-  private String defaultDiscriminant(Class inheritingClass, Class inheritedClass) {
+  private String defaultDiscriminant(final Class inheritingClass, final Class inheritedClass) {
     return inheritingClass.getName() + " from " + inheritedClass.getName();
   }
 
-  public Collection<EObject> getGeneralizationSourceType(Generalization generalization) {
+  public Collection<EObject> getGeneralizationSourceType(final Generalization generalization) {
     return generalization
         .getSpecializedClass()
         .stream()
@@ -86,7 +90,7 @@ public class GeneralizationServices {
         .collect(Collectors.toList());
   }
 
-  public Class getGeneralizationTargetType(Generalization generalization) {
+  public Class getGeneralizationTargetType(final Generalization generalization) {
     return generalization.getGeneralizedClass();
   }
 }

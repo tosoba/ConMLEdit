@@ -6,7 +6,8 @@ import conml.types.Feature;
 
 public interface FeatureServices {
 
-  default StringBuilder buildCardinalityLabelPart(Feature feature, StringBuilder sb) {
+  default StringBuilder buildCardinalityLabelPart(final Feature feature, final StringBuilder sb) {
+    if (feature == null) return sb;
     sb.append(feature.getMinimumCardinality());
     if (!Objects.equals(feature.getMinimumCardinality(), feature.getMaximumCardinality())) {
       sb.append("..");

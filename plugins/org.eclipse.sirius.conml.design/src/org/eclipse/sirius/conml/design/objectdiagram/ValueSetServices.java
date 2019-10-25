@@ -24,23 +24,26 @@ public class ValueSetServices {
     final String errorMsg;
     final String contentLabel;
 
-    private FacetValidation(boolean success, String errorMsg, String transformedContents) {
+    private FacetValidation(
+        final boolean success, final String errorMsg, final String transformedContents) {
       this.success = success;
       this.errorMsg = errorMsg;
       this.contentLabel = transformedContents;
     }
 
-    public static FacetValidation SUCCESS(String transformedContents) {
+    public static FacetValidation SUCCESS(final String transformedContents) {
       return new FacetValidation(true, null, transformedContents);
     }
 
-    public static FacetValidation FAILURE(String errorMsg) {
+    public static FacetValidation FAILURE(final String errorMsg) {
       return new FacetValidation(false, errorMsg, null);
     }
   }
 
   private FacetValidation validateFacet(
-      Facet facet, List<Class<?>> contentsClasses, Function<Object, String> contentsTransformer) {
+      final Facet facet,
+      final List<Class<?>> contentsClasses,
+      final Function<Object, String> contentsTransformer) {
     if (!(facet instanceof Value))
       return FacetValidation.FAILURE("<One of the facets in not of type Value>");
     final Value value = (Value) facet;
@@ -57,7 +60,7 @@ public class ValueSetServices {
     }
   }
 
-  public String valueSetLabel(ValueSet valueSet) {
+  public String valueSetLabel(final ValueSet valueSet) {
     if (valueSet == null) return "";
 
     final Attribute attribute = valueSet.getInstancedAttribute();

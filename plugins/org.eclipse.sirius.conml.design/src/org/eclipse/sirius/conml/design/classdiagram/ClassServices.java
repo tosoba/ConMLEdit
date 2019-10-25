@@ -17,14 +17,14 @@ import conml.types.TypeModel;
 
 public class ClassServices implements ModelElementServices {
 
-  public Collection<Class> getCDClassSemanticCandidates(Model model) {
+  public Collection<Class> getCDClassSemanticCandidates(final Model model) {
     return ConML.getAllElementsOfTypeFrom(model, Class.class);
   }
 
   private boolean isAspectAssignedToTypeModel(
-      EObject object,
-      Function<Class, Boolean> isUsedAsAspectGetter,
-      Function<TypeModel, Class> aspectGetter) {
+      final EObject object,
+      final Function<Class, Boolean> isUsedAsAspectGetter,
+      final Function<TypeModel, Class> aspectGetter) {
     if (!(object instanceof Class)) return true;
 
     final Class clazz = (Class) object;
@@ -34,17 +34,17 @@ public class ClassServices implements ModelElementServices {
             && ConML.anyExistingContainerHasReferenceTo(clazz, aspectGetter, TypeModel.class));
   }
 
-  public boolean isSubjectiveAspectClassAssignedToTypeModel(EObject object) {
+  public boolean isSubjectiveAspectClassAssignedToTypeModel(final EObject object) {
     return isAspectAssignedToTypeModel(
         object, Class::isUsedAsSubjectiveAspect, TypeModel::getSubjectiveAspect);
   }
 
-  public boolean isTemporalAspectClassAssignedToTypeModel(EObject object) {
+  public boolean isTemporalAspectClassAssignedToTypeModel(final EObject object) {
     return isAspectAssignedToTypeModel(
         object, Class::isUsedAsTemporalAspect, TypeModel::getTemporalAspect);
   }
 
-  public String classLabel(Class clazz) {
+  public String classLabel(final Class clazz) {
     if (clazz == null) return "";
 
     final StringBuilder sb = new StringBuilder();
@@ -80,11 +80,11 @@ public class ClassServices implements ModelElementServices {
     return sb.toString();
   }
 
-  public void moveClassUp(EObject object) {
+  public void moveClassUp(final EObject object) {
     moveElement(object, Class.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void moveClassDown(EObject object) {
+  public void moveClassDown(final EObject object) {
     moveElement(object, Class.class, ConML.ElementMovementDirection.DOWN);
   }
 }

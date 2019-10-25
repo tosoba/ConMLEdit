@@ -36,13 +36,13 @@ public class PropertyServices {
     setupStructuralFeaturesPredicates();
   }
 
-  public boolean referenceIfPredicate(EStructuralFeature feature) {
+  public boolean referenceIfPredicate(final EStructuralFeature feature) {
     return EReference.class.isInstance(feature)
         && (!ignoredReferences.containsKey(feature.getContainerClass())
             || !ignoredReferences.get(feature.getContainerClass()).contains(feature.getName()));
   }
 
-  public List<EStructuralFeature> sortedStructuralFeatures(EObject object) {
+  public List<EStructuralFeature> sortedStructuralFeatures(final EObject object) {
     return object
         .eClass()
         .getEAllStructuralFeatures()
@@ -88,22 +88,22 @@ public class PropertyServices {
         .collect(Collectors.toList());
   }
 
-  private static boolean compactAssociationFeaturePredicate(EStructuralFeature feature) {
+  private static boolean compactAssociationFeaturePredicate(final EStructuralFeature feature) {
     return !(Association.class.isAssignableFrom(feature.getContainerClass())
         && "compact".equalsIgnoreCase(feature.getName()));
   }
 
-  private static boolean overallPackageFeaturePredicate(EStructuralFeature feature) {
+  private static boolean overallPackageFeaturePredicate(final EStructuralFeature feature) {
     return !(Package.class.isAssignableFrom(feature.getContainerClass())
         && "overall".equalsIgnoreCase(feature.getName()));
   }
 
-  private static boolean compactLinkFeaturePredicate(EStructuralFeature feature) {
+  private static boolean compactLinkFeaturePredicate(final EStructuralFeature feature) {
     return !(Link.class.isAssignableFrom(feature.getContainerClass())
         && "compact".equalsIgnoreCase(feature.getName()));
   }
 
-  private boolean combinedFeaturePredicates(EStructuralFeature feature) {
+  private boolean combinedFeaturePredicates(final EStructuralFeature feature) {
     return PropertyServices.featurePredicates
         .stream()
         .map(predicate -> predicate.test(feature))

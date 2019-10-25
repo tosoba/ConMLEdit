@@ -9,11 +9,11 @@ import conml.instances.Link;
 
 public class InstanceModelServices extends ModelServices {
 
-  public Collection<EObject> getOwnedLinkElements(EObject object) {
+  public Collection<EObject> getOwnedLinkElements(final EObject object) {
     return getOwnedElementsOfType(object, Link.class);
   }
 
-  public Collection<EObject> getOwnedObjectElements(EObject object) {
+  public Collection<EObject> getOwnedObjectElements(final EObject object) {
     return getOwnedElementsOfType(object, conml.instances.Object.class);
   }
 }

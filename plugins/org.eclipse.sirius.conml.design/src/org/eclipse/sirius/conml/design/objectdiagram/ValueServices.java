@@ -12,11 +12,11 @@ import conml.types.SimpleDataType;
 
 public class ValueServices {
 
-  public boolean isBooleanValue(EObject object) {
+  public boolean isBooleanValue(final EObject object) {
     return hasSimpleDataType(object, BaseDataType.BOOLEAN);
   }
 
-  public boolean booleanValueContent(EObject object) {
+  public boolean booleanValueContent(final EObject object) {
     return ConML.castAndRunOrReturn(
         object,
         Value.class,
@@ -30,11 +30,11 @@ public class ValueServices {
         false);
   }
 
-  public void setBooleanValueContent(Value value, Boolean content) {
+  public void setBooleanValueContent(final Value value, final Boolean content) {
     value.setContents(content);
   }
 
-  private boolean hasSimpleDataType(EObject object, BaseDataType base) {
+  private boolean hasSimpleDataType(final EObject object, final BaseDataType base) {
     return ConML.castAndRunOrReturn(
         object,
         Value.class,
