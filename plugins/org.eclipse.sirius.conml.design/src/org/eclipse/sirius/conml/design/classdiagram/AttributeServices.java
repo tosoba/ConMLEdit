@@ -9,12 +9,10 @@ import conml.types.EnumeratedType;
 import conml.types.Feature;
 import conml.types.Property;
 
-public class AttributeServices extends FeatureServices {
+public class AttributeServices implements FeatureServices {
 
-  public String attributeLabel(Feature feature) {
-    if (feature == null) {
-      return "";
-    }
+  public String attributeLabel(final Feature feature) {
+    if (feature == null) return "";
 
     final StringBuilder sb = new StringBuilder(feature.getName());
     if (feature.getRedefinedFeature() != null

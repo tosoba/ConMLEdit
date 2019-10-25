@@ -4,9 +4,9 @@ import java.util.Objects;
 
 import conml.types.Feature;
 
-public class FeatureServices {
+public interface FeatureServices {
 
-  protected StringBuilder buildCardinalityLabelPart(Feature feature, StringBuilder sb) {
+  default StringBuilder buildCardinalityLabelPart(Feature feature, StringBuilder sb) {
     sb.append(feature.getMinimumCardinality());
     if (!Objects.equals(feature.getMinimumCardinality(), feature.getMaximumCardinality())) {
       sb.append("..");

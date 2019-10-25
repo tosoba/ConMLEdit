@@ -19,13 +19,13 @@ import conml.types.EnumeratedType;
 import conml.types.Package;
 import conml.types.TypeModel;
 
-public class PackageServices extends ModelElementServices {
+public class PackageServices implements ModelElementServices {
 
-  public boolean overallPackageExists(EObject containerObject) {
+  public boolean overallPackageExists(final EObject containerObject) {
     return !overallPackageDoesNotExist(containerObject);
   }
 
-  public boolean overallPackageDoesNotExist(EObject containerObject) {
+  public boolean overallPackageDoesNotExist(final EObject containerObject) {
     if (!(containerObject instanceof TypeModel)) return false;
     final TypeModel model = (TypeModel) containerObject;
     return !model
@@ -41,7 +41,7 @@ public class PackageServices extends ModelElementServices {
         .isPresent();
   }
 
-  public void setOverall(Package packageToSet) {
+  public void setOverall(final Package packageToSet) {
     if (!(packageToSet.eContainer() instanceof Model)) return;
     final Model model = (Model) packageToSet.eContainer();
     final Optional<Package> currentOverallPackage =
@@ -69,12 +69,12 @@ public class PackageServices extends ModelElementServices {
     packageToSet.setOverall(true);
   }
 
-  public boolean isNonOverallPackage(EObject object) {
+  public boolean isNonOverallPackage(final EObject object) {
     return ConML.castAndRunOrReturn(
         object, Package.class, (Package packageToCheck) -> !packageToCheck.isOverall(), false);
   }
 
-  public void removePackage(EObject object) {
+  public void removePackage(final EObject object) {
     ConML.castElementAndContainer(object, Package.class, Model.class)
         .ifBothCastsSuccessful(
             (packageToRemove, model) -> {
@@ -96,7 +96,9 @@ public class PackageServices extends ModelElementServices {
   }
 
   private void removePackage(
-      Package packageToRemove, Model typeModel, boolean removeSubPackagesRecursively) {
+      final Package packageToRemove,
+      final Model typeModel,
+      final boolean removeSubPackagesRecursively) {
     final ArrayList<Package> subPackagesToRemove = new ArrayList<>();
 
     typeModel
@@ -128,15 +130,15 @@ public class PackageServices extends ModelElementServices {
     typeModel.getElements().remove(packageToRemove);
   }
 
-  public void movePackageUp(EObject object) {
+  public void movePackageUp(final EObject object) {
     moveElement(object, Package.class, ConML.ElementMovementDirection.UP);
   }
 
-  public void movePackageDown(EObject object) {
+  public void movePackageDown(final EObject object) {
     moveElement(object, Package.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public String packageLabel(EObject object) {
+  public String packageLabel(final EObject object) {
     if (!(object instanceof Package)) return "";
     Package packageIterator = (Package) object;
     final ArrayList<String> packageNames = new ArrayList<>();
@@ -150,7 +152,7 @@ public class PackageServices extends ModelElementServices {
     return packageNames.stream().collect(Collectors.joining("."));
   }
 
-  public boolean isNotSubPackageOfItself(EObject object) {
+  public boolean isNotSubPackageOfItself(final EObject object) {
     return ConML.castAndRunOrReturn(
         object,
         Package.class,
@@ -159,7 +161,7 @@ public class PackageServices extends ModelElementServices {
         true);
   }
 
-  public boolean packageWithSameNameDoesNotExist(EObject object) {
+  public boolean packageWithSameNameDoesNotExist(final EObject object) {
     return ConML.castElementAndContainer(object, Package.class, Model.class)
         .runIfBothCastsSuccessful(
             (packageToCheck, model) ->
@@ -189,7 +191,7 @@ public class PackageServices extends ModelElementServices {
             true);
   }
 
-  public Collection<Package> getCDOverallPackageSemanticCandidates(Model model) {
+  public Collection<Package> getCDOverallPackageSemanticCandidates(final Model model) {
     return ConML.getAllElementsOfTypeFrom(model, Package.class)
         .stream()
         .filter(Package::isOverall)

@@ -7,7 +7,7 @@ import conml.types.DataType;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
 
-public class DataTypeServices extends ModelElementServices {
+public class DataTypeServices implements ModelElementServices {
 
   public String dataTypeLabel(EObject object) {
     if (!(object instanceof DataType)) return "";

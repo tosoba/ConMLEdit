@@ -13,7 +13,7 @@ import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
 
-public class ObjectServices extends ModelElementServices {
+public class ObjectServices implements ModelElementServices {
 
   public String objectLabel(final Object object) {
     return object.getIdentifier()
@@ -37,7 +37,7 @@ public class ObjectServices extends ModelElementServices {
     }
 
     final InstanceModel instanceModel = (InstanceModel) container;
-    List<Link> links =
+    final List<Link> links =
         ConML.getStreamOfAllElementsOfTypeFromModel(instanceModel, Link.class)
             .filter(
                 link -> {
@@ -54,7 +54,7 @@ public class ObjectServices extends ModelElementServices {
                   return false;
                 })
             .collect(Collectors.toList());
-    for (Link link : links) {
+    for (final Link link : links) {
       EcoreUtil.delete(link);
     }
 

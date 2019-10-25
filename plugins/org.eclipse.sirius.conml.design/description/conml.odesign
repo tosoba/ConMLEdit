@@ -876,6 +876,50 @@
             </initialOperation>
           </actions>
         </controls>
+        <controls xsi:type="properties:ListDescription" name="PR_Associations_List" labelExpression="Associations:" helpExpression="Associations owned by this TypeModel" valueExpression="aql:input.getSemanticElement().getOwnedAssociationElements()" displayExpression="aql:value.associationPropertiesLabel()">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->at(1)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK'">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Package">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Edit Page" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.0"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </onClickOperation>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="var:selection" iteratorName="association">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:association.deleteAssociation"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection" iteratorName="association">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:association.moveAssociationUp()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/down.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection->reverse()" iteratorName="association">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:association.moveAssociationDown()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+        </controls>
         <controls xsi:type="properties:ListDescription" name="PR_SimpleDataTypes_List" labelExpression="SimpleDataTypes:" helpExpression="SimpleDataTypes owned by this model" valueExpression="aql:input.getSemanticElement().getOwnedSimpleDataTypeElements()" displayExpression="aql:value.dataTypeLabel()">
           <onClickOperation>
             <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
@@ -913,7 +957,7 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.2/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -981,7 +1025,7 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.4/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -1102,6 +1146,15 @@
               </subModelOperations>
             </firstModelOperations>
           </onClickOperation>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="var:selection" iteratorName="link">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:link.removeElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:selection" iteratorName="link">

@@ -20,7 +20,7 @@ import conml.types.Class;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 
-public class LinkServices extends ModelElementServices {
+public class LinkServices implements ModelElementServices {
 
   private static final class Errors {
     static final String SOURCE_CLASS_IS_NULL =

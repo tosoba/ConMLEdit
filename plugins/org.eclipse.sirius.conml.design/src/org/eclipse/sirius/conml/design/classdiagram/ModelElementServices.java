@@ -10,25 +10,27 @@ import org.eclipse.sirius.conml.design.ConML;
 import conml.Model;
 import conml.ModelElement;
 
-public class ModelElementServices {
+public interface ModelElementServices {
 
-  public void removeElement(EObject object) {
+  default void removeElement(final EObject object) {
     EcoreUtil.delete(object);
   }
 
-  protected <T extends EObject> void moveElement(
-      EObject object, Class<T> objectClass, ConML.ElementMovementDirection direction) {
+  default <T extends EObject> void moveElement(
+      final EObject object,
+      final Class<T> objectClass,
+      final ConML.ElementMovementDirection direction) {
     ConML.castElementAndContainer(object, objectClass, Model.class)
         .ifBothCastsSuccessful(
             (objectToMove, model) ->
                 moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
   }
 
-  protected <T extends EObject> void moveElements(
-      List<T> elements,
-      Model model,
-      Class<T> elementClass,
-      ConML.ElementMovementDirection direction) {
+  default <T extends EObject> void moveElements(
+      final List<T> elements,
+      final Model model,
+      final Class<T> elementClass,
+      final ConML.ElementMovementDirection direction) {
     if (elements.isEmpty()) return;
 
     int indexToSwapWith = -1;

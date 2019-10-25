@@ -15,7 +15,7 @@ import conml.types.Class;
 import conml.types.Package;
 import conml.types.TypeModel;
 
-public class ClassServices extends ModelElementServices {
+public class ClassServices implements ModelElementServices {
 
   public Collection<Class> getCDClassSemanticCandidates(Model model) {
     return ConML.getAllElementsOfTypeFrom(model, Class.class);
