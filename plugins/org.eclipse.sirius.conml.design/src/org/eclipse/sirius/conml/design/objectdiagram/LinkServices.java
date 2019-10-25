@@ -75,7 +75,7 @@ public class LinkServices extends ModelElementServices {
     if (instancedAssociation == null) {
       Dialogs.showError(
           Messages.LINK_CANNOT_BE_CREATED, Errors.INSTANCED_ASSOCIATION_NOT_SPECIFIED);
-      EcoreUtil.remove(link);
+      EcoreUtil.delete(link);
       return;
     }
 
@@ -96,19 +96,19 @@ public class LinkServices extends ModelElementServices {
         .contains(instancedAssociation)) {
       Dialogs.showError(
           Messages.LINK_CANNOT_BE_CREATED, Errors.INSTANCED_ASSOCIATION_CLASS_MISMATCH);
-      EcoreUtil.remove(link);
+      EcoreUtil.delete(link);
       return;
     }
 
     final SemiAssociation primarySemi = instancedAssociation.getPrimarySemiAssociation();
     if (primarySemi == null) { // this should not be possible...
-      EcoreUtil.remove(link);
+      EcoreUtil.delete(link);
       return;
     }
 
     final SemiAssociation secondarySemi = instancedAssociation.getSecondarySemiAssociation();
     if (secondarySemi == null) { // this should not be possible...
-      EcoreUtil.remove(link);
+      EcoreUtil.delete(link);
       return;
     }
 

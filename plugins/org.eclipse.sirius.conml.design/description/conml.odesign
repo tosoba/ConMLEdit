@@ -1058,6 +1058,15 @@
               </firstModelOperations>
             </initialOperation>
           </actions>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="var:selection" iteratorName="obj">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:obj.deleteObject"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
           <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:selection" iteratorName="obj">
