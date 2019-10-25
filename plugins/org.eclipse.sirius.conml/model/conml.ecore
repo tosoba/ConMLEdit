@@ -201,16 +201,14 @@
     <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredObject" lowerBound="1"
           eType="#//instances/Object" eOpposite="#//instances/Object/IsReferredByReferences"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Inverse" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/IsInverseOfReference"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="IsInverseOfReference"
-          eType="#//instances/Reference" eOpposite="#//instances/Reference/Inverse"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryInLink" eType="#//instances/Link"
           eOpposite="#//instances/Link/PrimaryReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryLink" eType="#//instances/Link"
           eOpposite="#//instances/Link/SecondaryReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerReferenceSet" lowerBound="1"
           eType="#//instances/ReferenceSet" eOpposite="#//instances/ReferenceSet/References"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InverseReference" lowerBound="1"
+          eType="#//instances/Reference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstanceModelElement" abstract="true"
         eSuperTypes="#//ModelElement"/>

@@ -29,7 +29,9 @@ public interface ReferenceValidator {
 
   boolean validateOwnerReferenceSet(ReferenceSet value);
 
-    boolean validateIsInverseOf(Reference value);
+    boolean validateInverseReference(Reference value);
+
+        boolean validateIsInverseOf(Reference value);
 	boolean validateIsPrimaryIn(Link value);
 	boolean validateIsSecondaryIn(Link value);
 }

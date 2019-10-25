@@ -13,11 +13,10 @@ package conml.instances;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}</li>
- *   <li>{@link conml.instances.Reference#getInverse <em>Inverse</em>}</li>
- *   <li>{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}</li>
  *   <li>{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}</li>
  *   <li>{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}</li>
  *   <li>{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}</li>
+ *   <li>{@link conml.instances.Reference#getInverseReference <em>Inverse Reference</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getReference()
@@ -48,54 +47,6 @@ public interface Reference extends Facet {
 	 * @generated
 	 */
 	void setReferredObject(conml.instances.Object value);
-
-  /**
-	 * Returns the value of the '<em><b>Inverse</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inverse</em>' reference.
-	 * @see #setInverse(Reference)
-	 * @see conml.instances.InstancesPackage#getReference_Inverse()
-	 * @see conml.instances.Reference#getIsInverseOfReference
-	 * @model opposite="IsInverseOfReference"
-	 * @generated
-	 */
-	Reference getInverse();
-
-	/**
-	 * Sets the value of the '{@link conml.instances.Reference#getInverse <em>Inverse</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inverse</em>' reference.
-	 * @see #getInverse()
-	 * @generated
-	 */
-	void setInverse(Reference value);
-
-	/**
-	 * Returns the value of the '<em><b>Is Inverse Of Reference</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getInverse <em>Inverse</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Is Inverse Of Reference</em>' reference.
-	 * @see #setIsInverseOfReference(Reference)
-	 * @see conml.instances.InstancesPackage#getReference_IsInverseOfReference()
-	 * @see conml.instances.Reference#getInverse
-	 * @model opposite="Inverse"
-	 * @generated
-	 */
-	Reference getIsInverseOfReference();
-
-  /**
-	 * Sets the value of the '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Is Inverse Of Reference</em>' reference.
-	 * @see #getIsInverseOfReference()
-	 * @generated
-	 */
-	void setIsInverseOfReference(Reference value);
 
   /**
 	 * Returns the value of the '<em><b>Primary In Link</b></em>' reference.
@@ -168,5 +119,27 @@ public interface Reference extends Facet {
 	 * @generated
 	 */
 	void setOwnerReferenceSet(ReferenceSet value);
+
+        /**
+	 * Returns the value of the '<em><b>Inverse Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Inverse Reference</em>' reference.
+	 * @see #setInverseReference(Reference)
+	 * @see conml.instances.InstancesPackage#getReference_InverseReference()
+	 * @model required="true"
+	 * @generated
+	 */
+	Reference getInverseReference();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.Reference#getInverseReference <em>Inverse Reference</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Inverse Reference</em>' reference.
+	 * @see #getInverseReference()
+	 * @generated
+	 */
+	void setInverseReference(Reference value);
 
 } // Reference

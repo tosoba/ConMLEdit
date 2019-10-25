@@ -45,11 +45,10 @@ public class ReferenceItemProvider extends FacetItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReferredObjectPropertyDescriptor(object);
-			addInversePropertyDescriptor(object);
-			addIsInverseOfReferencePropertyDescriptor(object);
 			addPrimaryInLinkPropertyDescriptor(object);
 			addSecondaryLinkPropertyDescriptor(object);
 			addOwnerReferenceSetPropertyDescriptor(object);
+			addInverseReferencePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -68,50 +67,6 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 getString("_UI_Reference_ReferredObject_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_ReferredObject_feature", "_UI_Reference_type"),
 				 InstancesPackage.Literals.REFERENCE__REFERRED_OBJECT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
-	 * This adds a property descriptor for the Inverse feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addInversePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Reference_Inverse_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_Inverse_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__INVERSE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Is Inverse Of Reference feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addIsInverseOfReferencePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Reference_IsInverseOfReference_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_IsInverseOfReference_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__IS_INVERSE_OF_REFERENCE,
 				 true,
 				 false,
 				 true,
@@ -187,6 +142,28 @@ public class ReferenceItemProvider extends FacetItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Inverse Reference feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInverseReferencePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Reference_InverseReference_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_InverseReference_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__INVERSE_REFERENCE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This returns Reference.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

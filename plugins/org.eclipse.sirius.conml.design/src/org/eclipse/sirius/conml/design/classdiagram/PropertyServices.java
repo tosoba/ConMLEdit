@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
 
 import conml.Model;
+import conml.instances.Link;
 import conml.instances.Value;
 import conml.types.Association;
 import conml.types.Feature;
@@ -97,6 +98,11 @@ public class PropertyServices {
         && "overall".equalsIgnoreCase(feature.getName()));
   }
 
+  private static boolean compactLinkFeaturePredicate(EStructuralFeature feature) {
+    return !(Link.class.isAssignableFrom(feature.getContainerClass())
+        && "compact".equalsIgnoreCase(feature.getName()));
+  }
+
   private boolean combinedFeaturePredicates(EStructuralFeature feature) {
     return PropertyServices.featurePredicates
         .stream()
@@ -107,15 +113,18 @@ public class PropertyServices {
   private static void setupStructuralFeaturesPredicates() {
     featurePredicates.add(PropertyServices::compactAssociationFeaturePredicate);
     featurePredicates.add(PropertyServices::overallPackageFeaturePredicate);
+    featurePredicates.add(PropertyServices::compactLinkFeaturePredicate);
   }
 
   private static void setupIgnoredReferences() {
+    ignoredReferences.put(Model.class, new HashSet<>(Arrays.asList("Elements")));
+
+    // Types
     ignoredReferences.put(
         conml.types.Class.class,
         new HashSet<>(
             Arrays.asList(
                 "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
-    ignoredReferences.put(Model.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredReferences.put(
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
@@ -128,6 +137,10 @@ public class PropertyServices {
                 "Owner",
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
+
+    // Instances
     ignoredReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
+    ignoredReferences.put(
+        Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
   }
 }

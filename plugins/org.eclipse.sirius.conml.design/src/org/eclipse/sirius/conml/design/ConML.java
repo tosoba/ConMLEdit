@@ -12,6 +12,8 @@ import java.util.stream.Stream;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import conml.Model;
+
 public class ConML {
 
   private ConML() {}
@@ -29,6 +31,14 @@ public class ConML {
 
   private static void forEachEObjectOf(EObject parentObject, Consumer<EObject> action) {
     parentObject.eAllContents().forEachRemaining(action);
+  }
+
+  public static <T> Stream<T> getStreamOfAllElementsOfTypeFromModel(Model model, Class<T> clazz) {
+    return model
+        .getElements()
+        .stream()
+        .filter(element -> clazz.isInstance(element))
+        .map(element -> clazz.cast(element));
   }
 
   public static <RefType extends EObject, Container extends EObject>

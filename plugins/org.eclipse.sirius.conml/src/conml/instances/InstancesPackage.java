@@ -253,31 +253,13 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__REFERRED_OBJECT = FACET_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Inverse</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__INVERSE = FACET_FEATURE_COUNT + 1;
-
-	/**
-	 * The feature id for the '<em><b>Is Inverse Of Reference</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE__IS_INVERSE_OF_REFERENCE = FACET_FEATURE_COUNT + 2;
-
-  /**
 	 * The feature id for the '<em><b>Primary In Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__PRIMARY_IN_LINK = FACET_FEATURE_COUNT + 3;
+	int REFERENCE__PRIMARY_IN_LINK = FACET_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Secondary Link</b></em>' reference.
@@ -286,7 +268,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__SECONDARY_LINK = FACET_FEATURE_COUNT + 4;
+	int REFERENCE__SECONDARY_LINK = FACET_FEATURE_COUNT + 2;
 
   /**
 	 * The feature id for the '<em><b>Owner Reference Set</b></em>' container reference.
@@ -295,16 +277,25 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__OWNER_REFERENCE_SET = FACET_FEATURE_COUNT + 5;
+	int REFERENCE__OWNER_REFERENCE_SET = FACET_FEATURE_COUNT + 3;
 
     /**
+	 * The feature id for the '<em><b>Inverse Reference</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__INVERSE_REFERENCE = FACET_FEATURE_COUNT + 4;
+
+        /**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_FEATURE_COUNT = FACET_FEATURE_COUNT + 6;
+	int REFERENCE_FEATURE_COUNT = FACET_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Reference</em>' class.
@@ -1016,28 +1007,6 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getReference_ReferredObject();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getInverse <em>Inverse</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Inverse</em>'.
-	 * @see conml.instances.Reference#getInverse()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_Inverse();
-
-	/**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getIsInverseOfReference <em>Is Inverse Of Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Is Inverse Of Reference</em>'.
-	 * @see conml.instances.Reference#getIsInverseOfReference()
-	 * @see #getReference()
-	 * @generated
-	 */
-	EReference getReference_IsInverseOfReference();
-
-  /**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1071,6 +1040,17 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getReference_OwnerReferenceSet();
 
     /**
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getInverseReference <em>Inverse Reference</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Inverse Reference</em>'.
+	 * @see conml.instances.Reference#getInverseReference()
+	 * @see #getReference()
+	 * @generated
+	 */
+	EReference getReference_InverseReference();
+
+        /**
 	 * Returns the meta object for class '{@link conml.instances.InstanceModelElement <em>Instance Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1483,22 +1463,6 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference REFERENCE__REFERRED_OBJECT = eINSTANCE.getReference_ReferredObject();
 
     /**
-		 * The meta object literal for the '<em><b>Inverse</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__INVERSE = eINSTANCE.getReference_Inverse();
-
-		/**
-		 * The meta object literal for the '<em><b>Is Inverse Of Reference</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference REFERENCE__IS_INVERSE_OF_REFERENCE = eINSTANCE.getReference_IsInverseOfReference();
-
-    /**
 		 * The meta object literal for the '<em><b>Primary In Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1523,6 +1487,14 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference REFERENCE__OWNER_REFERENCE_SET = eINSTANCE.getReference_OwnerReferenceSet();
 
         /**
+		 * The meta object literal for the '<em><b>Inverse Reference</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REFERENCE__INVERSE_REFERENCE = eINSTANCE.getReference_InverseReference();
+
+                /**
 		 * The meta object literal for the '{@link conml.instances.impl.InstanceModelElementImpl <em>Instance Model Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

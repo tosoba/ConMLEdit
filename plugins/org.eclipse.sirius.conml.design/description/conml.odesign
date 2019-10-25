@@ -489,7 +489,30 @@
               <sourceViewVariable name="sourceView"/>
               <targetViewVariable name="targetView"/>
               <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createLink(source, target, sourceView, targetView)"/>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer(instances::InstanceModel)">
+                  <subModelOperations xsi:type="tool_1:Switch">
+                    <cases conditionExpression="service:source.anyAssociationExistsBetweenInstancedClasses(target)">
+                      <subModelOperations xsi:type="tool_1:CreateInstance" typeName="instances::Link" referenceName="Elements">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="compact" valueExpression="aql:false"/>
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Link">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.createLinkReferences(source, target)"/>
+                            </initialOperation>
+                          </buttons>
+                          <page name="D_OD_CreateLink_DefaultPage" domainClass="instances::Link" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='OD_Group_Links']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@cases.0/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
+                          <groups name="D_OD_CreateLink_GeneralGroup" labelExpression="General" domainClass="instances::Link" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </cases>
+                    <default>
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:source.showCannotCreateALinkDialog(target)"/>
+                    </default>
+                  </subModelOperations>
+                </firstModelOperations>
               </initialOperation>
             </tools>
           </ownedTools>
