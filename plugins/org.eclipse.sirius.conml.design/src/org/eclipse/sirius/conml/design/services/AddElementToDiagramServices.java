@@ -6,28 +6,30 @@ import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.diagram.description.DiagramDescription;
 
 import com.google.common.base.Predicate;
+import com.google.common.base.Predicates;
 
 public class AddElementToDiagramServices {
-  public static Predicate<Object> isValidForDiagram(DDiagram diagram, EObject container) {
-    Predicate<Object> results = (Object object) -> true;
+
+  public static Predicate<Object> isValidForDiagramPredicate(
+      final DDiagram diagram, final EObject container) {
+    Predicate<Object> predicate = Predicates.alwaysTrue();
     if (diagram instanceof DSemanticDiagram) {
       final DiagramDescription description = ((DSemanticDiagram) diagram).getDescription();
-
       if ("Class Diagram".equals(description.getName())) {
-        results = getValidsForClassDiagram();
+        predicate = isValidForClassDiagramPredicate();
       } else if ("Object Diagram".equals(description.getName())) {
-        results = getValidsForObjectDiagram();
+        predicate = isValidForObjectDiagramPredicate();
       }
     }
 
-    return results;
+    return predicate;
   }
 
-  private static Predicate<Object> getValidsForClassDiagram() {
+  private static Predicate<Object> isValidForClassDiagramPredicate() {
     return input -> input instanceof conml.types.Package || input instanceof conml.types.Class;
   }
 
-  private static Predicate<Object> getValidsForObjectDiagram() {
+  private static Predicate<Object> isValidForObjectDiagramPredicate() {
     return input -> input instanceof conml.instances.Object;
   }
 }

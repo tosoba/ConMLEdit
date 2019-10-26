@@ -9,22 +9,9 @@ import org.eclipse.emf.edit.ui.provider.AdapterFactoryContentProvider;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 
-/**
- * Filtered tree content provider used by the model semantic selection dialog tree viewer. Derived
- * from @see FilteredTreeContentProvider.
- *
- * @author Melanie Bats <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
- */
 public class ModelFilteredTreeContentProvider extends AdapterFactoryContentProvider {
   private final Predicate<Object> predicate;
 
-  /**
-   * Constructor.
-   *
-   * @param adapterFactory the adapter factory to use.
-   * @param predicate the predicate used to filter elements. It should return <code>true</code> for
-   *     elements which must be removed.
-   */
   public ModelFilteredTreeContentProvider(
       AdapterFactory adapterFactory, Predicate<Object> predicate) {
     super(adapterFactory);
@@ -41,7 +28,6 @@ public class ModelFilteredTreeContentProvider extends AdapterFactoryContentProvi
     return filtered.toArray(new Object[filtered.size()]);
   }
 
-  /** {@inheritDoc} */
   @Override
   public Object[] getChildren(Object object) {
     final Object[] unfiltered = super.getChildren(object);
@@ -58,7 +44,6 @@ public class ModelFilteredTreeContentProvider extends AdapterFactoryContentProvi
     return filter(unfiltered);
   }
 
-  /** {@inheritDoc} */
   @Override
   public boolean hasChildren(Object object) {
     final Object[] children = getChildren(object);

@@ -17,8 +17,8 @@ import conml.ModelElement;
 
 public class ReusedViewpointServices extends AbstractDiagramServices {
 
-  public boolean isValidContainerMapping(EObject containerView) {
-    // TODO: maybe comment this out for now...
+  public boolean isValidContainerMapping(final EObject containerView) {
+    // TODO: maybe remove this if altogether...
     if (containerView instanceof DDiagramElementContainer) {
       return !ContainerLayout.LIST.equals(
           ((DDiagramElementContainer) containerView).getActualMapping().getChildrenPresentation());
@@ -29,87 +29,38 @@ public class ReusedViewpointServices extends AbstractDiagramServices {
     return false;
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getContainerView(
-      ModelElement semanticElement, DDiagramElement elementView) {
+      final ModelElement semanticElement, final DDiagramElement elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getContainerView(
-      ModelElement semanticElement, DDiagramElementContainer elementView) {
+      final ModelElement semanticElement, final DDiagramElementContainer elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  /**
-   * Retrieve the container view for the given semantic element when a branch was not selected.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   private DSemanticDecorator getContainerView(
-      ModelElement semanticElement, DSemanticDecorator elementView) {
+      final ModelElement semanticElement, final DSemanticDecorator elementView) {
     return elementView;
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getContainerView(
-      ModelElement semanticElement, DSemanticDiagram elementView) {
+      final ModelElement semanticElement, final DSemanticDiagram elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getHierarchicalContainerView(
-      ModelElement semanticElement, DDiagramElement elementView) {
+      final ModelElement semanticElement, final DDiagramElement elementView) {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getHierarchicalContainerView(
-      ModelElement semanticElement, DDiagramElementContainer elementView) {
+      final ModelElement semanticElement, final DDiagramElementContainer elementView) {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  /**
-   * Retrieve the container view for the given semantic element when a branch was selected
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   private DSemanticDecorator getHierarchicalContainerView(
-      ModelElement semanticElement, DSemanticDecorator elementView) {
+      final ModelElement semanticElement, final DSemanticDecorator elementView) {
     final Set<DDiagramElementContainer> containerViews = new HashSet<DDiagramElementContainer>();
 
     if (elementView instanceof DDiagramElement) {
@@ -131,15 +82,8 @@ public class ReusedViewpointServices extends AbstractDiagramServices {
     return elementView;
   }
 
-  /**
-   * Retrieve the container view for the given semantic element.
-   *
-   * @param semanticElement Semantic element
-   * @param elementView Element view
-   * @return Container view
-   */
   public DSemanticDecorator getHierarchicalContainerView(
-      ModelElement semanticElement, DSemanticDiagram elementView) {
+      final ModelElement semanticElement, final DSemanticDiagram elementView) {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 }

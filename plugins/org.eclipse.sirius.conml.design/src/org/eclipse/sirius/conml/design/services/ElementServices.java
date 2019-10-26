@@ -12,15 +12,14 @@ import com.google.common.collect.Lists;
 import conml.Model;
 
 public class ElementServices {
-  public static Collection<Model> getAllRootsInSession(EObject any) {
-    final Session session = SessionManager.INSTANCE.getSession(any);
+
+  public static Collection<Model> getAllDiagramRootsInSession(final EObject object) {
+    final Session session = SessionManager.INSTANCE.getSession(object);
     final Collection<Model> roots = Lists.newArrayList();
     if (session != null) {
       for (final Resource childRes : session.getSemanticResources()) {
         for (final EObject root : childRes.getContents()) {
-          if (root instanceof Model) {
-            roots.add((Model) root);
-          }
+          if (root instanceof Model) roots.add((Model) root);
         }
       }
     }

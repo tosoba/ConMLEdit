@@ -25,7 +25,7 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 		configurer.setInitialSize(new Point(1024,768));
 		configurer.setShowCoolBar(true);
 		configurer.setShowStatusLine(false);
-		configurer.setTitle("ConML Edit"); //$NON-NLS-1$
+		configurer.setTitle("ConML Edit"); 
 	}
 
 	@Override

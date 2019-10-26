@@ -10,7 +10,7 @@ import org.osgi.framework.BundleContext;
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "org.eclipse.sirius.conml.branding"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "org.eclipse.sirius.conml.branding"; 
 
 	// The shared instance
 	private static Activator plugin;

@@ -11,7 +11,8 @@ import org.eclipse.sirius.diagram.business.api.query.DDiagramQuery;
 import com.google.common.collect.Sets;
 
 public class UIServices {
-  public static Collection<EObject> getDisplayedNodes(DDiagram diagram) {
+
+  public static Collection<EObject> getDisplayedNodes(final DDiagram diagram) {
     final Set<EObject> result = Sets.newLinkedHashSet();
     final DDiagramQuery query = new DDiagramQuery(diagram);
     for (final DDiagramElement diagramElement : query.getAllDiagramElements()) {

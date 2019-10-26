@@ -67,67 +67,25 @@ import conml.Model;
 import conml.ModelElement;
 import conml.util.conmlAdapterFactory;
 
-/**
- * Dialog to select semantic model elements. Derived from @see DiagramElementsSelectionDialog.
- *
- * @author Melani Bats <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
- */
 @SuppressWarnings("restriction")
 public class ModelElementsSelectionDialog {
 
-  /**
-   * A customized version of CheckedTreeSelectionDialog with a combo to filter the view to show all
-   * elements/only checked elements/only unchecked elements.
-   */
-  protected final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
+  private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
-    /**
-     * A String used to identify the Text allowing user to type regular expression (can be used for
-     * testing).
-     */
-    public static final String REGEXP_TOOL_TIP =
-        "Expression that will be used to filer elements by name (for example 'abc', 'a?c', '*c'...)"; //$NON-NLS-1$
+    private static final String REGEXP_TOOL_TIP =
+        "Expression that will be used to filer elements by name (for example 'abc', 'a?c', '*c'...)";
+    private static final String REGEXP_TITLE = "Filter elements by name";
+    private static final String REGEXP_EXPLANATIONS = "? = any character, * = any String";
 
-    /**
-     * The title of the Group allowing user to type Regular Expressions and filter the selection.
-     */
-    private static final String REGEXP_TITLE = "Filter elements by name"; 
-
-    /** The String explaining to user how to use regular expressions. */
-    private static final String REGEXP_EXPLANATIONS =
-        "? = any character, * = any String"; //$NON-NLS-1$
-
-    /**
-     * A matcher used to determine if a given DDiagramElement is matching the regular expression
-     * typed by user. It's updated each time the user modify the regular expression.
-     */
-    protected ModelElementsSelectionDialogPatternMatcher patternMatcher;
-
-    /** Collection of elements currently checked by user. */
+    private ModelElementsSelectionDialogPatternMatcher patternMatcher;
     private final Set<Object> checkedElements = Sets.newHashSet();
 
-    /**
-     * Constructor.
-     *
-     * @param parent Shell
-     * @param labelProvider Label provider
-     * @param contentProvider Content provider
-     */
     private CustomTreeSelectionDialog(
         Shell parent, ILabelProvider labelProvider, ITreeContentProvider contentProvider) {
       super(parent, labelProvider, contentProvider);
-      patternMatcher = new ModelElementsSelectionDialogPatternMatcher(""); 
+      patternMatcher = new ModelElementsSelectionDialogPatternMatcher("");
     }
 
-    /**
-     * Add button.
-     *
-     * @param parent Composite
-     * @param toolTipText Tooltip
-     * @param image Image
-     * @param action Add action
-     * @return Add button
-     */
     private Button addButton(
         Composite parent, String toolTipText, Image image, SelectionListener action) {
       final Button button = new Button(parent, SWT.PUSH);
@@ -137,30 +95,22 @@ public class ModelElementsSelectionDialog {
       return button;
     }
 
-    /** Check all elements in tree viewer. */
     @SuppressWarnings({"rawtypes", "unchecked"})
     private void checkAll() {
       final Collection roots = (Collection) getTreeViewer().getInput();
       setRecursiveState(roots, true);
     }
 
-    /** Collapse tree viewer. */
     private void collapseAll() {
       getTreeViewer().collapseAll();
     }
 
-    /**
-     * {@inheritDoc}
-     *
-     * @see org.eclipse.jface.dialogs.Dialog#createContents(org.eclipse.swt.widgets.Composite)
-     */
     @Override
     protected Control createContents(Composite parent) {
       final Control result = super.createContents(parent);
       getTreeViewer()
           .setCheckStateProvider(
               new ICheckStateProvider() {
-
                 public boolean isChecked(Object element) {
                   return checkedElements.contains(element);
                 }
@@ -186,29 +136,17 @@ public class ModelElementsSelectionDialog {
       return result;
     }
 
-    /**
-     * This method has been overridden to be able to insert selection buttons between the top label
-     * and the tree viewer. {@inheritDoc}
-     */
     @Override
     protected Label createMessageArea(Composite composite) {
       final Label createMessageArea = super.createMessageArea(composite);
 
       createSelectionButtonsAfterMessageArea(composite);
 
-      // creating a text zone to allow user to type regular expressions
       createRegexpTypeZone(composite);
       return createMessageArea;
     }
 
-    /**
-     * Creates a zone in which user will be able to type a Regular Expression to filter the shown
-     * elements.
-     *
-     * @param composite the parent composite
-     */
     private void createRegexpTypeZone(Composite composite) {
-      // Step 1 : create Group
       final Group expregGroup = new Group(composite, SWT.NONE);
       expregGroup.setText(REGEXP_TITLE);
       final GridLayout expregLayout = new GridLayout();
@@ -216,44 +154,27 @@ public class ModelElementsSelectionDialog {
       expregGroup.setFont(composite.getFont());
       expregGroup.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-      // Step 2 : create explanations zone
       final Label explanationsLabel = new Label(expregGroup, SWT.NONE);
       explanationsLabel.setText(REGEXP_EXPLANATIONS);
 
-      // Step 3 : create the text zone in which user will type the expreg
       final Text regularExpressionText = new Text(expregGroup, SWT.BORDER);
       regularExpressionText.setToolTipText(REGEXP_TOOL_TIP);
       regularExpressionText.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-      // Step 4 : add modify listener to this textZone
       regularExpressionText.addModifyListener(
           new ModifyListener() {
-
             public void modifyText(ModifyEvent e) {
               final String typedRegex = ((Text) e.getSource()).getText();
-              // Each time the regular expression is modified, the
-              // patternMatcher is updated
               setPatternMatcher(new ModelElementsSelectionDialogPatternMatcher(typedRegex));
               updateFilteringMode(mode);
             }
           });
     }
 
-    /**
-     * This method has been overridden to remove the selection buttons that are generically created
-     * after the tree viewer. This method should not return a null value. Otherwise, in case of
-     * empty list we will have a NPE. {@inheritDoc}
-     */
     @Override
     protected Composite createSelectionButtons(Composite composite) {
       final Composite buttonComposite =
           new Composite(composite, SWT.RIGHT) {
-            /**
-             * This method has been overridden to have an "empty" size for this composite.
-             * {@inheritDoc}
-             *
-             * @see org.eclipse.swt.widgets.Composite#computeSize(int, int, boolean)
-             */
             @Override
             public Point computeSize(int wHint, int hHint, boolean b) {
               return super.computeSize(0, 0, b);
@@ -263,13 +184,7 @@ public class ModelElementsSelectionDialog {
       return buttonComposite;
     }
 
-    /**
-     * Creates selection buttons.
-     *
-     * @param composite the parent composite
-     * @return the selection buttons composite
-     */
-    protected Composite createSelectionButtonsAfterMessageArea(Composite composite) {
+    private Composite createSelectionButtonsAfterMessageArea(Composite composite) {
       final Composite buttonComposite = new Composite(composite, SWT.RIGHT);
       final GridLayout layout = new GridLayout();
       layout.numColumns = 7;
@@ -281,7 +196,7 @@ public class ModelElementsSelectionDialog {
       data.grabExcessHorizontalSpace = true;
       composite.setData(data);
 
-      new Label(buttonComposite, SWT.LEAD).setText("Show"); 
+      new Label(buttonComposite, SWT.LEAD).setText("Show");
       final Combo choices = new Combo(buttonComposite, SWT.READ_ONLY);
       choices.add(FilteringMode.SHOW_ONLY_DIRECT_CHILDREN.getName());
       choices.add(FilteringMode.SHOW_ONLY_UNDISPLAYED_ELEMENTS.getName());
@@ -316,7 +231,7 @@ public class ModelElementsSelectionDialog {
       data.grabExcessHorizontalSpace = true;
       addButton(
               buttonComposite,
-              "Check All", //$NON-NLS-1$
+              "Check All",
               DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.CHECK_ALL_ICON),
               new SelectionAdapter() {
                 @Override
@@ -328,7 +243,7 @@ public class ModelElementsSelectionDialog {
 
       addButton(
               buttonComposite,
-              "Uncheck All", //$NON-NLS-1$
+              "Uncheck All",
               DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.UNCHECK_ALL_ICON),
               new SelectionAdapter() {
                 @Override
@@ -340,7 +255,7 @@ public class ModelElementsSelectionDialog {
 
       addButton(
               buttonComposite,
-              "Expand All", //$NON-NLS-1$
+              "Expand All",
               DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.EXPAND_ALL_ICON),
               new SelectionAdapter() {
                 @Override
@@ -352,7 +267,7 @@ public class ModelElementsSelectionDialog {
 
       addButton(
               buttonComposite,
-              "Collapse All", //$NON-NLS-1$
+              "Collapse All",
               DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.COLLAPSE_ALL_ICON),
               new SelectionAdapter() {
                 @Override
@@ -369,60 +284,18 @@ public class ModelElementsSelectionDialog {
       getTreeViewer().expandAll();
     }
 
-    /**
-     * Returns the elements currently checked by user.
-     *
-     * @return the elements currently checked by user
-     */
     public Set<Object> getCheckedElements() {
       return checkedElements;
     }
 
-    /**
-     * Returns a Predicate indicating if an object is matching the Regular Expression currently
-     * typed by user.
-     *
-     * @return a Predicate indicating if an object is matching the Regular Expression currently
-     *     typed by user
-     */
     public Predicate<Object> getRegexpMatchPredicate() {
       return patternMatcher.getMatchPredicate();
     }
 
-    /**
-     * Indicates if the given element is matching the currently typed regular expression.
-     *
-     * @param element the element to test
-     * @return true if the given element is matching the currently typed regular expression, false
-     *     otherwise.
-     */
     public boolean isMatchingExpregOrHasMatchingExpregDescendantsAllMode(Object element) {
       return isOrHasDescendant(element, getRegexpMatchPredicate());
     }
 
-    /**
-     * Indicates if the given element is checked <b>AND</b> is matching the currently typed regular
-     * expression.
-     *
-     * @param element the element to test
-     * @return true if the given element is checked <b>AND</b> is matching the currently typed
-     *     regular expression, false otherwise.
-     */
-    public boolean isMatchingExpregOrHasMatchingExpregDescendantsCheckedMode(Object element) {
-      final Predicate<Object> isCheckedElementPredicate = Predicates.in(checkedElements);
-      final Predicate<Object> isMatchinExpregPredicate = getRegexpMatchPredicate();
-      return isOrHasDescendant(
-          element, Predicates.and(isCheckedElementPredicate, isMatchinExpregPredicate));
-    }
-
-    /**
-     * Indicates if the given element is checked <b>AND</b> is matching the currently typed regular
-     * expression.
-     *
-     * @param element the element to test
-     * @return true if the given element is checked <b>AND</b> is matching the currently typed
-     *     regular expression, false otherwise.
-     */
     @SuppressWarnings("unchecked")
     public boolean isMatchingExpregOrHasMatchingExpregDescendantsSubMode(Object element) {
       if (element instanceof EObject) {
@@ -439,31 +312,8 @@ public class ModelElementsSelectionDialog {
       return false;
     }
 
-    /**
-     * Indicates if the given element is unchecked <b>AND</b> is matching the currently typed
-     * regular expression.
-     *
-     * @param element the element to test
-     * @return true if the given element is unchecked <b>AND</b> is matching the currently typed
-     *     regular expression, false otherwise.
-     */
-    public boolean isMatchingExpregOrHasMatchingExpregDescendantsUncheckedMode(Object element) {
-      final Predicate<Object> isUncheckedElementPredicate =
-          Predicates.not(Predicates.in(checkedElements));
-      final Predicate<Object> isMatchinExpregPredicate = getRegexpMatchPredicate();
-      return isOrHasDescendant(
-          element, Predicates.and(isUncheckedElementPredicate, isMatchinExpregPredicate));
-    }
-
-    /**
-     * Indicates if the given element is checked <b>AND</b> is matching the currently typed regular
-     * expression.
-     *
-     * @param element the element to test
-     * @return true if the given element is checked <b>AND</b> is matching the currently typed
-     *     regular expression, false otherwise.
-     */
-    public boolean isMatchingExpregOrHasMatchingExpregDescendantsUnrepresentedMode(Object element) {
+    private boolean isMatchingExpregOrHasMatchingExpregDescendantsUnrepresentedMode(
+        Object element) {
       if (element instanceof EObject) {
         @SuppressWarnings("rawtypes")
         final Collection existingElementsOnDiagram = UIServices.getDisplayedNodes(diagram);
@@ -477,14 +327,6 @@ public class ModelElementsSelectionDialog {
       return false;
     }
 
-    /**
-     * Indicates if the given element or at least one of its children checks the given predicate.
-     *
-     * @param element the element to check
-     * @param pred the predicate to use
-     * @return true if the given element or at least one of its children checks the given predicate,
-     *     false otherwise
-     */
     private boolean isOrHasDescendant(Object element, final Predicate<Object> pred) {
       final boolean matches = pred.apply(element);
       if (matches) {
@@ -499,8 +341,7 @@ public class ModelElementsSelectionDialog {
           });
     }
 
-    /** Refreshes this dialog's viewer. */
-    public void refresh() {
+    private void refresh() {
       getTreeViewer().refresh();
     }
 
@@ -518,22 +359,10 @@ public class ModelElementsSelectionDialog {
       setInitialElementSelections(Lists.newArrayList(selectedElements));
     }
 
-    /**
-     * Sets the matcher used to determine if a given DDiagramElement is matching the regular
-     * expression typed by user.
-     *
-     * @param patternMatcher the patternMatcher to set
-     */
     public void setPatternMatcher(ModelElementsSelectionDialogPatternMatcher patternMatcher) {
       this.patternMatcher = patternMatcher;
     }
 
-    /**
-     * Check / Uncheck elements recursively.
-     *
-     * @param elements Elements
-     * @param state State check/uncheck
-     */
     private void setRecursiveState(Collection<Object> elements, boolean state) {
       for (final Object element : elements) {
         setRecursiveState(element, state);
@@ -554,7 +383,6 @@ public class ModelElementsSelectionDialog {
       }
     }
 
-    /** Uncheck all elements in tree viewer. */
     @SuppressWarnings("unchecked")
     private void uncheckAll() {
       @SuppressWarnings("rawtypes")
@@ -562,17 +390,10 @@ public class ModelElementsSelectionDialog {
       setRecursiveState(roots, false);
     }
 
-    /**
-     * Updates the treeViewer after a change in the filteringMode or the typed regular expression.
-     *
-     * @param filteringMode the new filtering mode
-     */
     @SuppressWarnings("deprecation")
     public void updateFilteringMode(FilteringMode filteringMode) {
       mode = filteringMode;
       refresh();
-      // We expand the tree so that all elements matching the regular
-      // expression (i.e. all visible leafs) are correctly shown
       getTreeViewer().expandToLevel(2);
       getTreeViewer().setAllChecked(false);
       for (final Object element : checkedElements) {
@@ -581,21 +402,10 @@ public class ModelElementsSelectionDialog {
     }
   }
 
-  /**
-   * Represents the various kinds of filtering supported by the tree viewer.
-   *
-   * @author pcdavid
-   */
-  protected enum FilteringMode {
-    /** Filtering mode in which all elements are considered. */
-    SHOW_ALL("all elements"), 
-    /** Filtering mode in which all elements are considered. */
-    SHOW_ONLY_DIRECT_CHILDREN("only direct children"), 
-    /**
-     * Filtering mode in which only elements which are not already displayed on diagram are
-     * considered.
-     */
-    SHOW_ONLY_UNDISPLAYED_ELEMENTS("only undisplayed elements"); 
+  private enum FilteringMode {
+    SHOW_ALL("all elements"),
+    SHOW_ONLY_DIRECT_CHILDREN("only direct children"),
+    SHOW_ONLY_UNDISPLAYED_ELEMENTS("only undisplayed elements");
 
     private final String name;
 
@@ -613,7 +423,6 @@ public class ModelElementsSelectionDialog {
     @Override
     public boolean select(Viewer viewer, Object parentElement, Object element) {
       boolean show = true;
-      // Step 1: only showing check/unchecked element if required
       switch (mode) {
         case SHOW_ALL:
           show = dialog.isMatchingExpregOrHasMatchingExpregDescendantsAllMode(element);
@@ -636,21 +445,17 @@ public class ModelElementsSelectionDialog {
   }
 
   private class SelectionDialogLabelProvider extends SiriusCommonLabelProvider {
-
-    /** {@inheritDoc} */
     @Override
     public Color getBackground(Object element) {
       return null;
     }
 
-    /** {@inheritDoc} */
     @Override
     public Color getForeground(final Object element) {
 
       Color foreground = null;
       if (isGrayed.apply(element)) {
-        foreground =
-            VisualBindingManager.getDefault().getColorFromName("light_gray"); 
+        foreground = VisualBindingManager.getDefault().getColorFromName("light_gray");
       }
       return foreground;
     }
@@ -663,28 +468,15 @@ public class ModelElementsSelectionDialog {
         }
       };
 
-  /** The internal dialog used by this dialog. */
-  protected CustomTreeSelectionDialog dialog;
+  private CustomTreeSelectionDialog dialog;
+  private EObject eObject;
 
-  /** The eObject associated to this dialog. */
-  protected EObject eObject;
-
-  /**
-   * The filtering mode currently associated to the tree viewer. Can be :
-   *
-   * <ul>
-   *   <li>All elements
-   *   <li>Only direct children
-   *   <li>Only undisplayed elements
-   * </ul>
-   */
-  protected FilteringMode mode = FilteringMode.SHOW_ONLY_DIRECT_CHILDREN;
+  private FilteringMode mode = FilteringMode.SHOW_ONLY_DIRECT_CHILDREN;
 
   private final String title;
 
   private final String message;
 
-  // Grayed elements will not be selectable.
   private Predicate<Object> isGrayed = Predicates.alwaysFalse();
 
   private Function<Object, Void> selectedAction = DO_NOTHING;
@@ -693,41 +485,18 @@ public class ModelElementsSelectionDialog {
 
   private DDiagram diagram;
 
-  /**
-   * Constructor.
-   *
-   * @param title the title of the dialog window.
-   * @param message the message for the dialog.
-   */
   public ModelElementsSelectionDialog(String title, String message) {
     this.title = title;
     this.message = message;
   }
 
-  /**
-   * Updates the status of the elements according to the user request.
-   *
-   * @param selectedBefore all (and only) the elements in the diagram which were actually pinned
-   *     before the action.
-   * @param selectedAfter all (and only) the elements in the diagram which should be pinned as
-   *     requested by the user.
-   */
-  protected void applyRequestedChanges(Set<Object> selectedBefore, Set<Object> selectedAfter) {
+  public void applyRequestedChanges(Set<Object> selectedBefore, Set<Object> selectedAfter) {
     for (final Object dde : Sets.difference(selectedAfter, selectedBefore)) {
       selectedAction.apply(dde);
     }
   }
 
-  /**
-   * Asks the user to edit the set of elements which should be selected/match the criterion being
-   * edited.
-   *
-   * @param parent the parent shell to use if user interaction requires opening new windows.
-   * @param initialSelection the set of elements to display as checked on dialog opening.
-   * @return the new set of all the elements in the diagram which were selected by the user, or
-   *     <code>Options.newNone()</code> if the user canceled the operation.
-   */
-  protected Option<Set<Object>> askUserForNewSelection(Shell parent, Set<Object> initialSelection) {
+  private Option<Set<Object>> askUserForNewSelection(Shell parent, Set<Object> initialSelection) {
     setupDialog(parent, initialSelection);
     final int result = dialog.open();
     if (result == Window.OK) {
@@ -737,11 +506,6 @@ public class ModelElementsSelectionDialog {
     return Options.newNone();
   }
 
-  /**
-   * Returns the adapter factory used by this viewer.
-   *
-   * @return The adapter factory used by this viewer.
-   */
   private AdapterFactory getAdapterFactory() {
     final List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
     factories.add(new conmlAdapterFactory());
@@ -751,31 +515,20 @@ public class ModelElementsSelectionDialog {
     return new ComposedAdapterFactory(factories);
   }
 
-  /**
-   * Get displayable elements according to diagram kind.
-   *
-   * @param selectedContainer Selected container
-   * @param diagram Diagram
-   * @return Predicate to select only displayable element according to diagram kind
-   */
   private Predicate<Object> getDisplayablePredicate() {
     return new Predicate<Object>() {
       public boolean apply(Object input) {
         if (input instanceof EObject) {
           return isOrHasDescendant(
-              (EObject) input, AddElementToDiagramServices.isValidForDiagram(diagram, eObject));
+              (EObject) input,
+              AddElementToDiagramServices.isValidForDiagramPredicate(diagram, eObject));
         }
         return false;
       }
     };
   }
 
-  /**
-   * Returns the elements selected when the dialog is about to close.
-   *
-   * @return the elements selected when the dialog is about to close
-   */
-  protected Set<Object> getElementsSelectedAfter() {
+  private Set<Object> getElementsSelectedAfter() {
     final Set<Object> selectedElements = Sets.newHashSet();
     for (final Object obj : dialog.checkedElements) {
       selectedElements.add(obj);
@@ -783,25 +536,12 @@ public class ModelElementsSelectionDialog {
     return selectedElements;
   }
 
-  /**
-   * Init the content provider.
-   *
-   * @param includeNodeLabel include node label (if there are on border) in the tree content
-   */
-  protected void initContentProvider() {
+  private void initContentProvider() {
     final AdapterFactory adapterFactory = getAdapterFactory();
     contentProvider =
         new ModelFilteredTreeContentProvider(adapterFactory, getDisplayablePredicate());
   }
 
-  /**
-   * Indicates if the given element or at least one of its children checks the given predicate.
-   *
-   * @param input the element to check
-   * @param predicate the predicate to use
-   * @return true if the given element or at least one of its children checks the given predicate,
-   *     false otherwise
-   */
   private boolean isOrHasDescendant(EObject element, final Predicate<Object> predicate) {
     if (predicate.apply(element)) return true;
 
@@ -817,13 +557,6 @@ public class ModelElementsSelectionDialog {
     return false;
   }
 
-  /**
-   * Asks the end-user for a list of elements to select/de-select, and applies the corresponding
-   * changes.
-   *
-   * @param element uml element
-   * @return list of element
-   */
   public List<Object> open(ModelElement element) {
     final List<Object> result = Lists.newArrayList();
     eObject = element;
@@ -843,17 +576,6 @@ public class ModelElementsSelectionDialog {
     return result;
   }
 
-  /**
-   * Asks the end-user for a list of elements to select/de-select, and applies the corresponding
-   * changes.
-   *
-   * @param parent the shell to use to interact with the user, if required.
-   * @param selectedContainer Selected semantic container
-   * @param ddiagram the diagram whose elements to edit.
-   * @param includeNodeLabel include node label (if there are on border) in the tree content
-   * @return <code>true</code> if the operation was correctly executed, <code>false</code> if it was
-   *     canceled by the user.
-   */
   public List<Object> open(
       Shell parent, EObject selectedContainer, DDiagram ddiagram, boolean includeNodeLabel) {
     final List<Object> result = Lists.newArrayList();
@@ -874,38 +596,20 @@ public class ModelElementsSelectionDialog {
     return result;
   }
 
-  /**
-   * Sets the predicate to use to detect which elements of the diagram are selected, in the sense of
-   * the criterion to be edited.
-   *
-   * @param isGrayedPredicate the predicate to used to detect selected elements of the diagram.
-   */
   @SuppressWarnings("unchecked")
   public void setGrayedPredicate(Predicate<EObject> isGrayedPredicate) {
     isGrayed =
         Predicates.and(
             (Predicate<? super Object>)
                 (isGrayedPredicate != null ? isGrayedPredicate : Predicates.alwaysFalse()),
-            AddElementToDiagramServices.isValidForDiagram(diagram, eObject));
+            AddElementToDiagramServices.isValidForDiagramPredicate(diagram, eObject));
   }
 
-  /**
-   * Sets the operation to be applied on elements which are newly selected by the user.
-   *
-   * @param selectedAction the operation to apply to newly selected elements.
-   */
   public void setSelectedAction(Function<Object, Void> selectedAction) {
     this.selectedAction = selectedAction;
   }
 
-  /**
-   * Create an configure a selection dialog which allows the user to select a sub-set of the
-   * elements in the diagram.
-   *
-   * @param parent the parent shell.
-   * @param initialSelection the set of elements to display as checked on dialog opening.
-   */
-  protected void setupDialog(Shell parent, Set<Object> initialSelection) {
+  private void setupDialog(Shell parent, Set<Object> initialSelection) {
     dialog =
         new CustomTreeSelectionDialog(parent, new SelectionDialogLabelProvider(), contentProvider);
     dialog.setTitle(title);
@@ -913,12 +617,12 @@ public class ModelElementsSelectionDialog {
     String msg = message;
     if (!Predicates.alwaysFalse().equals(isGrayed)) {
       final StringBuilder sb = new StringBuilder(message);
-      sb.append("\n"); 
-      sb.append("The wizard will have no effect on grayed elements."); 
+      sb.append("\n");
+      sb.append("The wizard will have no effect on grayed elements.");
       msg = sb.toString();
     }
     dialog.setMessage(msg);
-    final Collection<Model> roots = ElementServices.getAllRootsInSession(eObject);
+    final Collection<Model> roots = ElementServices.getAllDiagramRootsInSession(eObject);
 
     dialog.setInput(roots);
     dialog.addFilter(new ModeFilter());

@@ -44,11 +44,11 @@ import conml.ModelElement;
 @SuppressWarnings("restriction")
 public abstract class AbstractDiagramServices {
 
-  public boolean isEnabled(EObject eObject, EStructuralFeature feature) {
+  public boolean isEnabled(final EObject eObject, final EStructuralFeature feature) {
     return true;
   }
 
-  public String defaultName(ModelElement element) {
+  public String defaultName(final ModelElement element) {
     final String name = element.getClass().getSimpleName().replace("Impl", "");
 
     final EObject container = element.eContainer();
@@ -68,34 +68,37 @@ public abstract class AbstractDiagramServices {
     return name;
   }
 
-  public String defaultDefinition(ModelElement element) {
+  public String defaultDefinition(final ModelElement element) {
     return "";
   }
 
-  public int defaultWidth(EObject object) {
+  public int defaultWidth(final EObject object) {
     return 12;
   }
 
-  public int defaultHeight(EObject object) {
+  public int defaultHeight(final EObject object) {
     return 10;
   }
 
-  public int defaultSingleDimensionSize(EObject object) {
+  public int defaultSingleDimensionSize(final EObject object) {
     return 10;
   }
 
-  public String getWidgetLabel(EObject element, EStructuralFeature structuralFeature) {
+  public String getWidgetLabel(final EObject element, final EStructuralFeature structuralFeature) {
     return structuralFeature != null ? structuralFeature.getName() : "New element";
   }
 
   public void openSelectExistingElementsDialog(
-      EObject selectedContainer, EObject selectedContainerView, DDiagram diagram) {
-    final ModelElementsSelectionDialog dlg =
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    final ModelElementsSelectionDialog dialog =
         new ModelElementsSelectionDialog(
             "Add existing elements", "Select elements to add in current representation.");
-    dlg.setGrayedPredicate(getNonSelectablePredicate(diagram));
+    dialog.setGrayedPredicate(getNonSelectablePredicate(diagram));
+
     final List<Object> elementsToAdd =
-        dlg.open(
+        dialog.open(
             PlatformUI.getWorkbench().getDisplay().getActiveShell(),
             selectedContainer,
             diagram,
@@ -110,7 +113,7 @@ public abstract class AbstractDiagramServices {
               .collect(Collectors.toList()));
   }
 
-  private Predicate<EObject> getNonSelectablePredicate(DDiagram diagram) {
+  private Predicate<EObject> getNonSelectablePredicate(final DDiagram diagram) {
     return Predicates.in(UIServices.getDisplayedNodes(diagram));
   }
 
@@ -118,23 +121,18 @@ public abstract class AbstractDiagramServices {
       final EObject containerView, final List<ModelElement> semanticElements) {
     if (!(containerView instanceof DSemanticDecorator)
         || semanticElements == null
-        || semanticElements.isEmpty()) {
-      return;
-    }
+        || semanticElements.isEmpty()) return;
+
     final Session session = SessionManager.INSTANCE.getSession(semanticElements.get(0));
     final Set<ModelElement> lastShownElements = new HashSet<>();
     for (final EObject semanticElement : orderParentFirst(semanticElements)) {
-      // Mark for auto-size
       markForAutosize(semanticElement);
-      // Add to diagram
+
       String containerViewExpression = "";
-      if (lastShownElements.contains(semanticElement.eContainer())) {
-        // The user want to add list of Hierarchical elements
+      if (lastShownElements.contains(semanticElement.eContainer()))
         containerViewExpression = "aql:self.getHierarchicalContainerView(elementView)";
-      } else {
-        // The user want to add an element not a hierarchy
-        containerViewExpression = "aql:self.getContainerView(elementView)";
-      }
+      else containerViewExpression = "aql:self.getContainerView(elementView)";
+
       showView(
           semanticElement, (DSemanticDecorator) containerView, session, containerViewExpression);
       lastShownElements.add((ModelElement) semanticElement);
@@ -147,31 +145,20 @@ public abstract class AbstractDiagramServices {
     PARENT
   }
 
-  private List<ModelElement> orderParentFirst(List<ModelElement> listToSort) {
-
+  private List<ModelElement> orderParentFirst(final List<ModelElement> listToSort) {
     final ArrayList<ModelElement> sortedList = new ArrayList<>();
-    if (listToSort.isEmpty()) {
-      return listToSort;
-    }
-
-    if (sortedList.isEmpty()) {
-      sortedList.add(listToSort.get(0));
-    }
+    if (listToSort.isEmpty()) return listToSort;
+    if (sortedList.isEmpty()) sortedList.add(listToSort.get(0));
 
     for (final ModelElement elementToSort : listToSort) {
       int index = 0;
       Relation relation = Relation.NONE;
       for (final ModelElement currentElement : sortedList) {
         if (isChild(elementToSort, currentElement)) {
-          // elementToSort is a descendant of currentElement
-          // Find the last element of the list which is a parent
           index = sortedList.indexOf(currentElement);
           relation = Relation.CHILD;
-          if (elementToSort.eContainer() == currentElement) {
-            break;
-          }
+          if (elementToSort.eContainer() == currentElement) break;
         } else if (isChild(currentElement, elementToSort)) {
-          // currentElement is a parent of currenttElement
           index = sortedList.indexOf(currentElement);
           relation = Relation.PARENT;
           break;
@@ -180,16 +167,12 @@ public abstract class AbstractDiagramServices {
 
       switch (relation) {
         case CHILD:
-          // Element to insert is a child of an already sorted element
           sortedList.add(index + 1, elementToSort);
           break;
         case PARENT:
-          // Element to insert is a parent of an already sorted element
           sortedList.add(index, elementToSort);
           break;
         default:
-          // Element to insert has no relation with already sorted
-          // elements
           if (!sortedList.contains(elementToSort)) {
             sortedList.add(elementToSort);
             break;
@@ -205,44 +188,36 @@ public abstract class AbstractDiagramServices {
     return isChild(child.eContainer(), parent);
   }
 
-  public EObject markForAutosize(EObject object) {
+  private EObject markForAutosize(EObject object) {
     if (object != null) object.eAdapters().add(AutosizeTrigger.AUTO_SIZE_MARKER);
     return object;
   }
 
-  protected void showView(
+  private void showView(
       final EObject semanticElement,
       final DSemanticDecorator containerView,
       final Session session,
       String containerViewExpression) {
-    // Check if the dropped element already exists in the diagram but is
-    // hidden
     final List<DDiagramElement> hiddenDiagramElements =
         getHiddenExistingDiagramElements(semanticElement, containerView);
     if (!hiddenDiagramElements.isEmpty()) {
-      // Just reveal the elements
       for (final DDiagramElement existingDiagramElement : hiddenDiagramElements) {
         HideFilterHelper.INSTANCE.reveal(existingDiagramElement);
       }
     } else {
-      // Else create a new element
-      // Create the view for the dropped element
       createView(semanticElement, containerView, session, containerViewExpression);
     }
   }
 
-  protected void createView(
+  private void createView(
       final EObject semanticElement,
       final DSemanticDecorator containerView,
       final Session session,
       final String containerViewExpression) {
-    // Get all available mappings applicable for the semantic element in the
-    // current container
     final List<DiagramElementMapping> semanticElementMappings =
         getMappings(semanticElement, containerView, session);
-
-    // Build a createView tool
     final CreateView createViewOp = ToolFactory.eINSTANCE.createCreateView();
+
     for (final DiagramElementMapping semanticElementMapping : semanticElementMappings) {
       final DiagramElementMapping tmpSemanticElementMapping = semanticElementMapping;
       createViewOp.setMapping(tmpSemanticElementMapping);
@@ -253,11 +228,9 @@ public abstract class AbstractDiagramServices {
           .getCommandStack()
           .execute(
               new RecordingCommand(session.getTransactionalEditingDomain()) {
-
                 @Override
                 protected void doExecute() {
                   try {
-                    // Get the command context
                     DRepresentation representation = null;
                     if (containerView instanceof DRepresentation) {
                       representation = (DRepresentation) containerView;
@@ -267,8 +240,6 @@ public abstract class AbstractDiagramServices {
 
                     final CommandContext context =
                         new CommandContext(semanticElement, representation);
-
-                    // Execute the create view task
                     final CreateViewTask task =
                         new CreateViewTask(
                             context,
@@ -293,7 +264,7 @@ public abstract class AbstractDiagramServices {
     }
   }
 
-  protected List<DiagramElementMapping> getMappings(
+  private List<DiagramElementMapping> getMappings(
       final EObject semanticElement, final DSemanticDecorator containerView, Session session) {
     final ModelAccessor modelAccessor = session.getModelAccessor();
     final List<DiagramElementMapping> mappings = new ArrayList<DiagramElementMapping>();
@@ -325,13 +296,12 @@ public abstract class AbstractDiagramServices {
   private List<DiagramElementMapping> getValidMappingsForDiagram(
       final EObject semanticElement, final DSemanticDiagram diagram, Session session) {
     final List<DiagramElementMapping> mappings = new ArrayList<DiagramElementMapping>();
-    // check semantic element could be added to diagram
-    if (!AddElementToDiagramServices.isValidForDiagram(diagram, null).test(semanticElement)) {
+    if (!AddElementToDiagramServices.isValidForDiagramPredicate(diagram, null)
+        .test(semanticElement)) {
       return mappings;
     }
 
     final ModelAccessor modelAccessor = session.getModelAccessor();
-
     for (final DiagramElementMapping mapping : diagram.getDescription().getAllContainerMappings()) {
       final String domainClass = ((AbstractNodeMapping) mapping).getDomainClass();
       if (modelAccessor.eInstanceOf(semanticElement, domainClass) && !mapping.isCreateElements()) {
@@ -349,7 +319,7 @@ public abstract class AbstractDiagramServices {
   }
 
   private List<DDiagramElement> getHiddenExistingDiagramElements(
-      EObject semanticElement, DSemanticDecorator containerView) {
+      final EObject semanticElement, final DSemanticDecorator containerView) {
     final List<DDiagramElement> existingDiagramElements = Lists.newArrayList();
     if (containerView instanceof DSemanticDiagram) {
       for (final DDiagramElement element :
@@ -359,9 +329,6 @@ public abstract class AbstractDiagramServices {
           if (query.isHidden()) {
             existingDiagramElements.add(element);
           }
-          // Get the hidden parent container of the element to reveal,
-          // in order to reveal all the
-          // hierarchy
           existingDiagramElements.addAll(getHiddenParentContainerViews(element));
         }
       }
@@ -369,7 +336,8 @@ public abstract class AbstractDiagramServices {
     return existingDiagramElements;
   }
 
-  private List<DDiagramElement> getHiddenParentContainerViews(DDiagramElement diagramElement) {
+  private List<DDiagramElement> getHiddenParentContainerViews(
+      final DDiagramElement diagramElement) {
     final List<DDiagramElement> containerViews = Lists.newArrayList();
     EObject containerView = diagramElement.eContainer();
     while (!(containerView instanceof DDiagram) && containerView instanceof DDiagramElement) {

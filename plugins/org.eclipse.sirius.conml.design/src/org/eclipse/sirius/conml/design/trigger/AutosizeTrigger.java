@@ -23,19 +23,12 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Sets;
 import com.google.common.collect.UnmodifiableIterator;
 
-/**
- * Auto size trigger.
- *
- * @author Melanie Bats <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
- */
 public class AutosizeTrigger implements ModelChangeTrigger {
 
-  /** Auto size marker. */
   public static final Adapter AUTO_SIZE_MARKER = new AdapterImpl();
 
   private final TransactionalEditingDomain domain;
 
-  /** GMF node attachment. */
   public static final NotificationFilter IS_GMF_NODE_ATTACHMENT =
       new NotificationFilter.Custom() {
 
@@ -47,11 +40,6 @@ public class AutosizeTrigger implements ModelChangeTrigger {
         }
       };
 
-  /**
-   * Constructor.
-   *
-   * @param domain transactional editing domain
-   */
   public AutosizeTrigger(TransactionalEditingDomain domain) {
     super();
     this.domain = domain;
