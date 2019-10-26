@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
@@ -38,6 +39,7 @@ import com.google.common.collect.Lists;
 
 import conml.ModelElement;
 
+@SuppressWarnings("restriction")
 public abstract class AbstractDiagramServices {
 
   public boolean isEnabled(EObject eObject, EStructuralFeature feature) {
@@ -90,15 +92,20 @@ public abstract class AbstractDiagramServices {
         new ModelElementsSelectionDialog(
             "Add existing elements", "Select elements to add in current representation.");
     dlg.setGrayedPredicate(getNonSelectablePredicate(diagram));
-    final List elementsToAdd =
+    final List<Object> elementsToAdd =
         dlg.open(
             PlatformUI.getWorkbench().getDisplay().getActiveShell(),
             selectedContainer,
             diagram,
             true);
-    if (elementsToAdd.size() > 0) {
-      addExistingElements(selectedContainerView, elementsToAdd);
-    }
+    if (elementsToAdd.size() > 0)
+      addExistingElements(
+          selectedContainerView,
+          elementsToAdd
+              .stream()
+              .filter(obj -> obj instanceof ModelElement)
+              .map(ModelElement.class::cast)
+              .collect(Collectors.toList()));
   }
 
   private Predicate<EObject> getNonSelectablePredicate(DDiagram diagram) {

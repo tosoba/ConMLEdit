@@ -13,6 +13,7 @@ import com.google.common.base.Predicate;
  *
  * @author Melanie Bats <a href="mailto:melanie.bats@obeo.fr">melanie.bats@obeo.fr</a>
  */
+@SuppressWarnings("restriction")
 public class ModelElementsSelectionDialogPatternMatcher {
 
   private Predicate<Object> matchPredicate;
@@ -28,16 +29,16 @@ public class ModelElementsSelectionDialogPatternMatcher {
   public ModelElementsSelectionDialogPatternMatcher(String expreg) {
     String computedExpreg = expreg;
     if (expreg == null) {
-      computedExpreg = ""; // $NON-NLS-1$
+      computedExpreg = ""; 
     }
     // If the regular expression ends with a space, we have to use the exact
     // value of the given expreg
-    if (computedExpreg.endsWith(" ")) { // $NON-NLS-1$
+    if (computedExpreg.endsWith(" ")) { 
       computedExpreg = computedExpreg.substring(0, computedExpreg.lastIndexOf(' '));
     } else {
       // Otherwise, we add a star to make 'XYZ' recognized by the 'X'
       // expreg (as in quick outline for example)
-      computedExpreg = computedExpreg + "*"; // $NON-NLS-1$
+      computedExpreg = computedExpreg + "*"; 
     }
     stringMatcher = new StringMatcher(computedExpreg, true, false);
   }

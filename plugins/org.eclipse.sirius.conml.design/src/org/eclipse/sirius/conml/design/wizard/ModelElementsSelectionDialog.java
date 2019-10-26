@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -92,7 +91,7 @@ public class ModelElementsSelectionDialog {
     /**
      * The title of the Group allowing user to type Regular Expressions and filter the selection.
      */
-    private static final String REGEXP_TITLE = "Filter elements by name"; // $NON-NLS-1$
+    private static final String REGEXP_TITLE = "Filter elements by name"; 
 
     /** The String explaining to user how to use regular expressions. */
     private static final String REGEXP_EXPLANATIONS =
@@ -117,7 +116,7 @@ public class ModelElementsSelectionDialog {
     private CustomTreeSelectionDialog(
         Shell parent, ILabelProvider labelProvider, ITreeContentProvider contentProvider) {
       super(parent, labelProvider, contentProvider);
-      patternMatcher = new ModelElementsSelectionDialogPatternMatcher(""); // $NON-NLS-1$
+      patternMatcher = new ModelElementsSelectionDialogPatternMatcher(""); 
     }
 
     /**
@@ -282,7 +281,7 @@ public class ModelElementsSelectionDialog {
       data.grabExcessHorizontalSpace = true;
       composite.setData(data);
 
-      new Label(buttonComposite, SWT.LEAD).setText("Show"); // $NON-NLS-1$
+      new Label(buttonComposite, SWT.LEAD).setText("Show"); 
       final Combo choices = new Combo(buttonComposite, SWT.READ_ONLY);
       choices.add(FilteringMode.SHOW_ONLY_DIRECT_CHILDREN.getName());
       choices.add(FilteringMode.SHOW_ONLY_UNDISPLAYED_ELEMENTS.getName());
@@ -515,7 +514,7 @@ public class ModelElementsSelectionDialog {
     }
 
     @Override
-    public void setInitialSelections(Object[] selectedElements) {
+    public void setInitialSelections(Object... selectedElements) {
       setInitialElementSelections(Lists.newArrayList(selectedElements));
     }
 
@@ -589,14 +588,14 @@ public class ModelElementsSelectionDialog {
    */
   protected enum FilteringMode {
     /** Filtering mode in which all elements are considered. */
-    SHOW_ALL("all elements"), // $NON-NLS-1$
+    SHOW_ALL("all elements"), 
     /** Filtering mode in which all elements are considered. */
-    SHOW_ONLY_DIRECT_CHILDREN("only direct children"), // $NON-NLS-1$
+    SHOW_ONLY_DIRECT_CHILDREN("only direct children"), 
     /**
      * Filtering mode in which only elements which are not already displayed on diagram are
      * considered.
      */
-    SHOW_ONLY_UNDISPLAYED_ELEMENTS("only undisplayed elements"); // $NON-NLS-1$
+    SHOW_ONLY_UNDISPLAYED_ELEMENTS("only undisplayed elements"); 
 
     private final String name;
 
@@ -651,7 +650,7 @@ public class ModelElementsSelectionDialog {
       Color foreground = null;
       if (isGrayed.apply(element)) {
         foreground =
-            VisualBindingManager.getDefault().getColorFromName("light_gray"); // $NON-NLS-1$
+            VisualBindingManager.getDefault().getColorFromName("light_gray"); 
       }
       return foreground;
     }
@@ -750,20 +749,6 @@ public class ModelElementsSelectionDialog {
     factories.add(new EcoreItemProviderAdapterFactory());
     factories.add(new ReflectiveItemProviderAdapterFactory());
     return new ComposedAdapterFactory(factories);
-  }
-
-  /**
-   * @param parent
-   * @return
-   */
-  private Set<Object> getAllChildren(Object parent) {
-    final Set<Object> result = new HashSet<Object>();
-    final Object[] children = contentProvider.getChildren(parent);
-    for (final Object element : children) {
-      result.add(element);
-      result.addAll(getAllChildren(element));
-    }
-    return result;
   }
 
   /**
@@ -928,8 +913,8 @@ public class ModelElementsSelectionDialog {
     String msg = message;
     if (!Predicates.alwaysFalse().equals(isGrayed)) {
       final StringBuilder sb = new StringBuilder(message);
-      sb.append("\n"); // $NON-NLS-1$
-      sb.append("The wizard will have no effect on grayed elements."); // $NON-NLS-1$
+      sb.append("\n"); 
+      sb.append("The wizard will have no effect on grayed elements."); 
       msg = sb.toString();
     }
     dialog.setMessage(msg);
