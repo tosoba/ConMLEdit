@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design;
+package org.eclipse.sirius.conml.design.services;
 
 import java.util.Collection;
 import java.util.Set;

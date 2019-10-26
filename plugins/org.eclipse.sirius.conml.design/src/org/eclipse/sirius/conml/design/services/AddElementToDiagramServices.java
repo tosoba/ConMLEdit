@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design;
+package org.eclipse.sirius.conml.design.services;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.DDiagram;

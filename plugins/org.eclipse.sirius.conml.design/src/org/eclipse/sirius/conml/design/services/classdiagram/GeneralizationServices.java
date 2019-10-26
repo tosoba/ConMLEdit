@@ -1,11 +1,11 @@
-package org.eclipse.sirius.conml.design.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.Collection;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.Dialogs;
+import org.eclipse.sirius.conml.design.util.Dialogs;
 
 import conml.types.Class;
 import conml.types.Generalization;

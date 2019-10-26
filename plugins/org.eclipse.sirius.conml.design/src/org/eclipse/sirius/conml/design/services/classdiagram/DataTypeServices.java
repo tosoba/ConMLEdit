@@ -1,7 +1,7 @@
-package org.eclipse.sirius.conml.design.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.conml.design.ConML;
+import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.types.DataType;
 import conml.types.EnumeratedType;

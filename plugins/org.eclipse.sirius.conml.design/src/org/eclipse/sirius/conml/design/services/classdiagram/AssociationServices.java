@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -9,8 +9,8 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.ConML;
-import org.eclipse.sirius.conml.design.Dialogs;
+import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.Dialogs;
 
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;

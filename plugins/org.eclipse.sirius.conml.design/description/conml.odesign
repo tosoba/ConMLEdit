@@ -547,20 +547,20 @@
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.ClassDiagramServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.AssociationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.AttributeServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.ClassServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.GeneralizationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.PropertyServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.PackageServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.TypeModelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.classdiagram.DataTypeServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ObjectServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueSetServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.ValueServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.LinkServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.objectdiagram.InstanceModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassDiagramServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AttributeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.GeneralizationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PropertyServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PackageServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueSetServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.LinkServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.InstanceModelServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
@@ -604,7 +604,7 @@
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.reused.ReusedViewpointServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.reused.ReusedViewpointServices"/>
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="PR_General">

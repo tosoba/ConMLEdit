@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design;
+package org.eclipse.sirius.conml.design.util;
 
 import java.util.ArrayList;
 import java.util.List;

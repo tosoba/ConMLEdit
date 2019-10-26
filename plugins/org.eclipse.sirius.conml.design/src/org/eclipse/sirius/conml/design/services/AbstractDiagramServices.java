@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design;
+package org.eclipse.sirius.conml.design.services;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +12,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.trigger.AutosizeTrigger;
+import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.wizard.ModelElementsSelectionDialog;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;

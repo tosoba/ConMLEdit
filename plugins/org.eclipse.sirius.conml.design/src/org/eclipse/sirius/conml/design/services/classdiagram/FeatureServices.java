@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.Objects;
 

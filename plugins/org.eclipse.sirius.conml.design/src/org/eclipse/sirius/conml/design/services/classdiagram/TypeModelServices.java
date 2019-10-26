@@ -1,9 +1,9 @@
-package org.eclipse.sirius.conml.design.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.Collection;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.conml.design.ModelServices;
+import org.eclipse.sirius.conml.design.services.ModelServices;
 
 import conml.types.Association;
 import conml.types.EnumeratedType;

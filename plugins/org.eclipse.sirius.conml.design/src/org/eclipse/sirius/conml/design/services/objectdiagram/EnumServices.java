@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.objectdiagram;
+package org.eclipse.sirius.conml.design.services.objectdiagram;
 
 import java.util.ArrayList;
 import java.util.Collections;

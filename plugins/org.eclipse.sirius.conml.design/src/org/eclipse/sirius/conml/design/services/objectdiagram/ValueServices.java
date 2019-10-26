@@ -1,7 +1,7 @@
-package org.eclipse.sirius.conml.design.objectdiagram;
+package org.eclipse.sirius.conml.design.services.objectdiagram;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.conml.design.ConML;
+import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.instances.Value;
 import conml.instances.ValueSet;
