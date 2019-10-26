@@ -3,6 +3,8 @@ package org.eclipse.sirius.conml.design;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IStatus;
+import org.eclipse.core.runtime.Status;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
@@ -59,5 +61,16 @@ public class Activator extends AbstractUIPlugin {
    */
   public static Activator getDefault() {
     return plugin;
+  }
+
+  public static void logError(Throwable exception) {
+    log(
+        IStatus.ERROR,
+        exception.getMessage() != null ? exception.getMessage() : "Excecption msg = null",
+        exception);
+  }
+
+  public static void log(int severity, String message, Throwable exception) {
+    if (plugin != null) plugin.getLog().log(new Status(severity, PLUGIN_ID, message, exception));
   }
 }
