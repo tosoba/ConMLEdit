@@ -39,6 +39,8 @@
 
 		<!-- Build products -->
 		<module>${root-path}/packaging/org.eclipse.sirius.conml.product</module>
+		
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.gen</module>
 	</modules>
 </project>
 
