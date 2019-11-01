@@ -1,0 +1,22 @@
+[comment encoding = UTF-8 /]
+[module main('http://conml.ecore')/]
+[import org::eclipse::sirius::conml::gen::conml2javaservices /]
+
+[template public main(aTypeModel : TypeModel)]
+	[comment @main/]
+	[for (aClass : Class | aTypeModel.eAllContents(Class))]
+		[file (aClass.name.concat('.java'), false, 'UTF-8')]
+			[if (aClass.Package = null)]
+				[if (aTypeModel.getOverallPackage()=null)]
+					package default;
+				[else]
+					package [aTypeModel.getOverallPackage().name/];
+				[/if]
+			[else]
+				package [aClass.Package.name/];
+			[/if] 
+			public class [aClass.name/] {}
+		[/file]
+	[/for]
+	
+[/template]

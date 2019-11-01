@@ -639,6 +639,13 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="if_it_is_typeModel" predicateExpression="service:self.isTypeModel">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Generate code from this TypeModel" buttonLabelExpression="Generate code">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.generateCode"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">
