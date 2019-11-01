@@ -20,7 +20,11 @@ public interface EnumeratedTypeValidator {
 
 	boolean validateOwnedItems(EList<EnumeratedItem> value);
 
-  boolean validateSpecializedByEnumeratedTypes(EList<EnumeratedType> value);
+  boolean validateSubTypes(EList<EnumeratedType> value);
+
+  boolean validateSuperType(EnumeratedType value);
+
+    boolean validateSpecializedByEnumeratedTypes(EList<EnumeratedType> value);
 
   boolean validateSpecializesFromEnumeratedType(EnumeratedType value);
 

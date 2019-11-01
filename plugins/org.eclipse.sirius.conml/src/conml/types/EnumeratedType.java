@@ -14,8 +14,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.EnumeratedType#getOwnedItems <em>Owned Items</em>}</li>
- *   <li>{@link conml.types.EnumeratedType#getSpecializedByEnumeratedTypes <em>Specialized By Enumerated Types</em>}</li>
- *   <li>{@link conml.types.EnumeratedType#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}</li>
+ *   <li>{@link conml.types.EnumeratedType#getSubTypes <em>Sub Types</em>}</li>
+ *   <li>{@link conml.types.EnumeratedType#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link conml.types.EnumeratedType#getPackage <em>Package</em>}</li>
  * </ul>
  *
@@ -27,56 +27,56 @@ public interface EnumeratedType extends DataType {
 	/**
 	 * Returns the value of the '<em><b>Owned Items</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedItem}.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedItem#getOwnerType <em>Owner Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Owned Items</em>' containment reference list.
 	 * @see conml.types.TypesPackage#getEnumeratedType_OwnedItems()
-	 * @see conml.types.EnumeratedItem#getOwner
-	 * @model opposite="Owner" containment="true"
+	 * @see conml.types.EnumeratedItem#getOwnerType
+	 * @model opposite="OwnerType" containment="true"
 	 * @generated
 	 */
 	EList<EnumeratedItem> getOwnedItems();
 
   /**
-	 * Returns the value of the '<em><b>Specialized By Enumerated Types</b></em>' reference list.
+	 * Returns the value of the '<em><b>Sub Types</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedType}.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getSuperType <em>Super Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialized By Enumerated Types</em>' reference list.
-	 * @see conml.types.TypesPackage#getEnumeratedType_SpecializedByEnumeratedTypes()
-	 * @see conml.types.EnumeratedType#getSpecializesFromEnumeratedType
-	 * @model opposite="SpecializesFromEnumeratedType"
+	 * @return the value of the '<em>Sub Types</em>' reference list.
+	 * @see conml.types.TypesPackage#getEnumeratedType_SubTypes()
+	 * @see conml.types.EnumeratedType#getSuperType
+	 * @model opposite="SuperType"
 	 * @generated
 	 */
-	EList<EnumeratedType> getSpecializedByEnumeratedTypes();
+	EList<EnumeratedType> getSubTypes();
 
   /**
-	 * Returns the value of the '<em><b>Specializes From Enumerated Type</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getSpecializedByEnumeratedTypes <em>Specialized By Enumerated Types</em>}'.
+	 * Returns the value of the '<em><b>Super Type</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getSubTypes <em>Sub Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specializes From Enumerated Type</em>' reference.
-	 * @see #setSpecializesFromEnumeratedType(EnumeratedType)
-	 * @see conml.types.TypesPackage#getEnumeratedType_SpecializesFromEnumeratedType()
-	 * @see conml.types.EnumeratedType#getSpecializedByEnumeratedTypes
-	 * @model opposite="SpecializedByEnumeratedTypes"
+	 * @return the value of the '<em>Super Type</em>' reference.
+	 * @see #setSuperType(EnumeratedType)
+	 * @see conml.types.TypesPackage#getEnumeratedType_SuperType()
+	 * @see conml.types.EnumeratedType#getSubTypes
+	 * @model opposite="SubTypes"
 	 * @generated
 	 */
-	EnumeratedType getSpecializesFromEnumeratedType();
+	EnumeratedType getSuperType();
 
   /**
-	 * Sets the value of the '{@link conml.types.EnumeratedType#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}' reference.
+	 * Sets the value of the '{@link conml.types.EnumeratedType#getSuperType <em>Super Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specializes From Enumerated Type</em>' reference.
-	 * @see #getSpecializesFromEnumeratedType()
+	 * @param value the new value of the '<em>Super Type</em>' reference.
+	 * @see #getSuperType()
 	 * @generated
 	 */
-	void setSpecializesFromEnumeratedType(EnumeratedType value);
+	void setSuperType(EnumeratedType value);
 
-  /**
+    /**
 	 * Returns the value of the '<em><b>Package</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Package#getEnumeratedTypes <em>Enumerated Types</em>}'.
 	 * <!-- begin-user-doc -->

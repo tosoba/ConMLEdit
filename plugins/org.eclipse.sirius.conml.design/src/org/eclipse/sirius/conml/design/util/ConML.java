@@ -1,5 +1,6 @@
 package org.eclipse.sirius.conml.design.util;
 
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -9,14 +10,27 @@ import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import conml.Model;
+import conml.ModelElement;
 
 public class ConML {
 
   private ConML() {}
+
+  public static <C extends EObject, E extends ModelElement>
+      boolean containsOnlyOneExactlyEqualElement(
+          final C container, final E element, Function<C, EList<E>> elementsGetter) {
+    return elementsGetter
+            .apply(container)
+            .stream()
+            .filter(el -> EcoreUtil.equals(el, element))
+            .count()
+        == 1;
+  }
 
   @SuppressWarnings("unchecked")
   public static <T> Collection<T> getAllElementsOfTypeFrom(EObject parentObject, Class<T> clazz) {
@@ -121,4 +135,78 @@ public class ConML {
     UP,
     DOWN
   }
+
+  public static boolean clashesWithAnyKeyword(final String name) {
+    return keywords.contains(name) || conMLKeywords.contains(name);
+  }
+
+  private static final Set<String> keywords =
+      new HashSet<>(
+          Arrays.asList(
+              "abstract",
+              "assert",
+              "boolean",
+              "break",
+              "byte",
+              "case",
+              "catch",
+              "char",
+              "class",
+              "const",
+              "continue",
+              "default",
+              "do",
+              "double",
+              "else",
+              "extends",
+              "false",
+              "final",
+              "finally",
+              "float",
+              "for",
+              "goto",
+              "if",
+              "implements",
+              "import",
+              "instanceof",
+              "int",
+              "interface",
+              "long",
+              "native",
+              "new",
+              "null",
+              "package",
+              "private",
+              "protected",
+              "public",
+              "return",
+              "short",
+              "static",
+              "strictfp",
+              "super",
+              "switch",
+              "synchronized",
+              "this",
+              "throw",
+              "throws",
+              "transient",
+              "true",
+              "try",
+              "void",
+              "volatile",
+              "while"));
+
+  private static final Set<String> conMLKeywords =
+      new HashSet<>(
+          Arrays.asList(
+              "con",
+              "enum",
+              "false",
+              "language",
+              "null",
+              "package",
+              "ref",
+              "sha",
+              "true",
+              "unknown"));
 }

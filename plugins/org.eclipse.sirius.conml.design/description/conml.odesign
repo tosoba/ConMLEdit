@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
   <ownedViewpoints name="ConML" modelFileExtension="conml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="ConML Class Diagram" domainClass="types::TypeModel" enablePopupBars="true">
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
@@ -424,6 +424,11 @@
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
+      <validationSet>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="IInstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
+          <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
+        </ownedRules>
+      </validationSet>
       <defaultLayer name="InstanceModelElement">
         <edgeMappings name="OD_Link" preconditionExpression="service:self.shouldDisplayLinkEdge" semanticElements="service:self.referencesList" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetFinderExpression="service:self.getLinkTargetType" sourceFinderExpression="service:self.getLinkSourceType" targetExpression="var:self" domainClass="instances::Link" useDomainElement="true">
           <style targetArrow="NoDecoration">
@@ -556,6 +561,8 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PackageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.EnumeratedTypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.EnumeratedItemServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueSetServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueServices"/>
@@ -722,6 +729,33 @@
           </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
             <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedType Validation SpecializesFromItself" level="ERROR" message="EnumeratedType cannot specialize from itself." targetClass="types::EnumeratedType">
+            <audits auditExpression="service:self.enumeratedTypeDoesNotSpecializeFromItself"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedType Validation SpecializedEnumTypeHasRootItems" level="ERROR" message="Specializing EnumeratedType cannot have its own root items." targetClass="types::EnumeratedType">
+            <audits auditExpression="service:self.specializingEnumeratedTypeDoesNotHaveItsOwnRootItems"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedType Validation HasClashingName" level="ERROR" message="EnumeratedType name clashes with another EnumeratedType" targetClass="types::EnumeratedType">
+            <audits auditExpression="service:self.enumeratedTypeHasNonClashingName"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedType Validation HasInvalidName" level="ERROR" message="EnumeratedType name clashes with either Java or ConML keyword." targetClass="types::EnumeratedType">
+            <audits auditExpression="service:self.enumeratedTypeNameIsValid"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedType Validation HasNoItems" level="WARNING" message="EnumeratedType has no items of its own." targetClass="types::EnumeratedType">
+            <audits auditExpression="service:self.enumeratedTypeHasItems"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedItem Validation IsSubItemOfItself" level="ERROR" message="EnumeratedItem cannot be a subItem of itself." targetClass="types::EnumeratedItem">
+            <audits auditExpression="service:self.enumeratedItemIsNotSubItemOfItself"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedItem Validation HasInvalidSuperItem" level="ERROR" message="EnumeratedItem's superItem belongs to an unrelated EnumeratedType." targetClass="types::EnumeratedItem">
+            <audits auditExpression="service:self.enumeratedItemsSuperItemDoesNotBelongToUnrelatedType"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedItem Validation HasInvalidName" level="ERROR" message="EnumeratedItem's name clashes with either Java or ConML keyword." targetClass="types::EnumeratedItem">
+            <audits auditExpression="service:self.enumeratedItemNameIsValid"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_EnumeratedItem Validation HasClashingName" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
+            <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
           </semanticValidationRules>
         </validationSet>
       </groups>

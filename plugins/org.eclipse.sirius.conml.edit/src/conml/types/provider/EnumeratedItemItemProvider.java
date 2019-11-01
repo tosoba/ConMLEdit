@@ -64,9 +64,9 @@ public class EnumeratedItemItemProvider
 
 			addNamePropertyDescriptor(object);
 			addDefinitionPropertyDescriptor(object);
-			addOwnerPropertyDescriptor(object);
-			addSuperItemOfEnumeratedItemsPropertyDescriptor(object);
-			addSubItemOfEnumeratedItemPropertyDescriptor(object);
+			addOwnerTypePropertyDescriptor(object);
+			addSubItemsPropertyDescriptor(object);
+			addSuperItemPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -116,41 +116,19 @@ public class EnumeratedItemItemProvider
 	}
 
 	/**
-	 * This adds a property descriptor for the Owner feature.
+	 * This adds a property descriptor for the Owner Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addOwnerPropertyDescriptor(Object object) {
+	protected void addOwnerTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_Owner_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_Owner_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__OWNER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Super Item Of Enumerated Items feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSuperItemOfEnumeratedItemsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_SuperItemOfEnumeratedItems_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SuperItemOfEnumeratedItems_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS,
+				 getString("_UI_EnumeratedItem_OwnerType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_OwnerType_feature", "_UI_EnumeratedItem_type"),
+				 TypesPackage.Literals.ENUMERATED_ITEM__OWNER_TYPE,
 				 true,
 				 false,
 				 true,
@@ -160,19 +138,41 @@ public class EnumeratedItemItemProvider
 	}
 
   /**
-	 * This adds a property descriptor for the Sub Item Of Enumerated Item feature.
+	 * This adds a property descriptor for the Sub Items feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSubItemOfEnumeratedItemPropertyDescriptor(Object object) {
+	protected void addSubItemsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_SubItemOfEnumeratedItem_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SubItemOfEnumeratedItem_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM,
+				 getString("_UI_EnumeratedItem_SubItems_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SubItems_feature", "_UI_EnumeratedItem_type"),
+				 TypesPackage.Literals.ENUMERATED_ITEM__SUB_ITEMS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Super Item feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSuperItemPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnumeratedItem_SuperItem_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_SuperItem_feature", "_UI_EnumeratedItem_type"),
+				 TypesPackage.Literals.ENUMERATED_ITEM__SUPER_ITEM,
 				 true,
 				 false,
 				 true,

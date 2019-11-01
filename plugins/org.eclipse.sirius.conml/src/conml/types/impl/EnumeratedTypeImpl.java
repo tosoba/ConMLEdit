@@ -31,8 +31,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getOwnedItems <em>Owned Items</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSpecializedByEnumeratedTypes <em>Specialized By Enumerated Types</em>}</li>
- *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}</li>
+ *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSubTypes <em>Sub Types</em>}</li>
+ *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSuperType <em>Super Type</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getPackage <em>Package</em>}</li>
  * </ul>
  *
@@ -50,26 +50,26 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	protected EList<EnumeratedItem> ownedItems;
 
   /**
-	 * The cached value of the '{@link #getSpecializedByEnumeratedTypes() <em>Specialized By Enumerated Types</em>}' reference list.
+	 * The cached value of the '{@link #getSubTypes() <em>Sub Types</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecializedByEnumeratedTypes()
+	 * @see #getSubTypes()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<EnumeratedType> specializedByEnumeratedTypes;
+	protected EList<EnumeratedType> subTypes;
 
   /**
-	 * The cached value of the '{@link #getSpecializesFromEnumeratedType() <em>Specializes From Enumerated Type</em>}' reference.
+	 * The cached value of the '{@link #getSuperType() <em>Super Type</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecializesFromEnumeratedType()
+	 * @see #getSuperType()
 	 * @generated
 	 * @ordered
 	 */
-	protected EnumeratedType specializesFromEnumeratedType;
+	protected EnumeratedType superType;
 
-  /**
+    /**
 	 * The cached value of the '{@link #getPackage() <em>Package</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -106,7 +106,7 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public EList<EnumeratedItem> getOwnedItems() {
 		if (ownedItems == null) {
-			ownedItems = new EObjectContainmentWithInverseEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS, TypesPackage.ENUMERATED_ITEM__OWNER);
+			ownedItems = new EObjectContainmentWithInverseEList<EnumeratedItem>(EnumeratedItem.class, this, TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS, TypesPackage.ENUMERATED_ITEM__OWNER_TYPE);
 		}
 		return ownedItems;
 	}
@@ -117,11 +117,11 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @generated
 	 */
 	@Override
-	public EList<EnumeratedType> getSpecializedByEnumeratedTypes() {
-		if (specializedByEnumeratedTypes == null) {
-			specializedByEnumeratedTypes = new EObjectWithInverseResolvingEList<EnumeratedType>(EnumeratedType.class, this, TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES, TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE);
+	public EList<EnumeratedType> getSubTypes() {
+		if (subTypes == null) {
+			subTypes = new EObjectWithInverseResolvingEList<EnumeratedType>(EnumeratedType.class, this, TypesPackage.ENUMERATED_TYPE__SUB_TYPES, TypesPackage.ENUMERATED_TYPE__SUPER_TYPE);
 		}
-		return specializedByEnumeratedTypes;
+		return subTypes;
 	}
 
   /**
@@ -130,16 +130,16 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @generated
 	 */
 	@Override
-	public EnumeratedType getSpecializesFromEnumeratedType() {
-		if (specializesFromEnumeratedType != null && specializesFromEnumeratedType.eIsProxy()) {
-			InternalEObject oldSpecializesFromEnumeratedType = (InternalEObject)specializesFromEnumeratedType;
-			specializesFromEnumeratedType = (EnumeratedType)eResolveProxy(oldSpecializesFromEnumeratedType);
-			if (specializesFromEnumeratedType != oldSpecializesFromEnumeratedType) {
+	public EnumeratedType getSuperType() {
+		if (superType != null && superType.eIsProxy()) {
+			InternalEObject oldSuperType = (InternalEObject)superType;
+			superType = (EnumeratedType)eResolveProxy(oldSuperType);
+			if (superType != oldSuperType) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE, oldSpecializesFromEnumeratedType, specializesFromEnumeratedType));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ENUMERATED_TYPE__SUPER_TYPE, oldSuperType, superType));
 			}
 		}
-		return specializesFromEnumeratedType;
+		return superType;
 	}
 
   /**
@@ -147,8 +147,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EnumeratedType basicGetSpecializesFromEnumeratedType() {
-		return specializesFromEnumeratedType;
+	public EnumeratedType basicGetSuperType() {
+		return superType;
 	}
 
   /**
@@ -156,11 +156,11 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetSpecializesFromEnumeratedType(EnumeratedType newSpecializesFromEnumeratedType, NotificationChain msgs) {
-		EnumeratedType oldSpecializesFromEnumeratedType = specializesFromEnumeratedType;
-		specializesFromEnumeratedType = newSpecializesFromEnumeratedType;
+	public NotificationChain basicSetSuperType(EnumeratedType newSuperType, NotificationChain msgs) {
+		EnumeratedType oldSuperType = superType;
+		superType = newSuperType;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE, oldSpecializesFromEnumeratedType, newSpecializesFromEnumeratedType);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__SUPER_TYPE, oldSuperType, newSuperType);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
@@ -172,21 +172,21 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	 * @generated
 	 */
 	@Override
-	public void setSpecializesFromEnumeratedType(EnumeratedType newSpecializesFromEnumeratedType) {
-		if (newSpecializesFromEnumeratedType != specializesFromEnumeratedType) {
+	public void setSuperType(EnumeratedType newSuperType) {
+		if (newSuperType != superType) {
 			NotificationChain msgs = null;
-			if (specializesFromEnumeratedType != null)
-				msgs = ((InternalEObject)specializesFromEnumeratedType).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES, EnumeratedType.class, msgs);
-			if (newSpecializesFromEnumeratedType != null)
-				msgs = ((InternalEObject)newSpecializesFromEnumeratedType).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES, EnumeratedType.class, msgs);
-			msgs = basicSetSpecializesFromEnumeratedType(newSpecializesFromEnumeratedType, msgs);
+			if (superType != null)
+				msgs = ((InternalEObject)superType).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__SUB_TYPES, EnumeratedType.class, msgs);
+			if (newSuperType != null)
+				msgs = ((InternalEObject)newSuperType).eInverseAdd(this, TypesPackage.ENUMERATED_TYPE__SUB_TYPES, EnumeratedType.class, msgs);
+			msgs = basicSetSuperType(newSuperType, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE, newSpecializesFromEnumeratedType, newSpecializesFromEnumeratedType));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__SUPER_TYPE, newSuperType, newSuperType));
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -259,12 +259,12 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getOwnedItems()).basicAdd(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecializedByEnumeratedTypes()).basicAdd(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				if (specializesFromEnumeratedType != null)
-					msgs = ((InternalEObject)specializesFromEnumeratedType).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES, EnumeratedType.class, msgs);
-				return basicSetSpecializesFromEnumeratedType((EnumeratedType)otherEnd, msgs);
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSubTypes()).basicAdd(otherEnd, msgs);
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				if (superType != null)
+					msgs = ((InternalEObject)superType).eInverseRemove(this, TypesPackage.ENUMERATED_TYPE__SUB_TYPES, EnumeratedType.class, msgs);
+				return basicSetSuperType((EnumeratedType)otherEnd, msgs);
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				if (package_ != null)
 					msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__ENUMERATED_TYPES, conml.types.Package.class, msgs);
@@ -283,10 +283,10 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return ((InternalEList<?>)getOwnedItems()).basicRemove(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				return ((InternalEList<?>)getSpecializedByEnumeratedTypes()).basicRemove(otherEnd, msgs);
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				return basicSetSpecializesFromEnumeratedType(null, msgs);
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				return ((InternalEList<?>)getSubTypes()).basicRemove(otherEnd, msgs);
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				return basicSetSuperType(null, msgs);
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				return basicSetPackage(null, msgs);
 		}
@@ -303,11 +303,11 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return getOwnedItems();
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				return getSpecializedByEnumeratedTypes();
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				if (resolve) return getSpecializesFromEnumeratedType();
-				return basicGetSpecializesFromEnumeratedType();
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				return getSubTypes();
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				if (resolve) return getSuperType();
+				return basicGetSuperType();
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				if (resolve) return getPackage();
 				return basicGetPackage();
@@ -328,12 +328,12 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 				getOwnedItems().clear();
 				getOwnedItems().addAll((Collection<? extends EnumeratedItem>)newValue);
 				return;
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				getSpecializedByEnumeratedTypes().clear();
-				getSpecializedByEnumeratedTypes().addAll((Collection<? extends EnumeratedType>)newValue);
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				getSubTypes().clear();
+				getSubTypes().addAll((Collection<? extends EnumeratedType>)newValue);
 				return;
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				setSpecializesFromEnumeratedType((EnumeratedType)newValue);
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				setSuperType((EnumeratedType)newValue);
 				return;
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				setPackage((conml.types.Package)newValue);
@@ -353,11 +353,11 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				getOwnedItems().clear();
 				return;
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				getSpecializedByEnumeratedTypes().clear();
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				getSubTypes().clear();
 				return;
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				setSpecializesFromEnumeratedType((EnumeratedType)null);
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				setSuperType((EnumeratedType)null);
 				return;
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				setPackage((conml.types.Package)null);
@@ -376,10 +376,10 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 		switch (featureID) {
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return ownedItems != null && !ownedItems.isEmpty();
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES:
-				return specializedByEnumeratedTypes != null && !specializedByEnumeratedTypes.isEmpty();
-			case TypesPackage.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE:
-				return specializesFromEnumeratedType != null;
+			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
+				return subTypes != null && !subTypes.isEmpty();
+			case TypesPackage.ENUMERATED_TYPE__SUPER_TYPE:
+				return superType != null;
 			case TypesPackage.ENUMERATED_TYPE__PACKAGE:
 				return package_ != null;
 		}

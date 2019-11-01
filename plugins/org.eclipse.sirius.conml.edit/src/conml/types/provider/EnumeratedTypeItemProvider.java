@@ -47,8 +47,8 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addOwnedItemsPropertyDescriptor(object);
-			addSpecializedByEnumeratedTypesPropertyDescriptor(object);
-			addSpecializesFromEnumeratedTypePropertyDescriptor(object);
+			addSubTypesPropertyDescriptor(object);
+			addSuperTypePropertyDescriptor(object);
 			addPackagePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -77,19 +77,19 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Specialized By Enumerated Types feature.
+	 * This adds a property descriptor for the Sub Types feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpecializedByEnumeratedTypesPropertyDescriptor(Object object) {
+	protected void addSubTypesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedType_SpecializedByEnumeratedTypes_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_SpecializedByEnumeratedTypes_feature", "_UI_EnumeratedType_type"),
-				 TypesPackage.Literals.ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES,
+				 getString("_UI_EnumeratedType_SubTypes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_SubTypes_feature", "_UI_EnumeratedType_type"),
+				 TypesPackage.Literals.ENUMERATED_TYPE__SUB_TYPES,
 				 true,
 				 false,
 				 true,
@@ -99,19 +99,19 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Specializes From Enumerated Type feature.
+	 * This adds a property descriptor for the Super Type feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpecializesFromEnumeratedTypePropertyDescriptor(Object object) {
+	protected void addSuperTypePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedType_SpecializesFromEnumeratedType_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_SpecializesFromEnumeratedType_feature", "_UI_EnumeratedType_type"),
-				 TypesPackage.Literals.ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE,
+				 getString("_UI_EnumeratedType_SuperType_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedType_SuperType_feature", "_UI_EnumeratedType_type"),
+				 TypesPackage.Literals.ENUMERATED_TYPE__SUPER_TYPE,
 				 true,
 				 false,
 				 true,
@@ -120,7 +120,7 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 				 null));
 	}
 
-  /**
+    /**
 	 * This adds a property descriptor for the Package feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

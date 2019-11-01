@@ -824,24 +824,24 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__OWNED_ITEMS = DATA_TYPE_FEATURE_COUNT + 0;
 
   /**
-	 * The feature id for the '<em><b>Specialized By Enumerated Types</b></em>' reference list.
+	 * The feature id for the '<em><b>Sub Types</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES = DATA_TYPE_FEATURE_COUNT + 1;
+	int ENUMERATED_TYPE__SUB_TYPES = DATA_TYPE_FEATURE_COUNT + 1;
 
   /**
-	 * The feature id for the '<em><b>Specializes From Enumerated Type</b></em>' reference.
+	 * The feature id for the '<em><b>Super Type</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE = DATA_TYPE_FEATURE_COUNT + 2;
+	int ENUMERATED_TYPE__SUPER_TYPE = DATA_TYPE_FEATURE_COUNT + 2;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1695,31 +1695,31 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_ITEM__DEFINITION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * The feature id for the '<em><b>Owner Type</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__OWNER = 2;
-
-	/**
-	 * The feature id for the '<em><b>Super Item Of Enumerated Items</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = 3;
+	int ENUMERATED_ITEM__OWNER_TYPE = 2;
 
   /**
-	 * The feature id for the '<em><b>Sub Item Of Enumerated Item</b></em>' reference.
+	 * The feature id for the '<em><b>Sub Items</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = 4;
+	int ENUMERATED_ITEM__SUB_ITEMS = 3;
+
+  /**
+	 * The feature id for the '<em><b>Super Item</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATED_ITEM__SUPER_ITEM = 4;
 
   /**
 	 * The number of structural features of the '<em>Enumerated Item</em>' class.
@@ -2174,28 +2174,28 @@ public interface TypesPackage extends EPackage {
 	EReference getEnumeratedType_OwnedItems();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getSpecializedByEnumeratedTypes <em>Specialized By Enumerated Types</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedType#getSubTypes <em>Sub Types</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Specialized By Enumerated Types</em>'.
-	 * @see conml.types.EnumeratedType#getSpecializedByEnumeratedTypes()
+	 * @return the meta object for the reference list '<em>Sub Types</em>'.
+	 * @see conml.types.EnumeratedType#getSubTypes()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_SpecializedByEnumeratedTypes();
+	EReference getEnumeratedType_SubTypes();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getSpecializesFromEnumeratedType <em>Specializes From Enumerated Type</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getSuperType <em>Super Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Specializes From Enumerated Type</em>'.
-	 * @see conml.types.EnumeratedType#getSpecializesFromEnumeratedType()
+	 * @return the meta object for the reference '<em>Super Type</em>'.
+	 * @see conml.types.EnumeratedType#getSuperType()
 	 * @see #getEnumeratedType()
 	 * @generated
 	 */
-	EReference getEnumeratedType_SpecializesFromEnumeratedType();
+	EReference getEnumeratedType_SuperType();
 
-  /**
+    /**
 	 * Returns the meta object for the reference '{@link conml.types.EnumeratedType#getPackage <em>Package</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2583,37 +2583,37 @@ public interface TypesPackage extends EPackage {
 	EAttribute getEnumeratedItem_Definition();
 
 	/**
-	 * Returns the meta object for the container reference '{@link conml.types.EnumeratedItem#getOwner <em>Owner</em>}'.
+	 * Returns the meta object for the container reference '{@link conml.types.EnumeratedItem#getOwnerType <em>Owner Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owner</em>'.
-	 * @see conml.types.EnumeratedItem#getOwner()
+	 * @return the meta object for the container reference '<em>Owner Type</em>'.
+	 * @see conml.types.EnumeratedItem#getOwnerType()
 	 * @see #getEnumeratedItem()
 	 * @generated
 	 */
-	EReference getEnumeratedItem_Owner();
-
-	/**
-	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems <em>Super Item Of Enumerated Items</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Super Item Of Enumerated Items</em>'.
-	 * @see conml.types.EnumeratedItem#getSuperItemOfEnumeratedItems()
-	 * @see #getEnumeratedItem()
-	 * @generated
-	 */
-	EReference getEnumeratedItem_SuperItemOfEnumeratedItems();
+	EReference getEnumeratedItem_OwnerType();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getSubItemOfEnumeratedItem <em>Sub Item Of Enumerated Item</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.EnumeratedItem#getSubItems <em>Sub Items</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Sub Item Of Enumerated Item</em>'.
-	 * @see conml.types.EnumeratedItem#getSubItemOfEnumeratedItem()
+	 * @return the meta object for the reference list '<em>Sub Items</em>'.
+	 * @see conml.types.EnumeratedItem#getSubItems()
 	 * @see #getEnumeratedItem()
 	 * @generated
 	 */
-	EReference getEnumeratedItem_SubItemOfEnumeratedItem();
+	EReference getEnumeratedItem_SubItems();
+
+  /**
+	 * Returns the meta object for the reference '{@link conml.types.EnumeratedItem#getSuperItem <em>Super Item</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Super Item</em>'.
+	 * @see conml.types.EnumeratedItem#getSuperItem()
+	 * @see #getEnumeratedItem()
+	 * @generated
+	 */
+	EReference getEnumeratedItem_SuperItem();
 
   /**
 	 * Returns the meta object for enum '{@link conml.types.BaseDataType <em>Base Data Type</em>}'.
@@ -2973,22 +2973,22 @@ public interface TypesPackage extends EPackage {
 		EReference ENUMERATED_TYPE__OWNED_ITEMS = eINSTANCE.getEnumeratedType_OwnedItems();
 
     /**
-		 * The meta object literal for the '<em><b>Specialized By Enumerated Types</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Sub Types</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES = eINSTANCE.getEnumeratedType_SpecializedByEnumeratedTypes();
+		EReference ENUMERATED_TYPE__SUB_TYPES = eINSTANCE.getEnumeratedType_SubTypes();
 
     /**
-		 * The meta object literal for the '<em><b>Specializes From Enumerated Type</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Super Type</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE = eINSTANCE.getEnumeratedType_SpecializesFromEnumeratedType();
+		EReference ENUMERATED_TYPE__SUPER_TYPE = eINSTANCE.getEnumeratedType_SuperType();
 
-    /**
+        /**
 		 * The meta object literal for the '<em><b>Package</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3295,28 +3295,28 @@ public interface TypesPackage extends EPackage {
 		EAttribute ENUMERATED_ITEM__DEFINITION = eINSTANCE.getEnumeratedItem_Definition();
 
 		/**
-		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Owner Type</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_ITEM__OWNER = eINSTANCE.getEnumeratedItem_Owner();
-
-		/**
-		 * The meta object literal for the '<em><b>Super Item Of Enumerated Items</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS = eINSTANCE.getEnumeratedItem_SuperItemOfEnumeratedItems();
+		EReference ENUMERATED_ITEM__OWNER_TYPE = eINSTANCE.getEnumeratedItem_OwnerType();
 
     /**
-		 * The meta object literal for the '<em><b>Sub Item Of Enumerated Item</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Sub Items</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM = eINSTANCE.getEnumeratedItem_SubItemOfEnumeratedItem();
+		EReference ENUMERATED_ITEM__SUB_ITEMS = eINSTANCE.getEnumeratedItem_SubItems();
+
+    /**
+		 * The meta object literal for the '<em><b>Super Item</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUMERATED_ITEM__SUPER_ITEM = eINSTANCE.getEnumeratedItem_SuperItem();
 
     /**
 		 * The meta object literal for the '{@link conml.types.BaseDataType <em>Base Data Type</em>}' enum.

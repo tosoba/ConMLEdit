@@ -182,12 +182,8 @@ public class PackageServices implements ModelElementServices {
                             })
                         .findAny()
                         .isPresent()
-                    && model
-                            .getElements()
-                            .stream()
-                            .filter(element -> EcoreUtil.equals(element, packageToCheck))
-                            .count()
-                        == 1,
+                    && ConML.containsOnlyOneExactlyEqualElement(
+                        model, packageToCheck, Model::getElements),
             true);
   }
 

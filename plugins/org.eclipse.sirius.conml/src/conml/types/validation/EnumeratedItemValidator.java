@@ -21,7 +21,13 @@ public interface EnumeratedItemValidator {
 	boolean validateName(String value);
 	boolean validateAbsoluteName(String value);
 	boolean validateDefinition(String value);
-	boolean validateOwner(EnumeratedType value);
+	boolean validateOwnerType(EnumeratedType value);
+
+  boolean validateSubItems(EList<EnumeratedItem> value);
+
+  boolean validateSuperItem(EnumeratedItem value);
+
+  boolean validateOwner(EnumeratedType value);
 	boolean validateSuperItemOfEnumeratedItems(EList<EnumeratedItem> value);
 
   boolean validateSubItemOfEnumeratedItem(EnumeratedItem value);

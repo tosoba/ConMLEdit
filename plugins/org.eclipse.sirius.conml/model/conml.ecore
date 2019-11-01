@@ -105,11 +105,11 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedItems" upperBound="-1"
-          eType="#//types/EnumeratedItem" containment="true" eOpposite="#//types/EnumeratedItem/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializedByEnumeratedTypes"
-          upperBound="-1" eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializesFromEnumeratedType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializesFromEnumeratedType"
-          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SpecializedByEnumeratedTypes"/>
+          eType="#//types/EnumeratedItem" containment="true" eOpposite="#//types/EnumeratedItem/OwnerType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubTypes" upperBound="-1"
+          eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/SuperType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SuperType" eType="#//types/EnumeratedType"
+          eOpposite="#//types/EnumeratedType/SubTypes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//types/Package"
           eOpposite="#//types/Package/EnumeratedTypes"/>
     </eClassifiers>
@@ -184,12 +184,12 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerType" lowerBound="1"
           eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnedItems"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SuperItemOfEnumeratedItems"
-          upperBound="-1" eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/SubItemOfEnumeratedItem"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SubItemOfEnumeratedItem"
-          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/SuperItemOfEnumeratedItems"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubItems" upperBound="-1"
+          eType="#//types/EnumeratedItem" eOpposite="#//types/EnumeratedItem/SuperItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SuperItem" eType="#//types/EnumeratedItem"
+          eOpposite="#//types/EnumeratedItem/SubItems"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="instances" nsURI="http://instances.ecore" nsPrefix="instances">

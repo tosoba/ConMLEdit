@@ -625,7 +625,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getEnumeratedType_SpecializedByEnumeratedTypes() {
+	public EReference getEnumeratedType_SubTypes() {
 		return (EReference)enumeratedTypeEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -635,11 +635,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getEnumeratedType_SpecializesFromEnumeratedType() {
+	public EReference getEnumeratedType_SuperType() {
 		return (EReference)enumeratedTypeEClass.getEStructuralFeatures().get(2);
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1005,17 +1005,17 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getEnumeratedItem_Owner() {
+	public EReference getEnumeratedItem_OwnerType() {
 		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(2);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EReference getEnumeratedItem_SuperItemOfEnumeratedItems() {
+	public EReference getEnumeratedItem_SubItems() {
 		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -1025,7 +1025,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getEnumeratedItem_SubItemOfEnumeratedItem() {
+	public EReference getEnumeratedItem_SuperItem() {
 		return (EReference)enumeratedItemEClass.getEStructuralFeatures().get(4);
 	}
 
@@ -1112,8 +1112,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		enumeratedTypeEClass = createEClass(ENUMERATED_TYPE);
 		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__OWNED_ITEMS);
-		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__SPECIALIZED_BY_ENUMERATED_TYPES);
-		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__SPECIALIZES_FROM_ENUMERATED_TYPE);
+		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__SUB_TYPES);
+		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__SUPER_TYPE);
 		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__PACKAGE);
 
 		typeModelElementEClass = createEClass(TYPE_MODEL_ELEMENT);
@@ -1159,9 +1159,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		enumeratedItemEClass = createEClass(ENUMERATED_ITEM);
 		createEAttribute(enumeratedItemEClass, ENUMERATED_ITEM__NAME);
 		createEAttribute(enumeratedItemEClass, ENUMERATED_ITEM__DEFINITION);
-		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__OWNER);
-		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUPER_ITEM_OF_ENUMERATED_ITEMS);
-		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUB_ITEM_OF_ENUMERATED_ITEM);
+		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__OWNER_TYPE);
+		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUB_ITEMS);
+		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUPER_ITEM);
 
 		// Create enums
 		baseDataTypeEEnum = createEEnum(BASE_DATA_TYPE);
@@ -1259,9 +1259,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getFeature_RedefinedByFeatures(), this.getFeature(), this.getFeature_RedefinedFeature(), "RedefinedByFeatures", null, 0, -1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumeratedTypeEClass, EnumeratedType.class, "EnumeratedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getEnumeratedType_OwnedItems(), this.getEnumeratedItem(), this.getEnumeratedItem_Owner(), "OwnedItems", null, 0, -1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumeratedType_SpecializedByEnumeratedTypes(), this.getEnumeratedType(), this.getEnumeratedType_SpecializesFromEnumeratedType(), "SpecializedByEnumeratedTypes", null, 0, -1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumeratedType_SpecializesFromEnumeratedType(), this.getEnumeratedType(), this.getEnumeratedType_SpecializedByEnumeratedTypes(), "SpecializesFromEnumeratedType", null, 0, 1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedType_OwnedItems(), this.getEnumeratedItem(), this.getEnumeratedItem_OwnerType(), "OwnedItems", null, 0, -1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedType_SubTypes(), this.getEnumeratedType(), this.getEnumeratedType_SuperType(), "SubTypes", null, 0, -1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedType_SuperType(), this.getEnumeratedType(), this.getEnumeratedType_SubTypes(), "SuperType", null, 0, 1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumeratedType_Package(), this.getPackage(), this.getPackage_EnumeratedTypes(), "Package", null, 0, 1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(typeModelElementEClass, TypeModelElement.class, "TypeModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1307,9 +1307,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEClass(enumeratedItemEClass, EnumeratedItem.class, "EnumeratedItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEnumeratedItem_Name(), ecorePackage.getEString(), "name", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getEnumeratedItem_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumeratedItem_Owner(), this.getEnumeratedType(), this.getEnumeratedType_OwnedItems(), "Owner", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumeratedItem_SuperItemOfEnumeratedItems(), this.getEnumeratedItem(), this.getEnumeratedItem_SubItemOfEnumeratedItem(), "SuperItemOfEnumeratedItems", null, 0, -1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getEnumeratedItem_SubItemOfEnumeratedItem(), this.getEnumeratedItem(), this.getEnumeratedItem_SuperItemOfEnumeratedItems(), "SubItemOfEnumeratedItem", null, 0, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedItem_OwnerType(), this.getEnumeratedType(), this.getEnumeratedType_OwnedItems(), "OwnerType", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedItem_SubItems(), this.getEnumeratedItem(), this.getEnumeratedItem_SuperItem(), "SubItems", null, 0, -1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getEnumeratedItem_SuperItem(), this.getEnumeratedItem(), this.getEnumeratedItem_SubItems(), "SuperItem", null, 0, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(baseDataTypeEEnum, BaseDataType.class, "BaseDataType");
