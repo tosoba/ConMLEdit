@@ -608,7 +608,10 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="PR_General">
-      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0 //@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4 //@extensions.0/@categories.0/@groups.5"/>
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="PR_TypeModelElementsPage" labelExpression="Elements" domainClass="types::TypeModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
+      <pages name="PR_InstanceModelElementsPage" labelExpression="Elements" domainClass="instances::InstanceModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="PR_SemiAssociationsPage" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3"/>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
           <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
@@ -768,7 +771,7 @@
           </ifs>
         </controls>
       </groups>
-      <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
+      <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
         <validationSet>
           <semanticValidationRules name="Props_Association Validation Primary Cardinalities" level="ERROR" message="Primary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
@@ -776,7 +779,7 @@
           </semanticValidationRules>
         </validationSet>
       </groups>
-      <groups name="PR_SecondarySemiAssociationGroup" labelExpression="Secondary SemiAssociation" domainClass="types::Association" semanticCandidateExpression="aql:self">
+      <groups name="PR_SecondarySemiAssociationGroup" labelExpression="Secondary" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="SecondarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.secondarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
         <validationSet>
           <semanticValidationRules name="Props_Association Validation Secondary Cardinalities" level="ERROR" message="Secondary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
