@@ -26,7 +26,9 @@ public class AddElementToDiagramServices {
   }
 
   private static Predicate<Object> isValidForClassDiagramPredicate() {
-    return input -> input instanceof conml.types.Package || input instanceof conml.types.Class;
+    return input ->
+        (input instanceof conml.types.Package && ((conml.types.Package) input).isOverall())
+            || input instanceof conml.types.Class;
   }
 
   private static Predicate<Object> isValidForObjectDiagramPredicate() {
