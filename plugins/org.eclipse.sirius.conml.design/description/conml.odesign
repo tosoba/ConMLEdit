@@ -191,14 +191,14 @@
         </edgeMappings>
         <containerMappings name="CD_Class" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Delete%20Class']" semanticCandidatesExpression="service:self.getCDClassSemanticCandidates" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
           <subNodeMappings name="CD_Attribute" semanticCandidatesExpression="feature:Attributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
-            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.attributeLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
           <subNodeMappings name="CD_Property" semanticCandidatesExpression="feature:Properties" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Property">
-            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.attributeLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -295,6 +295,8 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Property" referenceName="Properties" variableName="newProperty">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New property">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>
@@ -306,11 +308,9 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
+                    <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
                   </subModelOperations>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -552,12 +552,13 @@
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DiagramPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AttributeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PropertyServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.GeneralizationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PropertyServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PackageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>
@@ -769,8 +770,14 @@
           <semanticValidationRules name="Props_EnumeratedItem Validation HasClashingName" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Attribute Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined attribute must be owned by an ancestor of this attribute's class." targetClass="types::Attribute">
+          <semanticValidationRules name="Props_Attribute Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined Attribute must be owned by an ancestor of this Attribute's class." targetClass="types::Attribute">
             <audits auditExpression="service:self.redefinedAttributeIsOwnedByAncestor"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Property Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined Property must be owned by an ancestor of this Property's class." targetClass="types::Property">
+            <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_SemiAssociation Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined SemiAssociation must be owned by an ancestor of this SemiAssociation's class." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.redefinedSemiAssociationIsOwnedByAncestor"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
             <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>

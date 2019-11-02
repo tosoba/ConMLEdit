@@ -155,7 +155,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/ReferredClass"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/RedefinedSemiassociation"/>
+            ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/RedefinedSemiAssociation"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/SemiAssociation/OwnerClass"/>
       </genClasses>

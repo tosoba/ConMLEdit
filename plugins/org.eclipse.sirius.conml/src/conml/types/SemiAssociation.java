@@ -23,7 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}</li>
  * </ul>
  *
@@ -205,26 +205,26 @@ public interface SemiAssociation extends Feature {
 	void setReferredClass(conml.types.Class value);
 
     /**
-	 * Returns the value of the '<em><b>Redefined Semiassociation</b></em>' reference.
+	 * Returns the value of the '<em><b>Redefined Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Redefined Semiassociation</em>' reference.
-	 * @see #setRedefinedSemiassociation(SemiAssociation)
-	 * @see conml.types.TypesPackage#getSemiAssociation_RedefinedSemiassociation()
+	 * @return the value of the '<em>Redefined Semi Association</em>' reference.
+	 * @see #setRedefinedSemiAssociation(SemiAssociation)
+	 * @see conml.types.TypesPackage#getSemiAssociation_RedefinedSemiAssociation()
 	 * @model
 	 * @generated
 	 */
-	SemiAssociation getRedefinedSemiassociation();
+	SemiAssociation getRedefinedSemiAssociation();
 
     /**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}' reference.
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Redefined Semiassociation</em>' reference.
-	 * @see #getRedefinedSemiassociation()
+	 * @param value the new value of the '<em>Redefined Semi Association</em>' reference.
+	 * @see #getRedefinedSemiAssociation()
 	 * @generated
 	 */
-	void setRedefinedSemiassociation(SemiAssociation value);
+	void setRedefinedSemiAssociation(SemiAssociation value);
 
         /**
 	 * Returns the value of the '<em><b>Owner Class</b></em>' container reference.

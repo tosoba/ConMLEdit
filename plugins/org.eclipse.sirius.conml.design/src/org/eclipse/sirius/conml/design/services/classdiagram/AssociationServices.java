@@ -404,10 +404,10 @@ public class AssociationServices implements FeatureServices, ModelElementService
       final StringBuilder sb) {
     if (semiAssociation == null) return sb;
 
-    if (semiAssociation.getRedefinedSemiassociation() != null
-        && semiAssociation.getRedefinedSemiassociation() instanceof SemiAssociation) {
+    if (semiAssociation.getRedefinedSemiAssociation() != null
+        && semiAssociation.getRedefinedSemiAssociation() instanceof SemiAssociation) {
       final SemiAssociation redefinedSemiAssociation =
-          semiAssociation.getRedefinedSemiassociation();
+          semiAssociation.getRedefinedSemiAssociation();
       if (!Objects.equals(
           attributeNameGetter.apply(redefinedSemiAssociation),
           attributeNameGetter.apply(semiAssociation))) {
@@ -495,5 +495,20 @@ public class AssociationServices implements FeatureServices, ModelElementService
     for (final EObject eObject : eObjectsToDelete) {
       EcoreUtil.delete(eObject);
     }
+  }
+
+  public boolean redefinedSemiAssociationIsOwnedByAncestor(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        SemiAssociation.class,
+        (final SemiAssociation semiAssociation) -> {
+          final SemiAssociation redefined = semiAssociation.getRedefinedSemiAssociation();
+          if (redefined == null) return true;
+          final Class semiAssociationClass = semiAssociation.getOwnerClass();
+          if (semiAssociationClass == null) return true;
+          return anyAncestorOfClassOwnsRedefinedFeature(
+              semiAssociationClass, redefined, Class::getSemiAssociations);
+        },
+        true);
   }
 }

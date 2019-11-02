@@ -925,7 +925,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getSemiAssociation_RedefinedSemiassociation() {
+	public EReference getSemiAssociation_RedefinedSemiAssociation() {
 		return (EReference)semiAssociationEClass.getEStructuralFeatures().get(8);
 	}
 
@@ -1177,7 +1177,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REFERRED_CLASS);
-		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION);
+		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__OWNER_CLASS);
 
 		propertyEClass = createEClass(PROPERTY);
@@ -1328,7 +1328,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getSemiAssociation_InstanceReferenceSets(), theInstancesPackage.getReferenceSet(), theInstancesPackage.getReferenceSet_InstancedSemiAssociation(), "InstanceReferenceSets", null, 0, -1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_InverseSemiAssociation(), this.getSemiAssociation(), null, "InverseSemiAssociation", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_ReferredClass(), this.getClass_(), null, "ReferredClass", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSemiAssociation_RedefinedSemiassociation(), this.getSemiAssociation(), null, "RedefinedSemiassociation", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSemiAssociation_RedefinedSemiAssociation(), this.getSemiAssociation(), null, "RedefinedSemiAssociation", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_OwnerClass(), this.getClass_(), this.getClass_SemiAssociations(), "OwnerClass", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

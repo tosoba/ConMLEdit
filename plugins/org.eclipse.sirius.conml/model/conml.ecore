@@ -170,7 +170,7 @@
           lowerBound="1" eType="#//types/SemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredClass" lowerBound="1"
           eType="#//types/Class"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedSemiassociation"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedSemiAssociation"
           eType="#//types/SemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/SemiAssociations"/>

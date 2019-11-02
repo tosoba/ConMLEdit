@@ -53,7 +53,7 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addInstanceReferenceSetsPropertyDescriptor(object);
 			addInverseSemiAssociationPropertyDescriptor(object);
 			addReferredClassPropertyDescriptor(object);
-			addRedefinedSemiassociationPropertyDescriptor(object);
+			addRedefinedSemiAssociationPropertyDescriptor(object);
 			addOwnerClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
@@ -236,19 +236,19 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Redefined Semiassociation feature.
+	 * This adds a property descriptor for the Redefined Semi Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRedefinedSemiassociationPropertyDescriptor(Object object) {
+	protected void addRedefinedSemiAssociationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_RedefinedSemiassociation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_RedefinedSemiassociation_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION,
+				 getString("_UI_SemiAssociation_RedefinedSemiAssociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_RedefinedSemiAssociation_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION,
 				 true,
 				 false,
 				 true,

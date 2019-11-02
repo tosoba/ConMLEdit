@@ -1395,13 +1395,13 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__REFERRED_CLASS = FEATURE_FEATURE_COUNT + 7;
 
   /**
-	 * The feature id for the '<em><b>Redefined Semiassociation</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION = FEATURE_FEATURE_COUNT + 8;
+	int SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION = FEATURE_FEATURE_COUNT + 8;
 
     /**
 	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
@@ -2472,15 +2472,15 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_ReferredClass();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Redefined Semiassociation</em>'.
-	 * @see conml.types.SemiAssociation#getRedefinedSemiassociation()
+	 * @return the meta object for the reference '<em>Redefined Semi Association</em>'.
+	 * @see conml.types.SemiAssociation#getRedefinedSemiAssociation()
 	 * @see #getSemiAssociation()
 	 * @generated
 	 */
-	EReference getSemiAssociation_RedefinedSemiassociation();
+	EReference getSemiAssociation_RedefinedSemiAssociation();
 
     /**
 	 * Returns the meta object for the container reference '{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}'.
@@ -3229,12 +3229,12 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__REFERRED_CLASS = eINSTANCE.getSemiAssociation_ReferredClass();
 
     /**
-		 * The meta object literal for the '<em><b>Redefined Semiassociation</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Redefined Semi Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION = eINSTANCE.getSemiAssociation_RedefinedSemiassociation();
+		EReference SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION = eINSTANCE.getSemiAssociation_RedefinedSemiAssociation();
 
         /**
 		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.

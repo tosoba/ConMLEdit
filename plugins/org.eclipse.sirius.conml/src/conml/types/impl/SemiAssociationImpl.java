@@ -40,7 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getReferredClass <em>Referred Class</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwnerClass <em>Owner Class</em>}</li>
  * </ul>
  *
@@ -158,14 +158,14 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected conml.types.Class referredClass;
 
   /**
-	 * The cached value of the '{@link #getRedefinedSemiassociation() <em>Redefined Semiassociation</em>}' reference.
+	 * The cached value of the '{@link #getRedefinedSemiAssociation() <em>Redefined Semi Association</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRedefinedSemiassociation()
+	 * @see #getRedefinedSemiAssociation()
 	 * @generated
 	 * @ordered
 	 */
-	protected SemiAssociation redefinedSemiassociation;
+	protected SemiAssociation redefinedSemiAssociation;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -478,16 +478,16 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @generated
 	 */
 	@Override
-	public SemiAssociation getRedefinedSemiassociation() {
-		if (redefinedSemiassociation != null && redefinedSemiassociation.eIsProxy()) {
-			InternalEObject oldRedefinedSemiassociation = (InternalEObject)redefinedSemiassociation;
-			redefinedSemiassociation = (SemiAssociation)eResolveProxy(oldRedefinedSemiassociation);
-			if (redefinedSemiassociation != oldRedefinedSemiassociation) {
+	public SemiAssociation getRedefinedSemiAssociation() {
+		if (redefinedSemiAssociation != null && redefinedSemiAssociation.eIsProxy()) {
+			InternalEObject oldRedefinedSemiAssociation = (InternalEObject)redefinedSemiAssociation;
+			redefinedSemiAssociation = (SemiAssociation)eResolveProxy(oldRedefinedSemiAssociation);
+			if (redefinedSemiAssociation != oldRedefinedSemiAssociation) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION, oldRedefinedSemiassociation, redefinedSemiassociation));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION, oldRedefinedSemiAssociation, redefinedSemiAssociation));
 			}
 		}
-		return redefinedSemiassociation;
+		return redefinedSemiAssociation;
 	}
 
     /**
@@ -495,8 +495,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SemiAssociation basicGetRedefinedSemiassociation() {
-		return redefinedSemiassociation;
+	public SemiAssociation basicGetRedefinedSemiAssociation() {
+		return redefinedSemiAssociation;
 	}
 
     /**
@@ -505,11 +505,11 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * @generated
 	 */
 	@Override
-	public void setRedefinedSemiassociation(SemiAssociation newRedefinedSemiassociation) {
-		SemiAssociation oldRedefinedSemiassociation = redefinedSemiassociation;
-		redefinedSemiassociation = newRedefinedSemiassociation;
+	public void setRedefinedSemiAssociation(SemiAssociation newRedefinedSemiAssociation) {
+		SemiAssociation oldRedefinedSemiAssociation = redefinedSemiAssociation;
+		redefinedSemiAssociation = newRedefinedSemiAssociation;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION, oldRedefinedSemiassociation, redefinedSemiassociation));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION, oldRedefinedSemiAssociation, redefinedSemiAssociation));
 	}
 
     /**
@@ -644,9 +644,9 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				if (resolve) return getReferredClass();
 				return basicGetReferredClass();
-			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
-				if (resolve) return getRedefinedSemiassociation();
-				return basicGetRedefinedSemiassociation();
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION:
+				if (resolve) return getRedefinedSemiAssociation();
+				return basicGetRedefinedSemiAssociation();
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				return getOwnerClass();
 		}
@@ -687,8 +687,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
-				setRedefinedSemiassociation((SemiAssociation)newValue);
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION:
+				setRedefinedSemiAssociation((SemiAssociation)newValue);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)newValue);
@@ -729,8 +729,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)null);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
-				setRedefinedSemiassociation((SemiAssociation)null);
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION:
+				setRedefinedSemiAssociation((SemiAssociation)null);
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)null);
@@ -763,8 +763,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return inverseSemiAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				return referredClass != null;
-			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
-				return redefinedSemiassociation != null;
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION:
+				return redefinedSemiAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				return getOwnerClass() != null;
 		}
