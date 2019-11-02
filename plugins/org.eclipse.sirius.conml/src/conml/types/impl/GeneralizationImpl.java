@@ -29,9 +29,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.GeneralizationImpl#getDiscriminant <em>Discriminant</em>}</li>
- *   <li>{@link conml.types.impl.GeneralizationImpl#getSpecializedClass <em>Specialized Class</em>}</li>
+ *   <li>{@link conml.types.impl.GeneralizationImpl#getSpecializedClasses <em>Specialized Classes</em>}</li>
  *   <li>{@link conml.types.impl.GeneralizationImpl#getGeneralizedClass <em>Generalized Class</em>}</li>
- *   <li>{@link conml.types.impl.GeneralizationImpl#getDominatesInheritanceOn <em>Dominates Inheritance On</em>}</li>
+ *   <li>{@link conml.types.impl.GeneralizationImpl#getDominatedClasses <em>Dominated Classes</em>}</li>
  * </ul>
  *
  * @generated
@@ -58,16 +58,16 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	protected String discriminant = DISCRIMINANT_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getSpecializedClass() <em>Specialized Class</em>}' reference list.
+	 * The cached value of the '{@link #getSpecializedClasses() <em>Specialized Classes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSpecializedClass()
+	 * @see #getSpecializedClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.types.Class> specializedClass;
+	protected EList<conml.types.Class> specializedClasses;
 
-	/**
+  /**
 	 * The cached value of the '{@link #getGeneralizedClass() <em>Generalized Class</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -78,16 +78,16 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	protected conml.types.Class generalizedClass;
 
 	/**
-	 * The cached value of the '{@link #getDominatesInheritanceOn() <em>Dominates Inheritance On</em>}' reference list.
+	 * The cached value of the '{@link #getDominatedClasses() <em>Dominated Classes</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDominatesInheritanceOn()
+	 * @see #getDominatedClasses()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.types.Class> dominatesInheritanceOn;
+	protected EList<conml.types.Class> dominatedClasses;
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -135,14 +135,14 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	 * @generated
 	 */
 	@Override
-	public EList<conml.types.Class> getSpecializedClass() {
-		if (specializedClass == null) {
-			specializedClass = new EObjectWithInverseResolvingEList.ManyInverse<conml.types.Class>(conml.types.Class.class, this, TypesPackage.GENERALIZATION__SPECIALIZED_CLASS, TypesPackage.CLASS__GENERALIZATION);
+	public EList<conml.types.Class> getSpecializedClasses() {
+		if (specializedClasses == null) {
+			specializedClasses = new EObjectWithInverseResolvingEList.ManyInverse<conml.types.Class>(conml.types.Class.class, this, TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES, TypesPackage.CLASS__GENERALIZATIONS);
 		}
-		return specializedClass;
+		return specializedClasses;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -210,14 +210,14 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	 * @generated
 	 */
 	@Override
-	public EList<conml.types.Class> getDominatesInheritanceOn() {
-		if (dominatesInheritanceOn == null) {
-			dominatesInheritanceOn = new EObjectWithInverseResolvingEList<conml.types.Class>(conml.types.Class.class, this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, TypesPackage.CLASS__DOMINANT_GENERALIZATION);
+	public EList<conml.types.Class> getDominatedClasses() {
+		if (dominatedClasses == null) {
+			dominatedClasses = new EObjectWithInverseResolvingEList<conml.types.Class>(conml.types.Class.class, this, TypesPackage.GENERALIZATION__DOMINATED_CLASSES, TypesPackage.CLASS__DOMINANT_GENERALIZATION);
 		}
-		return dominatesInheritanceOn;
+		return dominatedClasses;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -226,14 +226,14 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecializedClass()).basicAdd(otherEnd, msgs);
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSpecializedClasses()).basicAdd(otherEnd, msgs);
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				if (generalizedClass != null)
 					msgs = ((InternalEObject)generalizedClass).eInverseRemove(this, TypesPackage.CLASS__SPECIALIZATION, conml.types.Class.class, msgs);
 				return basicSetGeneralizedClass((conml.types.Class)otherEnd, msgs);
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDominatesInheritanceOn()).basicAdd(otherEnd, msgs);
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDominatedClasses()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -246,12 +246,12 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				return ((InternalEList<?>)getSpecializedClass()).basicRemove(otherEnd, msgs);
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				return ((InternalEList<?>)getSpecializedClasses()).basicRemove(otherEnd, msgs);
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				return basicSetGeneralizedClass(null, msgs);
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				return ((InternalEList<?>)getDominatesInheritanceOn()).basicRemove(otherEnd, msgs);
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				return ((InternalEList<?>)getDominatedClasses()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -266,13 +266,13 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 		switch (featureID) {
 			case TypesPackage.GENERALIZATION__DISCRIMINANT:
 				return getDiscriminant();
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				return getSpecializedClass();
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				return getSpecializedClasses();
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				if (resolve) return getGeneralizedClass();
 				return basicGetGeneralizedClass();
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				return getDominatesInheritanceOn();
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				return getDominatedClasses();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -289,16 +289,16 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 			case TypesPackage.GENERALIZATION__DISCRIMINANT:
 				setDiscriminant((String)newValue);
 				return;
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				getSpecializedClass().clear();
-				getSpecializedClass().addAll((Collection<? extends conml.types.Class>)newValue);
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				getSpecializedClasses().clear();
+				getSpecializedClasses().addAll((Collection<? extends conml.types.Class>)newValue);
 				return;
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				setGeneralizedClass((conml.types.Class)newValue);
 				return;
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				getDominatesInheritanceOn().clear();
-				getDominatesInheritanceOn().addAll((Collection<? extends conml.types.Class>)newValue);
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				getDominatedClasses().clear();
+				getDominatedClasses().addAll((Collection<? extends conml.types.Class>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -315,14 +315,14 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 			case TypesPackage.GENERALIZATION__DISCRIMINANT:
 				setDiscriminant(DISCRIMINANT_EDEFAULT);
 				return;
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				getSpecializedClass().clear();
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				getSpecializedClasses().clear();
 				return;
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				setGeneralizedClass((conml.types.Class)null);
 				return;
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				getDominatesInheritanceOn().clear();
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				getDominatedClasses().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -338,12 +338,12 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 		switch (featureID) {
 			case TypesPackage.GENERALIZATION__DISCRIMINANT:
 				return DISCRIMINANT_EDEFAULT == null ? discriminant != null : !DISCRIMINANT_EDEFAULT.equals(discriminant);
-			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASS:
-				return specializedClass != null && !specializedClass.isEmpty();
+			case TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES:
+				return specializedClasses != null && !specializedClasses.isEmpty();
 			case TypesPackage.GENERALIZATION__GENERALIZED_CLASS:
 				return generalizedClass != null;
-			case TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON:
-				return dominatesInheritanceOn != null && !dominatesInheritanceOn.isEmpty();
+			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
+				return dominatedClasses != null && !dominatedClasses.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

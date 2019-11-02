@@ -38,7 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getGeneralization <em>Generalization</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#getGeneralizations <em>Generalizations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSemiassociations <em>Semiassociations</em>}</li>
@@ -112,16 +112,16 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected boolean usedAsSubjectiveAspect = USED_AS_SUBJECTIVE_ASPECT_EDEFAULT;
 
   /**
-	 * The cached value of the '{@link #getGeneralization() <em>Generalization</em>}' reference list.
+	 * The cached value of the '{@link #getGeneralizations() <em>Generalizations</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getGeneralization()
+	 * @see #getGeneralizations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<Generalization> generalization;
+	protected EList<Generalization> generalizations;
 
-	/**
+    /**
 	 * The cached value of the '{@link #getSpecialization() <em>Specialization</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -285,14 +285,14 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
-	public EList<Generalization> getGeneralization() {
-		if (generalization == null) {
-			generalization = new EObjectWithInverseResolvingEList.ManyInverse<Generalization>(Generalization.class, this, TypesPackage.CLASS__GENERALIZATION, TypesPackage.GENERALIZATION__SPECIALIZED_CLASS);
+	public EList<Generalization> getGeneralizations() {
+		if (generalizations == null) {
+			generalizations = new EObjectWithInverseResolvingEList.ManyInverse<Generalization>(Generalization.class, this, TypesPackage.CLASS__GENERALIZATIONS, TypesPackage.GENERALIZATION__SPECIALIZED_CLASSES);
 		}
-		return generalization;
+		return generalizations;
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -406,9 +406,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 		if (newDominantGeneralization != dominantGeneralization) {
 			NotificationChain msgs = null;
 			if (dominantGeneralization != null)
-				msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, Generalization.class, msgs);
+				msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATED_CLASSES, Generalization.class, msgs);
 			if (newDominantGeneralization != null)
-				msgs = ((InternalEObject)newDominantGeneralization).eInverseAdd(this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, Generalization.class, msgs);
+				msgs = ((InternalEObject)newDominantGeneralization).eInverseAdd(this, TypesPackage.GENERALIZATION__DOMINATED_CLASSES, Generalization.class, msgs);
 			msgs = basicSetDominantGeneralization(newDominantGeneralization, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -539,15 +539,15 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.CLASS__GENERALIZATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeneralization()).basicAdd(otherEnd, msgs);
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getGeneralizations()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__SPECIALIZATION:
 				if (specialization != null)
 					msgs = ((InternalEObject)specialization).eInverseRemove(this, TypesPackage.GENERALIZATION__GENERALIZED_CLASS, Generalization.class, msgs);
 				return basicSetSpecialization((Generalization)otherEnd, msgs);
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				if (dominantGeneralization != null)
-					msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATES_INHERITANCE_ON, Generalization.class, msgs);
+					msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATED_CLASSES, Generalization.class, msgs);
 				return basicSetDominantGeneralization((Generalization)otherEnd, msgs);
 			case TypesPackage.CLASS__SEMIASSOCIATIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemiassociations()).basicAdd(otherEnd, msgs);
@@ -569,8 +569,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.CLASS__GENERALIZATION:
-				return ((InternalEList<?>)getGeneralization()).basicRemove(otherEnd, msgs);
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				return ((InternalEList<?>)getGeneralizations()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__SPECIALIZATION:
 				return basicSetSpecialization(null, msgs);
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
@@ -603,8 +603,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return isUsedAsTemporalAspect();
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				return isUsedAsSubjectiveAspect();
-			case TypesPackage.CLASS__GENERALIZATION:
-				return getGeneralization();
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				return getGeneralizations();
 			case TypesPackage.CLASS__SPECIALIZATION:
 				if (resolve) return getSpecialization();
 				return basicGetSpecialization();
@@ -644,9 +644,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				setUsedAsSubjectiveAspect((Boolean)newValue);
 				return;
-			case TypesPackage.CLASS__GENERALIZATION:
-				getGeneralization().clear();
-				getGeneralization().addAll((Collection<? extends Generalization>)newValue);
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				getGeneralizations().clear();
+				getGeneralizations().addAll((Collection<? extends Generalization>)newValue);
 				return;
 			case TypesPackage.CLASS__SPECIALIZATION:
 				setSpecialization((Generalization)newValue);
@@ -694,8 +694,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				setUsedAsSubjectiveAspect(USED_AS_SUBJECTIVE_ASPECT_EDEFAULT);
 				return;
-			case TypesPackage.CLASS__GENERALIZATION:
-				getGeneralization().clear();
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				getGeneralizations().clear();
 				return;
 			case TypesPackage.CLASS__SPECIALIZATION:
 				setSpecialization((Generalization)null);
@@ -736,8 +736,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return usedAsTemporalAspect != USED_AS_TEMPORAL_ASPECT_EDEFAULT;
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				return usedAsSubjectiveAspect != USED_AS_SUBJECTIVE_ASPECT_EDEFAULT;
-			case TypesPackage.CLASS__GENERALIZATION:
-				return generalization != null && !generalization.isEmpty();
+			case TypesPackage.CLASS__GENERALIZATIONS:
+				return generalizations != null && !generalizations.isEmpty();
 			case TypesPackage.CLASS__SPECIALIZATION:
 				return specialization != null;
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:

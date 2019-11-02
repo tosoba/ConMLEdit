@@ -16,7 +16,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Class#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link conml.types.Class#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}</li>
  *   <li>{@link conml.types.Class#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}</li>
- *   <li>{@link conml.types.Class#getGeneralization <em>Generalization</em>}</li>
+ *   <li>{@link conml.types.Class#getGeneralizations <em>Generalizations</em>}</li>
  *   <li>{@link conml.types.Class#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}</li>
  *   <li>{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}</li>
@@ -98,20 +98,20 @@ public interface Class extends Type {
 	void setUsedAsSubjectiveAspect(boolean value);
 
   /**
-	 * Returns the value of the '<em><b>Generalization</b></em>' reference list.
+	 * Returns the value of the '<em><b>Generalizations</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Generalization}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getSpecializedClass <em>Specialized Class</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getSpecializedClasses <em>Specialized Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Generalization</em>' reference list.
-	 * @see conml.types.TypesPackage#getClass_Generalization()
-	 * @see conml.types.Generalization#getSpecializedClass
-	 * @model opposite="SpecializedClass"
+	 * @return the value of the '<em>Generalizations</em>' reference list.
+	 * @see conml.types.TypesPackage#getClass_Generalizations()
+	 * @see conml.types.Generalization#getSpecializedClasses
+	 * @model opposite="SpecializedClasses"
 	 * @generated
 	 */
-	EList<Generalization> getGeneralization();
+	EList<Generalization> getGeneralizations();
 
-	/**
+    /**
 	 * Returns the value of the '<em><b>Specialization</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getGeneralizedClass <em>Generalized Class</em>}'.
 	 * <!-- begin-user-doc -->
@@ -137,14 +137,14 @@ public interface Class extends Type {
 
 	/**
 	 * Returns the value of the '<em><b>Dominant Generalization</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getDominatesInheritanceOn <em>Dominates Inheritance On</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Generalization#getDominatedClasses <em>Dominated Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Dominant Generalization</em>' reference.
 	 * @see #setDominantGeneralization(Generalization)
 	 * @see conml.types.TypesPackage#getClass_DominantGeneralization()
-	 * @see conml.types.Generalization#getDominatesInheritanceOn
-	 * @model opposite="DominatesInheritanceOn"
+	 * @see conml.types.Generalization#getDominatedClasses
+	 * @model opposite="DominatedClasses"
 	 * @generated
 	 */
 	Generalization getDominantGeneralization();

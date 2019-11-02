@@ -385,11 +385,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getClass_Generalization() {
+	public EReference getClass_Generalizations() {
 		return (EReference)classEClass.getEStructuralFeatures().get(3);
 	}
 
-	/**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -485,11 +485,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getGeneralization_SpecializedClass() {
+	public EReference getGeneralization_SpecializedClasses() {
 		return (EReference)generalizationEClass.getEStructuralFeatures().get(1);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -505,11 +505,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getGeneralization_DominatesInheritanceOn() {
+	public EReference getGeneralization_DominatedClasses() {
 		return (EReference)generalizationEClass.getEStructuralFeatures().get(3);
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1085,7 +1085,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(classEClass, CLASS__ABSTRACT);
 		createEAttribute(classEClass, CLASS__USED_AS_TEMPORAL_ASPECT);
 		createEAttribute(classEClass, CLASS__USED_AS_SUBJECTIVE_ASPECT);
-		createEReference(classEClass, CLASS__GENERALIZATION);
+		createEReference(classEClass, CLASS__GENERALIZATIONS);
 		createEReference(classEClass, CLASS__SPECIALIZATION);
 		createEReference(classEClass, CLASS__DOMINANT_GENERALIZATION);
 		createEReference(classEClass, CLASS__SEMIASSOCIATIONS);
@@ -1096,9 +1096,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		generalizationEClass = createEClass(GENERALIZATION);
 		createEAttribute(generalizationEClass, GENERALIZATION__DISCRIMINANT);
-		createEReference(generalizationEClass, GENERALIZATION__SPECIALIZED_CLASS);
+		createEReference(generalizationEClass, GENERALIZATION__SPECIALIZED_CLASSES);
 		createEReference(generalizationEClass, GENERALIZATION__GENERALIZED_CLASS);
-		createEReference(generalizationEClass, GENERALIZATION__DOMINATES_INHERITANCE_ON);
+		createEReference(generalizationEClass, GENERALIZATION__DOMINATED_CLASSES);
 
 		featureEClass = createEClass(FEATURE);
 		createEAttribute(featureEClass, FEATURE__MAXIMUM_CARDINALITY);
@@ -1233,9 +1233,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getClass_Abstract(), ecorePackage.getEBoolean(), "abstract", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClass_UsedAsTemporalAspect(), ecorePackage.getEBoolean(), "usedAsTemporalAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getClass_UsedAsSubjectiveAspect(), ecorePackage.getEBoolean(), "usedAsSubjectiveAspect", null, 1, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_Generalization(), this.getGeneralization(), this.getGeneralization_SpecializedClass(), "Generalization", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_Generalizations(), this.getGeneralization(), this.getGeneralization_SpecializedClasses(), "Generalizations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Specialization(), this.getGeneralization(), this.getGeneralization_GeneralizedClass(), "Specialization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getClass_DominantGeneralization(), this.getGeneralization(), this.getGeneralization_DominatesInheritanceOn(), "DominantGeneralization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getClass_DominantGeneralization(), this.getGeneralization(), this.getGeneralization_DominatedClasses(), "DominantGeneralization", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Semiassociations(), this.getSemiAssociation(), this.getSemiAssociation_Owner(), "Semiassociations", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_InstanceObjects(), theInstancesPackage.getObject(), theInstancesPackage.getObject_InstancedClass(), "InstanceObjects", null, 0, -1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getClass_Package(), this.getPackage(), this.getPackage_ContainedClasses(), "Package", null, 0, 1, conml.types.Class.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1244,9 +1244,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 
 		initEClass(generalizationEClass, Generalization.class, "Generalization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getGeneralization_Discriminant(), ecorePackage.getEString(), "discriminant", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneralization_SpecializedClass(), this.getClass_(), this.getClass_Generalization(), "SpecializedClass", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneralization_SpecializedClasses(), this.getClass_(), this.getClass_Generalizations(), "SpecializedClasses", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_GeneralizedClass(), this.getClass_(), this.getClass_Specialization(), "GeneralizedClass", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneralization_DominatesInheritanceOn(), this.getClass_(), this.getClass_DominantGeneralization(), "DominatesInheritanceOn", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneralization_DominatedClasses(), this.getClass_(), this.getClass_DominantGeneralization(), "DominatedClasses", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeature_MaximumCardinality(), ecorePackage.getEIntegerObject(), "maximumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

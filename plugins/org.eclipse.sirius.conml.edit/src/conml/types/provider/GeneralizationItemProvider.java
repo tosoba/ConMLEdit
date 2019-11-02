@@ -46,9 +46,9 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addDiscriminantPropertyDescriptor(object);
-			addSpecializedClassPropertyDescriptor(object);
+			addSpecializedClassesPropertyDescriptor(object);
 			addGeneralizedClassPropertyDescriptor(object);
-			addDominatesInheritanceOnPropertyDescriptor(object);
+			addDominatedClassesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -76,19 +76,19 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Specialized Class feature.
+	 * This adds a property descriptor for the Specialized Classes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addSpecializedClassPropertyDescriptor(Object object) {
+	protected void addSpecializedClassesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Generalization_SpecializedClass_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generalization_SpecializedClass_feature", "_UI_Generalization_type"),
-				 TypesPackage.Literals.GENERALIZATION__SPECIALIZED_CLASS,
+				 getString("_UI_Generalization_SpecializedClasses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generalization_SpecializedClasses_feature", "_UI_Generalization_type"),
+				 TypesPackage.Literals.GENERALIZATION__SPECIALIZED_CLASSES,
 				 true,
 				 false,
 				 true,
@@ -97,7 +97,7 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This adds a property descriptor for the Generalized Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -120,19 +120,19 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Dominates Inheritance On feature.
+	 * This adds a property descriptor for the Dominated Classes feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDominatesInheritanceOnPropertyDescriptor(Object object) {
+	protected void addDominatedClassesPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Generalization_DominatesInheritanceOn_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Generalization_DominatesInheritanceOn_feature", "_UI_Generalization_type"),
-				 TypesPackage.Literals.GENERALIZATION__DOMINATES_INHERITANCE_ON,
+				 getString("_UI_Generalization_DominatedClasses_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generalization_DominatedClasses_feature", "_UI_Generalization_type"),
+				 TypesPackage.Literals.GENERALIZATION__DOMINATED_CLASSES,
 				 true,
 				 false,
 				 true,
@@ -141,7 +141,7 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 				 null));
 	}
 
-	/**
+  /**
 	 * This returns Generalization.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

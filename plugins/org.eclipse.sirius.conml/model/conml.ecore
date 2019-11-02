@@ -58,12 +58,12 @@
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="usedAsSubjectiveAspect"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Generalization" upperBound="-1"
-          eType="#//types/Generalization" eOpposite="#//types/Generalization/SpecializedClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Generalizations" upperBound="-1"
+          eType="#//types/Generalization" eOpposite="#//types/Generalization/SpecializedClasses"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Specialization" eType="#//types/Generalization"
           eOpposite="#//types/Generalization/GeneralizedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DominantGeneralization"
-          eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatesInheritanceOn"/>
+          eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatedClasses"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Semiassociations" upperBound="-1"
           eType="#//types/SemiAssociation" containment="true" eOpposite="#//types/SemiAssociation/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceObjects" upperBound="-1"
@@ -78,12 +78,12 @@
     <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminant" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializedClass" lowerBound="1"
-          upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/Generalization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SpecializedClasses" lowerBound="1"
+          upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/Generalizations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="GeneralizedClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Specialization"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="DominatesInheritanceOn"
-          lowerBound="1" upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DominatedClasses" lowerBound="1"
+          upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" lowerBound="1"

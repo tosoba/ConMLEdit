@@ -16,7 +16,11 @@ public interface GeneralizationValidator {
 	boolean validate();
 
 	boolean validateDiscriminant(String value);
-	boolean validateSpecializedClass(EList<conml.types.Class> value);
+	boolean validateSpecializedClasses(EList<conml.types.Class> value);
+
+  boolean validateSpecializedClass(EList<conml.types.Class> value);
 	boolean validateGeneralizedClass(conml.types.Class value);
-	boolean validateDominatesInheritanceOn(EList<conml.types.Class> value);
+	boolean validateDominatedClasses(EList<conml.types.Class> value);
+
+  boolean validateDominatesInheritanceOn(EList<conml.types.Class> value);
 }

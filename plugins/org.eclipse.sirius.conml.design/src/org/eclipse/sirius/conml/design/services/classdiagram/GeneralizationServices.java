@@ -40,11 +40,9 @@ public class GeneralizationServices {
     final Generalization sourceSpecialization = source.getSpecialization();
     if (sourceSpecialization != null
         && sourceSpecialization
-            .getSpecializedClass()
+            .getSpecializedClasses()
             .stream()
-            .filter(clazz -> EcoreUtil.equals(clazz, target))
-            .findAny()
-            .isPresent()) {
+            .anyMatch(clazz -> EcoreUtil.equals(clazz, target))) {
       Dialogs.showError(
           Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.OPPOSITE_GENERALIZATION_SAME_CLASSES);
       return null;
@@ -54,23 +52,20 @@ public class GeneralizationServices {
     // Generalization instance
     final Generalization targetSpecialization = target.getSpecialization();
     if (targetSpecialization != null) {
-      if (!targetSpecialization.getSpecializedClass().contains(source)) {
-        targetSpecialization.getSpecializedClass().add(source);
-      }
-      return targetSpecialization; // TODO: return existing or null - does it make any difference
+      if (!targetSpecialization.getSpecializedClasses().contains(source))
+        targetSpecialization.getSpecializedClasses().add(source);
+      return null;
     }
 
     // Otherwise create a new one
     final Generalization generalization = TypesFactory.eINSTANCE.createGeneralization();
-    generalization.setDiscriminant(defaultDiscriminant(source, target));
-    generalization.getSpecializedClass().add(source);
-    source.getGeneralization().add(generalization);
-    if (generalization.getGeneralizedClass() == null) {
-      generalization.setGeneralizedClass(target);
-    }
-    if (target.getSpecialization() == null) {
-      target.setSpecialization(generalization);
-    }
+    generalization.setDiscriminant(defaultDiscriminant(target));
+    generalization.getSpecializedClasses().add(source);
+    source.getGeneralizations().add(generalization);
+    if (generalization.getGeneralizedClass() == null) generalization.setGeneralizedClass(target);
+
+    if (target.getSpecialization() == null) target.setSpecialization(generalization);
+
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
       typeModel.getElements().add(generalization);
@@ -78,13 +73,13 @@ public class GeneralizationServices {
     return generalization;
   }
 
-  private String defaultDiscriminant(final Class inheritingClass, final Class inheritedClass) {
-    return inheritingClass.getName() + " from " + inheritedClass.getName();
+  private String defaultDiscriminant(final Class inheritedClass) {
+    return inheritedClass.getName();
   }
 
   public Collection<EObject> getGeneralizationSourceType(final Generalization generalization) {
     return generalization
-        .getSpecializedClass()
+        .getSpecializedClasses()
         .stream()
         .map(clazz -> (EObject) clazz)
         .collect(Collectors.toList());

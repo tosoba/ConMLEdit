@@ -397,15 +397,15 @@ public interface TypesPackage extends EPackage {
 	int CLASS__USED_AS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 2;
 
   /**
-	 * The feature id for the '<em><b>Generalization</b></em>' reference list.
+	 * The feature id for the '<em><b>Generalizations</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__GENERALIZATION = TYPE_FEATURE_COUNT + 3;
+	int CLASS__GENERALIZATIONS = TYPE_FEATURE_COUNT + 3;
 
-	/**
+    /**
 	 * The feature id for the '<em><b>Specialization</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -524,15 +524,15 @@ public interface TypesPackage extends EPackage {
 	int GENERALIZATION__DISCRIMINANT = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Specialized Class</b></em>' reference list.
+	 * The feature id for the '<em><b>Specialized Classes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__SPECIALIZED_CLASS = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 1;
+	int GENERALIZATION__SPECIALIZED_CLASSES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 1;
 
-	/**
+  /**
 	 * The feature id for the '<em><b>Generalized Class</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -542,15 +542,15 @@ public interface TypesPackage extends EPackage {
 	int GENERALIZATION__GENERALIZED_CLASS = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Dominates Inheritance On</b></em>' reference list.
+	 * The feature id for the '<em><b>Dominated Classes</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__DOMINATES_INHERITANCE_ON = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
+	int GENERALIZATION__DOMINATED_CLASSES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
-	/**
+  /**
 	 * The number of structural features of the '<em>Generalization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1913,17 +1913,17 @@ public interface TypesPackage extends EPackage {
 	EAttribute getClass_UsedAsSubjectiveAspect();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.types.Class#getGeneralization <em>Generalization</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Class#getGeneralizations <em>Generalizations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Generalization</em>'.
-	 * @see conml.types.Class#getGeneralization()
+	 * @return the meta object for the reference list '<em>Generalizations</em>'.
+	 * @see conml.types.Class#getGeneralizations()
 	 * @see #getClass_()
 	 * @generated
 	 */
-	EReference getClass_Generalization();
+	EReference getClass_Generalizations();
 
-	/**
+    /**
 	 * Returns the meta object for the reference '{@link conml.types.Class#getSpecialization <em>Specialization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2022,17 +2022,17 @@ public interface TypesPackage extends EPackage {
 	EAttribute getGeneralization_Discriminant();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Generalization#getSpecializedClass <em>Specialized Class</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Generalization#getSpecializedClasses <em>Specialized Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Specialized Class</em>'.
-	 * @see conml.types.Generalization#getSpecializedClass()
+	 * @return the meta object for the reference list '<em>Specialized Classes</em>'.
+	 * @see conml.types.Generalization#getSpecializedClasses()
 	 * @see #getGeneralization()
 	 * @generated
 	 */
-	EReference getGeneralization_SpecializedClass();
+	EReference getGeneralization_SpecializedClasses();
 
-	/**
+  /**
 	 * Returns the meta object for the reference '{@link conml.types.Generalization#getGeneralizedClass <em>Generalized Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2044,17 +2044,17 @@ public interface TypesPackage extends EPackage {
 	EReference getGeneralization_GeneralizedClass();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.types.Generalization#getDominatesInheritanceOn <em>Dominates Inheritance On</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.Generalization#getDominatedClasses <em>Dominated Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Dominates Inheritance On</em>'.
-	 * @see conml.types.Generalization#getDominatesInheritanceOn()
+	 * @return the meta object for the reference list '<em>Dominated Classes</em>'.
+	 * @see conml.types.Generalization#getDominatedClasses()
 	 * @see #getGeneralization()
 	 * @generated
 	 */
-	EReference getGeneralization_DominatesInheritanceOn();
+	EReference getGeneralization_DominatedClasses();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.types.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2775,14 +2775,14 @@ public interface TypesPackage extends EPackage {
 		EAttribute CLASS__USED_AS_SUBJECTIVE_ASPECT = eINSTANCE.getClass_UsedAsSubjectiveAspect();
 
     /**
-		 * The meta object literal for the '<em><b>Generalization</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Generalizations</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CLASS__GENERALIZATION = eINSTANCE.getClass_Generalization();
+		EReference CLASS__GENERALIZATIONS = eINSTANCE.getClass_Generalizations();
 
-		/**
+        /**
 		 * The meta object literal for the '<em><b>Specialization</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2857,14 +2857,14 @@ public interface TypesPackage extends EPackage {
 		EAttribute GENERALIZATION__DISCRIMINANT = eINSTANCE.getGeneralization_Discriminant();
 
 		/**
-		 * The meta object literal for the '<em><b>Specialized Class</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Specialized Classes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERALIZATION__SPECIALIZED_CLASS = eINSTANCE.getGeneralization_SpecializedClass();
+		EReference GENERALIZATION__SPECIALIZED_CLASSES = eINSTANCE.getGeneralization_SpecializedClasses();
 
-		/**
+    /**
 		 * The meta object literal for the '<em><b>Generalized Class</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2873,14 +2873,14 @@ public interface TypesPackage extends EPackage {
 		EReference GENERALIZATION__GENERALIZED_CLASS = eINSTANCE.getGeneralization_GeneralizedClass();
 
 		/**
-		 * The meta object literal for the '<em><b>Dominates Inheritance On</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Dominated Classes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference GENERALIZATION__DOMINATES_INHERITANCE_ON = eINSTANCE.getGeneralization_DominatesInheritanceOn();
+		EReference GENERALIZATION__DOMINATED_CLASSES = eINSTANCE.getGeneralization_DominatedClasses();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.FeatureImpl <em>Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

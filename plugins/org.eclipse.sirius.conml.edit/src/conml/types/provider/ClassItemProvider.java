@@ -49,7 +49,7 @@ public class ClassItemProvider extends TypeItemProvider {
 			addAbstractPropertyDescriptor(object);
 			addUsedAsTemporalAspectPropertyDescriptor(object);
 			addUsedAsSubjectiveAspectPropertyDescriptor(object);
-			addGeneralizationPropertyDescriptor(object);
+			addGeneralizationsPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
 			addSemiassociationsPropertyDescriptor(object);
@@ -126,19 +126,19 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Generalization feature.
+	 * This adds a property descriptor for the Generalizations feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addGeneralizationPropertyDescriptor(Object object) {
+	protected void addGeneralizationsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Class_Generalization_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Generalization_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__GENERALIZATION,
+				 getString("_UI_Class_Generalizations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Generalizations_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__GENERALIZATIONS,
 				 true,
 				 false,
 				 true,
@@ -147,7 +147,7 @@ public class ClassItemProvider extends TypeItemProvider {
 				 null));
 	}
 
-	/**
+    /**
 	 * This adds a property descriptor for the Specialization feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

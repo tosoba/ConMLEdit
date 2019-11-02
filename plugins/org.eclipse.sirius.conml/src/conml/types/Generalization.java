@@ -14,9 +14,9 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.Generalization#getDiscriminant <em>Discriminant</em>}</li>
- *   <li>{@link conml.types.Generalization#getSpecializedClass <em>Specialized Class</em>}</li>
+ *   <li>{@link conml.types.Generalization#getSpecializedClasses <em>Specialized Classes</em>}</li>
  *   <li>{@link conml.types.Generalization#getGeneralizedClass <em>Generalized Class</em>}</li>
- *   <li>{@link conml.types.Generalization#getDominatesInheritanceOn <em>Dominates Inheritance On</em>}</li>
+ *   <li>{@link conml.types.Generalization#getDominatedClasses <em>Dominated Classes</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getGeneralization()
@@ -47,20 +47,20 @@ public interface Generalization extends TypeModelElement {
 	void setDiscriminant(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Specialized Class</b></em>' reference list.
+	 * Returns the value of the '<em><b>Specialized Classes</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Class}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getGeneralization <em>Generalization</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getGeneralizations <em>Generalizations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specialized Class</em>' reference list.
-	 * @see conml.types.TypesPackage#getGeneralization_SpecializedClass()
-	 * @see conml.types.Class#getGeneralization
-	 * @model opposite="Generalization" required="true"
+	 * @return the value of the '<em>Specialized Classes</em>' reference list.
+	 * @see conml.types.TypesPackage#getGeneralization_SpecializedClasses()
+	 * @see conml.types.Class#getGeneralizations
+	 * @model opposite="Generalizations" required="true"
 	 * @generated
 	 */
-	EList<conml.types.Class> getSpecializedClass();
+	EList<conml.types.Class> getSpecializedClasses();
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Generalized Class</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Class#getSpecialization <em>Specialization</em>}'.
 	 * <!-- begin-user-doc -->
@@ -85,17 +85,17 @@ public interface Generalization extends TypeModelElement {
 	void setGeneralizedClass(conml.types.Class value);
 
 	/**
-	 * Returns the value of the '<em><b>Dominates Inheritance On</b></em>' reference list.
+	 * Returns the value of the '<em><b>Dominated Classes</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Class}.
 	 * It is bidirectional and its opposite is '{@link conml.types.Class#getDominantGeneralization <em>Dominant Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Dominates Inheritance On</em>' reference list.
-	 * @see conml.types.TypesPackage#getGeneralization_DominatesInheritanceOn()
+	 * @return the value of the '<em>Dominated Classes</em>' reference list.
+	 * @see conml.types.TypesPackage#getGeneralization_DominatedClasses()
 	 * @see conml.types.Class#getDominantGeneralization
 	 * @model opposite="DominantGeneralization" required="true"
 	 * @generated
 	 */
-	EList<conml.types.Class> getDominatesInheritanceOn();
+	EList<conml.types.Class> getDominatedClasses();
 
 } // Generalization

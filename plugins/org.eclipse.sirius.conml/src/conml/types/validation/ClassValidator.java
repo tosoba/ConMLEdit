@@ -27,7 +27,9 @@ public interface ClassValidator {
 
   boolean validateUsedAsSubjectiveAspect(boolean value);
 
-  boolean validateIsAbstract(boolean value);
+  boolean validateGeneralizations(EList<Generalization> value);
+
+    boolean validateIsAbstract(boolean value);
 	boolean validateIsTemporalAspect(boolean value);
 	boolean validateIsSubjectiveAspect(boolean value);
 	boolean validateIsTemporalAspectOf(EList<TypeModel> value);
