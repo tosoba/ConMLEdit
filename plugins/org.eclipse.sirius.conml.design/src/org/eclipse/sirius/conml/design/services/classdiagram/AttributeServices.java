@@ -1,20 +1,16 @@
 package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Objects;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.types.Attribute;
 import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Feature;
-import conml.types.Generalization;
 import conml.types.Property;
 import conml.types.SemiAssociation;
 
@@ -82,34 +78,9 @@ public class AttributeServices implements FeatureServices {
           if (redefined == null) return true;
           final Class attributeClass = attribute.getOwnerClass();
           if (attributeClass == null) return true;
-          return anyAncestorOfClassOwnsRedefinedAttribute(attributeClass, redefined);
+          return anyAncestorOfClassOwnsRedefinedFeature(
+              attributeClass, redefined, Class::getAttributes);
         },
         true);
-  }
-
-  private boolean anyAncestorOfClassOwnsRedefinedAttribute(
-      final Class clazz, final Attribute attribute) {
-    if (clazz.getGeneralizations().isEmpty()) {
-      return false;
-    } else if (nonNullGeneralizedClassesStream(clazz)
-        .map(Class::getAttributes)
-        .flatMap(Collection::stream)
-        .anyMatch(otherAttribute -> EcoreUtil.equals(attribute, otherAttribute))) {
-      return true;
-    } else {
-      return nonNullGeneralizedClassesStream(clazz)
-          .map(
-              generalizedClass ->
-                  anyAncestorOfClassOwnsRedefinedAttribute(generalizedClass, attribute))
-          .anyMatch(contains -> contains);
-    }
-  }
-
-  private Stream<Class> nonNullGeneralizedClassesStream(final Class clazz) {
-    return clazz
-        .getGeneralizations()
-        .stream()
-        .map(Generalization::getGeneralizedClass)
-        .filter(Objects::nonNull);
   }
 }
