@@ -20,7 +20,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -36,12 +35,13 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getRole <em>Role</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isWhole <em>Whole</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#isStrong <em>Strong</em>}</li>
- *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getPrimaryInAssociation <em>Primary In Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getSecondaryInAssociation <em>Secondary In Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getReferredClass <em>Referred Class</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwnerClass <em>Owner Class</em>}</li>
  * </ul>
  *
  * @generated
@@ -158,6 +158,16 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected conml.types.Class referredClass;
 
   /**
+	 * The cached value of the '{@link #getRedefinedSemiassociation() <em>Redefined Semiassociation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRedefinedSemiassociation()
+	 * @generated
+	 * @ordered
+	 */
+	protected SemiAssociation redefinedSemiassociation;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -246,49 +256,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	}
 
   /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.types.Class getOwner() {
-		if (eContainerFeatureID() != TypesPackage.SEMI_ASSOCIATION__OWNER) return null;
-		return (conml.types.Class)eInternalContainer();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetOwner(conml.types.Class newOwner, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newOwner, TypesPackage.SEMI_ASSOCIATION__OWNER, msgs);
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setOwner(conml.types.Class newOwner) {
-		if (newOwner != eInternalContainer() || (eContainerFeatureID() != TypesPackage.SEMI_ASSOCIATION__OWNER && newOwner != null)) {
-			if (EcoreUtil.isAncestor(this, newOwner))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newOwner != null)
-				msgs = ((InternalEObject)newOwner).eInverseAdd(this, TypesPackage.CLASS__SEMIASSOCIATIONS, conml.types.Class.class, msgs);
-			msgs = basicSetOwner(newOwner, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__OWNER, newOwner, newOwner));
-	}
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -510,14 +477,93 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public SemiAssociation getRedefinedSemiassociation() {
+		if (redefinedSemiassociation != null && redefinedSemiassociation.eIsProxy()) {
+			InternalEObject oldRedefinedSemiassociation = (InternalEObject)redefinedSemiassociation;
+			redefinedSemiassociation = (SemiAssociation)eResolveProxy(oldRedefinedSemiassociation);
+			if (redefinedSemiassociation != oldRedefinedSemiassociation) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION, oldRedefinedSemiassociation, redefinedSemiassociation));
+			}
+		}
+		return redefinedSemiassociation;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public SemiAssociation basicGetRedefinedSemiassociation() {
+		return redefinedSemiassociation;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRedefinedSemiassociation(SemiAssociation newRedefinedSemiassociation) {
+		SemiAssociation oldRedefinedSemiassociation = redefinedSemiassociation;
+		redefinedSemiassociation = newRedefinedSemiassociation;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION, oldRedefinedSemiassociation, redefinedSemiassociation));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public conml.types.Class getOwnerClass() {
+		if (eContainerFeatureID() != TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS) return null;
+		return (conml.types.Class)eInternalContainer();
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwnerClass(conml.types.Class newOwnerClass, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwnerClass, TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS, msgs);
+		return msgs;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOwnerClass(conml.types.Class newOwnerClass) {
+		if (newOwnerClass != eInternalContainer() || (eContainerFeatureID() != TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS && newOwnerClass != null)) {
+			if (EcoreUtil.isAncestor(this, newOwnerClass))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwnerClass != null)
+				msgs = ((InternalEObject)newOwnerClass).eInverseAdd(this, TypesPackage.CLASS__SEMI_ASSOCIATIONS, conml.types.Class.class, msgs);
+			msgs = basicSetOwnerClass(newOwnerClass, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS, newOwnerClass, newOwnerClass));
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetOwner((conml.types.Class)otherEnd, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				if (primaryInAssociation != null)
 					msgs = ((InternalEObject)primaryInAssociation).eInverseRemove(this, TypesPackage.ASSOCIATION__PRIMARY_SEMI_ASSOCIATION, Association.class, msgs);
@@ -528,6 +574,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return basicSetSecondaryInAssociation((Association)otherEnd, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInstanceReferenceSets()).basicAdd(otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwnerClass((conml.types.Class)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -540,14 +590,14 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				return basicSetOwner(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				return basicSetPrimaryInAssociation(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
 				return basicSetSecondaryInAssociation(null, msgs);
 			case TypesPackage.SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS:
 				return ((InternalEList<?>)getInstanceReferenceSets()).basicRemove(otherEnd, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				return basicSetOwnerClass(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -560,8 +610,8 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				return eInternalContainer().eInverseRemove(this, TypesPackage.CLASS__SEMIASSOCIATIONS, conml.types.Class.class, msgs);
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				return eInternalContainer().eInverseRemove(this, TypesPackage.CLASS__SEMI_ASSOCIATIONS, conml.types.Class.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -580,8 +630,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return isWhole();
 			case TypesPackage.SEMI_ASSOCIATION__STRONG:
 				return isStrong();
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				return getOwner();
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				if (resolve) return getPrimaryInAssociation();
 				return basicGetPrimaryInAssociation();
@@ -596,6 +644,11 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				if (resolve) return getReferredClass();
 				return basicGetReferredClass();
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
+				if (resolve) return getRedefinedSemiassociation();
+				return basicGetRedefinedSemiassociation();
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				return getOwnerClass();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -618,9 +671,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__STRONG:
 				setStrong((Boolean)newValue);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				setOwner((conml.types.Class)newValue);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				setPrimaryInAssociation((Association)newValue);
 				return;
@@ -636,6 +686,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)newValue);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
+				setRedefinedSemiassociation((SemiAssociation)newValue);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				setOwnerClass((conml.types.Class)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -658,9 +714,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__STRONG:
 				setStrong(STRONG_EDEFAULT);
 				return;
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				setOwner((conml.types.Class)null);
-				return;
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				setPrimaryInAssociation((Association)null);
 				return;
@@ -675,6 +728,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				setReferredClass((conml.types.Class)null);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
+				setRedefinedSemiassociation((SemiAssociation)null);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				setOwnerClass((conml.types.Class)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -694,8 +753,6 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return whole != WHOLE_EDEFAULT;
 			case TypesPackage.SEMI_ASSOCIATION__STRONG:
 				return strong != STRONG_EDEFAULT;
-			case TypesPackage.SEMI_ASSOCIATION__OWNER:
-				return getOwner() != null;
 			case TypesPackage.SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION:
 				return primaryInAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION:
@@ -706,6 +763,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return inverseSemiAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__REFERRED_CLASS:
 				return referredClass != null;
+			case TypesPackage.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION:
+				return redefinedSemiassociation != null;
+			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
+				return getOwnerClass() != null;
 		}
 		return super.eIsSet(featureID);
 	}

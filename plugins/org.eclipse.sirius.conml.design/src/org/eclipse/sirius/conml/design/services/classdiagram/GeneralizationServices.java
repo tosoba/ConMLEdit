@@ -17,8 +17,8 @@ import conml.types.TypesFactory;
 public class GeneralizationServices {
 
   private static final class Errors {
-    static final String OPPOSITE_GENERALIZATION_SAME_CLASSES =
-        "An opposite generalization between the chosen classes already exists.";
+    static final String CYCLIC_INHERITANCE =
+        "Creating that generalization would cause a cyclic inheritance relationship.";
     static final String SELF_GENERALIZATION = "Self generalization is not allowed.";
   }
 
@@ -39,14 +39,8 @@ public class GeneralizationServices {
 
     // Prevent the creation of generalization between the same 2 classes in the
     // opposite direction
-    final Generalization sourceSpecialization = source.getSpecialization();
-    if (sourceSpecialization != null
-        && sourceSpecialization
-            .getSpecializedClasses()
-            .stream()
-            .anyMatch(clazz -> EcoreUtil.equals(clazz, target))) {
-      Dialogs.showError(
-          Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.OPPOSITE_GENERALIZATION_SAME_CLASSES);
+    if (wouldCauseCyclicInheritanceRelationship(source, target)) {
+      Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.CYCLIC_INHERITANCE);
       return null;
     }
 
@@ -72,6 +66,26 @@ public class GeneralizationServices {
       typeModel.getElements().add(generalization);
     }
     return generalization;
+  }
+
+  private boolean wouldCauseCyclicInheritanceRelationship(Class source, Class target) {
+    if (source.getSpecialization() == null) {
+      return false;
+    } else if (source
+        .getSpecialization()
+        .getSpecializedClasses()
+        .stream()
+        .anyMatch(clazz -> EcoreUtil.equals(clazz, target))) {
+      return true;
+    } else {
+      return source
+          .getSpecialization()
+          .getSpecializedClasses()
+          .stream()
+          .anyMatch(
+              specializedClass ->
+                  wouldCauseCyclicInheritanceRelationship(specializedClass, target));
+    }
   }
 
   public boolean dominatesGeneralizationsOnlyOnParticipatingClasses(final EObject object) {

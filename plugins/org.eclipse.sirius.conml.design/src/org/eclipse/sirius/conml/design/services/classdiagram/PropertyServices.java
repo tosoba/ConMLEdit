@@ -22,8 +22,9 @@ import conml.Model;
 import conml.instances.Link;
 import conml.instances.Value;
 import conml.types.Association;
-import conml.types.Feature;
+import conml.types.Attribute;
 import conml.types.Package;
+import conml.types.Property;
 import conml.types.SemiAssociation;
 
 public class PropertyServices {
@@ -124,17 +125,18 @@ public class PropertyServices {
         conml.types.Class.class,
         new HashSet<>(
             Arrays.asList(
-                "Semiassociations", "Specialization", "Generalization", "DominantGeneralization")));
+                "SemiAssociations", "Specialization", "Generalization", "DominantGeneralization")));
     ignoredReferences.put(
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
-    ignoredReferences.put(Feature.class, new HashSet<>(Arrays.asList("RedefinedByFeatures")));
+    ignoredReferences.put(Property.class, new HashSet<>(Arrays.asList("OwnerClass")));
+    ignoredReferences.put(Attribute.class, new HashSet<>(Arrays.asList("OwnerClass")));
     ignoredReferences.put(
         SemiAssociation.class,
         new HashSet<>(
             Arrays.asList(
                 "InverseSemiAssociation",
-                "Owner",
+                "OwnerClass",
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
 

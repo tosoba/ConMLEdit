@@ -18,12 +18,13 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#getRole <em>Role</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#isWhole <em>Whole</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#isStrong <em>Strong</em>}</li>
- *   <li>{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getPrimaryInAssociation <em>Primary In Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getSecondaryInAssociation <em>Secondary In Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getInstanceReferenceSets <em>Instance Reference Sets</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getInverseSemiAssociation <em>Inverse Semi Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getSemiAssociation()
@@ -98,30 +99,6 @@ public interface SemiAssociation extends Feature {
 	void setStrong(boolean value);
 
   /**
-	 * Returns the value of the '<em><b>Owner</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Owner</em>' container reference.
-	 * @see #setOwner(conml.types.Class)
-	 * @see conml.types.TypesPackage#getSemiAssociation_Owner()
-	 * @see conml.types.Class#getSemiassociations
-	 * @model opposite="Semiassociations" required="true" transient="false"
-	 * @generated
-	 */
-	conml.types.Class getOwner();
-
-	/**
-	 * Sets the value of the '{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Owner</em>' container reference.
-	 * @see #getOwner()
-	 * @generated
-	 */
-	void setOwner(conml.types.Class value);
-
-	/**
 	 * Returns the value of the '<em><b>Primary In Association</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Association#getPrimarySemiAssociation <em>Primary Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
@@ -226,5 +203,51 @@ public interface SemiAssociation extends Feature {
 	 * @generated
 	 */
 	void setReferredClass(conml.types.Class value);
+
+    /**
+	 * Returns the value of the '<em><b>Redefined Semiassociation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Redefined Semiassociation</em>' reference.
+	 * @see #setRedefinedSemiassociation(SemiAssociation)
+	 * @see conml.types.TypesPackage#getSemiAssociation_RedefinedSemiassociation()
+	 * @model
+	 * @generated
+	 */
+	SemiAssociation getRedefinedSemiassociation();
+
+    /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Redefined Semiassociation</em>' reference.
+	 * @see #getRedefinedSemiassociation()
+	 * @generated
+	 */
+	void setRedefinedSemiassociation(SemiAssociation value);
+
+        /**
+	 * Returns the value of the '<em><b>Owner Class</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getSemiAssociations <em>Semi Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner Class</em>' container reference.
+	 * @see #setOwnerClass(conml.types.Class)
+	 * @see conml.types.TypesPackage#getSemiAssociation_OwnerClass()
+	 * @see conml.types.Class#getSemiAssociations
+	 * @model opposite="SemiAssociations" required="true" transient="false"
+	 * @generated
+	 */
+	conml.types.Class getOwnerClass();
+
+        /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner Class</em>' container reference.
+	 * @see #getOwnerClass()
+	 * @generated
+	 */
+	void setOwnerClass(conml.types.Class value);
 
 } // SemiAssociation

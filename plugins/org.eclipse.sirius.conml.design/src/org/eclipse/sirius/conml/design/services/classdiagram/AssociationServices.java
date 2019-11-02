@@ -254,13 +254,13 @@ public class AssociationServices implements FeatureServices, ModelElementService
 
   public Class getAssociationSourceType(final Association association) {
     return association.getPrimarySemiAssociation() != null
-        ? association.getPrimarySemiAssociation().getOwner()
+        ? association.getPrimarySemiAssociation().getOwnerClass()
         : null;
   }
 
   public Class getAssociationTargetType(final Association association) {
     return association.getSecondarySemiAssociation() != null
-        ? association.getSecondarySemiAssociation().getOwner()
+        ? association.getSecondarySemiAssociation().getOwnerClass()
         : null;
   }
 
@@ -295,8 +295,10 @@ public class AssociationServices implements FeatureServices, ModelElementService
     primary.setInverseSemiAssociation(secondary);
     secondary.setInverseSemiAssociation(primary);
 
-    source.getSemiassociations().add(primary);
-    target.getSemiassociations().add(secondary);
+    source.getSemiAssociations().add(primary);
+    primary.setOwnerClass(source);
+    target.getSemiAssociations().add(secondary);
+    secondary.setOwnerClass(target);
 
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
@@ -313,7 +315,10 @@ public class AssociationServices implements FeatureServices, ModelElementService
     // minCardinality=1)?
     if (minPrimaryCardinality != 0
         || (maxPrimaryCardinality != null && !Objects.equals(maxPrimaryCardinality, 1))) {
-      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) {
+        source.getSemiAssociations().remove(primary);
+        EcoreUtil.delete(primary);
+      }
       Dialogs.showError(Errors.COMPACT_CARDINALITIES);
       return false;
     } else {
@@ -327,11 +332,17 @@ public class AssociationServices implements FeatureServices, ModelElementService
       final SemiAssociation primary, final Class source, final boolean removePrimaryIfInvalid) {
     final Class target = primary.getReferredClass();
     if (target == null) {
-      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) {
+        source.getSemiAssociations().remove(primary);
+        EcoreUtil.delete(primary);
+      }
       Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
       return false;
     } else if (EcoreUtil.equals(source, target)) {
-      if (removePrimaryIfInvalid) source.getSemiassociations().remove(primary);
+      if (removePrimaryIfInvalid) {
+        source.getSemiAssociations().remove(primary);
+        EcoreUtil.delete(primary);
+      }
       Dialogs.showError(Errors.COMPACT_SYMMETRIC_ASSOCIATION);
       return false;
     } else {
@@ -363,8 +374,8 @@ public class AssociationServices implements FeatureServices, ModelElementService
     primary.setInverseSemiAssociation(secondary);
     secondary.setInverseSemiAssociation(primary);
 
-    source.getSemiassociations().add(primary);
-    target.getSemiassociations().add(secondary);
+    addToOwnedSemiAssociations(primary, source);
+    addToOwnedSemiAssociations(secondary, target);
 
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();
@@ -373,7 +384,8 @@ public class AssociationServices implements FeatureServices, ModelElementService
   }
 
   public void addToOwnedSemiAssociations(final SemiAssociation semiAssociation, final Class clazz) {
-    clazz.getSemiassociations().add(semiAssociation);
+    clazz.getSemiAssociations().add(semiAssociation);
+    semiAssociation.setOwnerClass(clazz);
   }
 
   public boolean shouldDisplayCompactLabel(final SemiAssociation semiAssociation) {
@@ -392,10 +404,10 @@ public class AssociationServices implements FeatureServices, ModelElementService
       final StringBuilder sb) {
     if (semiAssociation == null) return sb;
 
-    if (semiAssociation.getRedefinedFeature() != null
-        && semiAssociation.getRedefinedFeature() instanceof SemiAssociation) {
+    if (semiAssociation.getRedefinedSemiassociation() != null
+        && semiAssociation.getRedefinedSemiassociation() instanceof SemiAssociation) {
       final SemiAssociation redefinedSemiAssociation =
-          (SemiAssociation) semiAssociation.getRedefinedFeature();
+          semiAssociation.getRedefinedSemiassociation();
       if (!Objects.equals(
           attributeNameGetter.apply(redefinedSemiAssociation),
           attributeNameGetter.apply(semiAssociation))) {

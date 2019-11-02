@@ -57,5 +57,7 @@ public interface ClassValidator {
 
   boolean validateAttributes(EList<Attribute> value);
 
-    boolean validateBelongsToPackage(conml.types.Package value);
+    boolean validateSemiAssociations(EList<SemiAssociation> value);
+
+        boolean validateBelongsToPackage(conml.types.Package value);
 }

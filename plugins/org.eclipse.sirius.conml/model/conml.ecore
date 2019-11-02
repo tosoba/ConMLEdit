@@ -64,16 +64,16 @@
           eOpposite="#//types/Generalization/GeneralizedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DominantGeneralization"
           eType="#//types/Generalization" eOpposite="#//types/Generalization/DominatedClasses"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Semiassociations" upperBound="-1"
-          eType="#//types/SemiAssociation" containment="true" eOpposite="#//types/SemiAssociation/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceObjects" upperBound="-1"
           eType="#//instances/Object" eOpposite="#//instances/Object/InstancedClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Package" eType="#//types/Package"
           eOpposite="#//types/Package/ContainedClasses"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Properties" upperBound="-1"
-          eType="#//types/Property" containment="true"/>
+          eType="#//types/Property" containment="true" eOpposite="#//types/Property/OwnerClass"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Attributes" upperBound="-1"
-          eType="#//types/Attribute" containment="true"/>
+          eType="#//types/Attribute" containment="true" eOpposite="#//types/Attribute/OwnerClass"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SemiAssociations" upperBound="-1"
+          eType="#//types/SemiAssociation" containment="true" eOpposite="#//types/SemiAssociation/OwnerClass"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Generalization" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminant" lowerBound="1"
@@ -98,10 +98,6 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedFeature" eType="#//types/Feature"
-          eOpposite="#//types/Feature/RedefinedByFeatures"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedByFeatures"
-          upperBound="-1" eType="#//types/Feature" eOpposite="#//types/Feature/RedefinedFeature"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedItems" upperBound="-1"
@@ -149,6 +145,9 @@
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/InstancedAttribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Datatype" lowerBound="1"
           eType="#//types/DataType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedAttribute" eType="#//types/Attribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/Attributes"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="BaseDataType">
       <eLiterals name="Boolean"/>
@@ -161,8 +160,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="role" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="whole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="strong" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
-          eType="#//types/Class" eOpposite="#//types/Class/Semiassociations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryInAssociation"
           eType="#//types/Association" eOpposite="#//types/Association/PrimarySemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryInAssociation"
@@ -173,8 +170,16 @@
           lowerBound="1" eType="#//types/SemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredClass" lowerBound="1"
           eType="#//types/Class"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedSemiassociation"
+          eType="#//types/SemiAssociation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/SemiAssociations"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedProperty" eType="#//types/Property"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
+          eType="#//types/Class" eOpposite="#//types/Class/Properties"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="SimpleDataType" eSuperTypes="#//types/DataType">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" lowerBound="1"
           eType="#//types/BaseDataType"/>

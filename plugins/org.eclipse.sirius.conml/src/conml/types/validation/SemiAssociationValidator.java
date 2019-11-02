@@ -42,7 +42,13 @@ public interface SemiAssociationValidator {
 	boolean validateInverse(SemiAssociation value);
 	boolean validateReferredClass(conml.types.Class value);
 
-  boolean validateIsPrimaryIn(Association value);
+  boolean validateRedefinedSemiassociation(SemiAssociation value);
+
+    boolean validateOwnerClass(conml.types.Class value);
+
+        boolean validateRedefinedSemiassociations(EList<SemiAssociation> value);
+
+    boolean validateIsPrimaryIn(Association value);
 	boolean validateIsSecondaryIn(Association value);
 	boolean validateHasInstanceReferenceSets(EList<ReferenceSet> value);
 }

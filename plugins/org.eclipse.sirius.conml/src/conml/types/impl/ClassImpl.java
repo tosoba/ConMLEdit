@@ -21,8 +21,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -41,11 +39,11 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.ClassImpl#getGeneralizations <em>Generalizations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getSpecialization <em>Specialization</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getDominantGeneralization <em>Dominant Generalization</em>}</li>
- *   <li>{@link conml.types.impl.ClassImpl#getSemiassociations <em>Semiassociations</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getInstanceObjects <em>Instance Objects</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getPackage <em>Package</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getProperties <em>Properties</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#getAttributes <em>Attributes</em>}</li>
+ *   <li>{@link conml.types.impl.ClassImpl#getSemiAssociations <em>Semi Associations</em>}</li>
  * </ul>
  *
  * @generated
@@ -142,16 +140,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected Generalization dominantGeneralization;
 
 	/**
-	 * The cached value of the '{@link #getSemiassociations() <em>Semiassociations</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSemiassociations()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<SemiAssociation> semiassociations;
-
-  /**
 	 * The cached value of the '{@link #getInstanceObjects() <em>Instance Objects</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -192,6 +180,16 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	protected EList<Attribute> attributes;
 
     /**
+	 * The cached value of the '{@link #getSemiAssociations() <em>Semi Associations</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getSemiAssociations()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<SemiAssociation> semiAssociations;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -422,19 +420,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
-	public EList<SemiAssociation> getSemiassociations() {
-		if (semiassociations == null) {
-			semiassociations = new EObjectContainmentWithInverseEList<SemiAssociation>(SemiAssociation.class, this, TypesPackage.CLASS__SEMIASSOCIATIONS, TypesPackage.SEMI_ASSOCIATION__OWNER);
-		}
-		return semiassociations;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<conml.instances.Object> getInstanceObjects() {
 		if (instanceObjects == null) {
 			instanceObjects = new EObjectWithInverseResolvingEList<conml.instances.Object>(conml.instances.Object.class, this, TypesPackage.CLASS__INSTANCE_OBJECTS, InstancesPackage.OBJECT__INSTANCED_CLASS);
@@ -512,7 +497,7 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public EList<Property> getProperties() {
 		if (properties == null) {
-			properties = new EObjectContainmentEList<Property>(Property.class, this, TypesPackage.CLASS__PROPERTIES);
+			properties = new EObjectContainmentWithInverseEList<Property>(Property.class, this, TypesPackage.CLASS__PROPERTIES, TypesPackage.PROPERTY__OWNER_CLASS);
 		}
 		return properties;
 	}
@@ -525,12 +510,25 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
-			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, TypesPackage.CLASS__ATTRIBUTES);
+			attributes = new EObjectContainmentWithInverseEList<Attribute>(Attribute.class, this, TypesPackage.CLASS__ATTRIBUTES, TypesPackage.ATTRIBUTE__OWNER_CLASS);
 		}
 		return attributes;
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EList<SemiAssociation> getSemiAssociations() {
+		if (semiAssociations == null) {
+			semiAssociations = new EObjectContainmentWithInverseEList<SemiAssociation>(SemiAssociation.class, this, TypesPackage.CLASS__SEMI_ASSOCIATIONS, TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS);
+		}
+		return semiAssociations;
+	}
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -549,14 +547,18 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				if (dominantGeneralization != null)
 					msgs = ((InternalEObject)dominantGeneralization).eInverseRemove(this, TypesPackage.GENERALIZATION__DOMINATED_CLASSES, Generalization.class, msgs);
 				return basicSetDominantGeneralization((Generalization)otherEnd, msgs);
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemiassociations()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInstanceObjects()).basicAdd(otherEnd, msgs);
 			case TypesPackage.CLASS__PACKAGE:
 				if (package_ != null)
 					msgs = ((InternalEObject)package_).eInverseRemove(this, TypesPackage.PACKAGE__CONTAINED_CLASSES, conml.types.Package.class, msgs);
 				return basicSetPackage((conml.types.Package)otherEnd, msgs);
+			case TypesPackage.CLASS__PROPERTIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProperties()).basicAdd(otherEnd, msgs);
+			case TypesPackage.CLASS__ATTRIBUTES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getAttributes()).basicAdd(otherEnd, msgs);
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getSemiAssociations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -575,8 +577,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return basicSetSpecialization(null, msgs);
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return basicSetDominantGeneralization(null, msgs);
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				return ((InternalEList<?>)getSemiassociations()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				return ((InternalEList<?>)getInstanceObjects()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__PACKAGE:
@@ -585,6 +585,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return ((InternalEList<?>)getProperties()).basicRemove(otherEnd, msgs);
 			case TypesPackage.CLASS__ATTRIBUTES:
 				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				return ((InternalEList<?>)getSemiAssociations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -611,8 +613,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				if (resolve) return getDominantGeneralization();
 				return basicGetDominantGeneralization();
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				return getSemiassociations();
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				return getInstanceObjects();
 			case TypesPackage.CLASS__PACKAGE:
@@ -622,6 +622,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return getProperties();
 			case TypesPackage.CLASS__ATTRIBUTES:
 				return getAttributes();
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				return getSemiAssociations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -654,10 +656,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)newValue);
 				return;
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				getSemiassociations().clear();
-				getSemiassociations().addAll((Collection<? extends SemiAssociation>)newValue);
-				return;
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				getInstanceObjects().clear();
 				getInstanceObjects().addAll((Collection<? extends conml.instances.Object>)newValue);
@@ -672,6 +670,10 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__ATTRIBUTES:
 				getAttributes().clear();
 				getAttributes().addAll((Collection<? extends Attribute>)newValue);
+				return;
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				getSemiAssociations().clear();
+				getSemiAssociations().addAll((Collection<? extends SemiAssociation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -703,9 +705,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				setDominantGeneralization((Generalization)null);
 				return;
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				getSemiassociations().clear();
-				return;
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				getInstanceObjects().clear();
 				return;
@@ -717,6 +716,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return;
 			case TypesPackage.CLASS__ATTRIBUTES:
 				getAttributes().clear();
+				return;
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				getSemiAssociations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -742,8 +744,6 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return specialization != null;
 			case TypesPackage.CLASS__DOMINANT_GENERALIZATION:
 				return dominantGeneralization != null;
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
-				return semiassociations != null && !semiassociations.isEmpty();
 			case TypesPackage.CLASS__INSTANCE_OBJECTS:
 				return instanceObjects != null && !instanceObjects.isEmpty();
 			case TypesPackage.CLASS__PACKAGE:
@@ -752,6 +752,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 				return properties != null && !properties.isEmpty();
 			case TypesPackage.CLASS__ATTRIBUTES:
 				return attributes != null && !attributes.isEmpty();
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
+				return semiAssociations != null && !semiAssociations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

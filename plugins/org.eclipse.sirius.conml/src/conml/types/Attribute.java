@@ -18,6 +18,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Attribute#isMultilingual <em>Multilingual</em>}</li>
  *   <li>{@link conml.types.Attribute#getInstanceValueSets <em>Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.Attribute#getDatatype <em>Datatype</em>}</li>
+ *   <li>{@link conml.types.Attribute#getRedefinedAttribute <em>Redefined Attribute</em>}</li>
+ *   <li>{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getAttribute()
@@ -82,5 +84,51 @@ public interface Attribute extends Feature {
 	 * @generated
 	 */
 	void setDatatype(DataType value);
+
+    /**
+	 * Returns the value of the '<em><b>Redefined Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Redefined Attribute</em>' reference.
+	 * @see #setRedefinedAttribute(Attribute)
+	 * @see conml.types.TypesPackage#getAttribute_RedefinedAttribute()
+	 * @model
+	 * @generated
+	 */
+	Attribute getRedefinedAttribute();
+
+    /**
+	 * Sets the value of the '{@link conml.types.Attribute#getRedefinedAttribute <em>Redefined Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Redefined Attribute</em>' reference.
+	 * @see #getRedefinedAttribute()
+	 * @generated
+	 */
+	void setRedefinedAttribute(Attribute value);
+
+        /**
+	 * Returns the value of the '<em><b>Owner Class</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.Class#getAttributes <em>Attributes</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Owner Class</em>' container reference.
+	 * @see #setOwnerClass(conml.types.Class)
+	 * @see conml.types.TypesPackage#getAttribute_OwnerClass()
+	 * @see conml.types.Class#getAttributes
+	 * @model opposite="Attributes" required="true" transient="false"
+	 * @generated
+	 */
+	conml.types.Class getOwnerClass();
+
+        /**
+	 * Sets the value of the '{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Owner Class</em>' container reference.
+	 * @see #getOwnerClass()
+	 * @generated
+	 */
+	void setOwnerClass(conml.types.Class value);
 
 } // Attribute

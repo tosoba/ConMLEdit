@@ -106,7 +106,7 @@ public class ClassServices implements ModelElementServices {
   private Stream<String> featuresNamesStream(final Class clazz) {
     return Stream.concat(
         Stream.concat(
-            clazz.getSemiassociations().stream().map(SemiAssociation::getName),
+            clazz.getSemiAssociations().stream().map(SemiAssociation::getName),
             clazz.getAttributes().stream().map(Attribute::getName)),
         clazz.getProperties().stream().map(Property::getName));
   }
@@ -178,11 +178,11 @@ public class ClassServices implements ModelElementServices {
             .filter(
                 association -> {
                   final SemiAssociation primarySemi = association.getPrimarySemiAssociation();
-                  if (primarySemi != null && clazz.getSemiassociations().contains(primarySemi))
+                  if (primarySemi != null && clazz.getSemiAssociations().contains(primarySemi))
                     return true;
 
                   final SemiAssociation secondarySemi = association.getSecondarySemiAssociation();
-                  if (secondarySemi != null && clazz.getSemiassociations().contains(secondarySemi))
+                  if (secondarySemi != null && clazz.getSemiAssociations().contains(secondarySemi))
                     return true;
 
                   return false;

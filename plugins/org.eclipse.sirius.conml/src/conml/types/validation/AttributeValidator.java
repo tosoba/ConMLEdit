@@ -4,6 +4,7 @@ package conml.types.validation;
 import org.eclipse.emf.common.util.EList;
 
 import conml.instances.ValueSet;
+import conml.types.Attribute;
 import conml.types.DataType;
 
 /**
@@ -30,5 +31,11 @@ public interface AttributeValidator {
 
   boolean validateDatatype(DataType value);
 
-  boolean validateIsOfType(DataType value);
+  boolean validateRedefinedAttribute(Attribute value);
+
+    boolean validateOwnerClass(conml.types.Class value);
+
+        boolean validateRedefinedAttributes(EList<Attribute> value);
+
+    boolean validateIsOfType(DataType value);
 }

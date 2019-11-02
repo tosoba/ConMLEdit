@@ -48,12 +48,13 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addRolePropertyDescriptor(object);
 			addWholePropertyDescriptor(object);
 			addStrongPropertyDescriptor(object);
-			addOwnerPropertyDescriptor(object);
 			addPrimaryInAssociationPropertyDescriptor(object);
 			addSecondaryInAssociationPropertyDescriptor(object);
 			addInstanceReferenceSetsPropertyDescriptor(object);
 			addInverseSemiAssociationPropertyDescriptor(object);
 			addReferredClassPropertyDescriptor(object);
+			addRedefinedSemiassociationPropertyDescriptor(object);
+			addOwnerClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -125,28 +126,6 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Owner feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addOwnerPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_SemiAssociation_Owner_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_Owner_feature", "_UI_SemiAssociation_type"),
-				 TypesPackage.Literals.SEMI_ASSOCIATION__OWNER,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
 	 * This adds a property descriptor for the Primary In Association feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -257,6 +236,50 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Redefined Semiassociation feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRedefinedSemiassociationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_RedefinedSemiassociation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_RedefinedSemiassociation_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
+	 * This adds a property descriptor for the Owner Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_OwnerClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_OwnerClass_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__OWNER_CLASS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This returns SemiAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

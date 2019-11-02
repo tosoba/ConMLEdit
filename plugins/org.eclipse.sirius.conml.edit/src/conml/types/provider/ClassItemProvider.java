@@ -52,9 +52,11 @@ public class ClassItemProvider extends TypeItemProvider {
 			addGeneralizationsPropertyDescriptor(object);
 			addSpecializationPropertyDescriptor(object);
 			addDominantGeneralizationPropertyDescriptor(object);
-			addSemiassociationsPropertyDescriptor(object);
 			addInstanceObjectsPropertyDescriptor(object);
 			addPackagePropertyDescriptor(object);
+			addPropertiesPropertyDescriptor(object);
+			addAttributesPropertyDescriptor(object);
+			addSemiAssociationsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -192,28 +194,6 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Semiassociations feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addSemiassociationsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Class_Semiassociations_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Semiassociations_feature", "_UI_Class_type"),
-				 TypesPackage.Literals.CLASS__SEMIASSOCIATIONS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
 	 * This adds a property descriptor for the Instance Objects feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -247,9 +227,9 @@ public class ClassItemProvider extends TypeItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(TypesPackage.Literals.CLASS__SEMIASSOCIATIONS);
 			childrenFeatures.add(TypesPackage.Literals.CLASS__PROPERTIES);
 			childrenFeatures.add(TypesPackage.Literals.CLASS__ATTRIBUTES);
+			childrenFeatures.add(TypesPackage.Literals.CLASS__SEMI_ASSOCIATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -290,6 +270,72 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Properties feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addPropertiesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Class_Properties_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Properties_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__PROPERTIES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Attributes feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addAttributesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Class_Attributes_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_Attributes_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__ATTRIBUTES,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Semi Associations feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addSemiAssociationsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Class_SemiAssociations_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Class_SemiAssociations_feature", "_UI_Class_type"),
+				 TypesPackage.Literals.CLASS__SEMI_ASSOCIATIONS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -321,9 +367,9 @@ public class ClassItemProvider extends TypeItemProvider {
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case TypesPackage.CLASS__SEMIASSOCIATIONS:
 			case TypesPackage.CLASS__PROPERTIES:
 			case TypesPackage.CLASS__ATTRIBUTES:
+			case TypesPackage.CLASS__SEMI_ASSOCIATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -343,11 +389,6 @@ public class ClassItemProvider extends TypeItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(TypesPackage.Literals.CLASS__SEMIASSOCIATIONS,
-				 TypesFactory.eINSTANCE.createSemiAssociation()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(TypesPackage.Literals.CLASS__PROPERTIES,
 				 TypesFactory.eINSTANCE.createProperty()));
 
@@ -355,6 +396,11 @@ public class ClassItemProvider extends TypeItemProvider {
 			(createChildParameter
 				(TypesPackage.Literals.CLASS__ATTRIBUTES,
 				 TypesFactory.eINSTANCE.createAttribute()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(TypesPackage.Literals.CLASS__SEMI_ASSOCIATIONS,
+				 TypesFactory.eINSTANCE.createSemiAssociation()));
 	}
 
 }

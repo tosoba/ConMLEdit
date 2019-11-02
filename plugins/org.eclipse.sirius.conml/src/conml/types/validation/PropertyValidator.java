@@ -4,6 +4,7 @@
  */
 package conml.types.validation;
 
+import conml.types.Property;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -15,6 +16,12 @@ import org.eclipse.emf.common.util.EList;
 public interface PropertyValidator {
 	boolean validate();
 
-	boolean validateOwner(conml.types.Class value);
+	boolean validateRedefinedProperty(Property value);
+
+  boolean validateOwnerClass(conml.types.Class value);
+
+    boolean validateRedefinedProperties(EList<Property> value);
+
+  boolean validateOwner(conml.types.Class value);
 	boolean validateAssignedTo(EList<conml.types.Class> value);
 }

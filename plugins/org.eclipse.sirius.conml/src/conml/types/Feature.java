@@ -2,8 +2,6 @@
  */
 package conml.types;
 
-import org.eclipse.emf.common.util.EList;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Feature</b></em>'.
@@ -19,8 +17,6 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Feature#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.Feature#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.Feature#isConstant <em>Constant</em>}</li>
- *   <li>{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}</li>
- *   <li>{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getFeature()
@@ -159,43 +155,5 @@ public interface Feature extends Type {
 	 * @generated
 	 */
 	void setConstant(boolean value);
-
-  /**
-	 * Returns the value of the '<em><b>Redefined Feature</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Redefined Feature</em>' reference.
-	 * @see #setRedefinedFeature(Feature)
-	 * @see conml.types.TypesPackage#getFeature_RedefinedFeature()
-	 * @see conml.types.Feature#getRedefinedByFeatures
-	 * @model opposite="RedefinedByFeatures"
-	 * @generated
-	 */
-	Feature getRedefinedFeature();
-
-    /**
-	 * Sets the value of the '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Redefined Feature</em>' reference.
-	 * @see #getRedefinedFeature()
-	 * @generated
-	 */
-	void setRedefinedFeature(Feature value);
-
-    /**
-	 * Returns the value of the '<em><b>Redefined By Features</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.Feature}.
-	 * It is bidirectional and its opposite is '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Redefined By Features</em>' reference list.
-	 * @see conml.types.TypesPackage#getFeature_RedefinedByFeatures()
-	 * @see conml.types.Feature#getRedefinedFeature
-	 * @model opposite="RedefinedFeature"
-	 * @generated
-	 */
-	EList<Feature> getRedefinedByFeatures();
 
 } // Feature

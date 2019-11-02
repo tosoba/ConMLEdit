@@ -424,22 +424,13 @@ public interface TypesPackage extends EPackage {
 	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 5;
 
 	/**
-	 * The feature id for the '<em><b>Semiassociations</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CLASS__SEMIASSOCIATIONS = TYPE_FEATURE_COUNT + 6;
-
-  /**
 	 * The feature id for the '<em><b>Instance Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__INSTANCE_OBJECTS = TYPE_FEATURE_COUNT + 7;
+	int CLASS__INSTANCE_OBJECTS = TYPE_FEATURE_COUNT + 6;
 
     /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -448,7 +439,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 8;
+	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 7;
 
   /**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -457,7 +448,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__PROPERTIES = TYPE_FEATURE_COUNT + 9;
+	int CLASS__PROPERTIES = TYPE_FEATURE_COUNT + 8;
 
     /**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -466,9 +457,18 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ATTRIBUTES = TYPE_FEATURE_COUNT + 10;
+	int CLASS__ATTRIBUTES = TYPE_FEATURE_COUNT + 9;
 
     /**
+	 * The feature id for the '<em><b>Semi Associations</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__SEMI_ASSOCIATIONS = TYPE_FEATURE_COUNT + 10;
+
+        /**
 	 * The number of structural features of the '<em>Class</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -669,31 +669,13 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 5;
 
   /**
-	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__REDEFINED_FEATURE = TYPE_FEATURE_COUNT + 6;
-
-    /**
-	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__REDEFINED_BY_FEATURES = TYPE_FEATURE_COUNT + 7;
-
-    /**
 	 * The number of structural features of the '<em>Feature</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 8;
+	int FEATURE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Feature</em>' class.
@@ -1178,24 +1160,6 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
-
-    /**
-	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
-
-    /**
 	 * The feature id for the '<em><b>Multilingual</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1223,13 +1187,31 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__DATATYPE = FEATURE_FEATURE_COUNT + 2;
 
   /**
+	 * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 3;
+
+    /**
+	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 4;
+
+        /**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 3;
+	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -1341,24 +1323,6 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
-
-    /**
-	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
-
-    /**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1386,22 +1350,13 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__STRONG = FEATURE_FEATURE_COUNT + 2;
 
   /**
-	 * The feature id for the '<em><b>Owner</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__OWNER = FEATURE_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Primary In Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 4;
+	int SEMI_ASSOCIATION__PRIMARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 3;
 
     /**
 	 * The feature id for the '<em><b>Secondary In Association</b></em>' reference.
@@ -1410,7 +1365,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 5;
+	int SEMI_ASSOCIATION__SECONDARY_IN_ASSOCIATION = FEATURE_FEATURE_COUNT + 4;
 
     /**
 	 * The feature id for the '<em><b>Instance Reference Sets</b></em>' reference list.
@@ -1419,7 +1374,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 6;
+	int SEMI_ASSOCIATION__INSTANCE_REFERENCE_SETS = FEATURE_FEATURE_COUNT + 5;
 
     /**
 	 * The feature id for the '<em><b>Inverse Semi Association</b></em>' reference.
@@ -1428,7 +1383,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION = FEATURE_FEATURE_COUNT + 7;
+	int SEMI_ASSOCIATION__INVERSE_SEMI_ASSOCIATION = FEATURE_FEATURE_COUNT + 6;
 
   /**
 	 * The feature id for the '<em><b>Referred Class</b></em>' reference.
@@ -1437,16 +1392,34 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__REFERRED_CLASS = FEATURE_FEATURE_COUNT + 8;
+	int SEMI_ASSOCIATION__REFERRED_CLASS = FEATURE_FEATURE_COUNT + 7;
 
   /**
+	 * The feature id for the '<em><b>Redefined Semiassociation</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION = FEATURE_FEATURE_COUNT + 8;
+
+    /**
+	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__OWNER_CLASS = FEATURE_FEATURE_COUNT + 9;
+
+        /**
 	 * The number of structural features of the '<em>Semi Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 9;
+	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Semi Association</em>' class.
@@ -1558,31 +1531,31 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__CONSTANT = FEATURE__CONSTANT;
 
   /**
-	 * The feature id for the '<em><b>Redefined Feature</b></em>' reference.
+	 * The feature id for the '<em><b>Redefined Property</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REDEFINED_FEATURE = FEATURE__REDEFINED_FEATURE;
+	int PROPERTY__REDEFINED_PROPERTY = FEATURE_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Redefined By Features</b></em>' reference list.
+	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__REDEFINED_BY_FEATURES = FEATURE__REDEFINED_BY_FEATURES;
+	int PROPERTY__OWNER_CLASS = FEATURE_FEATURE_COUNT + 1;
 
-    /**
+        /**
 	 * The number of structural features of the '<em>Property</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 0;
+	int PROPERTY_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Property</em>' class.
@@ -1946,17 +1919,6 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_DominantGeneralization();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getSemiassociations <em>Semiassociations</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Semiassociations</em>'.
-	 * @see conml.types.Class#getSemiassociations()
-	 * @see #getClass_()
-	 * @generated
-	 */
-	EReference getClass_Semiassociations();
-
-  /**
 	 * Returns the meta object for the reference list '{@link conml.types.Class#getInstanceObjects <em>Instance Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2001,6 +1963,17 @@ public interface TypesPackage extends EPackage {
 	EReference getClass_Attributes();
 
     /**
+	 * Returns the meta object for the containment reference list '{@link conml.types.Class#getSemiAssociations <em>Semi Associations</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Semi Associations</em>'.
+	 * @see conml.types.Class#getSemiAssociations()
+	 * @see #getClass_()
+	 * @generated
+	 */
+	EReference getClass_SemiAssociations();
+
+        /**
 	 * Returns the meta object for class '{@link conml.types.Generalization <em>Generalization</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2131,28 +2104,6 @@ public interface TypesPackage extends EPackage {
 	EAttribute getFeature_Constant();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.Feature#getRedefinedFeature <em>Redefined Feature</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Redefined Feature</em>'.
-	 * @see conml.types.Feature#getRedefinedFeature()
-	 * @see #getFeature()
-	 * @generated
-	 */
-	EReference getFeature_RedefinedFeature();
-
-    /**
-	 * Returns the meta object for the reference list '{@link conml.types.Feature#getRedefinedByFeatures <em>Redefined By Features</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Redefined By Features</em>'.
-	 * @see conml.types.Feature#getRedefinedByFeatures()
-	 * @see #getFeature()
-	 * @generated
-	 */
-	EReference getFeature_RedefinedByFeatures();
-
-    /**
 	 * Returns the meta object for class '{@link conml.types.EnumeratedType <em>Enumerated Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2401,6 +2352,28 @@ public interface TypesPackage extends EPackage {
 	EReference getAttribute_Datatype();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.types.Attribute#getRedefinedAttribute <em>Redefined Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Redefined Attribute</em>'.
+	 * @see conml.types.Attribute#getRedefinedAttribute()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_RedefinedAttribute();
+
+    /**
+	 * Returns the meta object for the container reference '{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner Class</em>'.
+	 * @see conml.types.Attribute#getOwnerClass()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_OwnerClass();
+
+        /**
 	 * Returns the meta object for class '{@link conml.types.SemiAssociation <em>Semi Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2444,17 +2417,6 @@ public interface TypesPackage extends EPackage {
 	EAttribute getSemiAssociation_Strong();
 
   /**
-	 * Returns the meta object for the container reference '{@link conml.types.SemiAssociation#getOwner <em>Owner</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Owner</em>'.
-	 * @see conml.types.SemiAssociation#getOwner()
-	 * @see #getSemiAssociation()
-	 * @generated
-	 */
-	EReference getSemiAssociation_Owner();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getPrimaryInAssociation <em>Primary In Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2510,6 +2472,28 @@ public interface TypesPackage extends EPackage {
 	EReference getSemiAssociation_ReferredClass();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.types.SemiAssociation#getRedefinedSemiassociation <em>Redefined Semiassociation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Redefined Semiassociation</em>'.
+	 * @see conml.types.SemiAssociation#getRedefinedSemiassociation()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_RedefinedSemiassociation();
+
+    /**
+	 * Returns the meta object for the container reference '{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner Class</em>'.
+	 * @see conml.types.SemiAssociation#getOwnerClass()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EReference getSemiAssociation_OwnerClass();
+
+        /**
 	 * Returns the meta object for class '{@link conml.types.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2520,6 +2504,28 @@ public interface TypesPackage extends EPackage {
 	EClass getProperty();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.types.Property#getRedefinedProperty <em>Redefined Property</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Redefined Property</em>'.
+	 * @see conml.types.Property#getRedefinedProperty()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_RedefinedProperty();
+
+  /**
+	 * Returns the meta object for the container reference '{@link conml.types.Property#getOwnerClass <em>Owner Class</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner Class</em>'.
+	 * @see conml.types.Property#getOwnerClass()
+	 * @see #getProperty()
+	 * @generated
+	 */
+	EReference getProperty_OwnerClass();
+
+    /**
 	 * Returns the meta object for class '{@link conml.types.SimpleDataType <em>Simple Data Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2799,14 +2805,6 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__DOMINANT_GENERALIZATION = eINSTANCE.getClass_DominantGeneralization();
 
 		/**
-		 * The meta object literal for the '<em><b>Semiassociations</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CLASS__SEMIASSOCIATIONS = eINSTANCE.getClass_Semiassociations();
-
-    /**
 		 * The meta object literal for the '<em><b>Instance Objects</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2839,6 +2837,14 @@ public interface TypesPackage extends EPackage {
 		EReference CLASS__ATTRIBUTES = eINSTANCE.getClass_Attributes();
 
         /**
+		 * The meta object literal for the '<em><b>Semi Associations</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference CLASS__SEMI_ASSOCIATIONS = eINSTANCE.getClass_SemiAssociations();
+
+                /**
 		 * The meta object literal for the '{@link conml.types.impl.GeneralizationImpl <em>Generalization</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2939,22 +2945,6 @@ public interface TypesPackage extends EPackage {
 		EAttribute FEATURE__CONSTANT = eINSTANCE.getFeature_Constant();
 
     /**
-		 * The meta object literal for the '<em><b>Redefined Feature</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE__REDEFINED_FEATURE = eINSTANCE.getFeature_RedefinedFeature();
-
-        /**
-		 * The meta object literal for the '<em><b>Redefined By Features</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference FEATURE__REDEFINED_BY_FEATURES = eINSTANCE.getFeature_RedefinedByFeatures();
-
-        /**
 		 * The meta object literal for the '{@link conml.types.impl.EnumeratedTypeImpl <em>Enumerated Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3149,6 +3139,22 @@ public interface TypesPackage extends EPackage {
 		EReference ATTRIBUTE__DATATYPE = eINSTANCE.getAttribute_Datatype();
 
     /**
+		 * The meta object literal for the '<em><b>Redefined Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__REDEFINED_ATTRIBUTE = eINSTANCE.getAttribute_RedefinedAttribute();
+
+        /**
+		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__OWNER_CLASS = eINSTANCE.getAttribute_OwnerClass();
+
+                /**
 		 * The meta object literal for the '{@link conml.types.impl.SemiAssociationImpl <em>Semi Association</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3183,14 +3189,6 @@ public interface TypesPackage extends EPackage {
 		EAttribute SEMI_ASSOCIATION__STRONG = eINSTANCE.getSemiAssociation_Strong();
 
     /**
-		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference SEMI_ASSOCIATION__OWNER = eINSTANCE.getSemiAssociation_Owner();
-
-		/**
 		 * The meta object literal for the '<em><b>Primary In Association</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3231,6 +3229,22 @@ public interface TypesPackage extends EPackage {
 		EReference SEMI_ASSOCIATION__REFERRED_CLASS = eINSTANCE.getSemiAssociation_ReferredClass();
 
     /**
+		 * The meta object literal for the '<em><b>Redefined Semiassociation</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__REDEFINED_SEMIASSOCIATION = eINSTANCE.getSemiAssociation_RedefinedSemiassociation();
+
+        /**
+		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SEMI_ASSOCIATION__OWNER_CLASS = eINSTANCE.getSemiAssociation_OwnerClass();
+
+                /**
 		 * The meta object literal for the '{@link conml.types.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3241,6 +3255,22 @@ public interface TypesPackage extends EPackage {
 		EClass PROPERTY = eINSTANCE.getProperty();
 
 		/**
+		 * The meta object literal for the '<em><b>Redefined Property</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__REDEFINED_PROPERTY = eINSTANCE.getProperty_RedefinedProperty();
+
+    /**
+		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROPERTY__OWNER_CLASS = eINSTANCE.getProperty_OwnerClass();
+
+        /**
 		 * The meta object literal for the '{@link conml.types.impl.SimpleDataTypeImpl <em>Simple Data Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

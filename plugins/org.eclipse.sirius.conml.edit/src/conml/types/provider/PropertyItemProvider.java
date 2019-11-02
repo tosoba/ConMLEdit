@@ -4,11 +4,13 @@ package conml.types.provider;
 
 
 import conml.types.Property;
+import conml.types.TypesPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -39,11 +41,57 @@ public class PropertyItemProvider extends FeatureItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addRedefinedPropertyPropertyDescriptor(object);
+			addOwnerClassPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
+	 * This adds a property descriptor for the Redefined Property feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRedefinedPropertyPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_RedefinedProperty_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_RedefinedProperty_feature", "_UI_Property_type"),
+				 TypesPackage.Literals.PROPERTY__REDEFINED_PROPERTY,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Owner Class feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addOwnerClassPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Property_OwnerClass_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Property_OwnerClass_feature", "_UI_Property_type"),
+				 TypesPackage.Literals.PROPERTY__OWNER_CLASS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns Property.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
