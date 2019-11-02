@@ -769,6 +769,9 @@
           <semanticValidationRules name="Props_EnumeratedItem Validation HasClashingName" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_Attribute Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined attribute must be owned by an ancestor of this attribute's class." targetClass="types::Attribute">
+            <audits auditExpression="service:self.redefinedAttributeIsOwnedByAncestor"/>
+          </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
             <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
           </semanticValidationRules>

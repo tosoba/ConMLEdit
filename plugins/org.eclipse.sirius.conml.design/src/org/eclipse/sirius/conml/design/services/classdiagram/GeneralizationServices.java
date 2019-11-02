@@ -68,7 +68,7 @@ public class GeneralizationServices {
     return generalization;
   }
 
-  private boolean wouldCauseCyclicInheritanceRelationship(Class source, Class target) {
+  private boolean wouldCauseCyclicInheritanceRelationship(final Class source, final Class target) {
     if (source.getSpecialization() == null) {
       return false;
     } else if (source

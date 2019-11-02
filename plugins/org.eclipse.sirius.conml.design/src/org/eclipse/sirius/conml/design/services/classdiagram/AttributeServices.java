@@ -2,17 +2,13 @@ package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Objects;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
-
-import com.google.common.base.Predicates;
 
 import conml.types.Attribute;
 import conml.types.Class;
@@ -77,7 +73,7 @@ public class AttributeServices implements FeatureServices {
     return sb.toString();
   }
 
-  public boolean redefinedAttributeIsValid(final EObject object) {
+  public boolean redefinedAttributeIsOwnedByAncestor(final EObject object) {
     return ConML.castAndRunOrReturn(
         object,
         Attribute.class,
@@ -86,12 +82,13 @@ public class AttributeServices implements FeatureServices {
           if (redefined == null) return true;
           final Class attributeClass = attribute.getOwnerClass();
           if (attributeClass == null) return true;
-          return anyAncestorOfClassContains(attributeClass, redefined);
+          return anyAncestorOfClassOwnsRedefinedAttribute(attributeClass, redefined);
         },
         true);
   }
 
-  private boolean anyAncestorOfClassContains(Class clazz, Attribute attribute) {
+  private boolean anyAncestorOfClassOwnsRedefinedAttribute(
+      final Class clazz, final Attribute attribute) {
     if (clazz.getGeneralizations().isEmpty()) {
       return false;
     } else if (nonNullGeneralizedClassesStream(clazz)
@@ -101,12 +98,14 @@ public class AttributeServices implements FeatureServices {
       return true;
     } else {
       return nonNullGeneralizedClassesStream(clazz)
-          .map(generalizedClass -> anyAncestorOfClassContains(generalizedClass, attribute))
+          .map(
+              generalizedClass ->
+                  anyAncestorOfClassOwnsRedefinedAttribute(generalizedClass, attribute))
           .anyMatch(contains -> contains);
     }
   }
 
-  private Stream<Class> nonNullGeneralizedClassesStream(Class clazz) {
+  private Stream<Class> nonNullGeneralizedClassesStream(final Class clazz) {
     return clazz
         .getGeneralizations()
         .stream()
