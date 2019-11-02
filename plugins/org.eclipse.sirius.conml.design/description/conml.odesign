@@ -724,6 +724,12 @@
           <semanticValidationRules name="Props_Class Validation DoesNotHaveDominantGeneralization" level="ERROR" message="If class participates in multiple Generalizations. One of them should be selected as dominant." targetClass="types::Class">
             <audits auditExpression="service:self.hasSpecifiedDominantGeneralizationIfParticipatingInMany"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_Class Validation ClassHasNameClashesWithInheritedFeatures" level="ERROR" message="One of the features of this class has a name clash with features of one of the acestors' classes." targetClass="types::Class">
+            <audits auditExpression="service:self.ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Class Validation ClassAncestorsHaveNameClashes" level="ERROR" message="Class' ancestors' contain features with clashing names." targetClass="types::Class">
+            <audits auditExpression="service:self.inheritedFeaturesFromAncestorClassesHaveNoNameClashes"/>
+          </semanticValidationRules>
           <semanticValidationRules name="Props_Package Validation SelfContainment" level="ERROR" message="Package cannot be a SubPackage of itself." targetClass="types::Package">
             <audits auditExpression="service:self.isNotSubPackageOfItself"/>
           </semanticValidationRules>

@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
@@ -15,9 +17,11 @@ import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.Model;
 import conml.types.Association;
+import conml.types.Attribute;
 import conml.types.Class;
 import conml.types.Generalization;
 import conml.types.Package;
+import conml.types.Property;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 
@@ -77,6 +81,44 @@ public class ClassServices implements ModelElementServices {
         true);
   }
 
+  public boolean ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Class.class,
+        (final Class clazz) -> {
+          final Set<String> inheritedFeatureNames =
+              allFeaturesFromAncestorsStream(clazz).collect(Collectors.toSet());
+          return !featuresNamesStream(clazz).anyMatch(inheritedFeatureNames::contains);
+        },
+        true);
+  }
+
+  public boolean inheritedFeaturesFromAncestorClassesHaveNoNameClashes(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Class.class,
+        (final Class clazz) ->
+            allFeaturesFromAncestorsStream(clazz).distinct().count()
+                == allFeaturesFromAncestorsStream(clazz).count(),
+        true);
+  }
+
+  private Stream<String> featuresNamesStream(final Class clazz) {
+    return Stream.concat(
+        Stream.concat(
+            clazz.getSemiassociations().stream().map(SemiAssociation::getName),
+            clazz.getAttributes().stream().map(Attribute::getName)),
+        clazz.getProperties().stream().map(Property::getName));
+  }
+
+  private Stream<String> allFeaturesFromAncestorsStream(final Class clazz) {
+    return clazz
+        .getGeneralizations()
+        .stream()
+        .map(Generalization::getGeneralizedClass)
+        .flatMap(this::featuresNamesStream);
+  }
+
   public String classLabel(final Class clazz) {
     if (clazz == null) return "";
 
@@ -93,9 +135,8 @@ public class ClassServices implements ModelElementServices {
     while (packageIterator != null
         && !EcoreUtil.equals(
             packageIterator,
-            packageIterator
-                .getContainerPackage())) { // prevents endless loop in case of package
-                                           // self-containment error
+            packageIterator.getContainerPackage())) { // prevents endless loop in case of package
+      // self-containment error
       if (packageIterator.isOverall()) {
         containedInOverallPackage = true;
         break;
