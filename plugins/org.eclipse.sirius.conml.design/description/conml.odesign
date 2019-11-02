@@ -709,14 +709,20 @@
           </ifs>
         </controls>
         <validationSet>
+          <semanticValidationRules name="Props_TypeModel Validation NoOverallPackage" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
+            <audits auditExpression="service:self.overallPackageExists"/>
+          </semanticValidationRules>
           <semanticValidationRules name="Props_Class Validation IsTemporalAspect" level="WARNING" message="A temporal aspect is not assigned to any TypeModel." targetClass="types::Class">
             <audits auditExpression="service:self.isTemporalAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_Class Validation IsSubjectiveAspect" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
             <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Association Validation WholeSemantics" level="ERROR" message="Only one of the SemiAssociations may have whole semantics." targetClass="types::Association">
-            <audits auditExpression="service:self.areSemiAssociationsWholeSemanticsValid"/>
+          <semanticValidationRules name="Props_Class Validation MultipleGeneralizationsWithSameDiscriminant" level="WARNING" message="Class should not have multiple Generalizations with the same discriminant." targetClass="types::Class">
+            <audits auditExpression="service:self.doesNotHaveMultipleGeneralizationsWithSameDiscriminant"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Class Validation DoesNotHaveDominantGeneralization" level="ERROR" message="If class participates in multiple Generalizations. One of them should be selected as dominant." targetClass="types::Class">
+            <audits auditExpression="service:self.hasSpecifiedDominantGeneralizationIfParticipatingInMany"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_Package Validation SelfContainment" level="ERROR" message="Package cannot be a SubPackage of itself." targetClass="types::Package">
             <audits auditExpression="service:self.isNotSubPackageOfItself"/>
@@ -724,11 +730,11 @@
           <semanticValidationRules name="Props_Package Validation PackageNameConflict" level="ERROR" message="Another package with the same name exists." targetClass="types::Package">
             <audits auditExpression="service:self.packageWithSameNameDoesNotExist"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_TypeModel Validation NoOverallPackage" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
-            <audits auditExpression="service:self.overallPackageExists"/>
+          <semanticValidationRules name="Props_Generalization Validation DominatesInheritanceOnNonParticipatingClasses" level="ERROR" message="Generalization cannot dominate inheritance on classes that do not participate in this Generalization." targetClass="types::Generalization">
+            <audits auditExpression="service:self.dominatesGeneralizationsOnlyOnParticipatingClasses"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
-            <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
+          <semanticValidationRules name="Props_Association Validation WholeSemantics" level="ERROR" message="Only one of the SemiAssociations may have whole semantics." targetClass="types::Association">
+            <audits auditExpression="service:self.areSemiAssociationsWholeSemanticsValid"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_EnumeratedType Validation SpecializesFromItself" level="ERROR" message="EnumeratedType cannot specialize from itself." targetClass="types::EnumeratedType">
             <audits auditExpression="service:self.enumeratedTypeDoesNotSpecializeFromItself"/>
@@ -756,6 +762,9 @@
           </semanticValidationRules>
           <semanticValidationRules name="Props_EnumeratedItem Validation HasClashingName" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
+            <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
           </semanticValidationRules>
         </validationSet>
       </groups>

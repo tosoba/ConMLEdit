@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
@@ -15,6 +16,7 @@ import org.eclipse.sirius.conml.design.util.ConML;
 import conml.Model;
 import conml.types.Association;
 import conml.types.Class;
+import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
@@ -48,6 +50,33 @@ public class ClassServices implements ModelElementServices {
         object, Class::isUsedAsTemporalAspect, TypeModel::getTemporalAspect);
   }
 
+  public boolean doesNotHaveMultipleGeneralizationsWithSameDiscriminant(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Class.class,
+        (final Class clazz) ->
+            clazz
+                    .getGeneralizations()
+                    .stream()
+                    .map(Generalization::getDiscriminant)
+                    .distinct()
+                    .count()
+                == clazz.getGeneralizations().size(),
+        true);
+  }
+
+  public boolean hasSpecifiedDominantGeneralizationIfParticipatingInMany(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Class.class,
+        (final Class clazz) -> {
+          final EList<Generalization> generalizations = clazz.getGeneralizations();
+          if (generalizations.isEmpty() || generalizations.size() == 1) return true;
+          return clazz.getDominantGeneralization() != null;
+        },
+        true);
+  }
+
   public String classLabel(final Class clazz) {
     if (clazz == null) return "";
 
@@ -61,10 +90,13 @@ public class ClassServices implements ModelElementServices {
     Package packageIterator = clazz.getPackage();
     final ArrayList<String> packageNames = new ArrayList<>();
     boolean containedInOverallPackage = false;
-    while (packageIterator != null) {
-      if (EcoreUtil.equals(packageIterator, packageIterator.getContainerPackage())) {
-        break; // to prevent endless loop in case user makes a mistake (self-containment)
-      } else if (packageIterator.isOverall()) {
+    while (packageIterator != null
+        && !EcoreUtil.equals(
+            packageIterator,
+            packageIterator
+                .getContainerPackage())) { // prevents endless loop in case of package
+                                           // self-containment error
+      if (packageIterator.isOverall()) {
         containedInOverallPackage = true;
         break;
       }
