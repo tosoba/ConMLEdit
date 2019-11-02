@@ -3,12 +3,15 @@ package org.eclipse.sirius.conml.design.services.classdiagram;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.function.BiFunction;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.types.Attribute;
 import conml.types.Class;
@@ -59,6 +62,61 @@ public interface FeatureServices {
                       generalizedClass, feature, ownedFeaturesGetter))
           .anyMatch(contains -> contains);
     }
+  }
+
+  default boolean featuresCardinalityIsEquallyOrMoreRestrictiveThanRedefined(final EObject object) {
+    return validateFeatureRedefinition(object, this::isFeaturesCardinalityValidForRedefinition);
+  }
+
+  default Feature getRedefinedFeatureOf(final Feature feature) {
+    if (feature instanceof Attribute) {
+      final Attribute attribute = (Attribute) feature;
+      return attribute.getRedefinedAttribute();
+    } else if (feature instanceof Property) {
+      final Property property = (Property) feature;
+      return property.getRedefinedProperty();
+    } else if (feature instanceof SemiAssociation) {
+      final SemiAssociation semi = (SemiAssociation) feature;
+      return semi.getRedefinedSemiAssociation();
+    } else return null;
+  }
+
+  default boolean featureAndRedefinedHaveValidSortedSemantics(final EObject object) {
+    return validateFeatureRedefinition(
+        object,
+        (feature, redefined) ->
+            feature.isSorted() == redefined.isSorted()
+                || (feature.isSorted() && !redefined.isSorted()));
+  }
+
+  default boolean featureAndRedefinedHaveValidConstantSemantics(final EObject object) {
+    return validateFeatureRedefinition(
+        object,
+        (feature, redefined) ->
+            feature.isConstant() == redefined.isConstant()
+                || (feature.isConstant() && !redefined.isConstant()));
+  }
+
+  default boolean validateFeatureRedefinition(
+      final EObject object, final BiFunction<Feature, Feature, Boolean> validation) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Feature.class,
+        (final Feature feature) -> {
+          final Feature redefined = getRedefinedFeatureOf(feature);
+          if (redefined == null) return true;
+          return validation.apply(feature, redefined);
+        },
+        true);
+  }
+
+  default boolean isFeaturesCardinalityValidForRedefinition(
+      final Feature feature, final Feature redefined) {
+    return redefined.getMinimumCardinality() >= feature.getMinimumCardinality()
+        && ((redefined.getMaximumCardinality() == null && feature.getMaximumCardinality() == null)
+            || (redefined.getMaximumCardinality() == null
+                && feature.getMaximumCardinality() != null)
+            || (redefined.getMaximumCardinality() >= feature.getMaximumCardinality()));
   }
 
   default String featureLabel(final Feature feature) {

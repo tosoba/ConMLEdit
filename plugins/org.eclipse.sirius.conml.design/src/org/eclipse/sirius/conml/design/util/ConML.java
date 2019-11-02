@@ -2,7 +2,9 @@ package org.eclipse.sirius.conml.design.util;
 
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
@@ -16,6 +18,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import conml.Model;
 import conml.ModelElement;
+import conml.types.BaseDataType;
+import conml.types.Generalization;
 
 public class ConML {
 
@@ -134,6 +138,47 @@ public class ConML {
   public enum ElementMovementDirection {
     UP,
     DOWN
+  }
+
+  public static boolean areClassesAncestorAndDescedant(
+      final conml.types.Class ancestor, final conml.types.Class descendant) {
+    final Generalization specialization = ancestor.getSpecialization();
+    if (specialization.getSpecializedClasses().isEmpty()) {
+      return false;
+    } else if (specialization
+        .getSpecializedClasses()
+        .stream()
+        .anyMatch(clazz -> EcoreUtil.equals(clazz, descendant))) {
+      return true;
+    } else {
+      return specialization
+          .getSpecializedClasses()
+          .stream()
+          .map(clazz -> areClassesAncestorAndDescedant(clazz, descendant))
+          .anyMatch(found -> found);
+    }
+  }
+
+  private static final Map<BaseDataType, Set<BaseDataType>> typeCoersionMap = new HashMap<>();
+
+  static {
+    typeCoersionMap.put(
+        BaseDataType.BOOLEAN,
+        new HashSet<>(Arrays.asList(BaseDataType.BOOLEAN, BaseDataType.TEXT, BaseDataType.DATA)));
+    typeCoersionMap.put(
+        BaseDataType.NUMBER,
+        new HashSet<>(Arrays.asList(BaseDataType.NUMBER, BaseDataType.TEXT, BaseDataType.DATA)));
+    typeCoersionMap.put(
+        BaseDataType.TIME,
+        new HashSet<>(Arrays.asList(BaseDataType.TIME, BaseDataType.TEXT, BaseDataType.DATA)));
+    typeCoersionMap.put(
+        BaseDataType.TEXT, new HashSet<>(Arrays.asList(BaseDataType.TEXT, BaseDataType.DATA)));
+    typeCoersionMap.put(BaseDataType.DATA, new HashSet<>(Arrays.asList(BaseDataType.DATA)));
+  }
+
+  public static boolean canBaseDataTypeCorceInto(
+      final BaseDataType type, final BaseDataType intoType) {
+    return typeCoersionMap.get(type).contains(intoType);
   }
 
   public static boolean clashesWithAnyKeyword(final String name) {
