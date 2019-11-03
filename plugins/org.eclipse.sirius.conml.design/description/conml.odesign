@@ -737,6 +737,24 @@
           <semanticValidationRules name="Props_Package Validation PackageNameConflict" level="ERROR" message="Another package with the same name exists." targetClass="types::Package">
             <audits auditExpression="service:self.packageWithSameNameDoesNotExist"/>
           </semanticValidationRules>
+          <semanticValidationRules name="Props_Feature Validation InvalidRedefinedCardinality" level="ERROR" message="Cardinality of the redefining feature must be equally or more restrictive." targetClass="types::Feature">
+            <audits auditExpression="service:self.featuresCardinalityIsEquallyOrMoreRestrictiveThanRedefined"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Feature Validation InvalidConstantSemantics" level="ERROR" message="If redefined feature is constant, redefining feature has to be constant as well." targetClass="types::Feature">
+            <audits auditExpression="service:self.featureAndRedefinedHaveValidSortedSemantics"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Feature Validation InvalidSortedSemantics" level="ERROR" message="If redefined feature is sorted, redefining feature has to be sorted as well." targetClass="types::Feature">
+            <audits auditExpression="service:self.featureAndRedefinedHaveValidConstantSemantics"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Property Validation RedefinedPropertyIsNotOwnedByAncestor" level="ERROR" message="Redefined property has to be owned by an ancestor of this property's class." targetClass="types::Property">
+            <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Attribute Validation RedefinedAttributeIsNotOwnedByAncestor" level="ERROR" message="Redefined attribute has to be owned by an ancestor of this attribute's class." targetClass="types::Attribute">
+            <audits auditExpression="service:self.redefinedAttributeIsOwnedByAncestor"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_Attribute Validation AttributeTypeCoercion" level="ERROR" message="Type of the redefining attribute has to corce into redefined attribute's type." targetClass="types::Attribute">
+            <audits auditExpression="service:self.attributeTypeCorcesIntoRedefinedAttributeType"/>
+          </semanticValidationRules>
           <semanticValidationRules name="Props_Generalization Validation DominatesInheritanceOnNonParticipatingClasses" level="ERROR" message="Generalization cannot dominate inheritance on classes that do not participate in this Generalization." targetClass="types::Generalization">
             <audits auditExpression="service:self.dominatesGeneralizationsOnlyOnParticipatingClasses"/>
           </semanticValidationRules>
@@ -775,9 +793,6 @@
           </semanticValidationRules>
           <semanticValidationRules name="Props_Property Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined Property must be owned by an ancestor of this Property's class." targetClass="types::Property">
             <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
-          </semanticValidationRules>
-          <semanticValidationRules name="Props_SemiAssociation Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined SemiAssociation must be owned by an ancestor of this SemiAssociation's class." targetClass="types::SemiAssociation">
-            <audits auditExpression="service:self.redefinedSemiAssociationIsOwnedByAncestor"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
             <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
@@ -829,6 +844,17 @@
             </widget>
           </ifs>
         </controls>
+        <validationSet>
+          <semanticValidationRules name="Props_SemiAssociation Validation StrongSemantics" level="ERROR" message="If redefined SemiAssociation is strong, redefining SemiAssociation has to be strong as well." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.semiAssociationAndRedefinedHaveValidStrongSemantics"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_SemiAssociation Validation RedefinedNotOwnedByAncestor" level="ERROR" message="Redefined SemiAssociation must be owned by an ancestor of this SemiAssociation's class." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.redefinedSemiAssociationIsOwnedByAncestor"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_SemiAssociation Validation ValidOppositeClasses" level="ERROR" message="Redefining SemiAssociation's opposite class has to either be the same as redefined SemiAssociation's class or its descendant." targetClass="types::SemiAssociation">
+            <audits auditExpression="service:self.semiAssociationAndRedefinedHaveValidOppositeClasses"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
