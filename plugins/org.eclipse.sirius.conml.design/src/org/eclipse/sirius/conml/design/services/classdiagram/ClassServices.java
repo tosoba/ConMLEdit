@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -198,5 +199,30 @@ public class ClassServices implements ModelElementServices {
     }
 
     EcoreUtil.delete(clazz);
+  }
+
+  public boolean classWithTheSameNameDoesNotExistInSamePackage(final EObject object) {
+    return ConML.castElementAndContainer(object, Class.class, Model.class)
+        .runIfBothCastsSuccessful(
+            (classToCheck, model) ->
+                !model
+                        .getElements()
+                        .stream()
+                        .filter(
+                            element -> {
+                              if (element instanceof Class) {
+                                final Class otherClass = (Class) element;
+                                return EcoreUtil.equals(
+                                        otherClass.getPackage(), classToCheck.getPackage())
+                                    && !EcoreUtil.equals(otherClass, classToCheck)
+                                    && Objects.equals(otherClass.getName(), classToCheck.getName());
+
+                              } else return false;
+                            })
+                        .findAny()
+                        .isPresent()
+                    && ConML.containsOnlyOneExactlyEqualElement(
+                        model, classToCheck, Model::getElements),
+            true);
   }
 }
