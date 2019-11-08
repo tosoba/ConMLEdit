@@ -27,7 +27,7 @@ import conml.types.Package;
 import conml.types.Property;
 import conml.types.SemiAssociation;
 
-public class DiagramPropertiesServices {
+public final class DiagramPropertiesServices {
 
   private static final HashMap<Class<?>, Set<String>> ignoredReferences = new HashMap<>();
   private static final List<Predicate<EStructuralFeature>> featurePredicates = new ArrayList<>();
@@ -144,5 +144,9 @@ public class DiagramPropertiesServices {
     ignoredReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
+  }
+
+  public String getWidgetLabel(final EObject element, final EStructuralFeature structuralFeature) {
+    return structuralFeature != null ? structuralFeature.getName() : "New element";
   }
 }

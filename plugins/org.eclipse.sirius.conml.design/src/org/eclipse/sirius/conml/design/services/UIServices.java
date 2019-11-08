@@ -12,12 +12,32 @@ import com.google.common.collect.Sets;
 
 public class UIServices {
 
-  public static Collection<EObject> getDisplayedNodes(final DDiagram diagram) {
+  private static final class InstanceHolder {
+    static final UIServices INSTANCE = new UIServices();
+  }
+
+  public static UIServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
+  public Collection<EObject> getDisplayedNodes(final DDiagram diagram) {
     final Set<EObject> result = Sets.newLinkedHashSet();
     final DDiagramQuery query = new DDiagramQuery(diagram);
     for (final DDiagramElement diagramElement : query.getAllDiagramElements()) {
       result.add(diagramElement.getTarget());
     }
     return result;
+  }
+
+  public int defaultWidth(final EObject object) {
+    return 12;
+  }
+
+  public int defaultHeight(final EObject object) {
+    return 10;
+  }
+
+  public int defaultSingleDimensionSize(final EObject object) {
+    return 10;
   }
 }

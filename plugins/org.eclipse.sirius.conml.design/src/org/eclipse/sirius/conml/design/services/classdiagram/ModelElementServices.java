@@ -1,9 +1,11 @@
 package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
 
@@ -78,5 +80,29 @@ public final class ModelElementServices {
         model.getElements().move(indexToSwapWith, model.getElements().indexOf(elements.get(i)));
       }
     }
+  }
+
+  public String defaultName(final ModelElement element) {
+    final String name = element.getClass().getSimpleName().replace("Impl", "");
+
+    final EObject container = element.eContainer();
+    if (container != null) {
+      final Collection<?> elementsOfSameType =
+          ConML.getAllElementsOfTypeFrom(container, element.getClass());
+      return name + elementsOfSameType.size();
+    }
+
+    final EStructuralFeature containingFeature = element.eContainingFeature();
+    if (containingFeature != null) {
+      final Collection<?> elementsOfSameType =
+          ConML.getAllElementsOfTypeFrom(containingFeature, element.getClass());
+      return name + elementsOfSameType.size();
+    }
+
+    return name;
+  }
+
+  public String defaultDefinition(final ModelElement element) {
+    return "";
   }
 }

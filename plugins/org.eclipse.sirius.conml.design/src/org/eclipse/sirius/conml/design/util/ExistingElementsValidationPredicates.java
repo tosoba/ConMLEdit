@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services;
+package org.eclipse.sirius.conml.design.util;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -8,7 +8,7 @@ import org.eclipse.sirius.diagram.description.DiagramDescription;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
-public class AddElementToDiagramServices {
+public final class ExistingElementsValidationPredicates {
 
   public static Predicate<Object> isValidForDiagramPredicate(
       final DDiagram diagram, final EObject container) {

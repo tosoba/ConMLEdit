@@ -1,20 +1,18 @@
 package org.eclipse.sirius.conml.design.services;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.trigger.AutosizeTrigger;
-import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.ExistingElementsValidationPredicates;
 import org.eclipse.sirius.conml.design.wizard.ModelElementsSelectionDialog;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -42,52 +40,7 @@ import com.google.common.collect.Lists;
 import conml.ModelElement;
 
 @SuppressWarnings("restriction")
-public abstract class AbstractDiagramServices {
-
-  public boolean isEnabled(final EObject eObject, final EStructuralFeature feature) {
-    return true;
-  }
-
-  public String defaultName(final ModelElement element) {
-    final String name = element.getClass().getSimpleName().replace("Impl", "");
-
-    final EObject container = element.eContainer();
-    if (container != null) {
-      final Collection<?> elementsOfSameType =
-          ConML.getAllElementsOfTypeFrom(container, element.getClass());
-      return name + elementsOfSameType.size();
-    }
-
-    final EStructuralFeature containingFeature = element.eContainingFeature();
-    if (containingFeature != null) {
-      final Collection<?> elementsOfSameType =
-          ConML.getAllElementsOfTypeFrom(containingFeature, element.getClass());
-      return name + elementsOfSameType.size();
-    }
-
-    return name;
-  }
-
-  public String defaultDefinition(final ModelElement element) {
-    return "";
-  }
-
-  public int defaultWidth(final EObject object) {
-    return 12;
-  }
-
-  public int defaultHeight(final EObject object) {
-    return 10;
-  }
-
-  public int defaultSingleDimensionSize(final EObject object) {
-    return 10;
-  }
-
-  public String getWidgetLabel(final EObject element, final EStructuralFeature structuralFeature) {
-    return structuralFeature != null ? structuralFeature.getName() : "New element";
-  }
-
+public final class ExistingElementsServices {
   public void openSelectExistingElementsDialog(
       final EObject selectedContainer,
       final EObject selectedContainerView,
@@ -114,7 +67,7 @@ public abstract class AbstractDiagramServices {
   }
 
   private Predicate<EObject> getNonSelectablePredicate(final DDiagram diagram) {
-    return Predicates.in(UIServices.getDisplayedNodes(diagram));
+    return Predicates.in(UIServices.getInstance().getDisplayedNodes(diagram));
   }
 
   private void addExistingElements(
@@ -296,7 +249,7 @@ public abstract class AbstractDiagramServices {
   private List<DiagramElementMapping> getValidMappingsForDiagram(
       final EObject semanticElement, final DSemanticDiagram diagram, Session session) {
     final List<DiagramElementMapping> mappings = new ArrayList<DiagramElementMapping>();
-    if (!AddElementToDiagramServices.isValidForDiagramPredicate(diagram, null)
+    if (!ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, null)
         .test(semanticElement)) {
       return mappings;
     }

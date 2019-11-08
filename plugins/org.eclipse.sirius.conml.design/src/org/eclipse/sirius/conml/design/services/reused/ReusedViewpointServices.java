@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.conml.design.services.AbstractDiagramServices;
 import org.eclipse.sirius.diagram.ContainerLayout;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -15,7 +14,7 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import conml.Model;
 import conml.ModelElement;
 
-public class ReusedViewpointServices extends AbstractDiagramServices {
+public class ReusedViewpointServices {
 
   public boolean isValidContainerMapping(final EObject containerView) {
     // TODO: maybe remove this if altogether...

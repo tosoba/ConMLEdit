@@ -22,9 +22,9 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.provider.ModelFilteredTreeContentProvider;
-import org.eclipse.sirius.conml.design.services.AddElementToDiagramServices;
-import org.eclipse.sirius.conml.design.services.ElementServices;
+import org.eclipse.sirius.conml.design.services.ModelServices;
 import org.eclipse.sirius.conml.design.services.UIServices;
+import org.eclipse.sirius.conml.design.util.ExistingElementsValidationPredicates;
 import org.eclipse.sirius.conml.design.util.ModelElementsSelectionDialogPatternMatcher;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
@@ -316,7 +316,8 @@ public class ModelElementsSelectionDialog {
         Object element) {
       if (element instanceof EObject) {
         @SuppressWarnings("rawtypes")
-        final Collection existingElementsOnDiagram = UIServices.getDisplayedNodes(diagram);
+        final Collection existingElementsOnDiagram =
+            UIServices.getInstance().getDisplayedNodes(diagram);
         @SuppressWarnings("unchecked")
         final Predicate<Object> isSubElementPredicate =
             Predicates.not(Predicates.in(existingElementsOnDiagram));
@@ -521,7 +522,7 @@ public class ModelElementsSelectionDialog {
         if (input instanceof EObject) {
           return isOrHasDescendant(
               (EObject) input,
-              AddElementToDiagramServices.isValidForDiagramPredicate(diagram, eObject));
+              ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
         }
         return false;
       }
@@ -602,7 +603,7 @@ public class ModelElementsSelectionDialog {
         Predicates.and(
             (Predicate<? super Object>)
                 (isGrayedPredicate != null ? isGrayedPredicate : Predicates.alwaysFalse()),
-            AddElementToDiagramServices.isValidForDiagramPredicate(diagram, eObject));
+            ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
   }
 
   public void setSelectedAction(Function<Object, Void> selectedAction) {
@@ -622,7 +623,8 @@ public class ModelElementsSelectionDialog {
       msg = sb.toString();
     }
     dialog.setMessage(msg);
-    final Collection<Model> roots = ElementServices.getAllDiagramRootsInSession(eObject);
+    final Collection<Model> roots =
+        ModelServices.getInstance().getAllDiagramRootsInSession(eObject);
 
     dialog.setInput(roots);
     dialog.addFilter(new ModeFilter());

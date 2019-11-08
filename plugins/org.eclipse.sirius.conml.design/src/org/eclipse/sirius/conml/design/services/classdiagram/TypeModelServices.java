@@ -23,7 +23,7 @@ import conml.types.Class;
 import conml.types.SimpleDataType;
 import conml.types.TypeModel;
 
-public final class TypeModelServices extends ModelServices {
+public final class TypeModelServices {
 
   public boolean isTypeModel(final EObject object) {
     return object instanceof TypeModel;
@@ -50,22 +50,22 @@ public final class TypeModelServices extends ModelServices {
   }
 
   public Collection<EObject> getOwnedPackageElements(final EObject object) {
-    return getOwnedElementsOfType(object, Package.class);
+    return ModelServices.getInstance().getOwnedElementsOfType(object, Package.class);
   }
 
   public Collection<EObject> getOwnedAssociationElements(final EObject object) {
-    return getOwnedElementsOfType(object, Association.class);
+    return ModelServices.getInstance().getOwnedElementsOfType(object, Association.class);
   }
 
   public Collection<EObject> getOwnedSimpleDataTypeElements(final EObject object) {
-    return getOwnedElementsOfType(object, SimpleDataType.class);
+    return ModelServices.getInstance().getOwnedElementsOfType(object, SimpleDataType.class);
   }
 
   public Collection<EObject> getOwnedEnumeratedTypeElements(final EObject object) {
-    return getOwnedElementsOfType(object, EnumeratedType.class);
+    return ModelServices.getInstance().getOwnedElementsOfType(object, EnumeratedType.class);
   }
 
   public Collection<EObject> getOwnedClassElements(final EObject object) {
-    return getOwnedElementsOfType(object, Class.class);
+    return ModelServices.getInstance().getOwnedElementsOfType(object, Class.class);
   }
 }
