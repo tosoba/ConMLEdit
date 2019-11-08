@@ -9,10 +9,10 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" name="TypeModel Validation OverallPackageExistance" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
           <audits auditExpression="service:self.overallPackageExists"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation TemporalAspectClassUsage" level="WARNING" message="A temporal aspect is not assigned to any TypeModel." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation TemporalAspectClassUsage" level="WARNING" message="A temporal aspect class is not assigned to any TypeModel." targetClass="types::Class">
           <audits auditExpression="service:self.isTemporalAspectClassAssignedToTypeModel"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation SubjectiveAspectClassUsage" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation SubjectiveAspectClassUsage" level="WARNING" message="A subjective aspect class is not assigned to any TypeModel." targetClass="types::Class">
           <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
         </ownedRules>
         <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation GeneralizationDiscriminantNameClash" level="WARNING" message="Class should not have multiple Generalizations with the same discriminant." targetClass="types::Class">
@@ -636,22 +636,38 @@
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DiagramPropertiesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AttributeServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PropertyServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassDiagramServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.GeneralizationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PackageServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.EnumeratedTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.EnumeratedItemServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.GeneralizationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.PackageServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.SemiAssociationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.AssociationValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.AttributeValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.ClassValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.EnumeratedItemValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.EnumeratedTypeValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.FeatureValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.GeneralizationValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.PackageValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.PropertyValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.SemiAssociationValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.style.AssociationStyleServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.label.AssociationLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.label.ClassLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.label.FeatureLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.label.PackageLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.label.SemiAssociationLabelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.InstanceModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.LinkServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueSetServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.LinkServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.InstanceModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.validation.InstanceModelValidationServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
@@ -796,10 +812,10 @@
           <semanticValidationRules name="Props_TypeModel Validation OverallPackageExistance" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
             <audits auditExpression="service:self.overallPackageExists"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Class Validation TemporalAspectClassUsage" level="WARNING" message="A temporal aspect is not assigned to any TypeModel." targetClass="types::Class">
+          <semanticValidationRules name="Props_Class Validation TemporalAspectClassUsage" level="WARNING" message="A temporal aspect class is not assigned to any TypeModel." targetClass="types::Class">
             <audits auditExpression="service:self.isTemporalAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Class Validation SubjectiveAspectClassUsage" level="WARNING" message="A subjective aspect is not assigned to any TypeModel." targetClass="types::Class">
+          <semanticValidationRules name="Props_Class Validation SubjectiveAspectClassUsage" level="WARNING" message="A subjective aspect class is not assigned to any TypeModel." targetClass="types::Class">
             <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_Class Validation GeneralizationDiscriminantNameClash" level="WARNING" message="Class should not have multiple Generalizations with the same discriminant." targetClass="types::Class">

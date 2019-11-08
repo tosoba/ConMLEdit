@@ -10,13 +10,21 @@ import org.eclipse.sirius.conml.design.util.ConML;
 import conml.Model;
 import conml.ModelElement;
 
-public interface ModelElementServices {
+public final class ModelElementServices {
 
-  default void removeElement(final EObject object) {
+  private static final class InstanceHolder {
+    static final ModelElementServices INSTANCE = new ModelElementServices();
+  }
+
+  public static ModelElementServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
+  public void removeElement(final EObject object) {
     EcoreUtil.delete(object);
   }
 
-  default <T extends EObject> void moveElement(
+  public <T extends EObject> void moveElement(
       final EObject object,
       final Class<T> objectClass,
       final ConML.ElementMovementDirection direction) {
@@ -26,7 +34,7 @@ public interface ModelElementServices {
                 moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
   }
 
-  default <T extends EObject> void moveElements(
+  public <T extends EObject> void moveElements(
       final List<T> elements,
       final Model model,
       final Class<T> elementClass,

@@ -13,7 +13,15 @@ import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
 
-public class ObjectServices implements ModelElementServices {
+public class ObjectServices {
+
+  private static final class InstanceHolder {
+    static final ObjectServices INSTANCE = new ObjectServices();
+  }
+
+  public static ObjectServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
 
   public String objectLabel(final Object object) {
     return object.getIdentifier()
@@ -22,14 +30,16 @@ public class ObjectServices implements ModelElementServices {
   }
 
   public void moveObjectUp(final EObject object) {
-    moveElement(object, Object.class, ConML.ElementMovementDirection.UP);
+    ModelElementServices.getInstance()
+        .moveElement(object, Object.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveObjectDown(final EObject object) {
-    moveElement(object, Object.class, ConML.ElementMovementDirection.DOWN);
+    ModelElementServices.getInstance()
+        .moveElement(object, Object.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public static void deleteObjectStatic(final Object object) {
+  public void deleteObject(final Object object) {
     final EObject container = object.eContainer();
     if (container == null || !(container instanceof InstanceModel)) {
       EcoreUtil.delete(object);
@@ -61,9 +71,5 @@ public class ObjectServices implements ModelElementServices {
     }
 
     EcoreUtil.delete(object);
-  }
-
-  public void deleteObject(final Object object) {
-    deleteObjectStatic(object);
   }
 }

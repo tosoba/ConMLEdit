@@ -4,8 +4,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Function;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -16,12 +14,11 @@ import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.types.Association;
 import conml.types.Class;
-import conml.types.Generalization;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
-public class AssociationServices implements FeatureServices, ModelElementServices {
+public final class AssociationServices {
 
   private static final class Errors {
     static final String ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
@@ -29,18 +26,14 @@ public class AssociationServices implements FeatureServices, ModelElementService
         "Compact style cannot be used for symmetric associations.";
     static final String COMPACT_CARDINALITIES =
         "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
-    static final String EXPECTED_NON_NEGATIVE_INTEGER_INPUT =
-        "Invalid input - must be a non-negative integer.";
-    static final String EXPECTED_POSITIVE_INTEGER_INPUT =
-        "Invalid input - must be a positive integer.";
   }
 
-  private static final class Messages {
-    static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
+  private static final class InstanceHolder {
+    static final AssociationServices INSTANCE = new AssociationServices();
   }
 
-  public void expandAssociation(final SemiAssociation semi) {
-    if (semi.getPrimaryInAssociation() != null) semi.getPrimaryInAssociation().setCompact(false);
+  public static AssociationServices getInstance() {
+    return InstanceHolder.INSTANCE;
   }
 
   public void compactAssociation(final Association association) {
@@ -62,195 +55,17 @@ public class AssociationServices implements FeatureServices, ModelElementService
         object, Association.class, (Association association) -> !association.isCompact(), false);
   }
 
-  public boolean isPrimarySemiInCompactAssociation(final EObject object) {
-    return ConML.castAndRunOrReturn(
-        object,
-        SemiAssociation.class,
-        (SemiAssociation semi) ->
-            semi.getPrimaryInAssociation() != null
-                ? semi.getPrimaryInAssociation().isCompact()
-                : false,
-        false);
-  }
-
-  public boolean isPrimarySemiAssociationWhole(final Association association) {
-    return association.getPrimarySemiAssociation().isWhole();
-  }
-
-  public boolean isSecondarySemiAssociationWhole(final Association association) {
-    return association.getSecondarySemiAssociation().isWhole();
-  }
-
-  public boolean isPrimarySemiAssociationStrong(final Association association) {
-    return association.getPrimarySemiAssociation().isStrong();
-  }
-
-  public boolean isSecondarySemiAssociationStrong(final Association association) {
-    return association.getSecondarySemiAssociation().isStrong();
-  }
-
-  public boolean areBothSemiAssociationsStrong(final Association association) {
-    return association.getPrimarySemiAssociation().isStrong()
-        && association.getSecondarySemiAssociation().isStrong();
-  }
-
-  public boolean isPrimaryAssociationWholeAndStrong(final Association association) {
-    return association.getPrimarySemiAssociation().isStrong()
-        && association.getPrimarySemiAssociation().isWhole();
-  }
-
-  public boolean isSecondaryAssociationWholeAndStrong(final Association association) {
-    return association.getSecondarySemiAssociation().isStrong()
-        && association.getSecondarySemiAssociation().isWhole();
-  }
-
-  public boolean isPrimarySemiAssociationWholeAndStrongAndSecondaryStrong(
-      final Association association) {
-    return association.getPrimarySemiAssociation().isWhole()
-        && association.getPrimarySemiAssociation().isStrong()
-        && association.getSecondarySemiAssociation().isStrong();
-  }
-
-  public boolean isPrimarySemiAssociationStrongAndSecondaryStrongAndWhole(
-      final Association association) {
-    return association.getPrimarySemiAssociation().isStrong()
-        && association.getSecondarySemiAssociation().isWhole()
-        && association.getSecondarySemiAssociation().isStrong();
-  }
-
-  public boolean isPrimarySemiAssociationStrongAndSecondaryWhole(final Association association) {
-    return association.getPrimarySemiAssociation().isStrong()
-        && association.getSecondarySemiAssociation().isWhole();
-  }
-
-  public boolean isPrimarySemiAssociationWholeAndSecondaryStrong(final Association association) {
-    return association.getPrimarySemiAssociation().isWhole()
-        && association.getSecondarySemiAssociation().isStrong();
-  }
-
   public List<SemiAssociation> primarySemiAssociationAsList(final Association association) {
     return Arrays.asList(association.getPrimarySemiAssociation());
   }
 
-  public List<SemiAssociation> secondarySemiAssociationAsList(Association association) {
+  public List<SemiAssociation> secondarySemiAssociationAsList(final Association association) {
     return Arrays.asList(association.getSecondarySemiAssociation());
   }
 
   public List<SemiAssociation> semiAssociationsList(final Association association) {
     return Arrays.asList(
         association.getPrimarySemiAssociation(), association.getSecondarySemiAssociation());
-  }
-
-  public boolean areSemiAssociationsWholeSemanticsValid(final EObject object) {
-    if (!(object instanceof Association)) return true;
-    final Association association = (Association) object;
-    return !association.getPrimarySemiAssociation().isWhole()
-        || !association.getSecondarySemiAssociation().isWhole();
-  }
-
-  public boolean arePrimarySemiAssociationCardinalitiesValid(final Association association) {
-    return areCardinalitiesValid(association.getPrimarySemiAssociation());
-  }
-
-  public boolean areSecondarySemiAssociationCardinalitiesValid(final Association association) {
-    return areCardinalitiesValid(association.getSecondarySemiAssociation());
-  }
-
-  private boolean areCardinalitiesValid(final SemiAssociation semiAssociation) {
-    if (semiAssociation.getMaximumCardinality() == null) return true;
-    else return semiAssociation.getMaximumCardinality() >= semiAssociation.getMinimumCardinality();
-  }
-
-  public void setSemiAssociationName(final SemiAssociation semiAssociation, final String name) {
-    semiAssociation.setName(name);
-  }
-
-  public void setSemiAssociationDefinition(
-      final SemiAssociation semiAssociation, final String definition) {
-    semiAssociation.setDefinition(definition);
-  }
-
-  public void setSemiAssociationMinimumCardinality(
-      final SemiAssociation semiAssociation, final String cardinalityStr) {
-    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
-      semiAssociation.setMinimumCardinality(0);
-    } else {
-      try {
-        int cardinality = Integer.parseInt(cardinalityStr);
-        if (cardinality >= 0) semiAssociation.setMinimumCardinality(cardinality);
-        else
-          Dialogs.showError(
-              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
-      } catch (NumberFormatException e) {
-        Dialogs.showError(
-            Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
-      }
-    }
-  }
-
-  public void setSemiAssociationMaximumCardinality(
-      final SemiAssociation semiAssociation, final String cardinalityStr) {
-    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
-      semiAssociation.setMaximumCardinality(null);
-    } else {
-      try {
-        int cardinality = Integer.parseInt(cardinalityStr);
-        if (cardinality > 0) semiAssociation.setMaximumCardinality(cardinality);
-        else
-          Dialogs.showError(
-              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
-      } catch (NumberFormatException e) {
-        Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
-      }
-    }
-  }
-
-  public void setWhole(final SemiAssociation semiAssociation, final Boolean whole) {
-    semiAssociation.setWhole(whole);
-  }
-
-  public void setStrong(final SemiAssociation semiAssociation, final Boolean strong) {
-    semiAssociation.setStrong(strong);
-  }
-
-  public String associationCenterLabel(final Association association) {
-    return associationCenterTopLabel(association)
-        + "\n"
-        + associationCenterBottomLabel(association);
-  }
-
-  public String associationPropertiesLabel(final Association association) {
-    return associationCenterTopLabel(association) + " " + associationCenterBottomLabel(association);
-  }
-
-  public String associationCenterTopLabel(final Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getPrimarySemiAssociation(), SemiAssociation::getName)
-        .toString();
-  }
-
-  public String associationCenterBottomLabel(final Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getSecondarySemiAssociation(), SemiAssociation::getName)
-        .toString();
-  }
-
-  public String associationBeginLabel(final Association association) {
-    final StringBuilder sb =
-        buildSemiAssociationAttributeLabel(
-                association.getPrimarySemiAssociation(), SemiAssociation::getRole)
-            .append(' ');
-    buildCardinalityLabelPart(association.getPrimarySemiAssociation(), sb);
-    return sb.toString();
-  }
-
-  public String associationEndLabel(final Association association) {
-    final StringBuilder sb =
-        buildSemiAssociationAttributeLabel(
-                association.getSecondarySemiAssociation(), SemiAssociation::getRole)
-            .append(' ');
-    buildCardinalityLabelPart(association.getSecondarySemiAssociation(), sb);
-    return sb.toString();
   }
 
   public Class getAssociationSourceType(final Association association) {
@@ -384,91 +199,23 @@ public class AssociationServices implements FeatureServices, ModelElementService
     }
   }
 
-  public void addToOwnedSemiAssociations(final SemiAssociation semiAssociation, final Class clazz) {
+  private void addToOwnedSemiAssociations(
+      final SemiAssociation semiAssociation, final Class clazz) {
     clazz.getSemiAssociations().add(semiAssociation);
     semiAssociation.setOwnerClass(clazz);
   }
 
-  public boolean shouldDisplayCompactLabel(final SemiAssociation semiAssociation) {
-    final Association association = semiAssociation.getPrimaryInAssociation();
-    if (association == null) return false;
-    else return association.isCompact();
-  }
-
-  public boolean shouldDisplayAssociationEdge(final Association association) {
-    return !association.isCompact();
-  }
-
-  private StringBuilder buildSemiAssociationAttributeLabel(
-      final SemiAssociation semiAssociation,
-      final Function<SemiAssociation, String> attributeNameGetter,
-      final StringBuilder sb) {
-    if (semiAssociation == null) return sb;
-
-    if (semiAssociation.getRedefinedSemiAssociation() != null
-        && semiAssociation.getRedefinedSemiAssociation() instanceof SemiAssociation) {
-      final SemiAssociation redefinedSemiAssociation =
-          semiAssociation.getRedefinedSemiAssociation();
-      if (!Objects.equals(
-          attributeNameGetter.apply(redefinedSemiAssociation),
-          attributeNameGetter.apply(semiAssociation))) {
-        sb.append(attributeNameGetter.apply(semiAssociation))
-            .append('[')
-            .append(attributeNameGetter.apply(redefinedSemiAssociation))
-            .append("] ");
-      } else {
-        sb.append('[').append(attributeNameGetter.apply(semiAssociation)).append("]");
-      }
-    } else {
-      sb.append(attributeNameGetter.apply(semiAssociation));
-    }
-    return sb;
-  }
-
-  private StringBuilder buildSemiAssociationAttributeLabel(
-      final SemiAssociation semiAssociation,
-      final Function<SemiAssociation, String> attributeNameGetter) {
-    return buildSemiAssociationAttributeLabel(
-        semiAssociation, attributeNameGetter, new StringBuilder());
-  }
-
-  public String compactAssociationLabel(final SemiAssociation primary) {
-    if (primary == null) return "";
-    final Association association = primary.getPrimaryInAssociation();
-    if (association == null) return "";
-
-    final StringBuilder sb = new StringBuilder();
-    buildSemiAssociationAttributeLabel(primary, SemiAssociation::getRole, sb).append(": ");
-    buildCardinalityLabelPart(primary, sb).append(" ");
-
-    if (primary.getMaximumCardinality() == null) {
-      if (primary.isWhole()) sb.append(" sha ");
-      else sb.append(" ref ");
-    } else {
-      sb.append(" con ");
-    }
-
-    sb.append(primary.getReferredClass().getName());
-
-    final ArrayList<String> markers = new ArrayList<>();
-    if (primary.isConstant()) markers.add("K");
-    if (primary.isSubjective()) markers.add("S");
-    if (primary.isTemporal()) markers.add("T");
-    if (!markers.isEmpty())
-      sb.append(" (").append(markers.stream().collect(Collectors.joining(","))).append(")");
-
-    return sb.toString();
-  }
-
   public void moveAssociationUp(final EObject object) {
-    moveElement(object, Association.class, ConML.ElementMovementDirection.UP);
+    ModelElementServices.getInstance()
+        .moveElement(object, Association.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveAssociationDown(final EObject object) {
-    moveElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
+    ModelElementServices.getInstance()
+        .moveElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
   }
 
-  public static void deleteAssociationStatic(final Association association) {
+  public void deleteAssociation(final Association association) {
     final SemiAssociation primary = association.getPrimarySemiAssociation();
     if (primary != null) deleteSemiAssociation(primary);
 
@@ -476,11 +223,7 @@ public class AssociationServices implements FeatureServices, ModelElementService
     if (secondary != null) deleteSemiAssociation(secondary);
   }
 
-  public void deleteAssociation(final Association association) {
-    deleteAssociationStatic(association);
-  }
-
-  private static void deleteSemiAssociation(final SemiAssociation semi) {
+  private void deleteSemiAssociation(final SemiAssociation semi) {
     if (semi == null) return;
 
     final ArrayList<EObject> eObjectsToDelete = new ArrayList<>();
@@ -496,55 +239,5 @@ public class AssociationServices implements FeatureServices, ModelElementService
     for (final EObject eObject : eObjectsToDelete) {
       EcoreUtil.delete(eObject);
     }
-  }
-
-  public boolean redefinedSemiAssociationIsOwnedByAncestor(final EObject object) {
-    return ConML.castAndRunOrReturn(
-        object,
-        SemiAssociation.class,
-        (final SemiAssociation semiAssociation) -> {
-          final SemiAssociation redefined = semiAssociation.getRedefinedSemiAssociation();
-          if (redefined == null) return true;
-          final Class semiAssociationClass = semiAssociation.getOwnerClass();
-          if (semiAssociationClass == null) return true;
-          return anyAncestorOfClassOwnsRedefinedFeature(
-              semiAssociationClass, redefined, Class::getSemiAssociations);
-        },
-        true);
-  }
-
-  public boolean semiAssociationAndRedefinedHaveValidStrongSemantics(final EObject object) {
-    return ConML.castAndRunOrReturn(
-        object,
-        SemiAssociation.class,
-        (final SemiAssociation semi) -> {
-          final SemiAssociation redefined = semi.getRedefinedSemiAssociation();
-          if (redefined == null) return true;
-          else
-            return semi.isStrong() == redefined.isStrong()
-                || (semi.isStrong() && !redefined.isStrong());
-        },
-        true);
-  }
-
-  public boolean semiAssociationAndRedefinedHaveValidOppositeClasses(final EObject object) {
-    return ConML.castAndRunOrReturn(
-        object,
-        SemiAssociation.class,
-        (final SemiAssociation semi) -> {
-          final SemiAssociation redefined = semi.getRedefinedSemiAssociation();
-          if (redefined == null) return true;
-          final Class oppositeClass = semi.getReferredClass();
-          final Class redefinedOppositeClass = redefined.getReferredClass();
-          if (oppositeClass == null
-              || redefinedOppositeClass == null
-              || EcoreUtil.equals(oppositeClass, redefinedOppositeClass)) return true;
-
-          final Generalization redefinedOppositeSpecialization =
-              redefinedOppositeClass.getSpecialization();
-          if (redefinedOppositeSpecialization == null) return false;
-          else return ConML.areClassesAncestorAndDescedant(redefinedOppositeClass, oppositeClass);
-        },
-        true);
   }
 }

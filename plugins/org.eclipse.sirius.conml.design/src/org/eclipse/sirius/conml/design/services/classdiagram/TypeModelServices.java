@@ -23,7 +23,7 @@ import conml.types.Class;
 import conml.types.SimpleDataType;
 import conml.types.TypeModel;
 
-public class TypeModelServices extends ModelServices {
+public final class TypeModelServices extends ModelServices {
 
   public boolean isTypeModel(final EObject object) {
     return object instanceof TypeModel;

@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram.validation;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -11,7 +11,7 @@ import conml.types.DataType;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
 
-public class AttributeServices implements FeatureServices {
+public final class AttributeValidationServices {
 
   public boolean redefinedAttributeIsOwnedByAncestor(final EObject object) {
     return ConML.castAndRunOrReturn(
@@ -22,7 +22,7 @@ public class AttributeServices implements FeatureServices {
           if (redefined == null) return true;
           final Class attributeClass = attribute.getOwnerClass();
           if (attributeClass == null) return true;
-          return anyAncestorOfClassOwnsRedefinedFeature(
+          return Validation.anyAncestorOfClassOwnsRedefinedFeature(
               attributeClass, redefined, Class::getAttributes);
         },
         true);

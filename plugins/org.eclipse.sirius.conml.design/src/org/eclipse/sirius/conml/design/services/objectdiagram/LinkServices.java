@@ -20,7 +20,7 @@ import conml.types.Class;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 
-public class LinkServices implements ModelElementServices {
+public final class LinkServices {
 
   private static final class Errors {
     static final String SOURCE_CLASS_IS_NULL =
@@ -62,11 +62,13 @@ public class LinkServices implements ModelElementServices {
   }
 
   public void moveLinkUp(final EObject object) {
-    moveElement(object, Link.class, ConML.ElementMovementDirection.UP);
+    ModelElementServices.getInstance()
+        .moveElement(object, Link.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveLinkDown(final EObject object) {
-    moveElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
+    ModelElementServices.getInstance()
+        .moveElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void createLinkReferences(

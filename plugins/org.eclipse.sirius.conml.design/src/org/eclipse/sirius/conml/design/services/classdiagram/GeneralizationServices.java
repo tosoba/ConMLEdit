@@ -3,10 +3,8 @@ package org.eclipse.sirius.conml.design.services.classdiagram;
 import java.util.Collection;
 import java.util.stream.Collectors;
 
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 
 import conml.types.Class;
@@ -14,7 +12,7 @@ import conml.types.Generalization;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
-public class GeneralizationServices {
+public final class GeneralizationServices {
 
   private static final class Errors {
     static final String CYCLIC_INHERITANCE =
@@ -86,20 +84,6 @@ public class GeneralizationServices {
               specializedClass ->
                   wouldCauseCyclicInheritanceRelationship(specializedClass, target));
     }
-  }
-
-  public boolean dominatesGeneralizationsOnlyOnParticipatingClasses(final EObject object) {
-    return ConML.castAndRunOrReturn(
-        object,
-        Generalization.class,
-        (final Generalization generalization) -> {
-          final EList<Class> dominatedClasses = generalization.getDominatedClasses();
-          if (dominatedClasses.isEmpty()) return true;
-          return !dominatedClasses
-              .stream()
-              .anyMatch(clazz -> !generalization.getSpecializedClasses().contains(clazz));
-        },
-        true);
   }
 
   private String defaultDiscriminant(final Class inheritedClass) {

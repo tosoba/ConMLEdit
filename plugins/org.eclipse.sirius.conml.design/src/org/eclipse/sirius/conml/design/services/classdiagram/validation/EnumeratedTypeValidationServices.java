@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services.classdiagram;
+package org.eclipse.sirius.conml.design.services.classdiagram.validation;
 
 import java.util.Objects;
 
@@ -11,7 +11,7 @@ import conml.types.EnumeratedType;
 import conml.types.Package;
 import conml.types.TypeModel;
 
-public class EnumeratedTypeServices {
+public final class EnumeratedTypeValidationServices {
 
   public boolean enumeratedTypeDoesNotSpecializeFromItself(final EObject object) {
     return ConML.castAndRunOrReturn(

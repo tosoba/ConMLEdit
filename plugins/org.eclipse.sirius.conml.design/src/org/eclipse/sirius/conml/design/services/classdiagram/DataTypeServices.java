@@ -7,7 +7,7 @@ import conml.types.DataType;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
 
-public class DataTypeServices implements ModelElementServices {
+public final class DataTypeServices {
 
   public String dataTypeLabel(final EObject object) {
     if (!(object instanceof DataType)) return "";
@@ -16,18 +16,22 @@ public class DataTypeServices implements ModelElementServices {
   }
 
   public void moveSimpleDataTypeUp(final EObject object) {
-    moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
+    ModelElementServices.getInstance()
+        .moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveSimpleDataTypeDown(final EObject object) {
-    moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
+    ModelElementServices.getInstance()
+        .moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void moveEnumTypeUp(final EObject object) {
-    moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
+    ModelElementServices.getInstance()
+        .moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveEnumTypeDown(final EObject object) {
-    moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
+    ModelElementServices.getInstance()
+        .moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
   }
 }
