@@ -8,82 +8,79 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" name="TypeModel Validation OverallPackageExistance" level="WARNING" message="TypeModel does not have an overall package." targetClass="types::TypeModel">
           <audits auditExpression="service:self.overallPackageExists"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation TemporalAspectClassUsage" level="WARNING" message="A temporal aspect class is not assigned to any TypeModel." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation TemporalAspectClassUsage" level="WARNING" message="aql:'A temporal aspect class ' + self.name + ' is not assigned to any TypeModel.'" targetClass="types::Class">
           <audits auditExpression="service:self.isTemporalAspectClassAssignedToTypeModel"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation SubjectiveAspectClassUsage" level="WARNING" message="A subjective aspect class is not assigned to any TypeModel." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation SubjectiveAspectClassUsage" level="WARNING" message="aql:'A subjective aspect class ' + self.name + ' is not assigned to any TypeModel.'" targetClass="types::Class">
           <audits auditExpression="service:self.isSubjectiveAspectClassAssignedToTypeModel"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation GeneralizationDiscriminantNameClash" level="WARNING" message="Class should not have multiple Generalizations with the same discriminant." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation GeneralizationDiscriminantNameClash" level="WARNING" message="aql:'Class ' + self.name + ' should not have multiple Generalizations with the same discriminant.'" targetClass="types::Class">
           <audits auditExpression="service:self.doesNotHaveMultipleGeneralizationsWithSameDiscriminant"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation DominantGeneralizationChosenIfMultipleExist" level="ERROR" message="If class participates in multiple Generalizations. One of them should be selected as dominant." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation DominantGeneralizationChosenIfMultipleExist" level="ERROR" message="aql:'Class ' + self.name + ' participates in multiple Generalizations - one of them should be selected as dominant.'" targetClass="types::Class">
           <audits auditExpression="service:self.hasSpecifiedDominantGeneralizationIfParticipatingInMany"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation FeaturesNameClashWithInheritedFeatures" level="ERROR" message="One of the features of this class has a name clash with features of one of the acestors' classes." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation FeaturesNameClashWithInheritedFeatures" level="ERROR" message="aql:'One of the features of Class ' + self.name + ' has a name clash with features of one of the ancestors\' classes.'" targetClass="types::Class">
           <audits auditExpression="service:self.ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation AncestorsNameClash" level="ERROR" message="Class' ancestors' contain features with clashing names." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation AncestorsNameClash" level="ERROR" message="aql:'Class ' + self.name +' ancestors contain features with clashing names.'" targetClass="types::Class">
           <audits auditExpression="service:self.inheritedFeaturesFromAncestorClassesHaveNoNameClashes"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation NameConfilict" level="ERROR" message="Another class with the same name exists in the same package." targetClass="types::Class">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Class Validation NameConfilict" level="ERROR" message="aql:'Another class ' + self.name + ' named exists in the same package.'" targetClass="types::Class">
           <audits auditExpression="service:self.classWithTheSameNameDoesNotExistInSamePackage"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Package Validation SelfContainment" level="ERROR" message="Package cannot be a SubPackage of itself." targetClass="types::Package">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Package Validation SelfContainment" level="ERROR" message="aql:'Package ' + self.name  + ' cannot be a SubPackage of itself.'" targetClass="types::Package">
           <audits auditExpression="service:self.isNotSubPackageOfItself"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Package Validation PackageNameConflict" level="ERROR" message="Another package with the same name exists." targetClass="types::Package">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Package Validation PackageNameConflict" level="ERROR" message="aql:'More than 1 package named ' + self.name + ' exists.'" targetClass="types::Package">
           <audits auditExpression="service:self.packageWithSameNameDoesNotExist"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedCardinality" level="ERROR" message="Cardinality of the redefining feature must be equally or more restrictive." targetClass="types::Feature">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedCardinality" level="ERROR" message="aql:'Cardinality of the redefining feature ' + self.name + ' must be equally or more restrictive.'" targetClass="types::Feature">
           <audits auditExpression="service:self.featuresCardinalityIsEquallyOrMoreRestrictiveThanRedefined"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedConstantSemantics" level="ERROR" message="If redefined feature is constant, redefining feature has to be constant as well." targetClass="types::Feature">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedConstantSemantics" level="ERROR" message="aql:'If redefined feature is constant, redefining feature ' + self.name + ' has to be constant as well.'" targetClass="types::Feature">
           <audits auditExpression="service:self.featureAndRedefinedHaveValidSortedSemantics"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedSortedSemantics" level="ERROR" message="If redefined feature is sorted, redefining feature has to be sorted as well." targetClass="types::Feature">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Feature Validation InvalidRedefinedSortedSemantics" level="ERROR" message="aql:'If redefined feature is sorted, redefining feature ' + self.name + ' has to be sorted as well.'" targetClass="types::Feature">
           <audits auditExpression="service:self.featureAndRedefinedHaveValidConstantSemantics"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Property Validation RedefinedPropertyOwnership" level="ERROR" message="Redefined property has to be owned by an ancestor of this property's class." targetClass="types::Property">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Property Validation RedefinedPropertyOwnership" level="ERROR" message="aql:'Redefined property of property ' + self.name + ' has to be owned by an ancestor of its class.'" targetClass="types::Property">
           <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute Validation RedefinedAttributeOwnership" level="ERROR" message="Redefined attribute has to be owned by an ancestor of this attribute's class." targetClass="types::Attribute">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute Validation RedefinedAttributeOwnership" level="ERROR" message="aql:'Redefined attribute of attribute ' + self.name + ' has to be owned by an ancestor of its class.'" targetClass="types::Attribute">
           <audits auditExpression="service:self.redefinedAttributeIsOwnedByAncestor"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute Validation AttributeTypeCoercion" level="ERROR" message="Type of the redefining attribute has to corce into redefined attribute's type." targetClass="types::Attribute">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Attribute Validation AttributeTypeCoercion" level="ERROR" message="aql:'Type of the redefining attribute ' + self.name + ' has to corce into redefined attribute's type.'" targetClass="types::Attribute">
           <audits auditExpression="service:self.attributeTypeCorcesIntoRedefinedAttributeType"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Generalization Validation DominatesInheritanceOnNonParticipatingClasses" level="ERROR" message="Generalization cannot dominate inheritance on classes that do not participate in this Generalization." targetClass="types::Generalization">
-          <audits auditExpression="service:self.dominatesGeneralizationsOnlyOnParticipatingClasses"/>
-        </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="Association Validation OnlyOneSemiHasWholeSemantics" level="ERROR" message="Only one of the SemiAssociations may have whole semantics." targetClass="types::Association">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="Association Validation OnlyOneSemiHasWholeSemantics" level="ERROR" message="aql:'Only one of the SemiAssociations of Association ' + self.name + ' may have whole semantics.'" targetClass="types::Association">
           <audits auditExpression="service:self.areSemiAssociationsWholeSemanticsValid"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation SelfSpecialization" level="ERROR" message="EnumeratedType cannot specialize from itself." targetClass="types::EnumeratedType">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation SelfSpecialization" level="ERROR" message="aql:'EnumeratedType ' + self.name + ' cannot specialize from itself.'" targetClass="types::EnumeratedType">
           <audits auditExpression="service:self.enumeratedTypeDoesNotSpecializeFromItself"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation SpecializedEnumTypeRootItems" level="ERROR" message="Specializing EnumeratedType cannot have its own root items." targetClass="types::EnumeratedType">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation SpecializedEnumTypeRootItems" level="ERROR" message="aql:'Specializing EnumeratedType ' + self.name +  ' cannot have its own root items.'" targetClass="types::EnumeratedType">
           <audits auditExpression="service:self.specializingEnumeratedTypeDoesNotHaveItsOwnRootItems"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation NameClash" level="ERROR" message="EnumeratedType name clashes with another EnumeratedType." targetClass="types::EnumeratedType">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation NameClash" level="ERROR" message="aql:'EnumeratedType name ' + self.name + ' clashes with another EnumeratedType.'" targetClass="types::EnumeratedType">
           <audits auditExpression="service:self.enumeratedTypeHasNonClashingName"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation InvalidName" level="ERROR" message="EnumeratedType name clashes with either Java or ConML keyword." targetClass="types::EnumeratedType">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation InvalidName" level="ERROR" message="aql:'EnumeratedType ' + self.name + ' name clashes with either Java or ConML keyword.'" targetClass="types::EnumeratedType">
           <audits auditExpression="service:self.enumeratedTypeNameIsValid"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation NoItems" level="WARNING" message="EnumeratedType has no items of its own." targetClass="types::EnumeratedType">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedType Validation NoItems" level="WARNING" message="aql:'EnumeratedType ' + self.name + ' has no items of its own.'" targetClass="types::EnumeratedType">
           <audits auditExpression="service:self.enumeratedTypeHasItems"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation IsSubItemOfItself" level="ERROR" message="EnumeratedItem cannot be a subItem of itself." targetClass="types::EnumeratedItem">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation IsSubItemOfItself" level="ERROR" message="aql:'EnumeratedItem ' + self.name + ' cannot be a subItem of itself.'" targetClass="types::EnumeratedItem">
           <audits auditExpression="service:self.enumeratedItemIsNotSubItemOfItself"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation InvalidSuperItem" level="ERROR" message="EnumeratedItem's superItem belongs to an unrelated EnumeratedType." targetClass="types::EnumeratedItem">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation InvalidSuperItem" level="ERROR" message="aql:'EnumeratedItem ' + self.name + ' superItem belongs to an unrelated EnumeratedType.'" targetClass="types::EnumeratedItem">
           <audits auditExpression="service:self.enumeratedItemsSuperItemDoesNotBelongToUnrelatedType"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation InvalidName" level="ERROR" message="EnumeratedItem's name clashes with either Java or ConML keyword." targetClass="types::EnumeratedItem">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation InvalidName" level="ERROR" message="aql:'EnumeratedItem ' + self.name + ' name clashes with either Java or ConML keyword.'" targetClass="types::EnumeratedItem">
           <audits auditExpression="service:self.enumeratedItemNameIsValid"/>
         </ownedRules>
-        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation NameClash" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="EnumeratedItem Validation NameClash" level="ERROR" message="aql:'EnumeratedItem ' + self.name + ' name clashes with another EnumeratedItem.'" targetClass="types::EnumeratedItem">
           <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
         </ownedRules>
       </validationSet>
@@ -824,10 +821,10 @@
           <semanticValidationRules name="Props_Class Validation DominantGeneralizationChosenIfMultipleExist" level="ERROR" message="If class participates in multiple Generalizations. One of them should be selected as dominant." targetClass="types::Class">
             <audits auditExpression="service:self.hasSpecifiedDominantGeneralizationIfParticipatingInMany"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Class Validation FeaturesNameClashWithInheritedFeatures" level="ERROR" message="One of the features of this class has a name clash with features of one of the acestors' classes." targetClass="types::Class">
+          <semanticValidationRules name="Props_Class Validation FeaturesNameClashWithInheritedFeatures" level="ERROR" message="One of the features of this class has a name clash with features of one of the ancestors' classes." targetClass="types::Class">
             <audits auditExpression="service:self.ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_Class Validation AncestorsNameClash" level="ERROR" message="Class' ancestors' contain features with clashing names." targetClass="types::Class">
+          <semanticValidationRules name="Props_Class Validation AncestorsNameClash" level="ERROR" message="Class' ancestors contain features with clashing names." targetClass="types::Class">
             <audits auditExpression="service:self.inheritedFeaturesFromAncestorClassesHaveNoNameClashes"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_Class Validation NameConfilict" level="ERROR" message="Another class with the same name exists in the same package." targetClass="types::Class">
@@ -881,13 +878,13 @@
           <semanticValidationRules name="Props_EnumeratedItem Validation SubItemOfItself" level="ERROR" message="EnumeratedItem cannot be a subItem of itself." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemIsNotSubItemOfItself"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_EnumeratedItem Validation InvalidSuperItem" level="ERROR" message="EnumeratedItem's superItem belongs to an unrelated EnumeratedType." targetClass="types::EnumeratedItem">
+          <semanticValidationRules name="Props_EnumeratedItem Validation InvalidSuperItem" level="ERROR" message="EnumeratedItem superItem belongs to an unrelated EnumeratedType." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemsSuperItemDoesNotBelongToUnrelatedType"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_EnumeratedItem Validation InvalidName" level="ERROR" message="EnumeratedItem's name clashes with either Java or ConML keyword." targetClass="types::EnumeratedItem">
+          <semanticValidationRules name="Props_EnumeratedItem Validation InvalidName" level="ERROR" message="EnumeratedItem name clashes with either Java or ConML keyword." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemNameIsValid"/>
           </semanticValidationRules>
-          <semanticValidationRules name="Props_EnumeratedItem Validation NameClash" level="ERROR" message="EnumeratedItem's name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
+          <semanticValidationRules name="Props_EnumeratedItem Validation NameClash" level="ERROR" message="EnumeratedItem name clashes with another EnumeratedItem." targetClass="types::EnumeratedItem">
             <audits auditExpression="service:self.enumeratedItemHasNonClashingName"/>
           </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
