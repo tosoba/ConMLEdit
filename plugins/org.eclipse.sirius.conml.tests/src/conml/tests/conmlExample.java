@@ -2,7 +2,7 @@
  */
 package conml.tests;
 
-import conml.Model;
+import conml.Tag;
 import conml.conmlFactory;
 import conml.conmlPackage;
 
@@ -60,7 +60,7 @@ public class conmlExample {
 			System.out.println("Enter a list of file paths or URIs that have content like this:");
 			try {
 				Resource resource = resourceSet.createResource(URI.createURI("http:///My.conml"));
-				Model root = conmlFactory.eINSTANCE.createModel();
+				Tag root = conmlFactory.eINSTANCE.createTag();
 				resource.getContents().add(root);
 				resource.save(System.out, null);
 			}

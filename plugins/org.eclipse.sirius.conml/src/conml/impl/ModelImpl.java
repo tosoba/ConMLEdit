@@ -42,7 +42,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *
  * @generated
  */
-public class ModelImpl extends MinimalEObjectImpl.Container implements Model {
+public abstract class ModelImpl extends MinimalEObjectImpl.Container implements Model {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

@@ -72,29 +72,6 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link conml.Model} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ModelItemProvider modelItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link conml.Model}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createModelAdapter() {
-		if (modelItemProvider == null) {
-			modelItemProvider = new ModelItemProvider(this);
-		}
-
-		return modelItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link conml.Tag} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -245,7 +222,6 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	 */
 	@Override
 	public void dispose() {
-		if (modelItemProvider != null) modelItemProvider.dispose();
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (languageItemProvider != null) languageItemProvider.dispose();
 	}

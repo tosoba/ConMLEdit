@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * </ul>
  *
  * @see conml.conmlPackage#getModel()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface Model extends EObject {

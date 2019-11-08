@@ -56,23 +56,11 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case conmlPackage.MODEL: return createModel();
 			case conmlPackage.TAG: return createTag();
 			case conmlPackage.LANGUAGE: return createLanguage();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Model createModel() {
-		ModelImpl model = new ModelImpl();
-		return model;
 	}
 
 	/**

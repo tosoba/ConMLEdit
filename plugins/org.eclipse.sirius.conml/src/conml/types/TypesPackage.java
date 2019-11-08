@@ -660,12 +660,12 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 4;
 
     /**
-     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
+	 * @generated
+	 * @ordered
+	 */
     int FEATURE__MAXIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 5;
 
   /**
@@ -1151,12 +1151,12 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__CONSTANT = FEATURE__CONSTANT;
 
     /**
-     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
+	 * @generated
+	 * @ordered
+	 */
     int ATTRIBUTE__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**
@@ -1314,12 +1314,12 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__CONSTANT = FEATURE__CONSTANT;
 
     /**
-     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
+	 * @generated
+	 * @ordered
+	 */
     int SEMI_ASSOCIATION__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**
@@ -1522,12 +1522,12 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__CONSTANT = FEATURE__CONSTANT;
 
     /**
-     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-     * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @generated
-     * @ordered
-     */
+	 * @generated
+	 * @ordered
+	 */
     int PROPERTY__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**

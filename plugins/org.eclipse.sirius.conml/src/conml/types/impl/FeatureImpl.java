@@ -128,23 +128,23 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	protected boolean constant = CONSTANT_EDEFAULT;
 
     /**
-     * The default value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMaximumCardinality()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMaximumCardinality()
+	 * @generated
+	 * @ordered
+	 */
     protected static final Integer MAXIMUM_CARDINALITY_EDEFAULT = null;
 
     /**
-     * The cached value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
-     * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
+	 * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #getMaximumCardinality()
-     * @generated
-     * @ordered
-     */
+	 * @see #getMaximumCardinality()
+	 * @generated
+	 * @ordered
+	 */
     protected Integer maximumCardinality = MAXIMUM_CARDINALITY_EDEFAULT;
 
   /**

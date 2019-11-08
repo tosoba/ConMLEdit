@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:properties-ext-widgets-reference="http://www.eclipse.org/sirius/properties/1.0.0/ext/widgets/reference" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" xmlns:validation="http://www.eclipse.org/sirius/description/validation/1.1.0" name="ConML modelers" version="12.0.0.2017041100">
-  <ownedViewpoints name="ConML" modelFileExtension="conml">
+  <ownedViewpoints name="ConML" modelFileExtension="conml types instances">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" documentation="Representation to edit class diagrams" name="Class Diagram" titleExpression="ConML Class Diagram" domainClass="types::TypeModel" enablePopupBars="true">
-      <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <validationSet>
@@ -504,7 +503,6 @@
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Object Diagram" titleExpression="ConML Object Diagram" domainClass="instances::InstanceModel" enablePopupBars="true">
-      <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//instances"/>
       <validationSet>
@@ -635,7 +633,6 @@
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DiagramDefaultsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DiagramPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ExistingElementsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ModelServices"/>
@@ -672,7 +669,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.ValueServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.objectdiagram.validation.InstanceModelValidationServices"/>
   </ownedViewpoints>
-  <ownedViewpoints name="Reused" modelFileExtension="conml">
+  <ownedViewpoints name="Reused" modelFileExtension="conml types instances">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#/"/>
       <metamodel href="../../org.eclipse.sirius.conml/model/conml.ecore#//types"/>
