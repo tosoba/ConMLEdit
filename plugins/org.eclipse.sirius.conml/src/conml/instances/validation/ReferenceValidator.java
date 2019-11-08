@@ -19,7 +19,9 @@ public interface ReferenceValidator {
 
 	boolean validateReferredObject(conml.instances.Object value);
 
-  boolean validateRefersTo(conml.instances.Object value);
+  boolean validatePrimaryLink(Link value);
+
+    boolean validateRefersTo(conml.instances.Object value);
 	boolean validateInverse(Reference value);
 	boolean validateIsInverseOfReference(Reference value);
 

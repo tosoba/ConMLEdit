@@ -50,14 +50,14 @@ public interface Link extends Instance {
 
   /**
 	 * Returns the value of the '<em><b>Primary Reference</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Reference#getPrimaryLink <em>Primary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Primary Reference</em>' reference.
 	 * @see #setPrimaryReference(Reference)
 	 * @see conml.instances.InstancesPackage#getLink_PrimaryReference()
-	 * @see conml.instances.Reference#getPrimaryInLink
-	 * @model opposite="PrimaryInLink"
+	 * @see conml.instances.Reference#getPrimaryLink
+	 * @model opposite="PrimaryLink" required="true"
 	 * @generated
 	 */
 	Reference getPrimaryReference();
@@ -81,7 +81,7 @@ public interface Link extends Instance {
 	 * @see #setSecondaryReference(Reference)
 	 * @see conml.instances.InstancesPackage#getLink_SecondaryReference()
 	 * @see conml.instances.Reference#getSecondaryLink
-	 * @model opposite="SecondaryLink"
+	 * @model opposite="SecondaryLink" required="true"
 	 * @generated
 	 */
 	Reference getSecondaryReference();

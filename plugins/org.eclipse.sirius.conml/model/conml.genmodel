@@ -197,7 +197,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/ReferredObject"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/PrimaryInLink"/>
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/PrimaryLink"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Reference/SecondaryLink"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

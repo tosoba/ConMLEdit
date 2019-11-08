@@ -45,7 +45,7 @@ public class ReferenceItemProvider extends FacetItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addReferredObjectPropertyDescriptor(object);
-			addPrimaryInLinkPropertyDescriptor(object);
+			addPrimaryLinkPropertyDescriptor(object);
 			addSecondaryLinkPropertyDescriptor(object);
 			addOwnerReferenceSetPropertyDescriptor(object);
 			addInverseReferencePropertyDescriptor(object);
@@ -76,19 +76,19 @@ public class ReferenceItemProvider extends FacetItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Primary In Link feature.
+	 * This adds a property descriptor for the Primary Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPrimaryInLinkPropertyDescriptor(Object object) {
+	protected void addPrimaryLinkPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Reference_PrimaryInLink_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_PrimaryInLink_feature", "_UI_Reference_type"),
-				 InstancesPackage.Literals.REFERENCE__PRIMARY_IN_LINK,
+				 getString("_UI_Reference_PrimaryLink_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Reference_PrimaryLink_feature", "_UI_Reference_type"),
+				 InstancesPackage.Literals.REFERENCE__PRIMARY_LINK,
 				 true,
 				 false,
 				 true,
@@ -97,7 +97,7 @@ public class ReferenceItemProvider extends FacetItemProvider {
 				 null));
 	}
 
-  /**
+    /**
 	 * This adds a property descriptor for the Secondary Link feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

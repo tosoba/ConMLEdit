@@ -205,7 +205,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//instances/Facet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferredObject" lowerBound="1"
           eType="#//instances/Object" eOpposite="#//instances/Object/IsReferredByReferences"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryInLink" eType="#//instances/Link"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryLink" eType="#//instances/Link"
           eOpposite="#//instances/Link/PrimaryReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryLink" eType="#//instances/Link"
           eOpposite="#//instances/Link/SecondaryReference"/>
@@ -262,10 +262,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
           lowerBound="1" eType="#//types/Association" eOpposite="#//types/Association/InstanceLinks"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryReference" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/PrimaryInLink"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryReference" eType="#//instances/Reference"
-          eOpposite="#//instances/Reference/SecondaryLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PrimaryReference" lowerBound="1"
+          eType="#//instances/Reference" eOpposite="#//instances/Reference/PrimaryLink"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SecondaryReference" lowerBound="1"
+          eType="#//instances/Reference" eOpposite="#//instances/Reference/SecondaryLink"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="compact" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>

@@ -13,7 +13,7 @@ package conml.instances;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.Reference#getReferredObject <em>Referred Object</em>}</li>
- *   <li>{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}</li>
+ *   <li>{@link conml.instances.Reference#getPrimaryLink <em>Primary Link</em>}</li>
  *   <li>{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}</li>
  *   <li>{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}</li>
  *   <li>{@link conml.instances.Reference#getInverseReference <em>Inverse Reference</em>}</li>
@@ -49,30 +49,30 @@ public interface Reference extends Facet {
 	void setReferredObject(conml.instances.Object value);
 
   /**
-	 * Returns the value of the '<em><b>Primary In Link</b></em>' reference.
+	 * Returns the value of the '<em><b>Primary Link</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Primary In Link</em>' reference.
-	 * @see #setPrimaryInLink(Link)
-	 * @see conml.instances.InstancesPackage#getReference_PrimaryInLink()
+	 * @return the value of the '<em>Primary Link</em>' reference.
+	 * @see #setPrimaryLink(Link)
+	 * @see conml.instances.InstancesPackage#getReference_PrimaryLink()
 	 * @see conml.instances.Link#getPrimaryReference
 	 * @model opposite="PrimaryReference"
 	 * @generated
 	 */
-	Link getPrimaryInLink();
+	Link getPrimaryLink();
 
-  /**
-	 * Sets the value of the '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.instances.Reference#getPrimaryLink <em>Primary Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Primary In Link</em>' reference.
-	 * @see #getPrimaryInLink()
+	 * @param value the new value of the '<em>Primary Link</em>' reference.
+	 * @see #getPrimaryLink()
 	 * @generated
 	 */
-	void setPrimaryInLink(Link value);
+	void setPrimaryLink(Link value);
 
-  /**
+    /**
 	 * Returns the value of the '<em><b>Secondary Link</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}'.
 	 * <!-- begin-user-doc -->

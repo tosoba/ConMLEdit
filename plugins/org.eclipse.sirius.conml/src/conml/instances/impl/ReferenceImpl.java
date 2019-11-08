@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getReferredObject <em>Referred Object</em>}</li>
- *   <li>{@link conml.instances.impl.ReferenceImpl#getPrimaryInLink <em>Primary In Link</em>}</li>
+ *   <li>{@link conml.instances.impl.ReferenceImpl#getPrimaryLink <em>Primary Link</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getSecondaryLink <em>Secondary Link</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getOwnerReferenceSet <em>Owner Reference Set</em>}</li>
  *   <li>{@link conml.instances.impl.ReferenceImpl#getInverseReference <em>Inverse Reference</em>}</li>
@@ -45,16 +45,16 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	protected conml.instances.Object referredObject;
 
   /**
-	 * The cached value of the '{@link #getPrimaryInLink() <em>Primary In Link</em>}' reference.
+	 * The cached value of the '{@link #getPrimaryLink() <em>Primary Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getPrimaryInLink()
+	 * @see #getPrimaryLink()
 	 * @generated
 	 * @ordered
 	 */
-	protected Link primaryInLink;
+	protected Link primaryLink;
 
-  /**
+    /**
 	 * The cached value of the '{@link #getSecondaryLink() <em>Secondary Link</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -161,63 +161,63 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 	 * @generated
 	 */
 	@Override
-	public Link getPrimaryInLink() {
-		if (primaryInLink != null && primaryInLink.eIsProxy()) {
-			InternalEObject oldPrimaryInLink = (InternalEObject)primaryInLink;
-			primaryInLink = (Link)eResolveProxy(oldPrimaryInLink);
-			if (primaryInLink != oldPrimaryInLink) {
+	public Link getPrimaryLink() {
+		if (primaryLink != null && primaryLink.eIsProxy()) {
+			InternalEObject oldPrimaryLink = (InternalEObject)primaryLink;
+			primaryLink = (Link)eResolveProxy(oldPrimaryLink);
+			if (primaryLink != oldPrimaryLink) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, oldPrimaryInLink, primaryInLink));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.REFERENCE__PRIMARY_LINK, oldPrimaryLink, primaryLink));
 			}
 		}
-		return primaryInLink;
+		return primaryLink;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Link basicGetPrimaryInLink() {
-		return primaryInLink;
+	public Link basicGetPrimaryLink() {
+		return primaryLink;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetPrimaryInLink(Link newPrimaryInLink, NotificationChain msgs) {
-		Link oldPrimaryInLink = primaryInLink;
-		primaryInLink = newPrimaryInLink;
+	public NotificationChain basicSetPrimaryLink(Link newPrimaryLink, NotificationChain msgs) {
+		Link oldPrimaryLink = primaryLink;
+		primaryLink = newPrimaryLink;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, oldPrimaryInLink, newPrimaryInLink);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_LINK, oldPrimaryLink, newPrimaryLink);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setPrimaryInLink(Link newPrimaryInLink) {
-		if (newPrimaryInLink != primaryInLink) {
+	public void setPrimaryLink(Link newPrimaryLink) {
+		if (newPrimaryLink != primaryLink) {
 			NotificationChain msgs = null;
-			if (primaryInLink != null)
-				msgs = ((InternalEObject)primaryInLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
-			if (newPrimaryInLink != null)
-				msgs = ((InternalEObject)newPrimaryInLink).eInverseAdd(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
-			msgs = basicSetPrimaryInLink(newPrimaryInLink, msgs);
+			if (primaryLink != null)
+				msgs = ((InternalEObject)primaryLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+			if (newPrimaryLink != null)
+				msgs = ((InternalEObject)newPrimaryLink).eInverseAdd(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+			msgs = basicSetPrimaryLink(newPrimaryLink, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, newPrimaryInLink, newPrimaryInLink));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.REFERENCE__PRIMARY_LINK, newPrimaryLink, newPrimaryLink));
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -374,10 +374,10 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 				if (referredObject != null)
 					msgs = ((InternalEObject)referredObject).eInverseRemove(this, InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES, conml.instances.Object.class, msgs);
 				return basicSetReferredObject((conml.instances.Object)otherEnd, msgs);
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				if (primaryInLink != null)
-					msgs = ((InternalEObject)primaryInLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
-				return basicSetPrimaryInLink((Link)otherEnd, msgs);
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				if (primaryLink != null)
+					msgs = ((InternalEObject)primaryLink).eInverseRemove(this, InstancesPackage.LINK__PRIMARY_REFERENCE, Link.class, msgs);
+				return basicSetPrimaryLink((Link)otherEnd, msgs);
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				if (secondaryLink != null)
 					msgs = ((InternalEObject)secondaryLink).eInverseRemove(this, InstancesPackage.LINK__SECONDARY_REFERENCE, Link.class, msgs);
@@ -400,8 +400,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
 				return basicSetReferredObject(null, msgs);
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				return basicSetPrimaryInLink(null, msgs);
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				return basicSetPrimaryLink(null, msgs);
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				return basicSetSecondaryLink(null, msgs);
 			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:
@@ -435,9 +435,9 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
 				if (resolve) return getReferredObject();
 				return basicGetReferredObject();
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				if (resolve) return getPrimaryInLink();
-				return basicGetPrimaryInLink();
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				if (resolve) return getPrimaryLink();
+				return basicGetPrimaryLink();
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				if (resolve) return getSecondaryLink();
 				return basicGetSecondaryLink();
@@ -461,8 +461,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
 				setReferredObject((conml.instances.Object)newValue);
 				return;
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				setPrimaryInLink((Link)newValue);
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				setPrimaryLink((Link)newValue);
 				return;
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				setSecondaryLink((Link)newValue);
@@ -488,8 +488,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
 				setReferredObject((conml.instances.Object)null);
 				return;
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				setPrimaryInLink((Link)null);
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				setPrimaryLink((Link)null);
 				return;
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				setSecondaryLink((Link)null);
@@ -514,8 +514,8 @@ public class ReferenceImpl extends FacetImpl implements Reference {
 		switch (featureID) {
 			case InstancesPackage.REFERENCE__REFERRED_OBJECT:
 				return referredObject != null;
-			case InstancesPackage.REFERENCE__PRIMARY_IN_LINK:
-				return primaryInLink != null;
+			case InstancesPackage.REFERENCE__PRIMARY_LINK:
+				return primaryLink != null;
 			case InstancesPackage.REFERENCE__SECONDARY_LINK:
 				return secondaryLink != null;
 			case InstancesPackage.REFERENCE__OWNER_REFERENCE_SET:

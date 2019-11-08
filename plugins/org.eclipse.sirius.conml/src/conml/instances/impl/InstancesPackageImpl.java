@@ -255,11 +255,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getReference_PrimaryInLink() {
+	public EReference getReference_PrimaryLink() {
 		return (EReference)referenceEClass.getEStructuralFeatures().get(1);
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -645,7 +645,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		referenceEClass = createEClass(REFERENCE);
 		createEReference(referenceEClass, REFERENCE__REFERRED_OBJECT);
-		createEReference(referenceEClass, REFERENCE__PRIMARY_IN_LINK);
+		createEReference(referenceEClass, REFERENCE__PRIMARY_LINK);
 		createEReference(referenceEClass, REFERENCE__SECONDARY_LINK);
 		createEReference(referenceEClass, REFERENCE__OWNER_REFERENCE_SET);
 		createEReference(referenceEClass, REFERENCE__INVERSE_REFERENCE);
@@ -746,7 +746,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReference_ReferredObject(), this.getObject(), this.getObject_IsReferredByReferences(), "ReferredObject", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getReference_PrimaryInLink(), this.getLink(), this.getLink_PrimaryReference(), "PrimaryInLink", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getReference_PrimaryLink(), this.getLink(), this.getLink_PrimaryReference(), "PrimaryLink", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_SecondaryLink(), this.getLink(), this.getLink_SecondaryReference(), "SecondaryLink", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_OwnerReferenceSet(), this.getReferenceSet(), this.getReferenceSet_References(), "OwnerReferenceSet", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getReference_InverseReference(), this.getReference(), null, "InverseReference", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -777,8 +777,8 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_InstancedAssociation(), theTypesPackage.getAssociation(), theTypesPackage.getAssociation_InstanceLinks(), "InstancedAssociation", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_PrimaryReference(), this.getReference(), this.getReference_PrimaryInLink(), "PrimaryReference", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getLink_SecondaryReference(), this.getReference(), this.getReference_SecondaryLink(), "SecondaryReference", null, 0, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_PrimaryReference(), this.getReference(), this.getReference_PrimaryLink(), "PrimaryReference", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLink_SecondaryReference(), this.getReference(), this.getReference_SecondaryLink(), "SecondaryReference", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLink_Compact(), theXMLTypePackage.getBoolean(), "compact", "false", 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -229,7 +229,7 @@ public final class AssociationServices {
     final ArrayList<EObject> eObjectsToDelete = new ArrayList<>();
     for (final ReferenceSet refSet : semi.getInstanceReferenceSets()) {
       for (final Reference ref : refSet.getReferences()) {
-        if (ref.getPrimaryInLink() != null) eObjectsToDelete.add(ref.getPrimaryInLink());
+        if (ref.getPrimaryLink() != null) eObjectsToDelete.add(ref.getPrimaryLink());
         else if (ref.getSecondaryLink() != null) eObjectsToDelete.add(ref.getSecondaryLink());
       }
       eObjectsToDelete.add(refSet);

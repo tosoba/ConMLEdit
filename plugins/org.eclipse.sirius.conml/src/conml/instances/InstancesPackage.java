@@ -253,15 +253,15 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__REFERRED_OBJECT = FACET_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Primary In Link</b></em>' reference.
+	 * The feature id for the '<em><b>Primary Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__PRIMARY_IN_LINK = FACET_FEATURE_COUNT + 1;
+	int REFERENCE__PRIMARY_LINK = FACET_FEATURE_COUNT + 1;
 
-  /**
+        /**
 	 * The feature id for the '<em><b>Secondary Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1007,17 +1007,17 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getReference_ReferredObject();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.instances.Reference#getPrimaryInLink <em>Primary In Link</em>}'.
+	 * Returns the meta object for the reference '{@link conml.instances.Reference#getPrimaryLink <em>Primary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Primary In Link</em>'.
-	 * @see conml.instances.Reference#getPrimaryInLink()
+	 * @return the meta object for the reference '<em>Primary Link</em>'.
+	 * @see conml.instances.Reference#getPrimaryLink()
 	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getReference_PrimaryInLink();
+	EReference getReference_PrimaryLink();
 
-  /**
+    /**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1463,14 +1463,14 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference REFERENCE__REFERRED_OBJECT = eINSTANCE.getReference_ReferredObject();
 
     /**
-		 * The meta object literal for the '<em><b>Primary In Link</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Primary Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REFERENCE__PRIMARY_IN_LINK = eINSTANCE.getReference_PrimaryInLink();
+		EReference REFERENCE__PRIMARY_LINK = eINSTANCE.getReference_PrimaryLink();
 
-    /**
+        /**
 		 * The meta object literal for the '<em><b>Secondary Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

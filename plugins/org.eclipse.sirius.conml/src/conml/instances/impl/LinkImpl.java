@@ -217,9 +217,9 @@ public class LinkImpl extends InstanceImpl implements Link {
 		if (newPrimaryReference != primaryReference) {
 			NotificationChain msgs = null;
 			if (primaryReference != null)
-				msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+				msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_LINK, Reference.class, msgs);
 			if (newPrimaryReference != null)
-				msgs = ((InternalEObject)newPrimaryReference).eInverseAdd(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+				msgs = ((InternalEObject)newPrimaryReference).eInverseAdd(this, InstancesPackage.REFERENCE__PRIMARY_LINK, Reference.class, msgs);
 			msgs = basicSetPrimaryReference(newPrimaryReference, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -326,7 +326,7 @@ public class LinkImpl extends InstanceImpl implements Link {
 				return basicSetInstancedAssociation((Association)otherEnd, msgs);
 			case InstancesPackage.LINK__PRIMARY_REFERENCE:
 				if (primaryReference != null)
-					msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_IN_LINK, Reference.class, msgs);
+					msgs = ((InternalEObject)primaryReference).eInverseRemove(this, InstancesPackage.REFERENCE__PRIMARY_LINK, Reference.class, msgs);
 				return basicSetPrimaryReference((Reference)otherEnd, msgs);
 			case InstancesPackage.LINK__SECONDARY_REFERENCE:
 				if (secondaryReference != null)
