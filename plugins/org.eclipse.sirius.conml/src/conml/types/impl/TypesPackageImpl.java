@@ -526,7 +526,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_MaximumCardinality() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -536,7 +536,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_MinimumCardinality() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -546,7 +546,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_Sorted() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(1);
 	}
 
   /**
@@ -556,7 +556,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_Temporal() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(2);
 	}
 
   /**
@@ -566,7 +566,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_Subjective() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(3);
 	}
 
   /**
@@ -576,7 +576,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EAttribute getFeature_Constant() {
-		return (EAttribute)featureEClass.getEStructuralFeatures().get(5);
+		return (EAttribute)featureEClass.getEStructuralFeatures().get(4);
 	}
 
   /**
@@ -1131,12 +1131,12 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(generalizationEClass, GENERALIZATION__DOMINATED_CLASSES);
 
 		featureEClass = createEClass(FEATURE);
-		createEAttribute(featureEClass, FEATURE__MAXIMUM_CARDINALITY);
 		createEAttribute(featureEClass, FEATURE__MINIMUM_CARDINALITY);
 		createEAttribute(featureEClass, FEATURE__SORTED);
 		createEAttribute(featureEClass, FEATURE__TEMPORAL);
 		createEAttribute(featureEClass, FEATURE__SUBJECTIVE);
 		createEAttribute(featureEClass, FEATURE__CONSTANT);
+		createEAttribute(featureEClass, FEATURE__MAXIMUM_CARDINALITY);
 
 		enumeratedTypeEClass = createEClass(ENUMERATED_TYPE);
 		createEReference(enumeratedTypeEClass, ENUMERATED_TYPE__OWNED_ITEMS);
@@ -1279,15 +1279,15 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getGeneralization_Discriminant(), ecorePackage.getEString(), "discriminant", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_SpecializedClasses(), this.getClass_(), this.getClass_Generalizations(), "SpecializedClasses", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_GeneralizedClass(), this.getClass_(), this.getClass_Specialization(), "GeneralizedClass", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getGeneralization_DominatedClasses(), this.getClass_(), this.getClass_DominantGeneralization(), "DominatedClasses", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getGeneralization_DominatedClasses(), this.getClass_(), this.getClass_DominantGeneralization(), "DominatedClasses", null, 0, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getFeature_MaximumCardinality(), ecorePackage.getEIntegerObject(), "maximumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_MinimumCardinality(), ecorePackage.getEInt(), "minimumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Sorted(), ecorePackage.getEBoolean(), "sorted", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Temporal(), ecorePackage.getEBoolean(), "temporal", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Subjective(), ecorePackage.getEBoolean(), "subjective", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getFeature_Constant(), ecorePackage.getEBoolean(), "constant", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getFeature_MaximumCardinality(), ecorePackage.getEIntegerObject(), "maximumCardinality", null, 0, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(enumeratedTypeEClass, EnumeratedType.class, "EnumeratedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnumeratedType_OwnedItems(), this.getEnumeratedItem(), this.getEnumeratedItem_OwnerType(), "OwnedItems", null, 0, -1, EnumeratedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

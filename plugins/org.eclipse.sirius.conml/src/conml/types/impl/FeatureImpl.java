@@ -16,37 +16,17 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.types.impl.FeatureImpl#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isSorted <em>Sorted</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.impl.FeatureImpl#isConstant <em>Constant</em>}</li>
+ *   <li>{@link conml.types.impl.FeatureImpl#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  * </ul>
  *
  * @generated
  */
 public abstract class FeatureImpl extends TypeImpl implements Feature {
-	/**
-	 * The default value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaximumCardinality()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Integer MAXIMUM_CARDINALITY_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMaximumCardinality()
-	 * @generated
-	 * @ordered
-	 */
-	protected Integer maximumCardinality = MAXIMUM_CARDINALITY_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getMinimumCardinality() <em>Minimum Cardinality</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -146,6 +126,26 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	 * @ordered
 	 */
 	protected boolean constant = CONSTANT_EDEFAULT;
+
+    /**
+     * The default value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaximumCardinality()
+     * @generated
+     * @ordered
+     */
+    protected static final Integer MAXIMUM_CARDINALITY_EDEFAULT = null;
+
+    /**
+     * The cached value of the '{@link #getMaximumCardinality() <em>Maximum Cardinality</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see #getMaximumCardinality()
+     * @generated
+     * @ordered
+     */
+    protected Integer maximumCardinality = MAXIMUM_CARDINALITY_EDEFAULT;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -312,8 +312,6 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
-				return getMaximumCardinality();
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				return getMinimumCardinality();
 			case TypesPackage.FEATURE__SORTED:
@@ -324,6 +322,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return isSubjective();
 			case TypesPackage.FEATURE__CONSTANT:
 				return isConstant();
+			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
+				return getMaximumCardinality();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -337,9 +337,6 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
-				setMaximumCardinality((Integer)newValue);
-				return;
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				setMinimumCardinality((Integer)newValue);
 				return;
@@ -355,6 +352,9 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__CONSTANT:
 				setConstant((Boolean)newValue);
 				return;
+			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
+				setMaximumCardinality((Integer)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -367,9 +367,6 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
-				setMaximumCardinality(MAXIMUM_CARDINALITY_EDEFAULT);
-				return;
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				setMinimumCardinality(MINIMUM_CARDINALITY_EDEFAULT);
 				return;
@@ -385,6 +382,9 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 			case TypesPackage.FEATURE__CONSTANT:
 				setConstant(CONSTANT_EDEFAULT);
 				return;
+			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
+				setMaximumCardinality(MAXIMUM_CARDINALITY_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -397,8 +397,6 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
-				return MAXIMUM_CARDINALITY_EDEFAULT == null ? maximumCardinality != null : !MAXIMUM_CARDINALITY_EDEFAULT.equals(maximumCardinality);
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 				return minimumCardinality != MINIMUM_CARDINALITY_EDEFAULT;
 			case TypesPackage.FEATURE__SORTED:
@@ -409,6 +407,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 				return subjective != SUBJECTIVE_EDEFAULT;
 			case TypesPackage.FEATURE__CONSTANT:
 				return constant != CONSTANT_EDEFAULT;
+			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
+				return MAXIMUM_CARDINALITY_EDEFAULT == null ? maximumCardinality != null : !MAXIMUM_CARDINALITY_EDEFAULT.equals(maximumCardinality);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -423,9 +423,7 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (maximumCardinality: ");
-		result.append(maximumCardinality);
-		result.append(", minimumCardinality: ");
+		result.append(" (minimumCardinality: ");
 		result.append(minimumCardinality);
 		result.append(", sorted: ");
 		result.append(sorted);
@@ -435,6 +433,8 @@ public abstract class FeatureImpl extends TypeImpl implements Feature {
 		result.append(subjective);
 		result.append(", constant: ");
 		result.append(constant);
+		result.append(", maximumCardinality: ");
+		result.append(maximumCardinality);
 		result.append(')');
 		return result.toString();
 	}

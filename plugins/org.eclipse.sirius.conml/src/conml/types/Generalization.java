@@ -93,7 +93,7 @@ public interface Generalization extends TypeModelElement {
 	 * @return the value of the '<em>Dominated Classes</em>' reference list.
 	 * @see conml.types.TypesPackage#getGeneralization_DominatedClasses()
 	 * @see conml.types.Class#getDominantGeneralization
-	 * @model opposite="DominantGeneralization" required="true"
+	 * @model opposite="DominantGeneralization"
 	 * @generated
 	 */
 	EList<conml.types.Class> getDominatedClasses();

@@ -45,12 +45,12 @@ public class FeatureItemProvider extends TypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addMaximumCardinalityPropertyDescriptor(object);
 			addMinimumCardinalityPropertyDescriptor(object);
 			addSortedPropertyDescriptor(object);
 			addTemporalPropertyDescriptor(object);
 			addSubjectivePropertyDescriptor(object);
 			addConstantPropertyDescriptor(object);
+			addMaximumCardinalityPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -214,12 +214,12 @@ public class FeatureItemProvider extends TypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Feature.class)) {
-			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
 			case TypesPackage.FEATURE__MINIMUM_CARDINALITY:
 			case TypesPackage.FEATURE__SORTED:
 			case TypesPackage.FEATURE__TEMPORAL:
 			case TypesPackage.FEATURE__SUBJECTIVE:
 			case TypesPackage.FEATURE__CONSTANT:
+			case TypesPackage.FEATURE__MAXIMUM_CARDINALITY:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

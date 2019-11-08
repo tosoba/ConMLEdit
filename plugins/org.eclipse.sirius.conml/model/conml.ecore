@@ -82,12 +82,10 @@
           upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/Generalizations"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="GeneralizedClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Specialization"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="DominatedClasses" lowerBound="1"
-          upperBound="-1" eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DominatedClasses" upperBound="-1"
+          eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//types/Type">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCardinality" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="sorted" lowerBound="1"
@@ -98,6 +96,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="constant" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedItems" upperBound="-1"

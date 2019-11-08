@@ -11,12 +11,12 @@ package conml.types;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.types.Feature#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  *   <li>{@link conml.types.Feature#getMinimumCardinality <em>Minimum Cardinality</em>}</li>
  *   <li>{@link conml.types.Feature#isSorted <em>Sorted</em>}</li>
  *   <li>{@link conml.types.Feature#isTemporal <em>Temporal</em>}</li>
  *   <li>{@link conml.types.Feature#isSubjective <em>Subjective</em>}</li>
  *   <li>{@link conml.types.Feature#isConstant <em>Constant</em>}</li>
+ *   <li>{@link conml.types.Feature#getMaximumCardinality <em>Maximum Cardinality</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getFeature()
@@ -31,7 +31,7 @@ public interface Feature extends Type {
 	 * @return the value of the '<em>Maximum Cardinality</em>' attribute.
 	 * @see #setMaximumCardinality(Integer)
 	 * @see conml.types.TypesPackage#getFeature_MaximumCardinality()
-	 * @model required="true"
+	 * @model
 	 * @generated
 	 */
 	Integer getMaximumCardinality();

@@ -615,22 +615,13 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__DEFINITION = TYPE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FEATURE__MAXIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Minimum Cardinality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__MINIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 1;
+	int FEATURE__MINIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Sorted</b></em>' attribute.
@@ -639,7 +630,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__SORTED = TYPE_FEATURE_COUNT + 2;
+	int FEATURE__SORTED = TYPE_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Temporal</b></em>' attribute.
@@ -648,7 +639,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__TEMPORAL = TYPE_FEATURE_COUNT + 3;
+	int FEATURE__TEMPORAL = TYPE_FEATURE_COUNT + 2;
 
   /**
 	 * The feature id for the '<em><b>Subjective</b></em>' attribute.
@@ -657,7 +648,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__SUBJECTIVE = TYPE_FEATURE_COUNT + 4;
+	int FEATURE__SUBJECTIVE = TYPE_FEATURE_COUNT + 3;
 
   /**
 	 * The feature id for the '<em><b>Constant</b></em>' attribute.
@@ -666,7 +657,16 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 5;
+	int FEATURE__CONSTANT = TYPE_FEATURE_COUNT + 4;
+
+    /**
+     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int FEATURE__MAXIMUM_CARDINALITY = TYPE_FEATURE_COUNT + 5;
 
   /**
 	 * The number of structural features of the '<em>Feature</em>' class.
@@ -1106,15 +1106,6 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__DEFINITION = FEATURE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
-
-	/**
 	 * The feature id for the '<em><b>Minimum Cardinality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1158,6 +1149,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE__CONSTANT = FEATURE__CONSTANT;
+
+    /**
+     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int ATTRIBUTE__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**
 	 * The feature id for the '<em><b>Multilingual</b></em>' attribute.
@@ -1269,15 +1269,6 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__DEFINITION = FEATURE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SEMI_ASSOCIATION__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
-
-	/**
 	 * The feature id for the '<em><b>Minimum Cardinality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1321,6 +1312,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int SEMI_ASSOCIATION__CONSTANT = FEATURE__CONSTANT;
+
+    /**
+     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int SEMI_ASSOCIATION__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**
 	 * The feature id for the '<em><b>Role</b></em>' attribute.
@@ -1477,15 +1477,6 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__DEFINITION = FEATURE__DEFINITION;
 
 	/**
-	 * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PROPERTY__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
-
-	/**
 	 * The feature id for the '<em><b>Minimum Cardinality</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1529,6 +1520,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int PROPERTY__CONSTANT = FEATURE__CONSTANT;
+
+    /**
+     * The feature id for the '<em><b>Maximum Cardinality</b></em>' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int PROPERTY__MAXIMUM_CARDINALITY = FEATURE__MAXIMUM_CARDINALITY;
 
   /**
 	 * The feature id for the '<em><b>Redefined Property</b></em>' reference.

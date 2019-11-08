@@ -89,12 +89,12 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/Generalization/DominatedClasses"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//types/Feature">
-        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/maximumCardinality"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/minimumCardinality"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/sorted"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/temporal"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/subjective"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/constant"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Feature/maximumCardinality"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/EnumeratedType">
         <genFeatures children="true" createChild="true" propertySortChoices="true"
