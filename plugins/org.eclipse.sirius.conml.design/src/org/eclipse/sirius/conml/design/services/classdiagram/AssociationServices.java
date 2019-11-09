@@ -80,49 +80,6 @@ public final class AssociationServices {
         : null;
   }
 
-  public Association createAssociation(
-      final EObject object,
-      final Class source,
-      final Class target,
-      final EObject sourceView,
-      final EObject targetView) {
-    final Association association = TypesFactory.eINSTANCE.createAssociation();
-    association.setDefinition("");
-    association.setCompact(false);
-    final String primaryName = source.getName() + "s";
-    association.setName(primaryName);
-
-    // TODO: default cardinalities - currently it's 0..*
-    final SemiAssociation primary = TypesFactory.eINSTANCE.createSemiAssociation();
-    primary.setName(primaryName);
-    primary.setRole(primaryName);
-    primary.setPrimaryInAssociation(association);
-    primary.setReferredClass(target);
-    association.setPrimarySemiAssociation(primary);
-
-    final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
-    final String secondaryName = target.getName() + "s";
-    secondary.setName(secondaryName);
-    secondary.setRole(secondaryName);
-    secondary.setSecondaryInAssociation(association);
-    secondary.setReferredClass(source);
-    association.setSecondarySemiAssociation(secondary);
-
-    primary.setInverseSemiAssociation(secondary);
-    secondary.setInverseSemiAssociation(primary);
-
-    source.getSemiAssociations().add(primary);
-    primary.setOwnerClass(source);
-    target.getSemiAssociations().add(secondary);
-    secondary.setOwnerClass(target);
-
-    if (source.eContainer() instanceof TypeModel) {
-      final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getElements().add(association);
-    }
-    return association;
-  }
-
   private boolean compactSemiAssociationCardinalitiesAreValid(
       final SemiAssociation primary, final Class source, final boolean removePrimaryIfInvalid) {
     final int minPrimaryCardinality = primary.getMinimumCardinality();

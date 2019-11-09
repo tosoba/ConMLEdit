@@ -18,6 +18,11 @@ public final class SemiAssociationServices {
     static final String EXPECTED_POSITIVE_INTEGER_INPUT =
         "Invalid input - must be a positive integer.";
   }
+  
+  public void setInverses(final SemiAssociation primary, final SemiAssociation secondary) {
+	  primary.setInverseSemiAssociation(secondary);
+	  secondary.setInverseSemiAssociation(primary);
+  }
 
   public void expandAssociation(final SemiAssociation semi) {
     if (semi.getPrimaryInAssociation() != null) semi.getPrimaryInAssociation().setCompact(false);
