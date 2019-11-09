@@ -5,7 +5,7 @@ import java.util.Objects;
 import conml.types.Feature;
 
 public final class Labels {
-	
+
   private Labels() {}
 
   public static StringBuilder buildCardinalityLabelPart(
@@ -20,6 +20,7 @@ public final class Labels {
         sb.append("*");
       }
     }
+    if (feature.isSorted()) sb.append("^");
     return sb;
   }
 }
