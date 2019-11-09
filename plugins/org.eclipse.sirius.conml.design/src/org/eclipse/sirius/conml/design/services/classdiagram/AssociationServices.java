@@ -260,6 +260,8 @@ public final class AssociationServices {
 
     final SemiAssociation secondary = association.getSecondarySemiAssociation();
     if (secondary != null) deleteSemiAssociation(secondary);
+    
+    EcoreUtil.delete(association);
   }
 
   private void deleteSemiAssociation(final SemiAssociation semi) {

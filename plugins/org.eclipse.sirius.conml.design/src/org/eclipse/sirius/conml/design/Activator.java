@@ -63,6 +63,10 @@ public class Activator extends AbstractUIPlugin {
     return plugin;
   }
 
+  public static void logError(String msg) {
+    logError(new IllegalStateException(msg));
+  }
+
   public static void logError(Throwable exception) {
     log(
         IStatus.ERROR,

@@ -283,7 +283,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <subNodeMappings name="CD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" semanticCandidatesExpression="feature:SemiAssociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
+          <subNodeMappings name="CD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.4" semanticCandidatesExpression="feature:SemiAssociations" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::SemiAssociation">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.compactAssociationLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -562,6 +562,14 @@
               <containerView name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteAssociation"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:DeleteElementDescription" name="Delete CompactAssociation">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteCompactSemiAssociation"/>
               </initialOperation>
             </tools>
           </ownedTools>

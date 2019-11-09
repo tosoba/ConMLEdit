@@ -1,15 +1,23 @@
 package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 
+import conml.types.Association;
 import conml.types.SemiAssociation;
 
 public final class SemiAssociationServices {
 
   private static final class Messages {
     static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
+  }
+
+  private static final class ExceptionMessages {
+    static final String ASSOCIATION_IS_NULL = "Association is null.";
+    static final String INVERSE_SEMI_IS_NULL = "Inverse SemiAssociation is null";
   }
 
   private static final class Errors {
@@ -25,6 +33,28 @@ public final class SemiAssociationServices {
 
   public static SemiAssociationServices getInstance() {
     return InstanceHolder.INSTANCE;
+  }
+
+  public void deleteCompactSemiAssociation(final SemiAssociation semi) {
+    Association association = null;
+    if (semi.getPrimaryInAssociation() != null) association = semi.getPrimaryInAssociation();
+    else if (semi.getSecondaryInAssociation() != null)
+      association = semi.getSecondaryInAssociation();
+
+    EcoreUtil.delete(semi);
+
+    if (association == null) {
+      Activator.logError(ExceptionMessages.ASSOCIATION_IS_NULL);
+    } else {
+      EcoreUtil.delete(association);
+    }
+
+    final SemiAssociation inverse = semi.getInverseSemiAssociation();
+    if (inverse == null) {
+      Activator.logError(ExceptionMessages.INVERSE_SEMI_IS_NULL);
+    } else {
+      EcoreUtil.delete(inverse);
+    }
   }
 
   public void setInverses(final SemiAssociation primary, final SemiAssociation secondary) {
