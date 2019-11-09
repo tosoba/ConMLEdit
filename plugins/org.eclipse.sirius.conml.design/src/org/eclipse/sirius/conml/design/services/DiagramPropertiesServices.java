@@ -17,6 +17,10 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices;
+import org.eclipse.sirius.conml.design.services.classdiagram.PackageServices;
+import org.eclipse.sirius.conml.design.services.classdiagram.SemiAssociationServices;
+import org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices;
 
 import conml.Model;
 import conml.instances.Link;
@@ -35,6 +39,13 @@ public final class DiagramPropertiesServices {
   static {
     setupIgnoredReferences();
     setupStructuralFeaturesPredicates();
+  }
+
+  public boolean shouldShowActionPage(final EObject object) {
+    return TypeModelServices.getInstance().isTypeModel(object)
+        || AssociationServices.getInstance().isExpandedAssociation(object)
+        || SemiAssociationServices.getInstance().isPrimarySemiInCompactAssociation(object)
+        || PackageServices.getInstance().isNonOverallPackage(object);
   }
 
   public boolean referenceIfPredicate(final EStructuralFeature feature) {

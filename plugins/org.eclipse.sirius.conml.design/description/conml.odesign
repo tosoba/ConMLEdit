@@ -321,7 +321,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateOverallPackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Node%20Creation%20Package']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
-                    <groups name="D_CD_CreateOverallPackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_CD_CreateOverallPackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -352,7 +352,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Node%20Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@groups.0"/>
-                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -388,7 +388,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -419,7 +419,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_CD_CreateAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Attribute']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.7/@groups.0"/>
-                    <groups name="D_CD_CreateAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_CD_CreateAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -495,9 +495,9 @@
                             </initialOperation>
                           </buttons>
                           <page name="D_CD_CreateAssociation_DefaultPage" labelExpression="New Association" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@subModelOperations.5/@subModelOperations.0/@groups.0 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@subModelOperations.5/@subModelOperations.0/@groups.1 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@subModelOperations.5/@subModelOperations.0/@groups.2"/>
-                          <groups name="D_CD_CreateAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
-                          <groups name="D_CD_CreateAssociation_PrimaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.2"/>
-                          <groups name="D_CD_CreateAssociation_SecondaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.3"/>
+                          <groups name="D_CD_CreateAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1" filterControlsFromExtendedGroupExpression="aql:false"/>
+                          <groups name="D_CD_CreateAssociation_PrimaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.3"/>
+                          <groups name="D_CD_CreateAssociation_SecondaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.4"/>
                         </subModelOperations>
                       </subModelOperations>
                     </subModelOperations>
@@ -523,7 +523,7 @@
                         </initialOperation>
                       </buttons>
                       <page name="D_CD_CreateCompactAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                     </subModelOperations>
                   </subModelOperations>
                 </firstModelOperations>
@@ -594,7 +594,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Object']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -618,7 +618,7 @@
                       </initialOperation>
                     </buttons>
                     <page name="D_OD_CreateValueSet_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ValueSet']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@groups.0"/>
-                    <groups name="D_OD_CreateValueSet_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <groups name="D_OD_CreateValueSet_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -656,7 +656,7 @@
                             </initialOperation>
                           </buttons>
                           <page name="D_OD_CreateLink_DefaultPage" domainClass="instances::Link" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='OD_Group_Links']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@cases.0/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
-                          <groups name="D_OD_CreateLink_GeneralGroup" labelExpression="General" domainClass="instances::Link" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                          <groups name="D_OD_CreateLink_GeneralGroup" labelExpression="General" domainClass="instances::Link" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                         </subModelOperations>
                       </subModelOperations>
                     </cases>
@@ -755,11 +755,12 @@
   </ownedViewpoints>
   <extensions xsi:type="properties:ViewExtensionDescription" name="Properties">
     <categories name="PR_General">
-      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="PR_TypeModelElementsPage" labelExpression="Elements" domainClass="types::TypeModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4"/>
-      <pages name="PR_InstanceModelElementsPage" labelExpression="Elements" domainClass="instances::InstanceModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
-      <pages name="PR_SemiAssociationsPage" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.2 //@extensions.0/@categories.0/@groups.3"/>
-      <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
+      <pages name="PR_GeneralPage" labelExpression="General" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1"/>
+      <pages name="PR_TypeModelElementsPage" labelExpression="Elements" domainClass="types::TypeModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
+      <pages name="PR_InstanceModelElementsPage" labelExpression="Elements" domainClass="instances::InstanceModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
+      <pages name="PR_SemiAssociationsPage" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4"/>
+      <pages name="PR_ActionPage" labelExpression="Actions" semanticCandidateExpression="var:self" preconditionExpression="service:self.shouldShowActionPage" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <groups name="PR_ActionGroup" labelExpression="Actions" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
           <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
             <widget xsi:type="properties:ButtonDescription" helpExpression="Display association using expanded style." buttonLabelExpression="Expand">
@@ -782,17 +783,21 @@
               </initialOperation>
             </widget>
           </ifs>
-          <ifs name="if_it_is_booleanValue" predicateExpression="service:self.isBooleanValue">
-            <widget xsi:type="properties:CheckboxDescription" name="PR_GeneralGroup isBooleanValue Checkbox" labelExpression="Content" helpExpression="Content of the boolean value" valueExpression="service:self.booleanValueContent">
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.setBooleanValueContent(newValue)"/>
-              </initialOperation>
-            </widget>
-          </ifs>
           <ifs name="if_it_is_typeModel" predicateExpression="service:self.isTypeModel">
             <widget xsi:type="properties:ButtonDescription" helpExpression="Generate code from this TypeModel" buttonLabelExpression="Generate code">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.generateCode"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+        </controls>
+      </groups>
+      <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
+        <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
+          <ifs name="if_it_is_booleanValue" predicateExpression="service:self.isBooleanValue">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_GeneralGroup isBooleanValue Checkbox" labelExpression="Content" helpExpression="Content of the boolean value" valueExpression="service:self.booleanValueContent">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.setBooleanValueContent(newValue)"/>
               </initialOperation>
             </widget>
           </ifs>
@@ -993,7 +998,7 @@
         </validationSet>
       </groups>
       <groups name="PR_PrimarySemiAssociationGroup" labelExpression="Primary" domainClass="types::Association" semanticCandidateExpression="aql:self">
-        <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="PrimarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.primarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.2/@controls.0"/>
         <validationSet>
           <semanticValidationRules name="Props_Association Validation Primary Cardinalities" level="ERROR" message="Primary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
             <audits auditExpression="service:self.arePrimarySemiAssociationCardinalitiesValid"/>
@@ -1001,7 +1006,7 @@
         </validationSet>
       </groups>
       <groups name="PR_SecondarySemiAssociationGroup" labelExpression="Secondary" domainClass="types::Association" semanticCandidateExpression="aql:self">
-        <controls xsi:type="properties:DynamicMappingForDescription" name="SecondarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.secondarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.1/@controls.0"/>
+        <controls xsi:type="properties:DynamicMappingForDescription" name="SecondarySemiAssociationDynamicMapping" iterator="semi" iterableExpression="service:self.secondarySemiAssociationAsList" extends="//@extensions.0/@categories.0/@groups.2/@controls.0"/>
         <validationSet>
           <semanticValidationRules name="Props_Association Validation Secondary Cardinalities" level="ERROR" message="Secondary SemiAssociation cardinalities are invalid. Minimum must be less than maximum." targetClass="types::SemiAssociation">
             <audits auditExpression="service:self.areSecondarySemiAssociationCardinalitiesValid"/>
@@ -1047,8 +1052,8 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
-                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
+                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1118,8 +1123,8 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@groups.0"/>
-                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@groups.0"/>
+                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1230,8 +1235,8 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1298,8 +1303,8 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.4/@controls.4/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.4/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -1368,8 +1373,8 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.0"/>
+                    <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6/@controls.0/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>

@@ -25,6 +25,14 @@ import conml.types.TypeModel;
 
 public final class TypeModelServices {
 
+  private static final class InstanceHolder {
+    static final TypeModelServices INSTANCE = new TypeModelServices();
+  }
+
+  public static TypeModelServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public boolean isTypeModel(final EObject object) {
     return object instanceof TypeModel;
   }
