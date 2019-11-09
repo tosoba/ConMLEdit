@@ -7,6 +7,7 @@ import java.util.Objects;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 
@@ -25,7 +26,14 @@ public final class AssociationServices {
     static final String COMPACT_SYMMETRIC_ASSOCIATION =
         "Compact style cannot be used for symmetric associations.";
     static final String COMPACT_CARDINALITIES =
-        "Specified semiassociation cardinalities do not match any of the con/sha/ref patterns.";
+        "Specified SemiAssociation cardinalities do not match any of the con/sha/ref patterns.";
+    static final String NO_REDEFINED_SEMI_SPECIFIED =
+        "No redefined SemiAssociation specified. The tool is meant only for creating SemiAssociations that redefine others.";
+  }
+
+  private static final class ExceptionMessages {
+    static final String ASSOCIATION_IS_NULL = "Association is null.";
+    static final String REDEFINED_INVERSE_IS_NULL = "Redefined SemiAssociation's inverse is null.";
   }
 
   private static final class InstanceHolder {
@@ -124,6 +132,7 @@ public final class AssociationServices {
   }
 
   public void addToAssociation(final SemiAssociation primary, final Class source) {
+    // TODO: maybe remove these checks from here and put them in validations instead...
     if (!compactSemiAssociationCardinalitiesAreValid(primary, source, true)
         || !compactSemiAssociationTargetIsValid(primary, source, true)) return;
 
@@ -149,6 +158,79 @@ public final class AssociationServices {
 
     addToOwnedSemiAssociations(primary, source);
     addToOwnedSemiAssociations(secondary, target);
+
+    if (source.eContainer() instanceof TypeModel) {
+      final TypeModel typeModel = (TypeModel) source.eContainer();
+      typeModel.getElements().add(association);
+    }
+  }
+
+  public void addRedefiningSemiToAssociation(
+      final SemiAssociation semi, final Class source, final Class target) {
+    final SemiAssociation redefinedSemi = semi.getRedefinedSemiAssociation();
+    if (redefinedSemi == null) {
+      Dialogs.showError(Errors.NO_REDEFINED_SEMI_SPECIFIED);
+      return;
+    }
+
+    semi.setOwnerClass(source);
+    semi.setReferredClass(target);
+
+    Association redefinedAssociation = null;
+    boolean redefinedIsPrimary = true;
+    if (redefinedSemi.getPrimaryInAssociation() != null) {
+      redefinedAssociation = redefinedSemi.getPrimaryInAssociation();
+    } else if (redefinedSemi.getSecondaryInAssociation() != null) {
+      redefinedAssociation = redefinedSemi.getSecondaryInAssociation();
+      redefinedIsPrimary = false;
+    }
+
+    if (redefinedAssociation == null) {
+      Activator.logError(new IllegalStateException(ExceptionMessages.ASSOCIATION_IS_NULL));
+      return;
+    }
+
+    final Association association = TypesFactory.eINSTANCE.createAssociation();
+    association.setCompact(false);
+    association.setName(redefinedAssociation.getName());
+    association.setDefinition(redefinedAssociation.getDefinition());
+    if (redefinedIsPrimary) {
+      semi.setPrimaryInAssociation(association);
+      association.setPrimarySemiAssociation(semi);
+    } else {
+      semi.setSecondaryInAssociation(association);
+      association.setSecondarySemiAssociation(semi);
+    }
+
+    final SemiAssociation inverseOfRedefined = redefinedSemi.getInverseSemiAssociation();
+    if (inverseOfRedefined == null) {
+      Activator.logError(new IllegalStateException(ExceptionMessages.REDEFINED_INVERSE_IS_NULL));
+      return;
+    }
+
+    final SemiAssociation inverseSemi = TypesFactory.eINSTANCE.createSemiAssociation();
+    inverseSemi.setName(inverseOfRedefined.getName());
+    inverseSemi.setDefinition(inverseOfRedefined.getDefinition());
+    inverseSemi.setRole(inverseOfRedefined.getRole());
+    inverseSemi.setReferredClass(source);
+    inverseSemi.setConstant(inverseOfRedefined.isConstant());
+    inverseSemi.setMaximumCardinality(inverseOfRedefined.getMaximumCardinality());
+    inverseSemi.setMinimumCardinality(inverseOfRedefined.getMinimumCardinality());
+    inverseSemi.setOwnerClass(target);
+    inverseSemi.setSorted(inverseOfRedefined.isSorted());
+    inverseSemi.setStrong(inverseOfRedefined.isStrong());
+    inverseSemi.setSubjective(inverseOfRedefined.isSubjective());
+    inverseSemi.setTemporal(inverseOfRedefined.isTemporal());
+    inverseSemi.setWhole(inverseOfRedefined.isWhole());
+    inverseSemi.setInverseSemiAssociation(semi);
+    semi.setInverseSemiAssociation(inverseSemi);
+    if (redefinedIsPrimary) {
+      inverseSemi.setSecondaryInAssociation(association);
+      association.setSecondarySemiAssociation(inverseSemi);
+    } else {
+      inverseSemi.setPrimaryInAssociation(association);
+      association.setPrimarySemiAssociation(inverseSemi);
+    }
 
     if (source.eContainer() instanceof TypeModel) {
       final TypeModel typeModel = (TypeModel) source.eContainer();

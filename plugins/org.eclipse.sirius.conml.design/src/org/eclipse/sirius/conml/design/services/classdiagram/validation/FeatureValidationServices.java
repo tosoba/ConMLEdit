@@ -11,7 +11,7 @@ import conml.types.Property;
 import conml.types.SemiAssociation;
 
 public final class FeatureValidationServices {
-	
+
   public boolean featuresCardinalityIsEquallyOrMoreRestrictiveThanRedefined(final EObject object) {
     return validateFeatureRedefinition(object, this::isFeaturesCardinalityValidForRedefinition);
   }
@@ -64,6 +64,8 @@ public final class FeatureValidationServices {
         && ((redefined.getMaximumCardinality() == null && feature.getMaximumCardinality() == null)
             || (redefined.getMaximumCardinality() == null
                 && feature.getMaximumCardinality() != null)
-            || (redefined.getMaximumCardinality() >= feature.getMaximumCardinality()));
+            || (redefined.getMaximumCardinality() != null
+                && feature.getMaximumCardinality() != null
+                && redefined.getMaximumCardinality() >= feature.getMaximumCardinality()));
   }
 }

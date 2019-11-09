@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.stream.Collectors;
+
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -62,7 +64,11 @@ public final class TypeModelServices {
   }
 
   public Collection<EObject> getOwnedAssociationElements(final EObject object) {
-    return ModelServices.getInstance().getOwnedElementsOfType(object, Association.class);
+    return ModelServices.getInstance()
+        .getOwnedElementsOfTypeStream(object, Association.class)
+        // TODO: should Associations with redefined Semis be filtered out here?
+        .filter(association -> !association.isCompact())
+        .collect(Collectors.toList());
   }
 
   public Collection<EObject> getOwnedSimpleDataTypeElements(final EObject object) {

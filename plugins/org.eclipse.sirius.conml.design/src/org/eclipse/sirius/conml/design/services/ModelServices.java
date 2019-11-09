@@ -1,8 +1,8 @@
 package org.eclipse.sirius.conml.design.services;
 
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -23,15 +23,16 @@ public final class ModelServices {
     return InstanceHolder.INSTANCE;
   }
 
-  public Collection<EObject> getOwnedElementsOfType(EObject object, Class<?> clazz) {
-    if (!(object instanceof Model)) return Arrays.asList();
+  public <T extends EObject> Collection<EObject> getOwnedElementsOfType(
+      final EObject object, final Class<T> clazz) {
+    return getOwnedElementsOfTypeStream(object, clazz).collect(Collectors.toList());
+  }
+
+  public <T extends EObject> Stream<T> getOwnedElementsOfTypeStream(
+      final EObject object, final Class<T> clazz) {
+    if (!(object instanceof Model)) return Stream.empty();
     final Model model = (Model) object;
-    return model
-        .getElements()
-        .stream()
-        .filter(element -> clazz.isInstance(element))
-        .map(element -> (EObject) element)
-        .collect(Collectors.toList());
+    return model.getElements().stream().filter(clazz::isInstance).map(clazz::cast);
   }
 
   public Collection<Model> getAllDiagramRootsInSession(final EObject object) {
