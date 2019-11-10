@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.types.Class;
 import conml.types.Generalization;
@@ -14,16 +15,6 @@ import conml.types.TypesFactory;
 
 public final class GeneralizationServices {
 
-  private static final class Errors {
-    static final String CYCLIC_INHERITANCE =
-        "Creating that generalization would cause a cyclic inheritance relationship.";
-    static final String SELF_GENERALIZATION = "Self generalization is not allowed.";
-  }
-
-  private static final class Messages {
-    static final String GENERALIZATION_WAS_NOT_CREATED = "Generalization was not created";
-  }
-
   public Generalization createGeneralization(
       final EObject object,
       final Class source,
@@ -31,14 +22,18 @@ public final class GeneralizationServices {
       final EObject sourceView,
       final EObject targetView) {
     if (EcoreUtil.equals(source, target)) {
-      Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.SELF_GENERALIZATION);
+      Dialogs.showError(
+          Messages.getString("Message.GeneralizationWasNotCreated"),
+          Messages.getString("Error.SelfGeneralization"));
       return null;
     }
 
     // Prevent the creation of generalization between the same 2 classes in the
     // opposite direction
     if (wouldCauseCyclicInheritanceRelationship(source, target)) {
-      Dialogs.showError(Messages.GENERALIZATION_WAS_NOT_CREATED, Errors.CYCLIC_INHERITANCE);
+      Dialogs.showError(
+          Messages.getString("Message.GeneralizationWasNotCreated"),
+          Messages.getString("Error.CyclicInheritance"));
       return null;
     }
 

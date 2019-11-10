@@ -19,25 +19,9 @@ import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
+import lpg.runtime.Messages;
 
 public final class LinkServices {
-
-  private static final class Errors {
-    static final String SOURCE_CLASS_IS_NULL =
-        "Instanced Class of the source Object is not specified";
-    static final String TARGET_CLASS_IS_NULL =
-        "Instanced Class of the target Object is not specified";
-    static final String NO_ASSOCIATION_EXISTS =
-        "No Association exists between Classes instanced by chosen Objects.";
-    static final String INSTANCED_ASSOCIATION_NOT_SPECIFIED =
-        "Instanced Association was not specified.";
-    static final String INSTANCED_ASSOCIATION_CLASS_MISMATCH =
-        "There is a mismatch between Classes referred to by the chosen instanced Association and Classes instanced by chosen Objects.";
-  }
-
-  private static final class Messages {
-    static final String LINK_CANNOT_BE_CREATED = "Cannot create a Link between chosen Objects.";
-  }
 
   public conml.instances.Object getLinkSourceType(final Link link) {
     return link.getPrimaryReference() != null
@@ -76,7 +60,8 @@ public final class LinkServices {
     final Association instancedAssociation = link.getInstancedAssociation();
     if (instancedAssociation == null) {
       Dialogs.showError(
-          Messages.LINK_CANNOT_BE_CREATED, Errors.INSTANCED_ASSOCIATION_NOT_SPECIFIED);
+          Messages.getString("Message.LinkCannotBeCreated"),
+          Messages.getString("Error.InstanceAssociationNotSpecified"));
       EcoreUtil.delete(link);
       return;
     }
@@ -97,7 +82,8 @@ public final class LinkServices {
         .collect(Collectors.toSet())
         .contains(instancedAssociation)) {
       Dialogs.showError(
-          Messages.LINK_CANNOT_BE_CREATED, Errors.INSTANCED_ASSOCIATION_CLASS_MISMATCH);
+          Messages.getString("Message.LinkCannotBeCreated"),
+          Messages.getString("Error.InstancedAssociationClassMismatch"));
       EcoreUtil.delete(link);
       return;
     }
@@ -185,14 +171,20 @@ public final class LinkServices {
       final conml.instances.Object source, final conml.instances.Object target) {
     final Class sourceClass = source.getInstancedClass();
     if (sourceClass == null) {
-      Dialogs.showError(Messages.LINK_CANNOT_BE_CREATED, Errors.SOURCE_CLASS_IS_NULL);
+      Dialogs.showError(
+          Messages.getString("Message.LinkCannotBeCreated"),
+          Messages.getString("Error.SourceClassIsNull"));
       return;
     }
     final Class targetClass = target.getInstancedClass();
     if (targetClass == null) {
-      Dialogs.showError(Messages.LINK_CANNOT_BE_CREATED, Errors.TARGET_CLASS_IS_NULL);
+      Dialogs.showError(
+          Messages.getString("Message.LinkCannotBeCreated"),
+          Messages.getString("Error.TargetClassIsNull"));
       return;
     }
-    Dialogs.showError(Messages.LINK_CANNOT_BE_CREATED, Errors.NO_ASSOCIATION_EXISTS);
+    Dialogs.showError(
+        Messages.getString("Message.LinkCannotBeCreated"),
+        Messages.getString("Error.NoAssociationExists"));
   }
 }
