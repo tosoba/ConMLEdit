@@ -5,27 +5,12 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.types.Association;
 import conml.types.SemiAssociation;
 
 public final class SemiAssociationServices {
-
-  private static final class Messages {
-    static final String CARDINALITY_WAS_NOT_SET = "Cardinality was not set.";
-  }
-
-  private static final class ExceptionMessages {
-    static final String ASSOCIATION_IS_NULL = "Association is null.";
-    static final String INVERSE_SEMI_IS_NULL = "Inverse SemiAssociation is null";
-  }
-
-  private static final class Errors {
-    static final String EXPECTED_NON_NEGATIVE_INTEGER_INPUT =
-        "Invalid input - must be a non-negative integer.";
-    static final String EXPECTED_POSITIVE_INTEGER_INPUT =
-        "Invalid input - must be a positive integer.";
-  }
 
   private static final class InstanceHolder {
     static final SemiAssociationServices INSTANCE = new SemiAssociationServices();
@@ -44,14 +29,14 @@ public final class SemiAssociationServices {
     EcoreUtil.delete(semi);
 
     if (association == null) {
-      Activator.logError(ExceptionMessages.ASSOCIATION_IS_NULL);
+      Activator.logError(Messages.getString("ExceptionMessage.AssociationIsNull"));
     } else {
       EcoreUtil.delete(association);
     }
 
     final SemiAssociation inverse = semi.getInverseSemiAssociation();
     if (inverse == null) {
-      Activator.logError(ExceptionMessages.INVERSE_SEMI_IS_NULL);
+      Activator.logError(Messages.getString("ExceptionMessage.InverseSemiIsNull"));
     } else {
       EcoreUtil.delete(inverse);
     }
@@ -96,10 +81,12 @@ public final class SemiAssociationServices {
         if (cardinality >= 0) semiAssociation.setMinimumCardinality(cardinality);
         else
           Dialogs.showError(
-              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
+              Messages.getString("Message.CardinalityWasNotSet"),
+              Messages.getString("Error.ExpectedNonNegativeIntegerInput"));
       } catch (NumberFormatException e) {
         Dialogs.showError(
-            Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_NON_NEGATIVE_INTEGER_INPUT);
+            Messages.getString("Message.CardinalityWasNotSet"),
+            Messages.getString("Error.ExpectedNonNegativeIntegerInput"));
       }
     }
   }
@@ -114,9 +101,12 @@ public final class SemiAssociationServices {
         if (cardinality > 0) semiAssociation.setMaximumCardinality(cardinality);
         else
           Dialogs.showError(
-              Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
+              Messages.getString("Message.CardinalityWasNotSet"),
+              Messages.getString("Error.ExpectedPositiveIntegerInput"));
       } catch (NumberFormatException e) {
-        Dialogs.showError(Messages.CARDINALITY_WAS_NOT_SET, Errors.EXPECTED_POSITIVE_INTEGER_INPUT);
+        Dialogs.showError(
+            Messages.getString("Message.CardinalityWasNotSet"),
+            Messages.getString("Error.ExpectedPositiveIntegerInput"));
       }
     }
   }
