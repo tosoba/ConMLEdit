@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
@@ -20,21 +21,6 @@ import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
 public final class AssociationServices {
-
-  private static final class Errors {
-    static final String ASSOCIATION_TARGET_IS_NULL = "Association target must be specified.";
-    static final String COMPACT_SYMMETRIC_ASSOCIATION =
-        "Compact style cannot be used for symmetric associations.";
-    static final String COMPACT_CARDINALITIES =
-        "Specified SemiAssociation cardinalities do not match any of the con/sha/ref patterns.";
-    static final String NO_REDEFINED_SEMI_SPECIFIED =
-        "No redefined SemiAssociation specified. The tool is meant only for creating SemiAssociations that redefine others.";
-  }
-
-  private static final class ExceptionMessages {
-    static final String ASSOCIATION_IS_NULL = "Association is null.";
-    static final String REDEFINED_INVERSE_IS_NULL = "Redefined SemiAssociation's inverse is null.";
-  }
 
   private static final class InstanceHolder {
     static final AssociationServices INSTANCE = new AssociationServices();
@@ -100,7 +86,7 @@ public final class AssociationServices {
         source.getSemiAssociations().remove(primary);
         EcoreUtil.delete(primary);
       }
-      Dialogs.showError(Errors.COMPACT_CARDINALITIES);
+      Dialogs.showError(Messages.getString("Error.CompactCardinalities"));
       return false;
     } else {
       return true;
@@ -117,14 +103,14 @@ public final class AssociationServices {
         source.getSemiAssociations().remove(primary);
         EcoreUtil.delete(primary);
       }
-      Dialogs.showError(Errors.ASSOCIATION_TARGET_IS_NULL);
+      Dialogs.showError(Messages.getString("Error.AssociationTargetIsNull"));
       return false;
     } else if (EcoreUtil.equals(source, target)) {
       if (removePrimaryIfInvalid) {
         source.getSemiAssociations().remove(primary);
         EcoreUtil.delete(primary);
       }
-      Dialogs.showError(Errors.COMPACT_SYMMETRIC_ASSOCIATION);
+      Dialogs.showError(Messages.getString("Error.CompactSymmetricAssociation"));
       return false;
     } else {
       return true;
@@ -169,7 +155,7 @@ public final class AssociationServices {
       final SemiAssociation semi, final Class source, final Class target) {
     final SemiAssociation redefinedSemi = semi.getRedefinedSemiAssociation();
     if (redefinedSemi == null) {
-      Dialogs.showError(Errors.NO_REDEFINED_SEMI_SPECIFIED);
+      Dialogs.showError(Messages.getString("Error.NoRedefinedSemiSpecified"));
       return;
     }
 
@@ -186,7 +172,8 @@ public final class AssociationServices {
     }
 
     if (redefinedAssociation == null) {
-      Activator.logError(new IllegalStateException(ExceptionMessages.ASSOCIATION_IS_NULL));
+      Activator.logError(
+          new IllegalStateException(Messages.getString("ExceptionMessage.AssociationIsNull")));
       return;
     }
 
@@ -204,7 +191,8 @@ public final class AssociationServices {
 
     final SemiAssociation inverseOfRedefined = redefinedSemi.getInverseSemiAssociation();
     if (inverseOfRedefined == null) {
-      Activator.logError(new IllegalStateException(ExceptionMessages.REDEFINED_INVERSE_IS_NULL));
+      Activator.logError(
+          new IllegalStateException(Messages.getString("ExceptionMessage.RedefinedInverseIsNull")));
       return;
     }
 
@@ -260,7 +248,7 @@ public final class AssociationServices {
 
     final SemiAssociation secondary = association.getSecondarySemiAssociation();
     if (secondary != null) deleteSemiAssociation(secondary);
-    
+
     EcoreUtil.delete(association);
   }
 
