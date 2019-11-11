@@ -255,7 +255,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_ExtendedTypeModel() {
+	public EReference getTypeModel_BaseTypeModel() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -265,17 +265,17 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_ExtendingTypeModels() {
+	public EReference getTypeModel_ParticularTypeModels() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(2);
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_ParticularInTypeModel() {
+	public EReference getTypeModel_SubjectiveAspect() {
 		return (EReference)typeModelEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -285,28 +285,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getTypeModel_HasParticularTypeModels() {
-		return (EReference)typeModelEClass.getEStructuralFeatures().get(4);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getTypeModel_SubjectiveAspect() {
-		return (EReference)typeModelEClass.getEStructuralFeatures().get(5);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getTypeModel_TemporalAspect() {
-		return (EReference)typeModelEClass.getEStructuralFeatures().get(6);
+		return (EReference)typeModelEClass.getEStructuralFeatures().get(4);
 	}
 
     /**
@@ -1100,10 +1080,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		// Create classes and their features
 		typeModelEClass = createEClass(TYPE_MODEL);
 		createEReference(typeModelEClass, TYPE_MODEL__CONFORMING_INSTANCE_MODEL);
-		createEReference(typeModelEClass, TYPE_MODEL__EXTENDED_TYPE_MODEL);
-		createEReference(typeModelEClass, TYPE_MODEL__EXTENDING_TYPE_MODELS);
-		createEReference(typeModelEClass, TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL);
-		createEReference(typeModelEClass, TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS);
+		createEReference(typeModelEClass, TYPE_MODEL__BASE_TYPE_MODEL);
+		createEReference(typeModelEClass, TYPE_MODEL__PARTICULAR_TYPE_MODELS);
 		createEReference(typeModelEClass, TYPE_MODEL__SUBJECTIVE_ASPECT);
 		createEReference(typeModelEClass, TYPE_MODEL__TEMPORAL_ASPECT);
 
@@ -1251,10 +1229,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeModelEClass, TypeModel.class, "TypeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getTypeModel_ConformingInstanceModel(), theInstancesPackage.getInstanceModel(), theInstancesPackage.getInstanceModel_ConformedTypeModels(), "ConformingInstanceModel", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeModel_ExtendedTypeModel(), this.getTypeModel(), this.getTypeModel_ExtendingTypeModels(), "ExtendedTypeModel", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeModel_ExtendingTypeModels(), this.getTypeModel(), this.getTypeModel_ExtendedTypeModel(), "ExtendingTypeModels", null, 0, -1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeModel_ParticularInTypeModel(), this.getTypeModel(), this.getTypeModel_HasParticularTypeModels(), "ParticularInTypeModel", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getTypeModel_HasParticularTypeModels(), this.getTypeModel(), this.getTypeModel_ParticularInTypeModel(), "HasParticularTypeModels", null, 0, -1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeModel_BaseTypeModel(), this.getTypeModel(), this.getTypeModel_ParticularTypeModels(), "BaseTypeModel", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getTypeModel_ParticularTypeModels(), this.getTypeModel(), this.getTypeModel_BaseTypeModel(), "ParticularTypeModels", null, 0, -1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeModel_SubjectiveAspect(), this.getClass_(), null, "SubjectiveAspect", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTypeModel_TemporalAspect(), this.getClass_(), null, "TemporalAspect", null, 0, 1, TypeModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

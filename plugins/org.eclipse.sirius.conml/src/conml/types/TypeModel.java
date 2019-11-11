@@ -18,10 +18,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.TypeModel#getConformingInstanceModel <em>Conforming Instance Model</em>}</li>
- *   <li>{@link conml.types.TypeModel#getExtendedTypeModel <em>Extended Type Model</em>}</li>
- *   <li>{@link conml.types.TypeModel#getExtendingTypeModels <em>Extending Type Models</em>}</li>
- *   <li>{@link conml.types.TypeModel#getParticularInTypeModel <em>Particular In Type Model</em>}</li>
- *   <li>{@link conml.types.TypeModel#getHasParticularTypeModels <em>Has Particular Type Models</em>}</li>
+ *   <li>{@link conml.types.TypeModel#getBaseTypeModel <em>Base Type Model</em>}</li>
+ *   <li>{@link conml.types.TypeModel#getParticularTypeModels <em>Particular Type Models</em>}</li>
  *   <li>{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.TypeModel#getTemporalAspect <em>Temporal Aspect</em>}</li>
  * </ul>
@@ -56,82 +54,44 @@ public interface TypeModel extends Model {
 	void setConformingInstanceModel(InstanceModel value);
 
   /**
-	 * Returns the value of the '<em><b>Extended Type Model</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getExtendingTypeModels <em>Extending Type Models</em>}'.
+	 * Returns the value of the '<em><b>Base Type Model</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getParticularTypeModels <em>Particular Type Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extended Type Model</em>' reference.
-	 * @see #setExtendedTypeModel(TypeModel)
-	 * @see conml.types.TypesPackage#getTypeModel_ExtendedTypeModel()
-	 * @see conml.types.TypeModel#getExtendingTypeModels
-	 * @model opposite="ExtendingTypeModels"
+	 * @return the value of the '<em>Base Type Model</em>' reference.
+	 * @see #setBaseTypeModel(TypeModel)
+	 * @see conml.types.TypesPackage#getTypeModel_BaseTypeModel()
+	 * @see conml.types.TypeModel#getParticularTypeModels
+	 * @model opposite="ParticularTypeModels"
 	 * @generated
 	 */
-	TypeModel getExtendedTypeModel();
+	TypeModel getBaseTypeModel();
 
-  /**
-	 * Sets the value of the '{@link conml.types.TypeModel#getExtendedTypeModel <em>Extended Type Model</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.types.TypeModel#getBaseTypeModel <em>Base Type Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Extended Type Model</em>' reference.
-	 * @see #getExtendedTypeModel()
+	 * @param value the new value of the '<em>Base Type Model</em>' reference.
+	 * @see #getBaseTypeModel()
 	 * @generated
 	 */
-	void setExtendedTypeModel(TypeModel value);
+	void setBaseTypeModel(TypeModel value);
 
-  /**
-	 * Returns the value of the '<em><b>Extending Type Models</b></em>' reference list.
+    /**
+	 * Returns the value of the '<em><b>Particular Type Models</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.TypeModel}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getExtendedTypeModel <em>Extended Type Model</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getBaseTypeModel <em>Base Type Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Extending Type Models</em>' reference list.
-	 * @see conml.types.TypesPackage#getTypeModel_ExtendingTypeModels()
-	 * @see conml.types.TypeModel#getExtendedTypeModel
-	 * @model opposite="ExtendedTypeModel"
+	 * @return the value of the '<em>Particular Type Models</em>' reference list.
+	 * @see conml.types.TypesPackage#getTypeModel_ParticularTypeModels()
+	 * @see conml.types.TypeModel#getBaseTypeModel
+	 * @model opposite="BaseTypeModel"
 	 * @generated
 	 */
-	EList<TypeModel> getExtendingTypeModels();
+	EList<TypeModel> getParticularTypeModels();
 
-  /**
-	 * Returns the value of the '<em><b>Particular In Type Model</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getHasParticularTypeModels <em>Has Particular Type Models</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Particular In Type Model</em>' reference.
-	 * @see #setParticularInTypeModel(TypeModel)
-	 * @see conml.types.TypesPackage#getTypeModel_ParticularInTypeModel()
-	 * @see conml.types.TypeModel#getHasParticularTypeModels
-	 * @model opposite="HasParticularTypeModels"
-	 * @generated
-	 */
-	TypeModel getParticularInTypeModel();
-
-  /**
-	 * Sets the value of the '{@link conml.types.TypeModel#getParticularInTypeModel <em>Particular In Type Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Particular In Type Model</em>' reference.
-	 * @see #getParticularInTypeModel()
-	 * @generated
-	 */
-	void setParticularInTypeModel(TypeModel value);
-
-  /**
-	 * Returns the value of the '<em><b>Has Particular Type Models</b></em>' reference list.
-	 * The list contents are of type {@link conml.types.TypeModel}.
-	 * It is bidirectional and its opposite is '{@link conml.types.TypeModel#getParticularInTypeModel <em>Particular In Type Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Has Particular Type Models</em>' reference list.
-	 * @see conml.types.TypesPackage#getTypeModel_HasParticularTypeModels()
-	 * @see conml.types.TypeModel#getParticularInTypeModel
-	 * @model opposite="ParticularInTypeModel"
-	 * @generated
-	 */
-	EList<TypeModel> getHasParticularTypeModels();
-
-  /**
+    /**
 	 * Returns the value of the '<em><b>Subjective Aspect</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

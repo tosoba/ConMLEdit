@@ -35,14 +35,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConformingInstanceModel"
           eType="#//instances/InstanceModel" eOpposite="#//instances/InstanceModel/ConformedTypeModels"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtendedTypeModel" eType="#//types/TypeModel"
-          eOpposite="#//types/TypeModel/ExtendingTypeModels"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ExtendingTypeModels"
-          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ExtendedTypeModel"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticularInTypeModel"
-          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/HasParticularTypeModels"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="HasParticularTypeModels"
-          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ParticularInTypeModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="BaseTypeModel" eType="#//types/TypeModel"
+          eOpposite="#//types/TypeModel/ParticularTypeModels"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ParticularTypeModels"
+          upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/BaseTypeModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveAspect" eType="#//types/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalAspect" eType="#//types/Class"/>
     </eClassifiers>

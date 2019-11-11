@@ -142,49 +142,31 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__CONFORMING_INSTANCE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
   /**
-	 * The feature id for the '<em><b>Extended Type Model</b></em>' reference.
+	 * The feature id for the '<em><b>Base Type Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__EXTENDED_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 1;
+	int TYPE_MODEL__BASE_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
   /**
-	 * The feature id for the '<em><b>Extending Type Models</b></em>' reference list.
+	 * The feature id for the '<em><b>Particular Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__EXTENDING_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 2;
+	int TYPE_MODEL__PARTICULAR_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 2;
 
-  /**
-	 * The feature id for the '<em><b>Particular In Type Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 3;
-
-  /**
-	 * The feature id for the '<em><b>Has Particular Type Models</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 4;
-
-  /**
+    /**
 	 * The feature id for the '<em><b>Subjective Aspect</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__SUBJECTIVE_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 5;
+	int TYPE_MODEL__SUBJECTIVE_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 3;
 
   /**
 	 * The feature id for the '<em><b>Temporal Aspect</b></em>' reference.
@@ -193,7 +175,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 6;
+	int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 
     /**
 	 * The number of structural features of the '<em>Type Model</em>' class.
@@ -202,7 +184,7 @@ public interface TypesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 7;
+	int TYPE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Type Model</em>' class.
@@ -1745,50 +1727,28 @@ public interface TypesPackage extends EPackage {
 	EReference getTypeModel_ConformingInstanceModel();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getExtendedTypeModel <em>Extended Type Model</em>}'.
+	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getBaseTypeModel <em>Base Type Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Extended Type Model</em>'.
-	 * @see conml.types.TypeModel#getExtendedTypeModel()
+	 * @return the meta object for the reference '<em>Base Type Model</em>'.
+	 * @see conml.types.TypeModel#getBaseTypeModel()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_ExtendedTypeModel();
+	EReference getTypeModel_BaseTypeModel();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getExtendingTypeModels <em>Extending Type Models</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getParticularTypeModels <em>Particular Type Models</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Extending Type Models</em>'.
-	 * @see conml.types.TypeModel#getExtendingTypeModels()
+	 * @return the meta object for the reference list '<em>Particular Type Models</em>'.
+	 * @see conml.types.TypeModel#getParticularTypeModels()
 	 * @see #getTypeModel()
 	 * @generated
 	 */
-	EReference getTypeModel_ExtendingTypeModels();
+	EReference getTypeModel_ParticularTypeModels();
 
-  /**
-	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getParticularInTypeModel <em>Particular In Type Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Particular In Type Model</em>'.
-	 * @see conml.types.TypeModel#getParticularInTypeModel()
-	 * @see #getTypeModel()
-	 * @generated
-	 */
-	EReference getTypeModel_ParticularInTypeModel();
-
-  /**
-	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getHasParticularTypeModels <em>Has Particular Type Models</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Has Particular Type Models</em>'.
-	 * @see conml.types.TypeModel#getHasParticularTypeModels()
-	 * @see #getTypeModel()
-	 * @generated
-	 */
-	EReference getTypeModel_HasParticularTypeModels();
-
-  /**
+    /**
 	 * Returns the meta object for the reference '{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2673,38 +2633,22 @@ public interface TypesPackage extends EPackage {
 		EReference TYPE_MODEL__CONFORMING_INSTANCE_MODEL = eINSTANCE.getTypeModel_ConformingInstanceModel();
 
     /**
-		 * The meta object literal for the '<em><b>Extended Type Model</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Base Type Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__EXTENDED_TYPE_MODEL = eINSTANCE.getTypeModel_ExtendedTypeModel();
+		EReference TYPE_MODEL__BASE_TYPE_MODEL = eINSTANCE.getTypeModel_BaseTypeModel();
 
     /**
-		 * The meta object literal for the '<em><b>Extending Type Models</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Particular Type Models</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference TYPE_MODEL__EXTENDING_TYPE_MODELS = eINSTANCE.getTypeModel_ExtendingTypeModels();
+		EReference TYPE_MODEL__PARTICULAR_TYPE_MODELS = eINSTANCE.getTypeModel_ParticularTypeModels();
 
-    /**
-		 * The meta object literal for the '<em><b>Particular In Type Model</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL = eINSTANCE.getTypeModel_ParticularInTypeModel();
-
-    /**
-		 * The meta object literal for the '<em><b>Has Particular Type Models</b></em>' reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS = eINSTANCE.getTypeModel_HasParticularTypeModels();
-
-    /**
+        /**
 		 * The meta object literal for the '<em><b>Subjective Aspect</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

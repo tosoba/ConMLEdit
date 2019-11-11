@@ -49,10 +49,8 @@ public class TypeModelItemProvider extends ModelItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addConformingInstanceModelPropertyDescriptor(object);
-			addExtendedTypeModelPropertyDescriptor(object);
-			addExtendingTypeModelsPropertyDescriptor(object);
-			addParticularInTypeModelPropertyDescriptor(object);
-			addHasParticularTypeModelsPropertyDescriptor(object);
+			addBaseTypeModelPropertyDescriptor(object);
+			addParticularTypeModelsPropertyDescriptor(object);
 			addSubjectiveAspectPropertyDescriptor(object);
 			addTemporalAspectPropertyDescriptor(object);
 		}
@@ -82,19 +80,19 @@ public class TypeModelItemProvider extends ModelItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Extended Type Model feature.
+	 * This adds a property descriptor for the Base Type Model feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addExtendedTypeModelPropertyDescriptor(Object object) {
+	protected void addBaseTypeModelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TypeModel_ExtendedTypeModel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_ExtendedTypeModel_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__EXTENDED_TYPE_MODEL,
+				 getString("_UI_TypeModel_BaseTypeModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_BaseTypeModel_feature", "_UI_TypeModel_type"),
+				 TypesPackage.Literals.TYPE_MODEL__BASE_TYPE_MODEL,
 				 true,
 				 false,
 				 true,
@@ -104,19 +102,19 @@ public class TypeModelItemProvider extends ModelItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Extending Type Models feature.
+	 * This adds a property descriptor for the Particular Type Models feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addExtendingTypeModelsPropertyDescriptor(Object object) {
+	protected void addParticularTypeModelsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_TypeModel_ExtendingTypeModels_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_ExtendingTypeModels_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__EXTENDING_TYPE_MODELS,
+				 getString("_UI_TypeModel_ParticularTypeModels_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_ParticularTypeModels_feature", "_UI_TypeModel_type"),
+				 TypesPackage.Literals.TYPE_MODEL__PARTICULAR_TYPE_MODELS,
 				 true,
 				 false,
 				 true,
@@ -125,51 +123,7 @@ public class TypeModelItemProvider extends ModelItemProvider {
 				 null));
 	}
 
-  /**
-	 * This adds a property descriptor for the Particular In Type Model feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addParticularInTypeModelPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypeModel_ParticularInTypeModel_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_ParticularInTypeModel_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
-	 * This adds a property descriptor for the Has Particular Type Models feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addHasParticularTypeModelsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_TypeModel_HasParticularTypeModels_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModel_HasParticularTypeModels_feature", "_UI_TypeModel_type"),
-				 TypesPackage.Literals.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
+    /**
 	 * This adds a property descriptor for the Subjective Aspect feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

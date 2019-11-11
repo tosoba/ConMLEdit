@@ -22,7 +22,11 @@ public interface TypeModelValidator {
 
 	boolean validateConformingInstanceModel(InstanceModel value);
 
-  boolean validateExtendedTypeModel(TypeModel value);
+  boolean validateBaseTypeModel(TypeModel value);
+
+  boolean validateParticularTypeModels(EList<TypeModel> value);
+
+    boolean validateExtendedTypeModel(TypeModel value);
 
   boolean validateExtendingTypeModels(EList<TypeModel> value);
 

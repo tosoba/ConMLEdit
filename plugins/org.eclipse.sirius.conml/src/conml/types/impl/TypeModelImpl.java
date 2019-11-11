@@ -34,10 +34,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.types.impl.TypeModelImpl#getConformingInstanceModel <em>Conforming Instance Model</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getExtendedTypeModel <em>Extended Type Model</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getExtendingTypeModels <em>Extending Type Models</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getParticularInTypeModel <em>Particular In Type Model</em>}</li>
- *   <li>{@link conml.types.impl.TypeModelImpl#getHasParticularTypeModels <em>Has Particular Type Models</em>}</li>
+ *   <li>{@link conml.types.impl.TypeModelImpl#getBaseTypeModel <em>Base Type Model</em>}</li>
+ *   <li>{@link conml.types.impl.TypeModelImpl#getParticularTypeModels <em>Particular Type Models</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getTemporalAspect <em>Temporal Aspect</em>}</li>
  * </ul>
@@ -56,46 +54,26 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	protected InstanceModel conformingInstanceModel;
 
   /**
-	 * The cached value of the '{@link #getExtendedTypeModel() <em>Extended Type Model</em>}' reference.
+	 * The cached value of the '{@link #getBaseTypeModel() <em>Base Type Model</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExtendedTypeModel()
+	 * @see #getBaseTypeModel()
 	 * @generated
 	 * @ordered
 	 */
-	protected TypeModel extendedTypeModel;
+	protected TypeModel baseTypeModel;
 
   /**
-	 * The cached value of the '{@link #getExtendingTypeModels() <em>Extending Type Models</em>}' reference list.
+	 * The cached value of the '{@link #getParticularTypeModels() <em>Particular Type Models</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getExtendingTypeModels()
+	 * @see #getParticularTypeModels()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<TypeModel> extendingTypeModels;
+	protected EList<TypeModel> particularTypeModels;
 
-  /**
-	 * The cached value of the '{@link #getParticularInTypeModel() <em>Particular In Type Model</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParticularInTypeModel()
-	 * @generated
-	 * @ordered
-	 */
-	protected TypeModel particularInTypeModel;
-
-  /**
-	 * The cached value of the '{@link #getHasParticularTypeModels() <em>Has Particular Type Models</em>}' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getHasParticularTypeModels()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<TypeModel> hasParticularTypeModels;
-
-  /**
+    /**
 	 * The cached value of the '{@link #getSubjectiveAspect() <em>Subjective Aspect</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -202,151 +180,76 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	 * @generated
 	 */
 	@Override
-	public TypeModel getExtendedTypeModel() {
-		if (extendedTypeModel != null && extendedTypeModel.eIsProxy()) {
-			InternalEObject oldExtendedTypeModel = (InternalEObject)extendedTypeModel;
-			extendedTypeModel = (TypeModel)eResolveProxy(oldExtendedTypeModel);
-			if (extendedTypeModel != oldExtendedTypeModel) {
+	public TypeModel getBaseTypeModel() {
+		if (baseTypeModel != null && baseTypeModel.eIsProxy()) {
+			InternalEObject oldBaseTypeModel = (InternalEObject)baseTypeModel;
+			baseTypeModel = (TypeModel)eResolveProxy(oldBaseTypeModel);
+			if (baseTypeModel != oldBaseTypeModel) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL, oldExtendedTypeModel, extendedTypeModel));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL, oldBaseTypeModel, baseTypeModel));
 			}
 		}
-		return extendedTypeModel;
+		return baseTypeModel;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public TypeModel basicGetExtendedTypeModel() {
-		return extendedTypeModel;
+	public TypeModel basicGetBaseTypeModel() {
+		return baseTypeModel;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetExtendedTypeModel(TypeModel newExtendedTypeModel, NotificationChain msgs) {
-		TypeModel oldExtendedTypeModel = extendedTypeModel;
-		extendedTypeModel = newExtendedTypeModel;
+	public NotificationChain basicSetBaseTypeModel(TypeModel newBaseTypeModel, NotificationChain msgs) {
+		TypeModel oldBaseTypeModel = baseTypeModel;
+		baseTypeModel = newBaseTypeModel;
 		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL, oldExtendedTypeModel, newExtendedTypeModel);
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL, oldBaseTypeModel, newBaseTypeModel);
 			if (msgs == null) msgs = notification; else msgs.add(notification);
 		}
 		return msgs;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setExtendedTypeModel(TypeModel newExtendedTypeModel) {
-		if (newExtendedTypeModel != extendedTypeModel) {
+	public void setBaseTypeModel(TypeModel newBaseTypeModel) {
+		if (newBaseTypeModel != baseTypeModel) {
 			NotificationChain msgs = null;
-			if (extendedTypeModel != null)
-				msgs = ((InternalEObject)extendedTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS, TypeModel.class, msgs);
-			if (newExtendedTypeModel != null)
-				msgs = ((InternalEObject)newExtendedTypeModel).eInverseAdd(this, TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS, TypeModel.class, msgs);
-			msgs = basicSetExtendedTypeModel(newExtendedTypeModel, msgs);
+			if (baseTypeModel != null)
+				msgs = ((InternalEObject)baseTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
+			if (newBaseTypeModel != null)
+				msgs = ((InternalEObject)newBaseTypeModel).eInverseAdd(this, TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
+			msgs = basicSetBaseTypeModel(newBaseTypeModel, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL, newExtendedTypeModel, newExtendedTypeModel));
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL, newBaseTypeModel, newBaseTypeModel));
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public EList<TypeModel> getExtendingTypeModels() {
-		if (extendingTypeModels == null) {
-			extendingTypeModels = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS, TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL);
+	public EList<TypeModel> getParticularTypeModels() {
+		if (particularTypeModels == null) {
+			particularTypeModels = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS, TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL);
 		}
-		return extendingTypeModels;
+		return particularTypeModels;
 	}
 
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public TypeModel getParticularInTypeModel() {
-		if (particularInTypeModel != null && particularInTypeModel.eIsProxy()) {
-			InternalEObject oldParticularInTypeModel = (InternalEObject)particularInTypeModel;
-			particularInTypeModel = (TypeModel)eResolveProxy(oldParticularInTypeModel);
-			if (particularInTypeModel != oldParticularInTypeModel) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL, oldParticularInTypeModel, particularInTypeModel));
-			}
-		}
-		return particularInTypeModel;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public TypeModel basicGetParticularInTypeModel() {
-		return particularInTypeModel;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetParticularInTypeModel(TypeModel newParticularInTypeModel, NotificationChain msgs) {
-		TypeModel oldParticularInTypeModel = particularInTypeModel;
-		particularInTypeModel = newParticularInTypeModel;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL, oldParticularInTypeModel, newParticularInTypeModel);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setParticularInTypeModel(TypeModel newParticularInTypeModel) {
-		if (newParticularInTypeModel != particularInTypeModel) {
-			NotificationChain msgs = null;
-			if (particularInTypeModel != null)
-				msgs = ((InternalEObject)particularInTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
-			if (newParticularInTypeModel != null)
-				msgs = ((InternalEObject)newParticularInTypeModel).eInverseAdd(this, TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
-			msgs = basicSetParticularInTypeModel(newParticularInTypeModel, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL, newParticularInTypeModel, newParticularInTypeModel));
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EList<TypeModel> getHasParticularTypeModels() {
-		if (hasParticularTypeModels == null) {
-			hasParticularTypeModels = new EObjectWithInverseResolvingEList<TypeModel>(TypeModel.class, this, TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS, TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL);
-		}
-		return hasParticularTypeModels;
-	}
-
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -439,18 +342,12 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				if (conformingInstanceModel != null)
 					msgs = ((InternalEObject)conformingInstanceModel).eInverseRemove(this, InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS, InstanceModel.class, msgs);
 				return basicSetConformingInstanceModel((InstanceModel)otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				if (extendedTypeModel != null)
-					msgs = ((InternalEObject)extendedTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS, TypeModel.class, msgs);
-				return basicSetExtendedTypeModel((TypeModel)otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getExtendingTypeModels()).basicAdd(otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				if (particularInTypeModel != null)
-					msgs = ((InternalEObject)particularInTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
-				return basicSetParticularInTypeModel((TypeModel)otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getHasParticularTypeModels()).basicAdd(otherEnd, msgs);
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				if (baseTypeModel != null)
+					msgs = ((InternalEObject)baseTypeModel).eInverseRemove(this, TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS, TypeModel.class, msgs);
+				return basicSetBaseTypeModel((TypeModel)otherEnd, msgs);
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticularTypeModels()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -465,14 +362,10 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 		switch (featureID) {
 			case TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL:
 				return basicSetConformingInstanceModel(null, msgs);
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				return basicSetExtendedTypeModel(null, msgs);
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				return ((InternalEList<?>)getExtendingTypeModels()).basicRemove(otherEnd, msgs);
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				return basicSetParticularInTypeModel(null, msgs);
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				return ((InternalEList<?>)getHasParticularTypeModels()).basicRemove(otherEnd, msgs);
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				return basicSetBaseTypeModel(null, msgs);
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				return ((InternalEList<?>)getParticularTypeModels()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -488,16 +381,11 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL:
 				if (resolve) return getConformingInstanceModel();
 				return basicGetConformingInstanceModel();
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				if (resolve) return getExtendedTypeModel();
-				return basicGetExtendedTypeModel();
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				return getExtendingTypeModels();
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				if (resolve) return getParticularInTypeModel();
-				return basicGetParticularInTypeModel();
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				return getHasParticularTypeModels();
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				if (resolve) return getBaseTypeModel();
+				return basicGetBaseTypeModel();
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				return getParticularTypeModels();
 			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
 				if (resolve) return getSubjectiveAspect();
 				return basicGetSubjectiveAspect();
@@ -520,19 +408,12 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL:
 				setConformingInstanceModel((InstanceModel)newValue);
 				return;
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				setExtendedTypeModel((TypeModel)newValue);
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				setBaseTypeModel((TypeModel)newValue);
 				return;
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				getExtendingTypeModels().clear();
-				getExtendingTypeModels().addAll((Collection<? extends TypeModel>)newValue);
-				return;
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				setParticularInTypeModel((TypeModel)newValue);
-				return;
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				getHasParticularTypeModels().clear();
-				getHasParticularTypeModels().addAll((Collection<? extends TypeModel>)newValue);
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				getParticularTypeModels().clear();
+				getParticularTypeModels().addAll((Collection<? extends TypeModel>)newValue);
 				return;
 			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
 				setSubjectiveAspect((conml.types.Class)newValue);
@@ -555,17 +436,11 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL:
 				setConformingInstanceModel((InstanceModel)null);
 				return;
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				setExtendedTypeModel((TypeModel)null);
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				setBaseTypeModel((TypeModel)null);
 				return;
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				getExtendingTypeModels().clear();
-				return;
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				setParticularInTypeModel((TypeModel)null);
-				return;
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				getHasParticularTypeModels().clear();
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				getParticularTypeModels().clear();
 				return;
 			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
 				setSubjectiveAspect((conml.types.Class)null);
@@ -587,14 +462,10 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 		switch (featureID) {
 			case TypesPackage.TYPE_MODEL__CONFORMING_INSTANCE_MODEL:
 				return conformingInstanceModel != null;
-			case TypesPackage.TYPE_MODEL__EXTENDED_TYPE_MODEL:
-				return extendedTypeModel != null;
-			case TypesPackage.TYPE_MODEL__EXTENDING_TYPE_MODELS:
-				return extendingTypeModels != null && !extendingTypeModels.isEmpty();
-			case TypesPackage.TYPE_MODEL__PARTICULAR_IN_TYPE_MODEL:
-				return particularInTypeModel != null;
-			case TypesPackage.TYPE_MODEL__HAS_PARTICULAR_TYPE_MODELS:
-				return hasParticularTypeModels != null && !hasParticularTypeModels.isEmpty();
+			case TypesPackage.TYPE_MODEL__BASE_TYPE_MODEL:
+				return baseTypeModel != null;
+			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
+				return particularTypeModels != null && !particularTypeModels.isEmpty();
 			case TypesPackage.TYPE_MODEL__SUBJECTIVE_ASPECT:
 				return subjectiveAspect != null;
 			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
