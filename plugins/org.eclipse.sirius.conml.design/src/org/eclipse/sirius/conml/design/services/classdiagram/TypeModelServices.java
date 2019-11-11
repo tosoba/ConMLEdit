@@ -20,6 +20,7 @@ import org.eclipse.sirius.conml.gen.Gen;
 
 import conml.types.Association;
 import conml.types.EnumeratedType;
+import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.Class;
 import conml.types.SimpleDataType;
@@ -81,5 +82,9 @@ public final class TypeModelServices {
 
   public Collection<EObject> getOwnedClassElements(final EObject object) {
     return ModelServices.getInstance().getOwnedElementsOfType(object, Class.class);
+  }
+
+  public Collection<EObject> getOwnedGeneralizationElements(final EObject object) {
+    return ModelServices.getInstance().getOwnedElementsOfType(object, Generalization.class);
   }
 }

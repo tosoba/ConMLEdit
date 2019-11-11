@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
@@ -95,5 +96,19 @@ public final class GeneralizationServices {
 
   public Class getGeneralizationTargetType(final Generalization generalization) {
     return generalization.getGeneralizedClass();
+  }
+
+  public void moveGeneralizationUp(final EObject object) {
+    ModelElementServices.getInstance()
+        .moveElement(object, Generalization.class, ConML.ElementMovementDirection.UP);
+  }
+
+  public void moveGeneralizationDown(final EObject object) {
+    ModelElementServices.getInstance()
+        .moveElement(object, Generalization.class, ConML.ElementMovementDirection.DOWN);
+  }
+
+  public String generalizationLabel(final Generalization generalization) {
+    return generalization.getDiscriminant();
   }
 }

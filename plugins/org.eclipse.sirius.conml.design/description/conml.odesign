@@ -260,7 +260,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <edgeMappings name="CD_Generalization" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
+        <edgeMappings name="CD_Generalization" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CD_Group_Associations']/@tools.5" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
           <style targetArrow="InputClosedArrow" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <endLabelStyleDescription showIcon="false" labelExpression="feature:discriminant">
@@ -570,6 +570,14 @@
               <containerView name="containerView"/>
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteCompactSemiAssociation"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:DeleteElementDescription" name="Delete Generalization">
+              <element name="element"/>
+              <elementView name="elementView"/>
+              <containerView name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.removeElement"/>
               </initialOperation>
             </tools>
           </ownedTools>
@@ -1365,6 +1373,50 @@
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:For" expression="aql:selection->reverse()" iteratorName="enumType">
                 <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:enumType.moveEnumTypeDown()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+        </controls>
+        <controls xsi:type="properties:ListDescription" name="PR_Generalizations_List" labelExpression="Generalizations:" helpExpression="Generalizations owned by this model" valueExpression="aql:input.getSemanticElement().getOwnedGeneralizationElements()" displayExpression="aql:value.generalizationLabel()">
+          <onClickOperation>
+            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+              <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:selection->size()=1">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:selection->at(1)">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK'">
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit Generalization">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation/>
+                      </buttons>
+                      <page name="Edit Page" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.0"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </subModelOperations>
+            </firstModelOperations>
+          </onClickOperation>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                <subModelOperations xsi:type="tool_1:For" expression="var:selection" iteratorName="gen">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:gen.removeElement"/>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection" iteratorName="gen">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:gen.moveGeneralizationUp()"/>
+              </firstModelOperations>
+            </initialOperation>
+          </actions>
+          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/down.gif">
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:For" expression="aql:selection->reverse()" iteratorName="gen">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:gen.moveGeneralizationDown()"/>
               </firstModelOperations>
             </initialOperation>
           </actions>
