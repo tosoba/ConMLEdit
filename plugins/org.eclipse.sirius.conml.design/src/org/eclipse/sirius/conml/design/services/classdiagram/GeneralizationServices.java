@@ -11,59 +11,39 @@ import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.types.Class;
 import conml.types.Generalization;
-import conml.types.TypeModel;
-import conml.types.TypesFactory;
 
 public final class GeneralizationServices {
 
-  public Generalization createGeneralization(
-      final EObject object,
-      final Class source,
-      final Class target,
-      final EObject sourceView,
-      final EObject targetView) {
-    if (EcoreUtil.equals(source, target)) {
-      Dialogs.showError(
-          Messages.getString("Message.GeneralizationWasNotCreated"),
-          Messages.getString("Error.SelfGeneralization"));
-      return null;
-    }
+  public void showCyclicInheritanceDialog(final EObject object) {
+    Dialogs.showError(
+        Messages.getString("Message.GeneralizationWasNotCreated"),
+        Messages.getString("Error.CyclicInheritance"));
+  }
 
-    // Prevent the creation of generalization between the same 2 classes in the
-    // opposite direction
-    if (wouldCauseCyclicInheritanceRelationship(source, target)) {
-      Dialogs.showError(
-          Messages.getString("Message.GeneralizationWasNotCreated"),
-          Messages.getString("Error.CyclicInheritance"));
-      return null;
-    }
+  public boolean targetHasSpecialization(final Class target) {
+    return target.getSpecialization() != null;
+  }
 
-    // If multiple classes inherit from one class - don't create a new
-    // Generalization instance
+  public void addToSpecializedClasses(final Class source, final Class target) {
     final Generalization targetSpecialization = target.getSpecialization();
     if (targetSpecialization != null) {
       if (!targetSpecialization.getSpecializedClasses().contains(source))
         targetSpecialization.getSpecializedClasses().add(source);
-      return null;
     }
+  }
 
-    // Otherwise create a new one
-    final Generalization generalization = TypesFactory.eINSTANCE.createGeneralization();
-    generalization.setDiscriminant(defaultDiscriminant(target));
+  public void setupGeneralization(
+      final Generalization generalization, final Class source, final Class target) {
     generalization.getSpecializedClasses().add(source);
     source.getGeneralizations().add(generalization);
     generalization.setGeneralizedClass(target);
     target.setSpecialization(generalization);
-
-    if (source.eContainer() instanceof TypeModel) {
-      final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getElements().add(generalization);
-    }
-    return generalization;
   }
 
-  private boolean wouldCauseCyclicInheritanceRelationship(final Class source, final Class target) {
-    if (source.getSpecialization() == null) {
+  public boolean wouldCauseCyclicInheritanceRelationship(final Class source, final Class target) {
+    if (EcoreUtil.equals(source, target)) {
+      return true;
+    } else if (source.getSpecialization() == null) {
       return false;
     } else if (source
         .getSpecialization()
@@ -82,7 +62,7 @@ public final class GeneralizationServices {
     }
   }
 
-  private String defaultDiscriminant(final Class inheritedClass) {
+  public String defaultDiscriminant(final Class inheritedClass) {
     return inheritedClass.getName();
   }
 

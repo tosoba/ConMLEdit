@@ -43,7 +43,7 @@ public final class DiagramPropertiesServices {
       new ArrayList<>();
 
   static {
-    setupIgnoredPropertyReferences();
+    setupIgnoredPropertiesReferences();
     setupIgnoredCreationDialogReferences();
     setupStructuralFeaturesPropertiesPredicates();
     setupStructuralFeaturesCreationDialogPredicates();
@@ -193,7 +193,7 @@ public final class DiagramPropertiesServices {
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
     ignoredCreationDialogReferences.put(
-        Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass")));
+        Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass", "SpecializedClasses")));
 
     // Instances
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
@@ -201,7 +201,7 @@ public final class DiagramPropertiesServices {
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
   }
 
-  private static void setupIgnoredPropertyReferences() {
+  private static void setupIgnoredPropertiesReferences() {
     ignoredPropertyReferences.put(Model.class, new HashSet<>(Arrays.asList("Elements")));
 
     // Types

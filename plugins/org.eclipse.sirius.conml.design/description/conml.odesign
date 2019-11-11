@@ -449,7 +449,35 @@
             <sourceViewVariable name="sourceView"/>
             <targetViewVariable name="targetView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:createGeneralization(source, target, sourceView, targetView)"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
+                <subModelOperations xsi:type="tool_1:Switch">
+                  <cases conditionExpression="aql:source.wouldCauseCyclicInheritanceRelationship(target)">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:null.showCyclicInheritanceDialog()"/>
+                  </cases>
+                  <cases conditionExpression="aql:target.targetHasSpecialization()">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.addToSpecializedClasses(target)"/>
+                  </cases>
+                  <default>
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Generalization" referenceName="Elements" variableName="generalization">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="discriminant" valueExpression="aql:target.defaultDiscriminant()"/>
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Generalization">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation/>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:generalization.setupGeneralization(source, target)">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:generalization"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </buttons>
+                        <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Generalization']/@initialOperation/@firstModelOperations/@subModelOperations.0/@default/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
+                        <groups name="Default Group" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </default>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ToolGroup" name="CD_Group_Associations" label="Associations">
