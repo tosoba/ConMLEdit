@@ -1,17 +1,22 @@
 package org.eclipse.sirius.conml.design.services.objectdiagram;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
+import conml.types.Attribute;
+import conml.types.Class;
 
 public class ObjectServices {
 
@@ -71,5 +76,19 @@ public class ObjectServices {
     }
 
     EcoreUtil.delete(object);
+  }
+
+  public List<Attribute> getInstancedClassAttributes(final EObject eObject) {
+    return ConML.castAndRunOrReturn(
+        eObject,
+        Object.class,
+        (final Object object) -> {
+          final Class instancedClass = object.getInstancedClass();
+          if (instancedClass == null) {
+            Activator.logError(Messages.getString("InstancedClassIsNull"));
+            return Arrays.asList();
+          } else return instancedClass.getAttributes();
+        },
+        Arrays.asList());
   }
 }

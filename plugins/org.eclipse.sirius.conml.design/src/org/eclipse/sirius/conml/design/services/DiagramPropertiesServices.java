@@ -25,6 +25,7 @@ import org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices;
 import conml.Model;
 import conml.instances.Link;
 import conml.instances.Value;
+import conml.instances.ValueSet;
 import conml.types.Association;
 import conml.types.Attribute;
 import conml.types.Generalization;
@@ -37,6 +38,7 @@ public final class DiagramPropertiesServices {
   private static final HashMap<Class<?>, Set<String>> ignoredPropertyReferences = new HashMap<>();
   private static final HashMap<Class<?>, Set<String>> ignoredCreationDialogReferences =
       new HashMap<>();
+  private static final HashMap<Class<?>, Set<String>> disabledReferences = new HashMap<>();
   private static final List<Predicate<EStructuralFeature>> structFeaturePropertiesPredicates =
       new ArrayList<>();
   private static final List<Predicate<EStructuralFeature>> structFeatureCreationDialogPredicates =
@@ -47,6 +49,7 @@ public final class DiagramPropertiesServices {
     setupIgnoredCreationDialogReferences();
     setupStructuralFeaturesPropertiesPredicates();
     setupStructuralFeaturesCreationDialogPredicates();
+    setupDisabledReferences();
   }
 
   public boolean shouldShowActionPage(final EObject object) {
@@ -177,7 +180,10 @@ public final class DiagramPropertiesServices {
         conml.types.Class.class,
         new HashSet<>(
             Arrays.asList(
-                "SemiAssociations", "Specialization", "Generalizations", "DominantGeneralization")));
+                "SemiAssociations",
+                "Specialization",
+                "Generalizations",
+                "DominantGeneralization")));
     ignoredCreationDialogReferences.put(
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
@@ -193,7 +199,8 @@ public final class DiagramPropertiesServices {
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
     ignoredCreationDialogReferences.put(
-        Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass", "SpecializedClasses")));
+        Generalization.class,
+        new HashSet<>(Arrays.asList("GeneralizedClass", "SpecializedClasses")));
 
     // Instances
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
@@ -209,7 +216,10 @@ public final class DiagramPropertiesServices {
         conml.types.Class.class,
         new HashSet<>(
             Arrays.asList(
-                "SemiAssociations", "Specialization", "Generalizations", "DominantGeneralization")));
+                "SemiAssociations",
+                "Specialization",
+                "Generalizations",
+                "DominantGeneralization")));
     ignoredPropertyReferences.put(
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
@@ -234,5 +244,15 @@ public final class DiagramPropertiesServices {
 
   public String getWidgetLabel(final EObject element, final EStructuralFeature structuralFeature) {
     return structuralFeature != null ? structuralFeature.getName() : "New element";
+  }
+
+  private static void setupDisabledReferences() {
+    disabledReferences.put(ValueSet.class, new HashSet<>(Arrays.asList("InstancedAttribute")));
+  }
+
+  public boolean isReferenceEnabled(final EStructuralFeature feature) {
+    return EReference.class.isInstance(feature)
+        && (!disabledReferences.containsKey(feature.getContainerClass())
+            || !disabledReferences.get(feature.getContainerClass()).contains(feature.getName()));
   }
 }
