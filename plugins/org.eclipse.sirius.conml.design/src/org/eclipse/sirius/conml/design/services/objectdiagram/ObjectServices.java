@@ -11,12 +11,14 @@ import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementService
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
+import conml.Model;
 import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
 import conml.types.Attribute;
 import conml.types.Class;
+import conml.types.TypeModel;
 
 public class ObjectServices {
 
@@ -94,5 +96,11 @@ public class ObjectServices {
 
   public boolean isMetaInfo(final Object object) {
     return object.getMetaInfoInModel() != null;
+  }
+
+  public void addMetaInfoObjectToModels(
+      final Object object, final InstanceModel instanceModel, final Model model) {
+    instanceModel.getElements().add(object);
+    object.setMetaInfoInModel(model);
   }
 }

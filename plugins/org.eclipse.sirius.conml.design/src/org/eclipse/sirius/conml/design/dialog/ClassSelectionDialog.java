@@ -64,6 +64,18 @@ public final class ClassSelectionDialog extends FilteredItemsSelectionDialog {
     dialogArea1.setEnabled(true);
     parent.getParent().getShell().setMinimumSize(600, 700);
     applyFilter();
+    setListLabelProvider(
+        new LabelProvider() {
+          @Override
+          public String getText(Object element) {
+            String text = "";
+            if (element instanceof Class) {
+              final Class myClass = (Class) element;
+              if (myClass.getName() != null) return myClass.getName();
+            }
+            return text;
+          }
+        });
     setDetailsLabelProvider(
         new LabelProvider() {
           @Override

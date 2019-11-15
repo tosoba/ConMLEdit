@@ -644,7 +644,6 @@
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="certainty" valueExpression="aql:Degtances::DegreeOfCertainty::Certain"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="InstancedClass" valueExpression="var:instancedClass"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="MetaInfoInModel" valueExpression="var:typeModel"/>
                       <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Object">
                         <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                           <initialOperation>
@@ -653,10 +652,12 @@
                         </buttons>
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:metaInfoObject.addMetaInfoObjectToModels(instanceModel, typeModel)">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfoObject"/>
+                            </firstModelOperations>
                           </initialOperation>
                         </buttons>
-                        <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@toolSections.0/@ownedTools[name='TypeModel%20DocumentingObject']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.4/@groups.0"/>
+                        <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@toolSections.0/@ownedTools[name='TypeModel%20DocumentingObject']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
                         <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
                       </subModelOperations>
                     </subModelOperations>
