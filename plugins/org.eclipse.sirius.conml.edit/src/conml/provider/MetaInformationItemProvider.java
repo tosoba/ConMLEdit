@@ -58,6 +58,7 @@ public class MetaInformationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addObjectPropertyDescriptor(object);
+			addModelElementPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -85,6 +86,28 @@ public class MetaInformationItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Model Element feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModelElementPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MetaInformation_ModelElement_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_ModelElement_feature", "_UI_MetaInformation_type"),
+				 conmlPackage.Literals.META_INFORMATION__MODEL_ELEMENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns MetaInformation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

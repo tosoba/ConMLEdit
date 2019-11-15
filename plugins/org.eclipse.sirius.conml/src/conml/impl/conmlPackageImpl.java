@@ -366,6 +366,16 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getMetaInformation_ModelElement() {
+		return (EReference)metaInformationEClass.getEStructuralFeatures().get(1);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public conmlFactory getconmlFactory() {
 		return (conmlFactory)getEFactoryInstance();
 	}
@@ -415,6 +425,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 
 		metaInformationEClass = createEClass(META_INFORMATION);
 		createEReference(metaInformationEClass, META_INFORMATION__OBJECT);
+		createEReference(metaInformationEClass, META_INFORMATION__MODEL_ELEMENT);
 	}
 
 	/**
@@ -473,7 +484,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelElement_Tags(), this.getTag(), null, "Tags", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_MetaInformation(), this.getMetaInformation(), null, "MetaInformation", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_MetaInformation(), this.getMetaInformation(), this.getMetaInformation_ModelElement(), "MetaInformation", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "name", null, 1, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -485,6 +496,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 
 		initEClass(metaInformationEClass, MetaInformation.class, "MetaInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMetaInformation_Object(), theInstancesPackage.getObject(), null, "Object", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMetaInformation_ModelElement(), this.getModelElement(), this.getModelElement_MetaInformation(), "ModelElement", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

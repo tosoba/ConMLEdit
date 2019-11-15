@@ -37,11 +37,13 @@ public interface ModelElement extends ModelPart {
   /**
 	 * Returns the value of the '<em><b>Meta Information</b></em>' reference list.
 	 * The list contents are of type {@link conml.MetaInformation}.
+	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getModelElement <em>Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Meta Information</em>' reference list.
 	 * @see conml.conmlPackage#getModelElement_MetaInformation()
-	 * @model
+	 * @see conml.MetaInformation#getModelElement
+	 * @model opposite="ModelElement"
 	 * @generated
 	 */
 	EList<MetaInformation> getMetaInformation();

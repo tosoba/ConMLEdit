@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link conml.MetaInformation#getObject <em>Object</em>}</li>
+ *   <li>{@link conml.MetaInformation#getModelElement <em>Model Element</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getMetaInformation()
@@ -42,5 +43,29 @@ public interface MetaInformation extends EObject {
 	 * @generated
 	 */
 	void setObject(conml.instances.Object value);
+
+  /**
+	 * Returns the value of the '<em><b>Model Element</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.ModelElement#getMetaInformation <em>Meta Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model Element</em>' reference.
+	 * @see #setModelElement(ModelElement)
+	 * @see conml.conmlPackage#getMetaInformation_ModelElement()
+	 * @see conml.ModelElement#getMetaInformation
+	 * @model opposite="MetaInformation" required="true"
+	 * @generated
+	 */
+	ModelElement getModelElement();
+
+  /**
+	 * Sets the value of the '{@link conml.MetaInformation#getModelElement <em>Model Element</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model Element</em>' reference.
+	 * @see #getModelElement()
+	 * @generated
+	 */
+	void setModelElement(ModelElement value);
 
 } // MetaInformation

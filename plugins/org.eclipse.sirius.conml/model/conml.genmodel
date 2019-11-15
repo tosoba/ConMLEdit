@@ -32,6 +32,7 @@
     </genClasses>
     <genClasses ecoreClass="conml.ecore#//MetaInformation">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference conml.ecore#//MetaInformation/Object"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference conml.ecore#//MetaInformation/ModelElement"/>
     </genClasses>
     <nestedGenPackages prefix="Types" basePackage="conml" disposableProviderFactory="true"
         ecorePackage="conml.ecore#//types">

@@ -22,7 +22,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformation" upperBound="-1"
-        eType="#//MetaInformation"/>
+        eType="#//MetaInformation" eOpposite="#//MetaInformation/ModelElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -36,6 +36,8 @@
   <eClassifiers xsi:type="ecore:EClass" name="MetaInformation">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Object" lowerBound="1"
         eType="#//instances/Object"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ModelElement" lowerBound="1"
+        eType="#//ModelElement" eOpposite="#//ModelElement/MetaInformation"/>
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">

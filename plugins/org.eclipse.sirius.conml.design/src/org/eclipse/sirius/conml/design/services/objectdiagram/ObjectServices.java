@@ -18,7 +18,6 @@ import conml.instances.Object;
 import conml.instances.Reference;
 import conml.types.Attribute;
 import conml.types.Class;
-import conml.types.TypeModel;
 
 public class ObjectServices {
 

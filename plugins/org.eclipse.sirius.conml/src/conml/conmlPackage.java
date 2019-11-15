@@ -343,13 +343,22 @@ public interface conmlPackage extends EPackage {
 	int META_INFORMATION__OBJECT = 0;
 
   /**
+	 * The feature id for the '<em><b>Model Element</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_INFORMATION__MODEL_ELEMENT = 1;
+
+    /**
 	 * The number of structural features of the '<em>Meta Information</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int META_INFORMATION_FEATURE_COUNT = 1;
+	int META_INFORMATION_FEATURE_COUNT = 2;
 
   /**
 	 * The number of operations of the '<em>Meta Information</em>' class.
@@ -587,6 +596,17 @@ public interface conmlPackage extends EPackage {
 	EReference getMetaInformation_Object();
 
     /**
+	 * Returns the meta object for the reference '{@link conml.MetaInformation#getModelElement <em>Model Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Model Element</em>'.
+	 * @see conml.MetaInformation#getModelElement()
+	 * @see #getMetaInformation()
+	 * @generated
+	 */
+	EReference getMetaInformation_ModelElement();
+
+        /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -788,6 +808,14 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference META_INFORMATION__OBJECT = eINSTANCE.getMetaInformation_Object();
+
+        /**
+		 * The meta object literal for the '<em><b>Model Element</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference META_INFORMATION__MODEL_ELEMENT = eINSTANCE.getMetaInformation_ModelElement();
 
 	}
 

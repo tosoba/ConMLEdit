@@ -33,3 +33,4 @@ Package conml <http://conml.ecore>
 
   Class MetaInformation
     Reference Object : Object<<1..1>>
+    Reference ModelElement : ModelElement<<1..1>>

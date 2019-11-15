@@ -7,10 +7,14 @@ import conml.ModelElement;
 import conml.Tag;
 import conml.conmlPackage;
 import java.util.Collection;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -87,12 +91,41 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public EList<MetaInformation> getMetaInformation() {
 		if (metaInformation == null) {
-			metaInformation = new EObjectResolvingEList<MetaInformation>(MetaInformation.class, this, conmlPackage.MODEL_ELEMENT__META_INFORMATION);
+			metaInformation = new EObjectWithInverseResolvingEList<MetaInformation>(MetaInformation.class, this, conmlPackage.MODEL_ELEMENT__META_INFORMATION, conmlPackage.META_INFORMATION__MODEL_ELEMENT);
 		}
 		return metaInformation;
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMetaInformation()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				return ((InternalEList<?>)getMetaInformation()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
