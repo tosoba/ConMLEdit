@@ -121,13 +121,31 @@ public interface conmlPackage extends EPackage {
 	int MODEL__TAGS = 5;
 
 	/**
+	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__META_INFORMATION = 6;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MODEL__META_INFORMATION_OBJECTS = 7;
+
+  /**
 	 * The number of structural features of the '<em>Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 6;
+	int MODEL_FEATURE_COUNT = 8;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -186,15 +204,15 @@ public interface conmlPackage extends EPackage {
 	int MODEL_ELEMENT__TAGS = MODEL_PART_FEATURE_COUNT + 0;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_ELEMENT__DOCUMENTING_OBJECTS = MODEL_PART_FEATURE_COUNT + 1;
+	int MODEL_ELEMENT__META_INFORMATION = MODEL_PART_FEATURE_COUNT + 1;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -306,6 +324,44 @@ public interface conmlPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link conml.impl.MetaInformationImpl <em>Meta Information</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.impl.MetaInformationImpl
+	 * @see conml.impl.conmlPackageImpl#getMetaInformation()
+	 * @generated
+	 */
+	int META_INFORMATION = 5;
+
+  /**
+	 * The feature id for the '<em><b>Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_INFORMATION__OBJECT = 0;
+
+  /**
+	 * The number of structural features of the '<em>Meta Information</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_INFORMATION_FEATURE_COUNT = 1;
+
+  /**
+	 * The number of operations of the '<em>Meta Information</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int META_INFORMATION_OPERATION_COUNT = 0;
+
+
+  /**
 	 * Returns the meta object for class '{@link conml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +427,28 @@ public interface conmlPackage extends EPackage {
 	EReference getModel_Tags();
 
 	/**
+	 * Returns the meta object for the containment reference list '{@link conml.Model#getMetaInformation <em>Meta Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Meta Information</em>'.
+	 * @see conml.Model#getMetaInformation()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_MetaInformation();
+
+  /**
+	 * Returns the meta object for the containment reference list '{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Meta Information Objects</em>'.
+	 * @see conml.Model#getMetaInformationObjects()
+	 * @see #getModel()
+	 * @generated
+	 */
+	EReference getModel_MetaInformationObjects();
+
+  /**
 	 * Returns the meta object for the containment reference list '{@link conml.Model#getLanguages <em>Languages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -413,17 +491,17 @@ public interface conmlPackage extends EPackage {
 	EReference getModelElement_Tags();
 
   /**
-	 * Returns the meta object for the reference list '{@link conml.ModelElement#getDocumentingObjects <em>Documenting Objects</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.ModelElement#getMetaInformation <em>Meta Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Documenting Objects</em>'.
-	 * @see conml.ModelElement#getDocumentingObjects()
+	 * @return the meta object for the reference list '<em>Meta Information</em>'.
+	 * @see conml.ModelElement#getMetaInformation()
 	 * @see #getModelElement()
 	 * @generated
 	 */
-	EReference getModelElement_DocumentingObjects();
+	EReference getModelElement_MetaInformation();
 
-  /**
+    /**
 	 * Returns the meta object for class '{@link conml.Tag <em>Tag</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -488,6 +566,27 @@ public interface conmlPackage extends EPackage {
 	EAttribute getLanguage_Default();
 
   /**
+	 * Returns the meta object for class '{@link conml.MetaInformation <em>Meta Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Meta Information</em>'.
+	 * @see conml.MetaInformation
+	 * @generated
+	 */
+	EClass getMetaInformation();
+
+  /**
+	 * Returns the meta object for the reference '{@link conml.MetaInformation#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Object</em>'.
+	 * @see conml.MetaInformation#getObject()
+	 * @see #getMetaInformation()
+	 * @generated
+	 */
+	EReference getMetaInformation_Object();
+
+    /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -561,6 +660,22 @@ public interface conmlPackage extends EPackage {
 		EReference MODEL__TAGS = eINSTANCE.getModel_Tags();
 
 		/**
+		 * The meta object literal for the '<em><b>Meta Information</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__META_INFORMATION = eINSTANCE.getModel_MetaInformation();
+
+    /**
+		 * The meta object literal for the '<em><b>Meta Information Objects</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MODEL__META_INFORMATION_OBJECTS = eINSTANCE.getModel_MetaInformationObjects();
+
+    /**
 		 * The meta object literal for the '<em><b>Languages</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -597,14 +712,14 @@ public interface conmlPackage extends EPackage {
 		EReference MODEL_ELEMENT__TAGS = eINSTANCE.getModelElement_Tags();
 
     /**
-		 * The meta object literal for the '<em><b>Documenting Objects</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Meta Information</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MODEL_ELEMENT__DOCUMENTING_OBJECTS = eINSTANCE.getModelElement_DocumentingObjects();
+		EReference MODEL_ELEMENT__META_INFORMATION = eINSTANCE.getModelElement_MetaInformation();
 
-    /**
+        /**
 		 * The meta object literal for the '{@link conml.impl.TagImpl <em>Tag</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -655,6 +770,24 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute LANGUAGE__DEFAULT = eINSTANCE.getLanguage_Default();
+
+    /**
+		 * The meta object literal for the '{@link conml.impl.MetaInformationImpl <em>Meta Information</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.impl.MetaInformationImpl
+		 * @see conml.impl.conmlPackageImpl#getMetaInformation()
+		 * @generated
+		 */
+		EClass META_INFORMATION = eINSTANCE.getMetaInformation();
+
+    /**
+		 * The meta object literal for the '<em><b>Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference META_INFORMATION__OBJECT = eINSTANCE.getMetaInformation_Object();
 
 	}
 

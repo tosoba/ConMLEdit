@@ -4,6 +4,7 @@
  */
 package conml.validation;
 
+import conml.MetaInformation;
 import conml.Model;
 import conml.Tag;
 
@@ -20,7 +21,9 @@ public interface ModelElementValidator {
 
 	boolean validateTags(EList<Tag> value);
 
-  boolean validateDocumentingObjects(EList<conml.instances.Object> value);
+  boolean validateMetaInformation(EList<MetaInformation> value);
+
+    boolean validateDocumentingObjects(EList<conml.instances.Object> value);
 
   boolean validateBelongsTo(Model value);
 	boolean validateIsTaggedWith(EList<Tag> value);

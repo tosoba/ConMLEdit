@@ -118,6 +118,29 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link conml.MetaInformation} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected MetaInformationItemProvider metaInformationItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.MetaInformation}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createMetaInformationAdapter() {
+		if (metaInformationItemProvider == null) {
+			metaInformationItemProvider = new MetaInformationItemProvider(this);
+		}
+
+		return metaInformationItemProvider;
+	}
+
+  /**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -224,6 +247,7 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	public void dispose() {
 		if (tagItemProvider != null) tagItemProvider.dispose();
 		if (languageItemProvider != null) languageItemProvider.dispose();
+		if (metaInformationItemProvider != null) metaInformationItemProvider.dispose();
 	}
 
 }

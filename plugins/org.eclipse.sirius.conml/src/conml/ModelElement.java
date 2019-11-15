@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.ModelElement#getTags <em>Tags</em>}</li>
- *   <li>{@link conml.ModelElement#getDocumentingObjects <em>Documenting Objects</em>}</li>
+ *   <li>{@link conml.ModelElement#getMetaInformation <em>Meta Information</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModelElement()
@@ -35,15 +35,15 @@ public interface ModelElement extends ModelPart {
 	EList<Tag> getTags();
 
   /**
-	 * Returns the value of the '<em><b>Documenting Objects</b></em>' reference list.
-	 * The list contents are of type {@link conml.instances.Object}.
+	 * Returns the value of the '<em><b>Meta Information</b></em>' reference list.
+	 * The list contents are of type {@link conml.MetaInformation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Documenting Objects</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_DocumentingObjects()
+	 * @return the value of the '<em>Meta Information</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_MetaInformation()
 	 * @model
 	 * @generated
 	 */
-	EList<conml.instances.Object> getDocumentingObjects();
+	EList<MetaInformation> getMetaInformation();
 
 } // ModelElement

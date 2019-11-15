@@ -2,6 +2,7 @@
  */
 package conml.impl;
 
+import conml.MetaInformation;
 import conml.ModelElement;
 import conml.Tag;
 import conml.conmlPackage;
@@ -20,7 +21,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link conml.impl.ModelElementImpl#getTags <em>Tags</em>}</li>
- *   <li>{@link conml.impl.ModelElementImpl#getDocumentingObjects <em>Documenting Objects</em>}</li>
+ *   <li>{@link conml.impl.ModelElementImpl#getMetaInformation <em>Meta Information</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,16 +38,16 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	protected EList<Tag> tags;
 
   /**
-	 * The cached value of the '{@link #getDocumentingObjects() <em>Documenting Objects</em>}' reference list.
+	 * The cached value of the '{@link #getMetaInformation() <em>Meta Information</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDocumentingObjects()
+	 * @see #getMetaInformation()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<conml.instances.Object> documentingObjects;
+	protected EList<MetaInformation> metaInformation;
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -84,14 +85,14 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	 * @generated
 	 */
 	@Override
-	public EList<conml.instances.Object> getDocumentingObjects() {
-		if (documentingObjects == null) {
-			documentingObjects = new EObjectResolvingEList<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS);
+	public EList<MetaInformation> getMetaInformation() {
+		if (metaInformation == null) {
+			metaInformation = new EObjectResolvingEList<MetaInformation>(MetaInformation.class, this, conmlPackage.MODEL_ELEMENT__META_INFORMATION);
 		}
-		return documentingObjects;
+		return metaInformation;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -101,8 +102,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 		switch (featureID) {
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				return getTags();
-			case conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS:
-				return getDocumentingObjects();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				return getMetaInformation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -120,9 +121,9 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
 				return;
-			case conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS:
-				getDocumentingObjects().clear();
-				getDocumentingObjects().addAll((Collection<? extends conml.instances.Object>)newValue);
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				getMetaInformation().clear();
+				getMetaInformation().addAll((Collection<? extends MetaInformation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -139,8 +140,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				getTags().clear();
 				return;
-			case conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS:
-				getDocumentingObjects().clear();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				getMetaInformation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -156,8 +157,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 		switch (featureID) {
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				return tags != null && !tags.isEmpty();
-			case conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS:
-				return documentingObjects != null && !documentingObjects.isEmpty();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION:
+				return metaInformation != null && !metaInformation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

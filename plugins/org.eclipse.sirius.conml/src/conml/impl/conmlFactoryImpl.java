@@ -58,6 +58,7 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 		switch (eClass.getClassifierID()) {
 			case conmlPackage.TAG: return createTag();
 			case conmlPackage.LANGUAGE: return createLanguage();
+			case conmlPackage.META_INFORMATION: return createMetaInformation();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -86,6 +87,17 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public MetaInformation createMetaInformation() {
+		MetaInformationImpl metaInformation = new MetaInformationImpl();
+		return metaInformation;
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

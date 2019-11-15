@@ -5,6 +5,7 @@
 package conml.validation;
 
 import conml.Language;
+import conml.MetaInformation;
 import conml.ModelElement;
 import conml.Tag;
 
@@ -31,7 +32,11 @@ public interface ModelValidator {
 	boolean validateDefaultLanguage(Language value);
 	boolean validateTags(EList<Tag> value);
 
-	boolean validateOwnsElements(EList<ModelElement> value);
+	boolean validateMetaInformation(EList<MetaInformation> value);
+
+  boolean validateMetaInformationObjects(EList<conml.instances.Object> value);
+
+  boolean validateOwnsElements(EList<ModelElement> value);
 
 	boolean validateLanguages(EList<Language> value);
 }

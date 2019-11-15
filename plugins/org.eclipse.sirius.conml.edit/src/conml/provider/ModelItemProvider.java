@@ -6,6 +6,7 @@ package conml.provider;
 import conml.Model;
 import conml.conmlFactory;
 import conml.conmlPackage;
+import conml.instances.InstancesFactory;
 import java.util.Collection;
 import java.util.List;
 
@@ -66,6 +67,8 @@ public class ModelItemProvider
 			addVersionPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
 			addDefaultLanguagePropertyDescriptor(object);
+			addMetaInformationPropertyDescriptor(object);
+			addMetaInformationObjectsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -159,6 +162,50 @@ public class ModelItemProvider
 	}
 
 	/**
+	 * This adds a property descriptor for the Meta Information feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetaInformationPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_MetaInformation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_MetaInformation_feature", "_UI_Model_type"),
+				 conmlPackage.Literals.MODEL__META_INFORMATION,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Meta Information Objects feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetaInformationObjectsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_MetaInformationObjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_MetaInformationObjects_feature", "_UI_Model_type"),
+				 conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -172,6 +219,8 @@ public class ModelItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__LANGUAGES);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__TAGS);
+			childrenFeatures.add(conmlPackage.Literals.MODEL__META_INFORMATION);
+			childrenFeatures.add(conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS);
 		}
 		return childrenFeatures;
 	}
@@ -234,6 +283,8 @@ public class ModelItemProvider
 				return;
 			case conmlPackage.MODEL__LANGUAGES:
 			case conmlPackage.MODEL__TAGS:
+			case conmlPackage.MODEL__META_INFORMATION:
+			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -260,6 +311,16 @@ public class ModelItemProvider
 			(createChildParameter
 				(conmlPackage.Literals.MODEL__TAGS,
 				 conmlFactory.eINSTANCE.createTag()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.MODEL__META_INFORMATION,
+				 conmlFactory.eINSTANCE.createMetaInformation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS,
+				 InstancesFactory.eINSTANCE.createObject()));
 	}
 
 	/**

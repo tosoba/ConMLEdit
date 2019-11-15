@@ -79,15 +79,15 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL_ELEMENT__TAGS = conmlPackage.MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT__DOCUMENTING_OBJECTS = conmlPackage.MODEL_ELEMENT__DOCUMENTING_OBJECTS;
+	int INSTANCE_MODEL_ELEMENT__META_INFORMATION = conmlPackage.MODEL_ELEMENT__META_INFORMATION;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Instance Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -125,15 +125,15 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE__DOCUMENTING_OBJECTS = INSTANCE_MODEL_ELEMENT__DOCUMENTING_OBJECTS;
+	int INSTANCE__META_INFORMATION = INSTANCE_MODEL_ELEMENT__META_INFORMATION;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,15 +171,15 @@ public interface InstancesPackage extends EPackage {
 	int FACET__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET__DOCUMENTING_OBJECTS = INSTANCE_MODEL_ELEMENT__DOCUMENTING_OBJECTS;
+	int FACET__META_INFORMATION = INSTANCE_MODEL_ELEMENT__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,15 +226,15 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__TAGS = FACET__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__DOCUMENTING_OBJECTS = FACET__DOCUMENTING_OBJECTS;
+	int REFERENCE__META_INFORMATION = FACET__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,6 +371,24 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
+	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_MODEL__META_INFORMATION = conmlPackage.MODEL__META_INFORMATION;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_MODEL__META_INFORMATION_OBJECTS = conmlPackage.MODEL__META_INFORMATION_OBJECTS;
+
+  /**
 	 * The feature id for the '<em><b>Conformed Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -380,12 +398,12 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-   * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
+	 * @generated
+	 * @ordered
+	 */
   int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
   /**
@@ -426,15 +444,15 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__TAGS = INSTANCE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__DOCUMENTING_OBJECTS = INSTANCE__DOCUMENTING_OBJECTS;
+	int FACET_SET__META_INFORMATION = INSTANCE__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -499,15 +517,15 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__TAGS = FACET_SET__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__DOCUMENTING_OBJECTS = FACET_SET__DOCUMENTING_OBJECTS;
+	int VALUE_SET__META_INFORMATION = FACET_SET__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -590,15 +608,15 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__TAGS = FACET_SET__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__DOCUMENTING_OBJECTS = FACET_SET__DOCUMENTING_OBJECTS;
+	int REFERENCE_SET__META_INFORMATION = FACET_SET__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -690,15 +708,15 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__TAGS = INSTANCE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__DOCUMENTING_OBJECTS = INSTANCE__DOCUMENTING_OBJECTS;
+	int OBJECT__META_INFORMATION = INSTANCE__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -808,15 +826,15 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	int LINK__TAGS = INSTANCE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__DOCUMENTING_OBJECTS = INSTANCE__DOCUMENTING_OBJECTS;
+	int LINK__META_INFORMATION = INSTANCE__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Instanced Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -890,15 +908,15 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	int VALUE__TAGS = FACET__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Documenting Objects</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__DOCUMENTING_OBJECTS = FACET__DOCUMENTING_OBJECTS;
+	int VALUE__META_INFORMATION = FACET__META_INFORMATION;
 
-  /**
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
