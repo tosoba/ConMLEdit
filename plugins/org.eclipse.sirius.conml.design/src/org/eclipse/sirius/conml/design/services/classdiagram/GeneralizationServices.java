@@ -80,12 +80,12 @@ public final class GeneralizationServices {
 
   public void moveGeneralizationUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Generalization.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, Generalization.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveGeneralizationDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Generalization.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, Generalization.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public String generalizationLabel(final Generalization generalization) {

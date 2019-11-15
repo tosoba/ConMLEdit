@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import conml.Model;
 import conml.types.Attribute;
 import conml.types.Class;
 import conml.types.Generalization;
@@ -110,7 +109,7 @@ public final class ClassValidationServices {
   }
 
   public boolean classWithTheSameNameDoesNotExistInSamePackage(final EObject object) {
-    return ConML.castElementAndContainer(object, Class.class, Model.class)
+    return ConML.castElementAndContainer(object, Class.class, TypeModel.class)
         .runIfBothCastsSuccessful(
             (classToCheck, model) ->
                 !model
@@ -130,7 +129,7 @@ public final class ClassValidationServices {
                         .findAny()
                         .isPresent()
                     && ConML.containsOnlyOneExactlyEqualElement(
-                        model, classToCheck, Model::getElements),
+                        model, classToCheck, TypeModel::getElements),
             true);
   }
 }

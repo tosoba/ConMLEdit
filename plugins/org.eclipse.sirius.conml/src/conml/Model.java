@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.Model#getName <em>Name</em>}</li>
  *   <li>{@link conml.Model#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.Model#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.Model#getElements <em>Elements</em>}</li>
  *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
@@ -98,18 +97,6 @@ public interface Model extends EObject {
 	void setDescription(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.ModelElement}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
-	 * @see conml.conmlPackage#getModel_Elements()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<ModelElement> getElements();
-
-  /**
 	 * Returns the value of the '<em><b>Default Language</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

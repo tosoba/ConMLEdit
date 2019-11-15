@@ -4,7 +4,6 @@ package conml.impl;
 
 import conml.Language;
 import conml.Model;
-import conml.ModelElement;
 import conml.Tag;
 import conml.conmlPackage;
 
@@ -34,7 +33,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getElements <em>Elements</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
@@ -104,16 +102,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getElements()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<ModelElement> elements;
-
-  /**
 	 * The cached value of the '{@link #getLanguages() <em>Languages</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -237,19 +225,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public EList<ModelElement> getElements() {
-		if (elements == null) {
-			elements = new EObjectContainmentEList<ModelElement>(ModelElement.class, this, conmlPackage.MODEL__ELEMENTS);
-		}
-		return elements;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Language getDefaultLanguage() {
 		if (defaultLanguage != null && defaultLanguage.eIsProxy()) {
 			InternalEObject oldDefaultLanguage = (InternalEObject)defaultLanguage;
@@ -318,8 +293,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL__ELEMENTS:
-				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__LANGUAGES:
 				return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__TAGS:
@@ -342,8 +315,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return getVersion();
 			case conmlPackage.MODEL__DESCRIPTION:
 				return getDescription();
-			case conmlPackage.MODEL__ELEMENTS:
-				return getElements();
 			case conmlPackage.MODEL__LANGUAGES:
 				return getLanguages();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
@@ -372,10 +343,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription((String)newValue);
-				return;
-			case conmlPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				getElements().addAll((Collection<? extends ModelElement>)newValue);
 				return;
 			case conmlPackage.MODEL__LANGUAGES:
 				getLanguages().clear();
@@ -409,9 +376,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case conmlPackage.MODEL__ELEMENTS:
-				getElements().clear();
-				return;
 			case conmlPackage.MODEL__LANGUAGES:
 				getLanguages().clear();
 				return;
@@ -439,8 +403,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case conmlPackage.MODEL__ELEMENTS:
-				return elements != null && !elements.isEmpty();
 			case conmlPackage.MODEL__LANGUAGES:
 				return languages != null && !languages.isEmpty();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:

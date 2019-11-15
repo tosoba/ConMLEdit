@@ -9,8 +9,9 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import conml.Model;
 import conml.ModelElement;
+import conml.instances.InstanceModel;
+import conml.types.TypeModel;
 
 public final class ModelElementServices {
 
@@ -26,11 +27,11 @@ public final class ModelElementServices {
     EcoreUtil.delete(object);
   }
 
-  public <T extends EObject> void moveElement(
+  public <T extends EObject> void moveInstanceModelElement(
       final EObject object,
       final Class<T> objectClass,
       final ConML.ElementMovementDirection direction) {
-    ConML.castElementAndContainer(object, objectClass, Model.class)
+    ConML.castElementAndContainer(object, objectClass, InstanceModel.class)
         .ifBothCastsSuccessful(
             (objectToMove, model) ->
                 moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
@@ -38,7 +39,63 @@ public final class ModelElementServices {
 
   public <T extends EObject> void moveElements(
       final List<T> elements,
-      final Model model,
+      final InstanceModel model,
+      final Class<T> elementClass,
+      final ConML.ElementMovementDirection direction) {
+    if (elements.isEmpty()) return;
+
+    int indexToSwapWith = -1;
+
+    switch (direction) {
+      case UP:
+        {
+          final int firstElementIndex = model.getElements().indexOf(elements.get(0));
+          if (firstElementIndex == -1) return;
+          for (int i = firstElementIndex - 1; i >= 0; i--) {
+            final ModelElement other = model.getElements().get(i);
+            if (elementClass.isInstance(other)) {
+              indexToSwapWith = i;
+              break;
+            }
+          }
+          break;
+        }
+      case DOWN:
+        {
+          final int lastElementIndex =
+              model.getElements().indexOf(elements.get(elements.size() - 1));
+          if (lastElementIndex == -1) return;
+          for (int i = lastElementIndex + 1; i < model.getElements().size(); i++) {
+            final ModelElement other = model.getElements().get(i);
+            if (elementClass.isInstance(other)) {
+              indexToSwapWith = i;
+              break;
+            }
+          }
+          break;
+        }
+    }
+
+    if (indexToSwapWith != -1) {
+      for (int i = elements.size() - 1; i >= 0; i--) {
+        model.getElements().move(indexToSwapWith, model.getElements().indexOf(elements.get(i)));
+      }
+    }
+  }
+
+  public <T extends EObject> void moveTypeModelElement(
+      final EObject object,
+      final Class<T> objectClass,
+      final ConML.ElementMovementDirection direction) {
+    ConML.castElementAndContainer(object, objectClass, TypeModel.class)
+        .ifBothCastsSuccessful(
+            (objectToMove, model) ->
+                moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
+  }
+
+  public <T extends EObject> void moveElements(
+      final List<T> elements,
+      final TypeModel model,
       final Class<T> elementClass,
       final ConML.ElementMovementDirection direction) {
     if (elements.isEmpty()) return;

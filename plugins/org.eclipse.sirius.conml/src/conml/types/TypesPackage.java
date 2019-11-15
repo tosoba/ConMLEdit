@@ -97,15 +97,6 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__ELEMENTS = conmlPackage.MODEL__ELEMENTS;
-
-  /**
 	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -178,13 +169,22 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 
     /**
+     * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
+    int TYPE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 5;
+
+    /**
 	 * The number of structural features of the '<em>Type Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 5;
+	int TYPE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Type Model</em>' class.
@@ -1771,6 +1771,17 @@ public interface TypesPackage extends EPackage {
 	EReference getTypeModel_TemporalAspect();
 
     /**
+	 * Returns the meta object for the containment reference list '{@link conml.types.TypeModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see conml.types.TypeModel#getElements()
+	 * @see #getTypeModel()
+	 * @generated
+	 */
+	EReference getTypeModel_Elements();
+
+        /**
 	 * Returns the meta object for class '{@link conml.types.Type <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2665,6 +2676,14 @@ public interface TypesPackage extends EPackage {
 		EReference TYPE_MODEL__TEMPORAL_ASPECT = eINSTANCE.getTypeModel_TemporalAspect();
 
         /**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_MODEL__ELEMENTS = eINSTANCE.getTypeModel_Elements();
+
+                /**
 		 * The meta object literal for the '{@link conml.types.impl.TypeImpl <em>Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

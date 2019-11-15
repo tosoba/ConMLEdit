@@ -5,6 +5,7 @@ package conml.instances.impl;
 import conml.impl.ModelImpl;
 
 import conml.instances.InstanceModel;
+import conml.instances.InstanceModelElement;
 import conml.instances.InstancesPackage;
 
 import conml.types.TypeModel;
@@ -19,6 +20,7 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -31,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.InstanceModelImpl#getConformedTypeModels <em>Conformed Type Models</em>}</li>
+ *   <li>{@link conml.instances.impl.InstanceModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -46,6 +49,15 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	 */
 	protected EList<TypeModel> conformedTypeModels;
   /**
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<InstanceModelElement> elements;
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -82,6 +94,19 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<InstanceModelElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<InstanceModelElement>(InstanceModelElement.class, this, InstancesPackage.INSTANCE_MODEL__ELEMENTS);
+		}
+		return elements;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -102,6 +127,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 		switch (featureID) {
 			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
 				return ((InternalEList<?>)getConformedTypeModels()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -116,6 +143,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 		switch (featureID) {
 			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
 				return getConformedTypeModels();
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -133,6 +162,10 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 				getConformedTypeModels().clear();
 				getConformedTypeModels().addAll((Collection<? extends TypeModel>)newValue);
 				return;
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends InstanceModelElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -148,6 +181,9 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
 				getConformedTypeModels().clear();
 				return;
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				getElements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -162,6 +198,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 		switch (featureID) {
 			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
 				return conformedTypeModels != null && !conformedTypeModels.isEmpty();
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

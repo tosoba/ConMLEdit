@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.TypeModel#getParticularTypeModels <em>Particular Type Models</em>}</li>
  *   <li>{@link conml.types.TypeModel#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.TypeModel#getTemporalAspect <em>Temporal Aspect</em>}</li>
+ *   <li>{@link conml.types.TypeModel#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getTypeModel()
@@ -134,5 +135,17 @@ public interface TypeModel extends Model {
 	 * @generated
 	 */
 	void setTemporalAspect(conml.types.Class value);
+
+        /**
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.types.TypeModelElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see conml.types.TypesPackage#getTypeModel_Elements()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<TypeModelElement> getElements();
 
 } // TypeModel

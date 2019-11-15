@@ -234,12 +234,12 @@ public final class AssociationServices {
 
   public void moveAssociationUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Association.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, Association.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveAssociationDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void deleteAssociation(final Association association) {

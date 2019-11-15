@@ -8,6 +8,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.conml.design.util.ConML;
 
 import com.google.common.collect.Lists;
 
@@ -32,7 +33,7 @@ public final class ModelServices {
       final EObject object, final Class<T> clazz) {
     if (!(object instanceof Model)) return Stream.empty();
     final Model model = (Model) object;
-    return model.getElements().stream().filter(clazz::isInstance).map(clazz::cast);
+    return ConML.getStreamOfAllElementsOfTypeFromModel(model, clazz);
   }
 
   public Collection<Model> getAllDiagramRootsInSession(final EObject object) {

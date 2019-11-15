@@ -11,8 +11,9 @@ import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
-import conml.Model;
 import conml.ModelElement;
+import conml.instances.InstanceModel;
+import conml.types.TypeModel;
 
 public class ReusedViewpointServices {
 
@@ -71,8 +72,13 @@ public class ReusedViewpointServices {
       containerViews.addAll(((DSemanticDiagram) elementView).getContainers());
     }
     for (final DDiagramElementContainer containerView : containerViews) {
-      if (containerView instanceof Model) {
-        final Model model = (Model) containerView;
+      if (containerView instanceof TypeModel) {
+        final TypeModel model = (TypeModel) containerView;
+        if (model.getElements().contains(semanticElement)
+            && !ContainerLayout.LIST.equals(
+                containerView.getActualMapping().getChildrenPresentation())) return containerView;
+      } else if (containerView instanceof InstanceModel) {
+        final InstanceModel model = (InstanceModel) containerView;
         if (model.getElements().contains(semanticElement)
             && !ContainerLayout.LIST.equals(
                 containerView.getActualMapping().getChildrenPresentation())) return containerView;

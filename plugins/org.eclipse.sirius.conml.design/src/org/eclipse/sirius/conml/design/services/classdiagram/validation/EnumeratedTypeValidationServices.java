@@ -6,7 +6,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import conml.Model;
 import conml.types.EnumeratedType;
 import conml.types.Package;
 import conml.types.TypeModel;
@@ -71,7 +70,7 @@ public final class EnumeratedTypeValidationServices {
                               && Objects.equals(enumType.getName(), type.getName());
                         })
                 && ConML.containsOnlyOneExactlyEqualElement(
-                    typeModel, enumType, Model::getElements);
+                    typeModel, enumType, TypeModel::getElements);
           }
         },
         true);

@@ -65,6 +65,10 @@ import com.google.common.collect.Sets;
 
 import conml.Model;
 import conml.ModelElement;
+import conml.instances.InstanceModel;
+import conml.instances.InstanceModelElement;
+import conml.types.TypeModel;
+import conml.types.TypeModelElement;
 import conml.util.conmlAdapterFactory;
 
 @SuppressWarnings("restriction")
@@ -546,12 +550,15 @@ public class ModelElementsSelectionDialog {
   private boolean isOrHasDescendant(EObject element, final Predicate<Object> predicate) {
     if (predicate.apply(element)) return true;
 
-    if (element instanceof Model) {
-      final Model model = (Model) element;
-      for (final ModelElement ownedElement : model.getElements()) {
-        if (predicate.apply(ownedElement)) {
-          return true;
-        }
+    if (element instanceof TypeModel) {
+      final TypeModel model = (TypeModel) element;
+      for (final TypeModelElement ownedElement : model.getElements()) {
+        if (predicate.apply(ownedElement)) return true;
+      }
+    } else if (element instanceof InstanceModel) {
+      final InstanceModel model = (InstanceModel) element;
+      for (final InstanceModelElement ownedElement : model.getElements()) {
+        if (predicate.apply(ownedElement)) return true;
       }
     }
 

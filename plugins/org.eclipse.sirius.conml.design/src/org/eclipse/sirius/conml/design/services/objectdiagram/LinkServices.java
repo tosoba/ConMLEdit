@@ -47,12 +47,12 @@ public final class LinkServices {
 
   public void moveLinkUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Link.class, ConML.ElementMovementDirection.UP);
+        .moveInstanceModelElement(object, Link.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveLinkDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
+        .moveInstanceModelElement(object, Link.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void createLinkReferences(

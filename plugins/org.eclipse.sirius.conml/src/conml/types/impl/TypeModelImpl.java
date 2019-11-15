@@ -8,6 +8,7 @@ import conml.instances.InstanceModel;
 import conml.instances.InstancesPackage;
 
 import conml.types.TypeModel;
+import conml.types.TypeModelElement;
 import conml.types.TypesPackage;
 
 import java.util.Collection;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -38,6 +40,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.TypeModelImpl#getParticularTypeModels <em>Particular Type Models</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getSubjectiveAspect <em>Subjective Aspect</em>}</li>
  *   <li>{@link conml.types.impl.TypeModelImpl#getTemporalAspect <em>Temporal Aspect</em>}</li>
+ *   <li>{@link conml.types.impl.TypeModelImpl#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -94,6 +97,16 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	protected conml.types.Class temporalAspect;
 
     /**
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<TypeModelElement> elements;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -334,6 +347,19 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public EList<TypeModelElement> getElements() {
+		if (elements == null) {
+			elements = new EObjectContainmentEList<TypeModelElement>(TypeModelElement.class, this, TypesPackage.TYPE_MODEL__ELEMENTS);
+		}
+		return elements;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -366,6 +392,8 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return basicSetBaseTypeModel(null, msgs);
 			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
 				return ((InternalEList<?>)getParticularTypeModels()).basicRemove(otherEnd, msgs);
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -392,6 +420,8 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
 				if (resolve) return getTemporalAspect();
 				return basicGetTemporalAspect();
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				return getElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -421,6 +451,10 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
 				setTemporalAspect((conml.types.Class)newValue);
 				return;
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				getElements().clear();
+				getElements().addAll((Collection<? extends TypeModelElement>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -448,6 +482,9 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
 				setTemporalAspect((conml.types.Class)null);
 				return;
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				getElements().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -470,6 +507,8 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return subjectiveAspect != null;
 			case TypesPackage.TYPE_MODEL__TEMPORAL_ASPECT:
 				return temporalAspect != null;
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				return elements != null && !elements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

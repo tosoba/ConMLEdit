@@ -11,7 +11,6 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Model/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Model/version"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//Model/description"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//Model/Elements"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//Model/Languages"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference conml.ecore#//Model/DefaultLanguage"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//Model/Tags"/>
@@ -49,6 +48,8 @@
             ecoreFeature="ecore:EReference conml.ecore#//types/TypeModel/SubjectiveAspect"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/TypeModel/TemporalAspect"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//types/TypeModel/Elements"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//types/Type">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/Type/name"/>
@@ -205,6 +206,8 @@
       <genClasses ecoreClass="conml.ecore#//instances/InstanceModel">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/InstanceModel/ConformedTypeModels"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/InstanceModel/Elements"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/ValueSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

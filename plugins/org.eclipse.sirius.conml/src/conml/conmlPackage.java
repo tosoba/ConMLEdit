@@ -94,22 +94,13 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DESCRIPTION = 2;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__ELEMENTS = 3;
-
-  /**
 	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__LANGUAGES = 4;
+	int MODEL__LANGUAGES = 3;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -118,7 +109,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__DEFAULT_LANGUAGE = 5;
+	int MODEL__DEFAULT_LANGUAGE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
@@ -127,7 +118,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__TAGS = 6;
+	int MODEL__TAGS = 5;
 
 	/**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -136,7 +127,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 7;
+	int MODEL_FEATURE_COUNT = 6;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -358,17 +349,6 @@ public interface conmlPackage extends EPackage {
 	EAttribute getModel_Description();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.Model#getElements <em>Elements</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
-	 * @see conml.Model#getElements()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_Elements();
-
-  /**
 	 * Returns the meta object for the reference '{@link conml.Model#getDefaultLanguage <em>Default Language</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -565,14 +545,6 @@ public interface conmlPackage extends EPackage {
 		EAttribute MODEL__DESCRIPTION = eINSTANCE.getModel_Description();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__ELEMENTS = eINSTANCE.getModel_Elements();
-
-    /**
 		 * The meta object literal for the '<em><b>Default Language</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -18,8 +18,10 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import conml.Model;
 import conml.ModelElement;
+import conml.instances.InstanceModel;
 import conml.types.BaseDataType;
 import conml.types.Generalization;
+import conml.types.TypeModel;
 
 public class ConML {
 
@@ -27,7 +29,7 @@ public class ConML {
 
   public static <C extends EObject, E extends ModelElement>
       boolean containsOnlyOneExactlyEqualElement(
-          final C container, final E element, Function<C, EList<E>> elementsGetter) {
+          final C container, final E element, final Function<C, EList<E>> elementsGetter) {
     return elementsGetter
             .apply(container)
             .stream()
@@ -37,7 +39,8 @@ public class ConML {
   }
 
   @SuppressWarnings("unchecked")
-  public static <T> Collection<T> getAllElementsOfTypeFrom(EObject parentObject, Class<T> clazz) {
+  public static <T> Collection<T> getAllElementsOfTypeFrom(
+      final EObject parentObject, final Class<T> clazz) {
     final Set<T> candidates = new HashSet<>();
     forEachEObjectOf(
         parentObject,
@@ -47,23 +50,26 @@ public class ConML {
     return candidates;
   }
 
-  private static void forEachEObjectOf(EObject parentObject, Consumer<EObject> action) {
+  private static void forEachEObjectOf(final EObject parentObject, final Consumer<EObject> action) {
     parentObject.eAllContents().forEachRemaining(action);
   }
 
-  public static <T> Stream<T> getStreamOfAllElementsOfTypeFromModel(Model model, Class<T> clazz) {
-    return model
-        .getElements()
-        .stream()
-        .filter(element -> clazz.isInstance(element))
-        .map(element -> clazz.cast(element));
+  public static <T> Stream<T> getStreamOfAllElementsOfTypeFromModel(
+      final Model model, final Class<T> clazz) {
+    if (model instanceof TypeModel) {
+      final TypeModel typeModel = (TypeModel) model;
+      return typeModel.getElements().stream().filter(clazz::isInstance).map(clazz::cast);
+    } else if (model instanceof InstanceModel) {
+      final InstanceModel instanceModel = (InstanceModel) model;
+      return instanceModel.getElements().stream().filter(clazz::isInstance).map(clazz::cast);
+    } else throw new IllegalStateException();
   }
 
   public static <RefType extends EObject, Container extends EObject>
       boolean anyExistingContainerHasReferenceTo(
-          RefType ref,
-          Function<Container, RefType> referenceGetter,
-          Class<Container> containerClass) {
+          final RefType ref,
+          final Function<Container, RefType> referenceGetter,
+          final Class<Container> containerClass) {
     final EObject rootContainer = EcoreUtil.getRootContainer(ref);
     final Stream<Container> descedentContainersStream =
         getAllElementsOfTypeFrom(rootContainer, containerClass).stream();
@@ -79,7 +85,10 @@ public class ConML {
   }
 
   public static <R, T extends EObject> R castAndRunOrReturn(
-      EObject object, Class<T> clazz, Function<T, R> action, R unsuccessfulCastResult) {
+      final EObject object,
+      final Class<T> clazz,
+      final Function<T, R> action,
+      final R unsuccessfulCastResult) {
     if (!clazz.isInstance(object)) return unsuccessfulCastResult;
     final T castedObject = clazz.cast(object);
     return action.apply(castedObject);
@@ -87,13 +96,16 @@ public class ConML {
 
   public static <E extends EObject, C extends EObject>
       ElementContainerPair<E, C> castElementAndContainer(
-          EObject element, Class<E> elementClass, EObject container, Class<C> containerClass) {
+          final EObject element,
+          final Class<E> elementClass,
+          final EObject container,
+          final Class<C> containerClass) {
     return new ElementContainerPair<E, C>(element, elementClass, container, containerClass);
   }
 
   public static <E extends EObject, C extends EObject>
       ElementContainerPair<E, C> castElementAndContainer(
-          EObject element, Class<E> elementClass, Class<C> containerClass) {
+          final EObject element, final Class<E> elementClass, final Class<C> containerClass) {
     return new ElementContainerPair<E, C>(
         element, elementClass, element.eContainer(), containerClass);
   }
@@ -102,13 +114,16 @@ public class ConML {
     private final E element;
     private final C container;
 
-    public ElementContainerPair(E element, C container) {
+    public ElementContainerPair(final E element, final C container) {
       this.element = element;
       this.container = container;
     }
 
     public ElementContainerPair(
-        EObject element, Class<E> elementClass, EObject container, Class<C> containerClass) {
+        final EObject element,
+        final Class<E> elementClass,
+        final EObject container,
+        final Class<C> containerClass) {
       this.element = elementClass.isInstance(element) ? elementClass.cast(element) : null;
       this.container = containerClass.isInstance(container) ? containerClass.cast(container) : null;
     }
@@ -121,15 +136,16 @@ public class ConML {
       return container;
     }
 
-    public void ifBothCastsSuccessful(BiConsumer<E, C> action) {
+    public void ifBothCastsSuccessful(final BiConsumer<E, C> action) {
       if (element != null && container != null) action.accept(element, container);
     }
 
-    public <R> R runIfBothCastsSuccessful(BiFunction<E, C, R> action) {
+    public <R> R runIfBothCastsSuccessful(final BiFunction<E, C, R> action) {
       return runIfBothCastsSuccessful(action, null);
     }
 
-    public <R> R runIfBothCastsSuccessful(BiFunction<E, C, R> action, R unsuccessfulCastResult) {
+    public <R> R runIfBothCastsSuccessful(
+        final BiFunction<E, C, R> action, final R unsuccessfulCastResult) {
       if (element != null && container != null) return action.apply(element, container);
       else return unsuccessfulCastResult;
     }

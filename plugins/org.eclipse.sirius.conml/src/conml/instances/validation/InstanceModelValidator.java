@@ -4,6 +4,7 @@
  */
 package conml.instances.validation;
 
+import conml.instances.InstanceModelElement;
 import conml.types.TypeModel;
 
 import org.eclipse.emf.common.util.EList;
@@ -19,5 +20,7 @@ public interface InstanceModelValidator {
 
 	boolean validateConformedTypeModels(EList<TypeModel> value);
 
-  boolean validateConformsTo(EList<TypeModel> value);
+  boolean validateElements(EList<InstanceModelElement> value);
+
+    boolean validateConformsTo(EList<TypeModel> value);
 }

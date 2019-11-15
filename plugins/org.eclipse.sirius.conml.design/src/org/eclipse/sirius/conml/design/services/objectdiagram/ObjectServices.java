@@ -36,12 +36,12 @@ public class ObjectServices {
 
   public void moveObjectUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Object.class, ConML.ElementMovementDirection.UP);
+        .moveInstanceModelElement(object, Object.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveObjectDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Object.class, ConML.ElementMovementDirection.DOWN);
+        .moveInstanceModelElement(object, Object.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void deleteObject(final Object object) {

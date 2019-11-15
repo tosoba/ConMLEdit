@@ -325,6 +325,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getInstanceModel_Elements() {
+		return (EReference)instanceModelEClass.getEStructuralFeatures().get(1);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getValueSet() {
 		return valueSetEClass;
 	}
@@ -654,6 +664,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		instanceModelEClass = createEClass(INSTANCE_MODEL);
 		createEReference(instanceModelEClass, INSTANCE_MODEL__CONFORMED_TYPE_MODELS);
+		createEReference(instanceModelEClass, INSTANCE_MODEL__ELEMENTS);
 
 		valueSetEClass = createEClass(VALUE_SET);
 		createEReference(valueSetEClass, VALUE_SET__INSTANCED_ATTRIBUTE);
@@ -755,6 +766,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(instanceModelEClass, InstanceModel.class, "InstanceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInstanceModel_ConformedTypeModels(), theTypesPackage.getTypeModel(), theTypesPackage.getTypeModel_ConformingInstanceModel(), "ConformedTypeModels", null, 1, -1, InstanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstanceModel_Elements(), this.getInstanceModelElement(), null, "Elements", null, 0, -1, InstanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_InstancedAttribute(), theTypesPackage.getAttribute(), theTypesPackage.getAttribute_InstanceValueSets(), "InstancedAttribute", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

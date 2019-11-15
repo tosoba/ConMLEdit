@@ -18,6 +18,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.InstanceModel#getConformedTypeModels <em>Conformed Type Models</em>}</li>
+ *   <li>{@link conml.instances.InstanceModel#getElements <em>Elements</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getInstanceModel()
@@ -38,5 +39,17 @@ public interface InstanceModel extends Model {
 	 * @generated
 	 */
 	EList<TypeModel> getConformedTypeModels();
+
+  /**
+	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link conml.instances.InstanceModelElement}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @see conml.instances.InstancesPackage#getInstanceModel_Elements()
+	 * @model containment="true"
+	 * @generated
+	 */
+	EList<InstanceModelElement> getElements();
 
 } // InstanceModel

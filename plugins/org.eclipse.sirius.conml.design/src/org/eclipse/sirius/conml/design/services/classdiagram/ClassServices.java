@@ -24,12 +24,12 @@ public final class ClassServices {
 
   public void moveClassUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Class.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, Class.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveClassDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Class.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, Class.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void deleteClass(final Class clazz) {

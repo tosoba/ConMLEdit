@@ -7,11 +7,11 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.services.classdiagram.PackageServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import conml.Model;
 import conml.types.Package;
+import conml.types.TypeModel;
 
 public final class PackageValidationServices {
-	
+
   public boolean overallPackageExists(final EObject containerObject) {
     return !PackageServices.getInstance().overallPackageDoesNotExist(containerObject);
   }
@@ -26,7 +26,7 @@ public final class PackageValidationServices {
   }
 
   public boolean packageWithSameNameDoesNotExist(final EObject object) {
-    return ConML.castElementAndContainer(object, Package.class, Model.class)
+    return ConML.castElementAndContainer(object, Package.class, TypeModel.class)
         .runIfBothCastsSuccessful(
             (packageToCheck, model) ->
                 !model
@@ -47,7 +47,7 @@ public final class PackageValidationServices {
                         .findAny()
                         .isPresent()
                     && ConML.containsOnlyOneExactlyEqualElement(
-                        model, packageToCheck, Model::getElements),
+                        model, packageToCheck, TypeModel::getElements),
             true);
   }
 }

@@ -17,21 +17,21 @@ public final class DataTypeServices {
 
   public void moveSimpleDataTypeUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveSimpleDataTypeDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public void moveEnumTypeUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
   }
 
   public void moveEnumTypeDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
   }
 }

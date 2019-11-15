@@ -46,4 +46,6 @@ public interface TypeModelValidator {
   boolean validateSubjectiveAspect(conml.types.Class value);
 
     boolean validateTemporalAspect(conml.types.Class value);
+
+        boolean validateElements(EList<TypeModelElement> value);
 }

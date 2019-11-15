@@ -45,8 +45,8 @@ public final class PackageServices {
   }
 
   public void setOverall(final Package packageToSet) {
-    if (!(packageToSet.eContainer() instanceof Model)) return;
-    final Model model = (Model) packageToSet.eContainer();
+    if (!(packageToSet.eContainer() instanceof TypeModel)) return;
+    final TypeModel model = (TypeModel) packageToSet.eContainer();
     final Optional<Package> currentOverallPackage =
         model
             .getElements()
@@ -80,7 +80,7 @@ public final class PackageServices {
   }
 
   public void removePackage(final EObject object) {
-    ConML.castElementAndContainer(object, Package.class, Model.class)
+    ConML.castElementAndContainer(object, Package.class, TypeModel.class)
         .ifBothCastsSuccessful(
             (packageToRemove, model) -> {
               if (packageToRemove.getSubPackages().isEmpty()) {
@@ -102,7 +102,7 @@ public final class PackageServices {
 
   private void removePackage(
       final Package packageToRemove,
-      final Model typeModel,
+      final TypeModel typeModel,
       final boolean removeSubPackagesRecursively) {
     final ArrayList<Package> subPackagesToRemove = new ArrayList<>();
 
@@ -137,12 +137,12 @@ public final class PackageServices {
 
   public void movePackageUp(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Package.class, ConML.ElementMovementDirection.UP);
+        .moveTypeModelElement(object, Package.class, ConML.ElementMovementDirection.UP);
   }
 
   public void movePackageDown(final EObject object) {
     ModelElementServices.getInstance()
-        .moveElement(object, Package.class, ConML.ElementMovementDirection.DOWN);
+        .moveTypeModelElement(object, Package.class, ConML.ElementMovementDirection.DOWN);
   }
 
   public Collection<Package> getCDOverallPackageSemanticCandidates(final Model model) {

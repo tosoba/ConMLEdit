@@ -7,8 +7,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double" defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="New model"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-        eType="#//ModelElement" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Languages" upperBound="-1"
         eType="#//Language" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
@@ -41,6 +39,8 @@
           upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/BaseTypeModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveAspect" eType="#//types/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalAspect" eType="#//types/Class"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+          eType="#//types/TypeModelElement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
@@ -222,6 +222,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="InstanceModel" eSuperTypes="#//Model">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConformedTypeModels"
           lowerBound="1" upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ConformingInstanceModel"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
+          eType="#//instances/InstanceModelElement" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAttribute" lowerBound="1"

@@ -344,15 +344,6 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL__ELEMENTS;
-
-  /**
 	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -389,13 +380,22 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
+
+  /**
 	 * The number of structural features of the '<em>Instance Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 1;
+	int INSTANCE_MODEL_FEATURE_COUNT = conmlPackage.MODEL_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Instance Model</em>' class.
@@ -1082,6 +1082,17 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getInstanceModel_ConformedTypeModels();
 
   /**
+	 * Returns the meta object for the containment reference list '{@link conml.instances.InstanceModel#getElements <em>Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @see conml.instances.InstanceModel#getElements()
+	 * @see #getInstanceModel()
+	 * @generated
+	 */
+	EReference getInstanceModel_Elements();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.ValueSet <em>Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1523,6 +1534,14 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference INSTANCE_MODEL__CONFORMED_TYPE_MODELS = eINSTANCE.getInstanceModel_ConformedTypeModels();
 
     /**
+		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSTANCE_MODEL__ELEMENTS = eINSTANCE.getInstanceModel_Elements();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueSetImpl <em>Value Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
