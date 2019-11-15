@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.wizard;
+package org.eclipse.sirius.conml.design.dialog;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -77,7 +77,7 @@ public class ModelElementsSelectionDialog {
   private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
     private static final String REGEXP_TOOL_TIP =
-        "Expression that will be used to filer elements by name (for example 'abc', 'a?c', '*c'...)";
+        "Expression that will be used to filter elements by name (for example 'abc', 'a?c', '*c'...)";
     private static final String REGEXP_TITLE = "Filter elements by name";
     private static final String REGEXP_EXPLANATIONS = "? = any character, * = any String";
 

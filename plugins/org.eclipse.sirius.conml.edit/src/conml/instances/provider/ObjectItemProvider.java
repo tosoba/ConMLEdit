@@ -53,6 +53,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 			addReferenceSetsPropertyDescriptor(object);
+			addMetaInfoPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -212,6 +213,28 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Meta Info feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetaInfoPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Object_MetaInfo_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_MetaInfo_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__META_INFO,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.

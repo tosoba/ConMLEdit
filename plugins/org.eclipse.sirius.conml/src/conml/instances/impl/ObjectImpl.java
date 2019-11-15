@@ -2,6 +2,8 @@
  */
 package conml.instances.impl;
 
+import conml.MetaInformation;
+import conml.conmlPackage;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.InstancesPackage;
 import conml.instances.Reference;
@@ -43,6 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getMetaInfo <em>Meta Info</em>}</li>
  * </ul>
  *
  * @generated
@@ -149,6 +152,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 protected EList<ReferenceSet> referenceSets;
 
     /**
+	 * The cached value of the '{@link #getMetaInfo() <em>Meta Info</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMetaInfo()
+	 * @generated
+	 * @ordered
+	 */
+	protected MetaInformation metaInfo;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -387,6 +400,68 @@ protected EList<ReferenceSet> referenceSets;
 	 * @generated
 	 */
 	@Override
+	public MetaInformation getMetaInfo() {
+		if (metaInfo != null && metaInfo.eIsProxy()) {
+			InternalEObject oldMetaInfo = (InternalEObject)metaInfo;
+			metaInfo = (MetaInformation)eResolveProxy(oldMetaInfo);
+			if (metaInfo != oldMetaInfo) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__META_INFO, oldMetaInfo, metaInfo));
+			}
+		}
+		return metaInfo;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public MetaInformation basicGetMetaInfo() {
+		return metaInfo;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetMetaInfo(MetaInformation newMetaInfo, NotificationChain msgs) {
+		MetaInformation oldMetaInfo = metaInfo;
+		metaInfo = newMetaInfo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__META_INFO, oldMetaInfo, newMetaInfo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setMetaInfo(MetaInformation newMetaInfo) {
+		if (newMetaInfo != metaInfo) {
+			NotificationChain msgs = null;
+			if (metaInfo != null)
+				msgs = ((InternalEObject)metaInfo).eInverseRemove(this, conmlPackage.META_INFORMATION__OBJECT, MetaInformation.class, msgs);
+			if (newMetaInfo != null)
+				msgs = ((InternalEObject)newMetaInfo).eInverseAdd(this, conmlPackage.META_INFORMATION__OBJECT, MetaInformation.class, msgs);
+			msgs = basicSetMetaInfo(newMetaInfo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__META_INFO, newMetaInfo, newMetaInfo));
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ValueSet> getValueSets() {
 		if (valueSets == null) {
 			valueSets = new EObjectContainmentEList<ValueSet>(ValueSet.class, this, InstancesPackage.OBJECT__VALUE_SETS);
@@ -411,6 +486,10 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsReferredByReferences()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferenceSets()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.OBJECT__META_INFO:
+				if (metaInfo != null)
+					msgs = ((InternalEObject)metaInfo).eInverseRemove(this, conmlPackage.META_INFORMATION__OBJECT, MetaInformation.class, msgs);
+				return basicSetMetaInfo((MetaInformation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -431,6 +510,8 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<?>)getValueSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__META_INFO:
+				return basicSetMetaInfo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -462,6 +543,9 @@ protected EList<ReferenceSet> referenceSets;
 				return getValueSets();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return getReferenceSets();
+			case InstancesPackage.OBJECT__META_INFO:
+				if (resolve) return getMetaInfo();
+				return basicGetMetaInfo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -502,6 +586,9 @@ protected EList<ReferenceSet> referenceSets;
 				getReferenceSets().clear();
 				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
 				return;
+			case InstancesPackage.OBJECT__META_INFO:
+				setMetaInfo((MetaInformation)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -538,6 +625,9 @@ protected EList<ReferenceSet> referenceSets;
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				getReferenceSets().clear();
 				return;
+			case InstancesPackage.OBJECT__META_INFO:
+				setMetaInfo((MetaInformation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -566,6 +656,8 @@ protected EList<ReferenceSet> referenceSets;
 				return valueSets != null && !valueSets.isEmpty();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return referenceSets != null && !referenceSets.isEmpty();
+			case InstancesPackage.OBJECT__META_INFO:
+				return metaInfo != null;
 		}
 		return super.eIsSet(featureID);
 	}

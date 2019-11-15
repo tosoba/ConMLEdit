@@ -4,6 +4,7 @@
  */
 package conml.instances.validation;
 
+import conml.MetaInformation;
 import conml.ModelElement;
 
 import conml.instances.DegreeOfCertainty;
@@ -45,7 +46,9 @@ public interface ObjectValidator {
 
   boolean validateReferenceSets(EList<ReferenceSet> value);
 
-  boolean validateValueSets(EList<ValueSet> value);
+  boolean validateMetaInfo(MetaInformation value);
+
+    boolean validateValueSets(EList<ValueSet> value);
 
     boolean validateIsTemporalExistenceQualiferOf(EList<conml.instances.Object> value);
 	boolean validateSubjectveExistentalQualifer(conml.instances.Object value);

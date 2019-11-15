@@ -2,6 +2,7 @@
  */
 package conml.instances;
 
+import conml.MetaInformation;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -21,6 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
+ *   <li>{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -172,6 +174,30 @@ public interface Object extends Instance {
 	EList<ReferenceSet> getReferenceSets();
 
     /**
+	 * Returns the value of the '<em><b>Meta Info</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getObject <em>Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Meta Info</em>' reference.
+	 * @see #setMetaInfo(MetaInformation)
+	 * @see conml.instances.InstancesPackage#getObject_MetaInfo()
+	 * @see conml.MetaInformation#getObject
+	 * @model opposite="Object"
+	 * @generated
+	 */
+	MetaInformation getMetaInfo();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Meta Info</em>' reference.
+	 * @see #getMetaInfo()
+	 * @generated
+	 */
+	void setMetaInfo(MetaInformation value);
+
+        /**
 	 * Returns the value of the '<em><b>Value Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.ValueSet}.
 	 * <!-- begin-user-doc -->

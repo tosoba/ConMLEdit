@@ -3,11 +3,13 @@ package org.eclipse.sirius.conml.design;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
 
 /** The activator class controls the plug-in life cycle */
@@ -74,7 +76,19 @@ public class Activator extends AbstractUIPlugin {
         exception);
   }
 
+  public static Bundle bundle() {
+    return plugin.getBundle();
+  }
+
   public static void log(int severity, String message, Throwable exception) {
     if (plugin != null) plugin.getLog().log(new Status(severity, PLUGIN_ID, message, exception));
+  }
+
+  public static IPath getStateLocationOrNull() {
+    try {
+      return plugin.getStateLocation();
+    } catch (IllegalStateException e) {
+      return null;
+    }
   }
 }

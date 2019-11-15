@@ -789,13 +789,22 @@ public interface InstancesPackage extends EPackage {
 int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 
     /**
+	 * The feature id for the '<em><b>Meta Info</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__META_INFO = INSTANCE_FEATURE_COUNT + 8;
+
+        /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -1273,6 +1282,17 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getObject_ReferenceSets();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Meta Info</em>'.
+	 * @see conml.instances.Object#getMetaInfo()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_MetaInfo();
+
+    /**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.Object#getValueSets <em>Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1686,6 +1706,14 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference OBJECT__REFERENCE_SETS = eINSTANCE.getObject_ReferenceSets();
 
     /**
+		 * The meta object literal for the '<em><b>Meta Info</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__META_INFO = eINSTANCE.getObject_MetaInfo();
+
+        /**
 		 * The meta object literal for the '<em><b>Value Sets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

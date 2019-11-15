@@ -13,6 +13,9 @@ import org.eclipse.sirius.conml.design.util.ConML;
 import com.google.common.collect.Lists;
 
 import conml.Model;
+import conml.instances.InstanceModel;
+import conml.types.TypeModel;
+import conml.types.TypeModelElement;
 
 public final class ModelServices {
 
@@ -34,6 +37,17 @@ public final class ModelServices {
     if (!(object instanceof Model)) return Stream.empty();
     final Model model = (Model) object;
     return ConML.getStreamOfAllElementsOfTypeFromModel(model, clazz);
+  }
+
+  public TypeModel findTypeModelContainer(final TypeModelElement element) {
+    return ConML.getAllElementsOfTypeFromSessionStream(element, TypeModel.class)
+        .filter(model -> model.getElements().contains(element))
+        .findAny()
+        .get();
+  }
+
+  public Collection<InstanceModel> getAllInstanceModelsInSession(final EObject object) {
+    return ConML.getAllElementsOfTypeFromSession(object, InstanceModel.class);
   }
 
   public Collection<Model> getAllDiagramRootsInSession(final EObject object) {

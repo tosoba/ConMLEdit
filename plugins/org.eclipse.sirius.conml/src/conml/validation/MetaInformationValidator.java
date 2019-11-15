@@ -4,6 +4,8 @@
  */
 package conml.validation;
 
+import conml.ModelElement;
+
 
 /**
  * A sample validator interface for {@link conml.MetaInformation}.
@@ -15,4 +17,6 @@ public interface MetaInformationValidator {
 	boolean validate();
 
 	boolean validateObject(conml.instances.Object value);
+
+  boolean validateModelElement(ModelElement value);
 }

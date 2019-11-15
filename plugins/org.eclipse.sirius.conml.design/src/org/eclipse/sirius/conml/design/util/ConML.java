@@ -10,11 +10,15 @@ import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.business.api.session.Session;
+import org.eclipse.sirius.business.api.session.SessionManager;
 
 import conml.Model;
 import conml.ModelElement;
@@ -48,6 +52,24 @@ public class ConML {
           if (clazz.isInstance(object)) candidates.add((T) object);
         });
     return candidates;
+  }
+
+  public static <T> Collection<T> getAllElementsOfTypeFromSession(
+      final EObject object, final Class<T> clazz) {
+    return getAllElementsOfTypeFromSessionStream(object, clazz).collect(Collectors.toList());
+  }
+
+  public static <T> Stream<T> getAllElementsOfTypeFromSessionStream(
+      final EObject object, final Class<T> clazz) {
+    final Session session = SessionManager.INSTANCE.getSession(object);
+    if (session == null) return Stream.empty();
+    return session
+        .getSemanticResources()
+        .stream()
+        .map(Resource::getContents)
+        .flatMap(Collection::stream)
+        .filter(clazz::isInstance)
+        .map(clazz::cast);
   }
 
   private static void forEachEObjectOf(final EObject parentObject, final Consumer<EObject> action) {

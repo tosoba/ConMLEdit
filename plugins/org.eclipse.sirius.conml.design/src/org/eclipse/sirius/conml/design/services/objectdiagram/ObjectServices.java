@@ -91,4 +91,8 @@ public class ObjectServices {
         },
         Arrays.asList());
   }
+
+  public boolean isMetaInfo(final Object object) {
+    return object.getMetaInfo() != null;
+  }
 }
