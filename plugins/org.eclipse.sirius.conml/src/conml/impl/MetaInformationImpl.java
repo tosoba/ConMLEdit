@@ -4,11 +4,7 @@ package conml.impl;
 
 import conml.MetaInformation;
 import conml.conmlPackage;
-
-import conml.instances.InstancesPackage;
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -90,67 +86,15 @@ public class MetaInformationImpl extends MinimalEObjectImpl.Container implements
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetObject(conml.instances.Object newObject, NotificationChain msgs) {
-		conml.instances.Object oldObject = object;
-		object = newObject;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, conmlPackage.META_INFORMATION__OBJECT, oldObject, newObject);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@Override
 	public void setObject(conml.instances.Object newObject) {
-		if (newObject != object) {
-			NotificationChain msgs = null;
-			if (object != null)
-				msgs = ((InternalEObject)object).eInverseRemove(this, InstancesPackage.OBJECT__META_INFO, conml.instances.Object.class, msgs);
-			if (newObject != null)
-				msgs = ((InternalEObject)newObject).eInverseAdd(this, InstancesPackage.OBJECT__META_INFO, conml.instances.Object.class, msgs);
-			msgs = basicSetObject(newObject, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.META_INFORMATION__OBJECT, newObject, newObject));
+		conml.instances.Object oldObject = object;
+		object = newObject;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.META_INFORMATION__OBJECT, oldObject, object));
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case conmlPackage.META_INFORMATION__OBJECT:
-				if (object != null)
-					msgs = ((InternalEObject)object).eInverseRemove(this, InstancesPackage.OBJECT__META_INFO, conml.instances.Object.class, msgs);
-				return basicSetObject((conml.instances.Object)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case conmlPackage.META_INFORMATION__OBJECT:
-				return basicSetObject(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
-
-  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

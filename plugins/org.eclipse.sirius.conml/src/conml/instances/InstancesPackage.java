@@ -789,13 +789,13 @@ public interface InstancesPackage extends EPackage {
 int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 
     /**
-	 * The feature id for the '<em><b>Meta Info</b></em>' reference.
+	 * The feature id for the '<em><b>Meta Info In Model</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__META_INFO = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__META_INFO_IN_MODEL = INSTANCE_FEATURE_COUNT + 8;
 
         /**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -1282,15 +1282,15 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	EReference getObject_ReferenceSets();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}'.
+	 * Returns the meta object for the container reference '{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Meta Info</em>'.
-	 * @see conml.instances.Object#getMetaInfo()
+	 * @return the meta object for the container reference '<em>Meta Info In Model</em>'.
+	 * @see conml.instances.Object#getMetaInfoInModel()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_MetaInfo();
+	EReference getObject_MetaInfoInModel();
 
     /**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.Object#getValueSets <em>Value Sets</em>}'.
@@ -1706,12 +1706,12 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		EReference OBJECT__REFERENCE_SETS = eINSTANCE.getObject_ReferenceSets();
 
     /**
-		 * The meta object literal for the '<em><b>Meta Info</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Meta Info In Model</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__META_INFO = eINSTANCE.getObject_MetaInfo();
+		EReference OBJECT__META_INFO_IN_MODEL = eINSTANCE.getObject_MetaInfoInModel();
 
         /**
 		 * The meta object literal for the '<em><b>Value Sets</b></em>' containment reference list feature.

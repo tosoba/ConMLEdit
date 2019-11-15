@@ -16,7 +16,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformation" upperBound="-1"
         eType="#//MetaInformation" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
-        upperBound="-1" eType="#//instances/Object" containment="true"/>
+        upperBound="-1" eType="#//instances/Object" containment="true" eOpposite="#//instances/Object/MetaInfoInModel"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
@@ -264,6 +264,8 @@
           eType="#//instances/ValueSet" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
           eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInfoInModel" eType="#//Model"
+          eOpposite="#//Model/MetaInformationObjects"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"

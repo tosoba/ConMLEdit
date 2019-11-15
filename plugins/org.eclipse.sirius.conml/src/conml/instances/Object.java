@@ -2,7 +2,7 @@
  */
 package conml.instances;
 
-import conml.MetaInformation;
+import conml.Model;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -22,7 +22,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
- *   <li>{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}</li>
+ *   <li>{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -174,28 +174,28 @@ public interface Object extends Instance {
 	EList<ReferenceSet> getReferenceSets();
 
     /**
-	 * Returns the value of the '<em><b>Meta Info</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getObject <em>Object</em>}'.
+	 * Returns the value of the '<em><b>Meta Info In Model</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Info</em>' reference.
-	 * @see #setMetaInfo(MetaInformation)
-	 * @see conml.instances.InstancesPackage#getObject_MetaInfo()
-	 * @see conml.MetaInformation#getObject
-	 * @model opposite="Object"
+	 * @return the value of the '<em>Meta Info In Model</em>' container reference.
+	 * @see #setMetaInfoInModel(Model)
+	 * @see conml.instances.InstancesPackage#getObject_MetaInfoInModel()
+	 * @see conml.Model#getMetaInformationObjects
+	 * @model opposite="MetaInformationObjects" transient="false"
 	 * @generated
 	 */
-	MetaInformation getMetaInfo();
+	Model getMetaInfoInModel();
 
         /**
-	 * Sets the value of the '{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}' reference.
+	 * Sets the value of the '{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Meta Info</em>' reference.
-	 * @see #getMetaInfo()
+	 * @param value the new value of the '<em>Meta Info In Model</em>' container reference.
+	 * @see #getMetaInfoInModel()
 	 * @generated
 	 */
-	void setMetaInfo(MetaInformation value);
+	void setMetaInfoInModel(Model value);
 
         /**
 	 * Returns the value of the '<em><b>Value Sets</b></em>' containment reference list.

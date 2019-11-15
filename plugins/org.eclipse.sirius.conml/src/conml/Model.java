@@ -147,11 +147,13 @@ public interface Model extends EObject {
   /**
 	 * Returns the value of the '<em><b>Meta Information Objects</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Meta Information Objects</em>' containment reference list.
 	 * @see conml.conmlPackage#getModel_MetaInformationObjects()
-	 * @model containment="true"
+	 * @see conml.instances.Object#getMetaInfoInModel
+	 * @model opposite="MetaInfoInModel" containment="true"
 	 * @generated
 	 */
 	EList<conml.instances.Object> getMetaInformationObjects();

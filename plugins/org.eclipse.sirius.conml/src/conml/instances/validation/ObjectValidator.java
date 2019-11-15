@@ -5,6 +5,7 @@
 package conml.instances.validation;
 
 import conml.MetaInformation;
+import conml.Model;
 import conml.ModelElement;
 
 import conml.instances.DegreeOfCertainty;
@@ -46,7 +47,9 @@ public interface ObjectValidator {
 
   boolean validateReferenceSets(EList<ReferenceSet> value);
 
-  boolean validateMetaInfo(MetaInformation value);
+  boolean validateMetaInfoInModel(Model value);
+
+    boolean validateMetaInfo(MetaInformation value);
 
     boolean validateValueSets(EList<ValueSet> value);
 

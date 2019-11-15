@@ -93,6 +93,6 @@ public class ObjectServices {
   }
 
   public boolean isMetaInfo(final Object object) {
-    return object.getMetaInfo() != null;
+    return object.getMetaInfoInModel() != null;
   }
 }

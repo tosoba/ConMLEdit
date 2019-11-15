@@ -23,14 +23,12 @@ import org.eclipse.emf.ecore.EObject;
 public interface MetaInformation extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Object</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getMetaInfo <em>Meta Info</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Object</em>' reference.
 	 * @see #setObject(conml.instances.Object)
 	 * @see conml.conmlPackage#getMetaInformation_Object()
-	 * @see conml.instances.Object#getMetaInfo
-	 * @model opposite="MetaInfo" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	conml.instances.Object getObject();

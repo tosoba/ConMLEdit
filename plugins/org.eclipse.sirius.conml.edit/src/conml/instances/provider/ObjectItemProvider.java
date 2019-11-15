@@ -53,7 +53,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addTemporalExistentialQualifierPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 			addReferenceSetsPropertyDescriptor(object);
-			addMetaInfoPropertyDescriptor(object);
+			addMetaInfoInModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -213,19 +213,19 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
     /**
-	 * This adds a property descriptor for the Meta Info feature.
+	 * This adds a property descriptor for the Meta Info In Model feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMetaInfoPropertyDescriptor(Object object) {
+	protected void addMetaInfoInModelPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Object_MetaInfo_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Object_MetaInfo_feature", "_UI_Object_type"),
-				 InstancesPackage.Literals.OBJECT__META_INFO,
+				 getString("_UI_Object_MetaInfoInModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_MetaInfoInModel_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__META_INFO_IN_MODEL,
 				 true,
 				 false,
 				 true,

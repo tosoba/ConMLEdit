@@ -8,6 +8,7 @@ import conml.Model;
 import conml.Tag;
 import conml.conmlPackage;
 
+import conml.instances.InstancesPackage;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -21,6 +22,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -316,12 +318,27 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<conml.instances.Object> getMetaInformationObjects() {
 		if (metaInformationObjects == null) {
-			metaInformationObjects = new EObjectContainmentEList<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL__META_INFORMATION_OBJECTS);
+			metaInformationObjects = new EObjectContainmentWithInverseEList<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL__META_INFORMATION_OBJECTS, InstancesPackage.OBJECT__META_INFO_IN_MODEL);
 		}
 		return metaInformationObjects;
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMetaInformationObjects()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
