@@ -11,6 +11,14 @@ import conml.types.Package;
 
 public final class ClassLabelServices {
 
+  private static final class InstanceHolder {
+    static final ClassLabelServices INSTANCE = new ClassLabelServices();
+  }
+
+  public static ClassLabelServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public String classLabel(final Class clazz) {
     if (clazz == null) return "";
 

@@ -652,10 +652,11 @@
                         </buttons>
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="conml::MetaInformation" referenceName="MetaInformation" variableName="metaInfo">
-                              <subModelOperations xsi:type="tool_1:SetValue" featureName="MetaInfoObject" valueExpression="var:metaInfoObject"/>
-                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:metaInfoObject.addMetaInfoObjectToModels(instanceModel, typeModel, metaInfo)">
-                                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfoObject"/>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:typeModel">
+                              <subModelOperations xsi:type="tool_1:CreateInstance" typeName="conml::MetaInformation" referenceName="MetaInformation" variableName="metaInfo">
+                                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:metaInfoObject.addMetaInfoObjectToModels(instanceModel, typeModel, metaInfo)">
+                                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfoObject"/>
+                                </subModelOperations>
                               </subModelOperations>
                             </firstModelOperations>
                           </initialOperation>

@@ -13,6 +13,7 @@ import org.eclipse.jface.dialogs.IDialogConstants;
 import org.eclipse.jface.dialogs.IDialogSettings;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.services.classdiagram.label.ClassLabelServices;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -70,8 +71,8 @@ public final class ClassSelectionDialog extends FilteredItemsSelectionDialog {
           public String getText(Object element) {
             String text = "";
             if (element instanceof Class) {
-              final Class myClass = (Class) element;
-              if (myClass.getName() != null) return myClass.getName();
+              final Class classElement = (Class) element;
+              return ClassLabelServices.getInstance().classLabel(classElement);
             }
             return text;
           }
