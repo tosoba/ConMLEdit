@@ -57,48 +57,27 @@ public class MetaInformationItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addObjectPropertyDescriptor(object);
-			addModelElementPropertyDescriptor(object);
+			addModelElementsPropertyDescriptor(object);
+			addMetaInfoObjectPropertyDescriptor(object);
+			addModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Object feature.
+	 * This adds a property descriptor for the Model Elements feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addObjectPropertyDescriptor(Object object) {
+	protected void addModelElementsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_MetaInformation_Object_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_Object_feature", "_UI_MetaInformation_type"),
-				 conmlPackage.Literals.META_INFORMATION__OBJECT,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Model Element feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addModelElementPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_MetaInformation_ModelElement_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_ModelElement_feature", "_UI_MetaInformation_type"),
-				 conmlPackage.Literals.META_INFORMATION__MODEL_ELEMENT,
+				 getString("_UI_MetaInformation_ModelElements_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_ModelElements_feature", "_UI_MetaInformation_type"),
+				 conmlPackage.Literals.META_INFORMATION__MODEL_ELEMENTS,
 				 true,
 				 false,
 				 true,
@@ -108,6 +87,50 @@ public class MetaInformationItemProvider
 	}
 
   /**
+	 * This adds a property descriptor for the Meta Info Object feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetaInfoObjectPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MetaInformation_MetaInfoObject_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_MetaInfoObject_feature", "_UI_MetaInformation_type"),
+				 conmlPackage.Literals.META_INFORMATION__META_INFO_OBJECT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_MetaInformation_Model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_MetaInformation_Model_feature", "_UI_MetaInformation_type"),
+				 conmlPackage.Literals.META_INFORMATION__MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns MetaInformation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

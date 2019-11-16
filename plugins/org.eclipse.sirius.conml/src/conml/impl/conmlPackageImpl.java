@@ -217,7 +217,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 */
 	@Override
 	public EReference getModel_MetaInformation() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(6);
+		return (EReference)modelEClass.getEStructuralFeatures().get(7);
 	}
 
   /**
@@ -227,7 +227,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 */
 	@Override
 	public EReference getModel_MetaInformationObjects() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(7);
+		return (EReference)modelEClass.getEStructuralFeatures().get(6);
 	}
 
   /**
@@ -276,7 +276,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModelElement_MetaInformation() {
+	public EReference getModelElement_ElementMetaInformation() {
 		return (EReference)modelElementEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -356,7 +356,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMetaInformation_Object() {
+	public EReference getMetaInformation_ModelElements() {
 		return (EReference)metaInformationEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -366,11 +366,21 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getMetaInformation_ModelElement() {
+	public EReference getMetaInformation_MetaInfoObject() {
 		return (EReference)metaInformationEClass.getEStructuralFeatures().get(1);
 	}
 
-        /**
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getMetaInformation_Model() {
+		return (EReference)metaInformationEClass.getEStructuralFeatures().get(2);
+	}
+
+                                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -406,14 +416,14 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		createEReference(modelEClass, MODEL__LANGUAGES);
 		createEReference(modelEClass, MODEL__DEFAULT_LANGUAGE);
 		createEReference(modelEClass, MODEL__TAGS);
-		createEReference(modelEClass, MODEL__META_INFORMATION);
 		createEReference(modelEClass, MODEL__META_INFORMATION_OBJECTS);
+		createEReference(modelEClass, MODEL__META_INFORMATION);
 
 		modelPartEClass = createEClass(MODEL_PART);
 
 		modelElementEClass = createEClass(MODEL_ELEMENT);
 		createEReference(modelElementEClass, MODEL_ELEMENT__TAGS);
-		createEReference(modelElementEClass, MODEL_ELEMENT__META_INFORMATION);
+		createEReference(modelElementEClass, MODEL_ELEMENT__ELEMENT_META_INFORMATION);
 
 		tagEClass = createEClass(TAG);
 		createEAttribute(tagEClass, TAG__NAME);
@@ -424,8 +434,9 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		createEAttribute(languageEClass, LANGUAGE__DEFAULT);
 
 		metaInformationEClass = createEClass(META_INFORMATION);
-		createEReference(metaInformationEClass, META_INFORMATION__OBJECT);
-		createEReference(metaInformationEClass, META_INFORMATION__MODEL_ELEMENT);
+		createEReference(metaInformationEClass, META_INFORMATION__MODEL_ELEMENTS);
+		createEReference(metaInformationEClass, META_INFORMATION__META_INFO_OBJECT);
+		createEReference(metaInformationEClass, META_INFORMATION__MODEL);
 	}
 
 	/**
@@ -477,14 +488,14 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		initEReference(getModel_Languages(), this.getLanguage(), null, "Languages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_DefaultLanguage(), this.getLanguage(), null, "DefaultLanguage", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Tags(), this.getTag(), null, "Tags", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_MetaInformation(), this.getMetaInformation(), null, "MetaInformation", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_MetaInformationObjects(), theInstancesPackage.getObject(), theInstancesPackage.getObject_MetaInfoInModel(), "MetaInformationObjects", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_MetaInformationObjects(), theInstancesPackage.getObject(), null, "MetaInformationObjects", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModel_MetaInformation(), this.getMetaInformation(), this.getMetaInformation_Model(), "MetaInformation", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(modelPartEClass, ModelPart.class, "ModelPart", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(modelElementEClass, ModelElement.class, "ModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getModelElement_Tags(), this.getTag(), null, "Tags", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModelElement_MetaInformation(), this.getMetaInformation(), this.getMetaInformation_ModelElement(), "MetaInformation", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getModelElement_ElementMetaInformation(), this.getMetaInformation(), this.getMetaInformation_ModelElements(), "ElementMetaInformation", null, 0, -1, ModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(tagEClass, Tag.class, "Tag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTag_Name(), ecorePackage.getEString(), "name", null, 1, 1, Tag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -495,8 +506,9 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		initEAttribute(getLanguage_Default(), ecorePackage.getEBoolean(), "default", null, 1, 1, Language.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(metaInformationEClass, MetaInformation.class, "MetaInformation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMetaInformation_Object(), theInstancesPackage.getObject(), null, "Object", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getMetaInformation_ModelElement(), this.getModelElement(), this.getModelElement_MetaInformation(), "ModelElement", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMetaInformation_ModelElements(), this.getModelElement(), this.getModelElement_ElementMetaInformation(), "ModelElements", null, 0, -1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMetaInformation_MetaInfoObject(), theInstancesPackage.getObject(), theInstancesPackage.getObject_ObjectMetaInformation(), "MetaInfoObject", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMetaInformation_Model(), this.getModel(), this.getModel_MetaInformation(), "Model", null, 1, 1, MetaInformation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

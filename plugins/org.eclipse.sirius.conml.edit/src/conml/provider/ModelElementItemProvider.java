@@ -43,7 +43,7 @@ public class ModelElementItemProvider extends ModelPartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTagsPropertyDescriptor(object);
-			addMetaInformationPropertyDescriptor(object);
+			addElementMetaInformationPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -71,19 +71,19 @@ public class ModelElementItemProvider extends ModelPartItemProvider {
 	}
 
   /**
-	 * This adds a property descriptor for the Meta Information feature.
+	 * This adds a property descriptor for the Element Meta Information feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMetaInformationPropertyDescriptor(Object object) {
+	protected void addElementMetaInformationPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_ModelElement_MetaInformation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_MetaInformation_feature", "_UI_ModelElement_type"),
-				 conmlPackage.Literals.MODEL_ELEMENT__META_INFORMATION,
+				 getString("_UI_ModelElement_ElementMetaInformation_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_ElementMetaInformation_feature", "_UI_ModelElement_type"),
+				 conmlPackage.Literals.MODEL_ELEMENT__ELEMENT_META_INFORMATION,
 				 true,
 				 false,
 				 true,

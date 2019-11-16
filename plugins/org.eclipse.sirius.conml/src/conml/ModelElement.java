@@ -14,7 +14,7 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.ModelElement#getTags <em>Tags</em>}</li>
- *   <li>{@link conml.ModelElement#getMetaInformation <em>Meta Information</em>}</li>
+ *   <li>{@link conml.ModelElement#getElementMetaInformation <em>Element Meta Information</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModelElement()
@@ -35,17 +35,17 @@ public interface ModelElement extends ModelPart {
 	EList<Tag> getTags();
 
   /**
-	 * Returns the value of the '<em><b>Meta Information</b></em>' reference list.
+	 * Returns the value of the '<em><b>Element Meta Information</b></em>' reference list.
 	 * The list contents are of type {@link conml.MetaInformation}.
-	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getModelElement <em>Model Element</em>}'.
+	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getModelElements <em>Model Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Information</em>' reference list.
-	 * @see conml.conmlPackage#getModelElement_MetaInformation()
-	 * @see conml.MetaInformation#getModelElement
-	 * @model opposite="ModelElement"
+	 * @return the value of the '<em>Element Meta Information</em>' reference list.
+	 * @see conml.conmlPackage#getModelElement_ElementMetaInformation()
+	 * @see conml.MetaInformation#getModelElements
+	 * @model opposite="ModelElements"
 	 * @generated
 	 */
-	EList<MetaInformation> getMetaInformation();
+	EList<MetaInformation> getElementMetaInformation();
 
 } // ModelElement

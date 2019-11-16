@@ -4,7 +4,9 @@
  */
 package conml.validation;
 
+import conml.Model;
 import conml.ModelElement;
+import org.eclipse.emf.common.util.EList;
 
 
 /**
@@ -16,7 +18,15 @@ import conml.ModelElement;
 public interface MetaInformationValidator {
 	boolean validate();
 
-	boolean validateObject(conml.instances.Object value);
+	boolean validateModelElements(EList<ModelElement> value);
+
+  boolean validateModelElement(EList<ModelElement> value);
+
+  boolean validateObject(conml.instances.Object value);
 
   boolean validateModelElement(ModelElement value);
+
+    boolean validateMetaInfoObject(conml.instances.Object value);
+
+        boolean validateModel(Model value);
 }

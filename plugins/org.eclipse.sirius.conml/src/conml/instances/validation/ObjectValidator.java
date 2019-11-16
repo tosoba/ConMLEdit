@@ -47,7 +47,11 @@ public interface ObjectValidator {
 
   boolean validateReferenceSets(EList<ReferenceSet> value);
 
-  boolean validateMetaInfoInModel(Model value);
+  boolean validateObjectMetaInformation(EList<MetaInformation> value);
+
+    boolean validateMetaInformation(EList<MetaInformation> value);
+
+    boolean validateMetaInfoInModel(Model value);
 
     boolean validateMetaInfo(MetaInformation value);
 

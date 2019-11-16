@@ -11,6 +11,7 @@ import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementService
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
+import conml.MetaInformation;
 import conml.Model;
 import conml.instances.InstanceModel;
 import conml.instances.Link;
@@ -93,13 +94,24 @@ public class ObjectServices {
         Arrays.asList());
   }
 
-  public boolean isMetaInfo(final Object object) {
-    return object.getMetaInfoInModel() != null;
+  public boolean isMetaInfo(final Object object, final EObject containerObject) {
+    if (!(containerObject instanceof Model)) return false;
+    return object
+        .getObjectMetaInformation()
+        .stream()
+        .map(MetaInformation::getModel)
+        .anyMatch(model -> EcoreUtil.equals(model, containerObject));
   }
 
   public void addMetaInfoObjectToModels(
-      final Object object, final InstanceModel instanceModel, final Model model) {
+      final Object object,
+      final InstanceModel instanceModel,
+      final Model model,
+      final MetaInformation metaInfo) {
     instanceModel.getElements().add(object);
-    object.setMetaInfoInModel(model);
+    model.getMetaInformationObjects().add(object);
+    metaInfo.setMetaInfoObject(object);
+    metaInfo.setModel(model);
+    object.getObjectMetaInformation().add(metaInfo);
   }
 }

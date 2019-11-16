@@ -14,14 +14,14 @@ Package conml <http://conml.ecore>
     Reference Languages : Language<<0..*>>
     Reference DefaultLanguage : Language<<1..1>>
     Reference Tags : Tag<<0..*>>
-    Reference MetaInformation : MetaInformation<<0..*>>
     Reference MetaInformationObjects : Object<<0..*>>
+    Reference MetaInformation : MetaInformation<<0..*>>
 
   Class ModelPart
 
   Class ModelElement -> ModelPart
     Reference Tags : Tag<<0..*>>
-    Reference MetaInformation : MetaInformation<<0..*>>
+    Reference ElementMetaInformation : MetaInformation<<0..*>>
 
   Class Tag -> ModelPart
     Attribute name : EString<<1..1>>
@@ -32,5 +32,6 @@ Package conml <http://conml.ecore>
     Attribute default : EBoolean<<1..1>>
 
   Class MetaInformation
-    Reference Object : Object<<1..1>>
-    Reference ModelElement : ModelElement<<1..1>>
+    Reference ModelElements : ModelElement<<0..*>>
+    Reference MetaInfoObject : Object<<1..1>>
+    Reference Model : Model<<1..1>>

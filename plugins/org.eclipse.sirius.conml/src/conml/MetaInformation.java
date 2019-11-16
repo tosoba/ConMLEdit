@@ -2,6 +2,7 @@
  */
 package conml;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -13,8 +14,9 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.MetaInformation#getObject <em>Object</em>}</li>
- *   <li>{@link conml.MetaInformation#getModelElement <em>Model Element</em>}</li>
+ *   <li>{@link conml.MetaInformation#getModelElements <em>Model Elements</em>}</li>
+ *   <li>{@link conml.MetaInformation#getMetaInfoObject <em>Meta Info Object</em>}</li>
+ *   <li>{@link conml.MetaInformation#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getMetaInformation()
@@ -23,49 +25,65 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface MetaInformation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Object</b></em>' reference.
+	 * Returns the value of the '<em><b>Model Elements</b></em>' reference list.
+	 * The list contents are of type {@link conml.ModelElement}.
+	 * It is bidirectional and its opposite is '{@link conml.ModelElement#getElementMetaInformation <em>Element Meta Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Object</em>' reference.
-	 * @see #setObject(conml.instances.Object)
-	 * @see conml.conmlPackage#getMetaInformation_Object()
-	 * @model required="true"
+	 * @return the value of the '<em>Model Elements</em>' reference list.
+	 * @see conml.conmlPackage#getMetaInformation_ModelElements()
+	 * @see conml.ModelElement#getElementMetaInformation
+	 * @model opposite="ElementMetaInformation"
 	 * @generated
 	 */
-	conml.instances.Object getObject();
-
-	/**
-	 * Sets the value of the '{@link conml.MetaInformation#getObject <em>Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Object</em>' reference.
-	 * @see #getObject()
-	 * @generated
-	 */
-	void setObject(conml.instances.Object value);
+	EList<ModelElement> getModelElements();
 
   /**
-	 * Returns the value of the '<em><b>Model Element</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link conml.ModelElement#getMetaInformation <em>Meta Information</em>}'.
+	 * Returns the value of the '<em><b>Meta Info Object</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getObjectMetaInformation <em>Object Meta Information</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model Element</em>' reference.
-	 * @see #setModelElement(ModelElement)
-	 * @see conml.conmlPackage#getMetaInformation_ModelElement()
-	 * @see conml.ModelElement#getMetaInformation
-	 * @model opposite="MetaInformation" required="true"
+	 * @return the value of the '<em>Meta Info Object</em>' reference.
+	 * @see #setMetaInfoObject(conml.instances.Object)
+	 * @see conml.conmlPackage#getMetaInformation_MetaInfoObject()
+	 * @see conml.instances.Object#getObjectMetaInformation
+	 * @model opposite="ObjectMetaInformation" required="true"
 	 * @generated
 	 */
-	ModelElement getModelElement();
+	conml.instances.Object getMetaInfoObject();
 
-  /**
-	 * Sets the value of the '{@link conml.MetaInformation#getModelElement <em>Model Element</em>}' reference.
+    /**
+	 * Sets the value of the '{@link conml.MetaInformation#getMetaInfoObject <em>Meta Info Object</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model Element</em>' reference.
-	 * @see #getModelElement()
+	 * @param value the new value of the '<em>Meta Info Object</em>' reference.
+	 * @see #getMetaInfoObject()
 	 * @generated
 	 */
-	void setModelElement(ModelElement value);
+	void setMetaInfoObject(conml.instances.Object value);
+
+        /**
+	 * Returns the value of the '<em><b>Model</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link conml.Model#getMetaInformation <em>Meta Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Model</em>' container reference.
+	 * @see #setModel(Model)
+	 * @see conml.conmlPackage#getMetaInformation_Model()
+	 * @see conml.Model#getMetaInformation
+	 * @model opposite="MetaInformation" required="true" transient="false"
+	 * @generated
+	 */
+	Model getModel();
+
+        /**
+	 * Sets the value of the '{@link conml.MetaInformation#getModel <em>Model</em>}' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Model</em>' container reference.
+	 * @see #getModel()
+	 * @generated
+	 */
+	void setModel(Model value);
 
 } // MetaInformation

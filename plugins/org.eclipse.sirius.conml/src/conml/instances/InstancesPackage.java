@@ -78,16 +78,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int INSTANCE_MODEL_ELEMENT__TAGS = conmlPackage.MODEL_ELEMENT__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT__META_INFORMATION = conmlPackage.MODEL_ELEMENT__META_INFORMATION;
+	int INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION = conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The number of structural features of the '<em>Instance Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -124,16 +124,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int INSTANCE__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE__META_INFORMATION = INSTANCE_MODEL_ELEMENT__META_INFORMATION;
+	int INSTANCE__ELEMENT_META_INFORMATION = INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The number of structural features of the '<em>Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -170,16 +170,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int FACET__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET__META_INFORMATION = INSTANCE_MODEL_ELEMENT__META_INFORMATION;
+	int FACET__ELEMENT_META_INFORMATION = INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -225,16 +225,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__TAGS = FACET__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__META_INFORMATION = FACET__META_INFORMATION;
+	int REFERENCE__ELEMENT_META_INFORMATION = FACET__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -252,7 +252,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__REFERRED_OBJECT = FACET_FEATURE_COUNT + 0;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Primary Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -261,7 +261,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__PRIMARY_LINK = FACET_FEATURE_COUNT + 1;
 
-        /**
+	/**
 	 * The feature id for the '<em><b>Secondary Link</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -270,7 +270,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__SECONDARY_LINK = FACET_FEATURE_COUNT + 2;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Owner Reference Set</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -279,7 +279,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__OWNER_REFERENCE_SET = FACET_FEATURE_COUNT + 3;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Inverse Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -288,7 +288,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE__INVERSE_REFERENCE = FACET_FEATURE_COUNT + 4;
 
-        /**
+	/**
 	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -371,15 +371,6 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_MODEL__META_INFORMATION = conmlPackage.MODEL__META_INFORMATION;
-
-  /**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -388,7 +379,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int INSTANCE_MODEL__META_INFORMATION_OBJECTS = conmlPackage.MODEL__META_INFORMATION_OBJECTS;
 
-  /**
+	/**
+	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_MODEL__META_INFORMATION = conmlPackage.MODEL__META_INFORMATION;
+
+	/**
 	 * The feature id for the '<em><b>Conformed Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -397,16 +397,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
+	int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
-  /**
+	/**
 	 * The number of structural features of the '<em>Instance Model</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -443,16 +443,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int FACET_SET__TAGS = INSTANCE__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__META_INFORMATION = INSTANCE__META_INFORMATION;
+	int FACET_SET__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -470,7 +470,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 1;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -479,7 +479,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
 
-    /**
+	/**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -516,16 +516,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int VALUE_SET__TAGS = FACET_SET__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__META_INFORMATION = FACET_SET__META_INFORMATION;
+	int VALUE_SET__ELEMENT_META_INFORMATION = FACET_SET__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,7 +543,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int VALUE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -552,7 +552,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Instanced Attribute</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -561,7 +561,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int VALUE_SET__INSTANCED_ATTRIBUTE = FACET_SET_FEATURE_COUNT + 0;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -570,7 +570,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int VALUE_SET__VALUES = FACET_SET_FEATURE_COUNT + 1;
 
-        /**
+	/**
 	 * The number of structural features of the '<em>Value Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -607,16 +607,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__TAGS = FACET_SET__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__META_INFORMATION = FACET_SET__META_INFORMATION;
+	int REFERENCE_SET__ELEMENT_META_INFORMATION = FACET_SET__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -634,7 +634,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -643,7 +643,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Instanced Semi Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -652,7 +652,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = FACET_SET_FEATURE_COUNT + 0;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>References</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -661,7 +661,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__REFERENCES = FACET_SET_FEATURE_COUNT + 1;
 
-        /**
+	/**
 	 * The feature id for the '<em><b>Owner</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -670,7 +670,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int REFERENCE_SET__OWNER = FACET_SET_FEATURE_COUNT + 2;
 
-                /**
+	/**
 	 * The number of structural features of the '<em>Reference Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -707,16 +707,16 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int OBJECT__TAGS = INSTANCE__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__META_INFORMATION = INSTANCE__META_INFORMATION;
+	int OBJECT__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -743,7 +743,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int OBJECT__INSTANCED_CLASS = INSTANCE_FEATURE_COUNT + 2;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Is Referred By References</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -752,7 +752,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int OBJECT__IS_REFERRED_BY_REFERENCES = INSTANCE_FEATURE_COUNT + 3;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,7 +770,7 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 5;
 
-  /**
+	/**
 	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -779,25 +779,25 @@ public interface InstancesPackage extends EPackage {
 	 */
 	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 6;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-    * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
-
-    /**
-	 * The feature id for the '<em><b>Meta Info In Model</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__META_INFO_IN_MODEL = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 
-        /**
+	/**
+	 * The feature id for the '<em><b>Object Meta Information</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__OBJECT_META_INFORMATION = INSTANCE_FEATURE_COUNT + 8;
+
+  /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -834,16 +834,16 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int LINK__TAGS = INSTANCE__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__META_INFORMATION = INSTANCE__META_INFORMATION;
+	int LINK__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Instanced Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -852,7 +852,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int LINK__INSTANCED_ASSOCIATION = INSTANCE_FEATURE_COUNT + 0;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Primary Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -861,7 +861,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int LINK__PRIMARY_REFERENCE = INSTANCE_FEATURE_COUNT + 1;
 
-    /**
+	/**
 	 * The feature id for the '<em><b>Secondary Reference</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -870,7 +870,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int LINK__SECONDARY_REFERENCE = INSTANCE_FEATURE_COUNT + 2;
 
-        /**
+	/**
 	 * The feature id for the '<em><b>Compact</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -879,7 +879,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int LINK__COMPACT = INSTANCE_FEATURE_COUNT + 3;
 
-                /**
+	/**
 	 * The number of structural features of the '<em>Link</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -916,16 +916,16 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int VALUE__TAGS = FACET__TAGS;
 
-  /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' reference list.
+	/**
+	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__META_INFORMATION = FACET__META_INFORMATION;
+	int VALUE__ELEMENT_META_INFORMATION = FACET__ELEMENT_META_INFORMATION;
 
-    /**
+  /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -952,7 +952,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	int VALUE__OWNER_VALUE_SET = FACET_FEATURE_COUNT + 1;
 
-  /**
+	/**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1033,7 +1033,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReference_ReferredObject();
 
-  /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getPrimaryLink <em>Primary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1044,7 +1044,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReference_PrimaryLink();
 
-    /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getSecondaryLink <em>Secondary Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1055,7 +1055,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReference_SecondaryLink();
 
-  /**
+	/**
 	 * Returns the meta object for the container reference '{@link conml.instances.Reference#getOwnerReferenceSet <em>Owner Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1066,7 +1066,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReference_OwnerReferenceSet();
 
-    /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Reference#getInverseReference <em>Inverse Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1077,7 +1077,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReference_InverseReference();
 
-        /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.InstanceModelElement <em>Instance Model Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1108,7 +1108,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getInstanceModel_ConformedTypeModels();
 
-  /**
+	/**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.InstanceModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1119,7 +1119,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getInstanceModel_Elements();
 
-    /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.ValueSet <em>Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1140,7 +1140,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getValueSet_InstancedAttribute();
 
-  /**
+	/**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.ValueSet#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1151,7 +1151,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getValueSet_Values();
 
-    /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.ReferenceSet <em>Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1172,7 +1172,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReferenceSet_InstancedSemiAssociation();
 
-  /**
+	/**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.ReferenceSet#getReferences <em>References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1183,7 +1183,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReferenceSet_References();
 
-    /**
+	/**
 	 * Returns the meta object for the container reference '{@link conml.instances.ReferenceSet#getOwner <em>Owner</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1194,7 +1194,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getReferenceSet_Owner();
 
-        /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.Object <em>Object</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1237,7 +1237,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getObject_InstancedClass();
 
-  /**
+	/**
 	 * Returns the meta object for the reference list '{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1248,7 +1248,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getObject_IsReferredByReferences();
 
-    /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1270,29 +1270,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getObject_SubjectiveExistentialQualifer();
 
-  /**
-	 * Returns the meta object for the containment reference list '{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Reference Sets</em>'.
-	 * @see conml.instances.Object#getReferenceSets()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_ReferenceSets();
-
-  /**
-	 * Returns the meta object for the container reference '{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Meta Info In Model</em>'.
-	 * @see conml.instances.Object#getMetaInfoInModel()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_MetaInfoInModel();
-
-    /**
+	/**
 	 * Returns the meta object for the containment reference list '{@link conml.instances.Object#getValueSets <em>Value Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1303,7 +1281,29 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getObject_ValueSets();
 
-    /**
+	/**
+	 * Returns the meta object for the containment reference list '{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Reference Sets</em>'.
+	 * @see conml.instances.Object#getReferenceSets()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_ReferenceSets();
+
+	/**
+	 * Returns the meta object for the reference list '{@link conml.instances.Object#getObjectMetaInformation <em>Object Meta Information</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Object Meta Information</em>'.
+	 * @see conml.instances.Object#getObjectMetaInformation()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_ObjectMetaInformation();
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1324,7 +1324,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getLink_InstancedAssociation();
 
-  /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Link#getPrimaryReference <em>Primary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1335,7 +1335,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getLink_PrimaryReference();
 
-  /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.Link#getSecondaryReference <em>Secondary Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1346,7 +1346,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getLink_SecondaryReference();
 
-    /**
+	/**
 	 * Returns the meta object for the attribute '{@link conml.instances.Link#isCompact <em>Compact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1357,7 +1357,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EAttribute getLink_Compact();
 
-        /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.Value <em>Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1389,7 +1389,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getValue_OwnerValueSet();
 
-  /**
+	/**
 	 * Returns the meta object for class '{@link conml.instances.FacetSet <em>Facet Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1421,7 +1421,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getFacetSet_PhaseQualifier();
 
-  /**
+	/**
 	 * Returns the meta object for the reference '{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1432,7 +1432,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 	 */
 	EReference getFacetSet_PerspectiveQualifier();
 
-  /**
+	/**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1511,7 +1511,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE__REFERRED_OBJECT = eINSTANCE.getReference_ReferredObject();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Primary Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1519,7 +1519,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE__PRIMARY_LINK = eINSTANCE.getReference_PrimaryLink();
 
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Secondary Link</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1527,7 +1527,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE__SECONDARY_LINK = eINSTANCE.getReference_SecondaryLink();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Owner Reference Set</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1535,7 +1535,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE__OWNER_REFERENCE_SET = eINSTANCE.getReference_OwnerReferenceSet();
 
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Inverse Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1543,7 +1543,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE__INVERSE_REFERENCE = eINSTANCE.getReference_InverseReference();
 
-                /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.InstanceModelElementImpl <em>Instance Model Element</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1571,7 +1571,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference INSTANCE_MODEL__CONFORMED_TYPE_MODELS = eINSTANCE.getInstanceModel_ConformedTypeModels();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1579,7 +1579,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference INSTANCE_MODEL__ELEMENTS = eINSTANCE.getInstanceModel_Elements();
 
-        /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueSetImpl <em>Value Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1597,7 +1597,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference VALUE_SET__INSTANCED_ATTRIBUTE = eINSTANCE.getValueSet_InstancedAttribute();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Values</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1605,7 +1605,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference VALUE_SET__VALUES = eINSTANCE.getValueSet_Values();
 
-        /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.ReferenceSetImpl <em>Reference Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1623,7 +1623,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION = eINSTANCE.getReferenceSet_InstancedSemiAssociation();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>References</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1631,7 +1631,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE_SET__REFERENCES = eINSTANCE.getReferenceSet_References();
 
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1639,7 +1639,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference REFERENCE_SET__OWNER = eINSTANCE.getReferenceSet_Owner();
 
-                /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.ObjectImpl <em>Object</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1673,7 +1673,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference OBJECT__INSTANCED_CLASS = eINSTANCE.getObject_InstancedClass();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Is Referred By References</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1681,7 +1681,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference OBJECT__IS_REFERRED_BY_REFERENCES = eINSTANCE.getObject_IsReferredByReferences();
 
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Temporal Existential Qualifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1697,23 +1697,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = eINSTANCE.getObject_SubjectiveExistentialQualifer();
 
-    /**
-		 * The meta object literal for the '<em><b>Reference Sets</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__REFERENCE_SETS = eINSTANCE.getObject_ReferenceSets();
-
-    /**
-		 * The meta object literal for the '<em><b>Meta Info In Model</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__META_INFO_IN_MODEL = eINSTANCE.getObject_MetaInfoInModel();
-
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Value Sets</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1721,7 +1705,23 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference OBJECT__VALUE_SETS = eINSTANCE.getObject_ValueSets();
 
-        /**
+		/**
+		 * The meta object literal for the '<em><b>Reference Sets</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__REFERENCE_SETS = eINSTANCE.getObject_ReferenceSets();
+
+		/**
+		 * The meta object literal for the '<em><b>Object Meta Information</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__OBJECT_META_INFORMATION = eINSTANCE.getObject_ObjectMetaInformation();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1739,7 +1739,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference LINK__INSTANCED_ASSOCIATION = eINSTANCE.getLink_InstancedAssociation();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Primary Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1747,7 +1747,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference LINK__PRIMARY_REFERENCE = eINSTANCE.getLink_PrimaryReference();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Secondary Reference</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1755,7 +1755,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference LINK__SECONDARY_REFERENCE = eINSTANCE.getLink_SecondaryReference();
 
-        /**
+		/**
 		 * The meta object literal for the '<em><b>Compact</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1763,7 +1763,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EAttribute LINK__COMPACT = eINSTANCE.getLink_Compact();
 
-                /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueImpl <em>Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1789,7 +1789,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference VALUE__OWNER_VALUE_SET = eINSTANCE.getValue_OwnerValueSet();
 
-    /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.impl.FacetSetImpl <em>Facet Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1815,7 +1815,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference FACET_SET__PHASE_QUALIFIER = eINSTANCE.getFacetSet_PhaseQualifier();
 
-    /**
+		/**
 		 * The meta object literal for the '<em><b>Perspective Qualifier</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1823,7 +1823,7 @@ int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 		 */
 		EReference FACET_SET__PERSPECTIVE_QUALIFIER = eINSTANCE.getFacetSet_PerspectiveQualifier();
 
-    /**
+		/**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -1,11 +1,17 @@
 package org.eclipse.sirius.conml.design.services;
 
+import java.util.Optional;
+
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.ClassSelectionDialog;
 import org.eclipse.swt.widgets.Display;
 
 import conml.MetaInformation;
+import conml.Model;
 import conml.ModelElement;
+import conml.conmlFactory;
 import conml.types.Class;
 import conml.types.TypeModel;
 
@@ -21,12 +27,42 @@ public final class MetaInformationServices {
     else return null;
   }
 
+  public boolean metaInformationAssignedToModelElement(final MetaInformation metaInfo) {
+    return metaInfo.getModelElements().size() > 0;
+  }
+
   public boolean metaInformationObjectAlreadyAssignedToElement(
       final conml.instances.Object object, final ModelElement element) {
     return element
-        .getMetaInformation()
+        .getElementMetaInformation()
         .stream()
-        .map(MetaInformation::getObject)
+        .map(MetaInformation::getMetaInfoObject)
         .anyMatch(obj -> EcoreUtil.equals(obj, object));
+  }
+
+  public void addModelElementToMetaInformation(
+      final conml.instances.Object object, final ModelElement element) {
+    final EObject container = object.eContainer();
+    if (!(container instanceof Model)) {
+      Activator.logError("Object container is not a model.");
+      return;
+    }
+
+    final Model model = (Model) container;
+    final Optional<MetaInformation> metaInfo =
+        object
+            .getObjectMetaInformation()
+            .stream()
+            .filter(mi -> EcoreUtil.equals(mi.getModel(), model))
+            .findAny();
+    if (metaInfo.isPresent()) {
+      metaInfo.get().getModelElements().add(element);
+    } else {
+      final MetaInformation newMetaInfo = conmlFactory.eINSTANCE.createMetaInformation();
+      newMetaInfo.setModel(model);
+      newMetaInfo.setMetaInfoObject(object);
+      newMetaInfo.getModelElements().add(element);
+      model.getMetaInformation().add(newMetaInfo);
+    }
   }
 }

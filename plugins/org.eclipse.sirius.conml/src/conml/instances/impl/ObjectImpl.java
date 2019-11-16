@@ -2,7 +2,7 @@
  */
 package conml.instances.impl;
 
-import conml.Model;
+import conml.MetaInformation;
 import conml.conmlPackage;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.InstancesPackage;
@@ -27,7 +27,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -46,7 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getMetaInfoInModel <em>Meta Info In Model</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getObjectMetaInformation <em>Object Meta Information</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,6 +152,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 protected EList<ReferenceSet> referenceSets;
 
     /**
+	 * The cached value of the '{@link #getObjectMetaInformation() <em>Object Meta Information</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getObjectMetaInformation()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<MetaInformation> objectMetaInformation;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -391,41 +400,11 @@ protected EList<ReferenceSet> referenceSets;
 	 * @generated
 	 */
 	@Override
-	public Model getMetaInfoInModel() {
-		if (eContainerFeatureID() != InstancesPackage.OBJECT__META_INFO_IN_MODEL) return null;
-		return (Model)eInternalContainer();
-	}
-
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetMetaInfoInModel(Model newMetaInfoInModel, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMetaInfoInModel, InstancesPackage.OBJECT__META_INFO_IN_MODEL, msgs);
-		return msgs;
-	}
-
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMetaInfoInModel(Model newMetaInfoInModel) {
-		if (newMetaInfoInModel != eInternalContainer() || (eContainerFeatureID() != InstancesPackage.OBJECT__META_INFO_IN_MODEL && newMetaInfoInModel != null)) {
-			if (EcoreUtil.isAncestor(this, newMetaInfoInModel))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMetaInfoInModel != null)
-				msgs = ((InternalEObject)newMetaInfoInModel).eInverseAdd(this, conmlPackage.MODEL__META_INFORMATION_OBJECTS, Model.class, msgs);
-			msgs = basicSetMetaInfoInModel(newMetaInfoInModel, msgs);
-			if (msgs != null) msgs.dispatch();
+	public EList<MetaInformation> getObjectMetaInformation() {
+		if (objectMetaInformation == null) {
+			objectMetaInformation = new EObjectWithInverseResolvingEList<MetaInformation>(MetaInformation.class, this, InstancesPackage.OBJECT__OBJECT_META_INFORMATION, conmlPackage.META_INFORMATION__META_INFO_OBJECT);
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__META_INFO_IN_MODEL, newMetaInfoInModel, newMetaInfoInModel));
+		return objectMetaInformation;
 	}
 
         /**
@@ -458,10 +437,8 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsReferredByReferences()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferenceSets()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMetaInfoInModel((Model)otherEnd, msgs);
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getObjectMetaInformation()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -482,27 +459,13 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<?>)getValueSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				return basicSetMetaInfoInModel(null, msgs);
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				return ((InternalEList<?>)getObjectMetaInformation()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				return eInternalContainer().eInverseRemove(this, conmlPackage.MODEL__META_INFORMATION_OBJECTS, Model.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
-
-  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -529,8 +492,8 @@ protected EList<ReferenceSet> referenceSets;
 				return getValueSets();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return getReferenceSets();
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				return getMetaInfoInModel();
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				return getObjectMetaInformation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -571,8 +534,9 @@ protected EList<ReferenceSet> referenceSets;
 				getReferenceSets().clear();
 				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
 				return;
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				setMetaInfoInModel((Model)newValue);
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				getObjectMetaInformation().clear();
+				getObjectMetaInformation().addAll((Collection<? extends MetaInformation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -610,8 +574,8 @@ protected EList<ReferenceSet> referenceSets;
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				getReferenceSets().clear();
 				return;
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				setMetaInfoInModel((Model)null);
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				getObjectMetaInformation().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -641,8 +605,8 @@ protected EList<ReferenceSet> referenceSets;
 				return valueSets != null && !valueSets.isEmpty();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return referenceSets != null && !referenceSets.isEmpty();
-			case InstancesPackage.OBJECT__META_INFO_IN_MODEL:
-				return getMetaInfoInModel() != null;
+			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
+				return objectMetaInformation != null && !objectMetaInformation.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

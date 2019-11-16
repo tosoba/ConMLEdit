@@ -21,8 +21,8 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
- *   <li>{@link conml.Model#getMetaInformation <em>Meta Information</em>}</li>
  *   <li>{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
+ *   <li>{@link conml.Model#getMetaInformation <em>Meta Information</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModel()
@@ -135,11 +135,13 @@ public interface Model extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Meta Information</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.MetaInformation}.
+	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Meta Information</em>' containment reference list.
 	 * @see conml.conmlPackage#getModel_MetaInformation()
-	 * @model containment="true"
+	 * @see conml.MetaInformation#getModel
+	 * @model opposite="Model" containment="true"
 	 * @generated
 	 */
 	EList<MetaInformation> getMetaInformation();
@@ -147,13 +149,11 @@ public interface Model extends EObject {
   /**
 	 * Returns the value of the '<em><b>Meta Information Objects</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
-	 * It is bidirectional and its opposite is '{@link conml.instances.Object#getMetaInfoInModel <em>Meta Info In Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Meta Information Objects</em>' containment reference list.
 	 * @see conml.conmlPackage#getModel_MetaInformationObjects()
-	 * @see conml.instances.Object#getMetaInfoInModel
-	 * @model opposite="MetaInfoInModel" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<conml.instances.Object> getMetaInformationObjects();

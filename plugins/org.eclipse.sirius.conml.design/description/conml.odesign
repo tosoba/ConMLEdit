@@ -614,7 +614,7 @@
         <customization/>
       </defaultLayer>
       <additionalLayers name="TypeModelMetaInfo" activeByDefault="true">
-        <edgeMappings name="CD_MetaInformation" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@containerMappings[name='CD_MetaInfoObject']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetFinderExpression="feature:ModelElement" sourceFinderExpression="feature:Object" targetExpression="var:self" domainClass="conml::MetaInformation" useDomainElement="true">
+        <edgeMappings name="CD_MetaInformation" preconditionExpression="service:self.metaInformationAssignedToModelElement" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@containerMappings[name='CD_MetaInfoObject']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" targetFinderExpression="feature:ModelElements" sourceFinderExpression="feature:MetaInfoObject" targetExpression="var:self" domainClass="conml::MetaInformation" useDomainElement="true">
           <style>
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <centerLabelStyleDescription labelSize="12">
@@ -622,7 +622,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="CD_MetaInfoObject" preconditionExpression="service:self.isMetaInfo" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
+        <containerMappings name="CD_MetaInfoObject" preconditionExpression="service:self.isMetaInfo(container)" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.objectLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Object.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -652,8 +652,11 @@
                         </buttons>
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:metaInfoObject.addMetaInfoObjectToModels(instanceModel, typeModel)">
-                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfoObject"/>
+                            <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="conml::MetaInformation" referenceName="MetaInformation" variableName="metaInfo">
+                              <subModelOperations xsi:type="tool_1:SetValue" featureName="MetaInfoObject" valueExpression="var:metaInfoObject"/>
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:metaInfoObject.addMetaInfoObjectToModels(instanceModel, typeModel, metaInfo)">
+                                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfoObject"/>
+                              </subModelOperations>
                             </firstModelOperations>
                           </initialOperation>
                         </buttons>
@@ -677,13 +680,7 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source"/>
                 </cases>
                 <default>
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.eContainer()">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="conml::MetaInformation" referenceName="MetaInformation" variableName="metaInfo">
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="Object" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="ModelElement" valueExpression="var:target"/>
-                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:metaInfo"/>
-                    </subModelOperations>
-                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.addModelElementToMetaInformation(target)"/>
                 </default>
               </firstModelOperations>
             </initialOperation>
