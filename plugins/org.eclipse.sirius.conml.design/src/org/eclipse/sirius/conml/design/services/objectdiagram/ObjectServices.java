@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
@@ -115,12 +118,55 @@ public class ObjectServices {
     final Object instanceModelObject = EcoreUtil.copy(object);
     instanceModelObject.setMirroredMetaInfoObject(object);
     instanceModelObject.setInstancedClass(object.getInstancedClass());
+    object.getInstancedClass().getInstanceObjects().add(instanceModelObject);
     instanceModel.getElements().add(instanceModelObject);
 
     model.getMetaInformationObjects().add(object);
     metaInfo.setMetaInfoObject(object);
     metaInfo.setModel(model);
     object.getObjectMetaInformation().add(metaInfo);
+
+    EContentAdapter objectContentAdapter =
+        new EContentAdapter() {
+          @Override
+          public void notifyChanged(Notification notification) {
+            super.notifyChanged(notification);
+            if (!(notification.getNotifier() instanceof EObject)) return;
+            final EObject notifier = (EObject) notification.getNotifier();
+            if (notifier.eContainer() == null) return;
+
+            if (notification.getFeature() instanceof EStructuralFeature) {
+              instanceModelObject.eSetDeliver(false);
+              final EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
+              if (feature.getUpperBound() == 1)
+                instanceModelObject.eSet(
+                    (EStructuralFeature) notification.getFeature(), notification.getNewValue());
+              instanceModelObject.eSetDeliver(true);
+            }
+          };
+        };
+    object.eAdapters().add(objectContentAdapter);
+
+    EContentAdapter instanceModelObjectContentAdapter =
+        new EContentAdapter() {
+          @Override
+          public void notifyChanged(Notification notification) {
+            super.notifyChanged(notification);
+            if (!(notification.getNotifier() instanceof EObject)) return;
+            final EObject notifier = (EObject) notification.getNotifier();
+            if (notifier.eContainer() == null) return;
+
+            if (notification.getFeature() instanceof EStructuralFeature) {
+              object.eSetDeliver(false);
+              final EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
+              if (feature.getUpperBound() == 1)
+                object.eSet(
+                    (EStructuralFeature) notification.getFeature(), notification.getNewValue());
+              object.eSetDeliver(true);
+            }
+          };
+        };
+    instanceModelObject.eAdapters().add(instanceModelObjectContentAdapter);
   }
 
   public boolean shouldShowObjectInObjectDiagram(
@@ -140,6 +186,8 @@ public class ObjectServices {
       return;
     }
 
+    object.eSetDeliver(false);
+
     final Model model = (Model) container;
     object
         .getObjectMetaInformation()
@@ -149,5 +197,6 @@ public class ObjectServices {
         .ifPresent(EcoreUtil::delete);
 
     model.getMetaInformationObjects().remove(object);
+    EcoreUtil.delete(object);
   }
 }
