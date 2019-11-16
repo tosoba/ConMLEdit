@@ -798,13 +798,22 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__OBJECT_META_INFORMATION = INSTANCE_FEATURE_COUNT + 8;
 
   /**
+	 * The feature id for the '<em><b>Mirrored Meta Info Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__MIRRORED_META_INFO_OBJECT = INSTANCE_FEATURE_COUNT + 9;
+
+    /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 9;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -1304,6 +1313,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_ObjectMetaInformation();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.instances.Object#getMirroredMetaInfoObject <em>Mirrored Meta Info Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Mirrored Meta Info Object</em>'.
+	 * @see conml.instances.Object#getMirroredMetaInfoObject()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EReference getObject_MirroredMetaInfoObject();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1722,6 +1742,14 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__OBJECT_META_INFORMATION = eINSTANCE.getObject_ObjectMetaInformation();
 
     /**
+		 * The meta object literal for the '<em><b>Mirrored Meta Info Object</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference OBJECT__MIRRORED_META_INFO_OBJECT = eINSTANCE.getObject_MirroredMetaInfoObject();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

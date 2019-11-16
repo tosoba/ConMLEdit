@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getObjectMetaInformation <em>Object Meta Information</em>}</li>
+ *   <li>{@link conml.instances.Object#getMirroredMetaInfoObject <em>Mirrored Meta Info Object</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -188,6 +189,28 @@ public interface Object extends Instance {
 	EList<MetaInformation> getObjectMetaInformation();
 
         /**
+	 * Returns the value of the '<em><b>Mirrored Meta Info Object</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mirrored Meta Info Object</em>' reference.
+	 * @see #setMirroredMetaInfoObject(Object)
+	 * @see conml.instances.InstancesPackage#getObject_MirroredMetaInfoObject()
+	 * @model
+	 * @generated
+	 */
+	Object getMirroredMetaInfoObject();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.Object#getMirroredMetaInfoObject <em>Mirrored Meta Info Object</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Mirrored Meta Info Object</em>' reference.
+	 * @see #getMirroredMetaInfoObject()
+	 * @generated
+	 */
+	void setMirroredMetaInfoObject(Object value);
+
+                /**
 	 * Returns the value of the '<em><b>Value Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.ValueSet}.
 	 * <!-- begin-user-doc -->

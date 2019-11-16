@@ -270,6 +270,8 @@
           eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectMetaInformation"
           upperBound="-1" eType="#//MetaInformation" eOpposite="#//MetaInformation/MetaInfoObject"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="MirroredMetaInfoObject"
+          eType="#//instances/Object"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"

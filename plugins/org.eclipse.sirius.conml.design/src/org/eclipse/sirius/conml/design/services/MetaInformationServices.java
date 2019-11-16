@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.ClassSelectionDialog;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.swt.widgets.Display;
 
 import conml.MetaInformation;
@@ -44,7 +45,7 @@ public final class MetaInformationServices {
       final conml.instances.Object object, final ModelElement element) {
     final EObject container = object.eContainer();
     if (!(container instanceof Model)) {
-      Activator.logError("Object container is not a model.");
+      Activator.logError(Messages.getString("ExceptionMessage.InvalidContainer"));
       return;
     }
 

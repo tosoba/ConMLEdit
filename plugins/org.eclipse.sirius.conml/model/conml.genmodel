@@ -246,6 +246,8 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ReferenceSets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ObjectMetaInformation"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/MirroredMetaInfoObject"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Link">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

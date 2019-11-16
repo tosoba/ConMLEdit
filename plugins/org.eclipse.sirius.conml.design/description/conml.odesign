@@ -622,7 +622,7 @@
             </centerLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="CD_MetaInfoObject" preconditionExpression="service:self.isMetaInfo(container)" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
+        <containerMappings name="CD_MetaInfoObject" preconditionExpression="service:self.isMetaInfo(container)" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@toolSections.0/@ownedTools[name='Delete%20Documenting%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.objectLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Object.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -686,6 +686,14 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Documenting Object">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.deleteDocumentingObjectFromTypeModel()"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </additionalLayers>
     </ownedRepresentations>
@@ -704,7 +712,7 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
+        <containerMappings name="OD_Object" preconditionExpression="aql:self.shouldShowObjectInObjectDiagram(diagram)" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
           <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>

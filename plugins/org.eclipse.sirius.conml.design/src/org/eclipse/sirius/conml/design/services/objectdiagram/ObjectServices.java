@@ -10,6 +10,7 @@ import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DSemanticDiagram;
 
 import conml.MetaInformation;
 import conml.Model;
@@ -77,6 +78,9 @@ public class ObjectServices {
       EcoreUtil.delete(link);
     }
 
+    if (object.getMirroredMetaInfoObject() != null)
+      deleteDocumentingObjectFromTypeModel(object.getMirroredMetaInfoObject());
+
     EcoreUtil.delete(object);
   }
 
@@ -108,10 +112,42 @@ public class ObjectServices {
       final InstanceModel instanceModel,
       final Model model,
       final MetaInformation metaInfo) {
-    instanceModel.getElements().add(object);
+    final Object instanceModelObject = EcoreUtil.copy(object);
+    instanceModelObject.setMirroredMetaInfoObject(object);
+    instanceModelObject.setInstancedClass(object.getInstancedClass());
+    instanceModel.getElements().add(instanceModelObject);
+
     model.getMetaInformationObjects().add(object);
     metaInfo.setMetaInfoObject(object);
     metaInfo.setModel(model);
     object.getObjectMetaInformation().add(metaInfo);
+  }
+
+  public boolean shouldShowObjectInObjectDiagram(
+      final Object object, final DSemanticDiagram diagram) {
+    return object.getObjectMetaInformation().size() == 0
+        || object
+            .getObjectMetaInformation()
+            .stream()
+            .map(MetaInformation::getModel)
+            .anyMatch(model -> EcoreUtil.equals(model, diagram.getTarget()));
+  }
+
+  public void deleteDocumentingObjectFromTypeModel(final Object object) {
+    final EObject container = object.eContainer();
+    if (!(container instanceof Model)) {
+      Activator.logError(Messages.getString("ExceptionMessage.InvalidContainer"));
+      return;
+    }
+
+    final Model model = (Model) container;
+    object
+        .getObjectMetaInformation()
+        .stream()
+        .filter(mi -> EcoreUtil.equals(mi.getModel(), model))
+        .findAny()
+        .ifPresent(EcoreUtil::delete);
+
+    model.getMetaInformationObjects().remove(object);
   }
 }
