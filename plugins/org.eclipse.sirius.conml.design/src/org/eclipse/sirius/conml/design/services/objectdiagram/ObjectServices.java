@@ -124,72 +124,77 @@ public class ObjectServices {
       @Override
       public void notifyChanged(Notification notification) {
         super.notifyChanged(notification);
-        if (!(notification.getNotifier() instanceof EObject)) return;
+
+        if (!(notification.getNotifier() instanceof EObject)
+            || !(notification.getFeature() instanceof EStructuralFeature)) return;
+
         final EObject notifier = (EObject) notification.getNotifier();
-        if (!(notifier.eContainer() instanceof InstanceModel)) return;
+        if (!EcoreUtil.equals(notifier.eClass(), subscriberObject.eClass()))
+          return; // this is potentially wrong
 
-        if (notification.getFeature() instanceof EStructuralFeature) {
-          notifier.eSetDeliver(false);
-          subscriberObject.eSetDeliver(false);
-          final EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
-          switch (notification.getEventType()) {
-            case Notification.SET:
-              subscriberObject.eSet(feature, notification.getNewValue());
-              break;
-            case Notification.UNSET:
-              subscriberObject.eUnset(feature);
-              break;
+        notifier.eSetDeliver(false);
+        subscriberObject.eSetDeliver(false);
 
-            case Notification.ADD:
-            case Notification.ADD_MANY:
-              if (feature instanceof EReference) {
-                if ("ObjectMetaInformation".equalsIgnoreCase(feature.getName())) return;
+        final EStructuralFeature feature = (EStructuralFeature) notification.getFeature();
+        switch (notification.getEventType()) {
+          case Notification.SET:
+            subscriberObject.eSet(feature, notification.getNewValue());
+            break;
+          case Notification.UNSET:
+            subscriberObject.eUnset(feature);
+            break;
 
-                final EReference reference = (EReference) feature;
-                Set<EObject> notificationValues = getNotificationValues(notification);
-                if ("ValueSets".equalsIgnoreCase(reference.getName())) {
-                  subscriberObject
-                      .getValueSets()
-                      .addAll(
-                          notificationValues
-                              .stream()
-                              .filter(ValueSet.class::isInstance)
-                              .map(ValueSet.class::cast)
-                              .collect(Collectors.toList()));
-                } else if ("ReferenceSets".equalsIgnoreCase(reference.getName())) {
-                  subscriberObject
-                      .getReferenceSets()
-                      .addAll(
-                          notificationValues
-                              .stream()
-                              .filter(ReferenceSet.class::isInstance)
-                              .map(ReferenceSet.class::cast)
-                              .collect(Collectors.toList()));
-                }
+          case Notification.ADD:
+          case Notification.ADD_MANY:
+            if (feature instanceof EReference) {
+              if ("ObjectMetaInformation".equalsIgnoreCase(feature.getName())) return;
+
+              final EReference reference = (EReference) feature;
+              Set<EObject> notificationValues = getNotificationValues(notification);
+              if ("ValueSets".equalsIgnoreCase(reference.getName())) {
+                subscriberObject
+                    .getValueSets()
+                    .addAll(
+                        notificationValues
+                            .stream()
+                            .filter(ValueSet.class::isInstance)
+                            .map(ValueSet.class::cast)
+                            .map(EcoreUtil::copy)
+                            .collect(Collectors.toList()));
+              } else if ("ReferenceSets".equalsIgnoreCase(reference.getName())) {
+                subscriberObject
+                    .getReferenceSets()
+                    .addAll(
+                        notificationValues
+                            .stream()
+                            .filter(ReferenceSet.class::isInstance)
+                            .map(ReferenceSet.class::cast)
+                            .map(EcoreUtil::copy)
+                            .collect(Collectors.toList()));
               }
-              break;
+            }
+            break;
 
-            case Notification.REMOVE:
-            case Notification.REMOVE_MANY:
-              if (feature instanceof EReference) {
-                if ("ObjectMetaInformation".equalsIgnoreCase(feature.getName())) return;
+          case Notification.REMOVE:
+          case Notification.REMOVE_MANY:
+            if (feature instanceof EReference) {
+              if ("ObjectMetaInformation".equalsIgnoreCase(feature.getName())) return;
 
-                final EReference reference = (EReference) feature;
-                Set<EObject> notificationValues = getNotificationValues(notification);
-                if ("ValueSets".equalsIgnoreCase(reference.getName())) {
-                  subscriberObject.getValueSets().removeAll(notificationValues);
-                } else if ("ReferenceSets".equalsIgnoreCase(reference.getName())) {
-                  subscriberObject.getReferenceSets().removeAll(notificationValues);
-                }
+              final EReference reference = (EReference) feature;
+              Set<EObject> notificationValues = getNotificationValues(notification);
+              if ("ValueSets".equalsIgnoreCase(reference.getName())) {
+                subscriberObject.getValueSets().removeAll(notificationValues);
+              } else if ("ReferenceSets".equalsIgnoreCase(reference.getName())) {
+                subscriberObject.getReferenceSets().removeAll(notificationValues);
               }
-              break;
-            case Notification.MOVE:
-              break;
-          }
-
-          notifier.eSetDeliver(true);
-          subscriberObject.eSetDeliver(true);
+            }
+            break;
+          case Notification.MOVE:
+            break;
         }
+
+        notifier.eSetDeliver(true);
+        subscriberObject.eSetDeliver(true);
       };
     };
   }
