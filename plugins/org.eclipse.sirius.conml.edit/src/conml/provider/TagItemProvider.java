@@ -46,6 +46,7 @@ public class TagItemProvider extends ModelPartItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
+			addModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -73,6 +74,28 @@ public class TagItemProvider extends ModelPartItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Tag_Model_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_Model_feature", "_UI_Tag_type"),
+				 conmlPackage.Literals.TAG__MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns Tag.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

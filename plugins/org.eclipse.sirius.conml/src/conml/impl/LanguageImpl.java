@@ -3,9 +3,12 @@
 package conml.impl;
 
 import conml.Language;
+import conml.Model;
 import conml.conmlPackage;
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
@@ -19,6 +22,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link conml.impl.LanguageImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.impl.LanguageImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link conml.impl.LanguageImpl#isDefault <em>Default</em>}</li>
+ *   <li>{@link conml.impl.LanguageImpl#getModel <em>Model</em>}</li>
  * </ul>
  *
  * @generated
@@ -85,6 +89,16 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 	protected boolean default_ = DEFAULT_EDEFAULT;
 
   /**
+	 * The cached value of the '{@link #getModel() <em>Model</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getModel()
+	 * @generated
+	 * @ordered
+	 */
+	protected Model model;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -178,6 +192,98 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 	 * @generated
 	 */
 	@Override
+	public Model getModel() {
+		if (model != null && model.eIsProxy()) {
+			InternalEObject oldModel = (InternalEObject)model;
+			model = (Model)eResolveProxy(oldModel);
+			if (model != oldModel) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, conmlPackage.LANGUAGE__MODEL, oldModel, model));
+			}
+		}
+		return model;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Model basicGetModel() {
+		return model;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetModel(Model newModel, NotificationChain msgs) {
+		Model oldModel = model;
+		model = newModel;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, conmlPackage.LANGUAGE__MODEL, oldModel, newModel);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setModel(Model newModel) {
+		if (newModel != model) {
+			NotificationChain msgs = null;
+			if (model != null)
+				msgs = ((InternalEObject)model).eInverseRemove(this, conmlPackage.MODEL__LANGUAGES, Model.class, msgs);
+			if (newModel != null)
+				msgs = ((InternalEObject)newModel).eInverseAdd(this, conmlPackage.MODEL__LANGUAGES, Model.class, msgs);
+			msgs = basicSetModel(newModel, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, conmlPackage.LANGUAGE__MODEL, newModel, newModel));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case conmlPackage.LANGUAGE__MODEL:
+				if (model != null)
+					msgs = ((InternalEObject)model).eInverseRemove(this, conmlPackage.MODEL__LANGUAGES, Model.class, msgs);
+				return basicSetModel((Model)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case conmlPackage.LANGUAGE__MODEL:
+				return basicSetModel(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case conmlPackage.LANGUAGE__NAME:
@@ -186,6 +292,9 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 				return getDescription();
 			case conmlPackage.LANGUAGE__DEFAULT:
 				return isDefault();
+			case conmlPackage.LANGUAGE__MODEL:
+				if (resolve) return getModel();
+				return basicGetModel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,6 +317,9 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 			case conmlPackage.LANGUAGE__DEFAULT:
 				setDefault((Boolean)newValue);
 				return;
+			case conmlPackage.LANGUAGE__MODEL:
+				setModel((Model)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -229,6 +341,9 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 			case conmlPackage.LANGUAGE__DEFAULT:
 				setDefault(DEFAULT_EDEFAULT);
 				return;
+			case conmlPackage.LANGUAGE__MODEL:
+				setModel((Model)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -247,6 +362,8 @@ public class LanguageImpl extends ModelPartImpl implements Language {
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
 			case conmlPackage.LANGUAGE__DEFAULT:
 				return default_ != DEFAULT_EDEFAULT;
+			case conmlPackage.LANGUAGE__MODEL:
+				return model != null;
 		}
 		return super.eIsSet(featureID);
 	}

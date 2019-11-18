@@ -109,27 +109,26 @@ public final class ClassValidationServices {
   }
 
   public boolean classWithTheSameNameDoesNotExistInSamePackage(final EObject object) {
-    return ConML.castElementAndContainer(object, Class.class, TypeModel.class)
-        .runIfBothCastsSuccessful(
-            (classToCheck, model) ->
-                !model
-                        .getElements()
-                        .stream()
-                        .filter(
-                            element -> {
-                              if (element instanceof Class) {
-                                final Class otherClass = (Class) element;
-                                return EcoreUtil.equals(
-                                        otherClass.getPackage(), classToCheck.getPackage())
-                                    && !EcoreUtil.equals(otherClass, classToCheck)
-                                    && Objects.equals(otherClass.getName(), classToCheck.getName());
+    if (!(object instanceof Class)) return true;
+    final Class classToCheck = (Class) object;
+    final TypeModel model = classToCheck.getTypeModel();
+    if (model == null) return true;
+    else
+      return !model
+              .getElements()
+              .stream()
+              .filter(
+                  element -> {
+                    if (element instanceof Class) {
+                      final Class otherClass = (Class) element;
+                      return EcoreUtil.equals(otherClass.getPackage(), classToCheck.getPackage())
+                          && !EcoreUtil.equals(otherClass, classToCheck)
+                          && Objects.equals(otherClass.getName(), classToCheck.getName());
 
-                              } else return false;
-                            })
-                        .findAny()
-                        .isPresent()
-                    && ConML.containsOnlyOneExactlyEqualElement(
-                        model, classToCheck, TypeModel::getElements),
-            true);
+                    } else return false;
+                  })
+              .findAny()
+              .isPresent()
+          && ConML.containsOnlyOneExactlyEqualElement(model, classToCheck, TypeModel::getElements);
   }
 }

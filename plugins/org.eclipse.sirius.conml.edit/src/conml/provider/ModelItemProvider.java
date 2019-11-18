@@ -4,7 +4,6 @@ package conml.provider;
 
 
 import conml.Model;
-import conml.conmlFactory;
 import conml.conmlPackage;
 import conml.instances.InstancesFactory;
 import java.util.Collection;
@@ -68,7 +67,8 @@ public class ModelItemProvider
 			addDescriptionPropertyDescriptor(object);
 			addDefaultLanguagePropertyDescriptor(object);
 			addMetaInformationObjectsPropertyDescriptor(object);
-			addMetaInformationPropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
+			addLanguagesPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -184,19 +184,41 @@ public class ModelItemProvider
 	}
 
   /**
-	 * This adds a property descriptor for the Meta Information feature.
+	 * This adds a property descriptor for the Tags feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addMetaInformationPropertyDescriptor(Object object) {
+	protected void addTagsPropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Model_MetaInformation_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model_MetaInformation_feature", "_UI_Model_type"),
-				 conmlPackage.Literals.MODEL__META_INFORMATION,
+				 getString("_UI_Model_Tags_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_Tags_feature", "_UI_Model_type"),
+				 conmlPackage.Literals.MODEL__TAGS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Languages feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addLanguagesPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Model_Languages_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Model_Languages_feature", "_UI_Model_type"),
+				 conmlPackage.Literals.MODEL__LANGUAGES,
 				 true,
 				 false,
 				 true,
@@ -217,10 +239,7 @@ public class ModelItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__LANGUAGES);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__TAGS);
 			childrenFeatures.add(conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS);
-			childrenFeatures.add(conmlPackage.Literals.MODEL__META_INFORMATION);
 		}
 		return childrenFeatures;
 	}
@@ -281,10 +300,7 @@ public class ModelItemProvider
 			case conmlPackage.MODEL__DESCRIPTION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case conmlPackage.MODEL__LANGUAGES:
-			case conmlPackage.MODEL__TAGS:
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-			case conmlPackage.MODEL__META_INFORMATION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -304,23 +320,8 @@ public class ModelItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(conmlPackage.Literals.MODEL__LANGUAGES,
-				 conmlFactory.eINSTANCE.createLanguage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.MODEL__TAGS,
-				 conmlFactory.eINSTANCE.createTag()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS,
 				 InstancesFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.MODEL__META_INFORMATION,
-				 conmlFactory.eINSTANCE.createMetaInformation()));
 	}
 
 	/**

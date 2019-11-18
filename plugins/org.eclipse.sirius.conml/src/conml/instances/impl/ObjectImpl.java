@@ -2,7 +2,7 @@
  */
 package conml.instances.impl;
 
-import conml.MetaInformation;
+import conml.ModelElement;
 import conml.conmlPackage;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.InstancesPackage;
@@ -45,8 +45,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getObjectMetaInformation <em>Object Meta Information</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getMirroredMetaInfoObject <em>Mirrored Meta Info Object</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getDocumentedElements <em>Documented Elements</em>}</li>
  * </ul>
  *
  * @generated
@@ -153,26 +152,16 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 protected EList<ReferenceSet> referenceSets;
 
     /**
-	 * The cached value of the '{@link #getObjectMetaInformation() <em>Object Meta Information</em>}' reference list.
+	 * The cached value of the '{@link #getDocumentedElements() <em>Documented Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getObjectMetaInformation()
+	 * @see #getDocumentedElements()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MetaInformation> objectMetaInformation;
+	protected EList<ModelElement> documentedElements;
 
-        /**
-	 * The cached value of the '{@link #getMirroredMetaInfoObject() <em>Mirrored Meta Info Object</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMirroredMetaInfoObject()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.instances.Object mirroredMetaInfoObject;
-
-                /**
+                                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -411,54 +400,14 @@ protected EList<ReferenceSet> referenceSets;
 	 * @generated
 	 */
 	@Override
-	public EList<MetaInformation> getObjectMetaInformation() {
-		if (objectMetaInformation == null) {
-			objectMetaInformation = new EObjectWithInverseResolvingEList<MetaInformation>(MetaInformation.class, this, InstancesPackage.OBJECT__OBJECT_META_INFORMATION, conmlPackage.META_INFORMATION__META_INFO_OBJECT);
+	public EList<ModelElement> getDocumentedElements() {
+		if (documentedElements == null) {
+			documentedElements = new EObjectWithInverseResolvingEList.ManyInverse<ModelElement>(ModelElement.class, this, InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS, conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS);
 		}
-		return objectMetaInformation;
+		return documentedElements;
 	}
 
-        /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public conml.instances.Object getMirroredMetaInfoObject() {
-		if (mirroredMetaInfoObject != null && mirroredMetaInfoObject.eIsProxy()) {
-			InternalEObject oldMirroredMetaInfoObject = (InternalEObject)mirroredMetaInfoObject;
-			mirroredMetaInfoObject = (conml.instances.Object)eResolveProxy(oldMirroredMetaInfoObject);
-			if (mirroredMetaInfoObject != oldMirroredMetaInfoObject) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT, oldMirroredMetaInfoObject, mirroredMetaInfoObject));
-			}
-		}
-		return mirroredMetaInfoObject;
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public conml.instances.Object basicGetMirroredMetaInfoObject() {
-		return mirroredMetaInfoObject;
-	}
-
-        /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMirroredMetaInfoObject(conml.instances.Object newMirroredMetaInfoObject) {
-		conml.instances.Object oldMirroredMetaInfoObject = mirroredMetaInfoObject;
-		mirroredMetaInfoObject = newMirroredMetaInfoObject;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT, oldMirroredMetaInfoObject, mirroredMetaInfoObject));
-	}
-
-                /**
+                                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -488,8 +437,8 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getIsReferredByReferences()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferenceSets()).basicAdd(otherEnd, msgs);
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getObjectMetaInformation()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDocumentedElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -510,8 +459,8 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<?>)getValueSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				return ((InternalEList<?>)getObjectMetaInformation()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				return ((InternalEList<?>)getDocumentedElements()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -543,11 +492,8 @@ protected EList<ReferenceSet> referenceSets;
 				return getValueSets();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return getReferenceSets();
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				return getObjectMetaInformation();
-			case InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT:
-				if (resolve) return getMirroredMetaInfoObject();
-				return basicGetMirroredMetaInfoObject();
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				return getDocumentedElements();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -588,12 +534,9 @@ protected EList<ReferenceSet> referenceSets;
 				getReferenceSets().clear();
 				getReferenceSets().addAll((Collection<? extends ReferenceSet>)newValue);
 				return;
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				getObjectMetaInformation().clear();
-				getObjectMetaInformation().addAll((Collection<? extends MetaInformation>)newValue);
-				return;
-			case InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT:
-				setMirroredMetaInfoObject((conml.instances.Object)newValue);
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				getDocumentedElements().clear();
+				getDocumentedElements().addAll((Collection<? extends ModelElement>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -631,11 +574,8 @@ protected EList<ReferenceSet> referenceSets;
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				getReferenceSets().clear();
 				return;
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				getObjectMetaInformation().clear();
-				return;
-			case InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT:
-				setMirroredMetaInfoObject((conml.instances.Object)null);
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				getDocumentedElements().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -665,10 +605,8 @@ protected EList<ReferenceSet> referenceSets;
 				return valueSets != null && !valueSets.isEmpty();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
 				return referenceSets != null && !referenceSets.isEmpty();
-			case InstancesPackage.OBJECT__OBJECT_META_INFORMATION:
-				return objectMetaInformation != null && !objectMetaInformation.isEmpty();
-			case InstancesPackage.OBJECT__MIRRORED_META_INFO_OBJECT:
-				return mirroredMetaInfoObject != null;
+			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
+				return documentedElements != null && !documentedElements.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

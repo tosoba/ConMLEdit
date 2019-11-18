@@ -21,7 +21,11 @@ public interface ModelElementValidator {
 
 	boolean validateTags(EList<Tag> value);
 
-  boolean validateElementMetaInformation(EList<MetaInformation> value);
+  boolean validateModel(Model value);
+
+  boolean validateMetaInformationObjects(EList<conml.instances.Object> value);
+
+    boolean validateElementMetaInformation(EList<MetaInformation> value);
 
     boolean validateMetaInformation(EList<MetaInformation> value);
 

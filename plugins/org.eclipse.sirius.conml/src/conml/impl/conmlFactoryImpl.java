@@ -59,6 +59,7 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 			case conmlPackage.TAG: return createTag();
 			case conmlPackage.LANGUAGE: return createLanguage();
 			case conmlPackage.META_INFORMATION: return createMetaInformation();
+			case conmlPackage.DOMAIN: return createDomain();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -98,6 +99,17 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Domain createDomain() {
+		DomainImpl domain = new DomainImpl();
+		return domain;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

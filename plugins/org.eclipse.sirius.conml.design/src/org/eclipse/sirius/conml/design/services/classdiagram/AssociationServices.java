@@ -12,12 +12,12 @@ import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
+import conml.Domain;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
 public final class AssociationServices {
@@ -145,10 +145,8 @@ public final class AssociationServices {
     addToOwnedSemiAssociations(primary, source);
     addToOwnedSemiAssociations(secondary, target);
 
-    if (source.eContainer() instanceof TypeModel) {
-      final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getElements().add(association);
-    }
+    final Domain domain = (Domain) source.eContainer();
+    domain.getParts().add(association);
   }
 
   public void addRedefiningSemiToAssociation(
@@ -220,10 +218,8 @@ public final class AssociationServices {
       association.setPrimarySemiAssociation(inverseSemi);
     }
 
-    if (source.eContainer() instanceof TypeModel) {
-      final TypeModel typeModel = (TypeModel) source.eContainer();
-      typeModel.getElements().add(association);
-    }
+    final Domain domain = (Domain) source.eContainer();
+    domain.getParts().add(association);
   }
 
   private void addToOwnedSemiAssociations(
@@ -233,13 +229,24 @@ public final class AssociationServices {
   }
 
   public void moveAssociationUp(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Association.class, ConML.ElementMovementDirection.UP);
+    ConML.castAndRun(
+        object,
+        Association.class,
+        association ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    association, Association.class, ConML.ElementMovementDirection.UP));
+    ;
   }
 
   public void moveAssociationDown(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Association.class, ConML.ElementMovementDirection.DOWN);
+    ConML.castAndRun(
+        object,
+        Association.class,
+        association ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    association, Association.class, ConML.ElementMovementDirection.DOWN));
   }
 
   public void deleteAssociation(final Association association) {

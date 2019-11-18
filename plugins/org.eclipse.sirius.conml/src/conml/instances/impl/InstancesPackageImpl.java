@@ -305,6 +305,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EReference getInstanceModelElement_InstanceModel() {
+		return (EReference)instanceModelElementEClass.getEStructuralFeatures().get(0);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getInstanceModel() {
 		return instanceModelEClass;
 	}
@@ -485,21 +495,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
-	public EReference getObject_ObjectMetaInformation() {
+	public EReference getObject_DocumentedElements() {
 		return (EReference)objectEClass.getEStructuralFeatures().get(8);
 	}
 
-    /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EReference getObject_MirroredMetaInfoObject() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(9);
-	}
-
-        /**
+                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -681,6 +681,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEReference(referenceEClass, REFERENCE__INVERSE_REFERENCE);
 
 		instanceModelElementEClass = createEClass(INSTANCE_MODEL_ELEMENT);
+		createEReference(instanceModelElementEClass, INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL);
 
 		instanceModelEClass = createEClass(INSTANCE_MODEL);
 		createEReference(instanceModelEClass, INSTANCE_MODEL__CONFORMED_TYPE_MODELS);
@@ -704,8 +705,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEReference(objectEClass, OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER);
 		createEReference(objectEClass, OBJECT__VALUE_SETS);
 		createEReference(objectEClass, OBJECT__REFERENCE_SETS);
-		createEReference(objectEClass, OBJECT__OBJECT_META_INFORMATION);
-		createEReference(objectEClass, OBJECT__MIRRORED_META_INFO_OBJECT);
+		createEReference(objectEClass, OBJECT__DOCUMENTED_ELEMENTS);
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__INSTANCED_ASSOCIATION);
@@ -785,10 +785,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEReference(getReference_InverseReference(), this.getReference(), null, "InverseReference", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instanceModelElementEClass, InstanceModelElement.class, "InstanceModelElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getInstanceModelElement_InstanceModel(), this.getInstanceModel(), this.getInstanceModel_Elements(), "InstanceModel", null, 1, 1, InstanceModelElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(instanceModelEClass, InstanceModel.class, "InstanceModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInstanceModel_ConformedTypeModels(), theTypesPackage.getTypeModel(), theTypesPackage.getTypeModel_ConformingInstanceModel(), "ConformedTypeModels", null, 1, -1, InstanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInstanceModel_Elements(), this.getInstanceModelElement(), null, "Elements", null, 0, -1, InstanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInstanceModel_Elements(), this.getInstanceModelElement(), this.getInstanceModelElement_InstanceModel(), "Elements", null, 0, -1, InstanceModel.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_InstancedAttribute(), theTypesPackage.getAttribute(), theTypesPackage.getAttribute_InstanceValueSets(), "InstancedAttribute", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -808,8 +809,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEReference(getObject_SubjectiveExistentialQualifer(), this.getObject(), null, "SubjectiveExistentialQualifer", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_ValueSets(), this.getValueSet(), null, "ValueSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_ReferenceSets(), this.getReferenceSet(), this.getReferenceSet_Owner(), "ReferenceSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_ObjectMetaInformation(), theconmlPackage.getMetaInformation(), theconmlPackage.getMetaInformation_MetaInfoObject(), "ObjectMetaInformation", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_MirroredMetaInfoObject(), this.getObject(), null, "MirroredMetaInfoObject", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_DocumentedElements(), theconmlPackage.getModelElement(), theconmlPackage.getModelElement_MetaInformationObjects(), "DocumentedElements", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_InstancedAssociation(), theTypesPackage.getAssociation(), theTypesPackage.getAssociation_InstanceLinks(), "InstancedAssociation", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

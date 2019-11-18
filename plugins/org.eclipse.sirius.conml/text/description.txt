@@ -11,27 +11,29 @@ Package conml <http://conml.ecore>
     Attribute name : EString<<1..1>>
     Attribute version : Double<<1..1>>
     Attribute description : EString<<1..1>>
-    Reference Languages : Language<<0..*>>
     Reference DefaultLanguage : Language<<1..1>>
-    Reference Tags : Tag<<0..*>>
     Reference MetaInformationObjects : Object<<0..*>>
-    Reference MetaInformation : MetaInformation<<0..*>>
+    Reference Tags : Tag<<0..*>>
+    Reference Languages : Language<<0..*>>
 
   Class ModelPart
 
   Class ModelElement -> ModelPart
     Reference Tags : Tag<<0..*>>
-    Reference ElementMetaInformation : MetaInformation<<0..*>>
+    Reference MetaInformationObjects : Object<<0..*>>
 
   Class Tag -> ModelPart
     Attribute name : EString<<1..1>>
+    Reference Model : Model<<1..1>>
 
   Class Language -> ModelPart
     Attribute name : EString<<1..1>>
     Attribute description : EString
     Attribute default : EBoolean<<1..1>>
+    Reference Model : Model<<1..1>>
 
   Class MetaInformation
-    Reference ModelElements : ModelElement<<0..*>>
-    Reference MetaInfoObject : Object<<1..1>>
-    Reference Model : Model<<1..1>>
+
+  Class Domain
+    Reference Models : Model<<0..*>>
+    Reference Parts : ModelPart<<0..*>>

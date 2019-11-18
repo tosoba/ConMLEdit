@@ -17,5 +17,7 @@ import org.eclipse.emf.common.util.EList;
 public interface TypeModelElementValidator {
 	boolean validate();
 
-	boolean validateIsAssignedTo(EList<TypeModel> value);
+	boolean validateTypeModel(TypeModel value);
+
+  boolean validateIsAssignedTo(EList<TypeModel> value);
 }

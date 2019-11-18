@@ -55,9 +55,8 @@ public final class EnumeratedTypeValidationServices {
                 && ConML.containsOnlyOneExactlyEqualElement(
                     typePackage, enumType, Package::getEnumeratedTypes);
           } else {
-            final EObject container = enumType.eContainer();
-            if (container == null || !(container instanceof TypeModel)) return true;
-            final TypeModel typeModel = (TypeModel) container;
+            final TypeModel typeModel = enumType.getTypeModel();
+            if (typeModel == null) return true;
             return !typeModel
                     .getElements()
                     .stream()

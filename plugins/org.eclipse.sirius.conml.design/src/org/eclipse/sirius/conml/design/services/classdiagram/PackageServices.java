@@ -28,25 +28,13 @@ public final class PackageServices {
     return InstanceHolder.INSTANCE;
   }
 
-  public boolean overallPackageDoesNotExist(final EObject containerObject) {
-    if (!(containerObject instanceof TypeModel)) return false;
-    final TypeModel model = (TypeModel) containerObject;
-    return !model
-        .getElements()
-        .stream()
-        .filter(
-            element -> {
-              if (!(element instanceof Package)) return false;
-              final Package packageToCheck = (Package) element;
-              return packageToCheck.isOverall();
-            })
-        .findAny()
-        .isPresent();
-  }
-
   public void setOverall(final Package packageToSet) {
-    if (!(packageToSet.eContainer() instanceof TypeModel)) return;
-    final TypeModel model = (TypeModel) packageToSet.eContainer();
+    final TypeModel model = packageToSet.getTypeModel();
+    if (model == null) {
+      // TODO: Error dialog
+      return;
+    }
+
     final Optional<Package> currentOverallPackage =
         model
             .getElements()
@@ -76,28 +64,32 @@ public final class PackageServices {
 
   public boolean isNonOverallPackage(final EObject object) {
     return ConML.castAndRunOrReturn(
-        object, Package.class, (Package packageToCheck) -> !packageToCheck.isOverall(), false);
+        object, Package.class, packageToCheck -> !packageToCheck.isOverall(), false);
   }
 
   public void removePackage(final EObject object) {
-    ConML.castElementAndContainer(object, Package.class, TypeModel.class)
-        .ifBothCastsSuccessful(
-            (packageToRemove, model) -> {
-              if (packageToRemove.getSubPackages().isEmpty()) {
-                removePackage(packageToRemove, model, false);
-              } else {
-                final int result =
-                    Dialogs.show(
-                        "Delete package",
-                        "Delete subpackages recursively?",
-                        new String[] {"Cancel", "Yes", "No"},
-                        MessageDialog.QUESTION);
+    if (!(object instanceof Package)) return;
+    final Package packageToRemove = (Package) object;
+    final TypeModel model = packageToRemove.getTypeModel();
+    if (packageToRemove.getTypeModel() == null) {
+      EcoreUtil.delete(packageToRemove);
+      return;
+    }
 
-                if (result != 1 && result != 2) return;
+    if (packageToRemove.getSubPackages().isEmpty()) {
+      removePackage(packageToRemove, model, false);
+    } else {
+      final int result =
+          Dialogs.show(
+              "Delete package",
+              "Delete subpackages recursively?",
+              new String[] {"Cancel", "Yes", "No"},
+              MessageDialog.QUESTION);
 
-                removePackage(packageToRemove, model, result == 1);
-              }
-            });
+      if (result != 1 && result != 2) return;
+
+      removePackage(packageToRemove, model, result == 1);
+    }
   }
 
   private void removePackage(
@@ -136,13 +128,21 @@ public final class PackageServices {
   }
 
   public void movePackageUp(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Package.class, ConML.ElementMovementDirection.UP);
+    ConML.castAndRun(
+        object,
+        Package.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(clazz, Package.class, ConML.ElementMovementDirection.UP));
   }
 
   public void movePackageDown(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Package.class, ConML.ElementMovementDirection.DOWN);
+    ConML.castAndRun(
+        object,
+        Package.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(clazz, Package.class, ConML.ElementMovementDirection.DOWN));
   }
 
   public Collection<Package> getCDOverallPackageSemanticCandidates(final Model model) {

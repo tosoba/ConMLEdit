@@ -11,7 +11,9 @@ import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.ModelElement;
 import conml.instances.InstanceModel;
+import conml.instances.InstanceModelElement;
 import conml.types.TypeModel;
+import conml.types.TypeModelElement;
 
 public final class ModelElementServices {
 
@@ -28,10 +30,21 @@ public final class ModelElementServices {
   }
 
   public <T extends EObject> void moveInstanceModelElement(
-      final EObject object,
+      final InstanceModelElement element,
       final Class<T> objectClass,
       final ConML.ElementMovementDirection direction) {
-    ConML.castElementAndContainer(object, objectClass, InstanceModel.class)
+    ConML.castElementAndContainer(
+            element, objectClass, element.getInstanceModel(), InstanceModel.class)
+        .ifBothCastsSuccessful(
+            (objectToMove, model) ->
+                moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
+  }
+
+  public <T extends EObject> void moveTypeModelElement(
+      final TypeModelElement element,
+      final Class<T> objectClass,
+      final ConML.ElementMovementDirection direction) {
+    ConML.castElementAndContainer(element, objectClass, element.getTypeModel(), TypeModel.class)
         .ifBothCastsSuccessful(
             (objectToMove, model) ->
                 moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
@@ -81,16 +94,6 @@ public final class ModelElementServices {
         model.getElements().move(indexToSwapWith, model.getElements().indexOf(elements.get(i)));
       }
     }
-  }
-
-  public <T extends EObject> void moveTypeModelElement(
-      final EObject object,
-      final Class<T> objectClass,
-      final ConML.ElementMovementDirection direction) {
-    ConML.castElementAndContainer(object, objectClass, TypeModel.class)
-        .ifBothCastsSuccessful(
-            (objectToMove, model) ->
-                moveElements(Arrays.asList(objectToMove), model, objectClass, direction));
   }
 
   public <T extends EObject> void moveElements(

@@ -137,13 +137,15 @@ public interface TypeModel extends Model {
 	void setTemporalAspect(conml.types.Class value);
 
         /**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.TypeModelElement}.
+	 * It is bidirectional and its opposite is '{@link conml.types.TypeModelElement#getTypeModel <em>Type Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see conml.types.TypesPackage#getTypeModel_Elements()
-	 * @model containment="true"
+	 * @see conml.types.TypeModelElement#getTypeModel
+	 * @model opposite="TypeModel"
 	 * @generated
 	 */
 	EList<TypeModelElement> getElements();

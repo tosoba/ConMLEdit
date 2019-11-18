@@ -79,13 +79,23 @@ public final class GeneralizationServices {
   }
 
   public void moveGeneralizationUp(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Generalization.class, ConML.ElementMovementDirection.UP);
+    ConML.castAndRun(
+        object,
+        Generalization.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, Generalization.class, ConML.ElementMovementDirection.UP));
   }
 
   public void moveGeneralizationDown(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, Generalization.class, ConML.ElementMovementDirection.DOWN);
+    ConML.castAndRun(
+        object,
+        Generalization.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, Generalization.class, ConML.ElementMovementDirection.DOWN));
   }
 
   public String generalizationLabel(final Generalization generalization) {

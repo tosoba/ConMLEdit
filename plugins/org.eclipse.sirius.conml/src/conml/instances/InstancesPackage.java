@@ -79,22 +79,31 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL_ELEMENT__TAGS = conmlPackage.MODEL_ELEMENT__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION = conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int INSTANCE_MODEL_ELEMENT__META_INFORMATION_OBJECTS = conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
 	 * The number of structural features of the '<em>Instance Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL_ELEMENT_FEATURE_COUNT = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int INSTANCE_MODEL_ELEMENT_FEATURE_COUNT = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Instance Model Element</em>' class.
@@ -125,15 +134,24 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE__ELEMENT_META_INFORMATION = INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int INSTANCE__META_INFORMATION_OBJECTS = INSTANCE_MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INSTANCE__INSTANCE_MODEL = INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL;
+
+    /**
 	 * The number of structural features of the '<em>Instance</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -171,15 +189,24 @@ public interface InstancesPackage extends EPackage {
 	int FACET__TAGS = INSTANCE_MODEL_ELEMENT__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET__ELEMENT_META_INFORMATION = INSTANCE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int FACET__META_INFORMATION_OBJECTS = INSTANCE_MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACET__INSTANCE_MODEL = INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -226,15 +253,24 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE__TAGS = FACET__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE__ELEMENT_META_INFORMATION = FACET__ELEMENT_META_INFORMATION;
+	int REFERENCE__META_INFORMATION_OBJECTS = FACET__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__INSTANCE_MODEL = FACET__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,15 +380,6 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
-
-	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -360,15 +387,6 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int INSTANCE_MODEL__DEFAULT_LANGUAGE = conmlPackage.MODEL__DEFAULT_LANGUAGE;
-
-	/**
-	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
@@ -380,31 +398,40 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__META_INFORMATION_OBJECTS = conmlPackage.MODEL__META_INFORMATION_OBJECTS;
 
 	/**
-	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__META_INFORMATION = conmlPackage.MODEL__META_INFORMATION;
+  int INSTANCE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
-	/**
+  /**
+	 * The feature id for the '<em><b>Languages</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int INSTANCE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
+
+  /**
 	 * The feature id for the '<em><b>Conformed Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+   * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
+  int INSTANCE_MODEL__CONFORMED_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
-	/**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+    /**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+     * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
+    int INSTANCE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Instance Model</em>' class.
@@ -444,15 +471,24 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__TAGS = INSTANCE__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
+	int FACET_SET__META_INFORMATION_OBJECTS = INSTANCE__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FACET_SET__INSTANCE_MODEL = INSTANCE__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -517,15 +553,24 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__TAGS = FACET_SET__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET__ELEMENT_META_INFORMATION = FACET_SET__ELEMENT_META_INFORMATION;
+	int VALUE_SET__META_INFORMATION_OBJECTS = FACET_SET__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__INSTANCE_MODEL = FACET_SET__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -608,15 +653,24 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__TAGS = FACET_SET__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REFERENCE_SET__ELEMENT_META_INFORMATION = FACET_SET__ELEMENT_META_INFORMATION;
+	int REFERENCE_SET__META_INFORMATION_OBJECTS = FACET_SET__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE_SET__INSTANCE_MODEL = FACET_SET__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Translation Qualifiers</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -708,15 +762,24 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__TAGS = INSTANCE__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
+	int OBJECT__META_INFORMATION_OBJECTS = INSTANCE__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__INSTANCE_MODEL = INSTANCE__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -789,31 +852,22 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
 
 	/**
-	 * The feature id for the '<em><b>Object Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Documented Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__OBJECT_META_INFORMATION = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 8;
 
-  /**
-	 * The feature id for the '<em><b>Mirrored Meta Info Object</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__MIRRORED_META_INFO_OBJECT = INSTANCE_FEATURE_COUNT + 9;
-
-    /**
+        /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 10;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -844,15 +898,24 @@ public interface InstancesPackage extends EPackage {
 	int LINK__TAGS = INSTANCE__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LINK__ELEMENT_META_INFORMATION = INSTANCE__ELEMENT_META_INFORMATION;
+	int LINK__META_INFORMATION_OBJECTS = INSTANCE__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LINK__INSTANCE_MODEL = INSTANCE__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Instanced Association</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -926,15 +989,24 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__TAGS = FACET__TAGS;
 
 	/**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__ELEMENT_META_INFORMATION = FACET__ELEMENT_META_INFORMATION;
+	int VALUE__META_INFORMATION_OBJECTS = FACET__META_INFORMATION_OBJECTS;
 
   /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__INSTANCE_MODEL = FACET__INSTANCE_MODEL;
+
+    /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1097,6 +1169,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getInstanceModelElement();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.instances.InstanceModelElement#getInstanceModel <em>Instance Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Instance Model</em>'.
+	 * @see conml.instances.InstanceModelElement#getInstanceModel()
+	 * @see #getInstanceModelElement()
+	 * @generated
+	 */
+	EReference getInstanceModelElement_InstanceModel();
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.InstanceModel <em>Instance Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1118,17 +1201,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getInstanceModel_ConformedTypeModels();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.instances.InstanceModel#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.instances.InstanceModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @return the meta object for the reference list '<em>Elements</em>'.
 	 * @see conml.instances.InstanceModel#getElements()
 	 * @see #getInstanceModel()
 	 * @generated
 	 */
 	EReference getInstanceModel_Elements();
 
-	/**
+  /**
 	 * Returns the meta object for class '{@link conml.instances.ValueSet <em>Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1302,28 +1385,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_ReferenceSets();
 
 	/**
-	 * Returns the meta object for the reference list '{@link conml.instances.Object#getObjectMetaInformation <em>Object Meta Information</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.instances.Object#getDocumentedElements <em>Documented Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Object Meta Information</em>'.
-	 * @see conml.instances.Object#getObjectMetaInformation()
+	 * @return the meta object for the reference list '<em>Documented Elements</em>'.
+	 * @see conml.instances.Object#getDocumentedElements()
 	 * @see #getObject()
 	 * @generated
 	 */
-	EReference getObject_ObjectMetaInformation();
+	EReference getObject_DocumentedElements();
 
-  /**
-	 * Returns the meta object for the reference '{@link conml.instances.Object#getMirroredMetaInfoObject <em>Mirrored Meta Info Object</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Mirrored Meta Info Object</em>'.
-	 * @see conml.instances.Object#getMirroredMetaInfoObject()
-	 * @see #getObject()
-	 * @generated
-	 */
-	EReference getObject_MirroredMetaInfoObject();
-
-    /**
+        /**
 	 * Returns the meta object for class '{@link conml.instances.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1574,6 +1646,14 @@ public interface InstancesPackage extends EPackage {
 		EClass INSTANCE_MODEL_ELEMENT = eINSTANCE.getInstanceModelElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Instance Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL = eINSTANCE.getInstanceModelElement_InstanceModel();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.InstanceModelImpl <em>Instance Model</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1592,14 +1672,14 @@ public interface InstancesPackage extends EPackage {
 		EReference INSTANCE_MODEL__CONFORMED_TYPE_MODELS = eINSTANCE.getInstanceModel_ConformedTypeModels();
 
 		/**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference INSTANCE_MODEL__ELEMENTS = eINSTANCE.getInstanceModel_Elements();
 
-		/**
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.ValueSetImpl <em>Value Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1734,22 +1814,14 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__REFERENCE_SETS = eINSTANCE.getObject_ReferenceSets();
 
 		/**
-		 * The meta object literal for the '<em><b>Object Meta Information</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Documented Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference OBJECT__OBJECT_META_INFORMATION = eINSTANCE.getObject_ObjectMetaInformation();
+		EReference OBJECT__DOCUMENTED_ELEMENTS = eINSTANCE.getObject_DocumentedElements();
 
-    /**
-		 * The meta object literal for the '<em><b>Mirrored Meta Info Object</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference OBJECT__MIRRORED_META_INFO_OBJECT = eINSTANCE.getObject_MirroredMetaInfoObject();
-
-        /**
+                /**
 		 * The meta object literal for the '{@link conml.instances.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

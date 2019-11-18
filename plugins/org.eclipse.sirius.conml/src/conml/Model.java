@@ -18,11 +18,10 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link conml.Model#getName <em>Name</em>}</li>
  *   <li>{@link conml.Model#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.Model#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
- *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
  *   <li>{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
- *   <li>{@link conml.Model#getMetaInformation <em>Meta Information</em>}</li>
+ *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
+ *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
  * </ul>
  *
  * @see conml.conmlPackage#getModel()
@@ -121,32 +120,20 @@ public interface Model extends EObject {
 	void setDefaultLanguage(Language value);
 
 	/**
-	 * Returns the value of the '<em><b>Tags</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Tags</b></em>' reference list.
 	 * The list contents are of type {@link conml.Tag}.
+	 * It is bidirectional and its opposite is '{@link conml.Tag#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Tags</em>' containment reference list.
+	 * @return the value of the '<em>Tags</em>' reference list.
 	 * @see conml.conmlPackage#getModel_Tags()
-	 * @model containment="true"
+	 * @see conml.Tag#getModel
+	 * @model opposite="Model"
 	 * @generated
 	 */
 	EList<Tag> getTags();
 
 	/**
-	 * Returns the value of the '<em><b>Meta Information</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.MetaInformation}.
-	 * It is bidirectional and its opposite is '{@link conml.MetaInformation#getModel <em>Model</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Information</em>' containment reference list.
-	 * @see conml.conmlPackage#getModel_MetaInformation()
-	 * @see conml.MetaInformation#getModel
-	 * @model opposite="Model" containment="true"
-	 * @generated
-	 */
-	EList<MetaInformation> getMetaInformation();
-
-  /**
 	 * Returns the value of the '<em><b>Meta Information Objects</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.Object}.
 	 * <!-- begin-user-doc -->
@@ -159,13 +146,15 @@ public interface Model extends EObject {
 	EList<conml.instances.Object> getMetaInformationObjects();
 
   /**
-	 * Returns the value of the '<em><b>Languages</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Languages</b></em>' reference list.
 	 * The list contents are of type {@link conml.Language}.
+	 * It is bidirectional and its opposite is '{@link conml.Language#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Languages</em>' containment reference list.
+	 * @return the value of the '<em>Languages</em>' reference list.
 	 * @see conml.conmlPackage#getModel_Languages()
-	 * @model containment="true"
+	 * @see conml.Language#getModel
+	 * @model opposite="Model"
 	 * @generated
 	 */
 	EList<Language> getLanguages();

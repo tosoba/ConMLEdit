@@ -22,8 +22,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -97,7 +95,7 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	protected conml.types.Class temporalAspect;
 
     /**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
@@ -350,7 +348,7 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 	@Override
 	public EList<TypeModelElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<TypeModelElement>(TypeModelElement.class, this, TypesPackage.TYPE_MODEL__ELEMENTS);
+			elements = new EObjectWithInverseResolvingEList<TypeModelElement>(TypeModelElement.class, this, TypesPackage.TYPE_MODEL__ELEMENTS, TypesPackage.TYPE_MODEL_ELEMENT__TYPE_MODEL);
 		}
 		return elements;
 	}
@@ -374,6 +372,8 @@ public class TypeModelImpl extends ModelImpl implements TypeModel {
 				return basicSetBaseTypeModel((TypeModel)otherEnd, msgs);
 			case TypesPackage.TYPE_MODEL__PARTICULAR_TYPE_MODELS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParticularTypeModels()).basicAdd(otherEnd, msgs);
+			case TypesPackage.TYPE_MODEL__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

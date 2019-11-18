@@ -3,9 +3,7 @@
 package conml.instances.provider;
 
 
-import conml.conmlPackage;
 import conml.instances.InstanceModel;
-import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 
 import conml.provider.ConmlEditPlugin;
@@ -18,11 +16,8 @@ import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
-
-import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
-import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link conml.instances.InstanceModel} object.
@@ -102,36 +97,6 @@ public class InstanceModelItemProvider extends ModelItemProvider {
 				 null));
 	}
 
-  /**
-	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
-	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
-	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
-		if (childrenFeatures == null) {
-			super.getChildrenFeatures(object);
-			childrenFeatures.add(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS);
-		}
-		return childrenFeatures;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	protected EStructuralFeature getChildFeature(Object object, Object child) {
-		// Check the type of the specified child object and return the proper feature to use for
-		// adding (see {@link AddCommand}) it as a child.
-
-		return super.getChildFeature(object, child);
-	}
-
     /**
 	 * This returns InstanceModel.gif.
 	 * <!-- begin-user-doc -->
@@ -168,12 +133,6 @@ public class InstanceModelItemProvider extends ModelItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
-
-		switch (notification.getFeatureID(InstanceModel.class)) {
-			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
-				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
-				return;
-		}
 		super.notifyChanged(notification);
 	}
 
@@ -187,62 +146,9 @@ public class InstanceModelItemProvider extends ModelItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createValueSet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createReferenceSet()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createObject()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createLink()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS,
-				 InstancesFactory.eINSTANCE.createValue()));
 	}
 
 	/**
-	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
-		Object childFeature = feature;
-		Object childObject = child;
-
-		boolean qualify =
-			childFeature == conmlPackage.Literals.MODEL__META_INFORMATION_OBJECTS ||
-			childFeature == InstancesPackage.Literals.INSTANCE_MODEL__ELEMENTS;
-
-		if (qualify) {
-			return getString
-				("_UI_CreateChild_text2",
-				 new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
-		}
-		return super.getCreateChildText(owner, feature, child, selection);
-	}
-
-  /**
 	 * Return the resource locator for this item provider's resources.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

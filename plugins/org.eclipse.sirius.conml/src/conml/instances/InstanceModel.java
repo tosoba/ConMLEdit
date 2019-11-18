@@ -41,13 +41,15 @@ public interface InstanceModel extends Model {
 	EList<TypeModel> getConformedTypeModels();
 
   /**
-	 * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Elements</b></em>' reference list.
 	 * The list contents are of type {@link conml.instances.InstanceModelElement}.
+	 * It is bidirectional and its opposite is '{@link conml.instances.InstanceModelElement#getInstanceModel <em>Instance Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Elements</em>' containment reference list.
+	 * @return the value of the '<em>Elements</em>' reference list.
 	 * @see conml.instances.InstancesPackage#getInstanceModel_Elements()
-	 * @model containment="true"
+	 * @see conml.instances.InstanceModelElement#getInstanceModel
+	 * @model opposite="InstanceModel"
 	 * @generated
 	 */
 	EList<InstanceModelElement> getElements();

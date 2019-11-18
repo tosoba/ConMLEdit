@@ -2,10 +2,10 @@
  */
 package conml.impl;
 
-import conml.MetaInformation;
 import conml.ModelElement;
 import conml.Tag;
 import conml.conmlPackage;
+import conml.instances.InstancesPackage;
 import java.util.Collection;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
@@ -25,7 +25,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.impl.ModelElementImpl#getTags <em>Tags</em>}</li>
- *   <li>{@link conml.impl.ModelElementImpl#getElementMetaInformation <em>Element Meta Information</em>}</li>
+ *   <li>{@link conml.impl.ModelElementImpl#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +42,14 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	protected EList<Tag> tags;
 
   /**
-	 * The cached value of the '{@link #getElementMetaInformation() <em>Element Meta Information</em>}' reference list.
+	 * The cached value of the '{@link #getMetaInformationObjects() <em>Meta Information Objects</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getElementMetaInformation()
+	 * @see #getMetaInformationObjects()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<MetaInformation> elementMetaInformation;
+	protected EList<conml.instances.Object> metaInformationObjects;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -89,11 +89,11 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	 * @generated
 	 */
 	@Override
-	public EList<MetaInformation> getElementMetaInformation() {
-		if (elementMetaInformation == null) {
-			elementMetaInformation = new EObjectWithInverseResolvingEList.ManyInverse<MetaInformation>(MetaInformation.class, this, conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION, conmlPackage.META_INFORMATION__MODEL_ELEMENTS);
+	public EList<conml.instances.Object> getMetaInformationObjects() {
+		if (metaInformationObjects == null) {
+			metaInformationObjects = new EObjectWithInverseResolvingEList.ManyInverse<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS, InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS);
 		}
-		return elementMetaInformation;
+		return metaInformationObjects;
 	}
 
     /**
@@ -105,8 +105,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElementMetaInformation()).basicAdd(otherEnd, msgs);
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMetaInformationObjects()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -119,8 +119,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				return ((InternalEList<?>)getElementMetaInformation()).basicRemove(otherEnd, msgs);
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				return ((InternalEList<?>)getMetaInformationObjects()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -135,8 +135,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 		switch (featureID) {
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				return getTags();
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				return getElementMetaInformation();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				return getMetaInformationObjects();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -154,9 +154,9 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 				getTags().clear();
 				getTags().addAll((Collection<? extends Tag>)newValue);
 				return;
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				getElementMetaInformation().clear();
-				getElementMetaInformation().addAll((Collection<? extends MetaInformation>)newValue);
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				getMetaInformationObjects().clear();
+				getMetaInformationObjects().addAll((Collection<? extends conml.instances.Object>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -173,8 +173,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				getTags().clear();
 				return;
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				getElementMetaInformation().clear();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				getMetaInformationObjects().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -190,8 +190,8 @@ public abstract class ModelElementImpl extends ModelPartImpl implements ModelEle
 		switch (featureID) {
 			case conmlPackage.MODEL_ELEMENT__TAGS:
 				return tags != null && !tags.isEmpty();
-			case conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION:
-				return elementMetaInformation != null && !elementMetaInformation.isEmpty();
+			case conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS:
+				return metaInformationObjects != null && !metaInformationObjects.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

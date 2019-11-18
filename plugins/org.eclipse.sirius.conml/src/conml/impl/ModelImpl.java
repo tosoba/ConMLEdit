@@ -3,7 +3,6 @@
 package conml.impl;
 
 import conml.Language;
-import conml.MetaInformation;
 import conml.Model;
 import conml.Tag;
 import conml.conmlPackage;
@@ -20,7 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -34,11 +33,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.impl.ModelImpl#getName <em>Name</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDescription <em>Description</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getLanguages <em>Languages</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDefaultLanguage <em>Default Language</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getMetaInformation <em>Meta Information</em>}</li>
+ *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
+ *   <li>{@link conml.impl.ModelImpl#getLanguages <em>Languages</em>}</li>
  * </ul>
  *
  * @generated
@@ -105,16 +103,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected String description = DESCRIPTION_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLanguages() <em>Languages</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getLanguages()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Language> languages;
-
-	/**
 	 * The cached value of the '{@link #getDefaultLanguage() <em>Default Language</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -123,16 +111,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected Language defaultLanguage;
-
-	/**
-	 * The cached value of the '{@link #getTags() <em>Tags</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTags()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<Tag> tags;
 
 	/**
 	 * The cached value of the '{@link #getMetaInformationObjects() <em>Meta Information Objects</em>}' containment reference list.
@@ -145,16 +123,26 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected EList<conml.instances.Object> metaInformationObjects;
 
     /**
-	 * The cached value of the '{@link #getMetaInformation() <em>Meta Information</em>}' containment reference list.
+	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-	 * @see #getMetaInformation()
+	 * <!-- end-user-doc -->
+	 * @see #getTags()
 	 * @generated
 	 * @ordered
 	 */
-    protected EList<MetaInformation> metaInformation;
+  protected EList<Tag> tags;
 
   /**
+	 * The cached value of the '{@link #getLanguages() <em>Languages</em>}' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getLanguages()
+	 * @generated
+	 * @ordered
+	 */
+  protected EList<Language> languages;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -290,7 +278,7 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<Tag> getTags() {
 		if (tags == null) {
-			tags = new EObjectContainmentEList<Tag>(Tag.class, this, conmlPackage.MODEL__TAGS);
+			tags = new EObjectWithInverseResolvingEList<Tag>(Tag.class, this, conmlPackage.MODEL__TAGS, conmlPackage.TAG__MODEL);
 		}
 		return tags;
 	}
@@ -300,25 +288,14 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public EList<MetaInformation> getMetaInformation() {
-		if (metaInformation == null) {
-			metaInformation = new EObjectContainmentWithInverseEList<MetaInformation>(MetaInformation.class, this, conmlPackage.MODEL__META_INFORMATION, conmlPackage.META_INFORMATION__MODEL);
-		}
-		return metaInformation;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL__META_INFORMATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getMetaInformation()).basicAdd(otherEnd, msgs);
+			case conmlPackage.MODEL__TAGS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getTags()).basicAdd(otherEnd, msgs);
+			case conmlPackage.MODEL__LANGUAGES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLanguages()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -344,7 +321,7 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public EList<Language> getLanguages() {
 		if (languages == null) {
-			languages = new EObjectContainmentEList<Language>(Language.class, this, conmlPackage.MODEL__LANGUAGES);
+			languages = new EObjectWithInverseResolvingEList<Language>(Language.class, this, conmlPackage.MODEL__LANGUAGES, conmlPackage.LANGUAGE__MODEL);
 		}
 		return languages;
 	}
@@ -357,14 +334,12 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL__LANGUAGES:
-				return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
-			case conmlPackage.MODEL__TAGS:
-				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				return ((InternalEList<?>)getMetaInformationObjects()).basicRemove(otherEnd, msgs);
-			case conmlPackage.MODEL__META_INFORMATION:
-				return ((InternalEList<?>)getMetaInformation()).basicRemove(otherEnd, msgs);
+			case conmlPackage.MODEL__TAGS:
+				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
+			case conmlPackage.MODEL__LANGUAGES:
+				return ((InternalEList<?>)getLanguages()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -383,17 +358,15 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return getVersion();
 			case conmlPackage.MODEL__DESCRIPTION:
 				return getDescription();
-			case conmlPackage.MODEL__LANGUAGES:
-				return getLanguages();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				if (resolve) return getDefaultLanguage();
 				return basicGetDefaultLanguage();
-			case conmlPackage.MODEL__TAGS:
-				return getTags();
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				return getMetaInformationObjects();
-			case conmlPackage.MODEL__META_INFORMATION:
-				return getMetaInformation();
+			case conmlPackage.MODEL__TAGS:
+				return getTags();
+			case conmlPackage.MODEL__LANGUAGES:
+				return getLanguages();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -416,24 +389,20 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription((String)newValue);
 				return;
-			case conmlPackage.MODEL__LANGUAGES:
-				getLanguages().clear();
-				getLanguages().addAll((Collection<? extends Language>)newValue);
-				return;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)newValue);
-				return;
-			case conmlPackage.MODEL__TAGS:
-				getTags().clear();
-				getTags().addAll((Collection<? extends Tag>)newValue);
 				return;
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				getMetaInformationObjects().clear();
 				getMetaInformationObjects().addAll((Collection<? extends conml.instances.Object>)newValue);
 				return;
-			case conmlPackage.MODEL__META_INFORMATION:
-				getMetaInformation().clear();
-				getMetaInformation().addAll((Collection<? extends MetaInformation>)newValue);
+			case conmlPackage.MODEL__TAGS:
+				getTags().clear();
+				getTags().addAll((Collection<? extends Tag>)newValue);
+				return;
+			case conmlPackage.MODEL__LANGUAGES:
+				getLanguages().clear();
+				getLanguages().addAll((Collection<? extends Language>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -456,20 +425,17 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
 				return;
-			case conmlPackage.MODEL__LANGUAGES:
-				getLanguages().clear();
-				return;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)null);
-				return;
-			case conmlPackage.MODEL__TAGS:
-				getTags().clear();
 				return;
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				getMetaInformationObjects().clear();
 				return;
-			case conmlPackage.MODEL__META_INFORMATION:
-				getMetaInformation().clear();
+			case conmlPackage.MODEL__TAGS:
+				getTags().clear();
+				return;
+			case conmlPackage.MODEL__LANGUAGES:
+				getLanguages().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -489,16 +455,14 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
-			case conmlPackage.MODEL__LANGUAGES:
-				return languages != null && !languages.isEmpty();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				return defaultLanguage != null;
-			case conmlPackage.MODEL__TAGS:
-				return tags != null && !tags.isEmpty();
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
 				return metaInformationObjects != null && !metaInformationObjects.isEmpty();
-			case conmlPackage.MODEL__META_INFORMATION:
-				return metaInformation != null && !metaInformation.isEmpty();
+			case conmlPackage.MODEL__TAGS:
+				return tags != null && !tags.isEmpty();
+			case conmlPackage.MODEL__LANGUAGES:
+				return languages != null && !languages.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

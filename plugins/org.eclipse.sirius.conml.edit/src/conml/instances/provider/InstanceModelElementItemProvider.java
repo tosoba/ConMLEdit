@@ -3,6 +3,7 @@
 package conml.instances.provider;
 
 
+import conml.instances.InstancesPackage;
 import conml.provider.ConmlEditPlugin;
 import conml.provider.ModelElementItemProvider;
 
@@ -14,6 +15,7 @@ import org.eclipse.emf.common.notify.Notification;
 
 import org.eclipse.emf.common.util.ResourceLocator;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -44,11 +46,34 @@ public class InstanceModelElementItemProvider extends ModelElementItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addInstanceModelPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
+	 * This adds a property descriptor for the Instance Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addInstanceModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_InstanceModelElement_InstanceModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_InstanceModelElement_InstanceModel_feature", "_UI_InstanceModelElement_type"),
+				 InstancesPackage.Literals.INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns the label text for the adapted class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

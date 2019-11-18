@@ -51,7 +51,9 @@ public interface ObjectValidator {
 
     boolean validateMirroredMetaInfoObject(conml.instances.Object value);
 
-        boolean validateMetaInformation(EList<MetaInformation> value);
+        boolean validateDocumentedElements(EList<ModelElement> value);
+
+                boolean validateMetaInformation(EList<MetaInformation> value);
 
     boolean validateMetaInfoInModel(Model value);
 

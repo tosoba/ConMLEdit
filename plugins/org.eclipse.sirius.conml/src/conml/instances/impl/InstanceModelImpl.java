@@ -19,8 +19,6 @@ import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -49,7 +47,7 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	 */
 	protected EList<TypeModel> conformedTypeModels;
   /**
-	 * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
+	 * The cached value of the '{@link #getElements() <em>Elements</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getElements()
@@ -97,7 +95,7 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 	@Override
 	public EList<InstanceModelElement> getElements() {
 		if (elements == null) {
-			elements = new EObjectContainmentEList<InstanceModelElement>(InstanceModelElement.class, this, InstancesPackage.INSTANCE_MODEL__ELEMENTS);
+			elements = new EObjectWithInverseResolvingEList<InstanceModelElement>(InstanceModelElement.class, this, InstancesPackage.INSTANCE_MODEL__ELEMENTS, InstancesPackage.INSTANCE_MODEL_ELEMENT__INSTANCE_MODEL);
 		}
 		return elements;
 	}
@@ -113,6 +111,8 @@ public class InstanceModelImpl extends ModelImpl implements InstanceModel {
 		switch (featureID) {
 			case InstancesPackage.INSTANCE_MODEL__CONFORMED_TYPE_MODELS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getConformedTypeModels()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.INSTANCE_MODEL__ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getElements()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}

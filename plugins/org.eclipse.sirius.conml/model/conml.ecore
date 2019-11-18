@@ -7,39 +7,40 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double" defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="New model"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Languages" upperBound="-1"
-        eType="#//Language" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
         eType="#//Language"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"
-        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
         upperBound="-1" eType="#//instances/Object" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformation" upperBound="-1"
-        eType="#//MetaInformation" containment="true" eOpposite="#//MetaInformation/Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"
+        eOpposite="#//Tag/Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Languages" upperBound="-1"
+        eType="#//Language" eOpposite="#//Language/Model"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ElementMetaInformation"
-        upperBound="-1" eType="#//MetaInformation" eOpposite="#//MetaInformation/ModelElements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
+        upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/DocumentedElements"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"
+        eOpposite="#//Model/Tags"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MetaInformation">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ModelElements" upperBound="-1"
-        eType="#//ModelElement" eOpposite="#//ModelElement/ElementMetaInformation"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInfoObject" lowerBound="1"
-        eType="#//instances/Object" eOpposite="#//instances/Object/ObjectMetaInformation"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"
-        eOpposite="#//Model/MetaInformation"/>
+        eOpposite="#//Model/Languages"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MetaInformation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Domain">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Models" upperBound="-1"
+        eType="#//Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Parts" upperBound="-1"
+        eType="#//ModelPart" containment="true"/>
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">
@@ -52,7 +53,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveAspect" eType="#//types/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalAspect" eType="#//types/Class"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-          eType="#//types/TypeModelElement" containment="true"/>
+          eType="#//types/TypeModelElement" eOpposite="#//types/TypeModelElement/TypeModel"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//types/TypeModelElement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
@@ -117,7 +118,10 @@
           eOpposite="#//types/Package/EnumeratedTypes"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="TypeModelElement" abstract="true"
-        eSuperTypes="#//ModelElement"/>
+        eSuperTypes="#//ModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TypeModel" lowerBound="1"
+          eType="#//types/TypeModel" eOpposite="#//types/TypeModel/Elements"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Association" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="PrimarySemiAssociation"
           lowerBound="1" eType="#//types/SemiAssociation" eOpposite="#//types/SemiAssociation/PrimaryInAssociation"/>
@@ -223,7 +227,10 @@
           eType="#//instances/Reference"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InstanceModelElement" abstract="true"
-        eSuperTypes="#//ModelElement"/>
+        eSuperTypes="#//ModelElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceModel" lowerBound="1"
+          eType="#//instances/InstanceModel" eOpposite="#//instances/InstanceModel/Elements"/>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="DegreeOfCertainty">
       <eLiterals name="Certain"/>
       <eLiterals name="Probable" value="1"/>
@@ -235,7 +242,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="ConformedTypeModels"
           lowerBound="1" upperBound="-1" eType="#//types/TypeModel" eOpposite="#//types/TypeModel/ConformingInstanceModel"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
-          eType="#//instances/InstanceModelElement" containment="true"/>
+          eType="#//instances/InstanceModelElement" eOpposite="#//instances/InstanceModelElement/InstanceModel"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ValueSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAttribute" lowerBound="1"
@@ -268,10 +275,8 @@
           eType="#//instances/ValueSet" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
           eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ObjectMetaInformation"
-          upperBound="-1" eType="#//MetaInformation" eOpposite="#//MetaInformation/MetaInfoObject"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="MirroredMetaInfoObject"
-          eType="#//instances/Object"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="DocumentedElements" upperBound="-1"
+          eType="#//ModelElement" eOpposite="#//ModelElement/MetaInformationObjects"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"

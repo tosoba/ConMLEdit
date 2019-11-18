@@ -19,6 +19,8 @@ public interface TagValidator {
 	boolean validate();
 
 	boolean validateName(String value);
-	boolean validateBelongsTo(Model value);
+	boolean validateModel(Model value);
+
+  boolean validateBelongsTo(Model value);
 	boolean validateAppliesTo(EList<ModelElement> value);
 }

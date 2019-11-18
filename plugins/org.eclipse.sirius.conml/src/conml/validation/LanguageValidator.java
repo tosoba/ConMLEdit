@@ -23,7 +23,9 @@ public interface LanguageValidator {
 	boolean validateDescription(String value);
 	boolean validateDefault(boolean value);
 
-  boolean validateIsDefault(boolean value);
+  boolean validateModel(Model value);
+
+    boolean validateIsDefault(boolean value);
 	boolean validateBelongsTo(Model value);
 	boolean validateIsDefaultIn(Model value);
 	boolean validateIsTranslationQualifierOf(EList<FacetSet> value);

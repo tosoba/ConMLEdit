@@ -16,22 +16,42 @@ public final class DataTypeServices {
   }
 
   public void moveSimpleDataTypeUp(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, SimpleDataType.class, ConML.ElementMovementDirection.UP);
+    ConML.castAndRun(
+        object,
+        SimpleDataType.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, SimpleDataType.class, ConML.ElementMovementDirection.UP));
   }
 
   public void moveSimpleDataTypeDown(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, SimpleDataType.class, ConML.ElementMovementDirection.DOWN);
+    ConML.castAndRun(
+        object,
+        SimpleDataType.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, SimpleDataType.class, ConML.ElementMovementDirection.DOWN));
   }
 
   public void moveEnumTypeUp(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, EnumeratedType.class, ConML.ElementMovementDirection.UP);
+    ConML.castAndRun(
+        object,
+        EnumeratedType.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, EnumeratedType.class, ConML.ElementMovementDirection.UP));
   }
 
   public void moveEnumTypeDown(final EObject object) {
-    ModelElementServices.getInstance()
-        .moveTypeModelElement(object, EnumeratedType.class, ConML.ElementMovementDirection.DOWN);
+    ConML.castAndRun(
+        object,
+        EnumeratedType.class,
+        clazz ->
+            ModelElementServices.getInstance()
+                .moveTypeModelElement(
+                    clazz, EnumeratedType.class, ConML.ElementMovementDirection.DOWN));
   }
 }

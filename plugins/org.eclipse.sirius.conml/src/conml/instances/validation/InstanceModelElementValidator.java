@@ -4,6 +4,8 @@
  */
 package conml.instances.validation;
 
+import conml.instances.InstanceModel;
+
 
 /**
  * A sample validator interface for {@link conml.instances.InstanceModelElement}.
@@ -13,5 +15,7 @@ package conml.instances.validation;
  */
 public interface InstanceModelElementValidator {
 	boolean validate();
+
+  boolean validateInstanceModel(InstanceModel value);
 
 }

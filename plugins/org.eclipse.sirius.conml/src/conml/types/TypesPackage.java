@@ -97,15 +97,6 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
 	/**
-	 * The feature id for the '<em><b>Languages</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
-
-	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -113,15 +104,6 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_MODEL__DEFAULT_LANGUAGE = conmlPackage.MODEL__DEFAULT_LANGUAGE;
-
-	/**
-	 * The feature id for the '<em><b>Tags</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
 	/**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
@@ -133,67 +115,76 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__META_INFORMATION_OBJECTS = conmlPackage.MODEL__META_INFORMATION_OBJECTS;
 
     /**
-	 * The feature id for the '<em><b>Meta Information</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-    int TYPE_MODEL__META_INFORMATION = conmlPackage.MODEL__META_INFORMATION;
+        int TYPE_MODEL__TAGS = conmlPackage.MODEL__TAGS;
 
-  /**
+        /**
+	 * The feature id for the '<em><b>Languages</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+        int TYPE_MODEL__LANGUAGES = conmlPackage.MODEL__LANGUAGES;
+
+        /**
 	 * The feature id for the '<em><b>Conforming Instance Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+        * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__CONFORMING_INSTANCE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 0;
+int TYPE_MODEL__CONFORMING_INSTANCE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 0;
 
-  /**
+        /**
 	 * The feature id for the '<em><b>Base Type Model</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+        * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__BASE_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 1;
+int TYPE_MODEL__BASE_TYPE_MODEL = conmlPackage.MODEL_FEATURE_COUNT + 1;
 
-  /**
+        /**
 	 * The feature id for the '<em><b>Particular Type Models</b></em>' reference list.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+        * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__PARTICULAR_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 2;
+int TYPE_MODEL__PARTICULAR_TYPE_MODELS = conmlPackage.MODEL_FEATURE_COUNT + 2;
 
-    /**
+        /**
 	 * The feature id for the '<em><b>Subjective Aspect</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+* <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__SUBJECTIVE_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 3;
+int TYPE_MODEL__SUBJECTIVE_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 3;
 
-  /**
+        /**
 	 * The feature id for the '<em><b>Temporal Aspect</b></em>' reference.
 	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
+        * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
+int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 
-    /**
-	 * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+                /**
+	 * The feature id for the '<em><b>Elements</b></em>' reference list.
 	 * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
+                 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-    int TYPE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 5;
+                int TYPE_MODEL__ELEMENTS = conmlPackage.MODEL_FEATURE_COUNT + 5;
 
     /**
 	 * The number of structural features of the '<em>Type Model</em>' class.
@@ -233,22 +224,31 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL_ELEMENT__TAGS = conmlPackage.MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT__ELEMENT_META_INFORMATION = conmlPackage.MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int TYPE_MODEL_ELEMENT__META_INFORMATION_OBJECTS = conmlPackage.MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE_MODEL_ELEMENT__TYPE_MODEL = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+
+        /**
 	 * The number of structural features of the '<em>Type Model Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE_MODEL_ELEMENT_FEATURE_COUNT = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 0;
+	int TYPE_MODEL_ELEMENT_FEATURE_COUNT = conmlPackage.MODEL_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of operations of the '<em>Type Model Element</em>' class.
@@ -279,15 +279,24 @@ public interface TypesPackage extends EPackage {
 	int TYPE__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TYPE__ELEMENT_META_INFORMATION = TYPE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int TYPE__META_INFORMATION_OBJECTS = TYPE_MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TYPE__TYPE_MODEL = TYPE_MODEL_ELEMENT__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -343,15 +352,24 @@ public interface TypesPackage extends EPackage {
 	int CLASS__TAGS = TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ELEMENT_META_INFORMATION = TYPE__ELEMENT_META_INFORMATION;
+	int CLASS__META_INFORMATION_OBJECTS = TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__TYPE_MODEL = TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -506,15 +524,24 @@ public interface TypesPackage extends EPackage {
 	int GENERALIZATION__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION__ELEMENT_META_INFORMATION = TYPE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int GENERALIZATION__META_INFORMATION_OBJECTS = TYPE_MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__TYPE_MODEL = TYPE_MODEL_ELEMENT__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Discriminant</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -588,15 +615,24 @@ public interface TypesPackage extends EPackage {
 	int FEATURE__TAGS = TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FEATURE__ELEMENT_META_INFORMATION = TYPE__ELEMENT_META_INFORMATION;
+	int FEATURE__META_INFORMATION_OBJECTS = TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int FEATURE__TYPE_MODEL = TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -706,15 +742,24 @@ public interface TypesPackage extends EPackage {
 	int DATA_TYPE__TAGS = TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_TYPE__ELEMENT_META_INFORMATION = TYPE__ELEMENT_META_INFORMATION;
+	int DATA_TYPE__META_INFORMATION_OBJECTS = TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__TYPE_MODEL = TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -770,15 +815,24 @@ public interface TypesPackage extends EPackage {
 	int ENUMERATED_TYPE__TAGS = DATA_TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__ELEMENT_META_INFORMATION = DATA_TYPE__ELEMENT_META_INFORMATION;
+	int ENUMERATED_TYPE__META_INFORMATION_OBJECTS = DATA_TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATED_TYPE__TYPE_MODEL = DATA_TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -870,15 +924,24 @@ public interface TypesPackage extends EPackage {
 	int ASSOCIATION__TAGS = TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ASSOCIATION__ELEMENT_META_INFORMATION = TYPE__ELEMENT_META_INFORMATION;
+	int ASSOCIATION__META_INFORMATION_OBJECTS = TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ASSOCIATION__TYPE_MODEL = TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -970,15 +1033,24 @@ public interface TypesPackage extends EPackage {
 	int PACKAGE__TAGS = TYPE_MODEL_ELEMENT__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PACKAGE__ELEMENT_META_INFORMATION = TYPE_MODEL_ELEMENT__ELEMENT_META_INFORMATION;
+	int PACKAGE__META_INFORMATION_OBJECTS = TYPE_MODEL_ELEMENT__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PACKAGE__TYPE_MODEL = TYPE_MODEL_ELEMENT__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1079,15 +1151,24 @@ public interface TypesPackage extends EPackage {
 	int ATTRIBUTE__TAGS = FEATURE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__ELEMENT_META_INFORMATION = FEATURE__ELEMENT_META_INFORMATION;
+	int ATTRIBUTE__META_INFORMATION_OBJECTS = FEATURE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__TYPE_MODEL = FEATURE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1242,15 +1323,24 @@ public interface TypesPackage extends EPackage {
 	int SEMI_ASSOCIATION__TAGS = FEATURE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION__ELEMENT_META_INFORMATION = FEATURE__ELEMENT_META_INFORMATION;
+	int SEMI_ASSOCIATION__META_INFORMATION_OBJECTS = FEATURE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__TYPE_MODEL = FEATURE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1450,15 +1540,24 @@ public interface TypesPackage extends EPackage {
 	int PROPERTY__TAGS = FEATURE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PROPERTY__ELEMENT_META_INFORMATION = FEATURE__ELEMENT_META_INFORMATION;
+	int PROPERTY__META_INFORMATION_OBJECTS = FEATURE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROPERTY__TYPE_MODEL = FEATURE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1586,15 +1685,24 @@ public interface TypesPackage extends EPackage {
 	int SIMPLE_DATA_TYPE__TAGS = DATA_TYPE__TAGS;
 
   /**
-	 * The feature id for the '<em><b>Element Meta Information</b></em>' reference list.
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_DATA_TYPE__ELEMENT_META_INFORMATION = DATA_TYPE__ELEMENT_META_INFORMATION;
+	int SIMPLE_DATA_TYPE__META_INFORMATION_OBJECTS = DATA_TYPE__META_INFORMATION_OBJECTS;
 
     /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_DATA_TYPE__TYPE_MODEL = DATA_TYPE__TYPE_MODEL;
+
+        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1789,10 +1897,10 @@ public interface TypesPackage extends EPackage {
 	EReference getTypeModel_TemporalAspect();
 
     /**
-	 * Returns the meta object for the containment reference list '{@link conml.types.TypeModel#getElements <em>Elements</em>}'.
+	 * Returns the meta object for the reference list '{@link conml.types.TypeModel#getElements <em>Elements</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Elements</em>'.
+	 * @return the meta object for the reference list '<em>Elements</em>'.
 	 * @see conml.types.TypeModel#getElements()
 	 * @see #getTypeModel()
 	 * @generated
@@ -2157,6 +2265,17 @@ public interface TypesPackage extends EPackage {
 	EClass getTypeModelElement();
 
 	/**
+	 * Returns the meta object for the reference '{@link conml.types.TypeModelElement#getTypeModel <em>Type Model</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type Model</em>'.
+	 * @see conml.types.TypeModelElement#getTypeModel()
+	 * @see #getTypeModelElement()
+	 * @generated
+	 */
+	EReference getTypeModelElement_TypeModel();
+
+  /**
 	 * Returns the meta object for class '{@link conml.types.Association <em>Association</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2694,7 +2813,7 @@ public interface TypesPackage extends EPackage {
 		EReference TYPE_MODEL__TEMPORAL_ASPECT = eINSTANCE.getTypeModel_TemporalAspect();
 
         /**
-		 * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Elements</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2978,6 +3097,14 @@ public interface TypesPackage extends EPackage {
 		EClass TYPE_MODEL_ELEMENT = eINSTANCE.getTypeModelElement();
 
 		/**
+		 * The meta object literal for the '<em><b>Type Model</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference TYPE_MODEL_ELEMENT__TYPE_MODEL = eINSTANCE.getTypeModelElement_TypeModel();
+
+    /**
 		 * The meta object literal for the '{@link conml.types.impl.AssociationImpl <em>Association</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
