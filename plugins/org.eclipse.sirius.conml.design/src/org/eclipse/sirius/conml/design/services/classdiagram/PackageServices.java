@@ -1,9 +1,7 @@
 package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -12,7 +10,6 @@ import org.eclipse.sirius.conml.design.services.classdiagram.label.PackageLabelS
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
 
-import conml.Model;
 import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Package;
@@ -143,12 +140,5 @@ public final class PackageServices {
         clazz ->
             ModelElementServices.getInstance()
                 .moveTypeModelElement(clazz, Package.class, ConML.ElementMovementDirection.DOWN));
-  }
-
-  public Collection<Package> getCDOverallPackageSemanticCandidates(final Model model) {
-    return ConML.getAllElementsOfTypeFrom(model, Package.class)
-        .stream()
-        .filter(Package::isOverall)
-        .collect(Collectors.toList());
   }
 }

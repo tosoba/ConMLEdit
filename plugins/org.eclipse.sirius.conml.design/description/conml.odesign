@@ -86,7 +86,7 @@
         </ownedRules>
       </validationSet>
       <defaultLayer name="TypeModelElement">
-        <nodeMappings name="CD_Overall_Package" semanticCandidatesExpression="service:self.getCDOverallPackageSemanticCandidates" domainClass="types::Package">
+        <nodeMappings name="CD_Overall_Package" domainClass="types::Package">
           <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelExpression="service:self.packageLabel" tooltipExpression="Overall package" sizeComputationExpression="1" labelPosition="node" resizeKind="NSEW" width="12" height="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
