@@ -26,9 +26,12 @@ import org.eclipse.ui.dialogs.FilteredItemsSelectionDialog;
 import conml.types.Class;
 import conml.types.TypeModel;
 
+//TODO: extend EObjectSelectionDialog
 public final class ClassSelectionDialog extends FilteredItemsSelectionDialog {
 
   private final List<Class> classesToChooseFrom;
+
+  private static final String SELECTION_DIALOG_SETTINGS = "ClassesSelectionDialog";
 
   public ClassSelectionDialog(Shell shell, final TypeModel typeModel) {
     super(shell);
@@ -99,14 +102,13 @@ public final class ClassSelectionDialog extends FilteredItemsSelectionDialog {
     return null;
   }
 
-  private final String DIALOG_SETTINGS = "ClassesSelectionDialog";
-
   @Override
   protected IDialogSettings getDialogSettings() {
     IDialogSettings settings =
-        Activator.getDefault().getDialogSettings().getSection(DIALOG_SETTINGS);
+        Activator.getDefault().getDialogSettings().getSection(SELECTION_DIALOG_SETTINGS);
     if (settings == null) {
-      settings = Activator.getDefault().getDialogSettings().addNewSection(DIALOG_SETTINGS);
+      settings =
+          Activator.getDefault().getDialogSettings().addNewSection(SELECTION_DIALOG_SETTINGS);
     }
     return settings;
   }

@@ -69,6 +69,8 @@ public class conmlSwitch<T> extends Switch<T> {
 			case conmlPackage.MODEL: {
 				Model model = (Model)theEObject;
 				T result = caseModel(model);
+				if (result == null) result = caseNamedElement(model);
+				if (result == null) result = caseDescribableElement(model);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -89,6 +91,7 @@ public class conmlSwitch<T> extends Switch<T> {
 				Tag tag = (Tag)theEObject;
 				T result = caseTag(tag);
 				if (result == null) result = caseModelPart(tag);
+				if (result == null) result = caseNamedElement(tag);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -96,6 +99,8 @@ public class conmlSwitch<T> extends Switch<T> {
 				Language language = (Language)theEObject;
 				T result = caseLanguage(language);
 				if (result == null) result = caseModelPart(language);
+				if (result == null) result = caseNamedElement(language);
+				if (result == null) result = caseDescribableElement(language);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -108,6 +113,24 @@ public class conmlSwitch<T> extends Switch<T> {
 			case conmlPackage.DOMAIN: {
 				Domain domain = (Domain)theEObject;
 				T result = caseDomain(domain);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case conmlPackage.NAMED_ELEMENT: {
+				NamedElement namedElement = (NamedElement)theEObject;
+				T result = caseNamedElement(namedElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case conmlPackage.DESCRIBABLE_ELEMENT: {
+				DescribableElement describableElement = (DescribableElement)theEObject;
+				T result = caseDescribableElement(describableElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case conmlPackage.DEFINABLE_ELEMENT: {
+				DefinableElement definableElement = (DefinableElement)theEObject;
+				T result = caseDefinableElement(definableElement);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -221,6 +244,51 @@ public class conmlSwitch<T> extends Switch<T> {
 	}
 
     /**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+        /**
+	 * Returns the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescribableElement(DescribableElement object) {
+		return null;
+	}
+
+        /**
+	 * Returns the result of interpreting the object as an instance of '<em>Definable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Definable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDefinableElement(DefinableElement object) {
+		return null;
+	}
+
+                /**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

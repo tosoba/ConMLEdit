@@ -3,6 +3,7 @@
 package conml.types.provider;
 
 
+import conml.conmlPackage;
 import conml.types.TypesPackage;
 
 import java.util.Collection;
@@ -65,9 +66,9 @@ public class PackageItemProvider extends TypeModelElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Package_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_name_feature", "_UI_Package_type"),
-				 TypesPackage.Literals.PACKAGE__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -87,9 +88,9 @@ public class PackageItemProvider extends TypeModelElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Package_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Package_description_feature", "_UI_Package_type"),
-				 TypesPackage.Literals.PACKAGE__DESCRIPTION,
+				 getString("_UI_DescribableElement_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DescribableElement_description_feature", "_UI_DescribableElement_type"),
+				 conmlPackage.Literals.DESCRIBABLE_ELEMENT__DESCRIPTION,
 				 true,
 				 false,
 				 false,

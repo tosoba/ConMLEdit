@@ -66,7 +66,7 @@ public interface TypesFactory extends EFactory {
 	 */
 	Association createAssociation();
 
-	/**
+  /**
 	 * Returns a new object of class '<em>Package</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

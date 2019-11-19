@@ -62,9 +62,9 @@ public class TagItemProvider extends ModelPartItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Tag_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Tag_name_feature", "_UI_Tag_type"),
-				 conmlPackage.Literals.TAG__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,

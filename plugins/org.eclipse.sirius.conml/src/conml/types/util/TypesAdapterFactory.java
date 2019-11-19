@@ -2,10 +2,13 @@
  */
 package conml.types.util;
 
+import conml.DefinableElement;
+import conml.DescribableElement;
 import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
 
+import conml.NamedElement;
 import conml.types.Association;
 import conml.types.Attribute;
 import conml.types.DataType;
@@ -145,6 +148,14 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 				return createEnumeratedItemAdapter();
 			}
 			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDescribableElement(DescribableElement object) {
+				return createDescribableElementAdapter();
+			}
+			@Override
 			public Adapter caseModel(Model object) {
 				return createModelAdapter();
 			}
@@ -155,6 +166,10 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
+			}
+			@Override
+			public Adapter caseDefinableElement(DefinableElement object) {
+				return createDefinableElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -387,6 +402,34 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link conml.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.DescribableElement <em>Describable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.DescribableElement
+	 * @generated
+	 */
+	public Adapter createDescribableElementAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link conml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -429,6 +472,20 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link conml.DefinableElement <em>Definable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.DefinableElement
+	 * @generated
+	 */
+	public Adapter createDefinableElementAdapter() {
+		return null;
+	}
+
+  /**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.

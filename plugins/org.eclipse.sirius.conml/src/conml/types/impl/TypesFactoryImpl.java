@@ -169,7 +169,7 @@ public class TypesFactoryImpl extends EFactoryImpl implements TypesFactory {
 		return association;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

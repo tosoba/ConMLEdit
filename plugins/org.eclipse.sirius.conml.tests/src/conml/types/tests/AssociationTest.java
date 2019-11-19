@@ -4,7 +4,6 @@ package conml.types.tests;
 
 import conml.types.Association;
 import conml.types.TypesFactory;
-
 import junit.textui.TestRunner;
 
 /**
@@ -24,7 +23,7 @@ public class AssociationTest extends TypeTest {
 		TestRunner.run(AssociationTest.class);
 	}
 
-	/**
+  /**
 	 * Constructs a new Association test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -45,7 +44,7 @@ public class AssociationTest extends TypeTest {
 		return (Association)fixture;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#setUp()
@@ -56,7 +55,7 @@ public class AssociationTest extends TypeTest {
 		setFixture(TypesFactory.eINSTANCE.createAssociation());
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see junit.framework.TestCase#tearDown()

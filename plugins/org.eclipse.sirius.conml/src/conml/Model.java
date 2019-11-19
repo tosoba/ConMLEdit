@@ -4,8 +4,6 @@ package conml;
 
 import org.eclipse.emf.common.util.EList;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Model</b></em>'.
@@ -15,9 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.Model#getName <em>Name</em>}</li>
  *   <li>{@link conml.Model#getVersion <em>Version</em>}</li>
- *   <li>{@link conml.Model#getDescription <em>Description</em>}</li>
  *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
  *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
@@ -28,29 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface Model extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see conml.conmlPackage#getModel_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link conml.Model#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
+public interface Model extends NamedElement, DescribableElement {
 	/**
 	 * Returns the value of the '<em><b>Version</b></em>' attribute.
 	 * The default value is <code>"1.0"</code>.
@@ -73,29 +47,6 @@ public interface Model extends EObject {
 	 * @generated
 	 */
 	void setVersion(double value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * The default value is <code>"New model"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see conml.conmlPackage#getModel_Description()
-	 * @model default="New model" required="true"
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link conml.Model#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Default Language</b></em>' reference.

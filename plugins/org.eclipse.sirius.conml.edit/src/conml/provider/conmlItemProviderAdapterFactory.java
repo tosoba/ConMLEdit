@@ -95,29 +95,6 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link conml.Language} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected LanguageItemProvider languageItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link conml.Language}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createLanguageAdapter() {
-		if (languageItemProvider == null) {
-			languageItemProvider = new LanguageItemProvider(this);
-		}
-
-		return languageItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link conml.MetaInformation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,7 +246,6 @@ public class conmlItemProviderAdapterFactory extends conmlAdapterFactory impleme
 	@Override
 	public void dispose() {
 		if (tagItemProvider != null) tagItemProvider.dispose();
-		if (languageItemProvider != null) languageItemProvider.dispose();
 		if (metaInformationItemProvider != null) metaInformationItemProvider.dispose();
 		if (domainItemProvider != null) domainItemProvider.dispose();
 	}

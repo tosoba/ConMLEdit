@@ -2,10 +2,13 @@
  */
 package conml.types.util;
 
+import conml.DefinableElement;
+import conml.DescribableElement;
 import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
 
+import conml.NamedElement;
 import conml.types.Association;
 import conml.types.Attribute;
 import conml.types.DataType;
@@ -87,6 +90,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				TypeModel typeModel = (TypeModel)theEObject;
 				T result = caseTypeModel(typeModel);
 				if (result == null) result = caseModel(typeModel);
+				if (result == null) result = caseNamedElement(typeModel);
+				if (result == null) result = caseDescribableElement(typeModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -94,6 +99,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				Type type = (Type)theEObject;
 				T result = caseType(type);
 				if (result == null) result = caseTypeModelElement(type);
+				if (result == null) result = caseNamedElement(type);
+				if (result == null) result = caseDefinableElement(type);
 				if (result == null) result = caseModelElement(type);
 				if (result == null) result = caseModelPart(type);
 				if (result == null) result = defaultCase(theEObject);
@@ -104,6 +111,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				T result = caseClass(class_);
 				if (result == null) result = caseType(class_);
 				if (result == null) result = caseTypeModelElement(class_);
+				if (result == null) result = caseNamedElement(class_);
+				if (result == null) result = caseDefinableElement(class_);
 				if (result == null) result = caseModelElement(class_);
 				if (result == null) result = caseModelPart(class_);
 				if (result == null) result = defaultCase(theEObject);
@@ -123,6 +132,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				T result = caseFeature(feature);
 				if (result == null) result = caseType(feature);
 				if (result == null) result = caseTypeModelElement(feature);
+				if (result == null) result = caseNamedElement(feature);
+				if (result == null) result = caseDefinableElement(feature);
 				if (result == null) result = caseModelElement(feature);
 				if (result == null) result = caseModelPart(feature);
 				if (result == null) result = defaultCase(theEObject);
@@ -134,6 +145,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDataType(enumeratedType);
 				if (result == null) result = caseType(enumeratedType);
 				if (result == null) result = caseTypeModelElement(enumeratedType);
+				if (result == null) result = caseNamedElement(enumeratedType);
+				if (result == null) result = caseDefinableElement(enumeratedType);
 				if (result == null) result = caseModelElement(enumeratedType);
 				if (result == null) result = caseModelPart(enumeratedType);
 				if (result == null) result = defaultCase(theEObject);
@@ -152,6 +165,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				T result = caseAssociation(association);
 				if (result == null) result = caseType(association);
 				if (result == null) result = caseTypeModelElement(association);
+				if (result == null) result = caseNamedElement(association);
+				if (result == null) result = caseDefinableElement(association);
 				if (result == null) result = caseModelElement(association);
 				if (result == null) result = caseModelPart(association);
 				if (result == null) result = defaultCase(theEObject);
@@ -161,6 +176,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				conml.types.Package package_ = (conml.types.Package)theEObject;
 				T result = casePackage(package_);
 				if (result == null) result = caseTypeModelElement(package_);
+				if (result == null) result = caseNamedElement(package_);
+				if (result == null) result = caseDescribableElement(package_);
 				if (result == null) result = caseModelElement(package_);
 				if (result == null) result = caseModelPart(package_);
 				if (result == null) result = defaultCase(theEObject);
@@ -172,6 +189,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFeature(attribute);
 				if (result == null) result = caseType(attribute);
 				if (result == null) result = caseTypeModelElement(attribute);
+				if (result == null) result = caseNamedElement(attribute);
+				if (result == null) result = caseDefinableElement(attribute);
 				if (result == null) result = caseModelElement(attribute);
 				if (result == null) result = caseModelPart(attribute);
 				if (result == null) result = defaultCase(theEObject);
@@ -183,6 +202,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFeature(semiAssociation);
 				if (result == null) result = caseType(semiAssociation);
 				if (result == null) result = caseTypeModelElement(semiAssociation);
+				if (result == null) result = caseNamedElement(semiAssociation);
+				if (result == null) result = caseDefinableElement(semiAssociation);
 				if (result == null) result = caseModelElement(semiAssociation);
 				if (result == null) result = caseModelPart(semiAssociation);
 				if (result == null) result = defaultCase(theEObject);
@@ -194,6 +215,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseFeature(property);
 				if (result == null) result = caseType(property);
 				if (result == null) result = caseTypeModelElement(property);
+				if (result == null) result = caseNamedElement(property);
+				if (result == null) result = caseDefinableElement(property);
 				if (result == null) result = caseModelElement(property);
 				if (result == null) result = caseModelPart(property);
 				if (result == null) result = defaultCase(theEObject);
@@ -205,6 +228,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseDataType(simpleDataType);
 				if (result == null) result = caseType(simpleDataType);
 				if (result == null) result = caseTypeModelElement(simpleDataType);
+				if (result == null) result = caseNamedElement(simpleDataType);
+				if (result == null) result = caseDefinableElement(simpleDataType);
 				if (result == null) result = caseModelElement(simpleDataType);
 				if (result == null) result = caseModelPart(simpleDataType);
 				if (result == null) result = defaultCase(theEObject);
@@ -215,6 +240,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				T result = caseDataType(dataType);
 				if (result == null) result = caseType(dataType);
 				if (result == null) result = caseTypeModelElement(dataType);
+				if (result == null) result = caseNamedElement(dataType);
+				if (result == null) result = caseDefinableElement(dataType);
 				if (result == null) result = caseModelElement(dataType);
 				if (result == null) result = caseModelPart(dataType);
 				if (result == null) result = defaultCase(theEObject);
@@ -223,6 +250,8 @@ public class TypesSwitch<T> extends Switch<T> {
 			case TypesPackage.ENUMERATED_ITEM: {
 				EnumeratedItem enumeratedItem = (EnumeratedItem)theEObject;
 				T result = caseEnumeratedItem(enumeratedItem);
+				if (result == null) result = caseNamedElement(enumeratedItem);
+				if (result == null) result = caseDefinableElement(enumeratedItem);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -456,6 +485,36 @@ public class TypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+  /**
+	 * Returns the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescribableElement(DescribableElement object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -501,6 +560,21 @@ public class TypesSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Definable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Definable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDefinableElement(DefinableElement object) {
+		return null;
+	}
+
+  /**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

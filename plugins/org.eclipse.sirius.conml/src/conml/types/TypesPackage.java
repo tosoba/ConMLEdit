@@ -79,15 +79,6 @@ public interface TypesPackage extends EPackage {
 	int TYPE_MODEL__NAME = conmlPackage.MODEL__NAME;
 
 	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TYPE_MODEL__VERSION = conmlPackage.MODEL__VERSION;
-
-	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -95,6 +86,15 @@ public interface TypesPackage extends EPackage {
 	 * @ordered
 	 */
 	int TYPE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TYPE_MODEL__VERSION = conmlPackage.MODEL__VERSION;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -1764,7 +1764,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__NAME = 0;
+	int ENUMERATED_ITEM__NAME = conmlPackage.NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Definition</b></em>' attribute.
@@ -1773,7 +1773,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__DEFINITION = 1;
+	int ENUMERATED_ITEM__DEFINITION = conmlPackage.NAMED_ELEMENT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Owner Type</b></em>' container reference.
@@ -1782,7 +1782,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__OWNER_TYPE = 2;
+	int ENUMERATED_ITEM__OWNER_TYPE = conmlPackage.NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Sub Items</b></em>' reference list.
@@ -1791,7 +1791,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__SUB_ITEMS = 3;
+	int ENUMERATED_ITEM__SUB_ITEMS = conmlPackage.NAMED_ELEMENT_FEATURE_COUNT + 2;
 
   /**
 	 * The feature id for the '<em><b>Super Item</b></em>' reference.
@@ -1800,7 +1800,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM__SUPER_ITEM = 4;
+	int ENUMERATED_ITEM__SUPER_ITEM = conmlPackage.NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
 	 * The number of structural features of the '<em>Enumerated Item</em>' class.
@@ -1809,7 +1809,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM_FEATURE_COUNT = 5;
+	int ENUMERATED_ITEM_FEATURE_COUNT = conmlPackage.NAMED_ELEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Item</em>' class.
@@ -1818,7 +1818,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_ITEM_OPERATION_COUNT = 0;
+	int ENUMERATED_ITEM_OPERATION_COUNT = conmlPackage.NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conml.types.BaseDataType <em>Base Data Type</em>}' enum.
@@ -1916,28 +1916,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 */
 	EClass getType();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Type#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.types.Type#getName()
-	 * @see #getType()
-	 * @generated
-	 */
-	EAttribute getType_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Type#getDefinition <em>Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Definition</em>'.
-	 * @see conml.types.Type#getDefinition()
-	 * @see #getType()
-	 * @generated
-	 */
-	EAttribute getType_Definition();
 
 	/**
 	 * Returns the meta object for class '{@link conml.types.Class <em>Class</em>}'.
@@ -2340,28 +2318,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	EClass getPackage();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Package#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.types.Package#getName()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EAttribute getPackage_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.Package#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see conml.types.Package#getDescription()
-	 * @see #getPackage()
-	 * @generated
-	 */
-	EAttribute getPackage_Description();
-
-	/**
 	 * Returns the meta object for the reference list '{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2675,28 +2631,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	EClass getEnumeratedItem();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.types.EnumeratedItem#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.types.EnumeratedItem#getName()
-	 * @see #getEnumeratedItem()
-	 * @generated
-	 */
-	EAttribute getEnumeratedItem_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Definition</em>'.
-	 * @see conml.types.EnumeratedItem#getDefinition()
-	 * @see #getEnumeratedItem()
-	 * @generated
-	 */
-	EAttribute getEnumeratedItem_Definition();
-
-	/**
 	 * Returns the meta object for the container reference '{@link conml.types.EnumeratedItem#getOwnerType <em>Owner Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2829,22 +2763,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 		 * @generated
 		 */
 		EClass TYPE = eINSTANCE.getType();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TYPE__NAME = eINSTANCE.getType_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TYPE__DEFINITION = eINSTANCE.getType_Definition();
 
 		/**
 		 * The meta object literal for the '{@link conml.types.impl.ClassImpl <em>Class</em>}' class.
@@ -3157,22 +3075,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 		EClass PACKAGE = eINSTANCE.getPackage();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PACKAGE__NAME = eINSTANCE.getPackage_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute PACKAGE__DESCRIPTION = eINSTANCE.getPackage_Description();
-
-		/**
 		 * The meta object literal for the '<em><b>Contained Classes</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3415,22 +3317,6 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 		 * @generated
 		 */
 		EClass ENUMERATED_ITEM = eINSTANCE.getEnumeratedItem();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ENUMERATED_ITEM__NAME = eINSTANCE.getEnumeratedItem_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ENUMERATED_ITEM__DEFINITION = eINSTANCE.getEnumeratedItem_Definition();
 
 		/**
 		 * The meta object literal for the '<em><b>Owner Type</b></em>' container reference feature.

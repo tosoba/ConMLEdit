@@ -2,10 +2,12 @@
  */
 package conml.instances.util;
 
+import conml.DescribableElement;
 import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
 
+import conml.NamedElement;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
 import conml.instances.Instance;
@@ -132,6 +134,14 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseModelElement(ModelElement object) {
 				return createModelElementAdapter();
+			}
+			@Override
+			public Adapter caseNamedElement(NamedElement object) {
+				return createNamedElementAdapter();
+			}
+			@Override
+			public Adapter caseDescribableElement(DescribableElement object) {
+				return createDescribableElementAdapter();
 			}
 			@Override
 			public Adapter caseModel(Model object) {
@@ -340,6 +350,34 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link conml.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.NamedElement
+	 * @generated
+	 */
+	public Adapter createNamedElementAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.DescribableElement <em>Describable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.DescribableElement
+	 * @generated
+	 */
+	public Adapter createDescribableElementAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link conml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

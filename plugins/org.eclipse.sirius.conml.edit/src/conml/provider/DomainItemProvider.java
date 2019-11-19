@@ -219,11 +219,6 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(conmlPackage.Literals.DOMAIN__PARTS,
-				 conmlFactory.eINSTANCE.createLanguage()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.DOMAIN__PARTS,
 				 TypesFactory.eINSTANCE.createClass()));
 
 		newChildDescriptors.add

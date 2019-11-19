@@ -11,7 +11,6 @@ package conml;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.Tag#getName <em>Name</em>}</li>
  *   <li>{@link conml.Tag#getModel <em>Model</em>}</li>
  * </ul>
  *
@@ -19,30 +18,8 @@ package conml;
  * @model
  * @generated
  */
-public interface Tag extends ModelPart {
+public interface Tag extends ModelPart, NamedElement {
 	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see conml.conmlPackage#getTag_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link conml.Tag#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-  /**
 	 * Returns the value of the '<em><b>Model</b></em>' reference.
 	 * It is bidirectional and its opposite is '{@link conml.Model#getTags <em>Tags</em>}'.
 	 * <!-- begin-user-doc -->

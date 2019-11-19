@@ -57,7 +57,6 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case conmlPackage.TAG: return createTag();
-			case conmlPackage.LANGUAGE: return createLanguage();
 			case conmlPackage.META_INFORMATION: return createMetaInformation();
 			case conmlPackage.DOMAIN: return createDomain();
 			default:
@@ -74,17 +73,6 @@ public class conmlFactoryImpl extends EFactoryImpl implements conmlFactory {
 	public Tag createTag() {
 		TagImpl tag = new TagImpl();
 		return tag;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Language createLanguage() {
-		LanguageImpl language = new LanguageImpl();
-		return language;
 	}
 
 	/**

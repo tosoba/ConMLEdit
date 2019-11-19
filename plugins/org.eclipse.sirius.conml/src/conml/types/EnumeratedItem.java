@@ -2,9 +2,9 @@
  */
 package conml.types;
 
+import conml.DefinableElement;
+import conml.NamedElement;
 import org.eclipse.emf.common.util.EList;
-
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -15,8 +15,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.types.EnumeratedItem#getName <em>Name</em>}</li>
- *   <li>{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getOwnerType <em>Owner Type</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getSubItems <em>Sub Items</em>}</li>
  *   <li>{@link conml.types.EnumeratedItem#getSuperItem <em>Super Item</em>}</li>
@@ -26,51 +24,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface EnumeratedItem extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see conml.types.TypesPackage#getEnumeratedItem_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Definition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Definition</em>' attribute.
-	 * @see #setDefinition(String)
-	 * @see conml.types.TypesPackage#getEnumeratedItem_Definition()
-	 * @model
-	 * @generated
-	 */
-	String getDefinition();
-
-	/**
-	 * Sets the value of the '{@link conml.types.EnumeratedItem#getDefinition <em>Definition</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Definition</em>' attribute.
-	 * @see #getDefinition()
-	 * @generated
-	 */
-	void setDefinition(String value);
-
+public interface EnumeratedItem extends NamedElement, DefinableElement {
 	/**
 	 * Returns the value of the '<em><b>Owner Type</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.EnumeratedType#getOwnedItems <em>Owned Items</em>}'.

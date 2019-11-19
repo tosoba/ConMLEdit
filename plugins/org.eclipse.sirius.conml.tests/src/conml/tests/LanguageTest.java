@@ -3,9 +3,6 @@
 package conml.tests;
 
 import conml.Language;
-import conml.conmlFactory;
-
-import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,16 +10,7 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class LanguageTest extends ModelPartTest {
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static void main(String[] args) {
-		TestRunner.run(LanguageTest.class);
-	}
+public abstract class LanguageTest extends ModelPartTest {
 
 	/**
 	 * Constructs a new Language test case with the given name.
@@ -43,28 +31,6 @@ public class LanguageTest extends ModelPartTest {
 	@Override
 	protected Language getFixture() {
 		return (Language)fixture;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#setUp()
-	 * @generated
-	 */
-	@Override
-	protected void setUp() throws Exception {
-		setFixture(conmlFactory.eINSTANCE.createLanguage());
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see junit.framework.TestCase#tearDown()
-	 * @generated
-	 */
-	@Override
-	protected void tearDown() throws Exception {
-		setFixture(null);
 	}
 
 } //LanguageTest

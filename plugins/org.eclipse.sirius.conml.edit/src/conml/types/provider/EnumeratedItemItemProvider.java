@@ -3,6 +3,7 @@
 package conml.types.provider;
 
 
+import conml.conmlPackage;
 import conml.provider.ConmlEditPlugin;
 
 import conml.types.EnumeratedItem;
@@ -82,9 +83,9 @@ public class EnumeratedItemItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_name_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -104,9 +105,9 @@ public class EnumeratedItemItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_EnumeratedItem_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_EnumeratedItem_definition_feature", "_UI_EnumeratedItem_type"),
-				 TypesPackage.Literals.ENUMERATED_ITEM__DEFINITION,
+				 getString("_UI_DefinableElement_definition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefinableElement_definition_feature", "_UI_DefinableElement_type"),
+				 conmlPackage.Literals.DEFINABLE_ELEMENT__DEFINITION,
 				 true,
 				 false,
 				 false,

@@ -2,6 +2,7 @@
  */
 package conml.impl;
 
+import conml.DescribableElement;
 import conml.Language;
 import conml.Model;
 import conml.Tag;
@@ -31,8 +32,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * </p>
  * <ul>
  *   <li>{@link conml.impl.ModelImpl#getName <em>Name</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDefaultLanguage <em>Default Language</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
@@ -63,26 +64,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double VERSION_EDEFAULT = 1.0;
-
-	/**
-	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getVersion()
-	 * @generated
-	 * @ordered
-	 */
-	protected double version = VERSION_EDEFAULT;
-
-	/**
 	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -90,7 +71,7 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String DESCRIPTION_EDEFAULT = "New model";
+	protected static final String DESCRIPTION_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
@@ -101,6 +82,26 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @ordered
 	 */
 	protected String description = DESCRIPTION_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVersion()
+   * @generated
+   * @ordered
+   */
+  protected static final double VERSION_EDEFAULT = 1.0;
+
+  /**
+   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getVersion()
+   * @generated
+   * @ordered
+   */
+  protected double version = VERSION_EDEFAULT;
 
 	/**
 	 * The cached value of the '{@link #getDefaultLanguage() <em>Default Language</em>}' reference.
@@ -354,10 +355,10 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case conmlPackage.MODEL__NAME:
 				return getName();
-			case conmlPackage.MODEL__VERSION:
-				return getVersion();
 			case conmlPackage.MODEL__DESCRIPTION:
 				return getDescription();
+			case conmlPackage.MODEL__VERSION:
+				return getVersion();
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				if (resolve) return getDefaultLanguage();
 				return basicGetDefaultLanguage();
@@ -383,11 +384,11 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__NAME:
 				setName((String)newValue);
 				return;
-			case conmlPackage.MODEL__VERSION:
-				setVersion((Double)newValue);
-				return;
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription((String)newValue);
+				return;
+			case conmlPackage.MODEL__VERSION:
+				setVersion((Double)newValue);
 				return;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)newValue);
@@ -419,11 +420,11 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__NAME:
 				setName(NAME_EDEFAULT);
 				return;
-			case conmlPackage.MODEL__VERSION:
-				setVersion(VERSION_EDEFAULT);
-				return;
 			case conmlPackage.MODEL__DESCRIPTION:
 				setDescription(DESCRIPTION_EDEFAULT);
+				return;
+			case conmlPackage.MODEL__VERSION:
+				setVersion(VERSION_EDEFAULT);
 				return;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)null);
@@ -451,10 +452,10 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 		switch (featureID) {
 			case conmlPackage.MODEL__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case conmlPackage.MODEL__VERSION:
-				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DESCRIPTION:
 				return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+			case conmlPackage.MODEL__VERSION:
+				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				return defaultLanguage != null;
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
@@ -473,16 +474,48 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DescribableElement.class) {
+			switch (derivedFeatureID) {
+				case conmlPackage.MODEL__DESCRIPTION: return conmlPackage.DESCRIBABLE_ELEMENT__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DescribableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.DESCRIBABLE_ELEMENT__DESCRIPTION: return conmlPackage.MODEL__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (name: ");
 		result.append(name);
-		result.append(", version: ");
-		result.append(version);
 		result.append(", description: ");
 		result.append(description);
+		result.append(", version: ");
+		result.append(version);
 		result.append(')');
 		return result.toString();
 	}

@@ -2,6 +2,8 @@
  */
 package conml.types.impl;
 
+import conml.DefinableElement;
+import conml.conmlPackage;
 import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.TypesPackage;
@@ -441,6 +443,38 @@ public class EnumeratedItemImpl extends MinimalEObjectImpl.Container implements 
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == DefinableElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.ENUMERATED_ITEM__DEFINITION: return conmlPackage.DEFINABLE_ELEMENT__DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == DefinableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.DEFINABLE_ELEMENT__DEFINITION: return TypesPackage.ENUMERATED_ITEM__DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

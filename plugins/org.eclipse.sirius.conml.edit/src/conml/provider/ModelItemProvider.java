@@ -63,8 +63,8 @@ public class ModelItemProvider
 			super.getPropertyDescriptors(object);
 
 			addNamePropertyDescriptor(object);
-			addVersionPropertyDescriptor(object);
 			addDescriptionPropertyDescriptor(object);
+			addVersionPropertyDescriptor(object);
 			addDefaultLanguagePropertyDescriptor(object);
 			addMetaInformationObjectsPropertyDescriptor(object);
 			addTagsPropertyDescriptor(object);
@@ -84,9 +84,9 @@ public class ModelItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Model_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model_name_feature", "_UI_Model_type"),
-				 conmlPackage.Literals.MODEL__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -128,9 +128,9 @@ public class ModelItemProvider
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Model_description_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Model_description_feature", "_UI_Model_type"),
-				 conmlPackage.Literals.MODEL__DESCRIPTION,
+				 getString("_UI_DescribableElement_description_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DescribableElement_description_feature", "_UI_DescribableElement_type"),
+				 conmlPackage.Literals.DESCRIBABLE_ELEMENT__DESCRIPTION,
 				 true,
 				 false,
 				 false,
@@ -296,8 +296,8 @@ public class ModelItemProvider
 
 		switch (notification.getFeatureID(Model.class)) {
 			case conmlPackage.MODEL__NAME:
-			case conmlPackage.MODEL__VERSION:
 			case conmlPackage.MODEL__DESCRIPTION:
+			case conmlPackage.MODEL__VERSION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:

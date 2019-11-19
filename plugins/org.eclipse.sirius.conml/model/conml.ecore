@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="conml" nsURI="http://conml.ecore" nsPrefix="conml">
-  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" abstract="true" eSuperTypes="#//NamedElement #//DescribableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double" defaultValueLiteral="1.0"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" lowerBound="1"
-        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="New model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
         eType="#//Language"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
@@ -22,14 +19,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
         upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/DocumentedElements"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//ModelPart">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag" eSuperTypes="#//ModelPart #//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"
         eOpposite="#//Model/Tags"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" eSuperTypes="#//ModelPart">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Language" abstract="true" interface="true"
+      eSuperTypes="#//ModelPart #//NamedElement #//DescribableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"
@@ -41,6 +36,16 @@
         eType="#//Model" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Parts" upperBound="-1"
         eType="#//ModelPart" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DescribableElement" abstract="true"
+      interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DefinableElement" abstract="true" interface="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eSubpackages name="types" nsURI="http://types.ecore" nsPrefix="types">
     <eClassifiers xsi:type="ecore:EClass" name="TypeModel" eSuperTypes="#//Model">
@@ -55,11 +60,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="Elements" upperBound="-1"
           eType="#//types/TypeModelElement" eOpposite="#//types/TypeModelElement/TypeModel"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//types/TypeModelElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Type" abstract="true" eSuperTypes="#//types/TypeModelElement #//NamedElement #//DefinableElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="Class" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="abstract" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
@@ -133,10 +134,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Package" eSuperTypes="#//types/TypeModelElement #//NamedElement #//DescribableElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="ContainedClasses" upperBound="-1"
           eType="#//types/Class" eOpposite="#//types/Class/Package"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="EnumeratedTypes" upperBound="-1"
@@ -196,10 +194,7 @@
           eType="#//types/BaseDataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//types/Type"/>
-    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="definition" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem" eSuperTypes="#//NamedElement #//DefinableElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerType" lowerBound="1"
           eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnedItems"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubItems" upperBound="-1"

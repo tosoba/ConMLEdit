@@ -3,6 +3,7 @@
 package conml.types.provider;
 
 
+import conml.conmlPackage;
 import conml.types.Type;
 import conml.types.TypesPackage;
 
@@ -62,9 +63,9 @@ public class TypeItemProvider extends TypeModelElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_name_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_name_feature", "_UI_Type_type"),
-				 TypesPackage.Literals.TYPE__NAME,
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
 				 true,
 				 false,
 				 false,
@@ -84,9 +85,9 @@ public class TypeItemProvider extends TypeModelElementItemProvider {
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_Type_definition_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Type_definition_feature", "_UI_Type_type"),
-				 TypesPackage.Literals.TYPE__DEFINITION,
+				 getString("_UI_DefinableElement_definition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefinableElement_definition_feature", "_UI_DefinableElement_type"),
+				 conmlPackage.Literals.DEFINABLE_ELEMENT__DEFINITION,
 				 true,
 				 false,
 				 false,

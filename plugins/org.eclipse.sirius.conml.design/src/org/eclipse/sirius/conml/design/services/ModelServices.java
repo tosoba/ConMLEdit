@@ -46,10 +46,12 @@ public final class ModelServices {
         .get();
   }
 
+  // TODO: this won't work since Domain is now the only type of root element
   public Collection<InstanceModel> getAllInstanceModelsInSession(final EObject object) {
     return ConML.getAllElementsOfTypeFromSession(object, InstanceModel.class);
   }
 
+  // TODO: this won't work since Domain is now the only type of root element
   public Collection<Model> getAllDiagramRootsInSession(final EObject object) {
     final Session session = SessionManager.INSTANCE.getSession(object);
     final Collection<Model> roots = Lists.newArrayList();

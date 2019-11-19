@@ -2,10 +2,12 @@
  */
 package conml.instances.util;
 
+import conml.DescribableElement;
 import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
 
+import conml.NamedElement;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
 import conml.instances.Instance;
@@ -120,6 +122,8 @@ public class InstancesSwitch<T> extends Switch<T> {
 				InstanceModel instanceModel = (InstanceModel)theEObject;
 				T result = caseInstanceModel(instanceModel);
 				if (result == null) result = caseModel(instanceModel);
+				if (result == null) result = caseNamedElement(instanceModel);
+				if (result == null) result = caseDescribableElement(instanceModel);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -385,6 +389,36 @@ public class InstancesSwitch<T> extends Switch<T> {
 	}
 
 	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseNamedElement(NamedElement object) {
+		return null;
+	}
+
+  /**
+	 * Returns the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Describable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDescribableElement(DescribableElement object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

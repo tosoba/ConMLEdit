@@ -57,6 +57,43 @@ public interface conmlPackage extends EPackage {
 	conmlPackage eINSTANCE = conml.impl.conmlPackageImpl.init();
 
 	/**
+	 * The meta object id for the '{@link conml.NamedElement <em>Named Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.NamedElement
+	 * @see conml.impl.conmlPackageImpl#getNamedElement()
+	 * @generated
+	 */
+	int NAMED_ELEMENT = 7;
+
+  /**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT__NAME = 0;
+
+  /**
+	 * The number of structural features of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_FEATURE_COUNT = 1;
+
+  /**
+	 * The number of operations of the '<em>Named Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NAMED_ELEMENT_OPERATION_COUNT = 0;
+
+  /**
 	 * The meta object id for the '{@link conml.impl.ModelImpl <em>Model</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,16 +110,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__NAME = 0;
-
-	/**
-	 * The feature id for the '<em><b>Version</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__VERSION = 1;
+	int MODEL__NAME = NAMED_ELEMENT__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Description</b></em>' attribute.
@@ -91,7 +119,16 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__DESCRIPTION = 2;
+	int MODEL__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Version</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Default Language</b></em>' reference.
@@ -100,7 +137,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__DEFAULT_LANGUAGE = 3;
+	int MODEL__DEFAULT_LANGUAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
@@ -109,7 +146,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL__META_INFORMATION_OBJECTS = 4;
+	int MODEL__META_INFORMATION_OBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
     /**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -118,7 +155,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-  int MODEL__TAGS = 5;
+  int MODEL__TAGS = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
   /**
 	 * The feature id for the '<em><b>Languages</b></em>' reference list.
@@ -127,7 +164,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-  int MODEL__LANGUAGES = 6;
+  int MODEL__LANGUAGES = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
         /**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -136,7 +173,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = 7;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -145,7 +182,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_OPERATION_COUNT = 0;
+	int MODEL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conml.impl.ModelPartImpl <em>Model Part</em>}' class.
@@ -268,10 +305,10 @@ public interface conmlPackage extends EPackage {
 	int TAG_OPERATION_COUNT = MODEL_PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link conml.impl.LanguageImpl <em>Language</em>}' class.
+	 * The meta object id for the '{@link conml.Language <em>Language</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.impl.LanguageImpl
+	 * @see conml.Language
 	 * @see conml.impl.conmlPackageImpl#getLanguage()
 	 * @generated
 	 */
@@ -409,6 +446,81 @@ public interface conmlPackage extends EPackage {
 
 
     /**
+	 * The meta object id for the '{@link conml.DescribableElement <em>Describable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.DescribableElement
+	 * @see conml.impl.conmlPackageImpl#getDescribableElement()
+	 * @generated
+	 */
+	int DESCRIBABLE_ELEMENT = 8;
+
+        /**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIBABLE_ELEMENT__DESCRIPTION = 0;
+
+        /**
+	 * The number of structural features of the '<em>Describable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIBABLE_ELEMENT_FEATURE_COUNT = 1;
+
+        /**
+	 * The number of operations of the '<em>Describable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DESCRIBABLE_ELEMENT_OPERATION_COUNT = 0;
+
+        /**
+	 * The meta object id for the '{@link conml.DefinableElement <em>Definable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.DefinableElement
+	 * @see conml.impl.conmlPackageImpl#getDefinableElement()
+	 * @generated
+	 */
+	int DEFINABLE_ELEMENT = 9;
+
+        /**
+	 * The feature id for the '<em><b>Definition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINABLE_ELEMENT__DEFINITION = 0;
+
+        /**
+	 * The number of structural features of the '<em>Definable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINABLE_ELEMENT_FEATURE_COUNT = 1;
+
+        /**
+	 * The number of operations of the '<em>Definable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DEFINABLE_ELEMENT_OPERATION_COUNT = 0;
+
+
+        /**
 	 * Returns the meta object for class '{@link conml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -417,17 +529,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getModel();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.Model#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.Model#getName()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EAttribute getModel_Name();
 
 	/**
 	 * Returns the meta object for the attribute '{@link conml.Model#getVersion <em>Version</em>}'.
@@ -439,17 +540,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getModel_Version();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.Model#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see conml.Model#getDescription()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EAttribute getModel_Description();
 
 	/**
 	 * Returns the meta object for the reference '{@link conml.Model#getDefaultLanguage <em>Default Language</em>}'.
@@ -548,17 +638,6 @@ public interface conmlPackage extends EPackage {
 	EClass getTag();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.Tag#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.Tag#getName()
-	 * @see #getTag()
-	 * @generated
-	 */
-	EAttribute getTag_Name();
-
-	/**
 	 * Returns the meta object for the reference '{@link conml.Tag#getModel <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -578,28 +657,6 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLanguage();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.Language#getName <em>Name</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Name</em>'.
-	 * @see conml.Language#getName()
-	 * @see #getLanguage()
-	 * @generated
-	 */
-	EAttribute getLanguage_Name();
-
-	/**
-	 * Returns the meta object for the attribute '{@link conml.Language#getDescription <em>Description</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Description</em>'.
-	 * @see conml.Language#getDescription()
-	 * @see #getLanguage()
-	 * @generated
-	 */
-	EAttribute getLanguage_Description();
 
 	/**
 	 * Returns the meta object for the attribute '{@link conml.Language#isDefault <em>Default</em>}'.
@@ -666,6 +723,69 @@ public interface conmlPackage extends EPackage {
 	EReference getDomain_Parts();
 
         /**
+	 * Returns the meta object for class '{@link conml.NamedElement <em>Named Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Named Element</em>'.
+	 * @see conml.NamedElement
+	 * @generated
+	 */
+	EClass getNamedElement();
+
+        /**
+	 * Returns the meta object for the attribute '{@link conml.NamedElement#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see conml.NamedElement#getName()
+	 * @see #getNamedElement()
+	 * @generated
+	 */
+	EAttribute getNamedElement_Name();
+
+                /**
+	 * Returns the meta object for class '{@link conml.DescribableElement <em>Describable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Describable Element</em>'.
+	 * @see conml.DescribableElement
+	 * @generated
+	 */
+	EClass getDescribableElement();
+
+                /**
+	 * Returns the meta object for the attribute '{@link conml.DescribableElement#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see conml.DescribableElement#getDescription()
+	 * @see #getDescribableElement()
+	 * @generated
+	 */
+	EAttribute getDescribableElement_Description();
+
+                /**
+	 * Returns the meta object for class '{@link conml.DefinableElement <em>Definable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Definable Element</em>'.
+	 * @see conml.DefinableElement
+	 * @generated
+	 */
+	EClass getDefinableElement();
+
+                /**
+	 * Returns the meta object for the attribute '{@link conml.DefinableElement#getDefinition <em>Definition</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Definition</em>'.
+	 * @see conml.DefinableElement#getDefinition()
+	 * @see #getDefinableElement()
+	 * @generated
+	 */
+	EAttribute getDefinableElement_Definition();
+
+                                /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -699,28 +819,12 @@ public interface conmlPackage extends EPackage {
 		EClass MODEL = eINSTANCE.getModel();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL__NAME = eINSTANCE.getModel_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Version</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute MODEL__VERSION = eINSTANCE.getModel_Version();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MODEL__DESCRIPTION = eINSTANCE.getModel_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Default Language</b></em>' reference feature.
@@ -801,14 +905,6 @@ public interface conmlPackage extends EPackage {
 		EClass TAG = eINSTANCE.getTag();
 
 		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TAG__NAME = eINSTANCE.getTag_Name();
-
-		/**
 		 * The meta object literal for the '<em><b>Model</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -817,30 +913,14 @@ public interface conmlPackage extends EPackage {
 		EReference TAG__MODEL = eINSTANCE.getTag_Model();
 
     /**
-		 * The meta object literal for the '{@link conml.impl.LanguageImpl <em>Language</em>}' class.
+		 * The meta object literal for the '{@link conml.Language <em>Language</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.impl.LanguageImpl
+		 * @see conml.Language
 		 * @see conml.impl.conmlPackageImpl#getLanguage()
 		 * @generated
 		 */
 		EClass LANGUAGE = eINSTANCE.getLanguage();
-
-		/**
-		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LANGUAGE__NAME = eINSTANCE.getLanguage_Name();
-
-		/**
-		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LANGUAGE__DESCRIPTION = eINSTANCE.getLanguage_Description();
 
 		/**
 		 * The meta object literal for the '<em><b>Default</b></em>' attribute feature.
@@ -893,6 +973,60 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EReference DOMAIN__PARTS = eINSTANCE.getDomain_Parts();
+
+                /**
+		 * The meta object literal for the '{@link conml.NamedElement <em>Named Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.NamedElement
+		 * @see conml.impl.conmlPackageImpl#getNamedElement()
+		 * @generated
+		 */
+		EClass NAMED_ELEMENT = eINSTANCE.getNamedElement();
+
+                /**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NAMED_ELEMENT__NAME = eINSTANCE.getNamedElement_Name();
+
+                                /**
+		 * The meta object literal for the '{@link conml.DescribableElement <em>Describable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.DescribableElement
+		 * @see conml.impl.conmlPackageImpl#getDescribableElement()
+		 * @generated
+		 */
+		EClass DESCRIBABLE_ELEMENT = eINSTANCE.getDescribableElement();
+
+                                /**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DESCRIBABLE_ELEMENT__DESCRIPTION = eINSTANCE.getDescribableElement_Description();
+
+                                /**
+		 * The meta object literal for the '{@link conml.DefinableElement <em>Definable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.DefinableElement
+		 * @see conml.impl.conmlPackageImpl#getDefinableElement()
+		 * @generated
+		 */
+		EClass DEFINABLE_ELEMENT = eINSTANCE.getDefinableElement();
+
+                                /**
+		 * The meta object literal for the '<em><b>Definition</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DEFINABLE_ELEMENT__DEFINITION = eINSTANCE.getDefinableElement_Definition();
 
 	}
 

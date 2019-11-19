@@ -171,7 +171,7 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 	 */
 	protected AssociationItemProvider associationItemProvider;
 
-	/**
+  /**
 	 * This creates an adapter for a {@link conml.types.Association}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -186,7 +186,7 @@ public class TypesItemProviderAdapterFactory extends TypesAdapterFactory impleme
 		return associationItemProvider;
 	}
 
-	/**
+  /**
 	 * This keeps track of the one adapter used for all {@link conml.types.Package} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

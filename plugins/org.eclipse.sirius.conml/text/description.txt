@@ -7,10 +7,8 @@ This can be disabled with -vmargs -Dorg.eclipse.emf.examples.generator.validator
 
 Package conml <http://conml.ecore>
 
-  Class Model
-    Attribute name : EString<<1..1>>
+  Class Model -> NamedElement, DescribableElement
     Attribute version : Double<<1..1>>
-    Attribute description : EString<<1..1>>
     Reference DefaultLanguage : Language<<1..1>>
     Reference MetaInformationObjects : Object<<0..*>>
     Reference Tags : Tag<<0..*>>
@@ -22,13 +20,10 @@ Package conml <http://conml.ecore>
     Reference Tags : Tag<<0..*>>
     Reference MetaInformationObjects : Object<<0..*>>
 
-  Class Tag -> ModelPart
-    Attribute name : EString<<1..1>>
+  Class Tag -> ModelPart, NamedElement
     Reference Model : Model<<1..1>>
 
-  Class Language -> ModelPart
-    Attribute name : EString<<1..1>>
-    Attribute description : EString
+  Class Language -> ModelPart, NamedElement, DescribableElement
     Attribute default : EBoolean<<1..1>>
     Reference Model : Model<<1..1>>
 
@@ -37,3 +32,12 @@ Package conml <http://conml.ecore>
   Class Domain
     Reference Models : Model<<0..*>>
     Reference Parts : ModelPart<<0..*>>
+
+  Class NamedElement
+    Attribute name : EString<<1..1>>
+
+  Class DescribableElement
+    Attribute description : EString
+
+  Class DefinableElement
+    Attribute definition : EString

@@ -2,6 +2,8 @@
  */
 package conml.types;
 
+import conml.DescribableElement;
+import conml.NamedElement;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -13,8 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.types.Package#getName <em>Name</em>}</li>
- *   <li>{@link conml.types.Package#getDescription <em>Description</em>}</li>
  *   <li>{@link conml.types.Package#getContainedClasses <em>Contained Classes</em>}</li>
  *   <li>{@link conml.types.Package#getEnumeratedTypes <em>Enumerated Types</em>}</li>
  *   <li>{@link conml.types.Package#getSubPackages <em>Sub Packages</em>}</li>
@@ -26,51 +26,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Package extends TypeModelElement {
-	/**
-	 * Returns the value of the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Name</em>' attribute.
-	 * @see #setName(String)
-	 * @see conml.types.TypesPackage#getPackage_Name()
-	 * @model required="true"
-	 * @generated
-	 */
-	String getName();
-
-	/**
-	 * Sets the value of the '{@link conml.types.Package#getName <em>Name</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Name</em>' attribute.
-	 * @see #getName()
-	 * @generated
-	 */
-	void setName(String value);
-
-	/**
-	 * Returns the value of the '<em><b>Description</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Description</em>' attribute.
-	 * @see #setDescription(String)
-	 * @see conml.types.TypesPackage#getPackage_Description()
-	 * @model
-	 * @generated
-	 */
-	String getDescription();
-
-	/**
-	 * Sets the value of the '{@link conml.types.Package#getDescription <em>Description</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Description</em>' attribute.
-	 * @see #getDescription()
-	 * @generated
-	 */
-	void setDescription(String value);
-
+public interface Package extends TypeModelElement, NamedElement, DescribableElement {
 	/**
 	 * Returns the value of the '<em><b>Contained Classes</b></em>' reference list.
 	 * The list contents are of type {@link conml.types.Class}.

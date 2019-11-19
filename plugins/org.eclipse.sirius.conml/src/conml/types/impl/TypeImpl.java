@@ -2,6 +2,9 @@
  */
 package conml.types.impl;
 
+import conml.DefinableElement;
+import conml.NamedElement;
+import conml.conmlPackage;
 import conml.types.Type;
 import conml.types.TypesPackage;
 
@@ -200,6 +203,50 @@ public abstract class TypeImpl extends TypeModelElementImpl implements Type {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.TYPE__NAME: return conmlPackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == DefinableElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.TYPE__DEFINITION: return conmlPackage.DEFINABLE_ELEMENT__DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.NAMED_ELEMENT__NAME: return TypesPackage.TYPE__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == DefinableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.DEFINABLE_ELEMENT__DEFINITION: return TypesPackage.TYPE__DEFINITION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

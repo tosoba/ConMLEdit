@@ -2,6 +2,9 @@
  */
 package conml.types.impl;
 
+import conml.DescribableElement;
+import conml.NamedElement;
+import conml.conmlPackage;
 import conml.types.EnumeratedType;
 import conml.types.TypesPackage;
 
@@ -495,6 +498,50 @@ public class PackageImpl extends TypeModelElementImpl implements conml.types.Pac
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.PACKAGE__NAME: return conmlPackage.NAMED_ELEMENT__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == DescribableElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.PACKAGE__DESCRIPTION: return conmlPackage.DESCRIBABLE_ELEMENT__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == NamedElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.NAMED_ELEMENT__NAME: return TypesPackage.PACKAGE__NAME;
+				default: return -1;
+			}
+		}
+		if (baseClass == DescribableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.DESCRIBABLE_ELEMENT__DESCRIPTION: return TypesPackage.PACKAGE__DESCRIPTION;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
