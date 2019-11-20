@@ -23,8 +23,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"
         eOpposite="#//Model/Tags"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Language" abstract="true" interface="true"
-      eSuperTypes="#//ModelPart #//NamedElement #//DescribableElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Language" abstract="true" eSuperTypes="#//ModelPart #//NamedElement #//DescribableElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Model" lowerBound="1" eType="#//Model"

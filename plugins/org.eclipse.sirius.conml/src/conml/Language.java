@@ -16,7 +16,7 @@ package conml;
  * </ul>
  *
  * @see conml.conmlPackage#getLanguage()
- * @model interface="true" abstract="true"
+ * @model abstract="true"
  * @generated
  */
 public interface Language extends ModelPart, NamedElement, DescribableElement {

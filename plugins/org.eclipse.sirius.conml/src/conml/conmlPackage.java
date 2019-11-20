@@ -122,12 +122,12 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DESCRIPTION = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
-   * The feature id for the '<em><b>Version</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
+	 * @generated
+	 * @ordered
+	 */
   int MODEL__VERSION = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
 	/**
@@ -305,10 +305,10 @@ public interface conmlPackage extends EPackage {
 	int TAG_OPERATION_COUNT = MODEL_PART_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link conml.Language <em>Language</em>}' class.
+	 * The meta object id for the '{@link conml.impl.LanguageImpl <em>Language</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.Language
+	 * @see conml.impl.LanguageImpl
 	 * @see conml.impl.conmlPackageImpl#getLanguage()
 	 * @generated
 	 */
@@ -913,10 +913,10 @@ public interface conmlPackage extends EPackage {
 		EReference TAG__MODEL = eINSTANCE.getTag_Model();
 
     /**
-		 * The meta object literal for the '{@link conml.Language <em>Language</em>}' class.
+		 * The meta object literal for the '{@link conml.impl.LanguageImpl <em>Language</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.Language
+		 * @see conml.impl.LanguageImpl
 		 * @see conml.impl.conmlPackageImpl#getLanguage()
 		 * @generated
 		 */

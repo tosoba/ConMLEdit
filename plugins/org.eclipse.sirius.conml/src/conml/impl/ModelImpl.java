@@ -84,23 +84,23 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected String description = DESCRIPTION_EDEFAULT;
 
   /**
-   * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVersion()
-   * @generated
-   * @ordered
-   */
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
   protected static final double VERSION_EDEFAULT = 1.0;
 
   /**
-   * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
-   * <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getVersion() <em>Version</em>}' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getVersion()
-   * @generated
-   * @ordered
-   */
+	 * @see #getVersion()
+	 * @generated
+	 * @ordered
+	 */
   protected double version = VERSION_EDEFAULT;
 
 	/**

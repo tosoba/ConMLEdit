@@ -371,12 +371,12 @@ public interface InstancesPackage extends EPackage {
 	int INSTANCE_MODEL__DESCRIPTION = conmlPackage.MODEL__DESCRIPTION;
 
   /**
-   * The feature id for the '<em><b>Version</b></em>' attribute.
-   * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Version</b></em>' attribute.
+	 * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
+	 * @generated
+	 * @ordered
+	 */
   int INSTANCE_MODEL__VERSION = conmlPackage.MODEL__VERSION;
 
 	/**
