@@ -142,27 +142,27 @@ public final class ModelElementServices {
     }
   }
 
-  public String defaultName(final ModelElement element) {
-    final String name = element.getClass().getSimpleName().replace("Impl", "");
+  public String defaultName(final EObject object) {
+    final String name = object.getClass().getSimpleName().replace("Impl", "");
 
-    final EObject container = element.eContainer();
+    final EObject container = object.eContainer();
     if (container != null) {
       final Collection<?> elementsOfSameType =
-          ConML.getAllElementsOfTypeFrom(container, element.getClass());
+          ConML.getAllElementsOfTypeFrom(container, object.getClass());
       return name + elementsOfSameType.size();
     }
 
-    final EStructuralFeature containingFeature = element.eContainingFeature();
+    final EStructuralFeature containingFeature = object.eContainingFeature();
     if (containingFeature != null) {
       final Collection<?> elementsOfSameType =
-          ConML.getAllElementsOfTypeFrom(containingFeature, element.getClass());
+          ConML.getAllElementsOfTypeFrom(containingFeature, object.getClass());
       return name + elementsOfSameType.size();
     }
 
     return name;
   }
 
-  public String defaultDefinition(final ModelElement element) {
+  public String defaultDefinition(final EObject object) {
     return "";
   }
 }

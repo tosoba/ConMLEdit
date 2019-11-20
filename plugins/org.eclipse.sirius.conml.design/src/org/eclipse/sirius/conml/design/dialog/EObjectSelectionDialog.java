@@ -124,6 +124,7 @@ public abstract class EObjectSelectionDialog<T extends EObject>
     public boolean matchItem(final Object item) {
       if (item instanceof NamedElement) {
         final NamedElement namedElement = (NamedElement) item;
+        if (namedElement.getName() == null) return false;
         return matches(namedElement.getName());
       }
       return false;

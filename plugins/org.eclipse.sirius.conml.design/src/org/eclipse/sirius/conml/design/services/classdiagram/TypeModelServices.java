@@ -19,10 +19,10 @@ import org.eclipse.sirius.conml.design.services.ModelServices;
 import org.eclipse.sirius.conml.gen.Gen;
 
 import conml.types.Association;
+import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Generalization;
 import conml.types.Package;
-import conml.types.Class;
 import conml.types.SimpleDataType;
 import conml.types.TypeModel;
 

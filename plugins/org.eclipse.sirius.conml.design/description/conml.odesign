@@ -331,29 +331,34 @@
         </toolSections>
         <toolSections name="CD_Section_Types" label="Types">
           <ownedTools xsi:type="tool:ContainerCreationDescription" documentation="Create a new class" name="Creation Class" label="Class" containerMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" extraMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']">
-            <variable name="container"/>
+            <variable name="domain"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="Parts">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsTemporalAspect" valueExpression="aql:false"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsSubjectiveAspect" valueExpression="aql:false"/>
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
-                      </initialOperation>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
-                      </initialOperation>
-                    </buttons>
-                    <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.5/@groups.0"/>
-                    <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="typeModel" valueExpression="aql:domain.showTypeModelSelectionDialog()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:typeModel &lt;> null">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:domain">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="Parts">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsTemporalAspect" valueExpression="aql:false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsSubjectiveAspect" valueExpression="aql:false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="TypeModel" valueExpression="var:typeModel"/>
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Class">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
+                          </initialOperation>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                          </initialOperation>
+                        </buttons>
+                        <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Creation%20Class']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.6/@groups.0"/>
+                        <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
+                      </subModelOperations>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -770,6 +775,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ExistingElementsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.UIServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.CommonInterfaceServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>

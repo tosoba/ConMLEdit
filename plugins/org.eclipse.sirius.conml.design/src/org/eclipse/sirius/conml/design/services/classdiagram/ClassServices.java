@@ -7,6 +7,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
+import org.eclipse.sirius.conml.design.services.DomainServices;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.swt.widgets.Display;
@@ -75,10 +76,8 @@ public final class ClassServices {
     final TypeModelSelectionDialog dialog =
         new TypeModelSelectionDialog(
             Display.getCurrent().getActiveShell(),
-            domain
-                .getModels()
-                .stream()
-                .filter(TypeModel.class::isInstance)
+            DomainServices.getInstance()
+                .getOwnedModelsOfType(domain, TypeModel.class)
                 .map(TypeModel.class::cast)
                 .collect(Collectors.toList()),
             "Enter a name of the TypeModel container for the Class.");
