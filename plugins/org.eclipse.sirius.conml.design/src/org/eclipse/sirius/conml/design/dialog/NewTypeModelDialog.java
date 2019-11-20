@@ -12,18 +12,21 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
+import conml.Domain;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
 public final class NewTypeModelDialog extends Dialog {
 
+  private final Domain domain;
+
   private Text typeModelNameText;
   private Text typeModelVersionText;
   private Text typeModelDescriptionText;
 
-  public NewTypeModelDialog(Shell parent) {
-    // TODO: pass Domain here to add typeModel to it
+  public NewTypeModelDialog(Shell parent, final Domain domain) {
     super(parent);
+    this.domain = domain;
   }
 
   @Override
@@ -61,8 +64,12 @@ public final class NewTypeModelDialog extends Dialog {
   @Override
   protected void okPressed() {
     final TypeModel tm = TypesFactory.eINSTANCE.createTypeModel();
-    if (StringUtils.isNotBlank(typeModelNameText.getText()))
-      tm.setName(typeModelNameText.getText());
+    StringUtils.setIfNotNullOrBlank(typeModelNameText.getText(), tm, TypeModel::setName);
+    Double version = StringUtils.tryParseDouble(typeModelVersionText.getText());
+    if (version != null) tm.setVersion(version);
+    StringUtils.setIfNotNullOrBlank(
+        typeModelDescriptionText.getText(), tm, TypeModel::setDescription);
+    domain.getModels().add(tm);
 
     super.okPressed();
   }

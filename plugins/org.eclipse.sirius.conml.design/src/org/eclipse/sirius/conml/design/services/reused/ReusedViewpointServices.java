@@ -59,6 +59,7 @@ public class ReusedViewpointServices {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
+  //TODO: this will likely not work after conversion to Domain
   private DSemanticDecorator getHierarchicalContainerView(
       final ModelElement semanticElement, final DSemanticDecorator elementView) {
     final Set<DDiagramElementContainer> containerViews = new HashSet<DDiagramElementContainer>();

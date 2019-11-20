@@ -2,6 +2,7 @@ package org.eclipse.sirius.conml.design.dialog;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.function.Supplier;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -21,22 +22,25 @@ import conml.NamedElement;
 public abstract class EObjectSelectionDialog<T extends EObject>
     extends FilteredItemsSelectionDialog {
 
-  private final Collection<T> partsToSelect;
-
   private static final String SELECTION_DIALOG_SETTINGS = "SelectionDialogSettings";
+
+  protected final Supplier<Collection<T>> partsToSelectGetter;
+  protected Collection<T> partsToSelect;
 
   private ILabelProvider detailsLabelProvider;
   private ILabelProvider listLabelProvider;
 
   public EObjectSelectionDialog(
       Shell shell,
-      final Collection<T> partsToSelect,
+      final Supplier<Collection<T>> partsToSelectGetter,
       final ILabelProvider listLabelProvider,
       final ILabelProvider detailsLabelProvider) {
     super(shell);
-    this.partsToSelect = partsToSelect;
+    this.partsToSelectGetter = partsToSelectGetter;
     this.listLabelProvider = listLabelProvider;
     this.detailsLabelProvider = detailsLabelProvider;
+
+    partsToSelect = partsToSelectGetter.get();
   }
 
   protected void createHeader(Composite parent) {}

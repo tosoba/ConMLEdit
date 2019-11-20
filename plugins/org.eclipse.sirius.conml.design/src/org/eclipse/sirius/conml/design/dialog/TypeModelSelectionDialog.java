@@ -1,9 +1,10 @@
 package org.eclipse.sirius.conml.design.dialog;
 
-import java.util.Collection;
 import java.util.Comparator;
+import java.util.stream.Collectors;
 
 import org.eclipse.jface.dialogs.IDialogConstants;
+import org.eclipse.sirius.conml.design.services.DomainServices;
 import org.eclipse.sirius.conml.design.util.Comparators;
 import org.eclipse.sirius.conml.design.util.LabelProviders;
 import org.eclipse.swt.SWT;
@@ -15,27 +16,31 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
+import conml.Domain;
 import conml.NamedElement;
 import conml.types.TypeModel;
 
 public final class TypeModelSelectionDialog extends EObjectSelectionDialog<TypeModel> {
 
-  private final String headerText;
+  private final Domain domain;
+
+  public TypeModelSelectionDialog(Shell shell, final Domain domain) {
+    super(
+        shell,
+        () ->
+            DomainServices.getInstance()
+                .getOwnedModelsOfType(domain, TypeModel.class)
+                .map(TypeModel.class::cast)
+                .collect(Collectors.toList()),
+        LabelProviders.namedElementLabelProvider(),
+        LabelProviders.describableElementLabelProvider());
+    this.domain = domain;
+  }
 
   @Override
   protected void createButtonsForButtonBar(Composite parent) {
     super.createButtonsForButtonBar(parent);
     // TODO: maybe move new TypeModel button here
-  }
-
-  public TypeModelSelectionDialog(
-      Shell shell, final Collection<TypeModel> partsToSelect, final String headerText) {
-    super(
-        shell,
-        partsToSelect,
-        LabelProviders.namedElementLabelProvider(),
-        LabelProviders.describableElementLabelProvider());
-    this.headerText = headerText;
   }
 
   @Override
@@ -49,7 +54,7 @@ public final class TypeModelSelectionDialog extends EObjectSelectionDialog<TypeM
     compositeHeader.setLayout(layout);
 
     final Label headerLabel = new Label(compositeHeader, SWT.NONE);
-    headerLabel.setText(headerText);
+    headerLabel.setText("Enter a name of the TypeModel container for the Class.");
     GridData gridData = new GridData();
     gridData.horizontalAlignment = GridData.FILL;
     gridData.horizontalSpan = 1;
@@ -64,8 +69,9 @@ public final class TypeModelSelectionDialog extends EObjectSelectionDialog<TypeM
           switch (event.type) {
             case SWT.Selection:
               final NewTypeModelDialog newTypeModelDialog =
-                  new NewTypeModelDialog(Display.getCurrent().getActiveShell());
+                  new NewTypeModelDialog(Display.getCurrent().getActiveShell(), domain);
               newTypeModelDialog.open();
+              partsToSelect = partsToSelectGetter.get();
               break;
           }
         });
