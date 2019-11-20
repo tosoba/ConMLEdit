@@ -11,6 +11,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 
@@ -54,9 +55,20 @@ public final class TypeModelSelectionDialog extends EObjectSelectionDialog<TypeM
     gridData.horizontalSpan = 1;
     headerLabel.setLayoutData(gridData);
 
-    //TODO: move create TypeModel button to the right
+    // TODO: move create TypeModel button to the right
     final Button button = new Button(compositeHeader, SWT.NONE);
     button.setText("New TypeModel");
+    button.addListener(
+        SWT.Selection,
+        event -> {
+          switch (event.type) {
+            case SWT.Selection:
+              final NewTypeModelDialog newTypeModelDialog =
+                  new NewTypeModelDialog(Display.getCurrent().getActiveShell());
+              newTypeModelDialog.open();
+              break;
+          }
+        });
     gridData = new GridData();
     gridData.horizontalAlignment = GridData.HORIZONTAL_ALIGN_END;
     gridData.horizontalSpan = 1;
