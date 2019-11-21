@@ -1,7 +1,6 @@
 package org.eclipse.sirius.conml.design.services.classdiagram;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -9,6 +8,7 @@ import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.conml.design.services.classdiagram.label.PackageLabelServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.types.Class;
 import conml.types.EnumeratedType;
@@ -25,35 +25,28 @@ public final class PackageServices {
     return InstanceHolder.INSTANCE;
   }
 
+  public int showUnsetCurrentOverallPackageDialog(final Package currentOverallPackage) {
+    return Dialogs.show(
+        "Overall package already set.",
+        "Unset current overall package : "
+            + PackageLabelServices.getInstance().packageLabel(currentOverallPackage)
+            + "?",
+        new String[] {"Yes", "No"},
+        MessageDialog.CONFIRM);
+  }
+
   public void setOverall(final Package packageToSet) {
     final TypeModel model = packageToSet.getTypeModel();
     if (model == null) {
-      // TODO: Error dialog
+      Messages.getString("ExceptionMessage.IsNull", "Package's TypeModel");
       return;
     }
 
-    final Optional<Package> currentOverallPackage =
-        model
-            .getElements()
-            .stream()
-            .filter(
-                element -> {
-                  if (!(element instanceof Package)) return false;
-                  final Package otherPackage = (Package) element;
-                  return otherPackage.isOverall();
-                })
-            .map(Package.class::cast)
-            .findAny();
-    if (currentOverallPackage.isPresent()) {
-      final int result =
-          Dialogs.show(
-              "Overall package already set.",
-              "Unset current overall package : "
-                  + PackageLabelServices.getInstance().packageLabel(currentOverallPackage.get())
-                  + "?",
-              new String[] {"Yes", "No"},
-              MessageDialog.CONFIRM);
-      if (result == 0) currentOverallPackage.get().setOverall(false);
+    final Package currentOverallPackage =
+        TypeModelServices.getInstance().getOverallPackageOfModel(model);
+    if (currentOverallPackage != null) {
+      if (showUnsetCurrentOverallPackageDialog(currentOverallPackage) == 0)
+        currentOverallPackage.setOverall(false);
       else return;
     }
     packageToSet.setOverall(true);
@@ -62,6 +55,10 @@ public final class PackageServices {
   public boolean isNonOverallPackage(final EObject object) {
     return ConML.castAndRunOrReturn(
         object, Package.class, packageToCheck -> !packageToCheck.isOverall(), false);
+  }
+
+  public boolean isOverall(final Package pack) {
+    return pack.isOverall();
   }
 
   public void removePackage(final EObject object) {

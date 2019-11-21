@@ -87,4 +87,19 @@ public final class TypeModelServices {
   public Collection<EObject> getOwnedGeneralizationElements(final EObject object) {
     return ModelServices.getInstance().getOwnedElementsOfType(object, Generalization.class);
   }
+
+  public Package getOverallPackageOfModel(final TypeModel model) {
+    return model
+        .getElements()
+        .stream()
+        .filter(
+            element -> {
+              if (!(element instanceof Package)) return false;
+              final Package otherPackage = (Package) element;
+              return otherPackage.isOverall();
+            })
+        .map(Package.class::cast)
+        .findAny()
+        .orElse(null);
+  }
 }
