@@ -18,6 +18,7 @@ import conml.instances.ReferenceSet;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
+import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
 public final class AssociationServices {
@@ -122,8 +123,14 @@ public final class AssociationServices {
     if (!compactSemiAssociationCardinalitiesAreValid(primary, source, true)
         || !compactSemiAssociationTargetIsValid(primary, source, true)) return;
 
+    final TypeModel sourceTypeModel = source.getTypeModel();
+    if (sourceTypeModel == null) {
+      Messages.getString("ExceptionMessage.IsNull", "Source TypeModel");
+      return;
+    }
+
     final Association association = TypesFactory.eINSTANCE.createAssociation();
-    association.setDefinition("");
+    association.setDefinition(ModelElementServices.getInstance().defaultDefinition(association));
     association.setCompact(true);
     final String primaryName = source.getName() + "s";
     association.setName(primaryName);
@@ -171,7 +178,7 @@ public final class AssociationServices {
 
     if (redefinedAssociation == null) {
       Activator.logError(
-          new IllegalStateException(Messages.getString("ExceptionMessage.AssociationIsNull")));
+          new IllegalStateException(Messages.getString("ExceptionMessage.IsNull", "Association")));
       return;
     }
 
@@ -190,7 +197,9 @@ public final class AssociationServices {
     final SemiAssociation inverseOfRedefined = redefinedSemi.getInverseSemiAssociation();
     if (inverseOfRedefined == null) {
       Activator.logError(
-          new IllegalStateException(Messages.getString("ExceptionMessage.RedefinedInverseIsNull")));
+          new IllegalStateException(
+              Messages.getString(
+                  "ExceptionMessage.IsNull", "Redefined SemiAssociation's inverse")));
       return;
     }
 

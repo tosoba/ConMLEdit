@@ -29,14 +29,14 @@ public final class SemiAssociationServices {
     EcoreUtil.delete(semi);
 
     if (association == null) {
-      Activator.logError(Messages.getString("ExceptionMessage.AssociationIsNull"));
+      Activator.logError(Messages.getString("ExceptionMessage.IsNull", "Association"));
     } else {
       EcoreUtil.delete(association);
     }
 
     final SemiAssociation inverse = semi.getInverseSemiAssociation();
     if (inverse == null) {
-      Activator.logError(Messages.getString("ExceptionMessage.InverseSemiIsNull"));
+      Activator.logError(Messages.getString("ExceptionMessage.IsNull", "Inverse SemiAssociation"));
     } else {
       EcoreUtil.delete(inverse);
     }

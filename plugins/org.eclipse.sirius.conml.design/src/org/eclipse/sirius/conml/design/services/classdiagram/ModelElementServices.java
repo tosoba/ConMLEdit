@@ -142,6 +142,14 @@ public final class ModelElementServices {
     }
   }
 
+  public TypeModel getTypeModelOfElement(final TypeModelElement element) {
+    return element.getTypeModel();
+  }
+
+  public InstanceModel getInstanceModelElement(final InstanceModelElement element) {
+    return element.getInstanceModel();
+  }
+
   public String defaultName(final EObject object) {
     final String name = object.getClass().getSimpleName().replace("Impl", "");
 
