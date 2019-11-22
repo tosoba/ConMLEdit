@@ -16,7 +16,7 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.TypeModelDialog;
+import org.eclipse.sirius.conml.design.dialog.TypeSelectionModelDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.ModelServices;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
@@ -117,7 +117,7 @@ public final class TypeModelServices {
             .openSelectExistingElementsDialog(
                 selectedContainer,
                 diagram,
-                new TypeModelDialog(
+                new TypeSelectionModelDialog(
                     "Choose a TypeModel",
                     "Select a TypeModel",
                     ConMLPredicates.isInstanceOfClass(TypeModel.class),

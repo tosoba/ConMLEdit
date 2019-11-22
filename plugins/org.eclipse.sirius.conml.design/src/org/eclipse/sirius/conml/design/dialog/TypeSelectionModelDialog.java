@@ -13,9 +13,9 @@ import conml.Domain;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
-public final class TypeModelDialog extends ExistingEObjectsSelectionDialog {
+public final class TypeSelectionModelDialog extends ExistingEObjectsSelectionDialog {
 
-  public TypeModelDialog(
+  public TypeSelectionModelDialog(
       String title, String message, Predicate<Object> isValidEObjectPredicate, Domain domain) {
     super(
         title,

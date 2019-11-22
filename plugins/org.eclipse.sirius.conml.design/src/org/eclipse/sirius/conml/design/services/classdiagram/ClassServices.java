@@ -7,16 +7,13 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
-import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
-import org.eclipse.swt.widgets.Display;
 
-import conml.Domain;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
@@ -91,15 +88,5 @@ public final class ClassServices {
     }
 
     EcoreUtil.delete(clazz);
-  }
-
-  public TypeModel showTypeModelSelectionDialog(final Domain domain) {
-    final TypeModelSelectionDialog dialog =
-        new TypeModelSelectionDialog(Display.getCurrent().getActiveShell(), domain);
-    dialog.open();
-    final Object[] result = dialog.getResult();
-    if (result != null && result.length == 1 && result[0] instanceof TypeModel)
-      return (TypeModel) result[0];
-    else return null;
   }
 }
