@@ -96,9 +96,9 @@ public class ModelElementsSelectionDialog {
       return button;
     }
 
-    @SuppressWarnings({"rawtypes", "unchecked"})
+    @SuppressWarnings("unchecked")
     private void checkAll() {
-      final Collection roots = (Collection) getTreeViewer().getInput();
+      final Collection<Object> roots = (Collection<Object>) getTreeViewer().getInput();
       setRecursiveState(roots, true);
     }
 
@@ -313,10 +313,8 @@ public class ModelElementsSelectionDialog {
     private boolean isMatchingExpregOrHasMatchingExpregDescendantsUnrepresentedMode(
         Object element) {
       if (element instanceof EObject) {
-        @SuppressWarnings("rawtypes")
-        final Collection existingElementsOnDiagram =
+        final Collection<EObject> existingElementsOnDiagram =
             UIServices.getInstance().getDisplayedNodes(diagram);
-        @SuppressWarnings("unchecked")
         final Predicate<Object> isSubElementPredicate =
             Predicates.not(Predicates.in(existingElementsOnDiagram));
         final Predicate<Object> isMatchinExpregPredicate = getRegexpMatchPredicate();
@@ -382,10 +380,8 @@ public class ModelElementsSelectionDialog {
       }
     }
 
-    @SuppressWarnings("unchecked")
     private void uncheckAll() {
-      @SuppressWarnings("rawtypes")
-      final Collection roots = (Collection) getTreeViewer().getInput();
+      final Collection<?> roots = (Collection<?>) getTreeViewer().getInput();
       setRecursiveState(roots, false);
     }
 
@@ -451,11 +447,9 @@ public class ModelElementsSelectionDialog {
 
     @Override
     public Color getForeground(final Object element) {
-
       Color foreground = null;
-      if (isGrayed.apply(element)) {
+      if (isGrayed.apply(element))
         foreground = VisualBindingManager.getDefault().getColorFromName("light_gray");
-      }
       return foreground;
     }
   }
@@ -515,16 +509,11 @@ public class ModelElementsSelectionDialog {
   }
 
   private Predicate<Object> getDisplayablePredicate() {
-    return new Predicate<Object>() {
-      public boolean apply(Object input) {
-        if (input instanceof EObject) {
-          return isOrHasDescendant(
-              (EObject) input,
-              ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
-        }
-        return false;
-      }
-    };
+    return input ->
+        input instanceof EObject
+            && isOrHasDescendant(
+                (EObject) input,
+                ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
   }
 
   private Set<Object> getElementsSelectedAfter() {
