@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
@@ -41,7 +41,7 @@ public class ObjectServices {
             selectedContainer,
             selectedContainerView,
             diagram,
-            new ExistingEObjectsSelectionDialog(
+            new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingObjects"),
                 Messages.getString("Dialog.SelectObjects"),
                 ConMLPredicates.isInstanceOfClass(Object.class),

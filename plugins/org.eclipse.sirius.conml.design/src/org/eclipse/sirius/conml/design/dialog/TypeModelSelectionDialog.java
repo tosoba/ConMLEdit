@@ -1,26 +1,24 @@
 package org.eclipse.sirius.conml.design.dialog;
 
 import org.eclipse.jface.resource.JFaceResources;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import com.google.common.base.Predicate;
-
 import conml.Domain;
 import conml.types.TypeModel;
 import conml.types.TypesFactory;
 
-public final class TypeSelectionModelDialog extends ExistingEObjectsSelectionDialog {
+public final class TypeModelSelectionDialog extends ExistingSemanticElementsSelectionDialog {
 
-  public TypeSelectionModelDialog(
-      String title, String message, Predicate<Object> isValidEObjectPredicate, Domain domain) {
+  public TypeModelSelectionDialog(String title, String message, Domain domain) {
     super(
         title,
         message,
-        isValidEObjectPredicate,
+        ConMLPredicates.isInstanceOfClass(TypeModel.class),
         false,
         (Composite parent) -> {
           ((GridLayout) parent.getLayout()).numColumns++;

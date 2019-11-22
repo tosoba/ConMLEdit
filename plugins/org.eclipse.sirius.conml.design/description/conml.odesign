@@ -381,7 +381,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="Test Class Creation" label="Class" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="New Class Creation" label="Class" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
             <element name="domain"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -408,7 +408,7 @@
                             </firstModelOperations>
                           </initialOperation>
                         </buttons>
-                        <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Test%20Class%20Creation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.6/@groups.0"/>
+                        <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Class%20Creation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.6/@groups.0"/>
                         <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
                       </subModelOperations>
                     </subModelOperations>

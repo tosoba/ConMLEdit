@@ -16,10 +16,10 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.TypeSelectionModelDialog;
+import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.ModelServices;
-import org.eclipse.sirius.conml.design.util.ConMLPredicates;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.conml.gen.Gen;
 import org.eclipse.sirius.diagram.DDiagram;
 
@@ -110,17 +110,15 @@ public final class TypeModelServices {
   }
 
   public TypeModel showTypeModelSelectionDialog(
-      final EObject selectedContainer,
-      final DDiagram diagram) {
+      final EObject selectedContainer, final DDiagram diagram) {
     final List<Object> result =
         ExistingElementsServices.getInstance()
             .openSelectExistingElementsDialog(
                 selectedContainer,
                 diagram,
-                new TypeSelectionModelDialog(
-                    "Choose a TypeModel",
-                    "Select a TypeModel",
-                    ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                new TypeModelSelectionDialog(
+                    Messages.getString("Dialog.SelectTypeModel"),
+                    Messages.getString("Dialog.SelectTypeModelContainerForClass"),
                     (Domain) selectedContainer));
     if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
     else return null;

@@ -12,7 +12,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.trigger.AutosizeTrigger;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -51,9 +51,19 @@ public final class ExistingElementsServices {
   public List<Object> openSelectExistingElementsDialog(
       final EObject selectedContainer,
       final DDiagram diagram,
-      final ExistingEObjectsSelectionDialog dialog) {
+      final ExistingSemanticElementsSelectionDialog dialog) {
+    return openSelectExistingElementsDialog(selectedContainer, diagram, dialog, true);
+  }
+
+  public List<Object> openSelectExistingElementsDialog(
+      final EObject selectedContainer,
+      final DDiagram diagram,
+      final ExistingSemanticElementsSelectionDialog dialog,
+      final boolean grayOutDisplayedNodes) {
     dialog.setGrayedPredicate(
-        ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram));
+        grayOutDisplayedNodes
+            ? ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram)
+            : null);
     return dialog.open(
         PlatformUI.getWorkbench().getDisplay().getActiveShell(), selectedContainer, diagram, true);
   }
@@ -62,7 +72,7 @@ public final class ExistingElementsServices {
       final EObject selectedContainer,
       final EObject selectedContainerView,
       final DDiagram diagram,
-      final ExistingEObjectsSelectionDialog dialog,
+      final ExistingSemanticElementsSelectionDialog dialog,
       final Class<?>... classes) {
     final List<Object> elementsToAdd =
         openSelectExistingElementsDialog(selectedContainer, diagram, dialog);

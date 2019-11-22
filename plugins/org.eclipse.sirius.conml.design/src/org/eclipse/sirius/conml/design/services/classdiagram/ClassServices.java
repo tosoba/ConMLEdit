@@ -6,7 +6,8 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.ClassSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;
@@ -30,7 +31,7 @@ public final class ClassServices {
             selectedContainer,
             selectedContainerView,
             diagram,
-            new ExistingEObjectsSelectionDialog(
+            new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingClasses"),
                 Messages.getString("Dialog.SelectClasses"),
                 ConMLPredicates.isInstanceOfClass(Class.class),
@@ -88,5 +89,19 @@ public final class ClassServices {
     }
 
     EcoreUtil.delete(clazz);
+  }
+
+  public Class showClassSelectionDialog(final EObject selectedContainer, final DDiagram diagram) {
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ClassSelectionDialog(
+                    Messages.getString("Dialog.SelectClass"),
+                    Messages.getString("Dialog.SelectInstancedClass")),
+                false);
+    if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);
+    else return null;
   }
 }

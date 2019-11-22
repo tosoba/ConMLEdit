@@ -70,7 +70,7 @@ import conml.ModelPart;
 import conml.util.conmlAdapterFactory;
 
 @SuppressWarnings("restriction")
-public class ExistingEObjectsSelectionDialog {
+public class ExistingSemanticElementsSelectionDialog {
 
   private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
@@ -519,7 +519,7 @@ public class ExistingEObjectsSelectionDialog {
     return isValidEObjectPredicate;
   }
 
-  public ExistingEObjectsSelectionDialog(
+  public ExistingSemanticElementsSelectionDialog(
       String title,
       String message,
       Predicate<Object> isValidEObjectPredicate,
@@ -531,7 +531,7 @@ public class ExistingEObjectsSelectionDialog {
     this.initExtraButtons = initExtraButtons;
   }
 
-  public ExistingEObjectsSelectionDialog(
+  public ExistingSemanticElementsSelectionDialog(
       String title,
       String message,
       Predicate<Object> isValidEObjectPredicate,
