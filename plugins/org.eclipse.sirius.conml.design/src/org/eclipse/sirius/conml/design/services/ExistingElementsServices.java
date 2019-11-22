@@ -1,6 +1,7 @@
 package org.eclipse.sirius.conml.design.services;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -13,7 +14,6 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.ModelElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.trigger.AutosizeTrigger;
-import org.eclipse.sirius.conml.design.util.ExistingElementsValidationPredicates;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
@@ -37,20 +37,29 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Lists;
 
-import conml.Model;
-import conml.ModelElement;
-
 @SuppressWarnings("restriction")
 public final class ExistingElementsServices {
-	
+
+  private static final class InstanceHolder {
+    static final ExistingElementsServices INSTANCE = new ExistingElementsServices();
+  }
+
+  public static ExistingElementsServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public void openSelectExistingElementsDialog(
       final EObject selectedContainer,
       final EObject selectedContainerView,
-      final DDiagram diagram) {
+      final DDiagram diagram,
+      final Predicate<Object> isValidEObjectPredicate,
+      final String title,
+      final String message,
+      final Class<?>... classes) {
     final ModelElementsSelectionDialog dialog =
-        new ModelElementsSelectionDialog(
-            "Add existing elements", "Select elements to add in current representation.");
-    dialog.setGrayedPredicate(getNonSelectablePredicate(diagram));
+        new ModelElementsSelectionDialog(title, message, isValidEObjectPredicate);
+    dialog.setGrayedPredicate(
+        ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram));
 
     final List<Object> elementsToAdd =
         dialog.open(
@@ -58,22 +67,29 @@ public final class ExistingElementsServices {
             selectedContainer,
             diagram,
             true);
-    if (elementsToAdd.size() > 0)
-      addExistingElements(
-          selectedContainerView,
-          elementsToAdd
-              .stream()
-              .filter(obj -> obj instanceof ModelElement || obj instanceof Model)
-              .map(EObject.class::cast)
-              .collect(Collectors.toList()));
+    if (elementsToAdd.size() > 0) {
+      ExistingElementsServices.getInstance()
+          .addExistingElements(
+              selectedContainerView,
+              elementsToAdd
+                  .stream()
+                  .filter(
+                      obj ->
+                          Arrays.asList(classes).stream().anyMatch(clazz -> clazz.isInstance(obj)))
+                  .map(EObject.class::cast)
+                  .collect(Collectors.toList()),
+              isValidEObjectPredicate);
+    }
   }
 
-  private Predicate<EObject> getNonSelectablePredicate(final DDiagram diagram) {
+  public Predicate<EObject> getNonSelectablePredicate(final DDiagram diagram) {
     return Predicates.in(UIServices.getInstance().getDisplayedNodes(diagram));
   }
 
-  private void addExistingElements(
-      final EObject containerView, final List<EObject> semanticElements) {
+  public void addExistingElements(
+      final EObject containerView,
+      final List<EObject> semanticElements,
+      final Predicate<Object> isValidEObjectPredicate) {
     if (!(containerView instanceof DSemanticDecorator)
         || semanticElements == null
         || semanticElements.isEmpty()) return;
@@ -89,7 +105,11 @@ public final class ExistingElementsServices {
       else containerViewExpression = "aql:self.getContainerView(elementView)";
 
       showView(
-          semanticElement, (DSemanticDecorator) containerView, session, containerViewExpression);
+          semanticElement,
+          (DSemanticDecorator) containerView,
+          session,
+          containerViewExpression,
+          isValidEObjectPredicate);
       lastShownElements.add((EObject) semanticElement);
     }
   }
@@ -152,7 +172,8 @@ public final class ExistingElementsServices {
       final EObject semanticElement,
       final DSemanticDecorator containerView,
       final Session session,
-      String containerViewExpression) {
+      final String containerViewExpression,
+      final Predicate<Object> isValidEObjectPredicate) {
     final List<DDiagramElement> hiddenDiagramElements =
         getHiddenExistingDiagramElements(semanticElement, containerView);
     if (!hiddenDiagramElements.isEmpty()) {
@@ -160,7 +181,12 @@ public final class ExistingElementsServices {
         HideFilterHelper.INSTANCE.reveal(existingDiagramElement);
       }
     } else {
-      createView(semanticElement, containerView, session, containerViewExpression);
+      createView(
+          semanticElement,
+          containerView,
+          session,
+          containerViewExpression,
+          isValidEObjectPredicate);
     }
   }
 
@@ -168,9 +194,10 @@ public final class ExistingElementsServices {
       final EObject semanticElement,
       final DSemanticDecorator containerView,
       final Session session,
-      final String containerViewExpression) {
+      final String containerViewExpression,
+      final Predicate<Object> isValidEObjectPredicate) {
     final List<DiagramElementMapping> semanticElementMappings =
-        getMappings(semanticElement, containerView, session);
+        getMappings(semanticElement, containerView, session, isValidEObjectPredicate);
     final CreateView createViewOp = ToolFactory.eINSTANCE.createCreateView();
 
     for (final DiagramElementMapping semanticElementMapping : semanticElementMappings) {
@@ -220,13 +247,17 @@ public final class ExistingElementsServices {
   }
 
   private List<DiagramElementMapping> getMappings(
-      final EObject semanticElement, final DSemanticDecorator containerView, Session session) {
+      final EObject semanticElement,
+      final DSemanticDecorator containerView,
+      final Session session,
+      final Predicate<Object> isValidEObjectPredicate) {
     final ModelAccessor modelAccessor = session.getModelAccessor();
     final List<DiagramElementMapping> mappings = new ArrayList<DiagramElementMapping>();
 
     if (containerView instanceof DSemanticDiagram) {
       mappings.addAll(
-          getValidMappingsForDiagram(semanticElement, (DSemanticDiagram) containerView, session));
+          getValidMappingsForDiagram(
+              semanticElement, (DSemanticDiagram) containerView, session, isValidEObjectPredicate));
     } else if (containerView instanceof DNodeContainerSpec) {
       for (final DiagramElementMapping mapping :
           ((DNodeContainerSpec) containerView).getActualMapping().getAllContainerMappings()) {
@@ -249,12 +280,12 @@ public final class ExistingElementsServices {
   }
 
   private List<DiagramElementMapping> getValidMappingsForDiagram(
-      final EObject semanticElement, final DSemanticDiagram diagram, Session session) {
+      final EObject semanticElement,
+      final DSemanticDiagram diagram,
+      final Session session,
+      final Predicate<Object> isValidEObjectPredicate) {
     final List<DiagramElementMapping> mappings = new ArrayList<DiagramElementMapping>();
-    if (!ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, null)
-        .test(semanticElement)) {
-      return mappings;
-    }
+    if (!isValidEObjectPredicate.test(semanticElement)) return mappings;
 
     final ModelAccessor modelAccessor = session.getModelAccessor();
     for (final DiagramElementMapping mapping : diagram.getDescription().getAllContainerMappings()) {

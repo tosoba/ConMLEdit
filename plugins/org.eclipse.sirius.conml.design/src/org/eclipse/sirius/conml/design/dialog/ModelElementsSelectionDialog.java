@@ -24,7 +24,6 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.provider.ModelFilteredTreeContentProvider;
 import org.eclipse.sirius.conml.design.services.DomainServices;
 import org.eclipse.sirius.conml.design.services.UIServices;
-import org.eclipse.sirius.conml.design.util.ExistingElementsValidationPredicates;
 import org.eclipse.sirius.conml.design.util.ModelElementsSelectionDialogPatternMatcher;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.ui.provider.DiagramUIPlugin;
@@ -466,10 +465,6 @@ public class ModelElementsSelectionDialog {
 
   private FilteringMode mode = FilteringMode.SHOW_ONLY_DIRECT_CHILDREN;
 
-  private final String title;
-
-  private final String message;
-
   private Predicate<Object> isGrayed = Predicates.alwaysFalse();
 
   private Function<Object, Void> selectedAction = DO_NOTHING;
@@ -478,9 +473,15 @@ public class ModelElementsSelectionDialog {
 
   private DDiagram diagram;
 
-  public ModelElementsSelectionDialog(String title, String message) {
+  private final String title;
+  private final String message;
+  private final Predicate<Object> isValidEObjectPredicate;
+
+  public ModelElementsSelectionDialog(
+      String title, String message, Predicate<Object> isValidEObjectPredicate) {
     this.title = title;
     this.message = message;
+    this.isValidEObjectPredicate = isValidEObjectPredicate;
   }
 
   public void applyRequestedChanges(Set<Object> selectedBefore, Set<Object> selectedAfter) {
@@ -510,10 +511,7 @@ public class ModelElementsSelectionDialog {
 
   private Predicate<Object> getDisplayablePredicate() {
     return input ->
-        input instanceof EObject
-            && isOrHasDescendant(
-                (EObject) input,
-                ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
+        input instanceof EObject && isOrHasDescendant((EObject) input, isValidEObjectPredicate);
   }
 
   private Set<Object> getElementsSelectedAfter() {
@@ -591,7 +589,7 @@ public class ModelElementsSelectionDialog {
         Predicates.and(
             (Predicate<? super Object>)
                 (isGrayedPredicate != null ? isGrayedPredicate : Predicates.alwaysFalse()),
-            ExistingElementsValidationPredicates.isValidForDiagramPredicate(diagram, eObject));
+            isValidEObjectPredicate);
   }
 
   public void setSelectedAction(Function<Object, Void> selectedAction) {

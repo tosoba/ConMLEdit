@@ -7,9 +7,12 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.EObjectPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.instances.InstanceModel;
 import conml.instances.Link;
@@ -26,6 +29,21 @@ public class ObjectServices {
 
   public static ObjectServices getInstance() {
     return InstanceHolder.INSTANCE;
+  }
+
+  public void openSelectExistingObjectsDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialog(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            EObjectPredicates.isObjectPredicate(),
+            Messages.getString("Dialog.AddExistingObjects"),
+            Messages.getString("Dialog.SelectObjects"),
+            Object.class);
   }
 
   public String objectLabel(final Object object) {

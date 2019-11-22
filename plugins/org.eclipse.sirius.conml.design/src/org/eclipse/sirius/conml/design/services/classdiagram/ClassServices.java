@@ -7,8 +7,12 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
+import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.EObjectPredicates;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.swt.widgets.Display;
 
 import conml.Domain;
@@ -18,6 +22,21 @@ import conml.types.SemiAssociation;
 import conml.types.TypeModel;
 
 public final class ClassServices {
+
+  public void openSelectExistingClassesDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialog(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            EObjectPredicates.isClassPredicate(),
+            Messages.getString("Dialog.AddExistingClasses"),
+            Messages.getString("Dialog.SelectClasses"),
+            Class.class);
+  }
 
   public void moveClassUp(final EObject object) {
     ConML.castAndRun(

@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services.reused;
+package org.eclipse.sirius.conml.design.services;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,10 +14,9 @@ import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 import conml.Domain;
 import conml.ModelElement;
 
-public class ReusedViewpointServices {
+public final class ContainerServices {
 
   public boolean isValidContainerMapping(final EObject containerView) {
-    // TODO: maybe remove this if altogether...
     if (containerView instanceof DDiagramElementContainer) {
       return !ContainerLayout.LIST.equals(
           ((DDiagramElementContainer) containerView).getActualMapping().getChildrenPresentation());
@@ -58,7 +57,6 @@ public class ReusedViewpointServices {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  // TODO: this will likely not work after conversion to Domain
   private DSemanticDecorator getHierarchicalContainerView(
       final EObject semanticElement, final DSemanticDecorator elementView) {
     final Set<DDiagramElementContainer> containerViews = new HashSet<DDiagramElementContainer>();
