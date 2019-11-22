@@ -15,8 +15,12 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.dialog.TypeModelDialog;
+import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.ModelServices;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.gen.Gen;
+import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.types.Association;
 import conml.types.Class;
@@ -101,5 +105,21 @@ public final class TypeModelServices {
         .map(Package.class::cast)
         .findAny()
         .orElse(null);
+  }
+
+  public void showTypeModelSelectionDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialog(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new TypeModelDialog(
+                "Choose a TypeModel",
+                "Select a TypeModel",
+                ConMLPredicates.isInstanceOfClass(TypeModel.class)),
+            TypeModel.class);
   }
 }

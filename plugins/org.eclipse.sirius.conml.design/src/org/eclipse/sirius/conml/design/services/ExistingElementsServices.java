@@ -12,7 +12,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.ModelElementsSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
 import org.eclipse.sirius.conml.design.trigger.AutosizeTrigger;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.sirius.diagram.DDiagramElement;
@@ -52,15 +52,10 @@ public final class ExistingElementsServices {
       final EObject selectedContainer,
       final EObject selectedContainerView,
       final DDiagram diagram,
-      final Predicate<Object> isValidEObjectPredicate,
-      final String title,
-      final String message,
+      final ExistingEObjectsSelectionDialog dialog,
       final Class<?>... classes) {
-    final ModelElementsSelectionDialog dialog =
-        new ModelElementsSelectionDialog(title, message, isValidEObjectPredicate);
     dialog.setGrayedPredicate(
         ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram));
-
     final List<Object> elementsToAdd =
         dialog.open(
             PlatformUI.getWorkbench().getDisplay().getActiveShell(),
@@ -78,7 +73,7 @@ public final class ExistingElementsServices {
                           Arrays.asList(classes).stream().anyMatch(clazz -> clazz.isInstance(obj)))
                   .map(EObject.class::cast)
                   .collect(Collectors.toList()),
-              isValidEObjectPredicate);
+              dialog.getIsValidEObjectPredicate());
     }
   }
 

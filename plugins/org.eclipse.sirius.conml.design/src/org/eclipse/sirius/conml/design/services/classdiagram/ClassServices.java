@@ -6,11 +6,12 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.dialog.ExistingEObjectsSelectionDialog;
 import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.objectdiagram.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;
-import org.eclipse.sirius.conml.design.util.EObjectPredicates;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.swt.widgets.Display;
@@ -32,9 +33,10 @@ public final class ClassServices {
             selectedContainer,
             selectedContainerView,
             diagram,
-            EObjectPredicates.isClassPredicate(),
-            Messages.getString("Dialog.AddExistingClasses"),
-            Messages.getString("Dialog.SelectClasses"),
+            new ExistingEObjectsSelectionDialog(
+                Messages.getString("Dialog.AddExistingClasses"),
+                Messages.getString("Dialog.SelectClasses"),
+                ConMLPredicates.isInstanceOfClass(Class.class)),
             Class.class);
   }
 

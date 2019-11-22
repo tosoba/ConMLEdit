@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -68,7 +69,7 @@ import conml.ModelPart;
 import conml.util.conmlAdapterFactory;
 
 @SuppressWarnings("restriction")
-public class ModelElementsSelectionDialog {
+public class ExistingEObjectsSelectionDialog {
 
   private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
@@ -80,9 +81,15 @@ public class ModelElementsSelectionDialog {
     private ModelElementsSelectionDialogPatternMatcher patternMatcher;
     private final Set<Object> checkedElements = Sets.newHashSet();
 
+    private final boolean isMultiSelect;
+
     private CustomTreeSelectionDialog(
-        Shell parent, ILabelProvider labelProvider, ITreeContentProvider contentProvider) {
+        Shell parent,
+        ILabelProvider labelProvider,
+        ITreeContentProvider contentProvider,
+        boolean isMultiSelect) {
       super(parent, labelProvider, contentProvider);
+      this.isMultiSelect = isMultiSelect;
       patternMatcher = new ModelElementsSelectionDialogPatternMatcher("");
     }
 
@@ -108,30 +115,55 @@ public class ModelElementsSelectionDialog {
     @Override
     protected Control createContents(Composite parent) {
       final Control result = super.createContents(parent);
-      getTreeViewer()
-          .setCheckStateProvider(
-              new ICheckStateProvider() {
-                public boolean isChecked(Object element) {
-                  return checkedElements.contains(element);
-                }
 
-                public boolean isGrayed(Object element) {
-                  return isGrayed.apply(element);
-                }
-              });
-      getTreeViewer()
-          .addCheckStateListener(
-              new ICheckStateListener() {
-                public void checkStateChanged(CheckStateChangedEvent event) {
-                  if (!isGrayed.apply(event.getElement())) {
-                    if (event.getChecked()) {
-                      checkedElements.add(event.getElement());
-                    } else {
-                      checkedElements.remove(event.getElement());
+      if (isMultiSelect) {
+        getTreeViewer()
+            .setCheckStateProvider(
+                new ICheckStateProvider() {
+                  public boolean isChecked(Object element) {
+                    return checkedElements.contains(element);
+                  }
+
+                  public boolean isGrayed(Object element) {
+                    return isGrayed.apply(element);
+                  }
+                });
+        getTreeViewer()
+            .addCheckStateListener(
+                new ICheckStateListener() {
+                  public void checkStateChanged(CheckStateChangedEvent event) {
+                    if (!isGrayed.apply(event.getElement())) {
+                      if (event.getChecked()) {
+                        checkedElements.add(event.getElement());
+                      } else {
+                        checkedElements.remove(event.getElement());
+                      }
                     }
                   }
-                }
-              });
+                });
+      } else {
+        getTreeViewer()
+            .setCheckStateProvider(
+                new ICheckStateProvider() {
+                  public boolean isChecked(Object element) {
+                    Object[] checkedElements = getTreeViewer().getCheckedElements();
+                    if (checkedElements.length == 0) return false;
+                    else return Objects.equals(checkedElements[0], element);
+                  }
+
+                  public boolean isGrayed(Object element) {
+                    return isGrayed.apply(element);
+                  }
+                });
+        getTreeViewer()
+            .addCheckStateListener(
+                new ICheckStateListener() {
+                  public void checkStateChanged(CheckStateChangedEvent event) {
+                    if (!isGrayed.apply(event.getElement()))
+                      getTreeViewer().setCheckedElements(new Object[] {event.getElement()});
+                  }
+                });
+      }
       getTreeViewer().expandToLevel(2);
       return result;
     }
@@ -139,9 +171,7 @@ public class ModelElementsSelectionDialog {
     @Override
     protected Label createMessageArea(Composite composite) {
       final Label createMessageArea = super.createMessageArea(composite);
-
       createSelectionButtonsAfterMessageArea(composite);
-
       createRegexpTypeZone(composite);
       return createMessageArea;
     }
@@ -473,15 +503,32 @@ public class ModelElementsSelectionDialog {
 
   private DDiagram diagram;
 
+  private final boolean isMultiSelect;
   private final String title;
   private final String message;
   private final Predicate<Object> isValidEObjectPredicate;
 
-  public ModelElementsSelectionDialog(
+  public Predicate<Object> getIsValidEObjectPredicate() {
+    return isValidEObjectPredicate;
+  }
+
+  public ExistingEObjectsSelectionDialog(
       String title, String message, Predicate<Object> isValidEObjectPredicate) {
     this.title = title;
     this.message = message;
     this.isValidEObjectPredicate = isValidEObjectPredicate;
+    this.isMultiSelect = true;
+  }
+
+  public ExistingEObjectsSelectionDialog(
+      String title,
+      String message,
+      Predicate<Object> isValidEObjectPredicate,
+      boolean isMultiSelect) {
+    this.title = title;
+    this.message = message;
+    this.isValidEObjectPredicate = isValidEObjectPredicate;
+    this.isMultiSelect = isMultiSelect;
   }
 
   public void applyRequestedChanges(Set<Object> selectedBefore, Set<Object> selectedAfter) {
@@ -598,7 +645,8 @@ public class ModelElementsSelectionDialog {
 
   private void setupDialog(Shell parent, Set<Object> initialSelection) {
     dialog =
-        new CustomTreeSelectionDialog(parent, new SelectionDialogLabelProvider(), contentProvider);
+        new CustomTreeSelectionDialog(
+            parent, new SelectionDialogLabelProvider(), contentProvider, isMultiSelect);
     dialog.setTitle(title);
 
     String msg = message;
