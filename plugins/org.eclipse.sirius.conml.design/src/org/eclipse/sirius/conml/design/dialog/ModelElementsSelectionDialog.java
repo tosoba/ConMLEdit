@@ -22,7 +22,7 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.provider.ModelFilteredTreeContentProvider;
-import org.eclipse.sirius.conml.design.services.ModelServices;
+import org.eclipse.sirius.conml.design.services.DomainServices;
 import org.eclipse.sirius.conml.design.services.UIServices;
 import org.eclipse.sirius.conml.design.util.ExistingElementsValidationPredicates;
 import org.eclipse.sirius.conml.design.util.ModelElementsSelectionDialogPatternMatcher;
@@ -59,16 +59,13 @@ import com.google.common.base.Function;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Iterables;
-import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 
+import conml.Domain;
 import conml.Model;
 import conml.ModelElement;
-import conml.instances.InstanceModel;
-import conml.instances.InstanceModelElement;
-import conml.types.TypeModel;
-import conml.types.TypeModelElement;
+import conml.ModelPart;
 import conml.util.conmlAdapterFactory;
 
 @SuppressWarnings("restriction")
@@ -288,10 +285,6 @@ public class ModelElementsSelectionDialog {
       getTreeViewer().expandAll();
     }
 
-    public Set<Object> getCheckedElements() {
-      return checkedElements;
-    }
-
     public Predicate<Object> getRegexpMatchPredicate() {
       return patternMatcher.getMatchPredicate();
     }
@@ -300,14 +293,15 @@ public class ModelElementsSelectionDialog {
       return isOrHasDescendant(element, getRegexpMatchPredicate());
     }
 
-    @SuppressWarnings("unchecked")
     public boolean isMatchingExpregOrHasMatchingExpregDescendantsSubMode(Object element) {
       if (element instanceof EObject) {
-        @SuppressWarnings("rawtypes")
-        final List subElements = Lists.newArrayList();
-        Iterators.addAll(
-            subElements,
-            Iterators.filter(eObject.eAllContents(), Predicates.instanceOf(ModelElement.class)));
+        final List<EObject> subElements = Lists.newArrayList();
+        eObject
+            .eAllContents()
+            .forEachRemaining(
+                eObj -> {
+                  if (eObj instanceof ModelElement || eObj instanceof Model) subElements.add(eObj);
+                });
         final Predicate<Object> isSubElementPredicate = Predicates.in(subElements);
         final Predicate<Object> isMatchinExpregPredicate = getRegexpMatchPredicate();
         return isOrHasDescendant(
@@ -550,15 +544,13 @@ public class ModelElementsSelectionDialog {
   private boolean isOrHasDescendant(EObject element, final Predicate<Object> predicate) {
     if (predicate.apply(element)) return true;
 
-    if (element instanceof TypeModel) {
-      final TypeModel model = (TypeModel) element;
-      for (final TypeModelElement ownedElement : model.getElements()) {
-        if (predicate.apply(ownedElement)) return true;
+    if (element instanceof Domain) {
+      final Domain domain = (Domain) element;
+      for (final ModelPart part : domain.getParts()) {
+        if (predicate.apply(part)) return true;
       }
-    } else if (element instanceof InstanceModel) {
-      final InstanceModel model = (InstanceModel) element;
-      for (final InstanceModelElement ownedElement : model.getElements()) {
-        if (predicate.apply(ownedElement)) return true;
+      for (final Model model : domain.getModels()) {
+        if (predicate.apply(model)) return true;
       }
     }
 
@@ -630,8 +622,8 @@ public class ModelElementsSelectionDialog {
       msg = sb.toString();
     }
     dialog.setMessage(msg);
-    final Collection<Model> roots =
-        ModelServices.getInstance().getAllDiagramRootsInSession(eObject);
+    final Collection<Domain> roots =
+        DomainServices.getInstance().getAllDiagramRootsInSession(eObject);
 
     dialog.setInput(roots);
     dialog.addFilter(new ModeFilter());

@@ -11,9 +11,8 @@ import org.eclipse.sirius.diagram.DDiagramElementContainer;
 import org.eclipse.sirius.diagram.DSemanticDiagram;
 import org.eclipse.sirius.viewpoint.DSemanticDecorator;
 
+import conml.Domain;
 import conml.ModelElement;
-import conml.instances.InstanceModel;
-import conml.types.TypeModel;
 
 public class ReusedViewpointServices {
 
@@ -30,38 +29,38 @@ public class ReusedViewpointServices {
   }
 
   public DSemanticDecorator getContainerView(
-      final ModelElement semanticElement, final DDiagramElement elementView) {
+      final EObject semanticElement, final DDiagramElement elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
   public DSemanticDecorator getContainerView(
-      final ModelElement semanticElement, final DDiagramElementContainer elementView) {
+      final EObject semanticElement, final DDiagramElementContainer elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
   private DSemanticDecorator getContainerView(
-      final ModelElement semanticElement, final DSemanticDecorator elementView) {
+      final EObject semanticElement, final DSemanticDecorator elementView) {
     return elementView;
   }
 
   public DSemanticDecorator getContainerView(
-      final ModelElement semanticElement, final DSemanticDiagram elementView) {
+      final EObject semanticElement, final DSemanticDiagram elementView) {
     return getContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
   public DSemanticDecorator getHierarchicalContainerView(
-      final ModelElement semanticElement, final DDiagramElement elementView) {
+      final EObject semanticElement, final DDiagramElement elementView) {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
   public DSemanticDecorator getHierarchicalContainerView(
-      final ModelElement semanticElement, final DDiagramElementContainer elementView) {
+      final EObject semanticElement, final DDiagramElementContainer elementView) {
     return getHierarchicalContainerView(semanticElement, (DSemanticDecorator) elementView);
   }
 
-  //TODO: this will likely not work after conversion to Domain
+  // TODO: this will likely not work after conversion to Domain
   private DSemanticDecorator getHierarchicalContainerView(
-      final ModelElement semanticElement, final DSemanticDecorator elementView) {
+      final EObject semanticElement, final DSemanticDecorator elementView) {
     final Set<DDiagramElementContainer> containerViews = new HashSet<DDiagramElementContainer>();
 
     if (elementView instanceof DDiagramElement) {
@@ -73,16 +72,13 @@ public class ReusedViewpointServices {
       containerViews.addAll(((DSemanticDiagram) elementView).getContainers());
     }
     for (final DDiagramElementContainer containerView : containerViews) {
-      if (containerView instanceof TypeModel) {
-        final TypeModel model = (TypeModel) containerView;
-        if (model.getElements().contains(semanticElement)
-            && !ContainerLayout.LIST.equals(
-                containerView.getActualMapping().getChildrenPresentation())) return containerView;
-      } else if (containerView instanceof InstanceModel) {
-        final InstanceModel model = (InstanceModel) containerView;
-        if (model.getElements().contains(semanticElement)
-            && !ContainerLayout.LIST.equals(
-                containerView.getActualMapping().getChildrenPresentation())) return containerView;
+      if (containerView instanceof Domain) {
+        final Domain model = (Domain) containerView;
+        if (model.getParts().contains(semanticElement)
+            || model.getModels().contains(semanticElement)
+                && !ContainerLayout.LIST.equals(
+                    containerView.getActualMapping().getChildrenPresentation()))
+          return containerView;
       }
     }
     return elementView;

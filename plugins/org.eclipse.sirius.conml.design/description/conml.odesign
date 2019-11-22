@@ -672,7 +672,7 @@
           </style>
         </containerMappings>
         <toolSections name="CD_Section_MetaInformation" label="MetaInformation">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="TypeModel DocumentingObject" label="Documenting Object" precondition="aql:container.oclIsTypeOf(types::TypeModel)" candidatesExpression="aql:container.getAllInstanceModelsInSession()" message="Select a container for new Documenting Object" windowTitle="New Documenting Object">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="TypeModel DocumentingObject" label="Documenting Object" candidatesExpression="aql:container.getOwnedInstanceModels()" message="Select an InstanceModel for new Documenting Object" windowTitle="New Documenting Object">
             <element name="instanceModel"/>
             <containerView name="containerView"/>
             <container name="typeModel"/>

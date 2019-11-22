@@ -37,10 +37,12 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import com.google.common.collect.Lists;
 
+import conml.Model;
 import conml.ModelElement;
 
 @SuppressWarnings("restriction")
 public final class ExistingElementsServices {
+	
   public void openSelectExistingElementsDialog(
       final EObject selectedContainer,
       final EObject selectedContainerView,
@@ -61,8 +63,8 @@ public final class ExistingElementsServices {
           selectedContainerView,
           elementsToAdd
               .stream()
-              .filter(obj -> obj instanceof ModelElement)
-              .map(ModelElement.class::cast)
+              .filter(obj -> obj instanceof ModelElement || obj instanceof Model)
+              .map(EObject.class::cast)
               .collect(Collectors.toList()));
   }
 
@@ -71,13 +73,13 @@ public final class ExistingElementsServices {
   }
 
   private void addExistingElements(
-      final EObject containerView, final List<ModelElement> semanticElements) {
+      final EObject containerView, final List<EObject> semanticElements) {
     if (!(containerView instanceof DSemanticDecorator)
         || semanticElements == null
         || semanticElements.isEmpty()) return;
 
     final Session session = SessionManager.INSTANCE.getSession(semanticElements.get(0));
-    final Set<ModelElement> lastShownElements = new HashSet<>();
+    final Set<EObject> lastShownElements = new HashSet<>();
     for (final EObject semanticElement : orderParentFirst(semanticElements)) {
       markForAutosize(semanticElement);
 
@@ -88,7 +90,7 @@ public final class ExistingElementsServices {
 
       showView(
           semanticElement, (DSemanticDecorator) containerView, session, containerViewExpression);
-      lastShownElements.add((ModelElement) semanticElement);
+      lastShownElements.add((EObject) semanticElement);
     }
   }
 
@@ -98,15 +100,15 @@ public final class ExistingElementsServices {
     PARENT
   }
 
-  private List<ModelElement> orderParentFirst(final List<ModelElement> listToSort) {
-    final ArrayList<ModelElement> sortedList = new ArrayList<>();
+  private List<EObject> orderParentFirst(final List<EObject> listToSort) {
+    final ArrayList<EObject> sortedList = new ArrayList<>();
     if (listToSort.isEmpty()) return listToSort;
     if (sortedList.isEmpty()) sortedList.add(listToSort.get(0));
 
-    for (final ModelElement elementToSort : listToSort) {
+    for (final EObject elementToSort : listToSort) {
       int index = 0;
       Relation relation = Relation.NONE;
-      for (final ModelElement currentElement : sortedList) {
+      for (final EObject currentElement : sortedList) {
         if (isChild(elementToSort, currentElement)) {
           index = sortedList.indexOf(currentElement);
           relation = Relation.CHILD;
@@ -135,7 +137,7 @@ public final class ExistingElementsServices {
     return sortedList;
   }
 
-  private boolean isChild(EObject child, ModelElement parent) {
+  private boolean isChild(EObject child, EObject parent) {
     if (child.eContainer() == null) return false;
     if (child.eContainer() == parent) return true;
     return isChild(child.eContainer(), parent);

@@ -5,15 +5,9 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.sirius.business.api.session.Session;
-import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import com.google.common.collect.Lists;
-
 import conml.Model;
-import conml.instances.InstanceModel;
 import conml.types.TypeModel;
 import conml.types.TypeModelElement;
 
@@ -44,24 +38,5 @@ public final class ModelServices {
         .filter(model -> model.getElements().contains(element))
         .findAny()
         .get();
-  }
-
-  // TODO: this won't work since Domain is now the only type of root element
-  public Collection<InstanceModel> getAllInstanceModelsInSession(final EObject object) {
-    return ConML.getAllElementsOfTypeFromSession(object, InstanceModel.class);
-  }
-
-  // TODO: this won't work since Domain is now the only type of root element
-  public Collection<Model> getAllDiagramRootsInSession(final EObject object) {
-    final Session session = SessionManager.INSTANCE.getSession(object);
-    final Collection<Model> roots = Lists.newArrayList();
-    if (session != null) {
-      for (final Resource childRes : session.getSemanticResources()) {
-        for (final EObject root : childRes.getContents()) {
-          if (root instanceof Model) roots.add((Model) root);
-        }
-      }
-    }
-    return roots;
   }
 }
