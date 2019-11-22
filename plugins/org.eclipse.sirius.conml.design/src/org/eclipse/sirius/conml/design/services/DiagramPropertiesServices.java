@@ -22,7 +22,7 @@ import org.eclipse.sirius.conml.design.services.classdiagram.PackageServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.SemiAssociationServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices;
 
-import conml.Model;
+import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Value;
 import conml.instances.ValueSet;
@@ -32,6 +32,7 @@ import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.Property;
 import conml.types.SemiAssociation;
+import conml.types.TypeModel;
 
 public final class DiagramPropertiesServices {
 
@@ -176,6 +177,7 @@ public final class DiagramPropertiesServices {
 
   private static void setupIgnoredCreationDialogReferences() {
     // Types
+    ignoredCreationDialogReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredCreationDialogReferences.put(
         conml.types.Class.class,
         new HashSet<>(
@@ -203,15 +205,16 @@ public final class DiagramPropertiesServices {
         new HashSet<>(Arrays.asList("GeneralizedClass", "SpecializedClasses")));
 
     // Instances
+    ignoredCreationDialogReferences.put(
+        InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredCreationDialogReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
   }
 
   private static void setupIgnoredPropertiesReferences() {
-    ignoredPropertyReferences.put(Model.class, new HashSet<>(Arrays.asList("Elements")));
-
     // Types
+    ignoredPropertyReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredPropertyReferences.put(
         conml.types.Class.class,
         new HashSet<>(
@@ -237,6 +240,7 @@ public final class DiagramPropertiesServices {
         Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass")));
 
     // Instances
+    ignoredPropertyReferences.put(InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredPropertyReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredPropertyReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
