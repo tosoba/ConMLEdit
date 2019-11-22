@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
+import java.util.function.Consumer;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.ecore.EObject;
@@ -73,6 +74,12 @@ public class ExistingEObjectsSelectionDialog {
 
   private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
+    @Override
+    protected void createButtonsForButtonBar(Composite parent) {
+      super.createButtonsForButtonBar(parent);
+      if (initExtraButtons != null) initExtraButtons.accept(parent);
+    }
+
     private static final String REGEXP_TOOL_TIP =
         "Expression that will be used to filter elements by name (for example 'abc', 'a?c', '*c'...)";
     private static final String REGEXP_TITLE = "Filter elements by name";
@@ -81,15 +88,9 @@ public class ExistingEObjectsSelectionDialog {
     private ModelElementsSelectionDialogPatternMatcher patternMatcher;
     private final Set<Object> checkedElements = Sets.newHashSet();
 
-    private final boolean isMultiSelect;
-
     private CustomTreeSelectionDialog(
-        Shell parent,
-        ILabelProvider labelProvider,
-        ITreeContentProvider contentProvider,
-        boolean isMultiSelect) {
+        Shell parent, ILabelProvider labelProvider, ITreeContentProvider contentProvider) {
       super(parent, labelProvider, contentProvider);
-      this.isMultiSelect = isMultiSelect;
       patternMatcher = new ModelElementsSelectionDialogPatternMatcher("");
     }
 
@@ -259,18 +260,20 @@ public class ExistingEObjectsSelectionDialog {
 
       data = new GridData(GridData.HORIZONTAL_ALIGN_FILL | GridData.GRAB_HORIZONTAL);
       data.grabExcessHorizontalSpace = true;
-      addButton(
-              buttonComposite,
-              "Check All",
-              DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.CHECK_ALL_ICON),
-              new SelectionAdapter() {
-                @Override
-                public void widgetSelected(SelectionEvent e) {
-                  checkAll();
-                }
-              })
-          .setLayoutData(data);
 
+      if (isMultiSelect) {
+        addButton(
+                buttonComposite,
+                "Check All",
+                DiagramUIPlugin.getPlugin().getBundledImage(DiagramImagesPath.CHECK_ALL_ICON),
+                new SelectionAdapter() {
+                  @Override
+                  public void widgetSelected(SelectionEvent e) {
+                    checkAll();
+                  }
+                })
+            .setLayoutData(data);
+      }
       addButton(
               buttonComposite,
               "Uncheck All",
@@ -507,28 +510,35 @@ public class ExistingEObjectsSelectionDialog {
   private final String title;
   private final String message;
   private final Predicate<Object> isValidEObjectPredicate;
+  private final Consumer<Composite> initExtraButtons;
 
   public Predicate<Object> getIsValidEObjectPredicate() {
     return isValidEObjectPredicate;
   }
 
   public ExistingEObjectsSelectionDialog(
-      String title, String message, Predicate<Object> isValidEObjectPredicate) {
+      String title,
+      String message,
+      Predicate<Object> isValidEObjectPredicate,
+      Consumer<Composite> initExtraButtons) {
     this.title = title;
     this.message = message;
     this.isValidEObjectPredicate = isValidEObjectPredicate;
     this.isMultiSelect = true;
+    this.initExtraButtons = initExtraButtons;
   }
 
   public ExistingEObjectsSelectionDialog(
       String title,
       String message,
       Predicate<Object> isValidEObjectPredicate,
-      boolean isMultiSelect) {
+      boolean isMultiSelect,
+      Consumer<Composite> initExtraButtons) {
     this.title = title;
     this.message = message;
     this.isValidEObjectPredicate = isValidEObjectPredicate;
     this.isMultiSelect = isMultiSelect;
+    this.initExtraButtons = initExtraButtons;
   }
 
   public void applyRequestedChanges(Set<Object> selectedBefore, Set<Object> selectedAfter) {
@@ -645,8 +655,7 @@ public class ExistingEObjectsSelectionDialog {
 
   private void setupDialog(Shell parent, Set<Object> initialSelection) {
     dialog =
-        new CustomTreeSelectionDialog(
-            parent, new SelectionDialogLabelProvider(), contentProvider, isMultiSelect);
+        new CustomTreeSelectionDialog(parent, new SelectionDialogLabelProvider(), contentProvider);
     dialog.setTitle(title);
 
     String msg = message;

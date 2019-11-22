@@ -22,6 +22,7 @@ import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.gen.Gen;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.EnumeratedType;
@@ -119,7 +120,8 @@ public final class TypeModelServices {
             new TypeModelDialog(
                 "Choose a TypeModel",
                 "Select a TypeModel",
-                ConMLPredicates.isInstanceOfClass(TypeModel.class)),
+                ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                (Domain) selectedContainer),
             TypeModel.class);
   }
 }

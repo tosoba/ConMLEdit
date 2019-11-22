@@ -44,7 +44,8 @@ public class ObjectServices {
             new ExistingEObjectsSelectionDialog(
                 Messages.getString("Dialog.AddExistingObjects"),
                 Messages.getString("Dialog.SelectObjects"),
-                ConMLPredicates.isInstanceOfClass(Object.class)),
+                ConMLPredicates.isInstanceOfClass(Object.class),
+                null),
             Object.class);
   }
 
