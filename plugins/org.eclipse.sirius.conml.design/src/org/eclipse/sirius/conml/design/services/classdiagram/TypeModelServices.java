@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
@@ -108,20 +109,20 @@ public final class TypeModelServices {
         .orElse(null);
   }
 
-  public void showTypeModelSelectionDialog(
+  public TypeModel showTypeModelSelectionDialog(
       final EObject selectedContainer,
-      final EObject selectedContainerView,
       final DDiagram diagram) {
-    ExistingElementsServices.getInstance()
-        .openSelectExistingElementsDialog(
-            selectedContainer,
-            selectedContainerView,
-            diagram,
-            new TypeModelDialog(
-                "Choose a TypeModel",
-                "Select a TypeModel",
-                ConMLPredicates.isInstanceOfClass(TypeModel.class),
-                (Domain) selectedContainer),
-            TypeModel.class);
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new TypeModelDialog(
+                    "Choose a TypeModel",
+                    "Select a TypeModel",
+                    ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                    (Domain) selectedContainer));
+    if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
+    else return null;
   }
 }

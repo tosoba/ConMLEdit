@@ -29,7 +29,7 @@ public final class ClassServices {
       final EObject selectedContainerView,
       final DDiagram diagram) {
     ExistingElementsServices.getInstance()
-        .openSelectExistingElementsDialog(
+        .openSelectExistingElementsDialogAndAddElements(
             selectedContainer,
             selectedContainerView,
             diagram,

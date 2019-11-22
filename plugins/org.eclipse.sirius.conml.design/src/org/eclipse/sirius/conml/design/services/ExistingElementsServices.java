@@ -48,20 +48,24 @@ public final class ExistingElementsServices {
     return InstanceHolder.INSTANCE;
   }
 
-  public void openSelectExistingElementsDialog(
+  public List<Object> openSelectExistingElementsDialog(
+      final EObject selectedContainer,
+      final DDiagram diagram,
+      final ExistingEObjectsSelectionDialog dialog) {
+    dialog.setGrayedPredicate(
+        ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram));
+    return dialog.open(
+        PlatformUI.getWorkbench().getDisplay().getActiveShell(), selectedContainer, diagram, true);
+  }
+
+  public void openSelectExistingElementsDialogAndAddElements(
       final EObject selectedContainer,
       final EObject selectedContainerView,
       final DDiagram diagram,
       final ExistingEObjectsSelectionDialog dialog,
       final Class<?>... classes) {
-    dialog.setGrayedPredicate(
-        ExistingElementsServices.getInstance().getNonSelectablePredicate(diagram));
     final List<Object> elementsToAdd =
-        dialog.open(
-            PlatformUI.getWorkbench().getDisplay().getActiveShell(),
-            selectedContainer,
-            diagram,
-            true);
+        openSelectExistingElementsDialog(selectedContainer, diagram, dialog);
     if (elementsToAdd.size() > 0) {
       ExistingElementsServices.getInstance()
           .addExistingElements(
@@ -92,21 +96,31 @@ public final class ExistingElementsServices {
     final Session session = SessionManager.INSTANCE.getSession(semanticElements.get(0));
     final Set<EObject> lastShownElements = new HashSet<>();
     for (final EObject semanticElement : orderParentFirst(semanticElements)) {
-      markForAutosize(semanticElement);
-
-      String containerViewExpression = "";
-      if (lastShownElements.contains(semanticElement.eContainer()))
-        containerViewExpression = "aql:self.getHierarchicalContainerView(elementView)";
-      else containerViewExpression = "aql:self.getContainerView(elementView)";
-
-      showView(
-          semanticElement,
-          (DSemanticDecorator) containerView,
-          session,
-          containerViewExpression,
-          isValidEObjectPredicate);
-      lastShownElements.add((EObject) semanticElement);
+      addExistingElement(
+          session, containerView, lastShownElements, isValidEObjectPredicate, semanticElement);
     }
+  }
+
+  public void addExistingElement(
+      final Session session,
+      final EObject containerView,
+      final Set<EObject> lastShownElements,
+      final Predicate<Object> isValidEObjectPredicate,
+      final EObject semanticElement) {
+    markForAutosize(semanticElement);
+
+    String containerViewExpression = "";
+    if (lastShownElements.contains(semanticElement.eContainer()))
+      containerViewExpression = "aql:self.getHierarchicalContainerView(elementView)";
+    else containerViewExpression = "aql:self.getContainerView(elementView)";
+
+    showView(
+        semanticElement,
+        (DSemanticDecorator) containerView,
+        session,
+        containerViewExpression,
+        isValidEObjectPredicate);
+    lastShownElements.add((EObject) semanticElement);
   }
 
   enum Relation {

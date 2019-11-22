@@ -160,8 +160,11 @@ public class ExistingEObjectsSelectionDialog {
             .addCheckStateListener(
                 new ICheckStateListener() {
                   public void checkStateChanged(CheckStateChangedEvent event) {
-                    if (!isGrayed.apply(event.getElement()))
+                    if (!isGrayed.apply(event.getElement())) {
+                      checkedElements.clear();
+                      checkedElements.add(event.getElement());
                       getTreeViewer().setCheckedElements(new Object[] {event.getElement()});
+                    }
                   }
                 });
       }
