@@ -1,12 +1,11 @@
 package org.eclipse.sirius.conml.design.dialog;
 
-import org.eclipse.sirius.conml.design.util.ConMLPredicates;
-
-import conml.types.Class;
+import com.google.common.base.Predicate;
 
 public final class ClassSelectionDialog extends ExistingSemanticElementsSelectionDialog {
 
-  public ClassSelectionDialog(String title, String message) {
-    super(title, message, ConMLPredicates.isInstanceOfClass(Class.class), false, null);
+  public ClassSelectionDialog(
+      String title, String message, Predicate<Object> isValidEObjectPredicate) {
+    super(title, message, isValidEObjectPredicate, false, null);
   }
 }

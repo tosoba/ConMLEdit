@@ -146,7 +146,7 @@ public final class ModelElementServices {
     return element.getTypeModel();
   }
 
-  public InstanceModel getInstanceModelElement(final InstanceModelElement element) {
+  public InstanceModel getInstanceModelOfElement(final InstanceModelElement element) {
     return element.getInstanceModel();
   }
 

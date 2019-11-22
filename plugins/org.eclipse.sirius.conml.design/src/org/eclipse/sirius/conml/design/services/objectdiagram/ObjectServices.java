@@ -15,6 +15,7 @@ import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Object;
@@ -118,5 +119,12 @@ public class ObjectServices {
           } else return instancedClass.getAttributes();
         },
         Arrays.asList());
+  }
+
+  // TODO: get all TypeModels (from Domain) that contain elements present on the diagram and check
+  // if the object documents any of them
+  public boolean isDocumentingObjectForDiagram(
+      final Object object, final Domain domain, final DDiagram diagram) {
+    return false;
   }
 }

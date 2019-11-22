@@ -119,7 +119,8 @@ public final class TypeModelServices {
                 new TypeModelSelectionDialog(
                     Messages.getString("Dialog.SelectTypeModel"),
                     Messages.getString("Dialog.SelectTypeModelContainerForClass"),
-                    (Domain) selectedContainer));
+                    (Domain) selectedContainer),
+                false);
     if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
     else return null;
   }

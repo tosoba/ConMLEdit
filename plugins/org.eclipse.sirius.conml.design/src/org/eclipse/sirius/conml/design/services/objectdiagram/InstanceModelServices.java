@@ -4,14 +4,16 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.sirius.conml.design.dialog.ClassSelectionDialog;
+import org.eclipse.sirius.conml.design.dialog.InstanceModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.ModelServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.instances.InstanceModel;
 import conml.instances.Link;
+import conml.types.TypeModel;
 
 public final class InstanceModelServices {
 
@@ -24,15 +26,19 @@ public final class InstanceModelServices {
   }
 
   public InstanceModel showInstanceModelSelectionDialog(
-      final EObject selectedContainer, final DDiagram diagram) {
+      final EObject selectedContainer,
+      final DDiagram diagram,
+      final TypeModel typeModelToInstance) {
     final List<Object> result =
         ExistingElementsServices.getInstance()
             .openSelectExistingElementsDialog(
                 selectedContainer,
                 diagram,
-                new ClassSelectionDialog(
+                new InstanceModelSelectionDialog(
                     Messages.getString("Dialog.SelectInstanceModel"),
-                    Messages.getString("Dialog.SelectInstanceModelContainerForObject")),
+                    Messages.getString("Dialog.SelectInstanceModelContainerForObject"),
+                    (Domain) selectedContainer,
+                    typeModelToInstance),
                 false);
     if (result.size() == 1 && result.get(0) instanceof InstanceModel)
       return (InstanceModel) result.get(0);

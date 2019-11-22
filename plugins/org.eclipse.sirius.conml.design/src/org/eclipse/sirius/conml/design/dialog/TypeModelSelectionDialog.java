@@ -1,7 +1,7 @@
 package org.eclipse.sirius.conml.design.dialog;
 
 import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.sirius.conml.design.util.ConMLPredicates;
+import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
@@ -18,7 +18,7 @@ public final class TypeModelSelectionDialog extends ExistingSemanticElementsSele
     super(
         title,
         message,
-        ConMLPredicates.isInstanceOfClass(TypeModel.class),
+        (Object obj) -> obj instanceof Domain || obj instanceof TypeModel,
         false,
         (Composite parent) -> {
           ((GridLayout) parent.getLayout()).numColumns++;
@@ -29,9 +29,9 @@ public final class TypeModelSelectionDialog extends ExistingSemanticElementsSele
               SWT.Selection,
               event -> {
                 if (event.type == SWT.Selection) {
-                  final TypeModel tp = TypesFactory.eINSTANCE.createTypeModel();
-                  tp.setName("Test name");
-                  domain.getModels().add(tp);
+                  final TypeModel model = TypesFactory.eINSTANCE.createTypeModel();
+                  domain.getModels().add(model);
+                  model.setName(ModelElementServices.getInstance().defaultName(model));
                 }
               });
           button.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));

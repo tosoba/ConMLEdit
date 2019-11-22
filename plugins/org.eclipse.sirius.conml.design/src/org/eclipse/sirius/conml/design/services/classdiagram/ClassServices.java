@@ -99,7 +99,13 @@ public final class ClassServices {
                 diagram,
                 new ClassSelectionDialog(
                     Messages.getString("Dialog.SelectClass"),
-                    Messages.getString("Dialog.SelectInstancedClass")),
+                    Messages.getString("Dialog.SelectInstancedClass"),
+                    (Object obj) -> {
+                      if (!(obj instanceof Class)) return false;
+                      final Class instancedClassCandidate = (Class) obj;
+                      if (instancedClassCandidate.getTypeModel() == null) return false;
+                      return true;
+                    }),
                 false);
     if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);
     else return null;

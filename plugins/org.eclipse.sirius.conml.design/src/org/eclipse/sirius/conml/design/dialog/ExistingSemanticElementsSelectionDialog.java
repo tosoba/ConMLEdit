@@ -49,7 +49,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
@@ -67,6 +66,8 @@ import conml.Domain;
 import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
+import conml.instances.util.InstancesAdapterFactory;
+import conml.types.util.TypesAdapterFactory;
 import conml.util.conmlAdapterFactory;
 
 @SuppressWarnings("restriction")
@@ -329,19 +330,24 @@ public class ExistingSemanticElementsSelectionDialog {
     }
 
     public boolean isMatchingExpregOrHasMatchingExpregDescendantsSubMode(Object element) {
+      if (element instanceof Domain) return true;
+
       if (element instanceof EObject) {
         final List<EObject> subElements = Lists.newArrayList();
         eObject
             .eAllContents()
             .forEachRemaining(
                 eObj -> {
-                  if (eObj instanceof ModelElement || eObj instanceof Model) subElements.add(eObj);
+                  if (eObj instanceof ModelElement
+                      || eObj instanceof Model
+                      || eObj instanceof Domain) subElements.add(eObj);
                 });
         final Predicate<Object> isSubElementPredicate = Predicates.in(subElements);
         final Predicate<Object> isMatchinExpregPredicate = getRegexpMatchPredicate();
         return isOrHasDescendant(
             element, Predicates.and(isSubElementPredicate, isMatchinExpregPredicate));
       }
+
       return false;
     }
 
@@ -421,14 +427,18 @@ public class ExistingSemanticElementsSelectionDialog {
     }
 
     @SuppressWarnings("deprecation")
-    public void updateFilteringMode(FilteringMode filteringMode) {
-      mode = filteringMode;
+    public void refreshTreeViewer() {
       refresh();
       getTreeViewer().expandToLevel(2);
       getTreeViewer().setAllChecked(false);
       for (final Object element : checkedElements) {
         getTreeViewer().setChecked(element, true);
       }
+    }
+
+    public void updateFilteringMode(FilteringMode filteringMode) {
+      mode = filteringMode;
+      refreshTreeViewer();
     }
   }
 
@@ -513,7 +523,11 @@ public class ExistingSemanticElementsSelectionDialog {
   private final String title;
   private final String message;
   private final Predicate<Object> isValidEObjectPredicate;
-  private final Consumer<Composite> initExtraButtons;
+  private Consumer<Composite> initExtraButtons;
+
+  public void setInitExtraButtons(Consumer<Composite> initExtraButtons) {
+    this.initExtraButtons = initExtraButtons;
+  }
 
   public Predicate<Object> getIsValidEObjectPredicate() {
     return isValidEObjectPredicate;
@@ -563,6 +577,8 @@ public class ExistingSemanticElementsSelectionDialog {
   private AdapterFactory getAdapterFactory() {
     final List<AdapterFactory> factories = new ArrayList<AdapterFactory>();
     factories.add(new conmlAdapterFactory());
+    factories.add(new TypesAdapterFactory());
+    factories.add(new InstancesAdapterFactory());
     factories.add(new ResourceItemProviderAdapterFactory());
     factories.add(new EcoreItemProviderAdapterFactory());
     factories.add(new ReflectiveItemProviderAdapterFactory());
@@ -602,25 +618,6 @@ public class ExistingSemanticElementsSelectionDialog {
     }
 
     return false;
-  }
-
-  public List<Object> open(ModelElement element) {
-    final List<Object> result = Lists.newArrayList();
-    eObject = element;
-    final Shell parent = Display.getDefault().getActiveShell();
-
-    initContentProvider();
-
-    final Set<Object> allSelectedElements = Collections.unmodifiableSet(Sets.newHashSet());
-    final Option<Set<Object>> response = askUserForNewSelection(parent, allSelectedElements);
-    if (response.some()) {
-      final Set<Object> selectedAfter = response.get();
-      result.addAll(selectedAfter);
-    }
-    eObject = null;
-    dialog = null;
-    contentProvider = null;
-    return result;
   }
 
   public List<Object> open(
