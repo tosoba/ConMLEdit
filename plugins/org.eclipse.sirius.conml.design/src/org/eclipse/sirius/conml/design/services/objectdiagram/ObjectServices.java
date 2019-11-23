@@ -50,6 +50,35 @@ public class ObjectServices {
             Object.class);
   }
 
+  public void openSelectExistingDocumentingObjectsDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    List<java.lang.Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ExistingSemanticElementsSelectionDialog(
+                    Messages.getString("Dialog.AddExistingObjects"),
+                    Messages.getString("Dialog.SelectObjects"),
+                    ConMLPredicates.isInstanceOfClass(Object.class),
+                    null));
+
+    if (result != null) {
+      List<Object> objects =
+          result
+              .stream()
+              .filter(Object.class::isInstance)
+              .map(Object.class::cast)
+              .collect(Collectors.toList());
+      objects.forEach(obj -> obj.setDocumenting(true));
+      ExistingElementsServices.getInstance()
+          .addExistingElements(
+              selectedContainerView, objects, ConMLPredicates.isInstanceOfClass(Object.class));
+    }
+  }
+
   public String objectLabel(final Object object) {
     return object.getIdentifier()
         + ": "

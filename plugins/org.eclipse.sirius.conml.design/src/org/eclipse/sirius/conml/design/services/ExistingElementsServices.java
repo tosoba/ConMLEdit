@@ -97,7 +97,7 @@ public final class ExistingElementsServices {
 
   public void addExistingElements(
       final EObject containerView,
-      final List<EObject> semanticElements,
+      final List<? extends EObject> semanticElements,
       final Predicate<Object> isValidEObjectPredicate) {
     if (!(containerView instanceof DSemanticDecorator)
         || semanticElements == null
@@ -139,7 +139,7 @@ public final class ExistingElementsServices {
     PARENT
   }
 
-  private List<EObject> orderParentFirst(final List<EObject> listToSort) {
+  private List<? extends EObject> orderParentFirst(final List<? extends EObject> listToSort) {
     final ArrayList<EObject> sortedList = new ArrayList<>();
     if (listToSort.isEmpty()) return listToSort;
     if (sortedList.isEmpty()) sortedList.add(listToSort.get(0));
