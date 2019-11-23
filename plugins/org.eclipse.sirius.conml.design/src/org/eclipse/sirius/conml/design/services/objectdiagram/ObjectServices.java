@@ -17,8 +17,8 @@ import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.ModelElement;
-import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
@@ -77,14 +77,13 @@ public class ObjectServices {
   }
 
   public void deleteObject(final Object object) {
-    final InstanceModel instanceModel = object.getInstanceModel();
-    if (instanceModel == null) {
+    if (!(object.eContainer() instanceof Domain)) {
       EcoreUtil.delete(object);
       return;
     }
 
     final List<Link> links =
-        ConML.getStreamOfAllElementsOfTypeFromModel(instanceModel, Link.class)
+        ConML.getStreamOfAllPartsOfTypeFromDomain((Domain) object.eContainer(), Link.class)
             .filter(
                 link -> {
                   final Reference primaryRef = link.getPrimaryReference();

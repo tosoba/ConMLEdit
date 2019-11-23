@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
 
+import conml.Domain;
 import conml.Model;
 import conml.ModelElement;
 import conml.instances.InstanceModel;
@@ -74,6 +75,11 @@ public class ConML {
 
   private static void forEachEObjectOf(final EObject parentObject, final Consumer<EObject> action) {
     parentObject.eAllContents().forEachRemaining(action);
+  }
+
+  public static <T> Stream<T> getStreamOfAllPartsOfTypeFromDomain(
+      final Domain domain, final Class<T> clazz) {
+    return domain.getParts().stream().filter(clazz::isInstance).map(clazz::cast);
   }
 
   public static <T> Stream<T> getStreamOfAllElementsOfTypeFromModel(

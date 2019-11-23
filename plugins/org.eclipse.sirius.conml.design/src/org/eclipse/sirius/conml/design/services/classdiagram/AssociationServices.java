@@ -125,7 +125,9 @@ public final class AssociationServices {
 
     final TypeModel sourceTypeModel = source.getTypeModel();
     if (sourceTypeModel == null) {
-      Messages.getString("ExceptionMessage.IsNull", "Source TypeModel");
+      Activator.logError(
+          new IllegalStateException(
+              Messages.getString("ExceptionMessage.IsNull", "Source TypeModel")));
       return;
     }
 

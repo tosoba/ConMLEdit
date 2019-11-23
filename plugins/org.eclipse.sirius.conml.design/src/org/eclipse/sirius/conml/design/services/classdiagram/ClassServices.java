@@ -15,10 +15,10 @@ import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 
 public final class ClassServices {
 
@@ -58,14 +58,13 @@ public final class ClassServices {
   }
 
   public void deleteClass(final Class clazz) {
-    final TypeModel typeModel = clazz.getTypeModel();
-    if (typeModel == null) {
+    if (!(clazz.eContainer() instanceof Domain)) {
       EcoreUtil.delete(clazz);
       return;
     }
 
     final List<Association> associations =
-        ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
+        ConML.getStreamOfAllPartsOfTypeFromDomain((Domain) clazz.eContainer(), Association.class)
             .filter(
                 association -> {
                   final SemiAssociation primarySemi = association.getPrimarySemiAssociation();

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.services.classdiagram.label.PackageLabelServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
@@ -38,7 +39,9 @@ public final class PackageServices {
   public void setOverall(final Package packageToSet) {
     final TypeModel model = packageToSet.getTypeModel();
     if (model == null) {
-      Messages.getString("ExceptionMessage.IsNull", "Package's TypeModel");
+      Activator.logError(
+          new IllegalStateException(
+              Messages.getString("ExceptionMessage.IsNull", "Package's TypeModel")));
       return;
     }
 

@@ -7,9 +7,11 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.InstancesFactory;
 import conml.instances.Link;
@@ -19,7 +21,6 @@ import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
-import lpg.runtime.Messages;
 
 public final class LinkServices {
 
@@ -76,8 +77,13 @@ public final class LinkServices {
 
     final Class sourceClass = source.getInstancedClass();
     final Class targetClass = target.getInstancedClass();
-    final EObject instancedClassesContainer = sourceClass.eContainer();
-    final TypeModel typeModel = (TypeModel) instancedClassesContainer;
+    final TypeModel typeModel = sourceClass.getTypeModel();
+    if (typeModel == null) {
+      Activator.logError(
+          new IllegalStateException(
+              Messages.getString("ExceptionMessage.IsNull", "Source class' TypeModel")));
+      return;
+    }
     if (!ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
         .filter(
             association -> {
@@ -154,25 +160,23 @@ public final class LinkServices {
     final Class targetClass = target.getInstancedClass();
     if (sourceClass == null || targetClass == null) return false;
 
-    // TODO: is it possible to create an association between classes from different TypeModels...?
-    // Currently probably not...
-    // But if it should be possible then changes to code below are required
-    // since code below looks for an association only inside the TypeModel containing source Class
-    final EObject instancedClassesContainer = sourceClass.eContainer();
-    if (instancedClassesContainer == null || !(instancedClassesContainer instanceof TypeModel))
+    final TypeModel typeModel = sourceClass.getTypeModel();
+    if (typeModel == null) {
+      Activator.logError(
+          new IllegalStateException(
+              Messages.getString("ExceptionMessage.IsNull", "Source class' TypeModel")));
       return false;
-    final TypeModel typeModel = (TypeModel) instancedClassesContainer;
+    }
+    
     return ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
-        .filter(
+        .anyMatch(
             association -> {
               final SemiAssociation primary = association.getPrimarySemiAssociation();
               final SemiAssociation secondary = association.getSecondarySemiAssociation();
               if (primary == null || secondary == null) return false;
               return EcoreUtil.equals(primary.getReferredClass(), targetClass)
                   && EcoreUtil.equals(secondary.getReferredClass(), sourceClass);
-            })
-        .findAny()
-        .isPresent();
+            });
   }
 
   public void showCannotCreateALinkDialog(
