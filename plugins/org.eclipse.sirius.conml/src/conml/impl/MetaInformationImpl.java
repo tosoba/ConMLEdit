@@ -4,7 +4,9 @@ package conml.impl;
 
 import conml.MetaInformation;
 import conml.conmlPackage;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 /**

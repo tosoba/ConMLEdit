@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -35,7 +34,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.impl.ModelImpl#getDescription <em>Description</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getDefaultLanguage <em>Default Language</em>}</li>
- *   <li>{@link conml.impl.ModelImpl#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getTags <em>Tags</em>}</li>
  *   <li>{@link conml.impl.ModelImpl#getLanguages <em>Languages</em>}</li>
  * </ul>
@@ -114,16 +112,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	protected Language defaultLanguage;
 
 	/**
-	 * The cached value of the '{@link #getMetaInformationObjects() <em>Meta Information Objects</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMetaInformationObjects()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<conml.instances.Object> metaInformationObjects;
-
-    /**
 	 * The cached value of the '{@link #getTags() <em>Tags</em>}' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -307,19 +295,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	 * @generated
 	 */
 	@Override
-	public EList<conml.instances.Object> getMetaInformationObjects() {
-		if (metaInformationObjects == null) {
-			metaInformationObjects = new EObjectContainmentEList<conml.instances.Object>(conml.instances.Object.class, this, conmlPackage.MODEL__META_INFORMATION_OBJECTS);
-		}
-		return metaInformationObjects;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EList<Language> getLanguages() {
 		if (languages == null) {
 			languages = new EObjectWithInverseResolvingEList<Language>(Language.class, this, conmlPackage.MODEL__LANGUAGES, conmlPackage.LANGUAGE__MODEL);
@@ -335,8 +310,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-				return ((InternalEList<?>)getMetaInformationObjects()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__TAGS:
 				return ((InternalEList<?>)getTags()).basicRemove(otherEnd, msgs);
 			case conmlPackage.MODEL__LANGUAGES:
@@ -362,8 +335,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				if (resolve) return getDefaultLanguage();
 				return basicGetDefaultLanguage();
-			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-				return getMetaInformationObjects();
 			case conmlPackage.MODEL__TAGS:
 				return getTags();
 			case conmlPackage.MODEL__LANGUAGES:
@@ -392,10 +363,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)newValue);
-				return;
-			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-				getMetaInformationObjects().clear();
-				getMetaInformationObjects().addAll((Collection<? extends conml.instances.Object>)newValue);
 				return;
 			case conmlPackage.MODEL__TAGS:
 				getTags().clear();
@@ -429,9 +396,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				setDefaultLanguage((Language)null);
 				return;
-			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-				getMetaInformationObjects().clear();
-				return;
 			case conmlPackage.MODEL__TAGS:
 				getTags().clear();
 				return;
@@ -458,8 +422,6 @@ public abstract class ModelImpl extends MinimalEObjectImpl.Container implements 
 				return version != VERSION_EDEFAULT;
 			case conmlPackage.MODEL__DEFAULT_LANGUAGE:
 				return defaultLanguage != null;
-			case conmlPackage.MODEL__META_INFORMATION_OBJECTS:
-				return metaInformationObjects != null && !metaInformationObjects.isEmpty();
 			case conmlPackage.MODEL__TAGS:
 				return tags != null && !tags.isEmpty();
 			case conmlPackage.MODEL__LANGUAGES:

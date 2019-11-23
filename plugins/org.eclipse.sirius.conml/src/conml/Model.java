@@ -15,7 +15,6 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.Model#getVersion <em>Version</em>}</li>
  *   <li>{@link conml.Model#getDefaultLanguage <em>Default Language</em>}</li>
- *   <li>{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}</li>
  *   <li>{@link conml.Model#getTags <em>Tags</em>}</li>
  *   <li>{@link conml.Model#getLanguages <em>Languages</em>}</li>
  * </ul>
@@ -85,18 +84,6 @@ public interface Model extends NamedElement, DescribableElement {
 	EList<Tag> getTags();
 
 	/**
-	 * Returns the value of the '<em><b>Meta Information Objects</b></em>' containment reference list.
-	 * The list contents are of type {@link conml.instances.Object}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Meta Information Objects</em>' containment reference list.
-	 * @see conml.conmlPackage#getModel_MetaInformationObjects()
-	 * @model containment="true"
-	 * @generated
-	 */
-	EList<conml.instances.Object> getMetaInformationObjects();
-
-  /**
 	 * Returns the value of the '<em><b>Languages</b></em>' reference list.
 	 * The list contents are of type {@link conml.Language}.
 	 * It is bidirectional and its opposite is '{@link conml.Language#getModel <em>Model</em>}'.

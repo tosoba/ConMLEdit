@@ -10,7 +10,6 @@ Package conml <http://conml.ecore>
   Class Model -> NamedElement, DescribableElement
     Attribute version : Double<<1..1>>
     Reference DefaultLanguage : Language<<1..1>>
-    Reference MetaInformationObjects : Object<<0..*>>
     Reference Tags : Tag<<0..*>>
     Reference Languages : Language<<0..*>>
 

@@ -219,7 +219,7 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 */
 	@Override
 	public EReference getModel_Tags() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(3);
+		return (EReference)modelEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -228,18 +228,8 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getModel_MetaInformationObjects() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(2);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getModel_Languages() {
-		return (EReference)modelEClass.getEStructuralFeatures().get(4);
+		return (EReference)modelEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -464,7 +454,6 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		modelEClass = createEClass(MODEL);
 		createEAttribute(modelEClass, MODEL__VERSION);
 		createEReference(modelEClass, MODEL__DEFAULT_LANGUAGE);
-		createEReference(modelEClass, MODEL__META_INFORMATION_OBJECTS);
 		createEReference(modelEClass, MODEL__TAGS);
 		createEReference(modelEClass, MODEL__LANGUAGES);
 
@@ -547,7 +536,6 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 		initEClass(modelEClass, Model.class, "Model", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getModel_Version(), theXMLTypePackage.getDouble(), "version", "1.0", 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_DefaultLanguage(), this.getLanguage(), null, "DefaultLanguage", null, 1, 1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getModel_MetaInformationObjects(), theInstancesPackage.getObject(), null, "MetaInformationObjects", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Tags(), this.getTag(), this.getTag_Model(), "Tags", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getModel_Languages(), this.getLanguage(), this.getLanguage_Model(), "Languages", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

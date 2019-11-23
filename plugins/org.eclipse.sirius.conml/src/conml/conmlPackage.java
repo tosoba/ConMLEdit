@@ -140,22 +140,13 @@ public interface conmlPackage extends EPackage {
 	int MODEL__DEFAULT_LANGUAGE = NAMED_ELEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Meta Information Objects</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MODEL__META_INFORMATION_OBJECTS = NAMED_ELEMENT_FEATURE_COUNT + 3;
-
-    /**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-  int MODEL__TAGS = NAMED_ELEMENT_FEATURE_COUNT + 4;
+  int MODEL__TAGS = NAMED_ELEMENT_FEATURE_COUNT + 3;
 
   /**
 	 * The feature id for the '<em><b>Languages</b></em>' reference list.
@@ -164,7 +155,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-  int MODEL__LANGUAGES = NAMED_ELEMENT_FEATURE_COUNT + 5;
+  int MODEL__LANGUAGES = NAMED_ELEMENT_FEATURE_COUNT + 4;
 
         /**
 	 * The number of structural features of the '<em>Model</em>' class.
@@ -173,7 +164,7 @@ public interface conmlPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 6;
+	int MODEL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Model</em>' class.
@@ -564,17 +555,6 @@ public interface conmlPackage extends EPackage {
 	EReference getModel_Tags();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link conml.Model#getMetaInformationObjects <em>Meta Information Objects</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Meta Information Objects</em>'.
-	 * @see conml.Model#getMetaInformationObjects()
-	 * @see #getModel()
-	 * @generated
-	 */
-	EReference getModel_MetaInformationObjects();
-
-  /**
 	 * Returns the meta object for the reference list '{@link conml.Model#getLanguages <em>Languages</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -843,14 +823,6 @@ public interface conmlPackage extends EPackage {
 		EReference MODEL__TAGS = eINSTANCE.getModel_Tags();
 
 		/**
-		 * The meta object literal for the '<em><b>Meta Information Objects</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference MODEL__META_INFORMATION_OBJECTS = eINSTANCE.getModel_MetaInformationObjects();
-
-    /**
 		 * The meta object literal for the '<em><b>Languages</b></em>' reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

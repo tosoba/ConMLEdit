@@ -6,8 +6,6 @@
         eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Double" defaultValueLiteral="1.0"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="DefaultLanguage" lowerBound="1"
         eType="#//Language"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
-        upperBound="-1" eType="#//instances/Object" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"
         eOpposite="#//Tag/Model"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Languages" upperBound="-1"
