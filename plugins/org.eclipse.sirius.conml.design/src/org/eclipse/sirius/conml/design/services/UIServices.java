@@ -1,6 +1,5 @@
 package org.eclipse.sirius.conml.design.services;
 
-import java.util.Collection;
 import java.util.Set;
 
 import org.eclipse.emf.ecore.EObject;
@@ -30,7 +29,7 @@ public class UIServices {
             session, containerView, Sets.newHashSet(), Predicates.alwaysTrue(), semanticElement);
   }
 
-  public Collection<EObject> getDisplayedNodes(final DDiagram diagram) {
+  public Set<EObject> getDisplayedNodes(final DDiagram diagram) {
     final Set<EObject> result = Sets.newLinkedHashSet();
     final DDiagramQuery query = new DDiagramQuery(diagram);
     for (final DDiagramElement diagramElement : query.getAllDiagramElements()) {
