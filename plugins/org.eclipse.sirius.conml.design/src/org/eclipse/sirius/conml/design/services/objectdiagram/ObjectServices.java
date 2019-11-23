@@ -16,6 +16,7 @@ import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
+import conml.ModelElement;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
@@ -125,5 +126,9 @@ public class ObjectServices {
 
   public void setDocumenting(final Object object, final boolean documenting) {
     object.setDocumenting(documenting);
+  }
+
+  public void addDocumentedElement(final Object object, final ModelElement element) {
+    object.getDocumentedElements().add(element);
   }
 }
