@@ -3,24 +3,24 @@ package org.eclipse.sirius.conml.design.services.objectdiagram;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.dialog.AssociationSelectionDialog;
+import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
-import org.eclipse.sirius.conml.design.util.Dialogs;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.EdgeTarget;
 
 import conml.instances.InstancesFactory;
 import conml.instances.Link;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.types.Association;
-import conml.types.Class;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 
 public final class LinkServices {
 
@@ -67,52 +67,8 @@ public final class LinkServices {
   public void createLinkReferences(
       final Link link, final conml.instances.Object source, final conml.instances.Object target) {
     final Association instancedAssociation = link.getInstancedAssociation();
-    if (instancedAssociation == null) {
-      Dialogs.showError(
-          Messages.getString("Message.LinkCannotBeCreated"),
-          Messages.getString("Error.InstanceAssociationNotSpecified"));
-      EcoreUtil.delete(link);
-      return;
-    }
-
-    final Class sourceClass = source.getInstancedClass();
-    final Class targetClass = target.getInstancedClass();
-    final TypeModel typeModel = sourceClass.getTypeModel();
-    if (typeModel == null) {
-      Activator.logError(
-          new IllegalStateException(
-              Messages.getString("ExceptionMessage.IsNull", "Source class' TypeModel")));
-      return;
-    }
-    if (!ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
-        .filter(
-            association -> {
-              final SemiAssociation primary = association.getPrimarySemiAssociation();
-              final SemiAssociation secondary = association.getSecondarySemiAssociation();
-              if (primary == null || secondary == null) return false;
-              return EcoreUtil.equals(primary.getReferredClass(), targetClass)
-                  && EcoreUtil.equals(secondary.getReferredClass(), sourceClass);
-            })
-        .collect(Collectors.toSet())
-        .contains(instancedAssociation)) {
-      Dialogs.showError(
-          Messages.getString("Message.LinkCannotBeCreated"),
-          Messages.getString("Error.InstancedAssociationClassMismatch"));
-      EcoreUtil.delete(link);
-      return;
-    }
-
     final SemiAssociation primarySemi = instancedAssociation.getPrimarySemiAssociation();
-    if (primarySemi == null) { // this should not be possible...
-      EcoreUtil.delete(link);
-      return;
-    }
-
     final SemiAssociation secondarySemi = instancedAssociation.getSecondarySemiAssociation();
-    if (secondarySemi == null) { // this should not be possible...
-      EcoreUtil.delete(link);
-      return;
-    }
 
     final Reference primaryRef = InstancesFactory.eINSTANCE.createReference();
     primaryRef.setReferredObject(target);
@@ -154,49 +110,35 @@ public final class LinkServices {
     }
   }
 
-  public boolean anyAssociationExistsBetweenInstancedClasses(
-      final conml.instances.Object source, final conml.instances.Object target) {
-    final Class sourceClass = source.getInstancedClass();
-    final Class targetClass = target.getInstancedClass();
-    if (sourceClass == null || targetClass == null) return false;
-
-    final TypeModel typeModel = sourceClass.getTypeModel();
-    if (typeModel == null) {
+  public Association showAssociationSelectionDialog(
+      final conml.instances.Object source,
+      final conml.instances.Object target,
+      final EdgeTarget sourceView) {
+    final DDiagram diagram = (DDiagram) sourceView.eContainer();
+    if (source.getInstancedClass() == null) {
       Activator.logError(
-          new IllegalStateException(
-              Messages.getString("ExceptionMessage.IsNull", "Source class' TypeModel")));
-      return false;
+          Messages.getString("ExceptionMessage.IsNull", "Source Object's instanced Class"));
+      return null;
     }
-    
-    return ConML.getStreamOfAllElementsOfTypeFromModel(typeModel, Association.class)
-        .anyMatch(
-            association -> {
-              final SemiAssociation primary = association.getPrimarySemiAssociation();
-              final SemiAssociation secondary = association.getSecondarySemiAssociation();
-              if (primary == null || secondary == null) return false;
-              return EcoreUtil.equals(primary.getReferredClass(), targetClass)
-                  && EcoreUtil.equals(secondary.getReferredClass(), sourceClass);
-            });
-  }
+    if (target.getInstancedClass() == null) {
+      Activator.logError(
+          Messages.getString("ExceptionMessage.IsNull", "Target Object's instanced Class"));
+      return null;
+    }
 
-  public void showCannotCreateALinkDialog(
-      final conml.instances.Object source, final conml.instances.Object target) {
-    final Class sourceClass = source.getInstancedClass();
-    if (sourceClass == null) {
-      Dialogs.showError(
-          Messages.getString("Message.LinkCannotBeCreated"),
-          Messages.getString("Error.SourceClassIsNull"));
-      return;
-    }
-    final Class targetClass = target.getInstancedClass();
-    if (targetClass == null) {
-      Dialogs.showError(
-          Messages.getString("Message.LinkCannotBeCreated"),
-          Messages.getString("Error.TargetClassIsNull"));
-      return;
-    }
-    Dialogs.showError(
-        Messages.getString("Message.LinkCannotBeCreated"),
-        Messages.getString("Error.NoAssociationExists"));
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                source.eContainer(),
+                diagram,
+                new AssociationSelectionDialog(
+                    Messages.getString("Dialog.SelectAssociation"),
+                    Messages.getString("Dialog.SelectInstancedAssociation"),
+                    source.getInstancedClass(),
+                    target.getInstancedClass()),
+                false);
+    if (result.size() == 1 && result.get(0) instanceof Association)
+      return (Association) result.get(0);
+    else return null;
   }
 }

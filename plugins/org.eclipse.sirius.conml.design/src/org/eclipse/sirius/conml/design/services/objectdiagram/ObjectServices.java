@@ -127,6 +127,7 @@ public class ObjectServices {
     return documentsAnyDisplayedNodes(object, diagram);
   }
 
+  // TODO: this will likely cause documenting Objects to be invisible without an edge mapping...
   public boolean documentsAnyDisplayedNodes(final Object object, final DDiagram diagram) {
     final Set<EObject> displayedNodes = UIServices.getInstance().getDisplayedNodes(diagram);
     for (final ModelElement element : object.getDocumentedElements()) {
