@@ -23,6 +23,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getDocumentedElements <em>Documented Elements</em>}</li>
+ *   <li>{@link conml.instances.Object#isDocumenting <em>Documenting</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -188,6 +189,29 @@ public interface Object extends Instance {
 	EList<ModelElement> getDocumentedElements();
 
                                 /**
+	 * Returns the value of the '<em><b>Documenting</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Documenting</em>' attribute.
+	 * @see #setDocumenting(boolean)
+	 * @see conml.instances.InstancesPackage#getObject_Documenting()
+	 * @model default="false" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isDocumenting();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.Object#isDocumenting <em>Documenting</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Documenting</em>' attribute.
+	 * @see #isDocumenting()
+	 * @generated
+	 */
+	void setDocumenting(boolean value);
+
+                                                                /**
 	 * Returns the value of the '<em><b>Value Sets</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.instances.ValueSet}.
 	 * <!-- begin-user-doc -->

@@ -46,6 +46,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getDocumentedElements <em>Documented Elements</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#isDocumenting <em>Documenting</em>}</li>
  * </ul>
  *
  * @generated
@@ -162,6 +163,26 @@ protected EList<ReferenceSet> referenceSets;
 	protected EList<ModelElement> documentedElements;
 
                                 /**
+	 * The default value of the '{@link #isDocumenting() <em>Documenting</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDocumenting()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DOCUMENTING_EDEFAULT = false;
+
+        /**
+	 * The cached value of the '{@link #isDocumenting() <em>Documenting</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDocumenting()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean documenting = DOCUMENTING_EDEFAULT;
+
+                                                                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -413,6 +434,29 @@ protected EList<ReferenceSet> referenceSets;
 	 * @generated
 	 */
 	@Override
+	public boolean isDocumenting() {
+		return documenting;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDocumenting(boolean newDocumenting) {
+		boolean oldDocumenting = documenting;
+		documenting = newDocumenting;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__DOCUMENTING, oldDocumenting, documenting));
+	}
+
+                                                                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EList<ValueSet> getValueSets() {
 		if (valueSets == null) {
 			valueSets = new EObjectContainmentEList<ValueSet>(ValueSet.class, this, InstancesPackage.OBJECT__VALUE_SETS);
@@ -494,6 +538,8 @@ protected EList<ReferenceSet> referenceSets;
 				return getReferenceSets();
 			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
 				return getDocumentedElements();
+			case InstancesPackage.OBJECT__DOCUMENTING:
+				return isDocumenting();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -538,6 +584,9 @@ protected EList<ReferenceSet> referenceSets;
 				getDocumentedElements().clear();
 				getDocumentedElements().addAll((Collection<? extends ModelElement>)newValue);
 				return;
+			case InstancesPackage.OBJECT__DOCUMENTING:
+				setDocumenting((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -577,6 +626,9 @@ protected EList<ReferenceSet> referenceSets;
 			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
 				getDocumentedElements().clear();
 				return;
+			case InstancesPackage.OBJECT__DOCUMENTING:
+				setDocumenting(DOCUMENTING_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -607,6 +659,8 @@ protected EList<ReferenceSet> referenceSets;
 				return referenceSets != null && !referenceSets.isEmpty();
 			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
 				return documentedElements != null && !documentedElements.isEmpty();
+			case InstancesPackage.OBJECT__DOCUMENTING:
+				return documenting != DOCUMENTING_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -625,6 +679,8 @@ protected EList<ReferenceSet> referenceSets;
 		result.append(identifier);
 		result.append(", certainty: ");
 		result.append(certainty);
+		result.append(", documenting: ");
+		result.append(documenting);
 		result.append(')');
 		return result.toString();
 	}

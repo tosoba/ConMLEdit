@@ -54,6 +54,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 			addReferenceSetsPropertyDescriptor(object);
 			addDocumentedElementsPropertyDescriptor(object);
+			addDocumentingPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -235,6 +236,28 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
                                 /**
+	 * This adds a property descriptor for the Documenting feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDocumentingPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Object_documenting_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_documenting_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__DOCUMENTING,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+                                                                /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -305,6 +328,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 		switch (notification.getFeatureID(conml.instances.Object.class)) {
 			case InstancesPackage.OBJECT__IDENTIFIER:
 			case InstancesPackage.OBJECT__CERTAINTY:
+			case InstancesPackage.OBJECT__DOCUMENTING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case InstancesPackage.OBJECT__VALUE_SETS:

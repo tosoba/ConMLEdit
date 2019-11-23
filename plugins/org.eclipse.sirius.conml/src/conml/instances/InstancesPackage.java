@@ -852,13 +852,22 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 8;
 
         /**
+	 * The feature id for the '<em><b>Documenting</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OBJECT__DOCUMENTING = INSTANCE_FEATURE_COUNT + 9;
+
+                /**
 	 * The number of structural features of the '<em>Object</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 9;
+	int OBJECT_FEATURE_COUNT = INSTANCE_FEATURE_COUNT + 10;
 
 	/**
 	 * The number of operations of the '<em>Object</em>' class.
@@ -1387,6 +1396,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getObject_DocumentedElements();
 
         /**
+	 * Returns the meta object for the attribute '{@link conml.instances.Object#isDocumenting <em>Documenting</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Documenting</em>'.
+	 * @see conml.instances.Object#isDocumenting()
+	 * @see #getObject()
+	 * @generated
+	 */
+	EAttribute getObject_Documenting();
+
+                /**
 	 * Returns the meta object for class '{@link conml.instances.Link <em>Link</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1813,6 +1833,14 @@ public interface InstancesPackage extends EPackage {
 		EReference OBJECT__DOCUMENTED_ELEMENTS = eINSTANCE.getObject_DocumentedElements();
 
                 /**
+		 * The meta object literal for the '<em><b>Documenting</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute OBJECT__DOCUMENTING = eINSTANCE.getObject_Documenting();
+
+                                /**
 		 * The meta object literal for the '{@link conml.instances.impl.LinkImpl <em>Link</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

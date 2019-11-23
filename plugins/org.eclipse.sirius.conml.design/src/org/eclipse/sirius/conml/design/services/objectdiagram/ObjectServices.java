@@ -2,7 +2,6 @@ package org.eclipse.sirius.conml.design.services.objectdiagram;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
@@ -10,7 +9,6 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
-import org.eclipse.sirius.conml.design.services.UIServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
@@ -18,7 +16,6 @@ import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
-import conml.ModelElement;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.Reference;
@@ -122,17 +119,11 @@ public class ObjectServices {
         Arrays.asList());
   }
 
-  public boolean shouldShowObjectInObjectDiagram(final Object object, final DDiagram diagram) {
-    if (object.getDocumentedElements().isEmpty()) return true;
-    return documentsAnyDisplayedNodes(object, diagram);
+  public boolean isDocumenting(final Object object) {
+    return object.isDocumenting();
   }
 
-  // TODO: this will likely cause documenting Objects to be invisible without an edge mapping...
-  public boolean documentsAnyDisplayedNodes(final Object object, final DDiagram diagram) {
-    final Set<EObject> displayedNodes = UIServices.getInstance().getDisplayedNodes(diagram);
-    for (final ModelElement element : object.getDocumentedElements()) {
-      if (displayedNodes.contains(element)) return true;
-    }
-    return false;
+  public void setDocumenting(final Object object, final boolean documenting) {
+    object.setDocumenting(documenting);
   }
 }

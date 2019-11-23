@@ -53,7 +53,9 @@ public interface ObjectValidator {
 
         boolean validateDocumentedElements(EList<ModelElement> value);
 
-                boolean validateMetaInformation(EList<MetaInformation> value);
+                boolean validateDocumenting(boolean value);
+
+                                boolean validateMetaInformation(EList<MetaInformation> value);
 
     boolean validateMetaInfoInModel(Model value);
 

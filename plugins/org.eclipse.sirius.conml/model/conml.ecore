@@ -269,6 +269,9 @@
           eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DocumentedElements" upperBound="-1"
           eType="#//ModelElement" eOpposite="#//ModelElement/MetaInformationObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="documenting" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
