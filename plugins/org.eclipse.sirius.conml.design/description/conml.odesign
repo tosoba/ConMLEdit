@@ -269,7 +269,7 @@
             </endLabelStyleDescription>
           </style>
         </edgeMappings>
-        <containerMappings name="CD_Class" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Class']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
+        <containerMappings name="CD_Class" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Class']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
           <subNodeMappings name="CD_Attribute" semanticCandidatesExpression="feature:Attributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -480,22 +480,6 @@
                     <page name="D_CD_CreateAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Node%20Creation%20Attribute']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.7/@groups.0"/>
                     <groups name="D_CD_CreateAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
                   </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ContainerDropDescription" name="Drop Features" mappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']">
-            <oldContainer name="oldSemanticContainer"/>
-            <newContainer name="newSemanticContainer"/>
-            <element name="element"/>
-            <newViewContainer name="newContainerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Attribute)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="Attributes"/>
-                </subModelOperations>
-                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(types::Property)">
-                  <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="Properties"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -787,7 +771,7 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
+        <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Drop%20ValueSets']" childrenPresentation="List">
           <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -803,7 +787,7 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <containerMappings name="OD_Class" createElements="false" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Property']" childrenPresentation="List">
+        <containerMappings name="OD_Class" createElements="false" domainClass="types::Class" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Property']" childrenPresentation="List">
           <subNodeMappings name="OD_Attribute" semanticCandidatesExpression="feature:Attributes" domainClass="types::Attribute">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -893,6 +877,7 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="instances::ValueSet" referenceName="ValueSets" variableName="newValueSet">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="InstancedAttribute" valueExpression="var:element"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="InstanceModel" valueExpression="aql:container.getInstanceModelOfElement()"/>
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New ValueSet">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>
@@ -904,7 +889,7 @@
                         <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_OD_CreateValueSet_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ValueSet']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.1/@groups.0"/>
+                    <page name="D_OD_CreateValueSet_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ValueSet']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_OD_CreateValueSet_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -917,6 +902,26 @@
             <containerView name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:element.deleteObject"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerDropDescription" name="Drop ValueSets" mappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']/@subNodeMappings[name='OD_Value_Set']">
+            <oldContainer name="oldSemanticContainer"/>
+            <newContainer name="newSemanticContainer"/>
+            <element name="element"/>
+            <newViewContainer name="newContainerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="dropPossible" valueExpression="aql:oldSemanticContainer.objectsInstanceSameClass(newSemanticContainer)">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:dropPossible = true">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:self.oclIsTypeOf(instances::ValueSet)">
+                      <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="ValueSets"/>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:dropPossible = false">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:oldSemanticContainer.showValueSetDropErrorDialog(newSemanticContainer)"/>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

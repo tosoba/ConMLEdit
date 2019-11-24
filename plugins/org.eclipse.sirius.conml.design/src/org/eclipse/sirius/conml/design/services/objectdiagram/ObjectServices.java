@@ -160,4 +160,8 @@ public class ObjectServices {
   public void addDocumentedElement(final Object object, final ModelElement element) {
     object.getDocumentedElements().add(element);
   }
+
+  public boolean objectsInstanceSameClass(final Object object1, final Object object2) {
+    return EcoreUtil.equals(object1.getInstancedClass(), object2.getInstancedClass());
+  }
 }
