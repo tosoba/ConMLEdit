@@ -21,11 +21,8 @@ public class ValueServices {
         object,
         Value.class,
         value -> {
-          final Object contents = value.getContents();
-          return contents == null
-                  || (!Boolean.class.isInstance(contents) && !boolean.class.isInstance(contents))
-              ? false
-              : (boolean) contents;
+          if (value.getContents() == null) value.setContents(false);
+          return (boolean) value.getContents();
         },
         false);
   }
