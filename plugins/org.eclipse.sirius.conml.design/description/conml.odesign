@@ -673,7 +673,7 @@
       </defaultLayer>
       <additionalLayers name="TypeModelMetaInfo" activeByDefault="true">
         <edgeMappings name="CD_Documentation" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@containerMappings[name='CD_DocumentingObject']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="feature:DocumentedElements">
-          <style targetArrow="NoDecoration" sizeComputationExpression="2">
+          <style targetArrow="NoDecoration" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
@@ -774,6 +774,19 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </edgeMappings>
+        <edgeMappings name="OD_Generalization" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
+          <style targetArrow="InputClosedArrow" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <endLabelStyleDescription showIcon="false" labelExpression="feature:discriminant">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="OD_InstancedClass" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']" targetFinderExpression="feature:InstancedClass">
+          <style routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
         <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Object']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
           <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
@@ -783,6 +796,36 @@
             </style>
           </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.objectLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Object.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="OD_Class" createElements="false" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Drop%20Features']" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Property']" childrenPresentation="List">
+          <subNodeMappings name="OD_Attribute" semanticCandidatesExpression="feature:Attributes" domainClass="types::Attribute">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="OD_Property" semanticCandidatesExpression="feature:Properties" domainClass="types::Property">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="OD_Compact_Association" preconditionExpression="service:self.shouldDisplayCompactLabel" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Delete%20CompactAssociation']" semanticCandidatesExpression="feature:SemiAssociations" domainClass="types::SemiAssociation">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.compactAssociationLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.classLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -895,6 +938,17 @@
                     </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="OD_Section_Types" label="Types">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="OD_AddExistingClasses" label="Add existing Class" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showClassSelectionDialogForObjectDiagram(elementView, diagram)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
