@@ -20,8 +20,8 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.PackageServices;
 import org.eclipse.sirius.conml.design.services.classdiagram.SemiAssociationServices;
-import org.eclipse.sirius.conml.design.services.classdiagram.TypeModelServices;
 
+import conml.Domain;
 import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Value;
@@ -54,7 +54,7 @@ public final class DiagramPropertiesServices {
   }
 
   public boolean shouldShowActionPage(final EObject object) {
-    return TypeModelServices.getInstance().isTypeModel(object)
+    return object instanceof Domain
         || AssociationServices.getInstance().isExpandedAssociation(object)
         || SemiAssociationServices.getInstance().isPrimarySemiInCompactAssociation(object)
         || PackageServices.getInstance().isNonOverallPackage(object);
