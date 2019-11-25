@@ -1,100 +1,92 @@
 [comment encoding = UTF-8 /]
-[module main('http://conml.ecore')/]
+[module gen('http://conml.ecore')/]
 [import org::eclipse::sirius::conml::gen::conml2javaservices /]
+[import org::eclipse::sirius::conml::gen::generateClassListItem /]
 
-[template public main(aDomain : Domain)]
-	[comment @main/]
+[template public gen(aDomain : Domain)]
+[comment @main/]
+[file ('ClassList.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
 
-	[file ('ClassList.html', false, 'UTF-8')]
-		<!DOCTYPE html>
-		<html>
-		
-		<head>
-		    <title>
-		        <!-- Project name --> class list
-		    </title>
-		    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-		    <link href="../_private/Normal.css" rel="Stylesheet" type="text/css" />
-		</head>
-		
-		<body>
-		    <div class="PageContent">
-		        <table style="width: 100%;">
-		            <table class="MainSection">
-		                <tr>
-		                    <td class="EmptySubSection">&nbsp;</td>
-		
-		                    <td class="TitleSubSection">
-		                        <h1>
-		                            <!-- Project name --> class list</h1>
-		                    </td>
-		                </tr>
-		
-		                <tr>
-		                    <td class="NavSubSection">&nbsp;</td>
-		                    <td class="ContentSubSection">
-		                        <p>
-		                            This is a list of classes in
-		                            <!-- Project name -->, alphabetically sorted.
-		                        </p>
-		
-		                        <p>
-		                            <!-- Select filtering -->
-		                            Show:
-		                            <select name="" onchange="" id="">
-		                                <option selected="selected" value="All">All</option>
-		                                <option value="OnlyConcrete">Only concrete</option>
-		                            </select>
-		
-		                            &nbsp;&nbsp;
-		
-		                            <a class="EmbeddedLink" href="#A">A</a> <a class="EmbeddedLink" href="#B">B</a> <a
-		                                class="EmbeddedLink" href="#C">C</a> <a class="EmbeddedLink" href="#D">D</a> <a
-		                                class="EmbeddedLink" href="#E">E</a> <a class="EmbeddedLink" href="#F">F</a> <a
-		                                class="EmbeddedLink" href="#G">G</a> <a class="EmbeddedLink" href="#I">I</a> <a
-		                                class="EmbeddedLink" href="#K">K</a> <a class="EmbeddedLink" href="#L">L</a> <a
-		                                class="EmbeddedLink" href="#M">M</a> <a class="EmbeddedLink" href="#N">N</a> <a
-		                                class="EmbeddedLink" href="#O">O</a> <a class="EmbeddedLink" href="#P">P</a> <a
-		                                class="EmbeddedLink" href="#R">R</a> <a class="EmbeddedLink" href="#S">S</a> <a
-		                                class="EmbeddedLink" href="#T">T</a> <a class="EmbeddedLink" href="#U">U</a> <a
-		                                class="EmbeddedLink" href="#V">V</a>
-		                        </p>
-		
-		                        <table class="FeaturesRowHeader">
-		                            <thead>
-		                                <tr>
-		                                    <td style="width:250px;">
-		                                        Name
-		                                    </td>
-		                                    <td>
-		                                        Definition
-		                                    </td>
-		                                </tr>
-		                            </thead>
-		
-		                            <tbody>
-		
-		[for (aClass : Class | aDomain.eAllContents(Class))]		
-										<tr class="FeaturesRowEven">
-		                                    <td>
-		                                        <!-- Link to class -->
-		                                        <a class="EmbeddedLink"
-		                                            href=""> [aClass.name/] </a>
-		                                    </td>
-		                                    <td>
-		                                        [aClass.definition/]
-		                                    </td>
-	                                	</tr>
-		[/for]
-		 							</tbody>
-		                        </table>
-		                    </td>
-		                </tr>
-		            </table>
-		        </table>
-		    </div>
-		</body>
-		
-		</html>
-	[/file]
+<head>
+    <title>
+        <!-- Project name --> class list
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../_private/Normal.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table style="width: 100%;">
+            <table class="MainSection">
+                <tr>
+                    <td class="EmptySubSection">&nbsp;</td>
+
+                    <td class="TitleSubSection">
+                        <h1>
+                            <!-- Project name --> class list</h1>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="NavSubSection">&nbsp;</td>
+                    <td class="ContentSubSection">
+                        <p>
+                            This is a list of classes in
+                            <!-- Project name -->, alphabetically sorted.
+                        </p>
+
+                        <p>
+                            <!-- Select filtering -->
+                            Show:
+                            <select name="" onchange="" id="">
+                                <option selected="selected" value="All">All</option>
+                                <option value="OnlyConcrete">Only concrete</option>
+                            </select>
+
+                            &nbsp;&nbsp;
+
+                            <a class="EmbeddedLink" href="#A">A</a> <a class="EmbeddedLink" href="#B">B</a> <a
+                                class="EmbeddedLink" href="#C">C</a> <a class="EmbeddedLink" href="#D">D</a> <a
+                                class="EmbeddedLink" href="#E">E</a> <a class="EmbeddedLink" href="#F">F</a> <a
+                                class="EmbeddedLink" href="#G">G</a> <a class="EmbeddedLink" href="#I">I</a> <a
+                                class="EmbeddedLink" href="#K">K</a> <a class="EmbeddedLink" href="#L">L</a> <a
+                                class="EmbeddedLink" href="#M">M</a> <a class="EmbeddedLink" href="#N">N</a> <a
+                                class="EmbeddedLink" href="#O">O</a> <a class="EmbeddedLink" href="#P">P</a> <a
+                                class="EmbeddedLink" href="#R">R</a> <a class="EmbeddedLink" href="#S">S</a> <a
+                                class="EmbeddedLink" href="#T">T</a> <a class="EmbeddedLink" href="#U">U</a> <a
+                                class="EmbeddedLink" href="#V">V</a>
+                        </p>
+
+                        <table class="FeaturesRowHeader">
+                            <thead>
+                                <tr>
+                                    <td style="width:250px;">
+                                        Name
+                                    </td>
+                                    <td>
+                                        Definition
+                                    </td>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+								[for (aClass : Class | aDomain.eAllContents(Class))]
+									[generateClassListItem(aClass)/]		
+								[/for]
+
+ 							</tbody>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
 [/template]

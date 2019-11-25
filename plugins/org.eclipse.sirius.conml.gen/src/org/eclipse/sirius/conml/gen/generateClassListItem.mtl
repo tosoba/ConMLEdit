@@ -1,0 +1,10 @@
+[module generateClassListItem('http://conml.ecore')/]
+[template public generateClassListItem(aClass : Class)]
+<tr class="FeaturesRowEven">
+    <td>
+        <!-- Link to class -->
+        <a class="EmbeddedLink" href="">[aClass.name/]</a>
+    </td>
+    <td>[aClass.definition/]</td>
+</tr>
+[/template]

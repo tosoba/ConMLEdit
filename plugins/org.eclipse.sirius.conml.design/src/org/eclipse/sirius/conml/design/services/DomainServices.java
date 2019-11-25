@@ -71,7 +71,7 @@ public final class DomainServices {
         ResourcesPlugin.getWorkspace()
             .getRoot()
             .getFile(new Path(domain.eResource().getURI().toPlatformString(true)));
-    final IFolder folder = file.getProject().getFolder("code");
+    final IFolder folder = file.getProject().getFolder("Documentation");
     final File genFolder = folder.getRawLocation().makeAbsolute().toFile();
 
     try {
