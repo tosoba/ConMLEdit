@@ -19,70 +19,72 @@
 
 <body>
     <div class="PageContent">
-        <table style="width: 100%;">
-            <table class="MainSection">
-                <tr>
-                    <td class="EmptySubSection">&nbsp;</td>
+        <table style="width: 100%;" class="MainSection">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
 
-                    <td class="TitleSubSection">
-                        <h1>
-                            <!-- Project name --> class list</h1>
-                    </td>
-                </tr>
+                <td class="TitleSubSection">
+                    <h1>
+                        <!-- Project name --> class list</h1>
+                </td>
+            </tr>
 
-                <tr>
-                    <td class="NavSubSection">&nbsp;</td>
-                    <td class="ContentSubSection">
-                        <p>
-                            This is a list of classes in
-                            <!-- Project name -->, alphabetically sorted.
-                        </p>
+            <tr>
+                <td class="NavSubSection">&nbsp;</td>
+                <td class="ContentSubSection">
+                    <p>
+                        This is a list of classes in
+                        <!-- Project name -->, alphabetically sorted.
+                    </p>
 
-                        <p>
-                            <!-- Select filtering -->
-                            Show:
-                            <select name="" onchange="" id="">
-                                <option selected="selected" value="All">All</option>
-                                <option value="OnlyConcrete">Only concrete</option>
-                            </select>
+                    <p>
+                        <!-- Select filtering -->
+                        Show:
+                        <select name="" onchange="" id="">
+                            <option selected="selected" value="All">All</option>
+                            <option value="OnlyConcrete">Only concrete</option>
+                        </select>
 
-                            &nbsp;&nbsp;
+                        &nbsp;&nbsp;
 
-                            <a class="EmbeddedLink" href="#A">A</a> <a class="EmbeddedLink" href="#B">B</a> <a
-                                class="EmbeddedLink" href="#C">C</a> <a class="EmbeddedLink" href="#D">D</a> <a
-                                class="EmbeddedLink" href="#E">E</a> <a class="EmbeddedLink" href="#F">F</a> <a
-                                class="EmbeddedLink" href="#G">G</a> <a class="EmbeddedLink" href="#I">I</a> <a
-                                class="EmbeddedLink" href="#K">K</a> <a class="EmbeddedLink" href="#L">L</a> <a
-                                class="EmbeddedLink" href="#M">M</a> <a class="EmbeddedLink" href="#N">N</a> <a
-                                class="EmbeddedLink" href="#O">O</a> <a class="EmbeddedLink" href="#P">P</a> <a
-                                class="EmbeddedLink" href="#R">R</a> <a class="EmbeddedLink" href="#S">S</a> <a
-                                class="EmbeddedLink" href="#T">T</a> <a class="EmbeddedLink" href="#U">U</a> <a
-                                class="EmbeddedLink" href="#V">V</a>
-                        </p>
+						[for (letter : String | getFirstCharactersListOfClasses(aDomain))]
+							<a class="EmbeddedLink" href="#[letter/]">[letter/]</a>
+						[/for]
 
-                        <table class="FeaturesRowHeader">
-                            <thead>
-                                <tr>
-                                    <td style="width:250px;">
-                                        Name
-                                    </td>
-                                    <td>
-                                        Definition
-                                    </td>
-                                </tr>
-                            </thead>
+                        <a class="EmbeddedLink" href="#A">A</a> <a class="EmbeddedLink" href="#B">B</a> <a
+                            class="EmbeddedLink" href="#C">C</a> <a class="EmbeddedLink" href="#D">D</a> <a
+                            class="EmbeddedLink" href="#E">E</a> <a class="EmbeddedLink" href="#F">F</a> <a
+                            class="EmbeddedLink" href="#G">G</a> <a class="EmbeddedLink" href="#I">I</a> <a
+                            class="EmbeddedLink" href="#K">K</a> <a class="EmbeddedLink" href="#L">L</a> <a
+                            class="EmbeddedLink" href="#M">M</a> <a class="EmbeddedLink" href="#N">N</a> <a
+                            class="EmbeddedLink" href="#O">O</a> <a class="EmbeddedLink" href="#P">P</a> <a
+                            class="EmbeddedLink" href="#R">R</a> <a class="EmbeddedLink" href="#S">S</a> <a
+                            class="EmbeddedLink" href="#T">T</a> <a class="EmbeddedLink" href="#U">U</a> <a
+                            class="EmbeddedLink" href="#V">V</a>
+                    </p>
 
-                            <tbody>
+                    <table class="FeaturesRowHeader">
+                        <thead>
+                            <tr>
+                                <td style="width:350px;">
+                                    Name
+                                </td>
+                                <td>
+                                    Definition
+                                </td>
+                            </tr>
+                        </thead>
 
-								[for (aClass : Class | aDomain.eAllContents(Class))]
-									[generateClassListItem(aClass)/]		
-								[/for]
+                        <tbody>
 
- 							</tbody>
-                        </table>
-                    </td>
-                </tr>
-            </table>
+							[for (aClass : Class | aDomain.eAllContents(Class))]
+								[generateClassListItem(aClass)/]		
+							[/for]
+
+						</tbody>
+                    </table>
+                </td>
+            </tr>
         </table>
     </div>
 </body>
