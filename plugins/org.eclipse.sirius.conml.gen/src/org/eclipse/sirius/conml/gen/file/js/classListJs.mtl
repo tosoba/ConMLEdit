@@ -1,0 +1,25 @@
+[module classListJs('http://conml.ecore')/]
+
+[template public classListJs(traceabilityContext: OclAny)]
+function hideAbstractClasses() {
+    var classItems = document.getElementsByClassName('Abstract');
+    for (var i = 0; i < classItems.length; i++) {
+        classItems['['/]i[']'/].classList.add('Hidden');
+    };
+}
+
+function showAbstractClasses() {
+    var classItems = document.getElementsByClassName('Abstract');
+    for (var i = 0; i < classItems.length; i++) {
+        classItems['['/]i[']'/].classList.remove('Hidden');
+    };
+}
+
+function onSelectShowClassesChange(select) {
+    var optionIndex = select.selectedIndex;
+    if (optionIndex == 0)
+        showAbstractClasses();
+    else if (optionIndex == 1)
+        hideAbstractClasses();
+}
+[/template]

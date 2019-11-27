@@ -442,5 +442,10 @@ a.FooterLink:active
 	width: 200px;
 	text-align: left;
 }
+
+.Hidden 
+{
+	display: none;
+}
 [/file]
 [/template]

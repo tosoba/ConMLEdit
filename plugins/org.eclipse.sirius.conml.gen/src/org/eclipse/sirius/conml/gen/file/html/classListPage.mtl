@@ -1,8 +1,8 @@
-[module classList('http://conml.ecore')/]
+[module classListPage('http://conml.ecore')/]
 
 [import org::eclipse::sirius::conml::gen::fragment::classListItem/]
 
-[template public classList(aDomain : Domain, projectName : String)]
+[template public classListPage(aDomain : Domain, projectName : String)]
 [file ('html/ClassList.html', false, 'UTF-8')]
 <!DOCTYPE html>
 <html>
@@ -12,6 +12,7 @@
         [projectName/] class list
     </title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<script src="../js/classList.js"></script>
     <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
 </head>
 
@@ -34,18 +35,17 @@
                     </p>
 
                     <p>
-                        <!-- Select filtering -->
                         Show:
-                        <select name="" onchange="" id="">
+                        <select onchange="onSelectShowClassesChange(this)">
                             <option selected="selected" value="All">All</option>
                             <option value="OnlyConcrete">Only concrete</option>
                         </select>
 
                         &nbsp;&nbsp;
 
-						[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet())]
-							<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
-						[/for]
+					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet())]
+						<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
+					[/for]
                     </p>
 
                     <table class="FeaturesRowHeader">
@@ -61,9 +61,9 @@
                         </thead>
 
                         <tbody>
-							[for (aClass : Class | aDomain.eAllContents(Class))]
-								[classListItem(aClass)/]		
-							[/for]
+						[for (aClass : Class | aDomain.eAllContents(Class))]
+							[classListItem(aClass)/]		
+						[/for]
 						</tbody>
                     </table>
                 </td>
