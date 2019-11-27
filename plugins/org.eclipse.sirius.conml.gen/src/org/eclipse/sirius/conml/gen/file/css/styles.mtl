@@ -1,0 +1,446 @@
+[module styles('http://conml.ecore')/]
+
+[template public styles(traceabilityContext: OclAny)]
+[file ('css/styles.css', false, 'UTF-8')]
+body
+{
+	font-family: Calibri, Verdana, Arial, sans-serif;
+	background-color: #FFFFFF;
+}
+
+h1
+{
+	font-family: Calibri, Verdana, Arial, sans-serif;
+	font-size: xx-large;
+	color: #FF8103;
+	margin-top: 10px;
+	margin-bottom: -10px;
+}
+
+h2
+{
+	font-family: Calibri, Verdana, Arial, sans-serif;
+	font-size: large;
+	color: #FF8103;
+	margin-top: 10px;
+	margin-bottom: 4px;	
+}
+
+table
+{
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+thead
+{
+	font-weight: bold;
+}
+
+td
+{
+	vertical-align: top;
+	/* border: 0px; */
+}
+
+hr
+{
+	color: #C0C0C0;
+	height: 1px;
+}
+
+blockquote
+{
+	font-style: italic;
+}
+
+/* Main page blocks */
+
+.PageContent
+{
+	width: 960px;
+	margin: auto;
+}
+
+.TopSection
+{
+	vertical-align: top;
+	color: #666666;
+	padding: 5px;
+	padding-bottom: 20px;
+}
+
+.HeaderSection
+{
+	vertical-align: top;
+	color: #9D4E2E;
+	padding: 5px;
+}
+
+.MainSection
+{
+	vertical-align: top;
+	color: #302E31;
+	padding: 5px;
+}
+
+.EmptySubSection
+{
+	width: 196px;
+	padding: 12px;
+}
+
+.TitleSubSection
+{
+	padding: 12px;
+}
+
+.NavSubSection
+{
+	width: 196px;
+	min-width: 196px;
+	height: 380px;
+	padding: 12px;
+}
+
+.ContentSubSection
+{
+	height: 380px;
+	padding: 12px;
+}
+
+.FooterSection
+{
+	color: #000000;
+	padding: 5px;
+	font-size: small;
+	vertical-align: top;
+	border-top-color: #C0C0C0;
+	border-top-width: 1px;
+	border-top-style: solid;
+}
+
+.ExtraSectionArea
+{
+	width: 58px;
+	text-align: right;
+	vertical-align: bottom;
+}
+
+/* Header elements */
+
+.Title
+{
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+.TagLine
+{
+	font-size: small;
+	font-style: italic;
+}
+
+.MainMenuItem
+{
+	font-weight: bold;
+	color: #9D4E2E;
+}
+a.MainMenuItem
+{
+	text-decoration: none;
+}
+a.MainMenuItem:link
+{
+}
+a.MainMenuItem:visited
+{
+}
+a.MainMenuItem:hover
+{
+	color: #552C1A;
+}
+a.MainMenuItem:active
+{
+}
+
+.MainMenuSep
+{
+	font-weight: normal;
+	color: #7E4025;
+}
+
+/* Main section elements */
+
+a.EmbeddedLink
+{
+	text-decoration: none;
+	color: #9D4E2E;
+}
+a.EmbeddedLink:link
+{
+	color: #9D4E2E;
+}
+a.EmbeddedLink:visited
+{
+	color: #7E4025;
+}
+a.EmbeddedLink:hover
+{
+	color: #C66300;
+}
+a.EmbeddedLink:active
+{
+}
+
+.ValidationErrorMessage
+{
+	color: #990000;
+	font-style: italic;
+}
+
+.SideNote
+{
+	font-size: small;
+	color: #666666;
+}
+
+.HomePageImageCaption
+{
+	width: 85%;
+	font-style: italic;
+	font-size: small;
+	color: #4D4F52;
+}
+
+.HomePageImageNextButton
+{
+	width: 32px;
+	text-align: right;
+}
+
+ .DiagramBrowserIcon
+{
+	width: 172px;
+	height: 172px;
+	border: 1px solid #C66300;
+}
+
+.DiagramBrowserCaption
+{
+	color: #9D4E2E;
+	font-size: small;
+	font-weight: bold;
+}
+
+/* Footer elements */
+
+.FooterCell
+{
+	width: 190px;
+}
+
+.FooterBottomLine
+{
+	font-size: x-small;
+	color: #4D4F52;
+}
+
+.FooterTitle
+{
+	font-size: large;
+}
+
+.FooterLink
+{
+	color: #302E31;
+}
+a.FooterLink
+{
+	text-decoration: none;
+}
+a.FooterLink:link
+{
+}
+a.FooterLink:visited
+{
+	color: #4D4F52;
+}
+a.FooterLink:hover
+{
+	color: #000000;
+}
+a.FooterLink:active
+{
+}
+
+
+/* Resource styles */
+
+.ResourceSepRow
+{
+	height: 20px;
+}
+
+.ResourceIconCell
+{
+	width: 64px;
+}
+
+.ResourceTitle
+{
+	font-weight: bold;
+}
+
+.ResourceVersion
+{
+	font-style: italic;
+}
+
+.ResourceDetails
+{
+	color: #4D4F52;
+}
+
+.ResourceDescription
+{
+	font-size: small;
+}
+
+.ResourceDownloadLine
+{ 
+}
+
+.PubTitle
+{
+	font-weight: bold;
+}
+
+.PubAuthors
+{
+	font-style: italic;
+}
+
+.PubDetails
+{
+	font-size: small;
+}
+
+
+/* News styles */
+
+.NewsTitle
+{
+	font-weight: bold;
+}
+
+.NewsDate
+{
+	font-size: small;
+	font-style: italic;
+}
+
+.NewsBody
+{
+}
+
+
+/* Block text styles */
+
+.BlockCompact
+{
+	font-size: 90%;
+	margin-top: -4px;
+}
+
+
+/* FAQ text styles */
+
+.FaqQuestion
+{
+	font-weight: bold;
+}
+
+.FaqAnswer
+{
+	font-style: italic;
+}
+
+
+/* Class description elements */
+
+.ElementName
+{
+	color: #666666;
+	font-style: italic;
+	width: 200px;
+}
+
+.ElementContent
+{
+	color: #000000;
+}
+
+.FeaturesTable
+{
+	font-size: small;
+}
+
+.FeaturesRowHeader
+{
+	background-color: #DDDDDD;
+}
+
+.FeaturesRowEven
+{ 
+	background-color: #FFFFFF;
+}
+
+.FeaturesRowOdd
+{
+	background-color: #EEEEEE;
+}
+
+.ColumnName
+{
+	width: 200px;
+	text-align: left;
+	font-weight: bold;
+}
+
+.ColumnCardinality
+{
+	width: 50px;
+	text-align: center;
+}
+
+.ColumnType
+{
+	width: 200px;
+	text-align: left;
+}
+
+.ColumnDefinitionCol {
+    text-align: left;
+}
+
+.ColumnDefinitionRow
+{
+    text-align: left;
+    color: gray;
+    font-style: italic;
+}
+
+.ColumnMarkers
+{
+	width: 50px;
+	text-align: center;
+}
+
+.ColumnInheritedFrom
+{
+	width: 200px;
+	text-align: left;
+}
+[/file]
+[/template]

@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.gen;
+package org.eclipse.sirius.conml.gen.services;
 
 import conml.types.Package;
 import conml.types.TypeModel;

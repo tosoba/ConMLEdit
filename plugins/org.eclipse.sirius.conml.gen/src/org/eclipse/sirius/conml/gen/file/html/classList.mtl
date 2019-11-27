@@ -1,0 +1,77 @@
+[module classList('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::fragment::classListItem/]
+
+[template public classList(aDomain : Domain, projectName : String)]
+[file ('html/ClassList.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        [projectName/] class list
+    </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table style="width: 100%;" class="MainSection">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
+
+                <td class="TitleSubSection">
+                    <h1>[projectName/] class list</h1>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="NavSubSection">&nbsp;</td>
+                <td class="ContentSubSection">
+                    <p>
+                        This is a list of classes in [projectName/], alphabetically sorted.
+                    </p>
+
+                    <p>
+                        <!-- Select filtering -->
+                        Show:
+                        <select name="" onchange="" id="">
+                            <option selected="selected" value="All">All</option>
+                            <option value="OnlyConcrete">Only concrete</option>
+                        </select>
+
+                        &nbsp;&nbsp;
+
+						[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet())]
+							<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
+						[/for]
+                    </p>
+
+                    <table class="FeaturesRowHeader">
+                        <thead>
+                            <tr>
+                                <td style="width:350px;">
+                                    Name
+                                </td>
+                                <td>
+                                    Definition
+                                </td>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+							[for (aClass : Class | aDomain.eAllContents(Class))]
+								[classListItem(aClass)/]		
+							[/for]
+						</tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
+[/template]

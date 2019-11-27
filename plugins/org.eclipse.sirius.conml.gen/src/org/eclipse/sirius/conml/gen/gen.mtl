@@ -1,79 +1,11 @@
 [comment encoding = UTF-8 /]
 [module gen('http://conml.ecore')/]
-[import org::eclipse::sirius::conml::gen::conml2javaservices /]
-[import org::eclipse::sirius::conml::gen::generateClassListItem /]
+
+[import org::eclipse::sirius::conml::gen::file::css::styles/]
+[import org::eclipse::sirius::conml::gen::file::html::classList/]
 
 [template public gen(aDomain : Domain, projectName : String)]
 [comment @main/]
-[file ('ClassList.html', false, 'UTF-8')]
-<!DOCTYPE html>
-<html>
-
-<head>
-    <title>
-        [projectName/] class list
-    </title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <link href="../_private/Normal.css" rel="Stylesheet" type="text/css" />
-</head>
-
-<body>
-    <div class="PageContent">
-        <table style="width: 100%;" class="MainSection">
-            <tr>
-                <td class="EmptySubSection">&nbsp;</td>
-
-                <td class="TitleSubSection">
-                    <h1>[projectName/] class list</h1>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="NavSubSection">&nbsp;</td>
-                <td class="ContentSubSection">
-                    <p>
-                        This is a list of classes in [projectName/], alphabetically sorted.
-                    </p>
-
-                    <p>
-                        <!-- Select filtering -->
-                        Show:
-                        <select name="" onchange="" id="">
-                            <option selected="selected" value="All">All</option>
-                            <option value="OnlyConcrete">Only concrete</option>
-                        </select>
-
-                        &nbsp;&nbsp;
-
-						[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet())]
-							<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
-						[/for]
-                    </p>
-
-                    <table class="FeaturesRowHeader">
-                        <thead>
-                            <tr>
-                                <td style="width:350px;">
-                                    Name
-                                </td>
-                                <td>
-                                    Definition
-                                </td>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-							[for (aClass : Class | aDomain.eAllContents(Class))]
-								[generateClassListItem(aClass)/]		
-							[/for]
-						</tbody>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </div>
-</body>
-
-</html>
-[/file]
+[styles()/]
+[classList(aDomain, projectName)/]
 [/template]
