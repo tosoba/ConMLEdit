@@ -4,7 +4,3 @@
 [query public getOverallPackage(aTypeModel : TypeModel) : Package 
 = invoke('org.eclipse.sirius.conml.gen.ConML2JavaServices', 'getOverallPackage(conml.types.TypeModel)', Sequence{aTypeModel}) 
 /]
-
-[query public getFirstCharactersListOfClasses(aDomain: Domain) : Sequence(String)
-= invoke('org.eclipse.sirius.conml.gen.ConML2JavaServices', 'getFirstCharactersListOfClasses(conml.Domain)', Sequence{aDomain})
-/]

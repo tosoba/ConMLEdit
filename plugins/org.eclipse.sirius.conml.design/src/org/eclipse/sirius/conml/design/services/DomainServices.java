@@ -2,7 +2,7 @@ package org.eclipse.sirius.conml.design.services;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 import org.eclipse.acceleo.common.preference.AcceleoPreferences;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
@@ -71,12 +72,13 @@ public final class DomainServices {
         ResourcesPlugin.getWorkspace()
             .getRoot()
             .getFile(new Path(domain.eResource().getURI().toPlatformString(true)));
-    final IFolder folder = file.getProject().getFolder("Documentation");
+    final IProject project = file.getProject();
+    final IFolder folder = project.getFolder("Documentation");
     final File genFolder = folder.getRawLocation().makeAbsolute().toFile();
 
     try {
       final Gen generator =
-          new Gen(domain.eResource().getURI(), genFolder, new ArrayList<Object>());
+          new Gen(domain.eResource().getURI(), genFolder, Arrays.asList(project.getName()));
       generator.doGenerate(new BasicMonitor());
     } catch (IOException e) {
       Activator.log(Status.ERROR, "Code generation failed", e);
