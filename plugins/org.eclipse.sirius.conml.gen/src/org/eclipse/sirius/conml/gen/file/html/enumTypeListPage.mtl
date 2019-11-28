@@ -1,0 +1,64 @@
+[module enumTypeListPage('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::fragment::enumTypeListItem/]
+[import org::eclipse::sirius::conml::gen::fragment::sideNavSection/]
+
+[template public enumTypeListPage(aDomain : Domain, projectName : String)]
+[file ('html/EnumTypeList.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[projectName/] enumerated type list</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table style="width: 100%;" class="MainSection">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
+
+                <td class="TitleSubSection">
+                    <h1>[projectName/]</h1>
+                </td>
+            </tr>
+            <tr>
+                [sideNavSection()/]
+
+                <td class="ContentSubSection">
+                    <p>
+                        <h2>This is a list of the enumerated types in [projectName/], alphabetically sorted.</h2>
+                    </p>
+					[let enumeratedTypes : Sequence(EnumeratedType) = aDomain.eAllContents(EnumeratedType)]
+					[if (enumeratedTypes->size() > 0)]
+                    <table class="FeaturesRowHeader">
+                        <thead>
+                            <tr>
+                                <td style="width:350px;">
+                                    Name
+                                </td>
+                                <td>
+                                    Definition
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+						[for (index : Integer | Sequence{1..enumeratedTypes->size()})]
+							[enumTypeListItem(enumeratedTypes->at(index), index)/]
+						[/for]	
+                        </tbody>
+                    </table>
+					[else][projectName/] has no EnumeratedTypes.
+					[/if]
+					[/let]
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
+[/template]

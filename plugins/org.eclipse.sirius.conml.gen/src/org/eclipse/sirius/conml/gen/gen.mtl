@@ -6,10 +6,12 @@
 [import org::eclipse::sirius::conml::gen::file::js::classListJs/]
 
 [import org::eclipse::sirius::conml::gen::file::html::classListPage/]
+[import org::eclipse::sirius::conml::gen::file::html::enumTypeListPage/]
 
 [template public gen(aDomain : Domain, projectName : String)]
 [comment @main/]
 [styles()/]
 [classListJs()/]
 [classListPage(aDomain, projectName)/]
+[enumTypeListPage(aDomain, projectName)/]
 [/template]

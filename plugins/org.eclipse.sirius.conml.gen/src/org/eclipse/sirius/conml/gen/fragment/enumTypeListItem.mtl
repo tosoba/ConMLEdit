@@ -1,0 +1,10 @@
+[module enumTypeListItem('http://conml.ecore')/]
+[template public enumTypeListItem(anEnumType : EnumeratedType, index : Integer)]
+	<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+        <td>
+			<!-- Link to EnumType -->
+            <a class="EmbeddedLink" href="">[anEnumType.name/]</a>
+        </td>
+        <td>[anEnumType.definition/]</td>
+    </tr>
+[/template]

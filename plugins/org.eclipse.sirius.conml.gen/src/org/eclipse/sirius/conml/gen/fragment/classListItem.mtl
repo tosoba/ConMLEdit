@@ -1,7 +1,7 @@
 [module classListItem('http://conml.ecore')/]
 
-[template public classListItem(aClass : Class)]
-<tr class="FeaturesRowEven[if (aClass.abstract)] Abstract[/if]">
+[template public classListItem(aClass : Class, index : Integer)]
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if][if (aClass.abstract)] Abstract[/if]">
     <td>
         <!-- Link to class -->
         <a class="EmbeddedLink" href="">[aClass.name/]</a>

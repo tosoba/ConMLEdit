@@ -1,6 +1,7 @@
 [module classListPage('http://conml.ecore')/]
 
 [import org::eclipse::sirius::conml::gen::fragment::classListItem/]
+[import org::eclipse::sirius::conml::gen::fragment::sideNavSection/]
 
 [template public classListPage(aDomain : Domain, projectName : String)]
 [file ('html/ClassList.html', false, 'UTF-8')]
@@ -8,9 +9,7 @@
 <html>
 
 <head>
-    <title>
-        [projectName/] class list
-    </title>
+    <title>[projectName/] class list</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<script src="../js/classList.js"></script>
     <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
@@ -28,10 +27,11 @@
             </tr>
 
             <tr>
-                <td class="NavSubSection">&nbsp;</td>
-                <td class="ContentSubSection">
+                [sideNavSection()/]
+                
+				<td class="ContentSubSection">
                     <p>
-                        This is a list of classes in [projectName/], alphabetically sorted.
+                        <h2>This is a list of classes in [projectName/], alphabetically sorted.</h2>
                     </p>
 
                     <p>
@@ -41,13 +41,14 @@
                             <option value="OnlyConcrete">Only concrete</option>
                         </select>
 
-                        &nbsp;&nbsp;
-
-					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet())]
+                        &nbsp;&nbsp;						
+					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet()->sortedBy(name: String | name))]
 						<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
 					[/for]
                     </p>
 
+					[let classes : Sequence(Class) = aDomain.eAllContents(Class)]
+					[if (classes->size() > 0)]
                     <table class="FeaturesRowHeader">
                         <thead>
                             <tr>
@@ -61,11 +62,14 @@
                         </thead>
 
                         <tbody>
-						[for (aClass : Class | aDomain.eAllContents(Class))]
-							[classListItem(aClass)/]		
+						[for (index : Integer | Sequence{1..classes->size()})]
+							[classListItem(classes->at(index), index)/]
 						[/for]
 						</tbody>
                     </table>
+					[else][projectName/] has no classes.
+					[/if]
+					[/let]
                 </td>
             </tr>
         </table>

@@ -1,0 +1,10 @@
+[module sideNavSection('http://conml.ecore')/]
+
+[template public sideNavSection(traceabilityContext: OclAny)]
+<td class="NavSubSection">
+    <!-- Navigation -->
+    <p><a class="EmbeddedLink" href="./ClassList.html">Class list</a></p>
+    <p><a class="EmbeddedLink" href="./EnumTypeList.html">Enumerated type list</a></p>
+    <p><a class="EmbeddedLink" href="">Full-text find</a></p>
+</td>
+[/template]

@@ -1,6 +1,7 @@
 [module classListJs('http://conml.ecore')/]
 
 [template public classListJs(traceabilityContext: OclAny)]
+[file ('js/classList.js', false, 'UTF-8')]
 function hideAbstractClasses() {
     var classItems = document.getElementsByClassName('Abstract');
     for (var i = 0; i < classItems.length; i++) {
@@ -22,4 +23,5 @@ function onSelectShowClassesChange(select) {
     else if (optionIndex == 1)
         hideAbstractClasses();
 }
+[/file]
 [/template]
