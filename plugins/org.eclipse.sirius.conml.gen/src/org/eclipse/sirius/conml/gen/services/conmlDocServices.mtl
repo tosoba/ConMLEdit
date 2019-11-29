@@ -1,0 +1,38 @@
+[comment encoding = UTF-8 /]
+[module conmlDocServices('http://conml.ecore')]
+
+[query public getOverallPackage(aTypeModel : TypeModel) : Package 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'getOverallPackage(conml.types.TypeModel)', Sequence{aTypeModel}) 
+/]
+
+[query public namedElementFilePath(aNamedElement : NamedElement, pathBeginning : String, pathEnd : String) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'namedElementFilePath(conml.NamedElement, java.lang.String, java.lang.String)', Sequence{aNamedElement, pathBeginning, pathEnd})
+/]
+
+[query public classAspectsString(clazz : Class) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'classAspectsString(conml.types.Class)', Sequence{clazz}) 
+/]
+
+[query public featureCardinalityString(feature : Feature) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'featureCardinalityString(conml.types.Feature)', Sequence{feature})  
+/]
+
+[query public featureMarkersString(feature : Feature) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'featureMarkersString(conml.types.Feature)', Sequence{feature})  
+/]
+
+[query public getAttributesIncludingInheritedFilteringRedefined(clazz : Class) : Set(Attribute) 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'getAttributesIncludingInheritedFilteringRedefined(conml.types.Class)', Sequence{clazz})  
+/]
+
+[query public getSemiAssociationsIncludingInheritedFilteringRedefined(clazz : Class) : Set(SemiAssociation) 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'getSemiAssociationsIncludingInheritedFilteringRedefined(conml.types.Class)', Sequence{clazz})  
+/]
+
+[query public enumeratedItemDepth(enumItem : EnumeratedItem) : Integer 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'enumeratedItemDepth(conml.types.EnumeratedItem)', Sequence{enumItem})  
+/]
+
+[query public depthFirstEnumeratedItemList(enumType : EnumeratedType) : Sequence(EnumeratedItem) 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'depthFirstEnumeratedItemList(conml.types.EnumeratedType)', Sequence{enumType}) 
+/]

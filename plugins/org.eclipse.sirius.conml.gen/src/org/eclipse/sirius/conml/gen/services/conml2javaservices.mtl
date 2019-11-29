@@ -1,6 +1,0 @@
-[comment encoding = UTF-8 /]
-[module conml2javaservices('http://conml.ecore')]
-
-[query public getOverallPackage(aTypeModel : TypeModel) : Package 
-= invoke('org.eclipse.sirius.conml.gen.ConML2JavaServices', 'getOverallPackage(conml.types.TypeModel)', Sequence{aTypeModel}) 
-/]

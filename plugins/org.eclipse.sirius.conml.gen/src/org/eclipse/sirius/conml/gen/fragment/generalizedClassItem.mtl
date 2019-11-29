@@ -1,0 +1,10 @@
+[module generalizedClassItem('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[template public generalizedClassItem(aGeneralization : Generalization)]
+<a class="EmbeddedLink" href="[namedElementFilePath(aGeneralization.GeneralizedClass, './', '.html')/]">
+	[aGeneralization.GeneralizedClass.name/]
+</a>(Depending on [aGeneralization.discriminant/])
+<br />
+[/template]

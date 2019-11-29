@@ -1,10 +1,11 @@
 [module classListItem('http://conml.ecore')/]
 
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
 [template public classListItem(aClass : Class, index : Integer)]
 <tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if][if (aClass.abstract)] Abstract[/if]">
     <td>
-        <!-- Link to class -->
-        <a class="EmbeddedLink" href="">[aClass.name/]</a>
+        <a class="EmbeddedLink" href="[namedElementFilePath(aClass, './class/', '.html')/]">[aClass.name/]</a>
     </td>
     <td>[aClass.definition/]</td>
 </tr>

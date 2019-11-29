@@ -1,0 +1,167 @@
+[module classPage('http://conml.ecore')]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[import org::eclipse::sirius::conml::gen::fragment::featuresTableHeader/]
+[import org::eclipse::sirius::conml::gen::fragment::sideNavSection/]
+[import org::eclipse::sirius::conml::gen::fragment::generalizedClassItem/]
+[import org::eclipse::sirius::conml::gen::fragment::attributeListItem/]
+[import org::eclipse::sirius::conml::gen::fragment::associationListItem/]
+
+[template public classPage(aClass : Class)]
+[file (namedElementFilePath(aClass, 'html/class/', '.html'), false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Class [aClass.name/]</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../../css/styles.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table class="MainSection" style="width: 100%;">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
+
+                <td class="TitleSubSection">
+                    <h1><span>Class <em>[aClass.name/]</em></span></h1>
+                </td>
+            </tr>
+            <tr>
+                [sideNavSection('../')/]
+
+                <td class="ContentSubSection">
+                    <table>
+                        <tr>
+                            <td class="ElementName">
+                                <span>Name</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span style="font-weight:bold;">[aClass.name/]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Definition</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span style="font-style:italic;">[aClass.definition/]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Is abstract</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span>[if (aClass.abstract)]Yes[else]No[/if]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Aspects</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span>[classAspectsString(aClass)/]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Comments</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span><!-- Comments --></span>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                    <h2>Class hierarchy</h2>
+
+                    <table>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Generalized classes</span>:
+                            </td>
+                            <td class="ElementContent">
+							[let generalizations : OrderedSet(Generalization) = aClass.Generalizations->select(gen : Generalization | gen.GeneralizedClass <> null)]	
+							[if (generalizations->size() > 0)]
+							[for (aGeneralization : Generalization | generalizations)]
+								[generalizedClassItem(aGeneralization)/]
+							[/for]
+							[else]
+								(none)
+							[/if]
+							[/let]
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                Specialized classes:
+                            </td>
+                            <td class="ElementContent">
+							[if (aClass.Specialization <> null and aClass.Specialization.discriminant <> null and aClass.Specialization.SpecializedClasses->size() > 0)]
+								Depending on [aClass.Specialization.discriminant/]:
+                                <br />
+								[for (specializedClass : Class | aClass.Specialization.SpecializedClasses)]
+								<div style="margin-left:40px;">
+                                    <a class="EmbeddedLink" href="[namedElementFilePath(specializedClass, './', '.html')/]">
+										[specializedClass.name/]
+									</a>
+                                    <br />
+                                </div>
+								[/for]
+							[else]
+								(none)
+							[/if]
+                            </td>
+                        </tr>
+                    </table>
+
+                    <h2>Attributes</h2>
+					[let attributes : OrderedSet(Attribute) = getAttributesIncludingInheritedFilteringRedefined(aClass)->asOrderedSet()]
+					[if (attributes->size() > 0)]                    
+					<table class="FeaturesTable">
+                        [featuresTableHeader()/]
+                        <tbody>
+						[for (index : Integer | Sequence{1..attributes->size()})]
+							[attributeListItem(attributes->at(index), aClass, index)/]
+						[/for]
+                        </tbody>
+                    </table>
+					[else]
+						(This class has no attributes.)
+					[/if]
+					[/let]
+
+                    <h2>Associations</h2>
+					[let semiAssociations : OrderedSet(SemiAssociation) = getSemiAssociationsIncludingInheritedFilteringRedefined(aClass)->asOrderedSet()]
+					[if (semiAssociations->size() > 0)]
+                    <table class="FeaturesTable">
+                        [featuresTableHeader()/]
+                        <tbody>						
+						[for (index : Integer | Sequence{1..semiAssociations->size()})]
+							[associationListItem(semiAssociations->at(index), aClass, index)/]
+						[/for]
+                        </tbody>
+                    </table>
+					[else]
+						(This class has no Associations.)
+					[/if]
+					[/let]
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
+[/template]

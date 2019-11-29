@@ -1,0 +1,21 @@
+[module enumItemListItem('http://conml.ecore')]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[template public enumItemListItem(anEnumItem : EnumeratedItem, index : Integer)]
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td class="ColumnName">
+	[let depth : Integer = enumeratedItemDepth(anEnumItem)]
+	[if (depth > 0)]
+	[for (depthIndex : Integer | Sequence{1..depth})]
+		&nbsp;&nbsp;&nbsp;
+	[/for]
+	[/if]
+		[anEnumItem.name/]
+	[/let]
+    </td>
+    <td class="ColumnDefinitionCol">
+        [anEnumItem.definition/]
+    </td>
+</tr>
+[/template]

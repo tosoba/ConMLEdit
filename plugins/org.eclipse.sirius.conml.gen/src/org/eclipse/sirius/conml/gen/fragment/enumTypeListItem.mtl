@@ -1,10 +1,12 @@
 [module enumTypeListItem('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
 [template public enumTypeListItem(anEnumType : EnumeratedType, index : Integer)]
-	<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
-        <td>
-			<!-- Link to EnumType -->
-            <a class="EmbeddedLink" href="">[anEnumType.name/]</a>
-        </td>
-        <td>[anEnumType.definition/]</td>
-    </tr>
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td>
+        <a class="EmbeddedLink" href="[namedElementFilePath(anEnumType, './enum/', '.html')/]">[anEnumType.name/]</a>
+    </td>
+    <td>[anEnumType.definition/]</td>
+</tr>
 [/template]

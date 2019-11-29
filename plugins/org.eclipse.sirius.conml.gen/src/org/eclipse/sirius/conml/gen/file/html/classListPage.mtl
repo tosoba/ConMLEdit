@@ -27,7 +27,7 @@
             </tr>
 
             <tr>
-                [sideNavSection()/]
+                [sideNavSection('./')/]
                 
 				<td class="ContentSubSection">
                     <p>
@@ -67,7 +67,8 @@
 						[/for]
 						</tbody>
                     </table>
-					[else][projectName/] has no classes.
+					[else]
+						[projectName/] has no classes.
 					[/if]
 					[/let]
                 </td>

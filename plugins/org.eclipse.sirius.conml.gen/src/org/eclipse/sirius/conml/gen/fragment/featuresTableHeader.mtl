@@ -1,0 +1,23 @@
+[module featuresTableHeader('http://conml.ecore')/]
+
+[template public featuresTableHeader(traceabilityContext: OclAny)]
+<thead>
+    <tr class="FeaturesRowHeader">
+        <td class="ColumnName">
+            Name
+        </td>
+        <td class="ColumnCardinality">
+            Card
+        </td>
+        <td class="ColumnType">
+            Type
+        </td>
+        <td class="ColumnMarkers">
+            <span title="S = Subjective; T = Temporal; L = Multilingual">Mark</span>
+        </td>
+        <td class="ColumnInheritedFrom">
+            Inherited from
+        </td>
+    </tr>
+</thead>
+[/template]

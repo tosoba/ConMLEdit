@@ -1,0 +1,92 @@
+[module enumTypePage('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[import org::eclipse::sirius::conml::gen::fragment::sideNavSection/]
+[import org::eclipse::sirius::conml::gen::fragment::enumItemListItem/]
+
+[template public enumTypePage(anEnumType : EnumeratedType)]
+[file (namedElementFilePath(anEnumType, 'html/enum/', '.html'), false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>[anEnumType.name/] enumerated type</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <link href="../../css/styles.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table class="MainSection" style="width: 100%;">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
+                <td class="TitleSubSection">
+                    <h1><span>Enumerated type <em>[anEnumType.name/]</em></span></h1>
+                </td>
+            </tr>
+            <tr>
+                [sideNavSection('../')/]
+
+                <td class="ContentSubSection">
+                    <table>
+                        <tr>
+                            <td class="ElementName">
+                                <span>Name</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span style="font-weight:bold;">[anEnumType.name/]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Definition</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span style="font-style:italic;">[anEnumType.definition/]</span>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Comments</span>:
+                            </td>
+                            <td class="ElementContent">
+                                <span><!-- EnumType comments --></span>
+                            </td>
+                        </tr>
+                    </table>
+
+					[let enumItems : Sequence(EnumeratedItem) = depthFirstEnumeratedItemList(anEnumType)]
+					[if (enumItems->size() > 0)]
+                    <h2>Enumerated items</h2>
+					
+                    <table class="FeaturesTable">
+                        <thead>
+                            <tr class="FeaturesRowHeader">
+                                <td class="ColumnName">
+                                    Name
+                                </td>
+                                <td class="ColumnDefinitionCol">
+                                    Definition
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+						[for (index : Integer | Sequence{1..enumItems->size()})]
+							[enumItemListItem(enumItems->at(index), index)/]
+						[/for]
+                        </tbody>
+                    </table>
+					[/if]
+					[/let]
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
+[/template]

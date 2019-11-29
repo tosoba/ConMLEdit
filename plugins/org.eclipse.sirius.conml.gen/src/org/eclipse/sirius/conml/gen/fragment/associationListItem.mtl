@@ -1,0 +1,42 @@
+[module associationListItem('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[template public associationListItem(aSemiAssociation: SemiAssociation, aClass: Class, index : Integer)]
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td class="ColumnName">
+        [aSemiAssociation.name/][if (aSemiAssociation.RedefinedSemiAssociation <> null and aSemiAssociation.RedefinedSemiAssociation.name <> aSemiAssociation.name)] ['['/][aSemiAssociation.RedefinedSemiAssociation.name/][']'/][/if][if (aSemiAssociation.whole)] (W)[/if]
+    </td>
+    <td class="ColumnCardinality">
+        [featureCardinalityString(aSemiAssociation)/]
+    </td>
+    <td class="ColumnType">
+        <a class="EmbeddedLink" href="[namedElementFilePath(aSemiAssociation.ReferredClass, './', '.html')/]">
+            [aSemiAssociation.ReferredClass.name/]
+        </a>
+		[if (aSemiAssociation.role <> null and aSemiAssociation.role->size() > 0)]
+        <br />([aSemiAssociation.role/])
+		[/if]
+    </td>
+    <td class="ColumnMarkers">
+        [featureMarkersString(aSemiAssociation)/]
+    </td>
+    <td class="ColumnInheritedFrom">
+        <div>
+            [if aSemiAssociation.OwnerClass <> aClass]
+			[let redefinedSemiClass : Class = aSemiAssociation.RedefinedSemiAssociation.OwnerClass]
+			<a class="EmbeddedLink" href="[namedElementFilePath(redefinedSemiClass, './', '.html')/]">
+                [redefinedSemiClass.name/]
+            </a>
+			[/let]
+			[else](own)
+			[/if]
+        </div>
+    </td>
+</tr>
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td colspan="5" class="ColumnDefinitionRow">
+        [aSemiAssociation.definition/]
+    </td>
+</tr>
+[/template]

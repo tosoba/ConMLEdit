@@ -5,8 +5,10 @@
 
 [import org::eclipse::sirius::conml::gen::file::js::classListJs/]
 
+[import org::eclipse::sirius::conml::gen::file::html::classPage/]
 [import org::eclipse::sirius::conml::gen::file::html::classListPage/]
 [import org::eclipse::sirius::conml::gen::file::html::enumTypeListPage/]
+[import org::eclipse::sirius::conml::gen::file::html::enumTypePage/]
 
 [template public gen(aDomain : Domain, projectName : String)]
 [comment @main/]
@@ -14,4 +16,10 @@
 [classListJs()/]
 [classListPage(aDomain, projectName)/]
 [enumTypeListPage(aDomain, projectName)/]
+[for (aClass : Class | aDomain.eAllContents(Class))]
+	[classPage(aClass)/]
+[/for]
+[for (anEnumType : EnumeratedType | aDomain.eAllContents(EnumeratedType))]
+	[enumTypePage(anEnumType)/]
+[/for]
 [/template]

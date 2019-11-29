@@ -1,0 +1,43 @@
+[module attributeListItem('http://conml.ecore')/]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[template public attributeListItem(anAttribute : Attribute, aClass: Class, index : Integer)]
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td class="ColumnName">
+		[anAttribute.name/][if (anAttribute.RedefinedAttribute <> null and anAttribute.RedefinedAttribute.name <> anAttribute.name)] ['['/][anAttribute.RedefinedAttribute.name/][']'/][/if]
+	</td>
+    <td class="ColumnCardinality">
+        [featureCardinalityString(anAttribute)/]
+    </td>
+    <td class="ColumnType">
+        <span>
+		[if (anAttribute.Datatype.oclIsTypeOf(EnumeratedType))]
+			<a class="EmbeddedLink" href="[namedElementFilePath(anAttribute.Datatype, '../enum/', '.html')/]">enum [anAttribute.Datatype.name/]</a>
+		[else][anAttribute.Datatype.name/]
+		[/if]
+		</span>
+    </td>
+    <td class="ColumnMarkers">
+        [featureMarkersString(anAttribute)/]
+    </td>
+    <td class="ColumnInheritedFrom">
+        <div>
+		[if anAttribute.OwnerClass <> aClass]
+		[let redefinedAttrClass : Class = anAttribute.RedefinedAttribute.OwnerClass]
+			<a class="EmbeddedLink" href="[namedElementFilePath(redefinedAttrClass, './', '.html')/]">
+	            [redefinedAttrClass.name/]
+	        </a>
+		[/let]
+		[else]
+			(own)
+		[/if]
+        </div>
+    </td>
+</tr>
+<tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
+    <td colspan="5" class="ColumnDefinitionRow">
+        [anAttribute.definition/]
+    </td>
+</tr>
+[/template]
