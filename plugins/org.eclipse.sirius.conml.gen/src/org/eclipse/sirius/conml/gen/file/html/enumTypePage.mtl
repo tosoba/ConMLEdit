@@ -80,6 +80,8 @@
                         </tbody>
                     </table>
 					[/if]
+					[else]
+						[anEnumType.name/] has no owned items.
 					[/let]
                 </td>
             </tr>

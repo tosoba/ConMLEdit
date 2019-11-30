@@ -133,13 +133,19 @@ public class ConMLDocServices {
 
   public List<EnumeratedItem> depthFirstEnumeratedItemList(final EnumeratedType enumType) {
     final ArrayList<EnumeratedItem> enumItems = new ArrayList<>();
-    enumType.getOwnedItems().forEach(enumItem -> buildDepthFirstEnumeratedItemList(enumItem, enumItems));
+    enumType
+        .getOwnedItems()
+        .stream()
+        .filter(item -> item.getSuperItem() == null)
+        .forEach(enumItem -> buildDepthFirstEnumeratedItemList(enumItem, enumItems));
     return enumItems;
   }
 
   private void buildDepthFirstEnumeratedItemList(
       final EnumeratedItem enumItem, final List<EnumeratedItem> currentItems) {
     currentItems.add(enumItem);
-    enumItem.getSubItems().forEach(subItem -> buildDepthFirstEnumeratedItemList(subItem, currentItems));
+    enumItem
+        .getSubItems()
+        .forEach(subItem -> buildDepthFirstEnumeratedItemList(subItem, currentItems));
   }
 }
