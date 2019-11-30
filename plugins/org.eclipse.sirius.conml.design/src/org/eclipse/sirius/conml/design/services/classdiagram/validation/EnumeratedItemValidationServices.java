@@ -37,7 +37,8 @@ public final class EnumeratedItemValidationServices {
           if (superItem == null) return true;
           final EnumeratedType superItemType = superItem.getOwnerType();
           if (superItemType == null) return true;
-
+          if (EcoreUtil.equals(superItemType, enumType)) return true;
+          
           EnumeratedType superTypeIt = enumType.getSuperType();
           while (superTypeIt != null && !EcoreUtil.equals(superTypeIt, enumType)) {
             if (EcoreUtil.equals(superTypeIt, superItemType)) return true;
@@ -69,22 +70,22 @@ public final class EnumeratedItemValidationServices {
               || enumType == null) return true;
           final EnumeratedItem superItem = enumItem.getSuperItem();
           if (superItem == null) {
-            return !enumType
-                .getOwnedItems()
-                .stream()
-                .anyMatch(
-                    item ->
-                        !EcoreUtil.equals(enumItem, item)
-                            && item.getSuperItem() == null
-                            && Objects.equals(enumItem.getName(), item.getName()));
+            return enumType
+                    .getOwnedItems()
+                    .stream()
+                    .filter(
+                        item ->
+                            item.getSuperItem() == null
+                                && Objects.equals(enumItem.getName(), item.getName()))
+                    .count()
+                == 1;
           } else {
             return superItem
-                .getSubItems()
-                .stream()
-                .anyMatch(
-                    item ->
-                        !EcoreUtil.equals(enumItem, item)
-                            && Objects.equals(enumItem.getName(), item.getName()));
+                    .getSubItems()
+                    .stream()
+                    .filter(item -> Objects.equals(enumItem.getName(), item.getName()))
+                    .count()
+                == 1;
           }
         },
         true);
