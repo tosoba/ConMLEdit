@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services;
+package org.eclipse.sirius.conml.design.services.common;
 
 import java.io.File;
 import java.io.IOException;

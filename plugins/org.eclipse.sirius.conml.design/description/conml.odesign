@@ -1003,7 +1003,7 @@
           </style>
         </containerMappings>
         <toolSections name="Enum Types" label="Types">
-          <ownedTools xsi:type="tool_1:ToolDescription" name="New EnumType Creation" label="EnumType" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedType.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="New EnumType Creation" label="EnumeratedType" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedType.gif">
             <element name="domain"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1036,6 +1036,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="New EnumType Generalization" label="Generalization" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@defaultLayer/@edgeMappings[name='ED_EnumeratedTypeGeneralization']" connectionStartPrecondition="aql:preSource.doesNotHaveSuperType()">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:target.addSubType(source)"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
       <additionalLayers name="EnumeratedItem" activeByDefault="true">
@@ -1057,17 +1066,21 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
+        <toolSections name="Enum Items" label="Items" icon="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedItem.gif"/>
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DiagramPropertiesServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ExistingElementsServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ModelServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.UIServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.ContainerServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.CommonInterfaceServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.DomainServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DiagramPropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ExistingElementsServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.UIServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ContainerServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.CommonInterfaceServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DomainServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.EnumeratedTypeServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.validation.EnumeratedItemValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.validation.EnumeratedTypeValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.ClassServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.DataTypeServices"/>
@@ -1080,8 +1093,6 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.AssociationValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.AttributeValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.ClassValidationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.EnumeratedItemValidationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.EnumeratedTypeValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.FeatureValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.GeneralizationValidationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.classdiagram.validation.PackageValidationServices"/>

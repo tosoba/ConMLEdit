@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services;
+package org.eclipse.sirius.conml.design.services.common;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.util.ConML;

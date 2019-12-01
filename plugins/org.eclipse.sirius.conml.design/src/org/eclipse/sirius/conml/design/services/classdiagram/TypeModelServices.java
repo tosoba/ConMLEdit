@@ -6,8 +6,8 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
-import org.eclipse.sirius.conml.design.services.ExistingElementsServices;
-import org.eclipse.sirius.conml.design.services.ModelServices;
+import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
+import org.eclipse.sirius.conml.design.services.common.ModelServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 

@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services.classdiagram.validation;
+package org.eclipse.sirius.conml.design.services.common.validation;
 
 import java.util.Objects;
 
