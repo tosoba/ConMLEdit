@@ -382,7 +382,7 @@
                     <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::Class" referenceName="Parts" variableName="newClass">
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
-                      <subModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="false"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="abstract" valueExpression="aql:false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsTemporalAspect" valueExpression="aql:false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="usedAsSubjectiveAspect" valueExpression="aql:false"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="TypeModel" valueExpression="var:typeModel"/>
@@ -985,6 +985,79 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+    </ownedRepresentations>
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Enum Diagram" domainClass="conml::Domain" enablePopupBars="true">
+      <defaultLayer name="EnumeratedType">
+        <edgeMappings name="ED_EnumeratedTypeGeneralization" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@defaultLayer/@containerMappings[name='ED_EnumeratedType']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@defaultLayer/@containerMappings[name='ED_EnumeratedType']" targetFinderExpression="feature:SuperType">
+          <style targetArrow="InputClosedArrow" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ED_EnumeratedType" domainClass="types::EnumeratedType">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.getElementName" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedType.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelFormat>bold</labelFormat>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Enum Types" label="Types">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="New EnumType Creation" label="EnumType" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedType.gif">
+            <element name="domain"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="typeModel" valueExpression="aql:domain.showTypeModelSelectionDialog(diagram)">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:typeModel &lt;> null">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:domain">
+                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::EnumeratedType" referenceName="Parts" variableName="newEnumType">
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
+                      <subModelOperations xsi:type="tool_1:SetValue" featureName="TypeModel" valueExpression="var:typeModel"/>
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create EnumType">
+                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container"/>
+                          </initialOperation>
+                        </buttons>
+                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                          <initialOperation>
+                            <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:elementView.addElementToDiagram(newEnumType)">
+                              <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:instance"/>
+                            </firstModelOperations>
+                          </initialOperation>
+                        </buttons>
+                        <page name="D_CD_CreateClass_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20EnumType%20Creation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
+                        <groups name="D_CD_CreateClass_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+      <additionalLayers name="EnumeratedItem" activeByDefault="true">
+        <edgeMappings name="ED_EnumeratedSubItem" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@additionalLayers[name='EnumeratedItem']/@containerMappings[name='ED_EnumeratedItem']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@additionalLayers[name='EnumeratedItem']/@containerMappings[name='ED_EnumeratedItem']" targetFinderExpression="feature:SuperItem">
+          <style targetArrow="NoDecoration" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="ED_EnumeratedTypeOwner" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@additionalLayers[name='EnumeratedItem']/@containerMappings[name='ED_EnumeratedItem']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Enum%20Diagram']/@defaultLayer/@containerMappings[name='ED_EnumeratedType']" targetFinderExpression="feature:OwnerType">
+          <style targetArrow="Diamond" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+          </style>
+        </edgeMappings>
+        <containerMappings name="ED_EnumeratedItem" domainClass="types::EnumeratedItem">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.getElementName" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedItem.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
