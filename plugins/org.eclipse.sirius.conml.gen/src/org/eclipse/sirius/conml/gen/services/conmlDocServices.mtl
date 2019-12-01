@@ -36,3 +36,7 @@
 [query public depthFirstEnumeratedItemList(enumType : EnumeratedType) : Sequence(EnumeratedItem) 
 = invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'depthFirstEnumeratedItemList(conml.types.EnumeratedType)', Sequence{enumType}) 
 /]
+
+[query public domainPartsToJsonString(aDomain : Domain) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'domainPartsToJsonString(conml.Domain)', Sequence{aDomain}) 
+/]

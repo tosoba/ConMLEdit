@@ -11,13 +11,22 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.gen.model.JsonClass;
+import org.eclipse.sirius.conml.gen.model.JsonEnumeratedItem;
+import org.eclipse.sirius.conml.gen.model.JsonEnumeratedType;
+import org.eclipse.sirius.conml.gen.model.JsonFeature;
+import org.eclipse.sirius.conml.gen.model.JsonParts;
 
+import com.google.gson.GsonBuilder;
+
+import conml.Domain;
 import conml.NamedElement;
 import conml.types.Attribute;
 import conml.types.Class;
 import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.Feature;
+import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
@@ -147,5 +156,74 @@ public class ConMLDocServices {
     enumItem
         .getSubItems()
         .forEach(subItem -> buildDepthFirstEnumeratedItemList(subItem, currentItems));
+  }
+
+  public String domainPartsToJsonString(final Domain domain) {
+    final ArrayList<JsonClass> classes = new ArrayList<>();
+    final ArrayList<JsonEnumeratedType> enumTypes = new ArrayList<>();
+    domain
+        .getParts()
+        .forEach(
+            part -> {
+              if (part instanceof Class) {
+                classes.add(classToJson((Class) part));
+              } else if (part instanceof EnumeratedType) {
+                enumTypes.add(enumeratedTypeToJson((EnumeratedType) part));
+              }
+            });
+
+    return new GsonBuilder().create().toJson(new JsonParts(classes, enumTypes));
+  }
+
+  private JsonClass classToJson(final Class clazz) {
+    return new JsonClass(
+        clazz.getName(),
+        nullStringToEmpty(clazz.getDefinition()),
+        "", // TODO: comments
+        namedElementFilePath(clazz, "./class/", ".html"),
+        Stream.concat(clazz.getGeneralizations().stream(), Stream.of(clazz.getSpecialization()))
+            .filter(Objects::nonNull)
+            .map(Generalization::getDiscriminant)
+            .distinct()
+            .collect(Collectors.toList()),
+        Stream.concat(
+                clazz
+                    .getAttributes()
+                    .stream()
+                    .map(
+                        attr ->
+                            new JsonFeature(
+                                attr.getName(),
+                                nullStringToEmpty(attr.getDefinition()),
+                                JsonFeature.Type.ATTRIBUTE)),
+                clazz
+                    .getSemiAssociations()
+                    .stream()
+                    .map(
+                        semi ->
+                            new JsonFeature(
+                                semi.getName(),
+                                nullStringToEmpty(semi.getDefinition()),
+                                JsonFeature.Type.ASSOCIATION)))
+            .collect(Collectors.toList()));
+  }
+
+  private JsonEnumeratedType enumeratedTypeToJson(final EnumeratedType enumType) {
+    return new JsonEnumeratedType(
+        enumType.getName(),
+        nullStringToEmpty(enumType.getDefinition()),
+        "", // TODO: comments
+        namedElementFilePath(enumType, "./enum/", ".html"),
+        depthFirstEnumeratedItemList(enumType)
+            .stream()
+            .map(
+                enumItem ->
+                    new JsonEnumeratedItem(
+                        enumItem.getName(), nullStringToEmpty(enumItem.getDefinition())))
+            .collect(Collectors.toList()));
+  }
+
+  private String nullStringToEmpty(final String str) {
+    return str == null ? "" : str;
   }
 }
