@@ -4,7 +4,6 @@
 <td class="NavSubSection">
     <p><a class="EmbeddedLink" href="[pathBeginning/]ClassList.html">Class list</a></p>
     <p><a class="EmbeddedLink" href="[pathBeginning/]EnumTypeList.html">Enumerated type list</a></p>
-	<!-- FullTextFind link -->
-    <p><a class="EmbeddedLink" href="">Full-text find</a></p>
+    <p><a class="EmbeddedLink" href="[pathBeginning/]Find.html">Full-text find</a></p>
 </td>
 [/template]

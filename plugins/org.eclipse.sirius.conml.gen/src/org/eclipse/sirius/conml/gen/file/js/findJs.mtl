@@ -1,0 +1,145 @@
+[module findJs('http://conml.ecore')/]
+
+[template public findJs(traceabilityContext: OclAny)]
+[file ('js/find.js', false, 'UTF-8')]
+var searchQueryParam = 'search';
+
+$(document).ready(function () {
+    window.addEventListener("hashchange", function () {
+        search();
+    });
+    search();
+});
+
+function search() {
+    var searchText = getQueryParam(searchQueryParam);
+    if (searchText === null) {
+        var resultBody = document.getElementById('ResultTableBody');
+        removeChildren(resultBody);
+        document.getElementById('ResultTableContainer').classList.add('Hidden');
+        return;
+    }
+
+    var parts = getParts();
+    var results = findParts(searchText, parts);
+    found(results);
+}
+
+function isLocal() {
+    var protocol = window.location.protocol;
+    return protocol !== null && protocol !== undefined && protocol.toLowerCase().includes('file');
+}
+
+function findClicked() {
+    var searchText = document.getElementById('SearchInput').value;
+    if (searchText !== null && searchText !== undefined && searchText.length !== 0) {
+        window.location.href = './Find.html' + (isLocal() ? '#' : '?') + searchQueryParam + '=' + searchText;
+    }
+}
+
+function getQueryParam(name) {
+    if (name = (new RegExp('['['/]' + (isLocal() ? '#' : '?') + '&[']'/]' + name + '=(['['/]^&[']'/]*)')).exec(window.location.href))
+        return decodeURIComponent(name['['/]1[']'/]);
+    return null;
+}
+
+function found(results) {
+    var resultBody = document.getElementById('ResultTableBody');
+    removeChildren(resultBody);
+
+    var resultsLength = results.length;
+    document.getElementById('NumberOfResults').innerHTML = resultsLength.toString()
+        + (resultsLength !== 1 ? ' results were ' : ' result was ')
+        + 'found.';
+    if (resultsLength > 0) {
+        resultBody.classList.remove('Hidden');
+        for (var i = 0; i < resultsLength; i++) {
+            resultBody.insertAdjacentHTML('beforeend', resultRow(results['['/]i[']'/], i + 1));
+        }
+    } else {
+        resultBody.classList.add('Hidden');
+    }
+
+    document.getElementById('ResultTableContainer').classList.remove('Hidden');
+}
+
+function findParts(searchText, parts) {
+    var searchTextLower = searchText.toLowerCase();
+    var results = ['['/][']'/];
+    for (var i = 0; i < parts.classes.length; i++) {
+        var clazz = parts.classes['['/]i[']'/];
+        if (stringIncludes(clazz.name, searchTextLower)
+            || stringIncludes(clazz.definition, searchTextLower)
+            || stringIncludes(clazz.comments, searchTextLower)
+            || anyStringInArrayIncludes(clazz.discriminants, searchTextLower)) {
+            results.push({
+                name: clazz.name,
+                type: 'Class',
+                href: clazz.href
+            });
+        }
+
+        for (var j = 0; j < clazz.features.length; j++) {
+            var feature = clazz.features['['/]j[']'/];
+            if (stringIncludes(feature.name, searchTextLower)
+                || stringIncludes(feature.definition, searchTextLower)) {
+                results.push({
+                    name: feature.name,
+                    type: feature.type,
+                    href: clazz.href
+                });
+            }
+        }
+    }
+
+    for (var i = 0; i < parts.enumTypes.length; i++) {
+        var enumType = parts.enumTypes['['/]i[']'/];
+        if (stringIncludes(enumType.name, searchTextLower)
+            || stringIncludes(enumType.definition, searchTextLower)) {
+            results.push({
+                name: enumType.name,
+                type: 'EnumeratedType',
+                href: enumType.href
+            });
+        }
+
+        for (var j = 0; j < enumType.items.length; j++) {
+            var item = enumType.items['['/]j[']'/];
+            if (stringIncludes(item.name, searchTextLower)
+                || stringIncludes(item.definition, searchTextLower)) {
+                results.push({
+                    name: item.name,
+                    type: 'EnumeratedItem',
+                    href: enumType.href
+                });
+            }
+        }
+    }
+
+    return results;
+}
+
+function stringIncludes(str, strToFind) {
+    if (str === null || str === undefined || strToFind === null || strToFind === undefined) return false;
+    return str.toLowerCase().includes(strToFind);
+}
+
+function anyStringInArrayIncludes(arr, strToFind) {
+    for (var i = 0; i < arr.length; i++) {
+        if (stringIncludes(arr['['/]i[']'/], strToFind)) {
+            return true;
+        }
+    }
+}
+
+function removeChildren(element) {
+    while (element.firstChild) {
+        element.removeChild(element.firstChild);
+    }
+}
+
+function resultRow(result, index) {
+    return '<tr class="FeaturesRow' + (index % 2 === 0 ? 'Even' : 'Odd') + '"><td><a class="EmbeddedLink" href="' + result.href + '">' + result.name + '</a></td><td>' + result.type + '</td></tr>';
+}
+[/file]
+[/template]

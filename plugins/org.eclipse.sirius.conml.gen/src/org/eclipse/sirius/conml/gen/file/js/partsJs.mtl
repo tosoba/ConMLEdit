@@ -1,0 +1,11 @@
+[module partsJs('http://conml.ecore')]
+
+[import org::eclipse::sirius::conml::gen::services::conmlDocServices/]
+
+[template public partsJs(aDomain : Domain)]
+[file ('js/parts.js', false, 'UTF-8')]
+function getParts() {
+	return [domainPartsToJsonString(aDomain)/];
+}
+[/file]
+[/template]

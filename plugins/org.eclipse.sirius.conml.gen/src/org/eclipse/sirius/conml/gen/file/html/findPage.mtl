@@ -1,0 +1,70 @@
+[module findPage('http://conml.ecore')]
+
+[import org::eclipse::sirius::conml::gen::fragment::sideNavSection/]
+
+[template public findPage(projectName : String)]
+[file ('html/Find.html', false, 'UTF-8')]
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Find in [projectName/]</title>
+ 	<script src="../js/jquery-3.4.1.min.js"></script>
+    <script src="../js/parts.js"></script>
+    <script src="../js/find.js"></script>
+    <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
+</head>
+
+<body>
+    <div class="PageContent">
+        <table class="MainSection" style="width: 100%;">
+            <tr>
+                <td class="EmptySubSection">&nbsp;</td>
+                <td class="TitleSubSection">
+                    <h1>Find in [projectName/]</h1>
+                </td>
+            </tr>
+            <tr>
+                [sideNavSection('./')/]
+
+                <td class="ContentSubSection">
+                    <p>
+                        Enter some text and click "Find" to search across classes, attributes,
+                        associations, and enumerated types in [projectName/].
+                    </p>
+
+                    <input type="text" value="" id="SearchInput" style="width:200px;" />
+                    &nbsp;
+                    <input type="button" value="Find" onclick="findClicked()" />
+
+                    <br />
+
+                    <div id="ResultTableContainer" class="Hidden">
+                        <h2>Results</h2>
+                        <p>
+                            <span style="font-style:italic;" id="NumberOfResults"></span>
+                        </p>
+                        <table class="FeaturesRowHeader" id="ResultsTable">
+                            <thead>
+                                <tr>
+                                    <td style="width:450px;">
+                                        Name
+                                    </td>
+                                    <td style="width:200px;">
+                                        Type
+                                    </td>
+                                </tr>
+                            </thead>
+                            <tbody id="ResultTableBody">
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+
+</html>
+[/file]
+[/template]

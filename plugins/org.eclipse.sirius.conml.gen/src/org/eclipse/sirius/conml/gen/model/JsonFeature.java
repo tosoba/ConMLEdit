@@ -1,5 +1,7 @@
 package org.eclipse.sirius.conml.gen.model;
 
+import com.google.gson.annotations.SerializedName;
+
 public final class JsonFeature {
   private final String name;
   private final String definition;
@@ -24,7 +26,9 @@ public final class JsonFeature {
   }
 
   public enum Type {
+    @SerializedName("Attribute")
     ATTRIBUTE("Attribute"),
+    @SerializedName("Association")
     ASSOCIATION("Association");
 
     private String name;
