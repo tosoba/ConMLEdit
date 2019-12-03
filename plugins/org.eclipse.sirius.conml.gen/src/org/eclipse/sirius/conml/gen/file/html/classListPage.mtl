@@ -43,7 +43,7 @@
                         </select>
 
                         &nbsp;&nbsp;						
-					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet()->sortedBy(name: String | name))]
+					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1).toUpperCase())->asSet()->sortedBy(name: String | name))]
 						<a class="EmbeddedLink ClassLetterLink" href="#[firstLetter/]">[firstLetter/]</a>	
 					[/for]
                     </p>

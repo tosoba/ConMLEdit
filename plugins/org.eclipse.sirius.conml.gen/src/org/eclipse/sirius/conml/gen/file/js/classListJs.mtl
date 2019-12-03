@@ -8,10 +8,10 @@ $(document).ready(function () {
         if (href === null || href === undefined || href.length < 2)
             return;
 
-        const letter = href['['/]1[']'/];
+        const letter = href['['/]1[']'/].toLowerCase();
         $('.ClassName')
             .filter(function () {
-                return this.innerHTML.indexOf(letter) === 0;
+                return this.innerHTML.toLowerCase().indexOf(letter) === 0;
             })
             .first()
             .each(function () {
