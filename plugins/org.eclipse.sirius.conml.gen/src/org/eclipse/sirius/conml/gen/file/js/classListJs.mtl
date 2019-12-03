@@ -2,6 +2,24 @@
 
 [template public classListJs(traceabilityContext: OclAny)]
 [file ('js/classList.js', false, 'UTF-8')]
+$(document).ready(function () {
+    $('.ClassLetterLink').each(function () {
+        const href = $(this).attr('href');
+        if (href === null || href === undefined || href.length < 2)
+            return;
+
+        const letter = href['['/]1[']'/];
+        $('.ClassName')
+            .filter(function () {
+                return this.innerHTML.indexOf(letter) === 0;
+            })
+            .first()
+            .each(function () {
+                $('<a name="' + letter + '"></a>').insertBefore($(this));
+            });
+    });
+});
+
 function hideAbstractClasses() {
     var classItems = document.getElementsByClassName('Abstract');
     for (var i = 0; i < classItems.length; i++) {

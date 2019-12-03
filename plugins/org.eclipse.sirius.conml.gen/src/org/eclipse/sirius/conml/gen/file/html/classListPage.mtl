@@ -11,6 +11,7 @@
 <head>
     <title>[projectName/] class list</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <script src="../js/jquery-3.4.1.min.js"></script>
 	<script src="../js/classList.js"></script>
     <link href="../css/styles.css" rel="Stylesheet" type="text/css" />
 </head>
@@ -43,11 +44,11 @@
 
                         &nbsp;&nbsp;						
 					[for (firstLetter : String | aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->collect(aClass : Class | aClass.name.at(1))->asSet()->sortedBy(name: String | name))]
-						<a class="EmbeddedLink" href="#[firstLetter/]">[firstLetter/]</a>	
+						<a class="EmbeddedLink ClassLetterLink" href="#[firstLetter/]">[firstLetter/]</a>	
 					[/for]
                     </p>
 
-					[let classes : Sequence(Class) = aDomain.eAllContents(Class)]
+					[let classes : OrderedSet(Class) = aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->asSet()->sortedBy(aClass: Class | aClass.name)]
 					[if (classes->size() > 0)]
                     <table class="FeaturesRowHeader">
                         <thead>
