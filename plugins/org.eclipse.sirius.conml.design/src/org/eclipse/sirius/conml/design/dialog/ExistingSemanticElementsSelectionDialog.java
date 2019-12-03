@@ -73,7 +73,7 @@ import conml.util.conmlAdapterFactory;
 @SuppressWarnings("restriction")
 public class ExistingSemanticElementsSelectionDialog {
 
-  private final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
+  protected final class CustomTreeSelectionDialog extends CheckedTreeSelectionDialog {
 
     @Override
     protected void createButtonsForButtonBar(Composite parent) {
@@ -317,7 +317,7 @@ public class ExistingSemanticElementsSelectionDialog {
       return buttonComposite;
     }
 
-    private void expandAll() {
+    public void expandAll() {
       getTreeViewer().expandAll();
     }
 
@@ -507,6 +507,11 @@ public class ExistingSemanticElementsSelectionDialog {
       };
 
   private CustomTreeSelectionDialog dialog;
+
+  public CustomTreeSelectionDialog getDialog() {
+    return dialog;
+  }
+
   private EObject eObject;
 
   private FilteringMode mode = FilteringMode.SHOW_ONLY_DIRECT_CHILDREN;
@@ -531,6 +536,17 @@ public class ExistingSemanticElementsSelectionDialog {
 
   public Predicate<Object> getIsValidEObjectPredicate() {
     return isValidEObjectPredicate;
+  }
+
+  public ExistingSemanticElementsSelectionDialog(
+      String title,
+      String message,
+      Predicate<Object> isValidEObjectPredicate,
+      boolean isMultiSelect) {
+    this.title = title;
+    this.message = message;
+    this.isValidEObjectPredicate = isValidEObjectPredicate;
+    this.isMultiSelect = isMultiSelect;
   }
 
   public ExistingSemanticElementsSelectionDialog(

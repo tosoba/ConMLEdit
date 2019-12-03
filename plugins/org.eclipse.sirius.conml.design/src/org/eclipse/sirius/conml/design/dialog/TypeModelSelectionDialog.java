@@ -15,11 +15,8 @@ import conml.types.TypesFactory;
 public final class TypeModelSelectionDialog extends ExistingSemanticElementsSelectionDialog {
 
   public TypeModelSelectionDialog(String title, String message, Domain domain) {
-    super(
-        title,
-        message,
-        (Object obj) -> obj instanceof Domain || obj instanceof TypeModel,
-        false,
+    super(title, message, (Object obj) -> obj instanceof Domain || obj instanceof TypeModel, false);
+    setInitExtraButtons(
         (Composite parent) -> {
           ((GridLayout) parent.getLayout()).numColumns++;
           Button button = new Button(parent, SWT.PUSH);
@@ -32,6 +29,9 @@ public final class TypeModelSelectionDialog extends ExistingSemanticElementsSele
                   final TypeModel model = TypesFactory.eINSTANCE.createTypeModel();
                   domain.getModels().add(model);
                   model.setName(ModelElementServices.getInstance().defaultName(model));
+
+                  CustomTreeSelectionDialog dialog = getDialog();
+                  if (dialog != null) dialog.expandAll();
                 }
               });
           button.setLayoutData(new GridData(GridData.HORIZONTAL_ALIGN_FILL));

@@ -23,7 +23,7 @@ public final class InstanceModelSelectionDialog extends ExistingSemanticElements
         message,
         (Object obj) -> {
           if (obj instanceof Domain) return true;
-
+          
           if (!(obj instanceof InstanceModel)) return false;
           final InstanceModel instanceModelCandidate = (InstanceModel) obj;
           return instanceModelCandidate
@@ -31,7 +31,8 @@ public final class InstanceModelSelectionDialog extends ExistingSemanticElements
               .stream()
               .anyMatch(typeModel -> EcoreUtil.equals(typeModel, typeModelToInstance));
         },
-        false,
+        false);
+    setInitExtraButtons(
         (Composite parent) -> {
           ((GridLayout) parent.getLayout()).numColumns++;
           Button button = new Button(parent, SWT.PUSH);
