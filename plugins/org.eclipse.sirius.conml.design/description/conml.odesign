@@ -486,7 +486,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="CD_Section_Relationships" label="Relationships">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" connectionStartPrecondition="true">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" precondition="aql:preSource.abstractGeneralizationPrecondition(preTarget)" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" connectionStartPrecondition="true">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

@@ -14,6 +14,10 @@ import conml.types.Generalization;
 
 public final class GeneralizationServices {
 
+  public boolean abstractGeneralizationPrecondition(final Class source, final Class target) {
+    return !(source.isAbstract() && !target.isAbstract());
+  }
+
   public void showCyclicInheritanceDialog(final EObject object) {
     Dialogs.showError(
         Messages.getString("Message.GeneralizationWasNotCreated"),
