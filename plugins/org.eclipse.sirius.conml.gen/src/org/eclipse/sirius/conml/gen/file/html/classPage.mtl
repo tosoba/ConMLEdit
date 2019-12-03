@@ -90,7 +90,7 @@
                                 <span>Generalized classes</span>:
                             </td>
                             <td class="ElementContent">
-							[let generalizations : OrderedSet(Generalization) = aClass.Generalizations->select(gen : Generalization | gen.GeneralizedClass <> null)]	
+							[let generalizations : OrderedSet(Generalization) = aClass.Generalizations->select(gen : Generalization | gen.GeneralizedClass <> null and gen.discriminant <> null and gen.discriminant.size() > 0)->asSet()->sortedBy(gen : Generalization | gen.discriminant)]	
 							[if (generalizations->size() > 0)]
 							[for (aGeneralization : Generalization | generalizations)]
 								[generalizedClassItem(aGeneralization)/]
@@ -107,10 +107,10 @@
                                 Specialized classes:
                             </td>
                             <td class="ElementContent">
-							[if (aClass.Specialization <> null and aClass.Specialization.discriminant <> null and aClass.Specialization.SpecializedClasses->size() > 0)]
+							[if (aClass.Specialization <> null and aClass.Specialization.discriminant <> null and aClass.Specialization.discriminant.size() > 0 and aClass.Specialization.SpecializedClasses->size() > 0)]
 								Depending on [aClass.Specialization.discriminant/]:
                                 <br />
-								[for (specializedClass : Class | aClass.Specialization.SpecializedClasses)]
+								[for (specializedClass : Class | aClass.Specialization.SpecializedClasses->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->asSet()->sortedBy(aClass : Class | aClass.name))]
 								<div style="margin-left:40px;">
                                     <a class="EmbeddedLink" href="[namedElementFilePath(specializedClass, './', '.html')/]">
 										[specializedClass.name/]
@@ -126,7 +126,7 @@
                     </table>
 
                     <h2>Attributes</h2>
-					[let attributes : OrderedSet(Attribute) = getAttributesIncludingInheritedFilteringRedefined(aClass)->asOrderedSet()]
+					[let attributes : OrderedSet(Attribute) = getAttributesIncludingInheritedFilteringRedefined(aClass)->select(attr : Attribute | attr.name <> null and attr.name.size() > 0)->asSet()->sortedBy(attr : Attribute | attr.name)]
 					[if (attributes->size() > 0)]                    
 					<table class="FeaturesTable">
                         [featuresTableHeader()/]
@@ -142,7 +142,7 @@
 					[/let]
 
                     <h2>Associations</h2>
-					[let semiAssociations : OrderedSet(SemiAssociation) = getSemiAssociationsIncludingInheritedFilteringRedefined(aClass)->asOrderedSet()]
+					[let semiAssociations : OrderedSet(SemiAssociation) = getSemiAssociationsIncludingInheritedFilteringRedefined(aClass)->select(semi : SemiAssociation | semi.name <> null and semi.name.size() > 0)->asSet()->sortedBy(semi : SemiAssociation | semi.name)]
 					[if (semiAssociations->size() > 0)]
                     <table class="FeaturesTable">
                         [featuresTableHeader()/]
