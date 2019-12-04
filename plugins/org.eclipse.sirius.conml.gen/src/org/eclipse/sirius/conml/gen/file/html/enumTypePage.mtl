@@ -58,6 +58,44 @@
                         </tr>
                     </table>
 
+					<h2>EnumeratedType hierarchy</h2>
+
+                    <table>
+
+                        <tr>
+                            <td class="ElementName">
+                                <span>Super type</span>:
+                            </td>
+                            <td class="ElementContent">
+							[if (anEnumType.SuperType <> null and anEnumType.SuperType.name <> null and anEnumType.SuperType.name.size() > 0)]
+								<a class="EmbeddedLink EnumTypeName" href="[namedElementFilePath(anEnumType.SuperType, './', '.html')/]">[anEnumType.SuperType.name/]</a>
+							[else]
+								(none)
+							[/if]
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="ElementName">
+                                Sub types:
+                            </td>
+                            <td class="ElementContent">
+							[let subTypes : OrderedSet(EnumeratedType) = anEnumType.SubTypes->select(subType : EnumeratedType | subType.name <> null and subType.name.size() > 0)->asSet()->sortedBy(eType : EnumeratedType | eType.name.toLowerCase())]
+							[if (subTypes->size() > 0)]
+							[for (aSubType : EnumeratedType | subTypes)]
+								<a class="EmbeddedLink" href="[namedElementFilePath(aSubType, './', '.html')/]">
+									[aSubType.name/]
+								</a>
+                                <br />
+							[/for]
+							[else]
+								(none)
+							[/if]
+							[/let]
+                            </td>
+                        </tr>
+                    </table>
+
 					[let enumItems : Sequence(EnumeratedItem) = depthFirstEnumeratedItemList(anEnumType)]
 					[if (enumItems->size() > 0)]
                     <h2>Enumerated items</h2>
