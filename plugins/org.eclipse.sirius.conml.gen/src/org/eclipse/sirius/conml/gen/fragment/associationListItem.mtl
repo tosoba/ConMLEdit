@@ -5,6 +5,7 @@
 [template public associationListItem(aSemiAssociation: SemiAssociation, aClass: Class, index : Integer)]
 <tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
     <td class="ColumnName">
+		<a name="[namedElementFilePath(aSemiAssociation, null, null)/]"></a>
         [aSemiAssociation.name/][if (aSemiAssociation.RedefinedSemiAssociation <> null and aSemiAssociation.RedefinedSemiAssociation.name <> aSemiAssociation.name)] ['['/][aSemiAssociation.RedefinedSemiAssociation.name/][']'/][/if][if (aSemiAssociation.whole)] (W)[/if]
     </td>
     <td class="ColumnCardinality">

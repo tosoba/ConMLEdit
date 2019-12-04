@@ -86,7 +86,7 @@ function findParts(searchText, parts) {
                 results.push({
                     name: feature.name,
                     type: feature.type,
-                    href: clazz.href
+                    href: feature.href
                 });
             }
         }
@@ -110,7 +110,7 @@ function findParts(searchText, parts) {
                 results.push({
                     name: item.name,
                     type: 'EnumeratedItem',
-                    href: enumType.href
+                    href: item.href
                 });
             }
         }

@@ -126,7 +126,7 @@
                     </table>
 
                     <h2>Attributes</h2>
-					[let attributes : OrderedSet(Attribute) = getAttributesIncludingInheritedFilteringRedefined(aClass)->select(attr : Attribute | attr.name <> null and attr.name.size() > 0)->asSet()->sortedBy(attr : Attribute | attr.name)]
+					[let attributes : OrderedSet(Attribute) = getAttributesIncludingInheritedFilteringRedefined(aClass)->select(attr : Attribute | attr.name <> null and attr.name.size() > 0)->asSet()->sortedBy(attr : Attribute | attr.name.toLowerCase())]
 					[if (attributes->size() > 0)]                    
 					<table class="FeaturesTable">
                         [featuresTableHeader()/]
@@ -142,7 +142,7 @@
 					[/let]
 
                     <h2>Associations</h2>
-					[let semiAssociations : OrderedSet(SemiAssociation) = getSemiAssociationsIncludingInheritedFilteringRedefined(aClass)->select(semi : SemiAssociation | semi.name <> null and semi.name.size() > 0)->asSet()->sortedBy(semi : SemiAssociation | semi.name)]
+					[let semiAssociations : OrderedSet(SemiAssociation) = getSemiAssociationsIncludingInheritedFilteringRedefined(aClass)->select(semi : SemiAssociation | semi.name <> null and semi.name.size() > 0)->asSet()->sortedBy(semi : SemiAssociation | semi.name.toLowerCase())]
 					[if (semiAssociations->size() > 0)]
                     <table class="FeaturesTable">
                         [featuresTableHeader()/]

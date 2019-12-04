@@ -15,7 +15,7 @@ $(document).ready(function () {
             })
             .first()
             .each(function () {
-                $('<a name="' + letter + '"></a>').insertBefore($(this));
+                $('<a name="' + letter.toUpperCase() + '"></a>').insertBefore($(this));
             });
     });
 });

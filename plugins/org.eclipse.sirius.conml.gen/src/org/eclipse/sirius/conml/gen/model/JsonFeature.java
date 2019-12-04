@@ -5,11 +5,13 @@ import com.google.gson.annotations.SerializedName;
 public final class JsonFeature {
   private final String name;
   private final String definition;
+  private final String href;
   private final Type type;
 
-  public JsonFeature(String name, String definition, Type type) {
+  public JsonFeature(String name, String definition, String href, Type type) {
     this.name = name;
     this.definition = definition;
+    this.href = href;
     this.type = type;
   }
 
@@ -19,6 +21,10 @@ public final class JsonFeature {
 
   public String getDefinition() {
     return definition;
+  }
+
+  public String getHref() {
+    return href;
   }
 
   public Type getType() {

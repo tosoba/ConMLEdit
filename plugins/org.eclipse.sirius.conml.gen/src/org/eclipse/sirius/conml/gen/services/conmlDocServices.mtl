@@ -40,3 +40,8 @@
 [query public domainPartsToJsonString(aDomain : Domain) : String 
 = invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'domainPartsToJsonString(conml.Domain)', Sequence{aDomain}) 
 /]
+
+[query public namedSubElementPath(superElement : NamedElement, subElement : NamedElement, superElementPrefix : String) : String 
+= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'namedSubElementPath(conml.NamedElement, conml.NamedElement, java.lang.String)', Sequence{superElement, subElement, superElementPrefix})
+/]
+

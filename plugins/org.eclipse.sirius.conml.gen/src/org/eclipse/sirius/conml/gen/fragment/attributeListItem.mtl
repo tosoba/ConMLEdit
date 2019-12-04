@@ -5,6 +5,7 @@
 [template public attributeListItem(anAttribute : Attribute, aClass: Class, index : Integer)]
 <tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
     <td class="ColumnName">
+		<a name="[namedElementFilePath(anAttribute, null, null)/]"></a>
 		[anAttribute.name/][if (anAttribute.RedefinedAttribute <> null and anAttribute.RedefinedAttribute.name <> anAttribute.name)] ['['/][anAttribute.RedefinedAttribute.name/][']'/][/if]
 	</td>
     <td class="ColumnCardinality">
@@ -14,7 +15,8 @@
         <span>
 		[if (anAttribute.Datatype.oclIsTypeOf(EnumeratedType))]
 			<a class="EmbeddedLink" href="[namedElementFilePath(anAttribute.Datatype, '../enum/', '.html')/]">enum [anAttribute.Datatype.name/]</a>
-		[else][anAttribute.Datatype.name/]
+		[else]
+			[anAttribute.Datatype.name/]
 		[/if]
 		</span>
     </td>

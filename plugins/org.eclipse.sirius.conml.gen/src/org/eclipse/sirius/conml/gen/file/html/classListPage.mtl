@@ -48,7 +48,7 @@
 					[/for]
                     </p>
 
-					[let classes : OrderedSet(Class) = aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->asSet()->sortedBy(aClass: Class | aClass.name)]
+					[let classes : OrderedSet(Class) = aDomain.eAllContents(Class)->select(aClass : Class | aClass.name <> null and aClass.name.size() > 0)->asSet()->sortedBy(aClass: Class | aClass.name.toLowerCase())]
 					[if (classes->size() > 0)]
                     <table class="FeaturesRowHeader">
                         <thead>

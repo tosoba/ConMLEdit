@@ -5,6 +5,7 @@
 [template public enumItemListItem(anEnumItem : EnumeratedItem, index : Integer)]
 <tr class="FeaturesRow[if (index.mod(2) = 0)]Even[else]Odd[/if]">
     <td class="ColumnName">
+	<a name="[namedElementFilePath(anEnumItem, null, null)/]"></a>
 	[let depth : Integer = enumeratedItemDepth(anEnumItem)]
 	[if (depth > 0)]
 	[for (depthIndex : Integer | Sequence{1..depth})]

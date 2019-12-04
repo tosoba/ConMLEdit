@@ -52,7 +52,11 @@ public class ConMLDocServices {
       final NamedElement namedElement, final String pathBeginning, final String pathEnd) {
     final StringBuilder sb = new StringBuilder();
     if (pathBeginning != null) sb.append(pathBeginning);
-    sb.append(namedElement.getName()).append('-').append(namedElement.hashCode());
+    sb.append(namedElement.getName())
+        .append('-')
+        .append(namedElement.getClass().getSimpleName())
+        .append('-')
+        .append(namedElement.hashCode());
     if (pathEnd != null) sb.append(pathEnd);
     return sb.toString();
   }
@@ -195,6 +199,7 @@ public class ConMLDocServices {
                             new JsonFeature(
                                 attr.getName(),
                                 nullStringToEmpty(attr.getDefinition()),
+                                namedSubElementPath(clazz, attr, "./class/"),
                                 JsonFeature.Type.ATTRIBUTE)),
                 clazz
                     .getSemiAssociations()
@@ -204,6 +209,7 @@ public class ConMLDocServices {
                             new JsonFeature(
                                 semi.getName(),
                                 nullStringToEmpty(semi.getDefinition()),
+                                namedSubElementPath(clazz, semi, "./class/"),
                                 JsonFeature.Type.ASSOCIATION)))
             .collect(Collectors.toList()));
   }
@@ -219,8 +225,18 @@ public class ConMLDocServices {
             .map(
                 enumItem ->
                     new JsonEnumeratedItem(
-                        enumItem.getName(), nullStringToEmpty(enumItem.getDefinition())))
+                        enumItem.getName(),
+                        nullStringToEmpty(enumItem.getDefinition()),
+                        namedSubElementPath(enumType, enumItem, "./enum/")))
             .collect(Collectors.toList()));
+  }
+
+  public String namedSubElementPath(
+      final NamedElement superElement,
+      final NamedElement subElement,
+      final String superElementPrefix) {
+    return namedElementFilePath(superElement, superElementPrefix, ".html")
+        + namedElementFilePath(subElement, "#", null);
   }
 
   private String nullStringToEmpty(final String str) {

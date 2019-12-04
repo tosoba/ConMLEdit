@@ -31,7 +31,7 @@
                     <p>
                         <h2>This is a list of the enumerated types in [projectName/], alphabetically sorted.</h2>
                     </p>
-					[let enumeratedTypes : OrderedSet(EnumeratedType) = aDomain.eAllContents(EnumeratedType)->select(anEnumType : EnumeratedType | anEnumType.name <> null and anEnumType.name.size() > 0)->asSet()->sortedBy(anEnumType : EnumeratedType | anEnumType.name)]
+					[let enumeratedTypes : OrderedSet(EnumeratedType) = aDomain.eAllContents(EnumeratedType)->select(anEnumType : EnumeratedType | anEnumType.name <> null and anEnumType.name.size() > 0)->asSet()->sortedBy(anEnumType : EnumeratedType | anEnumType.name.toLowerCase())]
 					[if (enumeratedTypes->size() > 0)]
                     <table class="FeaturesRowHeader">
                         <thead>
