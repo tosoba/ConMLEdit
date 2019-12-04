@@ -1,0 +1,24 @@
+[module enumTypeListJs('http://conml.ecore')/]
+
+[template public enumTypeListJs(traceabilityContext: OclAny)]
+[file ('js/enumTypeList.js', false, 'UTF-8')]
+$(document).ready(function () {
+    $('.EnumTypeLetterLink').each(function () {
+        const href = $(this).attr('href');
+        if (href === null || href === undefined || href.length < 2)
+            return;
+
+        const letter = href['['/]1[']'/].toLowerCase();
+        $('.EnumTypeName')
+            .filter(function () {
+                return this.innerHTML.toLowerCase().indexOf(letter) === 0;
+            })
+            .first()
+            .each(function () {
+                $('<a name="' + letter.toUpperCase() + '"></a>').insertBefore($(this));
+            });
+    });
+});
+
+[/file]
+[/template]

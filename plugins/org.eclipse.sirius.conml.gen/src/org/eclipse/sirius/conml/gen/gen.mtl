@@ -4,6 +4,7 @@
 [import org::eclipse::sirius::conml::gen::file::css::styles/]
 
 [import org::eclipse::sirius::conml::gen::file::js::classListJs/]
+[import org::eclipse::sirius::conml::gen::file::js::enumTypeListJs/]
 [import org::eclipse::sirius::conml::gen::file::js::partsJs/]
 [import org::eclipse::sirius::conml::gen::file::js::findJs/]
 [import org::eclipse::sirius::conml::gen::file::js::jQuery/]
@@ -20,6 +21,7 @@
 [findPage(projectName)/]
 [classListJs()/]
 [classListPage(aDomain, projectName)/]
+[enumTypeListJs()/]
 [enumTypeListPage(aDomain, projectName)/]
 [for (aClass : Class | aDomain.eAllContents(Class))]
 	[classPage(aClass)/]
