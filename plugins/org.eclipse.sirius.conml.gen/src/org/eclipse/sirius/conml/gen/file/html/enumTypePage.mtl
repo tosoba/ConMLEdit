@@ -53,7 +53,7 @@
                                 <span>Comments</span>:
                             </td>
                             <td class="ElementContent">
-                                <span><!-- EnumType comments --></span>
+                                <span>[anEnumType.comments/]</span>
                             </td>
                         </tr>
                     </table>

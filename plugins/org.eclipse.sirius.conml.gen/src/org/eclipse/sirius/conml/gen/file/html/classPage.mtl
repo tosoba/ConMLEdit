@@ -75,7 +75,7 @@
                                 <span>Comments</span>:
                             </td>
                             <td class="ElementContent">
-                                <span><!-- Comments --></span>
+                                <span>[aClass.comments/]</span>
                             </td>
                         </tr>
 

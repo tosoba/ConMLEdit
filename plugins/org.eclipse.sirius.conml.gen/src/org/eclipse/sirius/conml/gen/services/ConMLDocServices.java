@@ -183,7 +183,7 @@ public class ConMLDocServices {
     return new JsonClass(
         clazz.getName(),
         nullStringToEmpty(clazz.getDefinition()),
-        "", // TODO: comments
+        clazz.getComments(),
         namedElementFilePath(clazz, "./class/", ".html"),
         Stream.concat(clazz.getGeneralizations().stream(), Stream.of(clazz.getSpecialization()))
             .filter(Objects::nonNull)
@@ -218,7 +218,7 @@ public class ConMLDocServices {
     return new JsonEnumeratedType(
         enumType.getName(),
         nullStringToEmpty(enumType.getDefinition()),
-        "", // TODO: comments
+        enumType.getComments(),
         namedElementFilePath(enumType, "./enum/", ".html"),
         depthFirstEnumeratedItemList(enumType)
             .stream()

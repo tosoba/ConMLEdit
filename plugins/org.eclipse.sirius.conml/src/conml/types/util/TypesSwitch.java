@@ -2,6 +2,7 @@
  */
 package conml.types.util;
 
+import conml.CommentableElement;
 import conml.DefinableElement;
 import conml.DescribableElement;
 import conml.Model;
@@ -110,6 +111,7 @@ public class TypesSwitch<T> extends Switch<T> {
 				conml.types.Class class_ = (conml.types.Class)theEObject;
 				T result = caseClass(class_);
 				if (result == null) result = caseType(class_);
+				if (result == null) result = caseCommentableElement(class_);
 				if (result == null) result = caseTypeModelElement(class_);
 				if (result == null) result = caseNamedElement(class_);
 				if (result == null) result = caseDefinableElement(class_);
@@ -143,6 +145,7 @@ public class TypesSwitch<T> extends Switch<T> {
 				EnumeratedType enumeratedType = (EnumeratedType)theEObject;
 				T result = caseEnumeratedType(enumeratedType);
 				if (result == null) result = caseDataType(enumeratedType);
+				if (result == null) result = caseCommentableElement(enumeratedType);
 				if (result == null) result = caseType(enumeratedType);
 				if (result == null) result = caseTypeModelElement(enumeratedType);
 				if (result == null) result = caseNamedElement(enumeratedType);
@@ -575,6 +578,21 @@ public class TypesSwitch<T> extends Switch<T> {
 	}
 
   /**
+	 * Returns the result of interpreting the object as an instance of '<em>Commentable Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Commentable Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCommentableElement(CommentableElement object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>EObject</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

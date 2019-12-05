@@ -1172,9 +1172,11 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		typeEClass.getESuperTypes().add(theconmlPackage.getNamedElement());
 		typeEClass.getESuperTypes().add(theconmlPackage.getDefinableElement());
 		classEClass.getESuperTypes().add(this.getType());
+		classEClass.getESuperTypes().add(theconmlPackage.getCommentableElement());
 		generalizationEClass.getESuperTypes().add(this.getTypeModelElement());
 		featureEClass.getESuperTypes().add(this.getType());
 		enumeratedTypeEClass.getESuperTypes().add(this.getDataType());
+		enumeratedTypeEClass.getESuperTypes().add(theconmlPackage.getCommentableElement());
 		typeModelElementEClass.getESuperTypes().add(theconmlPackage.getModelElement());
 		associationEClass.getESuperTypes().add(this.getType());
 		packageEClass.getESuperTypes().add(this.getTypeModelElement());

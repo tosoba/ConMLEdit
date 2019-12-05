@@ -3,6 +3,7 @@
 package conml.types.provider;
 
 
+import conml.conmlPackage;
 import conml.types.TypesFactory;
 import conml.types.TypesPackage;
 
@@ -46,6 +47,7 @@ public class ClassItemProvider extends TypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCommentsPropertyDescriptor(object);
 			addAbstractPropertyDescriptor(object);
 			addUsedAsTemporalAspectPropertyDescriptor(object);
 			addUsedAsSubjectiveAspectPropertyDescriptor(object);
@@ -62,6 +64,28 @@ public class ClassItemProvider extends TypeItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Comments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommentableElement_comments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommentableElement_comments_feature", "_UI_CommentableElement_type"),
+				 conmlPackage.Literals.COMMENTABLE_ELEMENT__COMMENTS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This adds a property descriptor for the Abstract feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -362,6 +386,7 @@ public class ClassItemProvider extends TypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(conml.types.Class.class)) {
+			case TypesPackage.CLASS__COMMENTS:
 			case TypesPackage.CLASS__ABSTRACT:
 			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
 			case TypesPackage.CLASS__USED_AS_SUBJECTIVE_ASPECT:

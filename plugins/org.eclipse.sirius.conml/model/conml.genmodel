@@ -39,6 +39,9 @@
     <genClasses image="false" ecoreClass="conml.ecore#//DefinableElement">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//DefinableElement/definition"/>
     </genClasses>
+    <genClasses image="false" ecoreClass="conml.ecore#//CommentableElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//CommentableElement/comments"/>
+    </genClasses>
     <nestedGenPackages prefix="Types" basePackage="conml" disposableProviderFactory="true"
         ecorePackage="conml.ecore#//types">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="conml.ecore#//types/BaseDataType">

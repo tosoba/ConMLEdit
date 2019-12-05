@@ -3,6 +3,7 @@
 package conml.types.provider;
 
 
+import conml.conmlPackage;
 import conml.types.EnumeratedType;
 import conml.types.TypesFactory;
 import conml.types.TypesPackage;
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -46,6 +48,7 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addCommentsPropertyDescriptor(object);
 			addOwnedItemsPropertyDescriptor(object);
 			addSubTypesPropertyDescriptor(object);
 			addSuperTypePropertyDescriptor(object);
@@ -55,6 +58,28 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Comments feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addCommentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CommentableElement_comments_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CommentableElement_comments_feature", "_UI_CommentableElement_type"),
+				 conmlPackage.Literals.COMMENTABLE_ELEMENT__COMMENTS,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This adds a property descriptor for the Owned Items feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -210,6 +235,9 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(EnumeratedType.class)) {
+			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

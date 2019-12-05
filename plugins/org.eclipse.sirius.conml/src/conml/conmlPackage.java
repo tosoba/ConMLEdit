@@ -512,6 +512,44 @@ public interface conmlPackage extends EPackage {
 
 
         /**
+	 * The meta object id for the '{@link conml.CommentableElement <em>Commentable Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.CommentableElement
+	 * @see conml.impl.conmlPackageImpl#getCommentableElement()
+	 * @generated
+	 */
+	int COMMENTABLE_ELEMENT = 10;
+
+                /**
+	 * The feature id for the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENTABLE_ELEMENT__COMMENTS = 0;
+
+                /**
+	 * The number of structural features of the '<em>Commentable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENTABLE_ELEMENT_FEATURE_COUNT = 1;
+
+                /**
+	 * The number of operations of the '<em>Commentable Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMMENTABLE_ELEMENT_OPERATION_COUNT = 0;
+
+
+                /**
 	 * Returns the meta object for class '{@link conml.Model <em>Model</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -766,6 +804,27 @@ public interface conmlPackage extends EPackage {
 	EAttribute getDefinableElement_Definition();
 
                                 /**
+	 * Returns the meta object for class '{@link conml.CommentableElement <em>Commentable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Commentable Element</em>'.
+	 * @see conml.CommentableElement
+	 * @generated
+	 */
+	EClass getCommentableElement();
+
+                                /**
+	 * Returns the meta object for the attribute '{@link conml.CommentableElement#getComments <em>Comments</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Comments</em>'.
+	 * @see conml.CommentableElement#getComments()
+	 * @see #getCommentableElement()
+	 * @generated
+	 */
+	EAttribute getCommentableElement_Comments();
+
+                                                                /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -999,6 +1058,24 @@ public interface conmlPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DEFINABLE_ELEMENT__DEFINITION = eINSTANCE.getDefinableElement_Definition();
+
+                                                                /**
+		 * The meta object literal for the '{@link conml.CommentableElement <em>Commentable Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.CommentableElement
+		 * @see conml.impl.conmlPackageImpl#getCommentableElement()
+		 * @generated
+		 */
+		EClass COMMENTABLE_ELEMENT = eINSTANCE.getCommentableElement();
+
+                                                                /**
+		 * The meta object literal for the '<em><b>Comments</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute COMMENTABLE_ELEMENT__COMMENTS = eINSTANCE.getCommentableElement_Comments();
 
 	}
 

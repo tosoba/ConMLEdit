@@ -2,6 +2,7 @@
  */
 package conml.types.util;
 
+import conml.CommentableElement;
 import conml.DefinableElement;
 import conml.DescribableElement;
 import conml.Model;
@@ -170,6 +171,10 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseDefinableElement(DefinableElement object) {
 				return createDefinableElementAdapter();
+			}
+			@Override
+			public Adapter caseCommentableElement(CommentableElement object) {
+				return createCommentableElementAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -486,6 +491,20 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 	}
 
   /**
+	 * Creates a new adapter for an object of class '{@link conml.CommentableElement <em>Commentable Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.CommentableElement
+	 * @generated
+	 */
+	public Adapter createCommentableElementAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for the default case.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null.

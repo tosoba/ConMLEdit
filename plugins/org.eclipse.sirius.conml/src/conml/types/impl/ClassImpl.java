@@ -2,6 +2,8 @@
  */
 package conml.types.impl;
 
+import conml.CommentableElement;
+import conml.conmlPackage;
 import conml.instances.InstancesPackage;
 
 import conml.types.Attribute;
@@ -33,6 +35,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link conml.types.impl.ClassImpl#getComments <em>Comments</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isAbstract <em>Abstract</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isUsedAsTemporalAspect <em>Used As Temporal Aspect</em>}</li>
  *   <li>{@link conml.types.impl.ClassImpl#isUsedAsSubjectiveAspect <em>Used As Subjective Aspect</em>}</li>
@@ -50,6 +53,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class ClassImpl extends TypeImpl implements conml.types.Class {
 	/**
+	 * The default value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENTS_EDEFAULT = null;
+
+  /**
+	 * The cached value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comments = COMMENTS_EDEFAULT;
+
+  /**
 	 * The default value of the '{@link #isAbstract() <em>Abstract</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,6 +232,29 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getComments() {
+		return comments;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComments(String newComments) {
+		String oldComments = comments;
+		comments = newComments;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.CLASS__COMMENTS, oldComments, comments));
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -599,6 +645,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case TypesPackage.CLASS__COMMENTS:
+				return getComments();
 			case TypesPackage.CLASS__ABSTRACT:
 				return isAbstract();
 			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
@@ -637,6 +685,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TypesPackage.CLASS__COMMENTS:
+				setComments((String)newValue);
+				return;
 			case TypesPackage.CLASS__ABSTRACT:
 				setAbstract((Boolean)newValue);
 				return;
@@ -687,6 +738,9 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TypesPackage.CLASS__COMMENTS:
+				setComments(COMMENTS_EDEFAULT);
+				return;
 			case TypesPackage.CLASS__ABSTRACT:
 				setAbstract(ABSTRACT_EDEFAULT);
 				return;
@@ -732,6 +786,8 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case TypesPackage.CLASS__COMMENTS:
+				return COMMENTS_EDEFAULT == null ? comments != null : !COMMENTS_EDEFAULT.equals(comments);
 			case TypesPackage.CLASS__ABSTRACT:
 				return abstract_ != ABSTRACT_EDEFAULT;
 			case TypesPackage.CLASS__USED_AS_TEMPORAL_ASPECT:
@@ -764,11 +820,45 @@ public class ClassImpl extends TypeImpl implements conml.types.Class {
 	 * @generated
 	 */
 	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == CommentableElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.CLASS__COMMENTS: return conmlPackage.COMMENTABLE_ELEMENT__COMMENTS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == CommentableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.COMMENTABLE_ELEMENT__COMMENTS: return TypesPackage.CLASS__COMMENTS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (abstract: ");
+		result.append(" (comments: ");
+		result.append(comments);
+		result.append(", abstract: ");
 		result.append(abstract_);
 		result.append(", usedAsTemporalAspect: ");
 		result.append(usedAsTemporalAspect);

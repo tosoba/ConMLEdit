@@ -2,6 +2,7 @@
  */
 package conml.impl;
 
+import conml.CommentableElement;
 import conml.DefinableElement;
 import conml.DescribableElement;
 import conml.Domain;
@@ -109,6 +110,13 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	private EClass definableElementEClass = null;
 
                 /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass commentableElementEClass = null;
+
+                                /**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -428,6 +436,26 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 	 * @generated
 	 */
 	@Override
+	public EClass getCommentableElement() {
+		return commentableElementEClass;
+	}
+
+                                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCommentableElement_Comments() {
+		return (EAttribute)commentableElementEClass.getEStructuralFeatures().get(0);
+	}
+
+                                                                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public conmlFactory getconmlFactory() {
 		return (conmlFactory)getEFactoryInstance();
 	}
@@ -484,6 +512,9 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 
 		definableElementEClass = createEClass(DEFINABLE_ELEMENT);
 		createEAttribute(definableElementEClass, DEFINABLE_ELEMENT__DEFINITION);
+
+		commentableElementEClass = createEClass(COMMENTABLE_ELEMENT);
+		createEAttribute(commentableElementEClass, COMMENTABLE_ELEMENT__COMMENTS);
 	}
 
 	/**
@@ -566,6 +597,9 @@ public class conmlPackageImpl extends EPackageImpl implements conmlPackage {
 
 		initEClass(definableElementEClass, DefinableElement.class, "DefinableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getDefinableElement_Definition(), ecorePackage.getEString(), "definition", null, 0, 1, DefinableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(commentableElementEClass, CommentableElement.class, "CommentableElement", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCommentableElement_Comments(), ecorePackage.getEString(), "comments", null, 0, 1, CommentableElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Create resource
 		createResource(eNS_URI);

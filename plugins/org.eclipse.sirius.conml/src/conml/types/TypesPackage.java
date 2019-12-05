@@ -379,13 +379,22 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int CLASS__DEFINITION = TYPE__DEFINITION;
 
 	/**
+	 * The feature id for the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CLASS__COMMENTS = TYPE_FEATURE_COUNT + 0;
+
+  /**
 	 * The feature id for the '<em><b>Abstract</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ABSTRACT = TYPE_FEATURE_COUNT + 0;
+	int CLASS__ABSTRACT = TYPE_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Used As Temporal Aspect</b></em>' attribute.
@@ -394,7 +403,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__USED_AS_TEMPORAL_ASPECT = TYPE_FEATURE_COUNT + 1;
+	int CLASS__USED_AS_TEMPORAL_ASPECT = TYPE_FEATURE_COUNT + 2;
 
   /**
 	 * The feature id for the '<em><b>Used As Subjective Aspect</b></em>' attribute.
@@ -403,7 +412,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__USED_AS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 2;
+	int CLASS__USED_AS_SUBJECTIVE_ASPECT = TYPE_FEATURE_COUNT + 3;
 
   /**
 	 * The feature id for the '<em><b>Generalizations</b></em>' reference list.
@@ -412,7 +421,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__GENERALIZATIONS = TYPE_FEATURE_COUNT + 3;
+	int CLASS__GENERALIZATIONS = TYPE_FEATURE_COUNT + 4;
 
     /**
 	 * The feature id for the '<em><b>Specialization</b></em>' reference.
@@ -421,7 +430,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__SPECIALIZATION = TYPE_FEATURE_COUNT + 4;
+	int CLASS__SPECIALIZATION = TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Dominant Generalization</b></em>' reference.
@@ -430,7 +439,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 5;
+	int CLASS__DOMINANT_GENERALIZATION = TYPE_FEATURE_COUNT + 6;
 
 	/**
 	 * The feature id for the '<em><b>Instance Objects</b></em>' reference list.
@@ -439,7 +448,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__INSTANCE_OBJECTS = TYPE_FEATURE_COUNT + 6;
+	int CLASS__INSTANCE_OBJECTS = TYPE_FEATURE_COUNT + 7;
 
     /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -448,7 +457,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 7;
+	int CLASS__PACKAGE = TYPE_FEATURE_COUNT + 8;
 
   /**
 	 * The feature id for the '<em><b>Properties</b></em>' containment reference list.
@@ -457,7 +466,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__PROPERTIES = TYPE_FEATURE_COUNT + 8;
+	int CLASS__PROPERTIES = TYPE_FEATURE_COUNT + 9;
 
     /**
 	 * The feature id for the '<em><b>Attributes</b></em>' containment reference list.
@@ -466,7 +475,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__ATTRIBUTES = TYPE_FEATURE_COUNT + 9;
+	int CLASS__ATTRIBUTES = TYPE_FEATURE_COUNT + 10;
 
     /**
 	 * The feature id for the '<em><b>Semi Associations</b></em>' containment reference list.
@@ -475,7 +484,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS__SEMI_ASSOCIATIONS = TYPE_FEATURE_COUNT + 10;
+	int CLASS__SEMI_ASSOCIATIONS = TYPE_FEATURE_COUNT + 11;
 
         /**
 	 * The number of structural features of the '<em>Class</em>' class.
@@ -484,7 +493,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 11;
+	int CLASS_FEATURE_COUNT = TYPE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Class</em>' class.
@@ -842,13 +851,22 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int ENUMERATED_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
 
 	/**
+	 * The feature id for the '<em><b>Comments</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUMERATED_TYPE__COMMENTS = DATA_TYPE_FEATURE_COUNT + 0;
+
+  /**
 	 * The feature id for the '<em><b>Owned Items</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__OWNED_ITEMS = DATA_TYPE_FEATURE_COUNT + 0;
+	int ENUMERATED_TYPE__OWNED_ITEMS = DATA_TYPE_FEATURE_COUNT + 1;
 
   /**
 	 * The feature id for the '<em><b>Sub Types</b></em>' reference list.
@@ -857,7 +875,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SUB_TYPES = DATA_TYPE_FEATURE_COUNT + 1;
+	int ENUMERATED_TYPE__SUB_TYPES = DATA_TYPE_FEATURE_COUNT + 2;
 
   /**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -866,7 +884,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SUPER_TYPE = DATA_TYPE_FEATURE_COUNT + 2;
+	int ENUMERATED_TYPE__SUPER_TYPE = DATA_TYPE_FEATURE_COUNT + 3;
 
     /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -875,7 +893,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 3;
+	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated Type</em>' class.
@@ -884,7 +902,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 4;
+	int ENUMERATED_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Type</em>' class.

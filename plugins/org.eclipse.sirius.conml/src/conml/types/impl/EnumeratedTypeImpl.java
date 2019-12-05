@@ -2,6 +2,8 @@
  */
 package conml.types.impl;
 
+import conml.CommentableElement;
+import conml.conmlPackage;
 import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.TypesPackage;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getComments <em>Comments</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getOwnedItems <em>Owned Items</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSubTypes <em>Sub Types</em>}</li>
  *   <li>{@link conml.types.impl.EnumeratedTypeImpl#getSuperType <em>Super Type</em>}</li>
@@ -40,6 +43,26 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	/**
+	 * The default value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String COMMENTS_EDEFAULT = null;
+
+  /**
+	 * The cached value of the '{@link #getComments() <em>Comments</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getComments()
+	 * @generated
+	 * @ordered
+	 */
+	protected String comments = COMMENTS_EDEFAULT;
+
+  /**
 	 * The cached value of the '{@link #getOwnedItems() <em>Owned Items</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -99,6 +122,29 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getComments() {
+		return comments;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setComments(String newComments) {
+		String oldComments = comments;
+		comments = newComments;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ENUMERATED_TYPE__COMMENTS, oldComments, comments));
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -301,6 +347,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+				return getComments();
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return getOwnedItems();
 			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
@@ -324,6 +372,9 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+				setComments((String)newValue);
+				return;
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				getOwnedItems().clear();
 				getOwnedItems().addAll((Collection<? extends EnumeratedItem>)newValue);
@@ -350,6 +401,9 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+				setComments(COMMENTS_EDEFAULT);
+				return;
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				getOwnedItems().clear();
 				return;
@@ -374,6 +428,8 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+				return COMMENTS_EDEFAULT == null ? comments != null : !COMMENTS_EDEFAULT.equals(comments);
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
 				return ownedItems != null && !ownedItems.isEmpty();
 			case TypesPackage.ENUMERATED_TYPE__SUB_TYPES:
@@ -384,6 +440,54 @@ public class EnumeratedTypeImpl extends DataTypeImpl implements EnumeratedType {
 				return package_ != null;
 		}
 		return super.eIsSet(featureID);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eBaseStructuralFeatureID(int derivedFeatureID, Class<?> baseClass) {
+		if (baseClass == CommentableElement.class) {
+			switch (derivedFeatureID) {
+				case TypesPackage.ENUMERATED_TYPE__COMMENTS: return conmlPackage.COMMENTABLE_ELEMENT__COMMENTS;
+				default: return -1;
+			}
+		}
+		return super.eBaseStructuralFeatureID(derivedFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public int eDerivedStructuralFeatureID(int baseFeatureID, Class<?> baseClass) {
+		if (baseClass == CommentableElement.class) {
+			switch (baseFeatureID) {
+				case conmlPackage.COMMENTABLE_ELEMENT__COMMENTS: return TypesPackage.ENUMERATED_TYPE__COMMENTS;
+				default: return -1;
+			}
+		}
+		return super.eDerivedStructuralFeatureID(baseFeatureID, baseClass);
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (comments: ");
+		result.append(comments);
+		result.append(')');
+		return result.toString();
 	}
 
 } //EnumeratedTypeImpl

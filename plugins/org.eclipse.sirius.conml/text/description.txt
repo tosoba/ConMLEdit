@@ -40,3 +40,6 @@ Package conml <http://conml.ecore>
 
   Class DefinableElement
     Attribute definition : EString
+
+  Class CommentableElement
+    Attribute comments : EString
