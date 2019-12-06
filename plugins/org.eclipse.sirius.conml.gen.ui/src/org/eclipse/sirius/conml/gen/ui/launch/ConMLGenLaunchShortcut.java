@@ -28,13 +28,10 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
 
   private IFile file;
 
-  public static final String LAUNCH_CONFIGURATION_TYPE =
-      "org.eclipse.sirius.conml.gen.ui.launchConfigurationType";
-
   @Override
   public void launch(ISelection selection, String mode) {
     if (selection instanceof IStructuredSelection) {
-      List<?> list = ((IStructuredSelection) selection).toList();
+      final List<?> list = ((IStructuredSelection) selection).toList();
       for (Object object : list) {
         if (object instanceof IFile
             && ((IFile) object).getFileExtension() != null
@@ -53,14 +50,12 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
   @Override
   public void launch(IEditorPart editor, String mode) {}
 
-  private void generate(String mode) {
-    // Finds or creates a launch configuration for these UML models.
+  private void generate(final String mode) {
     ILaunchConfiguration launchConfiguration = this.findLaunchConfiguration();
     if (launchConfiguration == null) {
       launchConfiguration = this.createConfiguration();
     }
 
-    // Launch it
     if (launchConfiguration != null && launchConfiguration.exists()) {
       DebugUITools.launch(launchConfiguration, mode);
     }
@@ -71,12 +66,12 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
     ILaunchConfiguration config = null;
     ILaunchConfigurationWorkingCopy wc = null;
     try {
-      String computedModelPath = this.file.getFullPath().toString();
+      final String computedModelPath = this.file.getFullPath().toString();
 
-      ILaunchConfigurationType configType =
+      final ILaunchConfigurationType configType =
           DebugPlugin.getDefault()
               .getLaunchManager()
-              .getLaunchConfigurationType(LAUNCH_CONFIGURATION_TYPE);
+              .getLaunchConfigurationType(ConMLGenConstants.LAUNCH_CONFIGURATION_TYPE);
       wc =
           configType.newInstance(
               null,
@@ -98,7 +93,7 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
           selection,
           IDebugUIConstants.ID_RUN_LAUNCH_GROUP);
     } catch (CoreException e) {
-      IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
+      final IWorkbenchWindow window = PlatformUI.getWorkbench().getActiveWorkbenchWindow();
       if (window != null) {
         MessageDialog.openError(window.getShell(), "", e.getStatus().getMessage());
       } else {
@@ -109,17 +104,17 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
   }
 
   private ILaunchConfiguration findLaunchConfiguration() {
-    String computedModelPath = this.file.getFullPath().toString();
+    final String computedModelPath = this.file.getFullPath().toString();
 
-    ILaunchConfigurationType configurationType =
+    final ILaunchConfigurationType configurationType =
         DebugPlugin.getDefault()
             .getLaunchManager()
-            .getLaunchConfigurationType(LAUNCH_CONFIGURATION_TYPE);
+            .getLaunchConfigurationType(ConMLGenConstants.LAUNCH_CONFIGURATION_TYPE);
     try {
-      ILaunchConfiguration[] launchConfigurations =
+      final ILaunchConfiguration[] launchConfigurations =
           DebugPlugin.getDefault().getLaunchManager().getLaunchConfigurations(configurationType);
-      for (ILaunchConfiguration iLaunchConfiguration : launchConfigurations) {
-        String modelPath =
+      for (final ILaunchConfiguration iLaunchConfiguration : launchConfigurations) {
+        final String modelPath =
             iLaunchConfiguration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
 
         if (modelPath != null && modelPath.equals(computedModelPath)) {
@@ -127,7 +122,8 @@ public final class ConMLGenLaunchShortcut implements ILaunchShortcut {
         }
       }
     } catch (CoreException e) {
-      IStatus status = new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
+      final IStatus status =
+          new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
       ConMLGenUiActivator.getDefault().getLog().log(status);
     }
     return null;

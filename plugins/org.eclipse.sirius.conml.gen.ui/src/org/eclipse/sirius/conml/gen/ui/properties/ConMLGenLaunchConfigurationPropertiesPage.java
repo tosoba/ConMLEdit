@@ -17,7 +17,6 @@ import org.eclipse.debug.internal.ui.launchConfigurations.LaunchGroupExtension;
 import org.eclipse.debug.ui.ILaunchGroup;
 import org.eclipse.sirius.conml.gen.config.ConMLGenConstants;
 import org.eclipse.sirius.conml.gen.ui.common.ConMLGenConfigurationServices;
-import org.eclipse.sirius.conml.gen.ui.launch.ConMLGenLaunchShortcut;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
@@ -34,10 +33,8 @@ import org.eclipse.ui.dialogs.PropertyPage;
 @SuppressWarnings("restriction")
 public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPage {
 
-  /** The combo to select a launch configuration. */
   private LaunchConfigurationsCombo combo;
 
-  /** The viewer to edit a launch configuration for Java generation. */
   private CustomLaunchConfigurationTabGroupViewer viewer;
 
   public ConMLGenLaunchConfigurationPropertiesPage() {
@@ -46,24 +43,22 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
 
   @Override
   protected Control createContents(Composite parent) {
-    Composite composite = new Composite(parent, SWT.NONE);
-    GridLayout layout = new GridLayout();
+    final Composite composite = new Composite(parent, SWT.NONE);
+    final GridLayout layout = new GridLayout();
     composite.setLayout(layout);
-    GridData data = new GridData();
+    final GridData data = new GridData();
     composite.setLayoutData(data);
 
-    // Create the combo to choose the launch configuration to edit and to select for the Java
-    // generation.
     combo = new LaunchConfigurationsCombo(composite, SWT.READ_ONLY);
 
     String configNameToSelect =
         ConMLGenConfigurationServices.getConfigurationProperty((IResource) getElement());
-    List<ILaunchConfiguration> configs =
+    final List<ILaunchConfiguration> configs =
         ConMLGenConfigurationServices.getStoredJavaGenerationLaunchConfigurations(
             (IResource) getElement());
 
     if (configs.isEmpty() || configNameToSelect == null) {
-      Label isStoredLabel = new Label(composite, SWT.NONE);
+      final Label isStoredLabel = new Label(composite, SWT.NONE);
       isStoredLabel.setForeground(
           new org.eclipse.swt.graphics.Color(composite.getDisplay(), new RGB(255, 0, 0)));
       isStoredLabel.setText(
@@ -85,7 +80,8 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
         configNameToSelect = combo.getItem(0);
       } else if (combo.isEmpty()) {
         try {
-          ILaunchConfigurationWorkingCopy newLaunchConfig = createLaunchConfigurationWorkingCopy();
+          final ILaunchConfigurationWorkingCopy newLaunchConfig =
+              createLaunchConfigurationWorkingCopy();
           combo.add(newLaunchConfig);
           configNameToSelect = newLaunchConfig.getName();
           newLaunchConfig.setAttribute(
@@ -107,11 +103,8 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
           && ((ILaunchConfigurationWorkingCopy) combo.getSelectedLaunchConfiguration())
                   .getOriginal()
               == null) {
-        // Case where a new launch configuration working copy has been created (no launch
-        // configuration stored).
         ((ILaunchConfigurationWorkingCopy) combo.getSelectedLaunchConfiguration()).doSave();
       } else if (viewer != null) {
-        // Save the changes in the related stored launch configuration.
         viewer.doApply();
       }
 
@@ -124,16 +117,9 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
     return true;
   }
 
-  /**
-   * Create the viewer in the properties page.
-   *
-   * @param parent The parent composite.
-   * @return The viewer.
-   */
   private CustomLaunchConfigurationTabGroupViewer createViewer(Composite parent) {
     ILaunchGroup launchGroup = ConMLGenConfigurationServices.getLaunchGroup();
     if (launchGroup instanceof LaunchGroupExtension) {
-      // We want just to instantiate the dialog for the viewer needs.
       CustomLaunchConfigurationsDialog dialog =
           new CustomLaunchConfigurationsDialog(getShell(), (LaunchGroupExtension) launchGroup);
       return new CustomLaunchConfigurationTabGroupViewer(parent, dialog);
@@ -141,20 +127,12 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
     return null;
   }
 
-  /**
-   * Create a working copy of launch configuration for Java generation.
-   *
-   * @return The working copy.
-   * @throws CoreException exception.
-   */
   private ILaunchConfigurationWorkingCopy createLaunchConfigurationWorkingCopy()
       throws CoreException {
-
-    // Kind of launch configurations for Java generation.
     ILaunchConfigurationType type =
         DebugPlugin.getDefault()
             .getLaunchManager()
-            .getLaunchConfigurationType(ConMLGenLaunchShortcut.LAUNCH_CONFIGURATION_TYPE);
+            .getLaunchConfigurationType(ConMLGenConstants.LAUNCH_CONFIGURATION_TYPE);
 
     return type.newInstance(
         null,
@@ -164,40 +142,21 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
                 LaunchConfigurationsMessages.CreateLaunchConfigurationAction_New_configuration_2));
   }
 
-  /**
-   * A combo which displays the name of launch configurations and which is attached to a launch
-   * configuration viewer.
-   */
   private class LaunchConfigurationsCombo extends Combo {
 
-    /** Launch configuration name (id) to the related launch configuration itself. */
     private Map<String, ILaunchConfiguration> mConfigsRegistry =
         new HashMap<String, ILaunchConfiguration>();
 
-    /** The selected launch configuration. */
     private ILaunchConfiguration mSelectedConfig;
 
-    /** The attached viewer. */
     private CustomLaunchConfigurationTabGroupViewer mViewer;
 
-    /** The selection listener. */
     private SelectionListener selectionListener;
 
-    /**
-     * Constructor.
-     *
-     * @param parent The parent composite.
-     * @param style Style of the Combo.
-     */
     public LaunchConfigurationsCombo(Composite parent, int style) {
       super(parent, style);
     }
 
-    /**
-     * Fill the combo with the name of the launch configurations.
-     *
-     * @param configs The launch configurations.
-     */
     public void setLaunchConfigurations(List<ILaunchConfiguration> configs) {
       for (ILaunchConfiguration config : configs) {
         add(config);
@@ -207,21 +166,11 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
     @Override
     protected void checkSubclass() {}
 
-    /**
-     * Adds the argument to the end of the receiver's list.
-     *
-     * @param configuration The configuration to add.
-     */
     public void add(ILaunchConfiguration configuration) {
       add(configuration.getName());
       mConfigsRegistry.put(configuration.getName(), configuration);
     }
 
-    /**
-     * This attaches the given viewer to the combo.
-     *
-     * @param viewer The viewer.
-     */
     public void setViewer(final CustomLaunchConfigurationTabGroupViewer viewer) {
       mViewer = viewer;
       if (selectionListener == null) {
@@ -230,39 +179,26 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
 
               public void widgetSelected(SelectionEvent e) {
                 String selection = getText();
-                ILaunchConfiguration selectedConfig = mConfigsRegistry.get(selection);
+                final ILaunchConfiguration selectedConfig = mConfigsRegistry.get(selection);
 
-                // Notify the viewer about the new selection.
                 mViewer.doInputChanged(selectedConfig);
 
                 mSelectedConfig = selectedConfig;
               }
 
-              public void widgetDefaultSelected(SelectionEvent e) {
-                // Do nothing.
-              }
+              public void widgetDefaultSelected(SelectionEvent e) {}
             };
         addSelectionListener(selectionListener);
       }
     }
 
-    /**
-     * Select the given item.
-     *
-     * @param text The text item.
-     */
     public void select(String text) {
-      ILaunchConfiguration configToSelect = mConfigsRegistry.get(text);
+      final ILaunchConfiguration configToSelect = mConfigsRegistry.get(text);
       if (configToSelect != null && configToSelect != mSelectedConfig) {
         select(configToSelect);
       }
     }
 
-    /**
-     * Select the given launch configuration.
-     *
-     * @param configuration The launch configuration.
-     */
     public void select(ILaunchConfiguration configuration) {
       if (!configuration.getName().equals(getText())) {
         setText(configuration.getName());
@@ -272,16 +208,11 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
       mViewer.doInputChanged(configuration);
     }
 
-    /**
-     * Update the current item with the given launch configuration.
-     *
-     * @param configuration The new launch configuration.
-     */
     public void updateCurrentItem(ILaunchConfiguration configuration) {
       mConfigsRegistry.remove(getText());
       mConfigsRegistry.put(configuration.getName(), configuration);
       mSelectedConfig = configuration;
-      int indexToUpdate = indexOf(getText());
+      final int indexToUpdate = indexOf(getText());
       setItem(indexToUpdate, configuration.getName());
       setText(configuration.getName());
       pack(true);
@@ -291,12 +222,6 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
       return mSelectedConfig;
     }
 
-    /**
-     * Check if the combo contains the given text item?
-     *
-     * @param text The text item.
-     * @return True if the combo contains it.
-     */
     public boolean contains(String text) {
       return mConfigsRegistry.containsKey(text);
     }
@@ -306,65 +231,37 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
     }
   }
 
-  /** The launch configuration dialog required by the launch configuration tab group viewer. */
   private class CustomLaunchConfigurationsDialog extends LaunchConfigurationsDialog {
 
-    /**
-     * Constructor.
-     *
-     * @param shell Shell
-     * @param group LaunchGroupExtension
-     */
     public CustomLaunchConfigurationsDialog(Shell shell, LaunchGroupExtension group) {
       super(shell, group);
     }
 
     @Override
     public boolean isTreeSelectionEmpty() {
-      // No Launch configuration dialog so no tree to manage. We consider that it is always empty.
       return true;
     }
 
     @Override
     public void updateButtons() {
-      // Refresh only the buttons from the viewer.
       getTabViewer().refresh();
     }
 
     @Override
-    public void updateMessage() {
-      // No Launch configuration dialog so no messages to display from it.
-    }
+    public void updateMessage() {}
 
-    /**
-     * This enables to set the Tab Group viewer on this dialog.
-     *
-     * @param viewer The Tab Group viewer.
-     */
     public void setViewer(LaunchConfigurationTabGroupViewer viewer) {
       setTabViewer(viewer);
     }
   }
 
-  /**
-   * The launch configuration tab group viewer fit to be used in the context of this properties
-   * page.
-   */
   private class CustomLaunchConfigurationTabGroupViewer extends LaunchConfigurationTabGroupViewer {
 
-    /** Tool tip text for the revert button. */
     private static final String MSG_REVERT_BUTTON = "Revert the last changes";
 
-    /** Tool tip text for the apply button. */
     private static final String MSG_APPLY_BUTTON =
         "Save the changes in the related launch configuration";
 
-    /**
-     * Constructor.
-     *
-     * @param parent Composite.
-     * @param dialog The launch configuration dialog.
-     */
     public CustomLaunchConfigurationTabGroupViewer(
         Composite parent, CustomLaunchConfigurationsDialog dialog) {
       super(parent, dialog);
@@ -373,16 +270,10 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
       this.getRevertButton().setToolTipText(MSG_REVERT_BUTTON);
     }
 
-    /**
-     * This calls {@link LaunchConfigurationTabGroupViewer#inputChanged(Object)}.
-     *
-     * @param config The launch configuration.
-     */
     public void doInputChanged(ILaunchConfiguration config) {
       inputChanged(config);
     }
 
-    /** This calls {@link LaunchConfigurationTabGroupViewer#handleApplyPressed()}. */
     public void doApply() {
       handleApplyPressed();
     }
@@ -390,20 +281,11 @@ public final class ConMLGenLaunchConfigurationPropertiesPage extends PropertyPag
     @Override
     public ILaunchConfiguration handleApplyPressed() {
       ILaunchConfiguration launchConfig = super.handleApplyPressed();
-
       if (launchConfig != null && !combo.getText().equals(launchConfig.getName())) {
-        // Renaming of the current launch configuration case
-
-        // A new launch configuration is created and the original one is deleted.
-        // We have to call inputChanged() to define the new original launch configuration.
-        // -> the storedLaunchConfig will be considered as the new original one.
-        ILaunchConfiguration storedLaunchConfig =
+        final ILaunchConfiguration storedLaunchConfig =
             ConMLGenConfigurationServices.getStoredLaunchConfiguration(launchConfig.getName());
         combo.select(storedLaunchConfig);
-
-        // -> update of the combo
         combo.updateCurrentItem(storedLaunchConfig);
-
         launchConfig = storedLaunchConfig;
       }
 

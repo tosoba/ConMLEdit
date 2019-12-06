@@ -20,7 +20,7 @@ public final class ConMLModelLookupParticipant extends AbstractSourceLookupParti
     } else if (object instanceof IResource) {
       result = ((IResource) object).getName();
     } else if (object instanceof IAdaptable) {
-      IResource resource = (IResource) ((IAdaptable) object).getAdapter(IResource.class);
+      final IResource resource = (IResource) ((IAdaptable) object).getAdapter(IResource.class);
       if (resource != null) {
         result = resource.getName();
       }
@@ -30,15 +30,15 @@ public final class ConMLModelLookupParticipant extends AbstractSourceLookupParti
 
   @Override
   public Object[] findSourceElements(Object object) throws CoreException {
-    Object[] result = super.findSourceElements(object);
-    List<IResource> umlModels = new ArrayList<IResource>();
-    for (Object obj : result) {
+    final Object[] result = super.findSourceElements(object);
+    final List<IResource> conmlProjects = new ArrayList<IResource>();
+    for (final Object obj : result) {
       if (obj instanceof IFile
           && ((IFile) obj).getFileExtension() != null
           && ConMLGenConstants.CONML_FILE_EXTENSION.equals(((IFile) obj).getFileExtension())) {
-        umlModels.add((IFile) obj);
+        conmlProjects.add((IFile) obj);
       }
     }
-    return umlModels.toArray(new Object[umlModels.size()]);
+    return conmlProjects.toArray(new Object[conmlProjects.size()]);
   }
 }

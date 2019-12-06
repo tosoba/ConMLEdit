@@ -20,18 +20,12 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 public final class ConMLGenDocumentationHandler extends AbstractHandler {
 
-  /**
-   * {@inheritDoc}
-   *
-   * @see
-   *     org.eclipse.core.commands.AbstractHandler#execute(org.eclipse.core.commands.ExecutionEvent)
-   */
   public Object execute(ExecutionEvent event) throws ExecutionException {
     try {
-      IStructuredSelection selection =
+      final IStructuredSelection selection =
           (IStructuredSelection) HandlerUtil.getCurrentSelectionChecked(event);
       IResource model = null;
-      Object selectedObj = selection.getFirstElement();
+      final Object selectedObj = selection.getFirstElement();
       if (selectedObj instanceof IResource) {
         model = (IResource) selectedObj;
       } else if (selectedObj instanceof EObject) {
@@ -42,23 +36,23 @@ public final class ConMLGenDocumentationHandler extends AbstractHandler {
       }
 
       if (model != null) {
-        String configName = ConMLGenConfigurationServices.getConfigurationProperty(model);
+        final String configName = ConMLGenConfigurationServices.getConfigurationProperty(model);
         if (configName != null) {
-          ILaunchConfiguration config =
+          final ILaunchConfiguration config =
               ConMLGenConfigurationServices.getStoredLaunchConfiguration(configName);
 
           if (config != null) {
-            String computedModelPath = model.getFullPath().toString();
+            final String computedModelPath = model.getFullPath().toString();
 
-            String modelPath = config.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
+            final String modelPath = config.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
 
             if (modelPath != null && modelPath.equals(computedModelPath)) {
-              ILaunchGroup group = ConMLGenConfigurationServices.getLaunchGroup();
+              final ILaunchGroup group = ConMLGenConfigurationServices.getLaunchGroup();
               if (group != null) {
                 DebugUITools.launch(config, group.getMode());
               }
             } else {
-              IStatus status =
+              final IStatus status =
                   new Status(
                       IStatus.ERROR,
                       ConMLGenUiActivator.PLUGIN_ID,
@@ -66,7 +60,7 @@ public final class ConMLGenDocumentationHandler extends AbstractHandler {
               ConMLGenUiActivator.getDefault().getLog().log(status);
             }
           } else {
-            IStatus status =
+            final IStatus status =
                 new Status(
                     IStatus.INFO,
                     ConMLGenUiActivator.PLUGIN_ID,
@@ -78,7 +72,7 @@ public final class ConMLGenDocumentationHandler extends AbstractHandler {
             ConMLGenUiActivator.getDefault().getLog().log(status);
           }
         } else {
-          IStatus status =
+          final IStatus status =
               new Status(
                   IStatus.INFO,
                   ConMLGenUiActivator.PLUGIN_ID,
@@ -88,10 +82,10 @@ public final class ConMLGenDocumentationHandler extends AbstractHandler {
           ConMLGenUiActivator.getDefault().getLog().log(status);
         }
       }
-    } catch (ExecutionException e) {
-      throw e;
-    } catch (CoreException e2) {
-      e2.printStackTrace();
+    } catch (ExecutionException evalEx) {
+      throw evalEx;
+    } catch (CoreException coreEx) {
+      coreEx.printStackTrace();
     }
     return null;
   }

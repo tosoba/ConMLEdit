@@ -9,6 +9,7 @@ import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.sirius.conml.gen.config.ConMLGenConstants;
 import org.eclipse.sirius.conml.gen.ui.ConMLGenUiActivator;
 import org.eclipse.swt.SWT;
@@ -25,19 +26,18 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.FilteredResourcesSelectionDialog;
 
-public final class ConMLGenGeneralLaunchConfigurationTab
-    extends AbstractConMLGenLaunchConfigurationTab {
+public final class ConMLGenGeneralLaunchConfigurationTab extends AbstractLaunchConfigurationTab {
 
   private Text modelPathText;
   private Text outputFolderText;
 
   @Override
   public void createControl(Composite parent) {
-    Font font = parent.getFont();
-    Composite composite = new Composite(parent, SWT.NONE);
+    final Font font = parent.getFont();
+    final Composite composite = new Composite(parent, SWT.NONE);
     composite.setLayout(new GridLayout(1, false));
     composite.setFont(font);
-    GridData gd = new GridData(GridData.FILL_BOTH);
+    final GridData gd = new GridData(GridData.FILL_BOTH);
     gd.horizontalSpan = 1;
     composite.setLayoutData(gd);
 
@@ -49,9 +49,9 @@ public final class ConMLGenGeneralLaunchConfigurationTab
 
   private void createGenerationGroup(Composite composite, Font font) {
     GridData gd;
-    Group generationGroup = createGroup(composite, "General", 3, 1, GridData.FILL_HORIZONTAL);
-    Composite comp = new Composite(generationGroup, SWT.NONE);
-    GridLayout layout = new GridLayout(3, false);
+    final Group generationGroup = createGroup(composite, "General", 3, 1, GridData.FILL_HORIZONTAL);
+    final Composite comp = new Composite(generationGroup, SWT.NONE);
+    final GridLayout layout = new GridLayout(3, false);
     layout.marginWidth = 0;
     layout.marginHeight = 0;
     comp.setLayout(layout);
@@ -60,7 +60,7 @@ public final class ConMLGenGeneralLaunchConfigurationTab
     gd.horizontalSpan = 2;
     comp.setLayoutData(gd);
 
-    Label modelPathLabel = new Label(comp, SWT.NONE);
+    final Label modelPathLabel = new Label(comp, SWT.NONE);
     modelPathLabel.setText("Project");
 
     modelPathText = new Text(comp, SWT.SINGLE | SWT.BORDER);
@@ -96,7 +96,7 @@ public final class ConMLGenGeneralLaunchConfigurationTab
           }
         });
 
-    Label outputFolderLabel = new Label(comp, SWT.NONE);
+    final Label outputFolderLabel = new Label(comp, SWT.NONE);
     outputFolderLabel.setText("Output folder");
 
     outputFolderText = new Text(comp, SWT.SINGLE | SWT.BORDER);
@@ -170,10 +170,10 @@ public final class ConMLGenGeneralLaunchConfigurationTab
 
   @Override
   public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-    String modelPath = modelPathText.getText();
+    final String modelPath = modelPathText.getText();
     configuration.setAttribute(ConMLGenConstants.CONML_MODEL_PATH, modelPath);
 
-    String outputFolder = outputFolderText.getText();
+    final String outputFolder = outputFolderText.getText();
     configuration.setAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, outputFolder);
   }
 
@@ -196,5 +196,16 @@ public final class ConMLGenGeneralLaunchConfigurationTab
       ConMLGenUiActivator.getDefault().getLog().log(status);
     }
     return isValid;
+  }
+
+  private Group createGroup(Composite parent, String text, int columns, int hspan, int fill) {
+    final Group g = new Group(parent, SWT.NONE);
+    g.setLayout(new GridLayout(columns, false));
+    g.setText(text);
+    g.setFont(parent.getFont());
+    final GridData gd = new GridData(fill);
+    gd.horizontalSpan = hspan;
+    g.setLayoutData(gd);
+    return g;
   }
 }

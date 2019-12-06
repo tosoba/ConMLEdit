@@ -9,4 +9,7 @@ public final class ConMLGenConstants {
   public static final String CONML_MODEL_PATH = "conml_model_path";
 
   public static final String OUTPUT_FOLDER_PATH = "generation_root_path";
+
+  public static final String LAUNCH_CONFIGURATION_TYPE =
+      "org.eclipse.sirius.conml.gen.ui.launchConfigurationType";
 }

@@ -29,10 +29,10 @@ public final class ConMLGenLaunchDelegate implements ILaunchConfigurationDelegat
   public void launch(
       ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor)
       throws CoreException {
-    String umlModelPath = null;
+    String conmlProjectPath = null;
     String outputFolder = null;
     try {
-      umlModelPath = configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
+      conmlProjectPath = configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
       outputFolder = configuration.getAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, "");
     } catch (CoreException e) {
       final IStatus status =
@@ -40,12 +40,12 @@ public final class ConMLGenLaunchDelegate implements ILaunchConfigurationDelegat
       ConMLGenUiActivator.getDefault().getLog().log(status);
     }
 
-    if (umlModelPath == null
-        || umlModelPath.isEmpty()
+    if (conmlProjectPath == null
+        || conmlProjectPath.isEmpty()
         || outputFolder == null
         || outputFolder.isEmpty()) return;
 
-    final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(umlModelPath));
+    final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(conmlProjectPath));
     final IContainer container = ResourcesPlugin.getWorkspace().getRoot();
     if (file != null && container != null && file.isAccessible() && container.isAccessible()) {
       final URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
