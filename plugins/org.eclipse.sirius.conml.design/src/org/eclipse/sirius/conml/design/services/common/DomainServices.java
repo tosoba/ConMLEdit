@@ -1,26 +1,13 @@
 package org.eclipse.sirius.conml.design.services.common;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.Arrays;
 import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.eclipse.acceleo.common.preference.AcceleoPreferences;
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IFolder;
-import org.eclipse.core.resources.IProject;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.Path;
-import org.eclipse.core.runtime.Status;
-import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
-import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.gen.Gen;
 
 import com.google.common.collect.Lists;
 
@@ -63,26 +50,5 @@ public final class DomainServices {
       }
     }
     return roots;
-  }
-
-  public void generateCode(final Domain domain) {
-    final boolean oldNotificationsPref = AcceleoPreferences.areNotificationsForcedDisabled();
-    AcceleoPreferences.switchForceDeactivationNotifications(true);
-    final IFile file =
-        ResourcesPlugin.getWorkspace()
-            .getRoot()
-            .getFile(new Path(domain.eResource().getURI().toPlatformString(true)));
-    final IProject project = file.getProject();
-    final IFolder folder = project.getFolder("Documentation");
-    final File genFolder = folder.getRawLocation().makeAbsolute().toFile();
-
-    try {
-      final Gen generator =
-          new Gen(domain.eResource().getURI(), genFolder, Arrays.asList(project.getName()));
-      generator.doGenerate(new BasicMonitor());
-    } catch (IOException e) {
-      Activator.log(Status.ERROR, "Code generation failed", e);
-    }
-    AcceleoPreferences.switchForceDeactivationNotifications(oldNotificationsPref);
   }
 }

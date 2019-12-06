@@ -1173,13 +1173,6 @@
               </initialOperation>
             </widget>
           </ifs>
-          <ifs name="if_it_is_domain" predicateExpression="aql:self.oclIsTypeOf(conml::Domain)">
-            <widget xsi:type="properties:ButtonDescription" helpExpression="Generate code from this TypeModel" buttonLabelExpression="Generate documentation">
-              <initialOperation>
-                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.generateCode"/>
-              </initialOperation>
-            </widget>
-          </ifs>
         </controls>
       </groups>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
