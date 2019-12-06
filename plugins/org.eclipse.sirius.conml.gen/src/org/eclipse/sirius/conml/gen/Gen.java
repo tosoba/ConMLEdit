@@ -22,6 +22,7 @@ import org.eclipse.emf.common.util.Monitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.sirius.conml.gen.config.ConMLGenConfigurationHolder;
 
 /**
  * Entry point of the 'Gen' generation module.
@@ -392,4 +393,16 @@ public class Gen extends AbstractAcceleoGenerator {
          */ 
         // UMLResourcesUtil.init(resourceSet)
     }
+
+  /**
+   * Sets the configuration holder.
+   *
+   * @param configurationHolder The configuration holder.
+   * @generated NOT
+   */
+  public void setConfigurationHolder(ConMLGenConfigurationHolder configurationHolder) {
+    if (this.model != null) {
+      this.model.eAdapters().add(configurationHolder);
+    }
+  }
 }

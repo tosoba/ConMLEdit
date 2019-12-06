@@ -41,6 +41,8 @@
 		<module>${root-path}/packaging/org.eclipse.sirius.conml.product</module>
 		
 		<module>${root-path}/plugins/org.eclipse.sirius.conml.gen</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.gen.ui</module>
+		
 	</modules>
 </project>
 

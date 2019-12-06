@@ -16,6 +16,10 @@
       [Enter License Description here.]
    </license>
 
+   <includes
+         id="org.eclipse.acceleo"
+         version="0.0.0"/>
+
    <requires>
       <import feature="org.eclipse.gmf.runtime.notation" version="0.0.0" match="greaterOrEqual"/>
       <import feature="org.eclipse.sirius.runtime" version="0.0.0" match="greaterOrEqual"/>
@@ -55,6 +59,20 @@
 
    <plugin
          id="org.eclipse.sirius.conml.editor"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.sirius.conml.gen"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.eclipse.sirius.conml.gen.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"

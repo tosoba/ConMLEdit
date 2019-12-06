@@ -27,26 +27,9 @@ import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.Feature;
 import conml.types.Generalization;
-import conml.types.Package;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
 
 public class ConMLDocServices {
-
-  public Package getOverallPackage(final TypeModel typeModel) {
-    return typeModel
-        .getElements()
-        .stream()
-        .filter(
-            element -> {
-              if (!(element instanceof Package)) return false;
-              final Package packageToCheck = (Package) element;
-              return packageToCheck.isOverall();
-            })
-        .findAny()
-        .map(Package.class::cast)
-        .orElse(null);
-  }
 
   public String namedElementFilePath(
       final NamedElement namedElement, final String pathBeginning, final String pathEnd) {

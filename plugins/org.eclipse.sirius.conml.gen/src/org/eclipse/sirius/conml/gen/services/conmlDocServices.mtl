@@ -1,10 +1,6 @@
 [comment encoding = UTF-8 /]
 [module conmlDocServices('http://conml.ecore')]
 
-[query public getOverallPackage(aTypeModel : TypeModel) : Package 
-= invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'getOverallPackage(conml.types.TypeModel)', Sequence{aTypeModel}) 
-/]
-
 [query public namedElementFilePath(aNamedElement : NamedElement, pathBeginning : String, pathEnd : String) : String 
 = invoke('org.eclipse.sirius.conml.gen.services.ConMLDocServices', 'namedElementFilePath(conml.NamedElement, java.lang.String, java.lang.String)', Sequence{aNamedElement, pathBeginning, pathEnd})
 /]
