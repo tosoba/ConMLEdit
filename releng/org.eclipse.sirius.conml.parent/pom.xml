@@ -42,6 +42,7 @@
 		
 		<module>${root-path}/plugins/org.eclipse.sirius.conml.gen</module>
 		<module>${root-path}/plugins/org.eclipse.sirius.conml.gen.ui</module>
+		<module>${root-path}/plugins/org.eclipse.sirius.conml.dashboard</module>
 		
 	</modules>
 </project>
