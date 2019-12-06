@@ -12,8 +12,6 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.sirius.conml.gen.config.ConMLGenConstants;
 import org.eclipse.sirius.conml.gen.ui.ConMLGenUiActivator;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.graphics.Font;
@@ -21,6 +19,7 @@ import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.DirectoryDialog;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -30,6 +29,7 @@ public final class ConMLGenGeneralLaunchConfigurationTab
     extends AbstractConMLGenLaunchConfigurationTab {
 
   private Text modelPathText;
+  private Text outputFolderText;
 
   @Override
   public void createControl(Composite parent) {
@@ -41,17 +41,17 @@ public final class ConMLGenGeneralLaunchConfigurationTab
     gd.horizontalSpan = 1;
     composite.setLayoutData(gd);
 
-    this.createGenerationGroup(composite, font);
+    createGenerationGroup(composite, font);
 
-    this.setControl(composite);
-    this.update();
+    setControl(composite);
+    update();
   }
 
   private void createGenerationGroup(Composite composite, Font font) {
     GridData gd;
     Group generationGroup = createGroup(composite, "General", 3, 1, GridData.FILL_HORIZONTAL);
     Composite comp = new Composite(generationGroup, SWT.NONE);
-    GridLayout layout = new GridLayout(4, false);
+    GridLayout layout = new GridLayout(3, false);
     layout.marginWidth = 0;
     layout.marginHeight = 0;
     comp.setLayout(layout);
@@ -63,18 +63,12 @@ public final class ConMLGenGeneralLaunchConfigurationTab
     Label modelPathLabel = new Label(comp, SWT.NONE);
     modelPathLabel.setText("Project");
 
-    this.modelPathText = new Text(comp, SWT.SINGLE | SWT.BORDER);
-    this.modelPathText.setFont(composite.getFont());
+    modelPathText = new Text(comp, SWT.SINGLE | SWT.BORDER);
+    modelPathText.setFont(composite.getFont());
     gd = new GridData(GridData.FILL_HORIZONTAL);
     gd.horizontalSpan = 1;
-    this.modelPathText.setLayoutData(gd);
-    this.modelPathText.addModifyListener(
-        new ModifyListener() {
-
-          public void modifyText(ModifyEvent e) {
-            update();
-          }
-        });
+    modelPathText.setLayoutData(gd);
+    modelPathText.addModifyListener(e -> update());
 
     final Button browseModelButton = createPushButton(comp, "Browse", null);
     browseModelButton.addSelectionListener(
@@ -101,21 +95,50 @@ public final class ConMLGenGeneralLaunchConfigurationTab
             updateLaunchConfigurationDialog();
           }
         });
-    createHelpButton(comp, "Help");
+
+    Label outputFolderLabel = new Label(comp, SWT.NONE);
+    outputFolderLabel.setText("Output folder");
+
+    outputFolderText = new Text(comp, SWT.SINGLE | SWT.BORDER);
+    outputFolderText.setFont(composite.getFont());
+    gd = new GridData(GridData.FILL_HORIZONTAL);
+    gd.horizontalSpan = 1;
+    outputFolderText.setLayoutData(gd);
+    outputFolderText.addModifyListener(e -> update());
+
+    final Button chooseOutputFolderButton = createPushButton(comp, "Browse", null);
+    chooseOutputFolderButton.addSelectionListener(
+        new SelectionListener() {
+          public void widgetDefaultSelected(SelectionEvent e) {}
+
+          public void widgetSelected(SelectionEvent e) {
+            DirectoryDialog dialog = new DirectoryDialog(getShell());
+            dialog.setMessage("Choose an output directory for documentation.");
+            String path = dialog.open();
+            if (path != null) {
+              path = path.replace("\\\\", "\\");
+              path = path.replace("\\", "/");
+              outputFolderText.setText(path);
+
+              update();
+              updateLaunchConfigurationDialog();
+            }
+          }
+        });
   }
 
   private void update() {
-    this.setErrorMessage(null);
+    setErrorMessage(null);
 
-    this.getLaunchConfigurationDialog().updateButtons();
-    this.getLaunchConfigurationDialog().updateMessage();
+    getLaunchConfigurationDialog().updateButtons();
+    getLaunchConfigurationDialog().updateMessage();
 
-    if (this.modelPathText != null) {
-      String text = this.modelPathText.getText();
+    if (modelPathText != null) {
+      String text = modelPathText.getText();
       if (text != null && text.length() > 0) {
         IFile model = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(text));
         if (model != null && !model.exists()) {
-          this.setErrorMessage("Missing input project");
+          setErrorMessage("Missing input project");
         }
       }
     }
@@ -124,16 +147,21 @@ public final class ConMLGenGeneralLaunchConfigurationTab
   @Override
   public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
     configuration.setAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
-    if (this.modelPathText != null) {
-      this.modelPathText.setText("");
+    configuration.setAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, "");
+    if (modelPathText != null) {
+      modelPathText.setText("");
+    }
+    if (outputFolderText != null) {
+      outputFolderText.setText("");
     }
   }
 
   @Override
   public void initializeFrom(ILaunchConfiguration configuration) {
     try {
-      String attribute = configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
-      this.modelPathText.setText(attribute);
+      modelPathText.setText(configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, ""));
+      outputFolderText.setText(
+          configuration.getAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, ""));
     } catch (CoreException e) {
       IStatus status = new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
       ConMLGenUiActivator.getDefault().getLog().log(status);
@@ -142,31 +170,27 @@ public final class ConMLGenGeneralLaunchConfigurationTab
 
   @Override
   public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-    // Model path
-    String modelPath = this.modelPathText.getText();
+    String modelPath = modelPathText.getText();
     configuration.setAttribute(ConMLGenConstants.CONML_MODEL_PATH, modelPath);
+
+    String outputFolder = outputFolderText.getText();
+    configuration.setAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, outputFolder);
   }
 
   @Override
   public String getName() {
-    return "General";
+    return "Generation";
   }
 
   @Override
   public boolean isValid(ILaunchConfiguration launchConfig) {
     boolean isValid = true;
     try {
-      // Model path
       String attribute = launchConfig.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
       isValid = isValid && attribute != null && attribute.trim().length() > 0;
 
-      // JRE execution environment
-      attribute =
-          launchConfig.getAttribute(
-              ConMLGenConstants.JRE_EXECUTION_ENVIRONMENT,
-              ConMLGenConstants.Default.DEFAULT_JRE_EXECUTION_ENVIRONMENT);
+      attribute = launchConfig.getAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, "");
       isValid = isValid && attribute != null && attribute.trim().length() > 0;
-
     } catch (CoreException e) {
       IStatus status = new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
       ConMLGenUiActivator.getDefault().getLog().log(status);

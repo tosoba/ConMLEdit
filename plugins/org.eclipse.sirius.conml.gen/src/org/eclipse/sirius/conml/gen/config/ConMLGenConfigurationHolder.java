@@ -19,20 +19,9 @@ public final class ConMLGenConfigurationHolder extends AdapterImpl {
 
   public static String getGenerationRootPath(EObject eObject) {
     return ConMLGenConfigurationHolder.getStringValue(
-        eObject, ConMLGenConstants.GENERATION_ROOT_PATH);
+        eObject, ConMLGenConstants.OUTPUT_FOLDER_PATH);
   }
 
-  public static String getJREExecutionEnvironment(EObject eObject) {
-    return ConMLGenConfigurationHolder.getStringValue(
-        eObject, ConMLGenConstants.JRE_EXECUTION_ENVIRONMENT);
-  }
-
-  /**
-   * Returns the configuration holder for the given model element.
-   *
-   * @param eObject The model element
-   * @return The configuration holder for the given model element.
-   */
   private static ConMLGenConfigurationHolder getConfigurationHolder(EObject eObject) {
     Resource eResource = eObject.eResource();
     EObject rootEObject = eResource.getContents().get(0);
@@ -47,13 +36,6 @@ public final class ConMLGenConfigurationHolder extends AdapterImpl {
     return null;
   }
 
-  /**
-   * Returns a string value from the given key.
-   *
-   * @param eObject The model element
-   * @param key The key
-   * @return A string value from the given key.
-   */
   private static String getStringValue(EObject eObject, String key) {
     ConMLGenConfigurationHolder configurationHolder =
         ConMLGenConfigurationHolder.getConfigurationHolder(eObject);
@@ -66,21 +48,10 @@ public final class ConMLGenConfigurationHolder extends AdapterImpl {
     return "";
   }
 
-  /**
-   * Returns a value for the given key.
-   *
-   * @param key The key
-   * @return A value for the given key.
-   */
   public Object getValue(String key) {
     return this.configuration.get(key);
   }
 
-  /**
-   * {@inheritDoc}
-   *
-   * @see org.eclipse.emf.common.notify.impl.AdapterImpl#isAdapterForType(java.lang.Object)
-   */
   @Override
   public boolean isAdapterForType(Object type) {
     return type == ConMLGenConfigurationHolder.class;

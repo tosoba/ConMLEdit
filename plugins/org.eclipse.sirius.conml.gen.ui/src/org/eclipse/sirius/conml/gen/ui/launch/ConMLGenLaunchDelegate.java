@@ -1,5 +1,6 @@
 package org.eclipse.sirius.conml.gen.ui.launch;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.Arrays;
 
@@ -28,38 +29,32 @@ public final class ConMLGenLaunchDelegate implements ILaunchConfigurationDelegat
   public void launch(
       ILaunchConfiguration configuration, String mode, ILaunch launch, IProgressMonitor monitor)
       throws CoreException {
-    String umlModelPath = "";
+    String umlModelPath = null;
+    String outputFolder = null;
     try {
       umlModelPath = configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, "");
+      outputFolder = configuration.getAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, "");
     } catch (CoreException e) {
-      IStatus status = new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
+      final IStatus status =
+          new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
       ConMLGenUiActivator.getDefault().getLog().log(status);
     }
 
-    if (umlModelPath == null || umlModelPath.length() == 0) {
-      return;
-    }
+    if (umlModelPath == null
+        || umlModelPath.isEmpty()
+        || outputFolder == null
+        || outputFolder.isEmpty()) return;
 
-    IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(umlModelPath));
-    IContainer container = ResourcesPlugin.getWorkspace().getRoot();
+    final IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(umlModelPath));
+    final IContainer container = ResourcesPlugin.getWorkspace().getRoot();
     if (file != null && container != null && file.isAccessible() && container.isAccessible()) {
-      URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
-
-      ConMLGenConfigurationHolder configurationHolder =
+      final URI modelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+      final ConMLGenConfigurationHolder configurationHolder =
           this.createConfigurationHolder(configuration);
-
-      // Add the location of the generation to the configuration holder
-      configurationHolder.put(
-          ConMLGenConstants.GENERATION_ROOT_PATH,
-          container.getLocation().toFile().getAbsolutePath());
-
       try {
         final Gen generator =
-            new Gen(
-                modelURI, container.getLocation().toFile(), Arrays.asList(getProjectName(file)));
-
+            new Gen(modelURI, new File(outputFolder), Arrays.asList(getProjectName(file)));
         generator.setConfigurationHolder(configurationHolder);
-
         generator.doGenerate(BasicMonitor.toMonitor(monitor));
         container.refreshLocal(IResource.DEPTH_INFINITE, monitor);
       } catch (IOException e) {
@@ -70,23 +65,25 @@ public final class ConMLGenLaunchDelegate implements ILaunchConfigurationDelegat
     }
   }
 
-  private String getProjectName(IFile file) {
-    if (file.getProject() != null && file.getProject().getName() != null) {
+  private String getProjectName(final IFile file) {
+    if (file.getProject() != null && file.getProject().getName() != null)
       return file.getProject().getName();
-    } else return "ConML project";
+    else return "ConML project";
   }
 
   private ConMLGenConfigurationHolder createConfigurationHolder(
-      ILaunchConfiguration configuration) {
-    ConMLGenConfigurationHolder configurationHolder = new ConMLGenConfigurationHolder();
-
+      final ILaunchConfiguration configuration) {
+    final ConMLGenConfigurationHolder configurationHolder = new ConMLGenConfigurationHolder();
     try {
       configurationHolder.put(
           ConMLGenConstants.CONML_MODEL_PATH,
           configuration.getAttribute(ConMLGenConstants.CONML_MODEL_PATH, ""));
-
+      configurationHolder.put(
+          ConMLGenConstants.OUTPUT_FOLDER_PATH,
+          configuration.getAttribute(ConMLGenConstants.OUTPUT_FOLDER_PATH, ""));
     } catch (CoreException e) {
-      IStatus status = new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
+      final IStatus status =
+          new Status(IStatus.ERROR, ConMLGenUiActivator.PLUGIN_ID, e.getMessage(), e);
       ConMLGenUiActivator.getDefault().getLog().log(status);
     }
 

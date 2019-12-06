@@ -8,12 +8,5 @@ public final class ConMLGenConstants {
 
   public static final String CONML_MODEL_PATH = "conml_model_path";
 
-  public static final String GENERATION_ROOT_PATH = "generation_root_path";
-
-  public static final String JRE_EXECUTION_ENVIRONMENT = "jre_execution_environment";
-
-  public static final class Default {
-
-    public static final String DEFAULT_JRE_EXECUTION_ENVIRONMENT = "JavaSE-1.8";
-  }
+  public static final String OUTPUT_FOLDER_PATH = "generation_root_path";
 }

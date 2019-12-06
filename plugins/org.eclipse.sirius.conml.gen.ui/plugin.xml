@@ -23,6 +23,7 @@
          point="org.eclipse.debug.ui.launchShortcuts">
       <shortcut
             class="org.eclipse.sirius.conml.gen.ui.launch.ConMLGenLaunchShortcut"
+            icon="icons/acceleo_module_16x16.png"
             id="org.eclipse.sirius.conml.gen.ui.ConMLGenLaunchShortcut"
             label="%launchConfigurationShortcutLabel"
             modes="run">
@@ -76,5 +77,13 @@
             class="org.eclipse.sirius.conml.gen.ui.handler.ConMLGenDocumentationHandler"
             commandId="org.eclipse.sirius.conml.gen.ui.generate">
       </handler>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="org.eclipse.sirius.conml.gen.ui.launchConfigurationType"
+            icon="icons/acceleo_module_16x16.png"
+            id="org.eclipse.sirius.conml.gen.ui.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
    </extension>
 </plugin>
