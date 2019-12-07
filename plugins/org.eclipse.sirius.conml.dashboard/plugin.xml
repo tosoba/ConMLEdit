@@ -74,17 +74,21 @@
          point="org.eclipse.amalgam.explorer.activity.ui.pagesProvider">
       <Page
             class="org.eclipse.amalgam.explorer.activity.ui.api.editor.pages.BasicSessionActivityExplorerPage"
-            id="org.eclipse.sirius.conml.dashboard.ConMLPage"
+            id="org.eclipse.sirius.conml.dashboard.ConMLCorePage"
+            imageOff="icons/LogoOff.PNG"
+            imageOn="icons/LogoOn.png"
             index="1"
-            tabName="Project"
+            tabName="Core"
             title="Project"
             viewer="true">
          <Description>
-            Lists all the representations that could be created in the editor
+            Core ConML representations
          </Description>
-         <Overview>
+         <Overview
+               imageOff="icons/LogoOff.PNG"
+               imageOn="icons/LogoOn.png">
             <Description>
-               Lists all the representations that could be created in the editor
+               Core ConML representations
             </Description>
          </Overview>
          <Section
@@ -99,6 +103,7 @@
             <Activity
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateClassDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateClassDiagram"
+                  image="icons/Class.gif"
                   index="1"
                   name="Create a new Class Diagram">
                <Description>
@@ -111,6 +116,7 @@
             <Activity
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateObjectDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateObjectDiagram"
+                  image="icons/Object.gif"
                   index="2"
                   name="Create a new Object Diagram">
                <Description>
@@ -121,11 +127,34 @@
                </Predicate>
             </Activity>
          </Section>
+         <Predicate
+               class="org.eclipse.sirius.conml.dashboard.predicate.ConMLEditProjectPredicate">
+         </Predicate>
+      </Page>
+      <Page
+            class="org.eclipse.amalgam.explorer.activity.ui.api.editor.pages.BasicSessionActivityExplorerPage"
+            id="org.eclipse.sirius.conml.dashboard.ConMLAdditionalPage"
+            imageOff="icons/AdditionalOff.png"
+            imageOn="icons/AdditionalOn.png"
+            index="2"
+            tabName="Additional"
+            title="Additional"
+            viewer="true">
+         <Description>
+            Additional representations
+         </Description>
+         <Overview
+               imageOff="icons/AdditionalOff.png"
+               imageOn="icons/AdditionalOn.png">
+            <Description>
+               Additional representations
+            </Description>
+         </Overview>
          <Section
                expanded="true"
                filtering="true"
                id="org.eclipse.sirius.conml.dashboard.Additional"
-               index="2"
+               index="1"
                name="Additional">
             <Description>
                Additional representations
@@ -133,6 +162,7 @@
             <Activity
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateEnumDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateEnumDiagram"
+                  image="icons/EnumeratedType.gif"
                   index="1"
                   name="Create a new Enum Diagram">
                <Description>
