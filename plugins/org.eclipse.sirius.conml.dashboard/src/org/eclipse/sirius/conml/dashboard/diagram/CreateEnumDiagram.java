@@ -6,6 +6,6 @@ public final class CreateEnumDiagram extends NewDiagramHyperLinkAdapter {
 
   @Override
   public String getRepresentationName() {
-    return "Enum diagram";
+    return "Enum Diagram";
   }
 }

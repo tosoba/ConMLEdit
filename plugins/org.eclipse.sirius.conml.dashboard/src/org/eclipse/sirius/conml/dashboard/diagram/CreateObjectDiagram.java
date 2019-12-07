@@ -6,6 +6,6 @@ public final class CreateObjectDiagram extends NewDiagramHyperLinkAdapter {
 
   @Override
   public String getRepresentationName() {
-    return "Object diagram";
+    return "Object Diagram";
   }
 }

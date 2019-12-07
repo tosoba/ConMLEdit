@@ -73,6 +73,7 @@
    <extension
          point="org.eclipse.amalgam.explorer.activity.ui.pagesProvider">
       <Page
+            class="org.eclipse.amalgam.explorer.activity.ui.api.editor.pages.BasicSessionActivityExplorerPage"
             id="org.eclipse.sirius.conml.dashboard.ConMLPage"
             index="1"
             tabName="Project"
