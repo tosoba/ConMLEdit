@@ -53,11 +53,79 @@
       </menuContribution>
       <menuContribution
             allPopups="false"
-            locationURI="menu:org.eclipse.sirius.conml.dashboard.toolbar.openDashboard">
+            locationURI="menu:org.eclipse.sirius.conml.dashboard.openDashboard">
          <dynamic
                class="org.eclipse.sirius.conml.dashboard.contribution.DashboardContributionItems"
                id="org.eclipse.sirius.conml.dashboard.dynamicDashboard">
          </dynamic>
       </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.core.expressions.propertyTesters">
+      <propertyTester
+            class="org.eclipse.sirius.conml.dashboard.tester.ConMLViewpointEnablementTester"
+            id="org.eclipse.sirius.conml.dashboard.ConMLViewpointEnabled"
+            namespace="org.eclipse.sirius.conml.design"
+            properties="ConMLViewpointEnabled"
+            type="java.lang.Object">
+      </propertyTester>
+   </extension>
+   <extension
+         point="org.eclipse.amalgam.explorer.activity.ui.pagesProvider">
+      <Page
+            id="org.eclipse.sirius.conml.dashboard.ConMLPage"
+            index="1"
+            tabName="Project"
+            title="Project"
+            viewer="false">
+         <Description>
+            Lists all the representations that could be created in the editor
+         </Description>
+         <Overview>
+            <Description>
+               Lists all the representations that could be created in the editor
+            </Description>
+         </Overview>
+         <Section
+               expanded="true"
+               filtering="true"
+               id="org.eclipse.sirius.conml.dashboard.CoreSection"
+               index="1"
+               name="Core">
+            <Description>
+               Core ConML representations
+            </Description>
+            <Activity
+                  class="org.eclipse.sirius.conml.dashboard.diagram.CreateClassDiagram"
+                  id="org.eclipse.sirius.conml.dashboard.CreateClassDiagram"
+                  index="1"
+                  name="Create a new class diagram">
+               <Description>
+                  Creates a new ConML class diagram.
+               </Description>
+               <Predicate
+                     class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
+               </Predicate>
+            </Activity>
+            <Activity
+                  class="org.eclipse.sirius.conml.dashboard.diagram.CreateObjectDiagram"
+                  id="org.eclipse.sirius.conml.dashboard.CreateObjectDiagram"
+                  index="2"
+                  name="Create a new object diagram">
+               <Description>
+                  Creates a new ConML object diagram.
+               </Description>
+               <Predicate
+                     class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
+               </Predicate>
+            </Activity>
+         </Section>
+      </Page>
+   </extension>
+   <extension
+         point="org.eclipse.sirius.sessionManagerListener">
+      <listener
+            class="org.eclipse.sirius.conml.dashboard.listener.DashboardSessionListener">
+      </listener>
    </extension>
 </plugin>

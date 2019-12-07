@@ -14,7 +14,7 @@
 	<artifactId>product.parent</artifactId>
 	<packaging>pom</packaging>
 
-	<name>Arduino Designer Product Parent</name>
+	<name>ConMLEdit Product Parent</name>
 
 <!-- 	<properties> -->
 <!-- 		<arduino-site>http://update.obeo.fr/integration/arduino/repository/</arduino-site> -->

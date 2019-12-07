@@ -10,6 +10,7 @@ import org.eclipse.amalgam.explorer.activity.ui.api.preferences.PreferenceConsta
 import org.eclipse.core.resources.IProject;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.business.api.session.SessionManager;
@@ -22,27 +23,16 @@ import com.google.common.collect.Lists;
 
 import conml.Domain;
 
-/**
- * A set of services to handle the Dashboard.
- *
- * @author Frederic Bats <a href="mailto:frederic.bats@obeo.fr">frederic.bats@obeo.fr</a>
- */
 @SuppressWarnings("deprecation")
 public class DashboardServices {
-  /** A singleton instance to be accessed by other java services. */
+
   public static final DashboardServices INSTANCE = new DashboardServices();
 
-  /** UMl-Designer Capture viewpoint name. */
   public static final String VP_CONML = "ConML";
 
   private DashboardServices() {}
 
-  /**
-   * Get all the root uml model elements which define a dashboard.
-   *
-   * @return List of model elements.
-   */
-  public List<EObject> getUmlModels() {
+  public List<EObject> getConMLProjects() {
     final List<EObject> results = Lists.newArrayList();
     final Collection<Session> sessions = SessionManager.INSTANCE.getSessions();
     for (final Session session : sessions) {
@@ -51,25 +41,21 @@ public class DashboardServices {
       boolean missingSession = true;
       while (iterator.hasNext() && missingSession) {
         final Resource resource = iterator.next();
-
-        if (resource instanceof Domain) {
+        if (resource instanceof XMIResourceImpl
+            && resource.getContents() != null
+            && resource.getContents().size() > 0) {
           final EObject root = resource.getContents().get(0);
-          results.add(root);
-          // only one dashboard by session is needed
-          missingSession = false;
+          if (root instanceof Domain) {
+            results.add(root);
+            // only one dashboard by session is needed
+            missingSession = false;
+          }
         }
       }
     }
     return results;
   }
 
-  /**
-   * Check if viewpoint is enabled for the session.
-   *
-   * @param session sirius session
-   * @param vpName name of viewpoint
-   * @return true if enable
-   */
   public boolean isEnabledVP(Session session, String vpName) {
     for (final Viewpoint vp : session.getSelectedViewpoints(false)) {
       if (vp.getName().contains(vpName)) {
@@ -79,12 +65,6 @@ public class DashboardServices {
     return false;
   }
 
-  /**
-   * Open the dashboard representation containing in the representation file of this Modeling
-   * project.
-   *
-   * @param curProject The modeling project containing the representations file.
-   */
   public void openDashboard(IProject curProject) {
     final Option<ModelingProject> opionalModelingProject =
         ModelingProject.asModelingProject(curProject);

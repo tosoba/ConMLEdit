@@ -13,7 +13,7 @@ import org.eclipse.sirius.conml.dashboard.services.DashboardServices;
 
 public final class ConMLViewpointEnablementTester extends PropertyTester {
 
-  private final List<String> umlDesignerViewpoints =
+  private final List<String> conmlEditViewpoints =
       new ArrayList<String>(Arrays.asList(DashboardServices.VP_CONML));
 
   public boolean test(Object receiver, String property, Object[] args, Object expectedValue) {
@@ -21,7 +21,7 @@ public final class ConMLViewpointEnablementTester extends PropertyTester {
     for (final Session session : sessions) {
       if (session != null) {
         boolean isEnabledVP = false;
-        final Iterator<String> vpIterator = umlDesignerViewpoints.iterator();
+        final Iterator<String> vpIterator = conmlEditViewpoints.iterator();
         while (vpIterator.hasNext() && isEnabledVP == false) {
           isEnabledVP = DashboardServices.INSTANCE.isEnabledVP(session, vpIterator.next());
         }

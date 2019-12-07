@@ -20,11 +20,11 @@ import com.google.common.collect.Maps;
 public final class DashboardContributionItems extends CompoundContributionItem {
   /** Open dashboard command. */
   public static final String OPEN_DASHBOARD_CMD_ID =
-      "org.obeonetwork.dsl.uml2.actions.openDashboard"; //$NON-NLS-1$
+      "org.eclipse.sirius.conml.dashboard.openDashboard";
 
   /** Model parameter. */
   public static final String OPEN_DASHBOARD_CMD_PARAM_MODEL_KEY =
-      "org.obeonetwork.dsl.uml2.actions.openDashboard.param.model"; //$NON-NLS-1$
+      "org.eclipse.sirius.conml.dashboard.openDashboard.param.model";
 
   /** Constructor. */
   public DashboardContributionItems() {}
@@ -42,8 +42,8 @@ public final class DashboardContributionItems extends CompoundContributionItem {
   protected IContributionItem[] getContributionItems() {
     final List<IContributionItem> menuItems = Lists.newArrayList();
     // Get all available dashboards
-    final List<EObject> umlModelRoots = DashboardServices.INSTANCE.getUmlModels();
-    for (final EObject eObject : umlModelRoots) {
+    final List<EObject> projects = DashboardServices.INSTANCE.getConMLProjects();
+    for (final EObject eObject : projects) {
       String uri = eObject.eResource().getURI().toPlatformString(true);
       if (uri != null) {
         // Get the project name
