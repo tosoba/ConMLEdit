@@ -78,7 +78,7 @@
             index="1"
             tabName="Project"
             title="Project"
-            viewer="false">
+            viewer="true">
          <Description>
             Lists all the representations that could be created in the editor
          </Description>
@@ -100,9 +100,9 @@
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateClassDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateClassDiagram"
                   index="1"
-                  name="Create a new class diagram">
+                  name="Create a new Class Diagram">
                <Description>
-                  Creates a new ConML class diagram.
+                  Creates a new ConML Class Diagram.
                </Description>
                <Predicate
                      class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
@@ -112,15 +112,40 @@
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateObjectDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateObjectDiagram"
                   index="2"
-                  name="Create a new object diagram">
+                  name="Create a new Object Diagram">
                <Description>
-                  Creates a new ConML object diagram.
+                  Creates a new ConML Object Diagram.
                </Description>
                <Predicate
                      class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
                </Predicate>
             </Activity>
          </Section>
+         <Section
+               expanded="true"
+               filtering="true"
+               id="org.eclipse.sirius.conml.dashboard.Additional"
+               index="2"
+               name="Additional">
+            <Description>
+               Additional representations
+            </Description>
+            <Activity
+                  class="org.eclipse.sirius.conml.dashboard.diagram.CreateEnumDiagram"
+                  id="org.eclipse.sirius.conml.dashboard.CreateEnumDiagram"
+                  index="1"
+                  name="Create a new Enum Diagram">
+               <Description>
+                  Creates a new ConML Enum Diagram.
+               </Description>
+               <Predicate
+                     class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
+               </Predicate>
+            </Activity>
+         </Section>
+         <Predicate
+               class="org.eclipse.sirius.conml.dashboard.predicate.ConMLEditProjectPredicate">
+         </Predicate>
       </Page>
    </extension>
    <extension
