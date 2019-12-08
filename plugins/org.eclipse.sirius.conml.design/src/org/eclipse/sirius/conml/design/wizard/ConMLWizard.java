@@ -15,6 +15,7 @@ import org.eclipse.jface.operation.IRunnableWithProgress;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.nature.ConMLProjectNature;
 import org.eclipse.sirius.conml.design.operation.CreateDomain;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
@@ -47,7 +48,7 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
         project.setDescription(description, null);
       }
     } catch (final CoreException e) {
-      Activator.log(IStatus.ERROR, "Error setting project nature", e);
+      Activator.log(IStatus.ERROR, Messages.getString("Error.SettingProjectNature"), e);
     }
 
     final IRunnableWithProgress op =
@@ -59,9 +60,8 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
             try {
               getContainer().run(false, true, init);
             } catch (final InterruptedException e) {
-              // Ignore.
             } catch (final InvocationTargetException e) {
-              Activator.log(IStatus.ERROR, "Error creating Domain", e);
+              Activator.log(IStatus.ERROR, Messages.getString("Error.CreatingDomainFailed"), e);
             }
 
             final IResource newDomainFile = project.findMember(newDomainFileName.toLowerCase());
@@ -76,11 +76,11 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
       if (e.getTargetException() instanceof CoreException) {
         ErrorDialog.openError(
             getContainer().getShell(),
-            "Error creating Domain",
+            Messages.getString("Error.CreatingDomainFailed"),
             null,
             ((CoreException) e.getTargetException()).getStatus());
       } else {
-        Activator.log(IStatus.ERROR, "Error creating Domain", e);
+        Activator.log(IStatus.ERROR, Messages.getString("Error.CreatingDomainFailed"), e);
       }
     } catch (final InterruptedException e) {
       return false;

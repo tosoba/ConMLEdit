@@ -13,6 +13,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConMLProject;
 import org.eclipse.sirius.conml.design.util.ConMLViewpoints;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.conml.design.wizard.ConMLWizard;
 
 public final class ConMLProjectWizard extends ConMLWizard {
@@ -23,8 +24,8 @@ public final class ConMLProjectWizard extends ConMLWizard {
   public void addPages() {
     newProjectPage = new WizardNewProjectCreationPage("Project");
     newProjectPage.setInitialProjectName("");
-    newProjectPage.setTitle("Create a new ConML project");
-    newProjectPage.setDescription("Enter a project name");
+    newProjectPage.setTitle(Messages.getString("Dialog.CreateNewConMLProject"));
+    newProjectPage.setDescription(Messages.getString("Dialog.EnterProjectName"));
     addPage(newProjectPage);
   }
 
@@ -37,7 +38,7 @@ public final class ConMLProjectWizard extends ConMLWizard {
               newProjectPage.getLocationPath(),
               true,
               new NullProgressMonitor());
-      newDomainFileName = newProjectPage.getProjectName() + "." + ConMLProject.MODEL_FILE_EXTENSION;
+      newDomainFileName = newProjectPage.getProjectName() + "." + ConMLProject.DOMAIN_FILE_EXTENSION;
 
       super.performFinish();
 
@@ -57,7 +58,7 @@ public final class ConMLProjectWizard extends ConMLWizard {
                 });
       }
     } catch (final CoreException e) {
-      Activator.log(IStatus.ERROR, "Error creating Domain", e);
+      Activator.log(IStatus.ERROR, Messages.getString("Error.CreatingDomainFailed"), e);
       return false;
     }
 

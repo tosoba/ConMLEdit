@@ -16,6 +16,7 @@ import org.eclipse.sirius.conml.dashboard.services.DashboardServices;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConMLProject;
 import org.eclipse.sirius.conml.design.util.ConMLViewpoints;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.conml.design.wizard.ConMLWizard;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
@@ -25,12 +26,15 @@ public final class ConMLDomainWizard extends ConMLWizard {
 
   private NewDomainFilePage newDomainFilePage;
 
+  private static final String DEFAULT_DOMAIN_FILE_NAME = "newdomain";
+
   @Override
   public void addPages() {
     newDomainFilePage = new NewDomainFilePage("New Domain", selection);
-    newDomainFilePage.setTitle("Create a new ConML Domain");
-    newDomainFilePage.setDescription("Create a new ConML Domain file");
-    newDomainFilePage.setFileName("NewDomain" + "." + ConMLProject.MODEL_FILE_EXTENSION);
+    newDomainFilePage.setTitle(Messages.getString("Dialog.CreateNewDomain"));
+    newDomainFilePage.setDescription(Messages.getString("Dialog.CreateNewDomainFile"));
+    newDomainFilePage.setFileName(
+        DEFAULT_DOMAIN_FILE_NAME + "." + ConMLProject.DOMAIN_FILE_EXTENSION);
     addPage(newDomainFilePage);
 
     if (selection != null && !selection.isEmpty()) {
@@ -52,12 +56,12 @@ public final class ConMLDomainWizard extends ConMLWizard {
   }
 
   private String getNewDomainName(IResource selectedResource) {
-    final String defaultModelBaseFilename = "NewDomain";
-    String modelFilename = defaultModelBaseFilename + "." + ConMLProject.MODEL_FILE_EXTENSION;
+    final String defaultModelBaseFilename = DEFAULT_DOMAIN_FILE_NAME;
+    String modelFilename = defaultModelBaseFilename + "." + ConMLProject.DOMAIN_FILE_EXTENSION;
     for (int i = 1;
         ((IContainer) selectedResource).findMember(modelFilename.toLowerCase()) != null;
         ++i) {
-      modelFilename = defaultModelBaseFilename + i + "." + ConMLProject.MODEL_FILE_EXTENSION;
+      modelFilename = defaultModelBaseFilename + i + "." + ConMLProject.DOMAIN_FILE_EXTENSION;
     }
     return modelFilename;
   }
@@ -65,12 +69,12 @@ public final class ConMLDomainWizard extends ConMLWizard {
   @Override
   public void init(IWorkbench workbench, IStructuredSelection structuredSelection) {
     selection = structuredSelection;
-    setWindowTitle("New ConML Domain");
+    setWindowTitle(Messages.getString("Dialog.NewDomain"));
   }
 
   @Override
   public boolean performFinish() {
-    final Option<IFile> option = newDomainFilePage.getModelFile();
+    final Option<IFile> option = newDomainFilePage.getDomainFile();
 
     if (option.some()) {
       final IFile modelFile = option.get();
@@ -80,7 +84,7 @@ public final class ConMLDomainWizard extends ConMLWizard {
         ModelingProjectManager.INSTANCE.convertToModelingProject(
             project, new NullProgressMonitor());
       } catch (final CoreException e) {
-        Activator.log(IStatus.ERROR, "Error creating Domain", e);
+        Activator.log(IStatus.ERROR, Messages.getString("Error.CreatingDomainFailed"), e);
         return false;
       }
 

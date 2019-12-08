@@ -16,6 +16,7 @@ import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.modelingproject.ModelingProject;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ext.base.Options;
 
@@ -48,7 +49,7 @@ public final class ConMLProject {
                 try {
                   res.save(Maps.newHashMap());
                 } catch (final IOException e) {
-                  Activator.log(IStatus.ERROR, "Error creating Domain", e);
+                  Activator.log(IStatus.ERROR, Messages.getString("Error.CreatingDomainFailed"), e);
                 }
 
                 session.addSemanticResource(semanticModelURI, new NullProgressMonitor());
@@ -64,5 +65,5 @@ public final class ConMLProject {
     return '/' + project.getName() + '/' + umlFileName.toLowerCase();
   }
 
-  public static final String MODEL_FILE_EXTENSION = "conml";
+  public static final String DOMAIN_FILE_EXTENSION = "conml";
 }
