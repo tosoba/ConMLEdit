@@ -1,142 +1,93 @@
 package org.eclipse.sirius.conml.design.util;
 
+import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.session.Session;
 import org.eclipse.sirius.ui.business.api.viewpoint.ViewpointSelectionCallback;
-import org.eclipse.sirius.viewpoint.description.Group;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 
 public final class ConMLViewpoints {
 
-  public static void enable(final Session session) {
-    if (session != null) {
-      session
-          .getTransactionalEditingDomain()
-          .getCommandStack()
-          .execute(
-              new RecordingCommand(session.getTransactionalEditingDomain()) {
-                @Override
-                protected void doExecute() {
-                  final ViewpointSelectionCallback selection = new ViewpointSelectionCallback();
-                  for (final Viewpoint previouslySelected : session.getSelectedViewpoints(false)) {
-                    selection.deselectViewpoint(
-                        previouslySelected, session, new NullProgressMonitor());
-                  }
-                  // enable Reused core viewpoint
-                  ConMLViewpoints.enableReused(session);
-                  // enable other UML2 viewpoints
-                  selection.selectViewpoint(
-                      ConMLViewpoints.fromViewpointRegistry().design(),
-                      session,
-                      new NullProgressMonitor());
-                }
-              });
-    }
-  }
-
-  public static void enableReused(final Session session) {
-    if (session != null) {
-      session
-          .getTransactionalEditingDomain()
-          .getCommandStack()
-          .execute(
-              new RecordingCommand(session.getTransactionalEditingDomain()) {
-                @Override
-                protected void doExecute() {
-                  final ViewpointSelectionCallback selection = new ViewpointSelectionCallback();
-                  ConMLViewpoints.fromViewpointRegistry().reused();
-                  for (final Viewpoint previouslySelected : session.getSelectedViewpoints(false)) {
-                    if (isReusedViewpoint(previouslySelected)) {
-                      return;
-                    }
-                  }
-                  selection.selectViewpoint(
-                      ConMLViewpoints.fromViewpointRegistry().reused(),
-                      session,
-                      new NullProgressMonitor());
-                }
-              });
-    }
-  }
-
-  /**
-   * UML viewpoints from viewpoint registry.
-   *
-   * @return UML viewpoints from viewpoint registry
-   */
-  public static ConMLViewpoints fromViewpointRegistry() {
-    return new ConMLViewpoints(ViewpointRegistry.getInstance());
-  }
-
-  /**
-   * Check if a viewpoint is an uml designer viewpoints.
-   *
-   * @param viewpoint
-   * @return True if the given viewpoint is an UML Designer viewpoint otherwise false.
-   */
-  public static boolean isUmlViewpoint(Viewpoint viewpoint) {
-    final EObject group = viewpoint.eContainer();
-    if (group != null && group instanceof Group & ((Group) group).getName() != null) {
-      return ((Group) group).getName().contains("ConML modelers");
-    }
-    return false;
-  }
-
   private final ViewpointRegistry registry;
 
-  /**
-   * Constructor.
-   *
-   * @param registry Viewpoint registry
-   */
   public ConMLViewpoints(ViewpointRegistry registry) {
     this.registry = registry;
   }
 
-  private Viewpoint getViewpointByName(String name) {
-    return registry
-        .getViewpoints()
+  public static void enableAll(final Session session, final boolean deselect) {
+    if (session != null) {
+      session
+          .getTransactionalEditingDomain()
+          .getCommandStack()
+          .execute(
+              new RecordingCommand(session.getTransactionalEditingDomain()) {
+                @Override
+                protected void doExecute() {
+                  final ViewpointSelectionCallback selection = new ViewpointSelectionCallback();
+                  if (deselect) {
+                    for (final Viewpoint previouslySelected :
+                        session.getSelectedViewpoints(false)) {
+                      selection.deselectViewpoint(
+                          previouslySelected, session, new NullProgressMonitor());
+                    }
+                  }
+
+                  Set<String> selectedViewpoints =
+                      deselect
+                          ? new HashSet<>()
+                          : session
+                              .getSelectedViewpoints(false)
+                              .stream()
+                              .map(Viewpoint::getName)
+                              .collect(Collectors.toSet());
+                  if (!selectedViewpoints.contains(REUSED_VP_NAME) || deselect) {
+                    selection.selectViewpoint(
+                        ConMLViewpoints.fromViewpointRegistry().reusedViewpoint(),
+                        session,
+                        new NullProgressMonitor());
+                  }
+                  if (!selectedViewpoints.contains(CONML_VP_NAME) || deselect) {
+                    selection.selectViewpoint(
+                        ConMLViewpoints.fromViewpointRegistry().conMLViewpoint(),
+                        session,
+                        new NullProgressMonitor());
+                  }
+                }
+              });
+    }
+  }
+
+  public static ConMLViewpoints fromViewpointRegistry() {
+    return new ConMLViewpoints(ViewpointRegistry.getInstance());
+  }
+
+  private Viewpoint getViewpointByName(Collection<Viewpoint> viewpoints, String name) {
+    return viewpoints
         .stream()
         .filter(vp -> name.equalsIgnoreCase(vp.getName()))
         .findFirst()
-        .get();
+        .orElse(null);
   }
 
-  /**
-   * Reused.
-   *
-   * @return viewpoint
-   */
-  public Viewpoint reused() {
-    return getViewpointByName("Reused");
+  private Viewpoint getViewpointByName(String name) {
+    return getViewpointByName(registry.getViewpoints(), name);
   }
 
-  public Viewpoint design() {
-    return getViewpointByName("Design");
+  public Viewpoint reusedViewpoint() {
+    return getViewpointByName(REUSED_VP_NAME);
   }
 
-  /**
-   * Is it the UML Reused viewpoint
-   *
-   * @param viewpoint viewpoint to test
-   * @return true if viewpoint is the Reused viewpoint
-   */
-  public static boolean isReusedViewpoint(Viewpoint viewpoint) {
-    if (viewpoint != null) {
-      final Viewpoint reused = ConMLViewpoints.fromViewpointRegistry().reused();
-      final String name = viewpoint.getName();
-      final Resource vpResource = viewpoint.eResource();
-      if (name != null && vpResource != null) {
-        return name.equals(reused.getName())
-            && ODESIGN_FILE_NAME.equals(vpResource.getURI().lastSegment());
-      }
-    }
-    return false;
+  public Viewpoint conMLViewpoint() {
+    return getViewpointByName(CONML_VP_NAME);
   }
 
+  private static final String REUSED_VP_NAME = "Reused";
+  private static final String CONML_VP_NAME = "ConML";
   public static final String ODESIGN_FILE_NAME = "conml.odesign";
 }

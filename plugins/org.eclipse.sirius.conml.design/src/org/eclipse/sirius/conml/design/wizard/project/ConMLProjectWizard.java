@@ -26,10 +26,10 @@ public final class ConMLProjectWizard extends ConMLWizard {
     // page.
     // super.addPages();
 
-    newProjectPage = new WizardNewProjectCreationPage("Project"); 
-    newProjectPage.setInitialProjectName(""); 
-    newProjectPage.setTitle("Create a UML Modeling project"); 
-    newProjectPage.setDescription("Enter a project name"); 
+    newProjectPage = new WizardNewProjectCreationPage("Project");
+    newProjectPage.setInitialProjectName("");
+    newProjectPage.setTitle("Create a UML Modeling project");
+    newProjectPage.setDescription("Enter a project name");
     addPage(newProjectPage);
   }
 
@@ -57,7 +57,7 @@ public final class ConMLProjectWizard extends ConMLWizard {
                   ConMLProject.createSemanticResource(project, newUmlModelFileName);
                   final Session session = created.get().getSession();
                   if (session != null) {
-                    ConMLViewpoints.enable(session);
+                    ConMLViewpoints.enableAll(session, false);
                     if (SessionStatus.DIRTY.equals(session.getStatus())) {
                       session.save(new NullProgressMonitor());
                     }

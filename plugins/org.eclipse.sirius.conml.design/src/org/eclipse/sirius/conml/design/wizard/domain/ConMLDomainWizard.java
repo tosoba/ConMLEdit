@@ -115,7 +115,7 @@ public final class ConMLDomainWizard extends ConMLWizard {
                   new RecordingCommand(session.getTransactionalEditingDomain()) {
                     @Override
                     protected void doExecute() {
-                      ConMLViewpoints.enable(session);
+                      ConMLViewpoints.enableAll(session, false);
                     }
                   });
         }
