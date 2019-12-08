@@ -64,7 +64,7 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
               Activator.log(IStatus.ERROR, "Error creating Domain", e);
             }
 
-            final IResource newDomainFile = project.findMember(newDomainFileName);
+            final IResource newDomainFile = project.findMember(newDomainFileName.toLowerCase());
             updatePerspective();
             selectAndReveal(newDomainFile, PlatformUI.getWorkbench().getActiveWorkbenchWindow());
           }

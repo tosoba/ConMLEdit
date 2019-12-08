@@ -54,7 +54,9 @@ public final class ConMLDomainWizard extends ConMLWizard {
   private String getNewDomainName(IResource selectedResource) {
     final String defaultModelBaseFilename = "NewDomain";
     String modelFilename = defaultModelBaseFilename + "." + ConMLProject.MODEL_FILE_EXTENSION;
-    for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
+    for (int i = 1;
+        ((IContainer) selectedResource).findMember(modelFilename.toLowerCase()) != null;
+        ++i) {
       modelFilename = defaultModelBaseFilename + i + "." + ConMLProject.MODEL_FILE_EXTENSION;
     }
     return modelFilename;
