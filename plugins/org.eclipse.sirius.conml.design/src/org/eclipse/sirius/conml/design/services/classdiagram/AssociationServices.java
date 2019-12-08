@@ -8,8 +8,8 @@ import java.util.Objects;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.util.ConML;
-import org.eclipse.sirius.conml.design.util.Dialogs;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.Domain;

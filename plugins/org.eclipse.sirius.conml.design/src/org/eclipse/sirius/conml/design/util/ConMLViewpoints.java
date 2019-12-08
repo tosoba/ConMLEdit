@@ -1,7 +1,6 @@
 package org.eclipse.sirius.conml.design.util;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.transaction.RecordingCommand;
@@ -30,10 +29,6 @@ public final class ConMLViewpoints {
                   // enable Reused core viewpoint
                   ConMLViewpoints.enableReused(session);
                   // enable other UML2 viewpoints
-                  selection.selectViewpoint(
-                      ConMLViewpoints.fromViewpointRegistry().reused(),
-                      session,
-                      new NullProgressMonitor());
                   selection.selectViewpoint(
                       ConMLViewpoints.fromViewpointRegistry().design(),
                       session,
@@ -86,7 +81,7 @@ public final class ConMLViewpoints {
   public static boolean isUmlViewpoint(Viewpoint viewpoint) {
     final EObject group = viewpoint.eContainer();
     if (group != null && group instanceof Group & ((Group) group).getName() != null) {
-      return ((Group) group).getName().contains("ConML modelers"); // $NON-NLS-1$
+      return ((Group) group).getName().contains("ConML modelers");
     }
     return false;
   }
@@ -102,19 +97,26 @@ public final class ConMLViewpoints {
     this.registry = registry;
   }
 
+  private Viewpoint getViewpointByName(String name) {
+    return registry
+        .getViewpoints()
+        .stream()
+        .filter(vp -> name.equalsIgnoreCase(vp.getName()))
+        .findFirst()
+        .get();
+  }
+
   /**
    * Reused.
    *
    * @return viewpoint
    */
   public Viewpoint reused() {
-    return registry.getViewpoint(
-        URI.createURI("viewpoint:/org.eclipse.sirius.conml.design/Reused")); // $NON-NLS-1$
+    return getViewpointByName("Reused");
   }
 
   public Viewpoint design() {
-    return registry.getViewpoint(
-        URI.createURI("viewpoint:/org.eclipse.sirius.conml.design/Design")); // $NON-NLS-1$
+    return getViewpointByName("Design");
   }
 
   /**
@@ -126,7 +128,6 @@ public final class ConMLViewpoints {
   public static boolean isReusedViewpoint(Viewpoint viewpoint) {
     if (viewpoint != null) {
       final Viewpoint reused = ConMLViewpoints.fromViewpointRegistry().reused();
-
       final String name = viewpoint.getName();
       final Resource vpResource = viewpoint.eResource();
       if (name != null && vpResource != null) {

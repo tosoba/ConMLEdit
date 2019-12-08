@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import org.eclipse.sirius.conml.design.util.Dialogs;
+import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.Facet;

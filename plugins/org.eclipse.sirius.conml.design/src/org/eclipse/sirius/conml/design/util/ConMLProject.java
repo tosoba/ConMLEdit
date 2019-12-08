@@ -82,5 +82,5 @@ public final class ConMLProject {
   }
 
   /** The UML file extension. */
-  public static final String MODEL_FILE_EXTENSION = "conml"; // $NON-NLS-1$
+  public static final String MODEL_FILE_EXTENSION = "conml"; 
 }

@@ -7,4 +7,150 @@
 	       name="conml">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.ui.newWizards">
+     <wizard
+           category="org.eclipse.sirius.conml.design.category"
+           class="org.eclipse.sirius.conml.design.wizard.domain.ConMLDomainWizard"
+           finalPerspective="org.eclipse.sirius.ui.tools.perspective.modeling"
+           icon="icons/NewConMLDomain.gif"
+           id="org.eclipse.sirius.conml.design.ConMLDomainWizard"
+           name="ConML Domain"
+           preferredPerspectives="org.eclipse.sirius.ui.tools.perspective.modeling"
+           project="false">
+     </wizard>
+     <category
+           id="org.eclipse.sirius.conml.design.category"
+           name="ConMLEdit">
+     </category>
+     <wizard
+           category="org.eclipse.sirius.conml.design.category"
+           class="org.eclipse.sirius.conml.design.wizard.project.ConMLProjectWizard"
+           icon="icons/NewConMLProject.gif"
+           id="org.eclipse.sirius.conml.design.ConMLProjectWizard"
+           name="ConML Project">
+     </wizard>
+  </extension>
+  <extension
+        point="org.eclipse.ui.commands">
+     <command
+           id="org.eclipse.sirius.conml.design.createConMLDomain"
+           name="New ConML Domain">
+     </command>
+     <command
+           id="org.eclipse.sirius.conml.design.createConMLProject"
+           name="New ConML Project">
+     </command>
+  </extension>
+  <extension
+        point="org.eclipse.ui.handlers">
+     <handler
+           class="org.eclipse.sirius.conml.design.handler.CreateConMLDomainHandler"
+           commandId="org.eclipse.sirius.conml.design.createConMLDomain">
+     </handler>
+     <handler
+           class="org.eclipse.sirius.conml.design.handler.CreateConMLProjectHandler"
+           commandId="org.eclipse.sirius.conml.design.createConMLProject">
+     </handler>
+  </extension>
+  <extension
+        point="org.eclipse.ui.menus">
+     <menuContribution
+           locationURI="toolbar:org.eclipse.ui.main.toolbar?after=additions">
+        <toolbar
+              id="org.eclipse.sirius.conml.design.toolbar.createConMLProject"
+              label="New ConML Project">
+           <command
+                 commandId="org.eclipse.sirius.conml.design.createConMLProject"
+                 icon="icons/NewConMLProject.gif"
+                 label="New ConML Project"
+                 style="push"
+                 tooltip="Create a new ConML Project">
+              <visibleWhen
+                    checkEnabled="false">
+                 <with
+                       variable="activeWorkbenchWindow.activePerspective">
+                    <equals
+                          value="org.eclipse.sirius.ui.tools.perspective.modeling">
+                    </equals>
+                 </with>
+              </visibleWhen>
+           </command>
+        </toolbar>
+        <toolbar
+              id="org.eclipse.sirius.conml.design.toolbar.createConMLDomain"
+              label="New ConML Domain">
+           <command
+                 commandId="org.eclipse.sirius.conml.design.createConMLDomain"
+                 icon="icons/NewConMLDomain.gif"
+                 label="New ConML Domain"
+                 style="push"
+                 tooltip="Create a new ConML Domain">
+              <visibleWhen
+                    checkEnabled="false">
+                 <with
+                       variable="activeWorkbenchWindow.activePerspective">
+                    <equals
+                          value="org.eclipse.sirius.ui.tools.perspective.modeling">
+                    </equals>
+                 </with>
+              </visibleWhen>
+           </command>
+        </toolbar>
+     </menuContribution>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.propertyTesters">
+     <propertyTester
+           class="org.eclipse.sirius.conml.design.tester.ViewpointEnablementPropertyTester"
+           id="org.eclipse.sirius.conml.design.ViewpointEnabled"
+           namespace="org.eclipse.sirius.conml.design"
+           properties="Design"
+           type="org.eclipse.emf.ecore.EObject">
+     </propertyTester>
+  </extension>
+  <extension
+        point="org.eclipse.ui.perspectiveExtensions">
+     <perspectiveExtension
+           targetID="org.eclipse.sirius.ui.tools.perspective.modeling">
+        <newWizardShortcut
+              id="org.eclipse.sirius.conml.design.ConMLProjectWizard">
+        </newWizardShortcut>
+        <newWizardShortcut
+              id="org.eclipse.sirius.conml.design.ConMLDomainWizard">
+        </newWizardShortcut>
+     </perspectiveExtension>
+  </extension>
+  <extension
+        point="org.eclipse.core.expressions.definitions">
+     <definition
+           id="org.eclipse.sirius.conml.design.DashboardsExistDefinition">
+        <test
+              forcePluginActivation="true"
+              property="org.eclipse.sirius.conml.design.dashboardsExist">
+        </test>
+     </definition>
+     <definition
+           id="org.eclipse.sirius.conml.design.ConMLViewpointEnabledDefinition">
+        <test
+              forcePluginActivation="true"
+              property="org.eclipse.sirius.conml.design.ConMLViewpointEnabled">
+        </test>
+     </definition>
+  </extension>
+  <extension
+        point="org.eclipse.ui.navigator.navigatorContent">
+     <commonWizard
+           menuGroupId="org.eclipse.sirius.conml.design.category"
+           type="new"
+           wizardId="org.eclipse.sirius.conml.design.ConMLProjectWizard">
+        <enablement></enablement>
+     </commonWizard>
+     <commonWizard
+           menuGroupId="org.eclipse.sirius.conml.design.category"
+           type="new"
+           wizardId="org.eclipse.sirius.conml.design.ConMLDomainWizard">
+        <enablement></enablement>
+     </commonWizard>
+  </extension>
 </plugin>

@@ -53,11 +53,13 @@ public final class DiagramPropertiesServices {
     setupDisabledReferences();
   }
 
-  public boolean shouldShowActionPage(final EObject object) {
+  public boolean shouldShowActionPage(final Object object) {
+    if (!(object instanceof EObject)) return false;
+    final EObject eObject = (EObject) object;
     return object instanceof Domain
-        || AssociationServices.getInstance().isExpandedAssociation(object)
-        || SemiAssociationServices.getInstance().isPrimarySemiInCompactAssociation(object)
-        || PackageServices.getInstance().isNonOverallPackage(object);
+        || AssociationServices.getInstance().isExpandedAssociation(eObject)
+        || SemiAssociationServices.getInstance().isPrimarySemiInCompactAssociation(eObject)
+        || PackageServices.getInstance().isNonOverallPackage(eObject);
   }
 
   public boolean referenceIfCreationDialogPredicate(final EStructuralFeature feature) {

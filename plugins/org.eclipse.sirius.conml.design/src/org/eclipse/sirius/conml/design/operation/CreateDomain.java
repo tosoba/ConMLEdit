@@ -44,7 +44,7 @@ public final class CreateDomain extends WorkspaceModifyOperation {
 
                 // Enable UML viewpoints
                 final ModelingProject modelingProject = created.get();
-                ConMLViewpoints.enableReused(modelingProject.getSession());
+                ConMLViewpoints.enable(modelingProject.getSession());
               });
     }
   }

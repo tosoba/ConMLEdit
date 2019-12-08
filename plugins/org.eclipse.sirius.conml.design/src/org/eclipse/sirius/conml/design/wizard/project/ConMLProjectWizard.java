@@ -26,10 +26,10 @@ public final class ConMLProjectWizard extends ConMLWizard {
     // page.
     // super.addPages();
 
-    newProjectPage = new WizardNewProjectCreationPage("Project"); // $NON-NLS-1$
-    newProjectPage.setInitialProjectName(""); // $NON-NLS-1$
-    newProjectPage.setTitle("Create a UML Modeling project"); // $NON-NLS-1$
-    newProjectPage.setDescription("Enter a project name"); // $NON-NLS-1$
+    newProjectPage = new WizardNewProjectCreationPage("Project"); 
+    newProjectPage.setInitialProjectName(""); 
+    newProjectPage.setTitle("Create a UML Modeling project"); 
+    newProjectPage.setDescription("Enter a project name"); 
     addPage(newProjectPage);
   }
 
@@ -55,9 +55,6 @@ public final class ConMLProjectWizard extends ConMLWizard {
                 () -> {
                   // Create default empty UML model
                   ConMLProject.createSemanticResource(project, newUmlModelFileName);
-
-                  created.get();
-
                   final Session session = created.get().getSession();
                   if (session != null) {
                     ConMLViewpoints.enable(session);
