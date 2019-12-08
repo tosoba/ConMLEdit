@@ -24,21 +24,14 @@ import com.google.common.collect.Maps;
 import conml.conmlFactory;
 
 public final class ConMLProject {
+
   private ConMLProject() {}
 
-  /**
-   * Create a new UML model in a project.
-   *
-   * @param project Modeling project
-   * @param rootObjectName Name of the root object
-   * @param newUmlFileName Name of the UML file
-   * @return Newly created UML file
-   */
   public static Option<IFile> createSemanticResource(
       final IProject project, String newUmlFileName) {
     final Option<ModelingProject> modelingProject = ModelingProject.asModelingProject(project);
     final Session session = modelingProject.get().getSession();
-    final String platformPath = getNewUmlModelFilePath(project, newUmlFileName);
+    final String platformPath = getNewDomainFilePath(project, newUmlFileName);
     session
         .getTransactionalEditingDomain()
         .getCommandStack()
@@ -46,12 +39,9 @@ public final class ConMLProject {
             new RecordingCommand(session.getTransactionalEditingDomain()) {
               @Override
               protected void doExecute() {
-
                 final URI semanticModelURI = URI.createPlatformResourceURI(platformPath, true);
                 final Resource res = new ResourceSetImpl().createResource(semanticModelURI);
-                /* Add the initial model object to the contents. */
                 final EObject rootObject = conmlFactory.eINSTANCE.createDomain();
-
                 if (rootObject != null) {
                   res.getContents().add(rootObject);
                 }
@@ -62,25 +52,17 @@ public final class ConMLProject {
                 }
 
                 session.addSemanticResource(semanticModelURI, new NullProgressMonitor());
-
                 session.save(new NullProgressMonitor());
               }
             });
+
     return Options.newSome(
         ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformPath)));
   }
 
-  /**
-   * Get the new UML model file path.
-   *
-   * @param project Project
-   * @param umlFileName File name
-   * @return UML model file path
-   */
-  private static String getNewUmlModelFilePath(IProject project, String umlFileName) {
+  private static String getNewDomainFilePath(IProject project, String umlFileName) {
     return '/' + project.getName() + '/' + umlFileName.toLowerCase();
   }
 
-  /** The UML file extension. */
-  public static final String MODEL_FILE_EXTENSION = "conml"; 
+  public static final String MODEL_FILE_EXTENSION = "conml";
 }

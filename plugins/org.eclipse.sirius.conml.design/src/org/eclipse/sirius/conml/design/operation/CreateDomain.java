@@ -11,26 +11,17 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 public final class CreateDomain extends WorkspaceModifyOperation {
-  /** The UML project. */
+
   private final IProject project;
 
-  /** The name of the UML file. */
-  private final String umlFileName;
+  private final String domainFileName;
 
-  /**
-   * Constructor.
-   *
-   * @param project An {@link IProject} handle representing the project
-   * @param rootObjectName The name of the semantic root element
-   * @param fileName
-   */
   public CreateDomain(IProject project, String fileName) {
     super(null);
     this.project = project;
-    umlFileName = fileName;
+    domainFileName = fileName;
   }
 
-  /** {@inheritDoc} */
   @Override
   protected void execute(final IProgressMonitor monitor)
       throws CoreException, InterruptedException {
@@ -39,10 +30,7 @@ public final class CreateDomain extends WorkspaceModifyOperation {
       Display.getDefault()
           .syncExec(
               () -> {
-                // Create default empty UML model
-                ConMLProject.createSemanticResource(project, umlFileName);
-
-                // Enable UML viewpoints
+                ConMLProject.createSemanticResource(project, domainFileName);
                 final ModelingProject modelingProject = created.get();
                 ConMLViewpoints.enableAll(modelingProject.getSession(), false);
               });

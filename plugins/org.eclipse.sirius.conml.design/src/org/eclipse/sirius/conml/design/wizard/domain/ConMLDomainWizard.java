@@ -23,50 +23,35 @@ import org.eclipse.ui.IWorkbench;
 
 public final class ConMLDomainWizard extends ConMLWizard {
 
-  private NewDomainFilePage newModelFilePage;
+  private NewDomainFilePage newDomainFilePage;
 
   @Override
   public void addPages() {
-    newModelFilePage = new NewDomainFilePage("New Domain", selection);
-    newModelFilePage.setTitle("Create a new ConML Domain");
-    newModelFilePage.setDescription("Create a new ConML Domain file");
-    newModelFilePage.setFileName("NewDomain" + "." + ConMLProject.MODEL_FILE_EXTENSION);
-    addPage(newModelFilePage);
+    newDomainFilePage = new NewDomainFilePage("New Domain", selection);
+    newDomainFilePage.setTitle("Create a new ConML Domain");
+    newDomainFilePage.setDescription("Create a new ConML Domain file");
+    newDomainFilePage.setFileName("NewDomain" + "." + ConMLProject.MODEL_FILE_EXTENSION);
+    addPage(newDomainFilePage);
 
-    // Try and get the resource selection to determine a current directory
-    // for the file dialog.
     if (selection != null && !selection.isEmpty()) {
-      // Get the resource...
-      //
       final Object selectedElement = selection.iterator().next();
       if (selectedElement instanceof IResource) {
-        // Get the resource parent, if its a file.
+
         IResource selectedResource = (IResource) selectedElement;
         if (selectedResource.getType() == IResource.FILE) {
           selectedResource = selectedResource.getParent();
         }
 
-        // This gives us a directory...
         if (selectedResource instanceof IFolder || selectedResource instanceof IProject) {
-          // Set this for the container.
-          //
-          newModelFilePage.setContainerFullPath(selectedResource.getFullPath());
-
-          // Make up a unique new name here.
-          final String modelFilename = getNewModelName(selectedResource);
-          newModelFilePage.setFileName(modelFilename);
+          newDomainFilePage.setContainerFullPath(selectedResource.getFullPath());
+          final String domainFilename = getNewDomainName(selectedResource);
+          newDomainFilePage.setFileName(domainFilename);
         }
       }
     }
   }
 
-  /**
-   * Compute the name of the new UML model.
-   *
-   * @param selectedResource Selected resource
-   * @return Name of the new UML model
-   */
-  private String getNewModelName(IResource selectedResource) {
+  private String getNewDomainName(IResource selectedResource) {
     final String defaultModelBaseFilename = "NewDomain";
     String modelFilename = defaultModelBaseFilename + "." + ConMLProject.MODEL_FILE_EXTENSION;
     for (int i = 1; ((IContainer) selectedResource).findMember(modelFilename) != null; ++i) {
@@ -75,23 +60,20 @@ public final class ConMLDomainWizard extends ConMLWizard {
     return modelFilename;
   }
 
-  /** {@inheritDoc} */
   @Override
   public void init(IWorkbench workbench, IStructuredSelection structuredSelection) {
     selection = structuredSelection;
     setWindowTitle("New ConML Domain");
   }
 
-  /** {@inheritDoc} */
   @Override
   public boolean performFinish() {
-    final Option<IFile> option = newModelFilePage.getModelFile();
+    final Option<IFile> option = newDomainFilePage.getModelFile();
 
     if (option.some()) {
       final IFile modelFile = option.get();
       project = modelFile.getProject();
 
-      // Convert project to modeling project
       try {
         ModelingProjectManager.INSTANCE.convertToModelingProject(
             project, new NullProgressMonitor());
@@ -100,7 +82,7 @@ public final class ConMLDomainWizard extends ConMLWizard {
         return false;
       }
 
-      newUmlModelFileName = newModelFilePage.getFileName();
+      newDomainFileName = newDomainFilePage.getFileName();
 
       super.performFinish();
 
@@ -121,7 +103,6 @@ public final class ConMLDomainWizard extends ConMLWizard {
         }
       }
 
-      // Open the dashboard
       DashboardServices.INSTANCE.openDashboard(project);
 
       return true;

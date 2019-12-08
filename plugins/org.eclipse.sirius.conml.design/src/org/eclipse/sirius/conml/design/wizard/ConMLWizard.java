@@ -20,17 +20,16 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 
 public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
-  public IProject project;
 
-  public String newUmlModelFileName;
+  protected IProject project;
+  protected String newDomainFileName;
 
   @Override
   public boolean performFinish() {
-    if (project == null || newUmlModelFileName == null) {
+    if (project == null || newDomainFileName == null) {
       throw new IllegalArgumentException();
     }
 
-    // Set Uml project nature
     IProjectDescription description;
     try {
       description = project.getDescription();
@@ -40,11 +39,9 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
       System.arraycopy(natures, 0, newNatures, 0, natures.length);
       newNatures[natures.length] = ConMLProjectNature.NATURE_ID;
 
-      // validate the natures
       final IWorkspace workspace = ResourcesPlugin.getWorkspace();
       final IStatus status = workspace.validateNatureSet(newNatures);
 
-      // only apply new nature, if the status is ok
       if (status.getCode() == IStatus.OK) {
         description.setNatureIds(newNatures);
         project.setDescription(description, null);
@@ -58,13 +55,7 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
           @Override
           protected void execute(IProgressMonitor monitor)
               throws CoreException, InterruptedException {
-            // Do not call super as we don't want to use the super perform
-            // method to create the project,
-            // in our case the project was created using the modeling
-            // project api, we need to extends the
-            // BasicNewProjectResourceWizard to implement the perspective
-            // switch easily.
-            final CreateDomain init = new CreateDomain(project, newUmlModelFileName);
+            final CreateDomain init = new CreateDomain(project, newDomainFileName);
             try {
               getContainer().run(false, true, init);
             } catch (final InterruptedException e) {
@@ -73,16 +64,12 @@ public abstract class ConMLWizard extends BasicNewProjectResourceWizard {
               Activator.log(IStatus.ERROR, "Error creating Domain", e);
             }
 
-            // Get the newly created UML file
-            final IResource newUmlModelFile = project.findMember(newUmlModelFileName);
-
-            // Switch to the modeling perspective
+            final IResource newDomainFile = project.findMember(newDomainFileName);
             updatePerspective();
-
-            // Select it in the explorer
-            selectAndReveal(newUmlModelFile, PlatformUI.getWorkbench().getActiveWorkbenchWindow());
+            selectAndReveal(newDomainFile, PlatformUI.getWorkbench().getActiveWorkbenchWindow());
           }
         };
+
     try {
       getContainer().run(false, true, op);
     } catch (final InvocationTargetException e) {

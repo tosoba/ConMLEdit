@@ -21,14 +21,9 @@ public final class ConMLProjectWizard extends ConMLWizard {
 
   @Override
   public void addPages() {
-    // we're not calling the super as we want to control the project
-    // creation, we don't want the default
-    // page.
-    // super.addPages();
-
     newProjectPage = new WizardNewProjectCreationPage("Project");
     newProjectPage.setInitialProjectName("");
-    newProjectPage.setTitle("Create a UML Modeling project");
+    newProjectPage.setTitle("Create a new ConML project");
     newProjectPage.setDescription("Enter a project name");
     addPage(newProjectPage);
   }
@@ -42,19 +37,16 @@ public final class ConMLProjectWizard extends ConMLWizard {
               newProjectPage.getLocationPath(),
               true,
               new NullProgressMonitor());
-      newUmlModelFileName =
-          newProjectPage.getProjectName() + "." + ConMLProject.MODEL_FILE_EXTENSION;
+      newDomainFileName = newProjectPage.getProjectName() + "." + ConMLProject.MODEL_FILE_EXTENSION;
 
       super.performFinish();
 
-      // Enable UML viewpoints
       final Option<ModelingProject> created = ModelingProject.asModelingProject(project);
       if (created.some()) {
         Display.getDefault()
             .syncExec(
                 () -> {
-                  // Create default empty UML model
-                  ConMLProject.createSemanticResource(project, newUmlModelFileName);
+                  ConMLProject.createSemanticResource(project, newDomainFileName);
                   final Session session = created.get().getSession();
                   if (session != null) {
                     ConMLViewpoints.enableAll(session, false);
