@@ -1077,9 +1077,9 @@
           </style>
         </edgeMappings>
         <containerMappings name="PD_Package" createElements="false" domainClass="types::Package" childrenPresentation="HorizontalStack">
-          <subContainerMappings name="PD_Package_EnumContainer" semanticCandidatesExpression="var:self" createElements="false" domainClass="types::Package" childrenPresentation="List">
-            <subNodeMappings name="PD_EnumType" semanticCandidatesExpression="aql:self.enumeratedTypes" createElements="false" domainClass="types::EnumeratedType">
-              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelAlignment="LEFT" sizeComputationExpression="1">
+          <subContainerMappings name="PD_Package_EnumContainer" semanticCandidatesExpression="var:self" domainClass="types::Package" childrenPresentation="List">
+            <subNodeMappings name="PD_EnumType" semanticCandidatesExpression="aql:self.enumeratedTypes" domainClass="types::EnumeratedType">
+              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
@@ -1093,9 +1093,9 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             </style>
           </subContainerMappings>
-          <subContainerMappings name="PD_Package_ClassContainer" semanticCandidatesExpression="var:self" createElements="false" domainClass="types::Package" childrenPresentation="List">
-            <subNodeMappings name="PD_Class" semanticCandidatesExpression="aql:self.containedClasses" createElements="false" domainClass="types::Class">
-              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelAlignment="LEFT" sizeComputationExpression="1">
+          <subContainerMappings name="PD_Package_ClassContainer" semanticCandidatesExpression="var:self" domainClass="types::Package" childrenPresentation="List">
+            <subNodeMappings name="PD_Class" semanticCandidatesExpression="feature:ContainedClasses" domainClass="types::Class">
+              <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelAlignment="LEFT" resizeKind="NSEW">
                 <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
