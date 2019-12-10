@@ -130,7 +130,7 @@ public final class ClassServices {
     final List<Object> result =
         ExistingElementsServices.getInstance()
             .openSelectExistingElementsDialog(
-                selectedContainer,
+                selectedContainer.eContainer(),
                 diagram,
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectClass"),

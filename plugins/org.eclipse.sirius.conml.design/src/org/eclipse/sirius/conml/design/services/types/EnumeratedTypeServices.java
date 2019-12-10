@@ -16,12 +16,19 @@ import conml.types.Package;
 
 public final class EnumeratedTypeServices {
 
-  public boolean doesNotHaveSuperType(final EnumeratedType enumType) {
-    return enumType.getSuperType() == null;
+  public boolean enumTypeGeneralizationPrecondition(
+      final EnumeratedType preSubType, final EnumeratedType preSuperType) {
+    EnumeratedType enumTypeIt = preSuperType;
+    while (enumTypeIt != null) {
+      if (EcoreUtil.equals(enumTypeIt, enumTypeIt.getSuperType())
+          || EcoreUtil.equals(enumTypeIt, preSubType)) return false;
+      enumTypeIt = enumTypeIt.getSuperType();
+    }
+    return true;
   }
 
-  public void addSubType(final EnumeratedType superType, final EnumeratedType subType) {
-    superType.getSubTypes().add(subType);
+  public void setSuperType(final EnumeratedType subType, final EnumeratedType superType) {
+    subType.setSuperType(superType);
   }
 
   public void addUnpackagedEnumeratedTypesToPackage(
@@ -38,7 +45,7 @@ public final class EnumeratedTypeServices {
     final List<Object> result =
         ExistingElementsServices.getInstance()
             .openSelectExistingElementsDialog(
-                selectedContainer,
+                selectedContainer.eContainer(),
                 diagram,
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectEnumeratedType"),
@@ -63,6 +70,19 @@ public final class EnumeratedTypeServices {
         : null;
   }
 
+  public boolean superItemsExistInHierarchy(final EnumeratedType enumType) {
+    return !enumType.getOwnedItems().isEmpty()
+        || superItemsExistInHierarchy(enumType, enumType.getSuperType());
+  }
+
+  private boolean superItemsExistInHierarchy(
+      final EnumeratedType chosenType, final EnumeratedType currentType) {
+    if (currentType == null || EcoreUtil.equals(chosenType, currentType)) return false;
+    else
+      return !currentType.getOwnedItems().isEmpty()
+          || superItemsExistInHierarchy(chosenType, currentType.getSuperType());
+  }
+
   public void setEnumTypeContainerPackage(
       final EnumeratedType enumType, final conml.types.Package container) {
     enumType.setPackage(container);
@@ -83,5 +103,9 @@ public final class EnumeratedTypeServices {
                 ConMLPredicates.isInstanceOfClass(EnumeratedType.class),
                 null),
             EnumeratedType.class);
+  }
+
+  public boolean canOwnTopLevelEnumItems(final EnumeratedType enumType) {
+    return enumType.getSuperType() == null;
   }
 }
