@@ -1,7 +1,7 @@
 package org.eclipse.sirius.conml.design.dialog;
 
 import org.eclipse.jface.resource.JFaceResources;
-import org.eclipse.sirius.conml.design.services.types.ModelElementServices;
+import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;

@@ -9,6 +9,7 @@ import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
+import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.services.types.label.PackageLabelServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;

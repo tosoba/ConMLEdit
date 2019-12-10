@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
+import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.services.common.UIServices;
 import org.eclipse.sirius.conml.design.services.instances.ObjectServices;
 import org.eclipse.sirius.conml.design.util.ConML;

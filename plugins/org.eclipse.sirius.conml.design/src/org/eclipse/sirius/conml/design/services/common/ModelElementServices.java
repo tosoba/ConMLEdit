@@ -1,4 +1,4 @@
-package org.eclipse.sirius.conml.design.services.types;
+package org.eclipse.sirius.conml.design.services.common;
 
 import java.util.Arrays;
 import java.util.Collection;

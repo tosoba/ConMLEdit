@@ -1,6 +1,7 @@
 package org.eclipse.sirius.conml.design.services.types;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.types.DataType;

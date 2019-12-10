@@ -9,7 +9,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
-import org.eclipse.sirius.conml.design.services.types.ModelElementServices;
+import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;

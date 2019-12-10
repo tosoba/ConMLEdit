@@ -1271,20 +1271,20 @@
     </ownedRepresentations>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Class Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Class Diagram"/>
     <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="Object Diagram" viewpointURI="viewpoint:/org.eclipse.sirius.conml.design/Reused" representationName="Object Diagram"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.CommonInterfaceServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ContainerServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DiagramPropertiesServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DomainServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ExistingElementsServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelElementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.UIServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ContainerServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.CommonInterfaceServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DomainServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.AssociationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.ClassServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.DataTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.EnumeratedTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.GeneralizationServices"/>
-    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.ModelElementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.PackageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.SemiAssociationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.TypeModelServices"/>
