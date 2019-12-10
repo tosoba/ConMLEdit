@@ -140,13 +140,16 @@ public final class ClassServices {
                           && EcoreUtil.equals(
                               unpackagedClassCandidate.getTypeModel(),
                               selectedContainer.getTypeModel());
-                    }),
+                    },
+                    true),
                 false);
-    if (result.size() > 0 && !result.stream().anyMatch(obj -> !Class.class.isInstance(obj))) {
-      return result.stream().map(Class.class::cast).collect(Collectors.toList());
-    } else {
-      return null;
-    }
+    return result != null && result.size() > 0
+        ? result
+            .stream()
+            .filter(Class.class::isInstance)
+            .map(Class.class::cast)
+            .collect(Collectors.toList())
+        : null;
   }
 
   public void showClassSelectionDialogForObjectDiagram(

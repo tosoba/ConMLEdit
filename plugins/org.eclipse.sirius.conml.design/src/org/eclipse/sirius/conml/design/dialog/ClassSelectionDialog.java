@@ -8,4 +8,12 @@ public final class ClassSelectionDialog extends ExistingSemanticElementsSelectio
       String title, String message, Predicate<Object> isValidEObjectPredicate) {
     super(title, message, isValidEObjectPredicate, false, null);
   }
+
+  public ClassSelectionDialog(
+      String title,
+      String message,
+      Predicate<Object> isValidEObjectPredicate,
+      boolean multiSelect) {
+    super(title, message, isValidEObjectPredicate, multiSelect, null);
+  }
 }

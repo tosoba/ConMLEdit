@@ -233,9 +233,8 @@ public class ExistingSemanticElementsSelectionDialog {
 
       new Label(buttonComposite, SWT.LEAD).setText("Show");
       final Combo choices = new Combo(buttonComposite, SWT.READ_ONLY);
-      choices.add(FilteringMode.SHOW_ONLY_DIRECT_CHILDREN.getName());
-      choices.add(FilteringMode.SHOW_ONLY_UNDISPLAYED_ELEMENTS.getName());
       choices.add(FilteringMode.SHOW_ALL.getName());
+      choices.add(FilteringMode.SHOW_ONLY_UNDISPLAYED_ELEMENTS.getName());
       choices.select(0);
       choices.addSelectionListener(
           new SelectionAdapter() {
@@ -243,13 +242,10 @@ public class ExistingSemanticElementsSelectionDialog {
             public void widgetSelected(SelectionEvent e) {
               switch (choices.getSelectionIndex()) {
                 case 0:
-                  updateFilteringMode(FilteringMode.SHOW_ONLY_DIRECT_CHILDREN);
+                  updateFilteringMode(FilteringMode.SHOW_ALL);
                   break;
                 case 1:
                   updateFilteringMode(FilteringMode.SHOW_ONLY_UNDISPLAYED_ELEMENTS);
-                  break;
-                case 2:
-                  updateFilteringMode(FilteringMode.SHOW_ALL);
                   break;
                 default:
                   throw new RuntimeException();
@@ -442,9 +438,8 @@ public class ExistingSemanticElementsSelectionDialog {
     }
   }
 
-  private enum FilteringMode {
+  enum FilteringMode {
     SHOW_ALL("all elements"),
-    SHOW_ONLY_DIRECT_CHILDREN("only direct children"),
     SHOW_ONLY_UNDISPLAYED_ELEMENTS("only undisplayed elements");
 
     private final String name;
@@ -466,9 +461,6 @@ public class ExistingSemanticElementsSelectionDialog {
       switch (mode) {
         case SHOW_ALL:
           show = dialog.isMatchingExpregOrHasMatchingExpregDescendantsAllMode(element);
-          break;
-        case SHOW_ONLY_DIRECT_CHILDREN:
-          show = dialog.isMatchingExpregOrHasMatchingExpregDescendantsSubMode(element);
           break;
         case SHOW_ONLY_UNDISPLAYED_ELEMENTS:
           if (diagram != null) {
@@ -514,7 +506,7 @@ public class ExistingSemanticElementsSelectionDialog {
 
   private EObject eObject;
 
-  private FilteringMode mode = FilteringMode.SHOW_ONLY_DIRECT_CHILDREN;
+  private FilteringMode mode = FilteringMode.SHOW_ALL;
 
   private Predicate<Object> isGrayed = Predicates.alwaysFalse();
 
