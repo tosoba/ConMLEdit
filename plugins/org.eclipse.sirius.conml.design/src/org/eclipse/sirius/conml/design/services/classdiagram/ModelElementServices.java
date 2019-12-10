@@ -173,4 +173,18 @@ public final class ModelElementServices {
   public String defaultDefinition(final EObject object) {
     return "";
   }
+
+  public boolean isContainedInTheSameModel(
+      final ModelElement element1, final ModelElement element2) {
+    if (element1 instanceof TypeModelElement && element2 instanceof TypeModelElement) {
+      return EcoreUtil.equals(
+          ((TypeModelElement) element1).getTypeModel(),
+          ((TypeModelElement) element2).getTypeModel());
+    } else if (element1 instanceof InstanceModelElement
+        && element2 instanceof InstanceModelElement) {
+      return EcoreUtil.equals(
+          ((InstanceModelElement) element1).getInstanceModel(),
+          ((InstanceModelElement) element2).getInstanceModel());
+    } else return false;
+  }
 }
