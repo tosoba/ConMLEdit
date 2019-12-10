@@ -141,4 +141,18 @@ public final class PackageServices {
             ModelElementServices.getInstance()
                 .moveTypeModelElement(clazz, Package.class, ConML.ElementMovementDirection.DOWN));
   }
+
+  public void setContainerPackage(final Package subPackage, final Package container) {
+    subPackage.setContainerPackage(container);
+  }
+
+  public boolean packageContainmentPrecondition(final Package preSource, final Package preTarget) {
+    Package packageIt = preTarget;
+    while (packageIt != null) {
+      if (EcoreUtil.equals(packageIt, packageIt.getContainerPackage())
+          || EcoreUtil.equals(packageIt, preSource)) return false;
+      packageIt = packageIt.getContainerPackage();
+    }
+    return true;
+  }
 }

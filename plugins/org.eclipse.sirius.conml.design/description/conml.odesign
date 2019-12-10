@@ -1152,6 +1152,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="New Package Containment" precondition="aql:preSource.packageContainmentPrecondition(preTarget)" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@edgeMappings[name='PD_PackageContainment']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.setContainerPackage(target)"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
