@@ -167,7 +167,7 @@ public final class ClassServices {
             Class.class);
   }
 
-  public void setContainerPackage(final Class clazz, final conml.types.Package container) {
+  public void setClassContainerPackage(final Class clazz, final conml.types.Package container) {
     clazz.setPackage(container);
   }
 }

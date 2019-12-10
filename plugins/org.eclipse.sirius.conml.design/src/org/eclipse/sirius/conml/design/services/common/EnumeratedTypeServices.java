@@ -11,4 +11,9 @@ public final class EnumeratedTypeServices {
   public void addSubType(final EnumeratedType superType, final EnumeratedType subType) {
     superType.getSubTypes().add(subType);
   }
+
+  public void setEnumTypeContainerPackage(
+      final EnumeratedType enumType, final conml.types.Package container) {
+    enumType.setPackage(container);
+  }
 }

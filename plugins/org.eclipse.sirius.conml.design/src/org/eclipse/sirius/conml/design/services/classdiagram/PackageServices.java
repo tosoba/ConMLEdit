@@ -177,7 +177,8 @@ public final class PackageServices {
             Package.class);
   }
 
-  public void showValueSetDropErrorDialog(final Package oldContainer, final Package newContainer) {
+  public void showPackageElementDropErrorDialog(
+      final Package oldContainer, final Package newContainer) {
     Dialogs.showError(
         Messages.getString("Message.CannotChangePackageContainer"),
         Messages.getString(
