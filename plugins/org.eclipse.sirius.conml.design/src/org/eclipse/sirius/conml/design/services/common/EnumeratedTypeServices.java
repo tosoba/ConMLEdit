@@ -3,8 +3,10 @@ package org.eclipse.sirius.conml.design.services.common;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
@@ -63,5 +65,22 @@ public final class EnumeratedTypeServices {
   public void setEnumTypeContainerPackage(
       final EnumeratedType enumType, final conml.types.Package container) {
     enumType.setPackage(container);
+  }
+
+  public void openSelectExistingEnumeratedTypesDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingEnumeratedTypes"),
+                Messages.getString("Dialog.SelectEnumeratedTypes"),
+                ConMLPredicates.isInstanceOfClass(EnumeratedType.class),
+                null),
+            EnumeratedType.class);
   }
 }
