@@ -1058,6 +1058,18 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Enum Items" label="Items">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Add Top Level EnumeratedItem" label="Top Level Item">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Add Sub EnumeratedItem" label="SubItem">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Package Diagram" domainClass="conml::Domain" enablePopupBars="true">
