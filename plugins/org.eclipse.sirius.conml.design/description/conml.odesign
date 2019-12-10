@@ -1165,9 +1165,7 @@
             <element name="element"/>
             <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.openSelectExistingPackagesDialog(elementView, diagram)"/>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.openSelectExistingPackagesDialog(elementView, diagram)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerDropDescription" name="Drop Classes To Package" mappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Package%20Diagram']/@defaultLayer/@containerMappings[name='PD_Package']/@subContainerMappings[name='PD_Package_ClassContainer']/@subNodeMappings[name='PD_Class']">
@@ -1200,6 +1198,13 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:oldSemanticContainer.showPackageElementDropErrorDialog(newSemanticContainer)"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Add Unpackaged Classes" precondition="aql:container.oclIsTypeOf(types::Package)">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.addUnpackagedClassesToPackage(diagram)"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

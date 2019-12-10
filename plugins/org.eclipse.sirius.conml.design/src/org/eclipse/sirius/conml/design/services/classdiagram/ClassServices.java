@@ -23,6 +23,7 @@ import conml.Domain;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.Generalization;
+import conml.types.Package;
 import conml.types.SemiAssociation;
 
 public final class ClassServices {
@@ -107,12 +108,45 @@ public final class ClassServices {
                     (Object obj) -> {
                       if (!(obj instanceof Class)) return false;
                       final Class instancedClassCandidate = (Class) obj;
-                      if (instancedClassCandidate.getTypeModel() == null) return false;
-                      return true;
+                      return instancedClassCandidate.getTypeModel() != null;
                     }),
                 false);
     if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);
     else return null;
+  }
+
+  public void addUnpackagedClassesToPackage(
+      final Package selectedContainer, final DDiagram diagram) {
+    final List<Class> classes = showUnpackagedClassSelectionDialog(selectedContainer, diagram);
+    if (classes != null) {
+      classes.forEach(clazz -> setClassContainerPackage(clazz, selectedContainer));
+    }
+  }
+
+  public List<Class> showUnpackagedClassSelectionDialog(
+      final Package selectedContainer, final DDiagram diagram) {
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ClassSelectionDialog(
+                    Messages.getString("Dialog.SelectClass"),
+                    Messages.getString("Dialog.SelectUnpackagedClass"),
+                    (Object obj) -> {
+                      if (!(obj instanceof Class)) return false;
+                      final Class unpackagedClassCandidate = (Class) obj;
+                      return unpackagedClassCandidate.getPackage() == null
+                          && EcoreUtil.equals(
+                              unpackagedClassCandidate.getTypeModel(),
+                              selectedContainer.getTypeModel());
+                    }),
+                false);
+    if (result.size() > 0 && !result.stream().anyMatch(obj -> !Class.class.isInstance(obj))) {
+      return result.stream().map(Class.class::cast).collect(Collectors.toList());
+    } else {
+      return null;
+    }
   }
 
   public void showClassSelectionDialogForObjectDiagram(
@@ -167,7 +201,7 @@ public final class ClassServices {
             Class.class);
   }
 
-  public void setClassContainerPackage(final Class clazz, final conml.types.Package container) {
+  public void setClassContainerPackage(final Class clazz, final Package container) {
     clazz.setPackage(container);
   }
 }
