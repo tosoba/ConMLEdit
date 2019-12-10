@@ -1063,7 +1063,7 @@
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
           </style>
         </edgeMappings>
-        <containerMappings name="ED_EnumeratedItem" domainClass="types::EnumeratedItem">
+        <containerMappings name="ED_EnumeratedItem" createElements="false" domainClass="types::EnumeratedItem">
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.getElementName" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedItem.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1071,7 +1071,15 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
-        <toolSections name="Enum Items" label="Items" icon="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedItem.gif"/>
+        <toolSections name="Enum Items" label="Items" icon="/org.eclipse.sirius.conml.edit/icons/full/obj16/EnumeratedItem.gif">
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddExistingEnumeratedItems" label="Add existing EnumeratedItem" precondition="aql:container.oclIsTypeOf(types::EnumeratedType)" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.openSelectExistingEnumeratedItemsDialog(elementView, diagram)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
       </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Package Diagram" domainClass="conml::Domain" enablePopupBars="true">

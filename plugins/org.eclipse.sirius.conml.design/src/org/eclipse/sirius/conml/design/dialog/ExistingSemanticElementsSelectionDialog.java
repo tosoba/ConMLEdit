@@ -24,7 +24,6 @@ import org.eclipse.jface.viewers.Viewer;
 import org.eclipse.jface.viewers.ViewerFilter;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.provider.ModelFilteredTreeContentProvider;
-import org.eclipse.sirius.conml.design.services.common.DomainServices;
 import org.eclipse.sirius.conml.design.services.common.UIServices;
 import org.eclipse.sirius.conml.design.util.ModelElementsSelectionDialogPatternMatcher;
 import org.eclipse.sirius.diagram.DDiagram;
@@ -67,6 +66,8 @@ import conml.Model;
 import conml.ModelElement;
 import conml.ModelPart;
 import conml.instances.util.InstancesAdapterFactory;
+import conml.types.EnumeratedItem;
+import conml.types.EnumeratedType;
 import conml.types.util.TypesAdapterFactory;
 import conml.util.conmlAdapterFactory;
 
@@ -363,16 +364,10 @@ public class ExistingSemanticElementsSelectionDialog {
 
     private boolean isOrHasDescendant(Object element, final Predicate<Object> pred) {
       final boolean matches = pred.apply(element);
-      if (matches) {
-        return true;
-      }
+      if (matches) return true;
       return Iterables.any(
           Arrays.asList(contentProvider.getChildren(element)),
-          new Predicate<Object>() {
-            public boolean apply(Object input) {
-              return isOrHasDescendant(input, pred);
-            }
-          });
+          input -> isOrHasDescendant(input, pred));
     }
 
     private void refresh() {
@@ -505,15 +500,10 @@ public class ExistingSemanticElementsSelectionDialog {
   }
 
   private EObject eObject;
-
   private FilteringMode mode = FilteringMode.SHOW_ALL;
-
   private Predicate<Object> isGrayed = Predicates.alwaysFalse();
-
   private Function<Object, Void> selectedAction = DO_NOTHING;
-
   private ModelFilteredTreeContentProvider contentProvider;
-
   private DDiagram diagram;
 
   private final boolean isMultiSelect;
@@ -625,6 +615,13 @@ public class ExistingSemanticElementsSelectionDialog {
       }
     }
 
+    if (element instanceof EnumeratedType) {
+      final EnumeratedType enumType = (EnumeratedType) element;
+      for (final EnumeratedItem item : enumType.getOwnedItems()) {
+        if (predicate.apply(item)) return true;
+      }
+    }
+
     return false;
   }
 
@@ -665,7 +662,6 @@ public class ExistingSemanticElementsSelectionDialog {
     dialog =
         new CustomTreeSelectionDialog(parent, new SelectionDialogLabelProvider(), contentProvider);
     dialog.setTitle(title);
-
     String msg = message;
     if (!Predicates.alwaysFalse().equals(isGrayed)) {
       final StringBuilder sb = new StringBuilder(message);
@@ -674,10 +670,7 @@ public class ExistingSemanticElementsSelectionDialog {
       msg = sb.toString();
     }
     dialog.setMessage(msg);
-    final Collection<Domain> roots =
-        DomainServices.getInstance().getAllDiagramRootsInSession(eObject);
-
-    dialog.setInput(roots);
+    dialog.setInput(eObject);
     dialog.addFilter(new ModeFilter());
     dialog.setInitialElementSelections(Lists.newArrayList(initialSelection));
   }
