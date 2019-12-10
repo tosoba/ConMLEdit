@@ -7,9 +7,13 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.classdiagram.label.PackageLabelServices;
+import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.util.ConML;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.types.Class;
 import conml.types.EnumeratedType;
@@ -154,5 +158,22 @@ public final class PackageServices {
       packageIt = packageIt.getContainerPackage();
     }
     return true;
+  }
+
+  public void openSelectExistingPackagesDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingPackages"),
+                Messages.getString("Dialog.SelectPackages"),
+                ConMLPredicates.isInstanceOfClass(Package.class),
+                null),
+            Package.class);
   }
 }
