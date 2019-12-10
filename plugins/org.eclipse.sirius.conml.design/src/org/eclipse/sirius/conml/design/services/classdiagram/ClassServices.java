@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.dialog.ClassSelectionDialog;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.UIServices;
@@ -102,14 +101,16 @@ public final class ClassServices {
             .openSelectExistingElementsDialog(
                 selectedContainer,
                 diagram,
-                new ClassSelectionDialog(
+                new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectClass"),
                     Messages.getString("Dialog.SelectInstancedClass"),
                     (Object obj) -> {
                       if (!(obj instanceof Class)) return false;
                       final Class instancedClassCandidate = (Class) obj;
                       return instancedClassCandidate.getTypeModel() != null;
-                    }),
+                    },
+                    false,
+                    null),
                 false);
     if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);
     else return null;
@@ -130,7 +131,7 @@ public final class ClassServices {
             .openSelectExistingElementsDialog(
                 selectedContainer,
                 diagram,
-                new ClassSelectionDialog(
+                new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectClass"),
                     Messages.getString("Dialog.SelectUnpackagedClass"),
                     (Object obj) -> {
@@ -141,7 +142,8 @@ public final class ClassServices {
                               unpackagedClassCandidate.getTypeModel(),
                               selectedContainer.getTypeModel());
                     },
-                    true),
+                    true,
+                    null),
                 false);
     return result != null && result.size() > 0
         ? result
@@ -183,7 +185,7 @@ public final class ClassServices {
             selectedContainer,
             selectedContainerView,
             diagram,
-            new ClassSelectionDialog(
+            new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.SelectClass"),
                 Messages.getString("Dialog.SelectClassToAddToObjectDiagram"),
                 (Object obj) -> {
@@ -200,7 +202,9 @@ public final class ClassServices {
                   }
 
                   return false;
-                }),
+                },
+                false,
+                null),
             Class.class);
   }
 

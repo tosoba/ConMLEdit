@@ -1207,6 +1207,13 @@
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.addUnpackagedClassesToPackage(diagram)"/>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Add Unpackaged EnumeratedTypes" precondition="aql:container.oclIsTypeOf(types::Package)">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.addUnpackagedEnumeratedTypesToPackage(diagram)"/>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
       </defaultLayer>
     </ownedRepresentations>
