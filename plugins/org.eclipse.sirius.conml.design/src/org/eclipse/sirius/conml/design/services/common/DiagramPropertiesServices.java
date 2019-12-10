@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
-import org.eclipse.sirius.conml.design.services.classdiagram.AssociationServices;
-import org.eclipse.sirius.conml.design.services.classdiagram.PackageServices;
-import org.eclipse.sirius.conml.design.services.classdiagram.SemiAssociationServices;
+import org.eclipse.sirius.conml.design.services.types.AssociationServices;
+import org.eclipse.sirius.conml.design.services.types.PackageServices;
+import org.eclipse.sirius.conml.design.services.types.SemiAssociationServices;
 
 import conml.Domain;
 import conml.instances.InstanceModel;
