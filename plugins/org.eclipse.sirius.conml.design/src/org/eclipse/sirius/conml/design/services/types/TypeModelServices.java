@@ -5,13 +5,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelServices;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
+import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.EnumeratedType;
@@ -87,5 +90,31 @@ public final class TypeModelServices {
                 false);
     if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
     else return null;
+  }
+
+  public void setBaseTypeModel(final TypeModel particularTypeModel, final TypeModel baseTypeModel) {
+    particularTypeModel.setBaseTypeModel(baseTypeModel);
+  }
+
+  public void setConformingInstanceModel(
+      final TypeModel typeModel, final InstanceModel instanceModel) {
+    typeModel.setConformingInstanceModel(instanceModel);
+  }
+
+  public void openSelectExistingTypeModelsDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingTypeModels"),
+                Messages.getString("Dialog.SelectTypeModels"),
+                ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                null),
+            TypeModel.class);
   }
 }

@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.dialog.InstanceModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelServices;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
@@ -43,5 +45,22 @@ public final class InstanceModelServices {
     if (result.size() == 1 && result.get(0) instanceof InstanceModel)
       return (InstanceModel) result.get(0);
     else return null;
+  }
+
+  public void openSelectExistingInstanceModelsDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingInstanceModels"),
+                Messages.getString("Dialog.SelectInstanceModels"),
+                ConMLPredicates.isInstanceOfClass(InstanceModel.class),
+                null),
+            InstanceModel.class);
   }
 }
