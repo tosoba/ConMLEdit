@@ -1,5 +1,6 @@
 package org.eclipse.sirius.conml.design.services.types;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -107,5 +108,31 @@ public final class EnumeratedTypeServices {
 
   public boolean canOwnTopLevelEnumItems(final EnumeratedType enumType) {
     return enumType.getSuperType() == null;
+  }
+
+  public List<EObject> superEnumItemCandidates(final EnumeratedType enumTypeOwner) {
+    return elementsForSuperItemSelection(enumTypeOwner, true, true);
+  }
+
+  public List<EObject> superEnumItemRoots(final EnumeratedType enumTypeOwner) {
+    return elementsForSuperItemSelection(enumTypeOwner, true, false);
+  }
+
+  public List<EObject> superEnumItemChildren(final EnumeratedType enumTypeOwner) {
+    return elementsForSuperItemSelection(enumTypeOwner, false, true);
+  }
+
+  private List<EObject> elementsForSuperItemSelection(
+      final EnumeratedType enumTypeOwner, final boolean includeTypes, final boolean includeItems) {
+    final ArrayList<EObject> candidates = new ArrayList<>();
+    EnumeratedType enumTypeIt = enumTypeOwner;
+    while (enumTypeIt != null) {
+      if (includeTypes) candidates.add(enumTypeIt);
+      if (includeItems && enumTypeIt.getOwnedItems().size() > 0)
+        candidates.addAll(enumTypeIt.getOwnedItems());
+      if (EcoreUtil.equals(enumTypeIt, enumTypeIt.getSuperType())) return new ArrayList<>();
+      enumTypeIt = enumTypeIt.getSuperType();
+    }
+    return candidates;
   }
 }
