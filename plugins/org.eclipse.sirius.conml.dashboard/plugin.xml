@@ -160,10 +160,36 @@
                Additional representations
             </Description>
             <Activity
+                  class="org.eclipse.sirius.conml.dashboard.diagram.CreateModelDiagram"
+                  id="org.eclipse.sirius.conml.dashboard.CreateModelDiagram"
+                  image="icons/Model.gif"
+                  index="1"
+                  name="Create a new Model Diagram">
+               <Description>
+                  Creates a new ConML Model Diagram.
+               </Description>
+               <Predicate
+                     class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
+               </Predicate>
+            </Activity>
+            <Activity
+                  class="org.eclipse.sirius.conml.dashboard.diagram.CreatePackageDiagram"
+                  id="org.eclipse.sirius.conml.dashboard.CreatePackageDiagram"
+                  image="icons/Package.gif"
+                  index="2"
+                  name="Create a new Package Diagram">
+               <Description>
+                  Creates a new ConML Package Diagram.
+               </Description>
+               <Predicate
+                     class="org.eclipse.sirius.conml.dashboard.predicate.ConMLViewPointPredicate">
+               </Predicate>
+            </Activity>
+            <Activity
                   class="org.eclipse.sirius.conml.dashboard.diagram.CreateEnumDiagram"
                   id="org.eclipse.sirius.conml.dashboard.CreateEnumDiagram"
                   image="icons/EnumeratedType.gif"
-                  index="1"
+                  index="3"
                   name="Create a new Enum Diagram">
                <Description>
                   Creates a new ConML Enum Diagram.
