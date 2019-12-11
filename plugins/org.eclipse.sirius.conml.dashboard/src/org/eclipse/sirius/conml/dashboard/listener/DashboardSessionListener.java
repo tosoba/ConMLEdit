@@ -16,24 +16,16 @@ import conml.Domain;
 @SuppressWarnings("deprecation")
 public final class DashboardSessionListener implements SessionManagerListener {
 
-  public void notifyAddSession(Session newSession) {
-    // Nothing
-  }
+  public void notifyAddSession(Session newSession) {}
 
-  public void notifyRemoveSession(Session removedSession) {
-    // Nothing
-  }
+  public void notifyRemoveSession(Session removedSession) {}
 
-  public void viewpointSelected(Viewpoint selectedSirius) {
-    // Nothing
-  }
+  public void viewpointSelected(Viewpoint selectedSirius) {}
 
-  public void viewpointDeselected(Viewpoint deselectedSirius) {
-    // Nothing
-  }
+  public void viewpointDeselected(Viewpoint deselectedSirius) {}
 
   public void notify(Session sessionp, int notification) {
-    WeakReference<Session> session = new WeakReference<Session>(sessionp);
+    final WeakReference<Session> session = new WeakReference<Session>(sessionp);
     switch (notification) {
       case SessionListener.OPENED:
         if ((session.get() != null) && !(session.get().getSemanticResources().isEmpty())) {

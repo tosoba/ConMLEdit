@@ -41,6 +41,10 @@ public final class DomainServices {
 
   public Collection<Domain> getAllDiagramRootsInSession(final EObject object) {
     final Session session = SessionManager.INSTANCE.getSession(object);
+    return getAllDiagramRootsFromSession(session);
+  }
+
+  public Collection<Domain> getAllDiagramRootsFromSession(final Session session) {
     final Collection<Domain> roots = Lists.newArrayList();
     if (session != null) {
       for (final Resource childRes : session.getSemanticResources()) {

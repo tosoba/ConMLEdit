@@ -7,6 +7,8 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
+import org.eclipse.sirius.business.api.session.SessionManager;
+import org.eclipse.sirius.conml.design.listener.SimpleDataTypesCreationSessionListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
@@ -37,6 +39,7 @@ public class Activator extends AbstractUIPlugin {
     viewpoints.addAll(
         ViewpointRegistry.getInstance()
             .registerFromPlugin(PLUGIN_ID + "/description/conml.odesign"));
+    SessionManager.INSTANCE.addSessionsListener(new SimpleDataTypesCreationSessionListener());
   }
 
   /*
