@@ -83,9 +83,13 @@ public final class PackageServices {
     } else {
       final int result =
           Dialogs.show(
-              "Delete package",
-              "Delete subpackages recursively?",
-              new String[] {"Cancel", "Yes", "No"},
+              Messages.getString("Dialog.DeletePackage"),
+              Messages.getString("Dialog.DeleteSubPackagesRecursively"),
+              new String[] {
+                Messages.getString("Message.Cancel"),
+                Messages.getString("Message.Yes"),
+                Messages.getString("Message.No")
+              },
               MessageDialog.QUESTION);
 
       if (result != 1 && result != 2) return;

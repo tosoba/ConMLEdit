@@ -648,6 +648,29 @@
               </initialOperation>
             </tools>
           </ownedTools>
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Change Attribute Type Wizard" label="Change Attribute Type" precondition="aql:container.oclIsTypeOf(types::Attribute)" candidatesExpression="aql:container.getAllDataTypesForAttribute()" message="Choose a new DataType for the Attribute">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:If" conditionExpression="aql:element &lt;> null">
+                <subModelOperations xsi:type="tool_1:Let" variableName="attributeHasValueSets" valueExpression="aql:container.hasInstanceValueSets()">
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:attributeHasValueSets = true">
+                    <subModelOperations xsi:type="tool_1:Let" variableName="shouldChangeType" valueExpression="aql:container.showAttributeHasValueSetsDialog()">
+                      <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:shouldChangeType = true">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.removeValueSets()">
+                          <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.setDataTypeOfAttribute(element)"/>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:attributeHasValueSets = false">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:container.setDataTypeOfAttribute(element)"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="CD_Section_Relationships" label="Relationships">
           <ownedTools xsi:type="tool:EdgeCreationDescription" name="Generalization" precondition="aql:preSource.abstractGeneralizationPrecondition(preTarget)" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization']" connectionStartPrecondition="true">
@@ -1561,6 +1584,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelElementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.UIServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.AssociationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.AttributeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.ClassServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.DataTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.EnumeratedTypeServices"/>
