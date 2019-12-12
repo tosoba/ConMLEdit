@@ -63,6 +63,22 @@ public final class DataTypeServices {
     return findSimpleDataType(clazz, BaseDataType.BOOLEAN);
   }
 
+  public SimpleDataType numberSimpleDataType(final Class clazz) {
+    return findSimpleDataType(clazz, BaseDataType.NUMBER);
+  }
+
+  public SimpleDataType textSimpleDataType(final Class clazz) {
+    return findSimpleDataType(clazz, BaseDataType.TEXT);
+  }
+
+  public SimpleDataType timeSimpleDataType(final Class clazz) {
+    return findSimpleDataType(clazz, BaseDataType.TIME);
+  }
+
+  public SimpleDataType rawDataSimpleDataType(final Class clazz) {
+    return findSimpleDataType(clazz, BaseDataType.DATA);
+  }
+
   public SimpleDataType findSimpleDataType(final Class clazz, final BaseDataType base) {
     final Domain domain = (Domain) clazz.eContainer();
     return domain
