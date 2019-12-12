@@ -2,6 +2,7 @@ package org.eclipse.sirius.conml.design.services.common;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -21,6 +22,7 @@ import org.eclipse.sirius.diagram.business.api.helper.graphicalfilters.HideFilte
 import org.eclipse.sirius.diagram.business.api.query.DDiagramElementQuery;
 import org.eclipse.sirius.diagram.business.internal.helper.task.operations.CreateViewTask;
 import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeContainerSpec;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeListSpec;
 import org.eclipse.sirius.diagram.description.AbstractNodeMapping;
 import org.eclipse.sirius.diagram.description.DiagramElementMapping;
 import org.eclipse.sirius.diagram.description.tool.CreateView;
@@ -325,17 +327,25 @@ public final class ExistingElementsServices {
 
   private List<DDiagramElement> getHiddenExistingDiagramElements(
       final EObject semanticElement, final DSemanticDecorator containerView) {
-    final List<DDiagramElement> existingDiagramElements = Lists.newArrayList();
     if (containerView instanceof DSemanticDiagram) {
-      for (final DDiagramElement element :
-          ((DSemanticDiagram) containerView).getDiagramElements()) {
-        if (semanticElement.equals(element.getTarget())) {
-          final DDiagramElementQuery query = new DDiagramElementQuery(element);
-          if (query.isHidden()) {
-            existingDiagramElements.add(element);
-          }
-          existingDiagramElements.addAll(getHiddenParentContainerViews(element));
+      return getHiddenExistingDiagramElements(
+          ((DSemanticDiagram) containerView).getDiagramElements(), semanticElement);
+    } else if (containerView instanceof DNodeListSpec) {
+      return getHiddenExistingDiagramElements(
+          ((DNodeListSpec) containerView).getElements(), semanticElement);
+    } else return Lists.newArrayList();
+  }
+
+  private List<DDiagramElement> getHiddenExistingDiagramElements(
+      final Collection<DDiagramElement> elements, final EObject semanticElement) {
+    final List<DDiagramElement> existingDiagramElements = Lists.newArrayList();
+    for (final DDiagramElement element : elements) {
+      if (semanticElement.equals(element.getTarget())) {
+        final DDiagramElementQuery query = new DDiagramElementQuery(element);
+        if (query.isHidden()) {
+          existingDiagramElements.add(element);
         }
+        existingDiagramElements.addAll(getHiddenParentContainerViews(element));
       }
     }
     return existingDiagramElements;

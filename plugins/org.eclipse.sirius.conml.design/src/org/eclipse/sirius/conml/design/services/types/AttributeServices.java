@@ -8,11 +8,16 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
+import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
+import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
+import conml.types.Class;
 import conml.types.DataType;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
@@ -80,5 +85,20 @@ public final class AttributeServices {
             new String[] {Messages.getString("Message.Ok"), Messages.getString("Message.Cancel")},
             MessageDialog.QUESTION)
         == 0;
+  }
+
+  public void showExistingAttributesSelectionDialog(
+      final Class clazz, final EObject selectedContainerView, final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            clazz,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingPackages"),
+                Messages.getString("Dialog.SelectPackages"),
+                ConMLPredicates.isInstanceOfClass(Attribute.class),
+                null),
+            Attribute.class);
   }
 }

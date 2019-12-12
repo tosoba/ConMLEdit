@@ -33,7 +33,7 @@ public class UIServices {
     final Set<EObject> result = Sets.newLinkedHashSet();
     final DDiagramQuery query = new DDiagramQuery(diagram);
     for (final DDiagramElement diagramElement : query.getAllDiagramElements()) {
-      result.add(diagramElement.getTarget());
+      if (diagramElement.isVisible()) result.add(diagramElement.getTarget());
     }
     return result;
   }
