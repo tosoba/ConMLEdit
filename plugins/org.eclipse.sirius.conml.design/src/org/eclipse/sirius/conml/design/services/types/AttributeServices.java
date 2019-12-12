@@ -50,15 +50,28 @@ public final class AttributeServices {
     valueSets.forEach(EcoreUtil::delete);
   }
 
-  public boolean showAttributeHasValueSetsDialog(final Attribute attribute) {
-    final int result =
-        Dialogs.show(
+  public boolean showAttributeHasValueSetsDialogOnDataTypeChange(final Attribute attribute) {
+    return showAttributeHasValueSetsDialog(
+        attribute,
+        Messages.getString(
+            "Dialog.AttributeHasValueSetsToBeDeletedOnDataTypeChanged",
+            attribute.getInstanceValueSets().size()));
+  }
+
+  public boolean showAttributeHasValueSetsDialogOnAttributeMove(final Attribute attribute) {
+    return showAttributeHasValueSetsDialog(
+        attribute,
+        Messages.getString(
+            "Dialog.AttributeHasValueSetsToBeDeletedOnMove",
+            attribute.getInstanceValueSets().size()));
+  }
+
+  public boolean showAttributeHasValueSetsDialog(final Attribute attribute, String questionMsg) {
+    return Dialogs.show(
             Messages.getString("Dialog.AttributeHasValueSets"),
-            Messages.getString(
-                "Dialog.AttributeHasValueSetsToBeDeletedOnDataTypeChanged",
-                attribute.getInstanceValueSets().size()),
+            questionMsg,
             new String[] {Messages.getString("Message.Ok"), Messages.getString("Message.Cancel")},
-            MessageDialog.QUESTION);
-    return result == 0;
+            MessageDialog.QUESTION)
+        == 0;
   }
 }
