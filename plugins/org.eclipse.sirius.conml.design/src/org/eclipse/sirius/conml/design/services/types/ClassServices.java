@@ -22,6 +22,7 @@ import org.eclipse.sirius.diagram.DDiagram;
 import conml.Domain;
 import conml.types.Association;
 import conml.types.Class;
+import conml.types.EnumeratedType;
 import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.SemiAssociation;
@@ -211,5 +212,12 @@ public final class ClassServices {
 
   public void setClassContainerPackage(final Class clazz, final Package container) {
     clazz.setPackage(container);
+  }
+
+  public List<EnumeratedType> getEnumeratedTypesFromTypeModelOfClass(final Class clazz) {
+    if (clazz.getTypeModel() == null) return new ArrayList<>();
+    else
+      return ConML.getStreamOfAllElementsOfTypeFromModel(clazz.getTypeModel(), EnumeratedType.class)
+          .collect(Collectors.toList());
   }
 }
