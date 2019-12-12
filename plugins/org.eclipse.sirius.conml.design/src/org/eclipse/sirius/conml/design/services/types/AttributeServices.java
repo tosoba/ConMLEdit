@@ -66,6 +66,13 @@ public final class AttributeServices {
             attribute.getInstanceValueSets().size()));
   }
 
+  public boolean showAttributeHasValueSetsDialogOnDelete(final Attribute attribute) {
+    return showAttributeHasValueSetsDialog(
+        attribute,
+        Messages.getString(
+            "Dialog.AttributeHasValueSetsToBeDeleted", attribute.getInstanceValueSets().size()));
+  }
+
   public boolean showAttributeHasValueSetsDialog(final Attribute attribute, String questionMsg) {
     return Dialogs.show(
             Messages.getString("Dialog.AttributeHasValueSets"),

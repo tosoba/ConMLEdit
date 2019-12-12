@@ -270,7 +270,7 @@
           </style>
         </edgeMappings>
         <containerMappings name="CD_Class" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Class']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Class" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Move%20Attribute']" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property']" childrenPresentation="List">
-          <subNodeMappings name="CD_Attribute" semanticCandidatesExpression="feature:Attributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
+          <subNodeMappings name="CD_Attribute" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.2/@ownedTools[name='Delete%20Attribute']" semanticCandidatesExpression="feature:Attributes" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="types::Attribute">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.featureLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -692,6 +692,29 @@
                 <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:attributeHasValueSets = false">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:element">
                     <subModelOperations xsi:type="tool_1:MoveElement" newContainerExpression="var:newSemanticContainer" featureName="Attributes"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Attribute">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:Let" variableName="attributeHasValueSets" valueExpression="aql:element.hasInstanceValueSets()">
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:attributeHasValueSets = true">
+                  <subModelOperations xsi:type="tool_1:Let" variableName="shouldChangeType" valueExpression="aql:element.showAttributeHasValueSetsDialogOnAttributeMove()">
+                    <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:shouldChangeType = true">
+                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.removeValueSets()">
+                        <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.removeElement()"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </subModelOperations>
+                <subModelOperations xsi:type="tool_1:If" conditionExpression="aql:attributeHasValueSets = false">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.removeValueSets()">
+                    <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.removeElement()"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
