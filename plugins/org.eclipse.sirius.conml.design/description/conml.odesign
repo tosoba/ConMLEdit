@@ -913,8 +913,8 @@
         <customization/>
       </defaultLayer>
       <additionalLayers name="TypeModelMetaInfo" activeByDefault="true">
-        <edgeMappings name="CD_Documentation" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@containerMappings[name='CD_DocumentingObject']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="feature:DocumentedElements">
-          <style targetArrow="NoDecoration" routingStyle="manhattan">
+        <edgeMappings name="CD_Documentation" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@containerMappings[name='CD_DocumentingObject']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Generalization'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Property'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" targetFinderExpression="feature:DocumentedElements">
+          <style targetArrow="InputFillClosedArrow" routingStyle="manhattan">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
           </style>
         </edgeMappings>
@@ -1248,6 +1248,24 @@
           </ownedTools>
         </toolSections>
       </defaultLayer>
+      <additionalLayers name="InstanceModelMetaInfo" activeByDefault="true">
+        <edgeMappings name="OD_Documentation" semanticElements="var:self" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@edgeMappings[name='OD_Link'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']/@subNodeMappings[name='OD_Value_Set'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Compact_Association'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Property']" targetFinderExpression="feature:DocumentedElements">
+          <style targetArrow="InputFillClosedArrow" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </edgeMappings>
+        <toolSections name="OD_Section_MetaInformation" label="MetaInformation">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="ElementDocumentation" label="Documentation" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelMetaInfo']/@edgeMappings[name='OD_Documentation']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:source.addDocumentedElement(target)"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+      </additionalLayers>
     </ownedRepresentations>
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Enum Diagram" domainClass="conml::Domain" enablePopupBars="true">
       <defaultLayer name="Enumerated">
