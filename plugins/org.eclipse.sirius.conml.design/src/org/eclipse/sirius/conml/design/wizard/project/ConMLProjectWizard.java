@@ -10,6 +10,7 @@ import org.eclipse.sirius.ext.base.Option;
 import org.eclipse.sirius.ui.tools.api.project.ModelingProjectManager;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
+import org.eclipse.sirius.conml.dashboard.services.DashboardServices;
 import org.eclipse.sirius.conml.design.Activator;
 import org.eclipse.sirius.conml.design.util.ConMLProject;
 import org.eclipse.sirius.conml.design.util.ConMLViewpoints;
@@ -51,6 +52,7 @@ public final class ConMLProjectWizard extends ConMLWizard {
                   final Session session = created.get().getSession();
                   if (session != null) {
                     ConMLViewpoints.enableAll(session, false);
+                    DashboardServices.INSTANCE.openDashboard(project);
                     if (SessionStatus.DIRTY.equals(session.getStatus())) {
                       session.save(new NullProgressMonitor());
                     }
