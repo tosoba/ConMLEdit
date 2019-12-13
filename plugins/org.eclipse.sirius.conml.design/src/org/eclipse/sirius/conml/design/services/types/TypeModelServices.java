@@ -6,14 +6,12 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
-import org.eclipse.sirius.conml.design.dialog.TypeModelSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelServices;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
-import conml.Domain;
 import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
@@ -74,22 +72,6 @@ public final class TypeModelServices {
         .map(Package.class::cast)
         .findAny()
         .orElse(null);
-  }
-
-  public TypeModel showTypeModelSelectionDialog(
-      final EObject selectedContainer, final DDiagram diagram) {
-    final List<Object> result =
-        ExistingElementsServices.getInstance()
-            .openSelectExistingElementsDialog(
-                selectedContainer,
-                diagram,
-                new TypeModelSelectionDialog(
-                    Messages.getString("Dialog.SelectTypeModel"),
-                    Messages.getString("Dialog.SelectTypeModelContainerForClass"),
-                    (Domain) selectedContainer),
-                false);
-    if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
-    else return null;
   }
 
   public TypeModel showSimpleTypeModelSelectionDialog(
