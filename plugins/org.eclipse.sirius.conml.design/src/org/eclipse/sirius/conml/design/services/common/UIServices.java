@@ -64,25 +64,32 @@ public class UIServices {
                             ((DSemanticDiagramSpec) rep).getDescription().getName()))
             .toArray(DRepresentation[]::new);
     if (modelDiagrams.length == 0 && showShouldCreateNewModelDiagramDialog()) {
-      // TODO: diagram name dialog?
-      DialectManager.INSTANCE
-          .getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), domain)
-          .stream()
-          .filter(description -> Objects.equals(description.getName(), modelDiagramDescriptionName))
-          .findFirst()
-          .ifPresent(
-              description -> {
-                final DRepresentation modelDiagram =
-                    DialectManager.INSTANCE.createRepresentation(
-                        "New Model Diagram",
-                        domain,
-                        description,
-                        session,
-                        new NullProgressMonitor());
-                DialectUIManager.INSTANCE.openEditor(
-                    session, modelDiagram, new NullProgressMonitor());
-              });
-
+      final String modelName =
+          Dialogs.openInput(
+              Messages.getString("Dialog.NewModelDiagram"),
+              Messages.getString("Dialog.EnterNewDiagramName"),
+              Messages.getString("Dialog.NewModelDiagram"),
+              Messages.getString("Dialog.DiagramNameCannotBeEmpty"));
+      if (modelName != null && !modelName.isEmpty()) {
+        DialectManager.INSTANCE
+            .getAvailableRepresentationDescriptions(session.getSelectedViewpoints(false), domain)
+            .stream()
+            .filter(
+                description -> Objects.equals(description.getName(), modelDiagramDescriptionName))
+            .findFirst()
+            .ifPresent(
+                description -> {
+                  final DRepresentation modelDiagram =
+                      DialectManager.INSTANCE.createRepresentation(
+                          "New Model Diagram",
+                          domain,
+                          description,
+                          session,
+                          new NullProgressMonitor());
+                  DialectUIManager.INSTANCE.openEditor(
+                      session, modelDiagram, new NullProgressMonitor());
+                });
+      }
     } else {
       final Object[] result =
           Dialogs.showSelection(

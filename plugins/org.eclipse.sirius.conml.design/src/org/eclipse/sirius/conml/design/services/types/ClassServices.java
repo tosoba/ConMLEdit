@@ -230,8 +230,8 @@ public final class ClassServices {
                 selectedContainer,
                 diagram,
                 new ExistingSemanticElementsSelectionDialog(
-                    Messages.getString("Dialog.SelectInstanceModel"),
-                    Messages.getString("Dialog.SelectInstanceModelContainerForObject"),
+                    Messages.getString("Dialog.SelectClass"),
+                    Messages.getString("Dialog.SelectInstancedClass"),
                     (Object object) -> {
                       if (!(object instanceof Class)) return false;
                       final Class clazz = (Class) object;

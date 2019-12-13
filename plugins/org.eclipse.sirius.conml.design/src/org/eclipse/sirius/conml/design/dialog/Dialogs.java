@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
+import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
@@ -43,6 +44,22 @@ public class Dialogs {
             new String[] {Messages.getString("Message.Ok"), Messages.getString("Message.Cancel")},
             MessageDialog.QUESTION)
         == 0;
+  }
+
+  public static String openInput(
+      final String title,
+      final String message,
+      final String intialInputValue,
+      final String emptyInputMessage) {
+    final InputDialog dialog =
+        new InputDialog(
+            PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+            title,
+            message,
+            intialInputValue,
+            newText -> newText == null || newText.isEmpty() ? emptyInputMessage : null);
+    if (dialog.open() != Window.OK) return null;
+    else return dialog.getValue();
   }
 
   public static <T> Object[] showSelection(
