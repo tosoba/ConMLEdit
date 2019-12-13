@@ -92,6 +92,23 @@ public final class TypeModelServices {
     else return null;
   }
 
+  public TypeModel showSimpleTypeModelSelectionDialog(
+      final EObject selectedContainer, final DDiagram diagram) {
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ExistingSemanticElementsSelectionDialog(
+                    Messages.getString("Dialog.SelectTypeModel"),
+                    Messages.getString("Dialog.SelectTypeModelContainer"),
+                    ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                    false),
+                false);
+    if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
+    else return null;
+  }
+
   public void setBaseTypeModel(final TypeModel particularTypeModel, final TypeModel baseTypeModel) {
     particularTypeModel.setBaseTypeModel(baseTypeModel);
   }

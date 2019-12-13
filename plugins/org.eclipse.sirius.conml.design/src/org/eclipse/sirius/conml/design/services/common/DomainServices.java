@@ -59,4 +59,8 @@ public final class DomainServices {
   public boolean anyInstanceModelsExistInDomain(final Domain domain) {
     return getOwnedInstanceModels(domain).size() > 0;
   }
+
+  public boolean anyTypeModelsExistInDomain(final Domain domain) {
+    return getOwnedTypeModels(domain).size() > 0;
+  }
 }

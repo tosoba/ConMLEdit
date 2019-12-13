@@ -49,7 +49,15 @@ public class UIServices {
     return result;
   }
 
-  public void openModelDiagram(final Domain domain) {
+  public void openModelDiagramForInstanceModelCreation(final Domain domain) {
+    openModelDiagram(domain, Messages.getString("Dialog.NoInstanceModelExists"));
+  }
+
+  public void openModelDiagramForTypeModelCreation(final Domain domain) {
+    openModelDiagram(domain, Messages.getString("Dialog.NoTypeModelExists"));
+  }
+
+  private void openModelDiagram(final Domain domain, final String noModelMessage) {
     final String modelDiagramDescriptionName = "Model Diagram";
     final Session session = SessionManager.INSTANCE.getSession(domain);
     final DRepresentation[] modelDiagrams =
@@ -96,7 +104,7 @@ public class UIServices {
               modelDiagrams,
               DRepresentation::getName,
               Messages.getString("Dialog.OpenModelDiagram"),
-              Messages.getString("Dialog.NoInstanceModelExists"),
+              noModelMessage,
               false);
       if (result.length == 1 && result[0] instanceof DRepresentation) {
         DialectUIManager.INSTANCE.openEditor(
@@ -107,7 +115,7 @@ public class UIServices {
 
   private boolean showShouldCreateNewModelDiagramDialog() {
     return Dialogs.showSimpleQuestion(
-        Messages.getString("Dialog.AttributeHasValueSets"),
+        Messages.getString("Dialog.NoModelDiagramsExist"),
         Messages.getString("Dialog.ShouldCreateModelDiagram"));
   }
 

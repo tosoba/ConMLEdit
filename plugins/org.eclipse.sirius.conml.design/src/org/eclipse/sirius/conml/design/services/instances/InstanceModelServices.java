@@ -36,7 +36,7 @@ public final class InstanceModelServices {
                 diagram,
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectInstanceModel"),
-                    Messages.getString("Dialog.SelectInstanceModelContainerForObject"),
+                    Messages.getString("Dialog.SelectInstanceModelContainer"),
                     ConMLPredicates.isInstanceOfClass(InstanceModel.class),
                     false),
                 false);
