@@ -20,6 +20,7 @@ import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
+import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.EnumeratedType;
@@ -219,5 +220,27 @@ public final class ClassServices {
     else
       return ConML.getStreamOfAllElementsOfTypeFromModel(clazz.getTypeModel(), EnumeratedType.class)
           .collect(Collectors.toList());
+  }
+
+  public Class showClassSelectionFromConformedTypeModelsDialog(
+      final EObject selectedContainer, final DDiagram diagram, final InstanceModel instanceModel) {
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ExistingSemanticElementsSelectionDialog(
+                    Messages.getString("Dialog.SelectInstanceModel"),
+                    Messages.getString("Dialog.SelectInstanceModelContainerForObject"),
+                    (Object object) -> {
+                      if (!(object instanceof Class)) return false;
+                      final Class clazz = (Class) object;
+                      return clazz.getTypeModel() != null
+                          && instanceModel.getConformedTypeModels().contains(clazz.getTypeModel());
+                    },
+                    false),
+                false);
+    if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);
+    else return null;
   }
 }

@@ -55,4 +55,8 @@ public final class DomainServices {
     }
     return roots;
   }
+
+  public boolean anyInstanceModelsExistInDomain(final Domain domain) {
+    return getOwnedInstanceModels(domain).size() > 0;
+  }
 }

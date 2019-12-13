@@ -27,6 +27,24 @@ public final class InstanceModelServices {
     return ModelServices.getInstance().getOwnedElementsOfType(object, conml.instances.Object.class);
   }
 
+  public InstanceModel showSimpleInstanceModelSelectionDialog(
+      final EObject selectedContainer, final DDiagram diagram) {
+    final List<Object> result =
+        ExistingElementsServices.getInstance()
+            .openSelectExistingElementsDialog(
+                selectedContainer,
+                diagram,
+                new ExistingSemanticElementsSelectionDialog(
+                    Messages.getString("Dialog.SelectInstanceModel"),
+                    Messages.getString("Dialog.SelectInstanceModelContainerForObject"),
+                    ConMLPredicates.isInstanceOfClass(InstanceModel.class),
+                    false),
+                false);
+    if (result.size() == 1 && result.get(0) instanceof InstanceModel)
+      return (InstanceModel) result.get(0);
+    else return null;
+  }
+
   public InstanceModel showInstanceModelSelectionDialog(
       final EObject selectedContainer,
       final DDiagram diagram,
