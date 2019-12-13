@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
@@ -57,7 +56,6 @@ public final class AttributeServices {
 
   public boolean showAttributeHasValueSetsDialogOnDataTypeChange(final Attribute attribute) {
     return showAttributeHasValueSetsDialog(
-        attribute,
         Messages.getString(
             "Dialog.AttributeHasValueSetsToBeDeletedOnDataTypeChanged",
             attribute.getInstanceValueSets().size()));
@@ -65,7 +63,6 @@ public final class AttributeServices {
 
   public boolean showAttributeHasValueSetsDialogOnAttributeMove(final Attribute attribute) {
     return showAttributeHasValueSetsDialog(
-        attribute,
         Messages.getString(
             "Dialog.AttributeHasValueSetsToBeDeletedOnMove",
             attribute.getInstanceValueSets().size()));
@@ -73,18 +70,13 @@ public final class AttributeServices {
 
   public boolean showAttributeHasValueSetsDialogOnDelete(final Attribute attribute) {
     return showAttributeHasValueSetsDialog(
-        attribute,
         Messages.getString(
             "Dialog.AttributeHasValueSetsToBeDeleted", attribute.getInstanceValueSets().size()));
   }
 
-  public boolean showAttributeHasValueSetsDialog(final Attribute attribute, String questionMsg) {
-    return Dialogs.show(
-            Messages.getString("Dialog.AttributeHasValueSets"),
-            questionMsg,
-            new String[] {Messages.getString("Message.Ok"), Messages.getString("Message.Cancel")},
-            MessageDialog.QUESTION)
-        == 0;
+  public boolean showAttributeHasValueSetsDialog(String questionMsg) {
+    return Dialogs.showSimpleQuestion(
+        Messages.getString("Dialog.AttributeHasValueSets"), questionMsg);
   }
 
   public void showExistingAttributesSelectionDialog(
