@@ -5,10 +5,13 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.viewers.ILabelProvider;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
@@ -32,6 +35,7 @@ import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.EnumeratedType;
+import conml.types.Feature;
 import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.SemiAssociation;
@@ -46,44 +50,28 @@ public final class ClassServices {
     return InstanceHolder.INSTANCE;
   }
 
-  public SemiAssociation showRedefinedSemiAssociationDialog(final Class clazz) {
+  private <T extends Feature> T showRedefinedFeatureSelectionDialog(
+      final Class inputClass,
+      final java.lang.Class<T> featureClass,
+      final ILabelProvider labelProvider,
+      final Function<T, Class> parentGetter,
+      final Function<Class, EList<T>> childrenGetter,
+      final String title,
+      final String message) {
     final ElementTreeSelectionDialog dialog =
         new ElementTreeSelectionDialog(
             PlatformUI.getWorkbench().getDisplay().getActiveShell(),
-            new LabelProvider() {
-              @Override
-              public String getText(Object element) {
-                if (element instanceof Class) return "Class " + ((Class) element).getName();
-                else if (element instanceof SemiAssociation) {
-                  final SemiAssociation semi = (SemiAssociation) element;
-                  final StringBuilder label = new StringBuilder(semi.getName());
-                  if (semi.getReferredClass() != null)
-                    label.append(" -> ").append(semi.getReferredClass().getName());
-                  return label.toString();
-                }
-                return ((NamedElement) element).getName();
-              }
-
-              @Override
-              public Image getImage(Object element) {
-                if (element instanceof Class)
-                  return Activator.getDefault().getImage("icons/Class.gif");
-                else if (element instanceof SemiAssociation)
-                  return Activator.getDefault().getImage("icons/Association.gif");
-                return super.getImage(element);
-              }
-            },
+            labelProvider,
             new ITreeContentProvider() {
               @Override
               public boolean hasChildren(Object element) {
-                return element instanceof Class
-                    && !((Class) element).getSemiAssociations().isEmpty();
+                return element instanceof Class && !childrenGetter.apply((Class) element).isEmpty();
               }
 
               @Override
               public Object getParent(Object element) {
-                if (element instanceof SemiAssociation)
-                  return ((SemiAssociation) element).getOwnerClass();
+                if (featureClass.isInstance(element))
+                  return parentGetter.apply(featureClass.cast(element));
                 return null;
               }
 
@@ -94,17 +82,49 @@ public final class ClassServices {
 
               @Override
               public Object[] getChildren(Object parentElement) {
-                return ((Class) parentElement).getSemiAssociations().stream().toArray();
+                return childrenGetter.apply((Class) parentElement).stream().toArray();
               }
             });
-    dialog.setInput(clazz);
-    dialog.setTitle(Messages.getString("Dialog.RedefineSemiAssociation"));
-    dialog.setMessage(Messages.getString("Dialog.SelectSemiAssociationToRedefine"));
+    dialog.setInput(inputClass);
+    dialog.setTitle(title);
+    dialog.setMessage(message);
     if (dialog.open() != Window.OK) return null;
     final Object[] result = dialog.getResult();
-    if (result != null && result.length == 1 && result[0] instanceof SemiAssociation)
-      return (SemiAssociation) result[0];
+    if (result != null && result.length == 1 && featureClass.isInstance(result[0]))
+      return featureClass.cast(result[0]);
     else return null;
+  }
+
+  public SemiAssociation showRedefinedSemiAssociationDialog(final Class clazz) {
+    return showRedefinedFeatureSelectionDialog(
+        clazz,
+        SemiAssociation.class,
+        new LabelProvider() {
+          @Override
+          public String getText(Object element) {
+            if (element instanceof Class) return "Class " + ((Class) element).getName();
+            else if (element instanceof SemiAssociation) {
+              final SemiAssociation semi = (SemiAssociation) element;
+              final StringBuilder label = new StringBuilder(semi.getName());
+              if (semi.getReferredClass() != null)
+                label.append(" -> ").append(semi.getReferredClass().getName());
+              return label.toString();
+            }
+            return ((NamedElement) element).getName();
+          }
+
+          @Override
+          public Image getImage(Object element) {
+            if (element instanceof Class) return Activator.getDefault().getImage("icons/Class.gif");
+            else if (element instanceof SemiAssociation)
+              return Activator.getDefault().getImage("icons/Association.gif");
+            return super.getImage(element);
+          }
+        },
+        SemiAssociation::getOwnerClass,
+        Class::getSemiAssociations,
+        Messages.getString("Dialog.RedefineSemiAssociation"),
+        Messages.getString("Dialog.SelectSemiAssociationToRedefine"));
   }
 
   private Set<Class> getAllAncestorsOf(final Class clazz) {

@@ -1680,6 +1680,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.DataTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.EnumeratedTypeServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.FeatureServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.GeneralizationServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.PackageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.types.SemiAssociationServices"/>
@@ -2059,6 +2060,20 @@
             <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Strong_Checkbox" labelExpression="Strong" helpExpression="Indicates whether the SemiAssociation captures information that is directly relevant to the defniton of the partcipant class" valueExpression="aql:semi.strong">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setStrong(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationConstantIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the SemiAssociation has constant semantics" valueExpression="aql:semi.constant">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setConstant(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationSortedIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Sorted_Checkbox" labelExpression="Sorted" helpExpression="Indicates whether the SemiAssociation has sorted semantics" valueExpression="aql:semi.sorted">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSorted(newValue)"/>
               </initialOperation>
             </widget>
           </ifs>
