@@ -1,15 +1,19 @@
 package org.eclipse.sirius.conml.design;
 
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.sirius.business.api.componentization.ViewpointRegistry;
 import org.eclipse.sirius.business.api.session.SessionManager;
 import org.eclipse.sirius.conml.design.listener.SimpleDataTypesCreationSessionListener;
 import org.eclipse.sirius.viewpoint.description.Viewpoint;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -23,6 +27,8 @@ public class Activator extends AbstractUIPlugin {
   private static Activator plugin;
 
   private static Set<Viewpoint> viewpoints;
+
+  private Map<String, Image> imageMap = new HashMap<>();
 
   /** The constructor */
   public Activator() {}
@@ -93,5 +99,21 @@ public class Activator extends AbstractUIPlugin {
     } catch (IllegalStateException e) {
       return null;
     }
+  }
+
+  public Image getImage(String path) {
+    Image result = imageMap.get(path);
+    if (result == null) {
+      final ImageDescriptor descriptor = getImageDescriptor(path);
+      if (descriptor != null) {
+        result = descriptor.createImage();
+        imageMap.put(path, result);
+      }
+    }
+    return result;
+  }
+
+  public static ImageDescriptor getImageDescriptor(String path) {
+    return imageDescriptorFromPlugin(PLUGIN_ID, path);
   }
 }
