@@ -193,23 +193,6 @@ public final class ClassServices {
         <= 1;
   }
 
-  public void openSelectExistingClassesDialog(
-      final EObject selectedContainer,
-      final EObject selectedContainerView,
-      final DDiagram diagram) {
-    ExistingElementsServices.getInstance()
-        .openSelectExistingElementsDialogAndAddElements(
-            selectedContainer,
-            selectedContainerView,
-            diagram,
-            new ExistingSemanticElementsSelectionDialog(
-                Messages.getString("Dialog.AddExistingClasses"),
-                Messages.getString("Dialog.SelectClasses"),
-                ConMLPredicates.isInstanceOfAnyOfClasses(Class.class),
-                null),
-            Class.class);
-  }
-
   public void openSelectExistingClassesWithFeaturesDialog(
       final EObject selectedContainer,
       final EObject selectedContainerView,
