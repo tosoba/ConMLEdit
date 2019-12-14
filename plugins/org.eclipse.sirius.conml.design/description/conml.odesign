@@ -2039,6 +2039,13 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="semiAssociationRoleIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Role_Text" labelExpression="Role:" helpExpression="Role of the SemiAssociation" valueExpression="aql:semi.role">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setSemiAssociationRole(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
           <ifs name="semiAssociationDefinitionIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
             <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Definition_Text" labelExpression="Definition:" helpExpression="Definition of the SemiAssociation" valueExpression="aql:semi.definition">
               <initialOperation>
@@ -2061,7 +2068,7 @@
             </widget>
           </ifs>
           <ifs name="semiAssociationWholeIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
-            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Whole_Checkbox" labelExpression="Whole" helpExpression="Indicates whether the partcipant class possesses &quot;whole&quot; semantics in a &quot;whole/part&quot; relationship" valueExpression="aql:semi.whole">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Whole_Checkbox" labelExpression="Whole" helpExpression="Indicates whether the partcipant class possesses &quot;whole&quot; semantics in a &quot;whole/part&quot; relationship" isEnabledExpression="aql:semi.isInverseSemiAssociationNotWhole()" valueExpression="aql:semi.whole">
               <initialOperation>
                 <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:semi.setWhole(newValue)"/>
               </initialOperation>

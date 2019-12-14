@@ -66,9 +66,19 @@ public final class SemiAssociationServices {
     semiAssociation.setName(name);
   }
 
+  public void setSemiAssociationRole(final SemiAssociation semiAssociation, final String role) {
+    semiAssociation.setRole(role);
+  }
+
   public void setSemiAssociationDefinition(
       final SemiAssociation semiAssociation, final String definition) {
     semiAssociation.setDefinition(definition);
+  }
+
+  public boolean isInverseSemiAssociationNotWhole(final SemiAssociation semiAssociation) {
+    return semiAssociation.getInverseSemiAssociation() != null
+        && !semiAssociation.getInverseSemiAssociation().isWhole()
+        && !EcoreUtil.equals(semiAssociation, semiAssociation.getInverseSemiAssociation());
   }
 
   public void setSemiAssociationMinimumCardinality(
