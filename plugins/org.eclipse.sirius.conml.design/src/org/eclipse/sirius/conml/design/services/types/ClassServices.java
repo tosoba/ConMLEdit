@@ -38,6 +38,7 @@ import conml.types.EnumeratedType;
 import conml.types.Feature;
 import conml.types.Generalization;
 import conml.types.Package;
+import conml.types.Property;
 import conml.types.SemiAssociation;
 
 public final class ClassServices {
@@ -125,6 +126,30 @@ public final class ClassServices {
         Class::getSemiAssociations,
         Messages.getString("Dialog.RedefineSemiAssociation"),
         Messages.getString("Dialog.SelectSemiAssociationToRedefine"));
+  }
+
+  public Property showRedefinedPropertyDialog(final Class clazz) {
+    return showRedefinedFeatureSelectionDialog(
+        clazz,
+        Property.class,
+        new LabelProvider() {
+          @Override
+          public String getText(Object element) {
+            return ((NamedElement) element).getName();
+          }
+
+          @Override
+          public Image getImage(Object element) {
+            if (element instanceof Class) return Activator.getDefault().getImage("icons/Class.gif");
+            else if (element instanceof Property)
+              return Activator.getDefault().getImage("icons/Property.gif");
+            return super.getImage(element);
+          }
+        },
+        Property::getOwnerClass,
+        Class::getProperties,
+        Messages.getString("Dialog.RefefineProperty"),
+        Messages.getString("Dialog.SelectPropertyToRedefine"));
   }
 
   private Set<Class> getAllAncestorsOf(final Class clazz) {
