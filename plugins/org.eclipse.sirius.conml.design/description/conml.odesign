@@ -867,30 +867,11 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="RedefiningAssociation" label="Redefining Association" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="Redefine Association" precondition="aql:container.oclIsTypeOf(types::Class)">
+            <element name="element"/>
+            <elementView name="elementView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="types::SemiAssociation" referenceName="SemiAssociations" variableName="primary">
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="primaryName"/>
-                  <subModelOperations xsi:type="tool_1:SetValue" featureName="role" valueExpression="primaryRole"/>
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Association">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="service:self.addRedefiningSemiToAssociation(source, target)"/>
-                      </initialOperation>
-                    </buttons>
-                    <page name="D_CD_CreateRedefiningAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='RedefiningAssociation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreateRedefiningAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showRedefinedSemiAssociationDialog()"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete Association">

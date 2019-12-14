@@ -44,9 +44,12 @@ public final class DiagramPropertiesServices {
   private static final List<Predicate<EStructuralFeature>> structFeatureCreationDialogPredicates =
       new ArrayList<>();
 
+  private static final boolean ignorePropertyReferences = false;
+  private static final boolean ignoreCreationDialogReferences = true;
+
   static {
-    setupIgnoredPropertiesReferences();
-    setupIgnoredCreationDialogReferences();
+    if (ignorePropertyReferences) setupIgnoredPropertiesReferences();
+    if (ignoreCreationDialogReferences) setupIgnoredCreationDialogReferences();
     setupStructuralFeaturesPropertiesPredicates();
     setupStructuralFeaturesCreationDialogPredicates();
     setupDisabledReferences();

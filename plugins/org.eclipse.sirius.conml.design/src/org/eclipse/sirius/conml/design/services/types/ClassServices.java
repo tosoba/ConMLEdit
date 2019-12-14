@@ -5,10 +5,17 @@ import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.ui.PlatformUI;
+import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
+
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.jface.viewers.ITreeContentProvider;
+import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
@@ -20,6 +27,7 @@ import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
+import conml.NamedElement;
 import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
@@ -36,6 +44,93 @@ public final class ClassServices {
 
   public static ClassServices getInstance() {
     return InstanceHolder.INSTANCE;
+  }
+
+  public void showRedefinedSemiAssociationDialog(final Class clazz) {
+    final ElementTreeSelectionDialog dialog =
+        new ElementTreeSelectionDialog(
+            PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+            new LabelProvider() {
+              @Override
+              public String getText(Object element) {
+                return ((NamedElement) element).getName();
+              }
+            },
+            new ITreeContentProvider() {
+              @Override
+              public boolean hasChildren(Object element) {
+                return element instanceof Class
+                    && !((Class) element).getSemiAssociations().isEmpty();
+              }
+
+              @Override
+              public Object getParent(Object element) {
+                if (element instanceof SemiAssociation)
+                  return ((SemiAssociation) element).getOwnerClass();
+                return null;
+              }
+
+              @Override
+              public Object[] getElements(Object inputElement) {
+                return getRedefineSemiAssociationRootCandidates((Class) inputElement)
+                    .stream()
+                    .toArray();
+              }
+
+              @Override
+              public Object[] getChildren(Object parentElement) {
+                return ((Class) parentElement).getSemiAssociations().stream().toArray();
+              }
+            });
+    dialog.setInput(clazz);
+    dialog.open();
+  }
+
+  public Set<EObject> getRedefineSemiAssociationCandidates(final Class clazz) {
+    return elementsForRedefinedFeatureSelection(clazz, true, Class::getSemiAssociations);
+  }
+
+  public Set<EObject> getRedefineSemiAssociationRootCandidates(final Class clazz) {
+    return elementsForRedefinedFeatureSelection(clazz, true, null);
+  }
+
+  public Set<EObject> getRedefineSemiAssociationChildrenCandidates(final Class clazz) {
+    return elementsForRedefinedFeatureSelection(clazz, false, Class::getSemiAssociations);
+  }
+
+  private <T extends EObject> Set<EObject> elementsForRedefinedFeatureSelection(
+      final Class clazz,
+      final boolean includeClasses,
+      final Function<Class, EList<T>> featureGetter) {
+    final Set<EObject> elements = new HashSet<>();
+    addElementsForRedefinedFeatureSelection(clazz, elements, includeClasses, featureGetter);
+    return elements;
+  }
+
+  private <T extends EObject> void elementsForRedefinedFeatureSelection(
+      final Class clazz,
+      final Set<EObject> currentElements,
+      final boolean includeClasses,
+      final Function<Class, EList<T>> featureGetter) {
+    if (includeClasses) currentElements.add(clazz);
+    if (featureGetter != null) currentElements.addAll(featureGetter.apply(clazz));
+    addElementsForRedefinedFeatureSelection(clazz, currentElements, includeClasses, featureGetter);
+  }
+
+  private <T extends EObject> void addElementsForRedefinedFeatureSelection(
+      final Class clazz,
+      final Set<EObject> currentElements,
+      final boolean includeClasses,
+      final Function<Class, EList<T>> featureGetter) {
+    clazz
+        .getGeneralizations()
+        .forEach(
+            generalization ->
+                elementsForRedefinedFeatureSelection(
+                    generalization.getGeneralizedClass(),
+                    currentElements,
+                    includeClasses,
+                    featureGetter));
   }
 
   public boolean allVisibleClassesAreFromTheSameTypeModel(final DDiagram diagram) {
