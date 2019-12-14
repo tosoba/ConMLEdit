@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.common.util.EList;
@@ -78,7 +79,10 @@ public final class ClassServices {
 
               @Override
               public Object[] getElements(Object inputElement) {
-                return getAllAncestorsOf((Class) inputElement).stream().toArray();
+                return getAllAncestorsOf(
+                        (Class) inputElement, (clazz) -> !childrenGetter.apply(clazz).isEmpty())
+                    .stream()
+                    .toArray();
               }
 
               @Override
@@ -152,22 +156,30 @@ public final class ClassServices {
         Messages.getString("Dialog.SelectPropertyToRedefine"));
   }
 
-  private Set<Class> getAllAncestorsOf(final Class clazz) {
+  private Set<Class> getAllAncestorsOf(final Class clazz, final Predicate<Class> includeCondition) {
     final Set<Class> ancestors = new HashSet<>();
-    addAncestors(clazz, ancestors);
+    iterateThroughGeneralizationsAndAddAncestors(clazz, ancestors, includeCondition);
     return ancestors;
   }
 
-  private void getAncestors(final Class clazz, final Set<Class> currentAncestors) {
-    currentAncestors.add(clazz);
-    addAncestors(clazz, currentAncestors);
+  private void getAncestors(
+      final Class clazz,
+      final Set<Class> currentAncestors,
+      final Predicate<Class> includeCondition) {
+    if (includeCondition == null || includeCondition.test(clazz)) currentAncestors.add(clazz);
+    iterateThroughGeneralizationsAndAddAncestors(clazz, currentAncestors, includeCondition);
   }
 
-  private void addAncestors(final Class clazz, final Set<Class> currentElements) {
+  private void iterateThroughGeneralizationsAndAddAncestors(
+      final Class clazz,
+      final Set<Class> currentElements,
+      final Predicate<Class> includeCondition) {
     clazz
         .getGeneralizations()
         .forEach(
-            generalization -> getAncestors(generalization.getGeneralizedClass(), currentElements));
+            generalization ->
+                getAncestors(
+                    generalization.getGeneralizedClass(), currentElements, includeCondition));
   }
 
   public boolean allVisibleClassesAreFromTheSameTypeModel(final DDiagram diagram) {
