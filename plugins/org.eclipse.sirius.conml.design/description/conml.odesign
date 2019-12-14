@@ -314,6 +314,15 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="CD_RemoveElement" label="Remove element" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool:DeleteView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
         </toolSections>
         <toolSections name="CD_Section_Package" label="Package">
           <ownedTools xsi:type="tool_1:NodeCreationDescription" name="Node Creation Package" label="Overall Package" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@nodeMappings[name='CD_Overall_Package']">
