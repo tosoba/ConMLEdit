@@ -30,6 +30,24 @@ import conml.types.SemiAssociation;
 
 public final class ClassServices {
 
+  private static final class InstanceHolder {
+    static final ClassServices INSTANCE = new ClassServices();
+  }
+
+  public static ClassServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
+  public boolean allVisibleClassesAreFromTheSameTypeModel(final DDiagram diagram) {
+    return UIServices.getInstance()
+            .getDisplayedNodesOfType(diagram, Class.class)
+            .stream()
+            .map(Class::getTypeModel)
+            .distinct()
+            .count()
+        <= 1;
+  }
+
   public void openSelectExistingClassesDialog(
       final EObject selectedContainer,
       final EObject selectedContainerView,

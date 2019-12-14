@@ -31,6 +31,11 @@ public final class PackageServices {
     return InstanceHolder.INSTANCE;
   }
 
+  public boolean shouldDisplayOverallPackage(final Package pack, final DDiagram diagram) {
+    return pack.isOverall()
+        && ClassServices.getInstance().allVisibleClassesAreFromTheSameTypeModel(diagram);
+  }
+
   public int showUnsetCurrentOverallPackageDialog(final Package currentOverallPackage) {
     return Dialogs.show(
         "Overall package already set.",

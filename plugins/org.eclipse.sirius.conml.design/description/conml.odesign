@@ -86,7 +86,7 @@
         </ownedRules>
       </validationSet>
       <defaultLayer name="TypeModelElement">
-        <nodeMappings name="CD_Overall_Package" preconditionExpression="service:self.isOverall" domainClass="types::Package">
+        <nodeMappings name="CD_Overall_Package" preconditionExpression="aql:self.shouldDisplayOverallPackage(diagram)" domainClass="types::Package">
           <style xsi:type="style:SquareDescription" labelSize="10" showIcon="false" labelExpression="service:self.packageLabel" tooltipExpression="Overall package" sizeComputationExpression="1" labelPosition="node" resizeKind="NSEW" width="12" height="10">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -291,7 +291,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.classLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="aql:self.classLabel(diagram)" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -375,6 +375,14 @@
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:domain.openModelDiagramForTypeModelCreation()"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:DeleteElementDescription" name="Delete overall package">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <containerView name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.removeElement()"/>
             </initialOperation>
           </ownedTools>
         </toolSections>
@@ -1760,7 +1768,7 @@
       <pages name="PR_TypeModelElementsPage" labelExpression="Elements" domainClass="types::TypeModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5"/>
       <pages name="PR_InstanceModelElementsPage" labelExpression="Elements" domainClass="instances::InstanceModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
       <pages name="PR_SemiAssociationsPage" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4"/>
-      <pages name="PR_ActionPage" labelExpression="Actions" semanticCandidateExpression="var:self" preconditionExpression="service:self.shouldShowActionPage" groups="//@extensions.0/@categories.0/@groups.0"/>
+      <pages name="PR_ActionPage" labelExpression="Actions" semanticCandidateExpression="var:self" preconditionExpression="aql:self.shouldShowActionPage()" groups="//@extensions.0/@categories.0/@groups.0"/>
       <groups name="PR_ActionGroup" labelExpression="Actions" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
           <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
