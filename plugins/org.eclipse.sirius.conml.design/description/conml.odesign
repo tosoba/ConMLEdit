@@ -488,7 +488,7 @@
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="maximumCardinality" valueExpression="aql:propertyToRedefine.maximumCardinality"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="constant" valueExpression="aql:propertyToRedefine.constant"/>
                       <subModelOperations xsi:type="tool_1:SetValue" featureName="sorted" valueExpression="aql:propertyToRedefine.sorted"/>
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Property">
                         <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                           <initialOperation/>
                         </buttons>
@@ -509,6 +509,11 @@
                               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:self.setSorted(newValue)"/>
                             </initialOperation>
                           </controls>
+                          <validationSet>
+                            <semanticValidationRules name="Props_Property Validation RedefinedPropertyOwnership" level="ERROR" message="Redefined property has to be owned by an ancestor of this property's class." targetClass="types::Property">
+                              <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
+                            </semanticValidationRules>
+                          </validationSet>
                         </groups>
                       </subModelOperations>
                     </subModelOperations>
@@ -2662,6 +2667,17 @@
             </widget>
           </ifs>
         </controls>
+        <validationSet>
+          <semanticValidationRules name="RedefinitionProps_Feature Validation InvalidRedefinedCardinality" level="ERROR" message="Cardinality of the redefining feature must be equally or more restrictive." targetClass="types::Feature">
+            <audits auditExpression="service:self.featuresCardinalityIsEquallyOrMoreRestrictiveThanRedefined"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Redefinition_Feature Validation InvalidRedefinedConstantSemantics" level="ERROR" message="If redefined feature is constant, redefining feature has to be constant as well." targetClass="types::Feature">
+            <audits auditExpression="service:self.featureAndRedefinedHaveValidSortedSemantics"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Redefinition_Feature Validation InvalidRedefinedSortedSemantics" level="ERROR" message="If redefined feature is sorted, redefining feature has to be sorted as well." targetClass="types::Feature">
+            <audits auditExpression="service:self.featureAndRedefinedHaveValidConstantSemantics"/>
+          </semanticValidationRules>
+        </validationSet>
       </groups>
       <groups name="CRDL_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
