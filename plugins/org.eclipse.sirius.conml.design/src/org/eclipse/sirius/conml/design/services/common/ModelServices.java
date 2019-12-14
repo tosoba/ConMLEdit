@@ -39,4 +39,8 @@ public final class ModelServices {
         .findAny()
         .get();
   }
+
+  public String modelName(final Model model) {
+    return model.getName();
+  }
 }
