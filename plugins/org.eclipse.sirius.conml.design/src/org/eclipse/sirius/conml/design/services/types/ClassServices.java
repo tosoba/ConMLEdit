@@ -34,6 +34,7 @@ import conml.Domain;
 import conml.NamedElement;
 import conml.instances.InstanceModel;
 import conml.types.Association;
+import conml.types.Attribute;
 import conml.types.Class;
 import conml.types.EnumeratedType;
 import conml.types.Feature;
@@ -207,6 +208,26 @@ public final class ClassServices {
                 ConMLPredicates.isInstanceOfAnyOfClasses(Class.class),
                 null),
             Class.class);
+  }
+
+  public void openSelectExistingClassesWithFeaturesDialog(
+      final EObject selectedContainer,
+      final EObject selectedContainerView,
+      final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            selectedContainer,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingClasses"),
+                Messages.getString("Dialog.SelectClasses"),
+                ConMLPredicates.isInstanceOfAnyOfClasses(
+                    Class.class, Property.class, Attribute.class),
+                null),
+            Class.class,
+            Property.class,
+            Attribute.class);
   }
 
   public void moveClassUp(final EObject object) {
