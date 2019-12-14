@@ -3,7 +3,6 @@ package org.eclipse.sirius.conml.design.services.types;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
@@ -72,45 +71,7 @@ public final class SemiAssociationServices {
         && !EcoreUtil.equals(semiAssociation, semiAssociation.getInverseSemiAssociation());
   }
 
-  public void setSemiAssociationMinimumCardinality(
-      final SemiAssociation semiAssociation, final String cardinalityStr) {
-    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
-      semiAssociation.setMinimumCardinality(0);
-    } else {
-      try {
-        int cardinality = Integer.parseInt(cardinalityStr);
-        if (cardinality >= 0) semiAssociation.setMinimumCardinality(cardinality);
-        else
-          Dialogs.showError(
-              Messages.getString("Message.CardinalityWasNotSet"),
-              Messages.getString("Error.ExpectedNonNegativeIntegerInput"));
-      } catch (NumberFormatException e) {
-        Dialogs.showError(
-            Messages.getString("Message.CardinalityWasNotSet"),
-            Messages.getString("Error.ExpectedNonNegativeIntegerInput"));
-      }
-    }
-  }
-
-  public void setSemiAssociationMaximumCardinality(
-      final SemiAssociation semiAssociation, final String cardinalityStr) {
-    if (cardinalityStr == null || cardinalityStr.isEmpty()) {
-      semiAssociation.setMaximumCardinality(null);
-    } else {
-      try {
-        final int cardinality = Integer.parseInt(cardinalityStr);
-        if (cardinality > 0) semiAssociation.setMaximumCardinality(cardinality);
-        else
-          Dialogs.showError(
-              Messages.getString("Message.CardinalityWasNotSet"),
-              Messages.getString("Error.ExpectedPositiveIntegerInput"));
-      } catch (NumberFormatException e) {
-        Dialogs.showError(
-            Messages.getString("Message.CardinalityWasNotSet"),
-            Messages.getString("Error.ExpectedPositiveIntegerInput"));
-      }
-    }
-  }
+  
 
   public void setWhole(final SemiAssociation semiAssociation, final Boolean whole) {
     semiAssociation.setWhole(whole);
