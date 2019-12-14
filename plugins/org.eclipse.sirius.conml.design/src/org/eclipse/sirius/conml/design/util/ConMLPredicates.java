@@ -6,7 +6,12 @@ public final class ConMLPredicates {
 
   private ConMLPredicates() {}
 
-  public static Predicate<Object> isInstanceOfClass(final Class<?> clazz) {
-    return input -> clazz.isInstance(input);
+  public static Predicate<Object> isInstanceOfAnyOfClasses(final Class<?>... classes) {
+    return input -> {
+      for (final Class<?> clazz : classes) {
+        if (clazz.isInstance(input)) return true;
+      }
+      return false;
+    };
   }
 }

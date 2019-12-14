@@ -1,9 +1,17 @@
 package org.eclipse.sirius.conml.design.services.types;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
+import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
+import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.types.Attribute;
+import conml.types.Class;
 import conml.types.Feature;
+import conml.types.Property;
+import conml.types.SemiAssociation;
 
 public final class FeatureServices {
 
@@ -51,5 +59,27 @@ public final class FeatureServices {
             Messages.getString("Error.ExpectedPositiveIntegerInput"));
       }
     }
+  }
+
+  public void showExistingFeaturesSelectionDialog(
+      final Class clazz, final EObject selectedContainerView, final DDiagram diagram) {
+    ExistingElementsServices.getInstance()
+        .openSelectExistingElementsDialogAndAddElements(
+            clazz,
+            selectedContainerView,
+            diagram,
+            new ExistingSemanticElementsSelectionDialog(
+                Messages.getString("Dialog.AddExistingFeatures"),
+                Messages.getString("Dialog.SelectFeatures"),
+                (final Object object) ->
+                    object instanceof Property
+                        || object instanceof Attribute
+                        || (object instanceof SemiAssociation
+                            && SemiAssociationServices.getInstance()
+                                .isPrimarySemiInCompactAssociation((EObject) object)),
+                null),
+            Attribute.class,
+            Property.class,
+            SemiAssociation.class);
   }
 }

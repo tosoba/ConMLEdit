@@ -182,7 +182,7 @@ public final class PackageServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingPackages"),
                 Messages.getString("Dialog.SelectPackages"),
-                ConMLPredicates.isInstanceOfClass(Package.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(Package.class),
                 null),
             Package.class);
   }

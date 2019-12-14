@@ -719,13 +719,6 @@
               </initialOperation>
             </tools>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:ToolDescription" name="AddExistingAttributes" label="Add existing Attribute" precondition="aql:container.oclIsTypeOf(types::Class)" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showExistingAttributesSelectionDialog(elementView, diagram)"/>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="Change Attribute Type Wizard" label="Change Attribute Type" precondition="aql:container.oclIsTypeOf(types::Attribute)" candidatesExpression="aql:container.getAllDataTypesForAttribute()" message="Choose a new DataType for the Attribute">
             <element name="element"/>
             <containerView name="containerView"/>
@@ -747,6 +740,13 @@
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool_1:ToolDescription" name="AddExistingFeatures" label="Add existing Feature" precondition="aql:container.oclIsTypeOf(types::Class)" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="aql:element.showExistingFeaturesSelectionDialog(elementView, diagram)"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool:ContainerDropDescription" name="Move Attribute" mappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute']">

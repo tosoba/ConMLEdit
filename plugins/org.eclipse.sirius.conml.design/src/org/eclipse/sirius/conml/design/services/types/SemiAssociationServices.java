@@ -71,8 +71,6 @@ public final class SemiAssociationServices {
         && !EcoreUtil.equals(semiAssociation, semiAssociation.getInverseSemiAssociation());
   }
 
-  
-
   public void setWhole(final SemiAssociation semiAssociation, final Boolean whole) {
     semiAssociation.setWhole(whole);
   }

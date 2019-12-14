@@ -41,7 +41,7 @@ public final class InstanceModelServices {
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectInstanceModel"),
                     Messages.getString("Dialog.SelectInstanceModelContainer"),
-                    ConMLPredicates.isInstanceOfClass(InstanceModel.class),
+                    ConMLPredicates.isInstanceOfAnyOfClasses(InstanceModel.class),
                     false),
                 false);
     if (result.size() == 1 && result.get(0) instanceof InstanceModel)
@@ -61,7 +61,7 @@ public final class InstanceModelServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingInstanceModels"),
                 Messages.getString("Dialog.SelectInstanceModels"),
-                ConMLPredicates.isInstanceOfClass(InstanceModel.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(InstanceModel.class),
                 null),
             InstanceModel.class);
   }

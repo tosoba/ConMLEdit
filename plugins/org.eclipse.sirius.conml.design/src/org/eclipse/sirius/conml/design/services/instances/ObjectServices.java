@@ -45,7 +45,7 @@ public class ObjectServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingObjects"),
                 Messages.getString("Dialog.SelectObjects"),
-                ConMLPredicates.isInstanceOfClass(Object.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(Object.class),
                 null),
             Object.class);
   }
@@ -62,7 +62,7 @@ public class ObjectServices {
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.AddExistingObjects"),
                     Messages.getString("Dialog.SelectObjects"),
-                    ConMLPredicates.isInstanceOfClass(Object.class),
+                    ConMLPredicates.isInstanceOfAnyOfClasses(Object.class),
                     null));
 
     if (result != null) {
@@ -75,7 +75,7 @@ public class ObjectServices {
       objects.forEach(obj -> obj.setDocumenting(true));
       ExistingElementsServices.getInstance()
           .addExistingElements(
-              selectedContainerView, objects, ConMLPredicates.isInstanceOfClass(Object.class));
+              selectedContainerView, objects, ConMLPredicates.isInstanceOfAnyOfClasses(Object.class));
     }
   }
 

@@ -91,7 +91,7 @@ public final class TypeModelServices {
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectTypeModel"),
                     Messages.getString("Dialog.SelectTypeModelContainer"),
-                    ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                    ConMLPredicates.isInstanceOfAnyOfClasses(TypeModel.class),
                     false),
                 false);
     if (result.size() == 1 && result.get(0) instanceof TypeModel) return (TypeModel) result.get(0);
@@ -119,7 +119,7 @@ public final class TypeModelServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingTypeModels"),
                 Messages.getString("Dialog.SelectTypeModels"),
-                ConMLPredicates.isInstanceOfClass(TypeModel.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(TypeModel.class),
                 null),
             TypeModel.class);
   }

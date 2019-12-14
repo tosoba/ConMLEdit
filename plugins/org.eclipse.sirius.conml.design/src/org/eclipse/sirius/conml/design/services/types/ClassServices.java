@@ -204,7 +204,7 @@ public final class ClassServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingClasses"),
                 Messages.getString("Dialog.SelectClasses"),
-                ConMLPredicates.isInstanceOfClass(Class.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(Class.class),
                 null),
             Class.class);
   }

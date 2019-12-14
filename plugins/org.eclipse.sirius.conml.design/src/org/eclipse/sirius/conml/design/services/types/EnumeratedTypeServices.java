@@ -101,7 +101,7 @@ public final class EnumeratedTypeServices {
             new ExistingSemanticElementsSelectionDialog(
                 Messages.getString("Dialog.AddExistingEnumeratedTypes"),
                 Messages.getString("Dialog.SelectEnumeratedTypes"),
-                ConMLPredicates.isInstanceOfClass(EnumeratedType.class),
+                ConMLPredicates.isInstanceOfAnyOfClasses(EnumeratedType.class),
                 null),
             EnumeratedType.class);
   }
