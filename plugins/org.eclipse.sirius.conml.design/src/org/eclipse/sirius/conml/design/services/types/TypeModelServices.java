@@ -8,10 +8,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelServices;
+import org.eclipse.sirius.conml.design.services.common.UIServices;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 
+import conml.Domain;
 import conml.instances.InstanceModel;
 import conml.types.Association;
 import conml.types.Class;
@@ -29,6 +31,11 @@ public final class TypeModelServices {
 
   public static TypeModelServices getInstance() {
     return InstanceHolder.INSTANCE;
+  }
+
+  public void openModelDiagramForTypeModelCreation(final Domain domain) {
+    UIServices.getInstance()
+        .openModelDiagram(domain, Messages.getString("Dialog.NoTypeModelExists"));
   }
 
   public Collection<EObject> getOwnedPackageElements(final EObject object) {

@@ -2,6 +2,7 @@ package org.eclipse.sirius.conml.design.services.common;
 
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
@@ -40,6 +41,15 @@ public class UIServices {
             session, containerView, Sets.newHashSet(), Predicates.alwaysTrue(), semanticElement);
   }
 
+  public <T extends EObject> Set<T> getDisplayedNodesOfType(
+      final DDiagram diagram, final Class<T> clazz) {
+    return getDisplayedNodes(diagram)
+        .stream()
+        .filter(clazz::isInstance)
+        .map(clazz::cast)
+        .collect(Collectors.toSet());
+  }
+
   public Set<EObject> getDisplayedNodes(final DDiagram diagram) {
     final Set<EObject> result = Sets.newLinkedHashSet();
     final DDiagramQuery query = new DDiagramQuery(diagram);
@@ -49,15 +59,7 @@ public class UIServices {
     return result;
   }
 
-  public void openModelDiagramForInstanceModelCreation(final Domain domain) {
-    openModelDiagram(domain, Messages.getString("Dialog.NoInstanceModelExists"));
-  }
-
-  public void openModelDiagramForTypeModelCreation(final Domain domain) {
-    openModelDiagram(domain, Messages.getString("Dialog.NoTypeModelExists"));
-  }
-
-  private void openModelDiagram(final Domain domain, final String noModelMessage) {
+  public void openModelDiagram(final Domain domain, final String noModelMessage) {
     final String modelDiagramDescriptionName = "Model Diagram";
     final Session session = SessionManager.INSTANCE.getSession(domain);
     final DRepresentation[] modelDiagrams =
