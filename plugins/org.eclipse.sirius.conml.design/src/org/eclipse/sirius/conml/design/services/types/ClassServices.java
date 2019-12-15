@@ -51,6 +51,14 @@ public final class ClassServices {
     return InstanceHolder.INSTANCE;
   }
 
+  public boolean isSubjectiveAspect(final Class clazz) {
+    return clazz.isUsedAsSubjectiveAspect();
+  }
+
+  public boolean isTemporalAspect(final Class clazz) {
+    return clazz.isUsedAsTemporalAspect();
+  }
+
   private boolean ownsAnyFeatures(final Class clazz) {
     return !clazz.getProperties().isEmpty()
         || !clazz.getAttributes().isEmpty()

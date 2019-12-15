@@ -75,7 +75,9 @@ public class ObjectServices {
       objects.forEach(obj -> obj.setDocumenting(true));
       ExistingElementsServices.getInstance()
           .addExistingElements(
-              selectedContainerView, objects, ConMLPredicates.isInstanceOfAnyOfClasses(Object.class));
+              selectedContainerView,
+              objects,
+              ConMLPredicates.isInstanceOfAnyOfClasses(Object.class));
     }
   }
 
