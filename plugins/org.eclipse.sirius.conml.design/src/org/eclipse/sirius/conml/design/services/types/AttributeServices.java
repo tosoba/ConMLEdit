@@ -33,7 +33,11 @@ public final class AttributeServices {
     if (attribute.getOwnerClass() == null || attribute.getOwnerClass().getTypeModel() == null)
       return new ArrayList<>();
     final Domain domain = (Domain) attribute.getOwnerClass().eContainer();
-    if (attribute.getRedefinedAttribute() == null)
+    if (attribute.getRedefinedAttribute() != null) {
+      return getAllDataTypesForRedefiningAttribute(attribute);
+    } else if (attribute.getRedefiningAttribute() != null) {
+      return getAllDataTypesForRedefinedAttribute(attribute);
+    } else {
       return domain
           .getParts()
           .stream()
@@ -46,7 +50,19 @@ public final class AttributeServices {
                                   ((EnumeratedType) part).getTypeModel(),
                                   attribute.getOwnerClass().getTypeModel()))))
           .collect(Collectors.toList());
-    else return getAllDataTypesForRedefiningAttribute(attribute);
+    }
+  }
+
+  public List<EObject> getAllDataTypesForRedefinedAttribute(final Attribute attribute) {
+    final Attribute redefiningAttribute = attribute.getRedefiningAttribute();
+    if (attribute.getOwnerClass() == null
+        || redefiningAttribute == null
+        || redefiningAttribute.getDatatype() == null
+        || !(redefiningAttribute.getDatatype() instanceof SimpleDataType)) return new ArrayList<>();
+    final SimpleDataType redefiningDataType = (SimpleDataType) redefiningAttribute.getDatatype();
+    return findCompatibleDataTypesInDomain(
+        (Domain) attribute.getOwnerClass().eContainer(),
+        ConML.getBaseDataTypesCompatibleWithRedefining(redefiningDataType.getBase()));
   }
 
   public List<EObject> getAllDataTypesForRedefiningAttribute(final Attribute attribute) {
@@ -56,9 +72,13 @@ public final class AttributeServices {
         || redefinedAttribute.getDatatype() == null
         || !(redefinedAttribute.getDatatype() instanceof SimpleDataType)) return new ArrayList<>();
     final SimpleDataType redefinedDataType = (SimpleDataType) redefinedAttribute.getDatatype();
-    final Set<BaseDataType> compatibleBaseTypes =
-        ConML.getBaseDataTypesCompatibleWith(redefinedDataType.getBase());
-    final Domain domain = (Domain) attribute.getOwnerClass().eContainer();
+    return findCompatibleDataTypesInDomain(
+        (Domain) attribute.getOwnerClass().eContainer(),
+        ConML.getBaseDataTypesCompatibleWithRedefined(redefinedDataType.getBase()));
+  }
+
+  private List<EObject> findCompatibleDataTypesInDomain(
+      final Domain domain, final Set<BaseDataType> compatibleBaseTypes) {
     return domain
         .getParts()
         .stream()

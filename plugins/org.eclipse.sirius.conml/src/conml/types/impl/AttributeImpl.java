@@ -35,8 +35,9 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.AttributeImpl#isMultilingual <em>Multilingual</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getInstanceValueSets <em>Instance Value Sets</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getRedefinedAttribute <em>Redefined Attribute</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getOwnerClass <em>Owner Class</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#getRedefinedAttribute <em>Redefined Attribute</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#getRedefiningAttribute <em>Redefining Attribute</em>}</li>
  * </ul>
  *
  * @generated
@@ -93,6 +94,16 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	protected Attribute redefinedAttribute;
 
     /**
+	 * The cached value of the '{@link #getRedefiningAttribute() <em>Redefining Attribute</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRedefiningAttribute()
+	 * @generated
+	 * @ordered
+	 */
+	protected Attribute redefiningAttribute;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -219,15 +230,99 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRedefinedAttribute(Attribute newRedefinedAttribute) {
+	public NotificationChain basicSetRedefinedAttribute(Attribute newRedefinedAttribute, NotificationChain msgs) {
 		Attribute oldRedefinedAttribute = redefinedAttribute;
 		redefinedAttribute = newRedefinedAttribute;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, oldRedefinedAttribute, redefinedAttribute));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, oldRedefinedAttribute, newRedefinedAttribute);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRedefinedAttribute(Attribute newRedefinedAttribute) {
+		if (newRedefinedAttribute != redefinedAttribute) {
+			NotificationChain msgs = null;
+			if (redefinedAttribute != null)
+				msgs = ((InternalEObject)redefinedAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, Attribute.class, msgs);
+			if (newRedefinedAttribute != null)
+				msgs = ((InternalEObject)newRedefinedAttribute).eInverseAdd(this, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, Attribute.class, msgs);
+			msgs = basicSetRedefinedAttribute(newRedefinedAttribute, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, newRedefinedAttribute, newRedefinedAttribute));
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Attribute getRedefiningAttribute() {
+		if (redefiningAttribute != null && redefiningAttribute.eIsProxy()) {
+			InternalEObject oldRedefiningAttribute = (InternalEObject)redefiningAttribute;
+			redefiningAttribute = (Attribute)eResolveProxy(oldRedefiningAttribute);
+			if (redefiningAttribute != oldRedefiningAttribute) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, oldRedefiningAttribute, redefiningAttribute));
+			}
+		}
+		return redefiningAttribute;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Attribute basicGetRedefiningAttribute() {
+		return redefiningAttribute;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetRedefiningAttribute(Attribute newRedefiningAttribute, NotificationChain msgs) {
+		Attribute oldRedefiningAttribute = redefiningAttribute;
+		redefiningAttribute = newRedefiningAttribute;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, oldRedefiningAttribute, newRedefiningAttribute);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRedefiningAttribute(Attribute newRedefiningAttribute) {
+		if (newRedefiningAttribute != redefiningAttribute) {
+			NotificationChain msgs = null;
+			if (redefiningAttribute != null)
+				msgs = ((InternalEObject)redefiningAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, Attribute.class, msgs);
+			if (newRedefiningAttribute != null)
+				msgs = ((InternalEObject)newRedefiningAttribute).eInverseAdd(this, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, Attribute.class, msgs);
+			msgs = basicSetRedefiningAttribute(newRedefiningAttribute, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, newRedefiningAttribute, newRedefiningAttribute));
+	}
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -285,6 +380,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetOwnerClass((conml.types.Class)otherEnd, msgs);
+			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
+				if (redefinedAttribute != null)
+					msgs = ((InternalEObject)redefinedAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE, Attribute.class, msgs);
+				return basicSetRedefinedAttribute((Attribute)otherEnd, msgs);
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				if (redefiningAttribute != null)
+					msgs = ((InternalEObject)redefiningAttribute).eInverseRemove(this, TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE, Attribute.class, msgs);
+				return basicSetRedefiningAttribute((Attribute)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -301,6 +404,10 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return ((InternalEList<?>)getInstanceValueSets()).basicRemove(otherEnd, msgs);
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				return basicSetOwnerClass(null, msgs);
+			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
+				return basicSetRedefinedAttribute(null, msgs);
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				return basicSetRedefiningAttribute(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -334,11 +441,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				if (resolve) return getDatatype();
 				return basicGetDatatype();
+			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
+				return getOwnerClass();
 			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
 				if (resolve) return getRedefinedAttribute();
 				return basicGetRedefinedAttribute();
-			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
-				return getOwnerClass();
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				if (resolve) return getRedefiningAttribute();
+				return basicGetRedefiningAttribute();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -362,11 +472,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				setDatatype((DataType)newValue);
 				return;
+			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
+				setOwnerClass((conml.types.Class)newValue);
+				return;
 			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
 				setRedefinedAttribute((Attribute)newValue);
 				return;
-			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
-				setOwnerClass((conml.types.Class)newValue);
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				setRedefiningAttribute((Attribute)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -389,11 +502,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				setDatatype((DataType)null);
 				return;
+			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
+				setOwnerClass((conml.types.Class)null);
+				return;
 			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
 				setRedefinedAttribute((Attribute)null);
 				return;
-			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
-				setOwnerClass((conml.types.Class)null);
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				setRedefiningAttribute((Attribute)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -413,10 +529,12 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return instanceValueSets != null && !instanceValueSets.isEmpty();
 			case TypesPackage.ATTRIBUTE__DATATYPE:
 				return datatype != null;
-			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
-				return redefinedAttribute != null;
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				return getOwnerClass() != null;
+			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
+				return redefinedAttribute != null;
+			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
+				return redefiningAttribute != null;
 		}
 		return super.eIsSet(featureID);
 	}

@@ -205,7 +205,12 @@ public class ConML {
 
   private static final Map<BaseDataType, Set<BaseDataType>> typeCoersionMap = new HashMap<>();
 
-  public static Set<BaseDataType> getBaseDataTypesCompatibleWith(final BaseDataType base) {
+  public static Set<BaseDataType> getBaseDataTypesCompatibleWithRedefining(
+      final BaseDataType base) {
+    return typeCoersionMap.getOrDefault(base, new HashSet<>());
+  }
+
+  public static Set<BaseDataType> getBaseDataTypesCompatibleWithRedefined(final BaseDataType base) {
     return typeCoersionMap
         .entrySet()
         .stream()

@@ -1277,22 +1277,31 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int ATTRIBUTE__DATATYPE = FEATURE_FEATURE_COUNT + 2;
 
   /**
-	 * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 3;
-
-    /**
 	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 4;
+	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 3;
+
+        /**
+        * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
+        * <!-- begin-user-doc -->
+        * <!-- end-user-doc -->
+        * @generated
+        * @ordered
+        */
+int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
+
+        /**
+	 * The feature id for the '<em><b>Redefining Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__REDEFINING_ATTRIBUTE = FEATURE_FEATURE_COUNT + 5;
 
         /**
 	 * The number of structural features of the '<em>Attribute</em>' class.
@@ -1301,7 +1310,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 5;
+	int ATTRIBUTE_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 6;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -2436,6 +2445,17 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	EReference getAttribute_RedefinedAttribute();
 
     /**
+	 * Returns the meta object for the reference '{@link conml.types.Attribute#getRedefiningAttribute <em>Redefining Attribute</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Redefining Attribute</em>'.
+	 * @see conml.types.Attribute#getRedefiningAttribute()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_RedefiningAttribute();
+
+        /**
 	 * Returns the meta object for the container reference '{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3166,6 +3186,14 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 		EReference ATTRIBUTE__REDEFINED_ATTRIBUTE = eINSTANCE.getAttribute_RedefinedAttribute();
 
         /**
+		 * The meta object literal for the '<em><b>Redefining Attribute</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__REDEFINING_ATTRIBUTE = eINSTANCE.getAttribute_RedefiningAttribute();
+
+                /**
 		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

@@ -155,9 +155,12 @@
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/InstancedAttribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Datatype" lowerBound="1"
           eType="#//types/DataType"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedAttribute" eType="#//types/Attribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Attributes"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedAttribute" eType="#//types/Attribute"
+          eOpposite="#//types/Attribute/RedefiningAttribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="RedefiningAttribute"
+          eType="#//types/Attribute" eOpposite="#//types/Attribute/RedefinedAttribute"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="BaseDataType">
       <eLiterals name="Boolean"/>

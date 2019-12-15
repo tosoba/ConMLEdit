@@ -33,7 +33,9 @@ public interface AttributeValidator {
 
   boolean validateRedefinedAttribute(Attribute value);
 
-    boolean validateOwnerClass(conml.types.Class value);
+    boolean validateRedefiningAttribute(Attribute value);
+
+        boolean validateOwnerClass(conml.types.Class value);
 
         boolean validateRedefinedAttributes(EList<Attribute> value);
 

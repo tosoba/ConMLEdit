@@ -48,8 +48,9 @@ public class AttributeItemProvider extends FeatureItemProvider {
 			addMultilingualPropertyDescriptor(object);
 			addInstanceValueSetsPropertyDescriptor(object);
 			addDatatypePropertyDescriptor(object);
-			addRedefinedAttributePropertyDescriptor(object);
 			addOwnerClassPropertyDescriptor(object);
+			addRedefinedAttributePropertyDescriptor(object);
+			addRedefiningAttributePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -143,6 +144,28 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Redefining Attribute feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRedefiningAttributePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Attribute_RedefiningAttribute_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_RedefiningAttribute_feature", "_UI_Attribute_type"),
+				 TypesPackage.Literals.ATTRIBUTE__REDEFINING_ATTRIBUTE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This adds a property descriptor for the Owner Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

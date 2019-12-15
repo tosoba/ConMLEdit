@@ -776,7 +776,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getAttribute_RedefinedAttribute() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(3);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(4);
 	}
 
     /**
@@ -785,8 +785,18 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getAttribute_RedefiningAttribute() {
+		return (EReference)attributeEClass.getEStructuralFeatures().get(5);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAttribute_OwnerClass() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(4);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(3);
 	}
 
         /**
@@ -1101,8 +1111,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEAttribute(attributeEClass, ATTRIBUTE__MULTILINGUAL);
 		createEReference(attributeEClass, ATTRIBUTE__INSTANCE_VALUE_SETS);
 		createEReference(attributeEClass, ATTRIBUTE__DATATYPE);
-		createEReference(attributeEClass, ATTRIBUTE__REDEFINED_ATTRIBUTE);
 		createEReference(attributeEClass, ATTRIBUTE__OWNER_CLASS);
+		createEReference(attributeEClass, ATTRIBUTE__REDEFINED_ATTRIBUTE);
+		createEReference(attributeEClass, ATTRIBUTE__REDEFINING_ATTRIBUTE);
 
 		semiAssociationEClass = createEClass(SEMI_ASSOCIATION);
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__ROLE);
@@ -1254,8 +1265,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEAttribute(getAttribute_Multilingual(), ecorePackage.getEBoolean(), "multilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_InstanceValueSets(), theInstancesPackage.getValueSet(), theInstancesPackage.getValueSet_InstancedAttribute(), "InstanceValueSets", null, 0, -1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_Datatype(), this.getDataType(), null, "Datatype", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_RedefinedAttribute(), this.getAttribute(), null, "RedefinedAttribute", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_OwnerClass(), this.getClass_(), this.getClass_Attributes(), "OwnerClass", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_RedefinedAttribute(), this.getAttribute(), this.getAttribute_RedefiningAttribute(), "RedefinedAttribute", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_RedefiningAttribute(), this.getAttribute(), this.getAttribute_RedefinedAttribute(), "RedefiningAttribute", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semiAssociationEClass, SemiAssociation.class, "SemiAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemiAssociation_Role(), ecorePackage.getEString(), "role", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
