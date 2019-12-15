@@ -1,14 +1,19 @@
 package org.eclipse.sirius.conml.design.services.types;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
+import org.eclipse.sirius.conml.design.services.common.UIServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.types.Class;
 import conml.types.Generalization;
@@ -81,6 +86,40 @@ public final class GeneralizationServices {
 
   public Class getGeneralizationTargetType(final Generalization generalization) {
     return generalization.getGeneralizedClass();
+  }
+
+  public boolean indirectGeneralizationPrecondition(
+      final Generalization generalization, final DDiagram diagram) {
+    return generalization.getGeneralizedClass() != null
+        && !UIServices.getInstance()
+            .getDisplayedNodesOfType(diagram, Class.class)
+            .contains(generalization.getGeneralizedClass());
+  }
+
+  public Collection<Class> getIndirectGeneralizationTargetType(
+      final Generalization generalization, final DDiagram diagram) {
+    if (generalization.getGeneralizedClass() == null) return new ArrayList<>();
+    final ArrayList<Class> classes = new ArrayList<>();
+    final Set<Class> displayedClasses =
+        UIServices.getInstance().getDisplayedNodesOfType(diagram, Class.class);
+    addIndirectGeneralizationTargetTypes(
+        generalization.getGeneralizedClass().getGeneralizations(), classes, displayedClasses);
+    return classes;
+  }
+
+  private void addIndirectGeneralizationTargetTypes(
+      final List<Generalization> generalizations,
+      final List<Class> currentClasses,
+      final Set<Class> displayedClasses) {
+    generalizations.forEach(
+        gen -> {
+          if (gen.getGeneralizedClass() == null) return;
+          else if (displayedClasses.contains(gen.getGeneralizedClass()))
+            currentClasses.add(gen.getGeneralizedClass());
+          else
+            addIndirectGeneralizationTargetTypes(
+                gen.getGeneralizedClass().getGeneralizations(), currentClasses, displayedClasses);
+        });
   }
 
   public void moveGeneralizationUp(final EObject object) {
