@@ -205,6 +205,15 @@ public class ConML {
 
   private static final Map<BaseDataType, Set<BaseDataType>> typeCoersionMap = new HashMap<>();
 
+  public static Set<BaseDataType> getBaseDataTypesCompatibleWith(final BaseDataType base) {
+    return typeCoersionMap
+        .entrySet()
+        .stream()
+        .filter(entry -> entry.getValue().contains(base))
+        .map(Map.Entry::getKey)
+        .collect(Collectors.toSet());
+  }
+
   static {
     typeCoersionMap.put(
         BaseDataType.BOOLEAN,
@@ -220,7 +229,7 @@ public class ConML {
     typeCoersionMap.put(BaseDataType.DATA, new HashSet<>(Arrays.asList(BaseDataType.DATA)));
   }
 
-  public static boolean canBaseDataTypeCorceInto(
+  public static boolean canBaseDataTypeCoerceInto(
       final BaseDataType type, final BaseDataType intoType) {
     return typeCoersionMap.get(type).contains(intoType);
   }

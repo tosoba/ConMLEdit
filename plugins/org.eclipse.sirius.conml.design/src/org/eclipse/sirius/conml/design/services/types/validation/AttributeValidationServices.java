@@ -51,7 +51,7 @@ public final class AttributeValidationServices {
               final BaseDataType baseDataType = simpleDataType.getBase();
               final BaseDataType redefinedBaseDataType = redefinedSimpleDataType.getBase();
               if (baseDataType == null || redefinedBaseDataType == null) return true;
-              else return ConML.canBaseDataTypeCorceInto(baseDataType, redefinedBaseDataType);
+              else return ConML.canBaseDataTypeCoerceInto(baseDataType, redefinedBaseDataType);
             } else if (dataType instanceof EnumeratedType
                 && redefinedDataType instanceof EnumeratedType) {
               final EnumeratedType enumType = (EnumeratedType) dataType;

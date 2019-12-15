@@ -769,7 +769,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:featureToRedefine.constant"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="aql:featureToRedefine.multilingual"/>
-                        <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:featureToRedefine.DataType"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:featureToRedefine.getDataType()"/>
                         <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Attribute">
                           <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                             <initialOperation/>
@@ -794,6 +794,11 @@
                             <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningAttribute_Multilingual_Checkbox" labelExpression="Multilingual" helpExpression="Indicates whether the Attribute has multilingual semantics" valueExpression="aql:self.multilingual">
                               <initialOperation>
                                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setMultilingual(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:SelectDescription" name="D_CD_CreateRedefiningAttribute_DataType_Select" labelExpression="DataType" helpExpression="DataType of this Attribute" isEnabledExpression="aql:featureToRedefine.hasSimpleDataType()" valueExpression="aql:self.getDataType()" candidatesExpression="aql:self.getAllDataTypesForRedefiningAttribute()" candidateDisplayExpression="aql:candidate.dataTypeLabel()">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:newValue"/>
                               </initialOperation>
                             </controls>
                             <validationSet/>

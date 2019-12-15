@@ -2,16 +2,19 @@ package org.eclipse.sirius.conml.design.services.types;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
+import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.Domain;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
+import conml.types.BaseDataType;
 import conml.types.DataType;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
@@ -22,22 +25,53 @@ public final class AttributeServices {
     return !attribute.getInstanceValueSets().isEmpty();
   }
 
+  public DataType getDataType(final Attribute attribute) {
+    return attribute.getDatatype();
+  }
+
   public List<EObject> getAllDataTypesForAttribute(final Attribute attribute) {
     if (attribute.getOwnerClass() == null || attribute.getOwnerClass().getTypeModel() == null)
       return new ArrayList<>();
+    final Domain domain = (Domain) attribute.getOwnerClass().eContainer();
+    if (attribute.getRedefinedAttribute() == null)
+      return domain
+          .getParts()
+          .stream()
+          .filter(
+              part ->
+                  !EcoreUtil.equals(attribute.getDatatype(), part)
+                      && (part instanceof SimpleDataType
+                          || (part instanceof EnumeratedType
+                              && EcoreUtil.equals(
+                                  ((EnumeratedType) part).getTypeModel(),
+                                  attribute.getOwnerClass().getTypeModel()))))
+          .collect(Collectors.toList());
+    else return getAllDataTypesForRedefiningAttribute(attribute);
+  }
+
+  public List<EObject> getAllDataTypesForRedefiningAttribute(final Attribute attribute) {
+    final Attribute redefinedAttribute = attribute.getRedefinedAttribute();
+    if (attribute.getOwnerClass() == null
+        || redefinedAttribute == null
+        || redefinedAttribute.getDatatype() == null
+        || !(redefinedAttribute.getDatatype() instanceof SimpleDataType)) return new ArrayList<>();
+    final SimpleDataType redefinedDataType = (SimpleDataType) redefinedAttribute.getDatatype();
+    final Set<BaseDataType> compatibleBaseTypes =
+        ConML.getBaseDataTypesCompatibleWith(redefinedDataType.getBase());
     final Domain domain = (Domain) attribute.getOwnerClass().eContainer();
     return domain
         .getParts()
         .stream()
         .filter(
             part ->
-                !EcoreUtil.equals(attribute.getDatatype(), part)
-                    && (part instanceof SimpleDataType
-                        || (part instanceof EnumeratedType
-                            && EcoreUtil.equals(
-                                ((EnumeratedType) part).getTypeModel(),
-                                attribute.getOwnerClass().getTypeModel()))))
+                part instanceof SimpleDataType
+                    && compatibleBaseTypes.contains(((SimpleDataType) part).getBase()))
+        .distinct()
         .collect(Collectors.toList());
+  }
+
+  public boolean hasSimpleDataType(final Attribute attribute) {
+    return attribute.getDatatype() instanceof SimpleDataType;
   }
 
   public void setDataTypeOfAttribute(final Attribute attribute, final DataType dataType) {
