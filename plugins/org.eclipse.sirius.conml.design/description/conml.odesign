@@ -491,55 +491,6 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Redefine Property" precondition="aql:container.oclIsTypeOf(types::Class)">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:Let" variableName="propertyToRedefine" valueExpression="aql:element.showRedefinedPropertyDialog()">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:propertyToRedefine &lt;> null">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Property" referenceName="Properties" variableName="property">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="RedefinedProperty" valueExpression="var:propertyToRedefine"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:propertyToRedefine.name"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:propertyToRedefine.definition"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="minimumCardinality" valueExpression="aql:propertyToRedefine.minimumCardinality"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="maximumCardinality" valueExpression="aql:propertyToRedefine.maximumCardinality"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:propertyToRedefine.constant"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:propertyToRedefine.sorted"/>
-                      <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Property">
-                        <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                          <initialOperation/>
-                        </buttons>
-                        <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                          <initialOperation>
-                            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
-                          </initialOperation>
-                        </buttons>
-                        <page name="D_CD_CreateRedefiningProperty_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.7/@groups.0"/>
-                        <groups name="D_CD_CreateRedefiningProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7">
-                          <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningFeature_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the Property has constant semantics" isEnabledExpression="aql:propertyToRedefine.constant = false" valueExpression="aql:self.constant">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setConstant(newValue)"/>
-                            </initialOperation>
-                          </controls>
-                          <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningFeature_Sorted_Checkbox" labelExpression="Sorted" helpExpression="Indicates whether the Feature has sorted semantics" isEnabledExpression="aql:propertyToRedefine.sorted = false" valueExpression="aql:semi.sorted">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setSorted(newValue)"/>
-                            </initialOperation>
-                          </controls>
-                          <validationSet>
-                            <semanticValidationRules name="Props_Property Validation RedefinedPropertyOwnership" level="ERROR" message="Redefined property has to be owned by an ancestor of this property's class." targetClass="types::Property">
-                              <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
-                            </semanticValidationRules>
-                          </validationSet>
-                        </groups>
-                      </subModelOperations>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
           <ownedTools xsi:type="tool_1:ToolGroup" name="AttributeCreationGroup" label="Attributes">
             <tools xsi:type="tool_1:NodeCreationDescription" name="Node Creation Boolean Attribute" label="Boolean Attribute" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute']">
               <variable name="container"/>
@@ -760,6 +711,104 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="Redefine Feature" precondition="aql:container.oclIsTypeOf(types::Class)">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Let" variableName="featureToRedefine" valueExpression="aql:element.showRedefinedFeatureSelectionDialog()">
+                <subModelOperations xsi:type="tool:If" conditionExpression="aql:featureToRedefine &lt;> null">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:featureToRedefine.oclIsTypeOf(types::Property)">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Property" referenceName="Properties" variableName="property">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="RedefinedProperty" valueExpression="var:featureToRedefine"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:featureToRedefine.name"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:featureToRedefine.definition"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="minimumCardinality" valueExpression="aql:featureToRedefine.minimumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="maximumCardinality" valueExpression="aql:featureToRedefine.maximumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:featureToRedefine.constant"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Property">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+                            </initialOperation>
+                          </buttons>
+                          <page name="D_CD_CreateRedefiningProperty_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Feature']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.7/@groups.0"/>
+                          <groups name="D_CD_CreateRedefiningProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7">
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningProperty_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the Property has constant semantics" isEnabledExpression="aql:featureToRedefine.constant = false" valueExpression="aql:self.constant">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setConstant(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningProperty_Sorted_Checkbox" labelExpression="Sorted" helpExpression="Indicates whether the Feature has sorted semantics" isEnabledExpression="aql:featureToRedefine.sorted = false" valueExpression="aql:self.sorted">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setSorted(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <validationSet>
+                              <semanticValidationRules name="Props_Property Validation RedefinedPropertyOwnership" level="ERROR" message="Redefined property has to be owned by an ancestor of this property's class." targetClass="types::Property">
+                                <audits auditExpression="service:self.redefinedPropertyIsOwnedByAncestor"/>
+                              </semanticValidationRules>
+                            </validationSet>
+                          </groups>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:featureToRedefine.oclIsTypeOf(types::Attribute)">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Attribute" referenceName="Attributes" variableName="attribute">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="RedefinedAttribute" valueExpression="var:featureToRedefine"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:featureToRedefine.name"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:featureToRedefine.definition"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="minimumCardinality" valueExpression="aql:featureToRedefine.minimumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="maximumCardinality" valueExpression="aql:featureToRedefine.maximumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:featureToRedefine.constant"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="aql:featureToRedefine.multilingual"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:featureToRedefine.DataType"/>
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Attribute">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
+                            </initialOperation>
+                          </buttons>
+                          <page name="D_CD_CreateRedefiningAttribute_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Feature']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.1/@subModelOperations.0/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
+                          <groups name="D_CD_CreateRedefiningAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7">
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningAttribute_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the Feature has constant semantics" isEnabledExpression="aql:featureToRedefine.constant = false" valueExpression="aql:self.constant">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setConstant(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningAttribute_Sorted_Checkbox" labelExpression="Sorted" helpExpression="Indicates whether the Feature has sorted semantics" isEnabledExpression="aql:featureToRedefine.sorted = false" valueExpression="aql:self.sorted">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setSorted(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningAttribute_Multilingual_Checkbox" labelExpression="Multilingual" helpExpression="Indicates whether the Attribute has multilingual semantics" valueExpression="aql:self.multilingual">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setMultilingual(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <validationSet/>
+                          </groups>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:featureToRedefine.oclIsTypeOf(types::SemiAssociation)">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
           <ownedTools xsi:type="tool_1:ContainerDropDescription" name="Move Attribute" mappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Attribute']">
             <oldContainer name="oldSemanticContainer"/>
             <newContainer name="newSemanticContainer"/>
@@ -925,13 +974,6 @@
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="Redefine Association" precondition="aql:container.oclIsTypeOf(types::Class)">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.showRedefinedSemiAssociationDialog()"/>
             </initialOperation>
           </ownedTools>
           <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Association">
