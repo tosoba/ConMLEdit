@@ -27,6 +27,7 @@ import conml.instances.Value;
 import conml.instances.ValueSet;
 import conml.types.Association;
 import conml.types.Attribute;
+import conml.types.EnumeratedType;
 import conml.types.Generalization;
 import conml.types.Package;
 import conml.types.Property;
@@ -53,6 +54,12 @@ public final class DiagramPropertiesServices {
     setupStructuralFeaturesPropertiesPredicates();
     setupStructuralFeaturesCreationDialogPredicates();
     setupDisabledReferences();
+  }
+
+  public boolean shouldShowTypeModelSelect(final EObject object) {
+    return object instanceof conml.types.Class
+        || object instanceof EnumeratedType
+        || object instanceof Package;
   }
 
   public boolean shouldShowActionPage(final EObject object) {

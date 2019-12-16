@@ -25,6 +25,15 @@ public final class ModelElementServices {
     return InstanceHolder.INSTANCE;
   }
 
+  public void setTypeModel(final TypeModelElement modelElement, final TypeModel typeModel) {
+    modelElement.setTypeModel(typeModel);
+  }
+
+  public void setInstanceModel(
+      final InstanceModelElement modelElement, final InstanceModel instanceModel) {
+    modelElement.setInstanceModel(instanceModel);
+  }
+
   public void removeElement(final EObject object) {
     EcoreUtil.delete(object);
   }

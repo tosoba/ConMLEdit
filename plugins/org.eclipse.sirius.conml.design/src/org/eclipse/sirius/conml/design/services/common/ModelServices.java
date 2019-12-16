@@ -43,4 +43,8 @@ public final class ModelServices {
   public String modelName(final Model model) {
     return model.getName();
   }
+
+  public String modelVersion(final Model model) {
+    return String.valueOf(model.getVersion());
+  }
 }
