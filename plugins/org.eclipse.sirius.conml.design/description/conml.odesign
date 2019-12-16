@@ -809,7 +809,59 @@
                     </subModelOperations>
                   </subModelOperations>
                   <subModelOperations xsi:type="tool:If" conditionExpression="aql:featureToRedefine.oclIsTypeOf(types::SemiAssociation)">
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element"/>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:element">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SemiAssociations" variableName="semiAssociation">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="RedefinedSemiAssociation" valueExpression="var:featureToRedefine"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="aql:featureToRedefine.name"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:featureToRedefine.definition"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="aql:featureToRedefine.role"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="minimumCardinality" valueExpression="aql:featureToRedefine.minimumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="maximumCardinality" valueExpression="aql:featureToRedefine.maximumCardinality"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:featureToRedefine.constant"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="strong" valueExpression="aql:featureToRedefine.strong"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="aql:featureToRedefine.getReferredClass()"/>
+                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine SemiAssociation">
+                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                            <initialOperation/>
+                          </buttons>
+                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                            <initialOperation>
+                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createInverseAndAddRedefinedSemiToAssociation()"/>
+                            </initialOperation>
+                          </buttons>
+                          <page name="D_CD_CreateRedefiningSemiAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Feature']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@subModelOperations.0/@subModelOperations.0/@subModelOperations.10/@groups.0"/>
+                          <groups name="D_CD_CreateRedefiningSemiAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7">
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningSemiAssociation_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the Feature has constant semantics" isEnabledExpression="aql:featureToRedefine.constant = false" valueExpression="aql:self.constant">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setConstant(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningSemiAssociation_Sorted_Checkbox" labelExpression="Sorted" helpExpression="Indicates whether the Feature has sorted semantics" isEnabledExpression="aql:featureToRedefine.sorted = false" valueExpression="aql:self.sorted">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setSorted(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningSemiAssocation_Strong_Checkbox" labelExpression="Strong" helpExpression="Indicates whether the SemiAssociation has strong semantics" isEnabledExpression="aql:featureToRedefine.strong = false" valueExpression="aql:self.strong">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setStrong(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:TextDescription" name="D_CD_CreateRedefiningSemiAssociation_Role_Text" labelExpression="Role" helpExpression="Role of this SemiAssociation" valueExpression="aql:self.role">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setRole(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <controls xsi:type="properties:SelectDescription" name="D_CD_CreateRedefiningSemiAssociation_ReferredClass_Select" labelExpression="Referred Class" helpExpression="Referred Class of the SemiAssociation" valueExpression="aql:self.getReferredClass()" candidatesExpression="aql:self.getRedefinedSemiAssociationReferredClassCandidates()" candidateDisplayExpression="aql:candidate.getElementName()">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.setReferredClass(newValue)"/>
+                              </initialOperation>
+                            </controls>
+                            <validationSet/>
+                          </groups>
+                        </subModelOperations>
+                      </subModelOperations>
+                    </subModelOperations>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
