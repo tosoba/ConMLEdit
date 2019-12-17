@@ -1034,13 +1034,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__OWNER_VALUE_SET = FACET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__UNKNOWN = FACET_FEATURE_COUNT + 2;
+
+  /**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
+	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Value</em>' class.
@@ -1493,6 +1502,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getValue_OwnerValueSet();
 
 	/**
+	 * Returns the meta object for the attribute '{@link conml.instances.Value#isUnknown <em>Unknown</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Unknown</em>'.
+	 * @see conml.instances.Value#isUnknown()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EAttribute getValue_Unknown();
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.FacetSet <em>Facet Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1909,6 +1929,14 @@ public interface InstancesPackage extends EPackage {
 		EReference VALUE__OWNER_VALUE_SET = eINSTANCE.getValue_OwnerValueSet();
 
 		/**
+		 * The meta object literal for the '<em><b>Unknown</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE__UNKNOWN = eINSTANCE.getValue_Unknown();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.FacetSetImpl <em>Facet Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

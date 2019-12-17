@@ -62,7 +62,8 @@ public class ValueSetServices {
       }
     }
 
-    if (contents == null) return FacetValidation.SUCCESS("null");
+    if (value.isUnknown()) return FacetValidation.SUCCESS("unknown");
+    else if (contents == null) return FacetValidation.SUCCESS("null");
     else {
       if (!contentsClass.isInstance(contents))
         return FacetValidation.FAILURE(

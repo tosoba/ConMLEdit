@@ -19,4 +19,6 @@ public interface ValueValidator {
 	boolean validateContents(Object value);
 
   boolean validateOwnerValueSet(ValueSet value);
+
+    boolean validateUnknown(boolean value);
 }

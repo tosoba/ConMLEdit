@@ -48,6 +48,7 @@ public class ValueItemProvider extends FacetItemProvider {
 
 			addContentsPropertyDescriptor(object);
 			addOwnerValueSetPropertyDescriptor(object);
+			addUnknownPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +98,28 @@ public class ValueItemProvider extends FacetItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Unknown feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addUnknownPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Value_unknown_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Value_unknown_feature", "_UI_Value_type"),
+				 InstancesPackage.Literals.VALUE__UNKNOWN,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns Value.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -136,6 +159,7 @@ public class ValueItemProvider extends FacetItemProvider {
 
 		switch (notification.getFeatureID(Value.class)) {
 			case InstancesPackage.VALUE__CONTENTS:
+			case InstancesPackage.VALUE__UNKNOWN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

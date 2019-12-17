@@ -605,6 +605,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EAttribute getValue_Unknown() {
+		return (EAttribute)valueEClass.getEStructuralFeatures().get(2);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFacetSet() {
 		return facetSetEClass;
 	}
@@ -727,6 +737,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		valueEClass = createEClass(VALUE);
 		createEAttribute(valueEClass, VALUE__CONTENTS);
 		createEReference(valueEClass, VALUE__OWNER_VALUE_SET);
+		createEAttribute(valueEClass, VALUE__UNKNOWN);
 
 		facetSetEClass = createEClass(FACET_SET);
 		createEReference(facetSetEClass, FACET_SET__TRANSLATION_QUALIFIERS);
@@ -832,6 +843,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getValue_Contents(), theXMLTypePackage.getAnySimpleType(), "contents", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValue_OwnerValueSet(), this.getValueSet(), this.getValueSet_Values(), "OwnerValueSet", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValue_Unknown(), ecorePackage.getEBoolean(), "unknown", "false", 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(facetSetEClass, FacetSet.class, "FacetSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFacetSet_TranslationQualifiers(), theconmlPackage.getLanguage(), null, "TranslationQualifiers", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -296,6 +296,9 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerValueSet" lowerBound="1"
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/Values"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unknown" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="TranslationQualifiers"

@@ -15,6 +15,7 @@ import java.lang.Object;
  * <ul>
  *   <li>{@link conml.instances.Value#getContents <em>Contents</em>}</li>
  *   <li>{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}</li>
+ *   <li>{@link conml.instances.Value#isUnknown <em>Unknown</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValue()
@@ -67,5 +68,28 @@ public interface Value extends Facet {
 	 * @generated
 	 */
 	void setOwnerValueSet(ValueSet value);
+
+    /**
+	 * Returns the value of the '<em><b>Unknown</b></em>' attribute.
+	 * The default value is <code>"false"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Unknown</em>' attribute.
+	 * @see #setUnknown(boolean)
+	 * @see conml.instances.InstancesPackage#getValue_Unknown()
+	 * @model default="false" required="true"
+	 * @generated
+	 */
+	boolean isUnknown();
+
+    /**
+	 * Sets the value of the '{@link conml.instances.Value#isUnknown <em>Unknown</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Unknown</em>' attribute.
+	 * @see #isUnknown()
+	 * @generated
+	 */
+	void setUnknown(boolean value);
 
 } // Value

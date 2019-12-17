@@ -1286,12 +1286,12 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 3;
 
         /**
-        * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
-        * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
+	 * <!-- begin-user-doc -->
         * <!-- end-user-doc -->
-        * @generated
-        * @ordered
-        */
+	 * @generated
+	 * @ordered
+	 */
 int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 
         /**

@@ -27,6 +27,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link conml.instances.impl.ValueImpl#getContents <em>Contents</em>}</li>
  *   <li>{@link conml.instances.impl.ValueImpl#getOwnerValueSet <em>Owner Value Set</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueImpl#isUnknown <em>Unknown</em>}</li>
  * </ul>
  *
  * @generated
@@ -53,6 +54,26 @@ public class ValueImpl extends FacetImpl implements Value {
 	protected Object contents = CONTENTS_EDEFAULT;
 
 	/**
+	 * The default value of the '{@link #isUnknown() <em>Unknown</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnknown()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean UNKNOWN_EDEFAULT = false;
+
+  /**
+	 * The cached value of the '{@link #isUnknown() <em>Unknown</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isUnknown()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean unknown = UNKNOWN_EDEFAULT;
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -143,6 +164,29 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * @generated
 	 */
 	@Override
+	public boolean isUnknown() {
+		return unknown;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setUnknown(boolean newUnknown) {
+		boolean oldUnknown = unknown;
+		unknown = newUnknown;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE__UNKNOWN, oldUnknown, unknown));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
@@ -193,6 +237,8 @@ public class ValueImpl extends FacetImpl implements Value {
 				return getContents();
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				return getOwnerValueSet();
+			case InstancesPackage.VALUE__UNKNOWN:
+				return isUnknown();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -210,6 +256,9 @@ public class ValueImpl extends FacetImpl implements Value {
 				return;
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				setOwnerValueSet((ValueSet)newValue);
+				return;
+			case InstancesPackage.VALUE__UNKNOWN:
+				setUnknown((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,6 +278,9 @@ public class ValueImpl extends FacetImpl implements Value {
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				setOwnerValueSet((ValueSet)null);
 				return;
+			case InstancesPackage.VALUE__UNKNOWN:
+				setUnknown(UNKNOWN_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -245,6 +297,8 @@ public class ValueImpl extends FacetImpl implements Value {
 				return CONTENTS_EDEFAULT == null ? contents != null : !CONTENTS_EDEFAULT.equals(contents);
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				return getOwnerValueSet() != null;
+			case InstancesPackage.VALUE__UNKNOWN:
+				return unknown != UNKNOWN_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -261,6 +315,8 @@ public class ValueImpl extends FacetImpl implements Value {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (contents: ");
 		result.append(contents);
+		result.append(", unknown: ");
+		result.append(unknown);
 		result.append(')');
 		return result.toString();
 	}

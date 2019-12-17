@@ -269,6 +269,7 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Value/contents"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Value/OwnerValueSet"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Value/unknown"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/FacetSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
