@@ -1,8 +1,6 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -45,18 +43,28 @@ public class ValueSetServices {
 
   private FacetValidation validateFacet(
       final Facet facet,
-      final List<Class<?>> contentsClasses,
+      final Class<?> contentsClass,
       final Function<Object, String> contentsTransformer) {
     if (!(facet instanceof Value))
       return FacetValidation.FAILURE("<One of the facets in not of type Value>");
     final Value value = (Value) facet;
-    final Object contents = value.getContents();
+    Object contents = value.getContents();
+    if (contents instanceof String && !String.class.equals(contentsClass)) {
+      if (Number.class.equals(contentsClass)) {
+        try {
+          contents = Double.parseDouble((String) contents);
+          value.setContents(contents);
+        } catch (NumberFormatException ex) {
+        }
+      } else if (Boolean.class.equals(contentsClass)) {
+        contents = Boolean.parseBoolean((String) contents);
+        value.setContents(contents);
+      }
+    }
+
     if (contents == null) return FacetValidation.SUCCESS("null");
     else {
-      if (contentsClasses
-          .stream()
-          .map(clazz -> clazz.isInstance(contents))
-          .allMatch(result -> !result))
+      if (!contentsClass.isInstance(contents))
         return FacetValidation.FAILURE(
             "<Contents of one of the values does not match specified DataType>");
       else return FacetValidation.SUCCESS(contentsTransformer.apply(contents));
@@ -88,7 +96,7 @@ public class ValueSetServices {
               final FacetValidation facetValidation =
                   validateFacet(
                       facet,
-                      Arrays.asList(Boolean.class, boolean.class),
+                      Boolean.class,
                       contents -> String.valueOf(Boolean.class.cast(contents)));
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
@@ -101,9 +109,7 @@ public class ValueSetServices {
             for (final Facet facet : valueSet.getValues()) {
               final FacetValidation facetValidation =
                   validateFacet(
-                      facet,
-                      Arrays.asList(Number.class),
-                      contents -> String.valueOf(Number.class.cast(contents)));
+                      facet, Number.class, contents -> String.valueOf(Number.class.cast(contents)));
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
@@ -111,8 +117,7 @@ public class ValueSetServices {
           case TEXT:
             for (final Facet facet : valueSet.getValues()) {
               final FacetValidation facetValidation =
-                  validateFacet(
-                      facet, Arrays.asList(String.class), contents -> String.class.cast(contents));
+                  validateFacet(facet, String.class, String.class::cast);
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }

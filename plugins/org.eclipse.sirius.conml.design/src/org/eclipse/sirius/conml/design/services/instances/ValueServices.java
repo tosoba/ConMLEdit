@@ -58,6 +58,10 @@ public class ValueServices {
     value.setContents(content);
   }
 
+  public void nullifyValueContent(final Value value) {
+    value.setContents(null);
+  }
+
   private boolean hasSimpleDataType(final EObject object, final BaseDataType base) {
     return ConML.castAndRunOrReturn(
         object,

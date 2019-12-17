@@ -1927,6 +1927,13 @@
       </groups>
       <groups name="PR_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
+          <ifs name="if_it_is_Value" predicateExpression="aql:self.oclIsTypeOf(instances::Value)">
+            <widget xsi:type="properties:ButtonDescription" name="PR_GeneralGroup Value NullButton" helpExpression="Sets the contents of Value to null" buttonLabelExpression="Set null">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.nullifyValueContent()"/>
+              </initialOperation>
+            </widget>
+          </ifs>
           <ifs name="if_it_is_booleanValue" predicateExpression="service:self.isBooleanValue">
             <widget xsi:type="properties:CheckboxDescription" name="PR_GeneralGroup isBooleanValue Checkbox" labelExpression="Content" helpExpression="Content of the boolean value" valueExpression="service:self.booleanValueContent">
               <initialOperation>
@@ -1934,6 +1941,15 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="if_it_is_textValue" predicateExpression="service:self.isTextValue">
+            <widget xsi:type="properties:TextDescription" name="PR_GeneralGroup isTextValueText" labelExpression="Content" helpExpression="Content of the text value" valueExpression="aql:self.textValueContent()">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.setTextValueContent(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_numberValue" predicateExpression="service:self.isNumberValue"/>
+          <ifs name="if_it_is_timeValue" predicateExpression="service:self.isTimeValue"/>
           <ifs name="if_it_is_domain_typeModel_list" predicateExpression="aql:self.oclIsTypeOf(conml::Domain)">
             <widget xsi:type="properties:ListDescription" name="PR_TypeModels_List" labelExpression="TypeModels:" helpExpression="TypeModels contained in this Domain" valueExpression="aql:input.getSemanticElement().getOwnedTypeModels()" displayExpression="aql:value.modelName()">
               <onClickOperation>
@@ -1970,7 +1986,7 @@
                             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:typeModel"/>
                           </initialOperation>
                         </buttons>
-                        <page name="D_PR_CreateTypeModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.1/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                        <page name="D_PR_CreateTypeModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.5/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                         <groups name="D_PR_CreateTypeModel_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                       </subModelOperations>
                     </subModelOperations>
@@ -2017,7 +2033,7 @@
                             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instanceModel"/>
                           </initialOperation>
                         </buttons>
-                        <page name="D_PR_CreateInstanceModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.2/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                        <page name="D_PR_CreateInstanceModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.6/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                         <groups name="D_PR_CreateInstanceModel_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                       </subModelOperations>
                     </subModelOperations>
@@ -2788,6 +2804,13 @@
             <widget xsi:type="properties:SelectDescription" name="PR_TypeModel_Select" labelExpression="TypeModel" helpExpression="TypeModel of this element" valueExpression="aql:self.getTypeModelOfElement()" candidatesExpression="aql:self.eContainer().getOwnedTypeModels()" candidateDisplayExpression="aql:candidate.modelName() + ' ' + candidate.modelVersion()">
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.setTypeModel(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_Value" predicateExpression="aql:self.oclIsTypeOf(instances::Value)">
+            <widget xsi:type="properties:ButtonDescription" name="PR_GeneralGroup Value NullButton" helpExpression="Sets the contents of Value to null" buttonLabelExpression="Set null">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.nullifyValueContent()"/>
               </initialOperation>
             </widget>
           </ifs>
