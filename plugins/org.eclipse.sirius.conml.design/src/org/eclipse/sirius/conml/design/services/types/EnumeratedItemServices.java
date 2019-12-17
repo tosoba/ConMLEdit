@@ -11,6 +11,14 @@ import conml.types.EnumeratedItem;
 
 public final class EnumeratedItemServices {
 
+  private static final class InstanceHolder {
+    static final EnumeratedItemServices INSTANCE = new EnumeratedItemServices();
+  }
+
+  public static EnumeratedItemServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public String getAbsoluteNameOfEnumeratedItem(final EnumeratedItem enumItem) {
     if (enumItem == null) return "";
     final ArrayList<String> names = new ArrayList<>();

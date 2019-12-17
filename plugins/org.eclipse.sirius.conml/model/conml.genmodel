@@ -198,6 +198,11 @@
         <genEnumLiterals ecoreEnumLiteral="conml.ecore#//instances/DegreeOfCertainty/Improbable"/>
         <genEnumLiterals ecoreEnumLiteral="conml.ecore#//instances/DegreeOfCertainty/Impossible"/>
       </genEnums>
+      <genEnums typeSafeEnumCompatible="false" ecoreEnum="conml.ecore#//instances/EnumeratedItemValueDisplay">
+        <genEnumLiterals ecoreEnumLiteral="conml.ecore#//instances/EnumeratedItemValueDisplay/ABSOLUTE"/>
+        <genEnumLiterals ecoreEnumLiteral="conml.ecore#//instances/EnumeratedItemValueDisplay/FULL_NAME"/>
+        <genEnumLiterals ecoreEnumLiteral="conml.ecore#//instances/EnumeratedItemValueDisplay/FULLY_QUALIFIED_NAME"/>
+      </genEnums>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/Instance"/>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/Facet">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Facet/certainty"/>
@@ -229,6 +234,7 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/InstancedAttribute"/>
         <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Values"/>
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/ValueSet/enumeratedItemValueDisplay"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/ReferenceSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

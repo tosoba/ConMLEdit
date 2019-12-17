@@ -248,6 +248,8 @@
           eType="#//types/Attribute" eOpposite="#//types/Attribute/InstanceValueSets"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="Values" upperBound="-1"
           eType="#//instances/Value" containment="true" eOpposite="#//instances/Value/OwnerValueSet"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeratedItemValueDisplay"
+          lowerBound="1" eType="#//instances/EnumeratedItemValueDisplay" defaultValueLiteral=""/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedSemiAssociation"
@@ -306,6 +308,11 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PerspectiveQualifier"
           eType="#//instances/Object"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="EnumeratedItemValueDisplay">
+      <eLiterals name="ABSOLUTE"/>
+      <eLiterals name="FULL_NAME" value="1"/>
+      <eLiterals name="FULLY_QUALIFIED_NAME" value="2"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

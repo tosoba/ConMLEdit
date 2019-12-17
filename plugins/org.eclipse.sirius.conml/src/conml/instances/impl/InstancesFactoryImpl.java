@@ -3,6 +3,7 @@
 package conml.instances.impl;
 
 import conml.instances.DegreeOfCertainty;
+import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.InstanceModel;
 import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
@@ -87,6 +88,8 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 		switch (eDataType.getClassifierID()) {
 			case InstancesPackage.DEGREE_OF_CERTAINTY:
 				return createDegreeOfCertaintyFromString(eDataType, initialValue);
+			case InstancesPackage.ENUMERATED_ITEM_VALUE_DISPLAY:
+				return createEnumeratedItemValueDisplayFromString(eDataType, initialValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -102,6 +105,8 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 		switch (eDataType.getClassifierID()) {
 			case InstancesPackage.DEGREE_OF_CERTAINTY:
 				return convertDegreeOfCertaintyToString(eDataType, instanceValue);
+			case InstancesPackage.ENUMERATED_ITEM_VALUE_DISPLAY:
+				return convertEnumeratedItemValueDisplayToString(eDataType, instanceValue);
 			default:
 				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
 		}
@@ -205,6 +210,26 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EnumeratedItemValueDisplay createEnumeratedItemValueDisplayFromString(EDataType eDataType, String initialValue) {
+		EnumeratedItemValueDisplay result = EnumeratedItemValueDisplay.get(initialValue);
+		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+		return result;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String convertEnumeratedItemValueDisplayToString(EDataType eDataType, Object instanceValue) {
+		return instanceValue == null ? null : instanceValue.toString();
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

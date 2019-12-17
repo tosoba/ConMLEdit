@@ -607,13 +607,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__VALUES = FACET_SET_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Enumerated Item Value Display</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY = FACET_SET_FEATURE_COUNT + 2;
+
+  /**
 	 * The number of structural features of the '<em>Value Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 2;
+	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Value Set</em>' class.
@@ -1072,6 +1081,17 @@ public interface InstancesPackage extends EPackage {
 
 
 	/**
+	 * The meta object id for the '{@link conml.instances.EnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}' enum.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.EnumeratedItemValueDisplay
+	 * @see conml.instances.impl.InstancesPackageImpl#getEnumeratedItemValueDisplay()
+	 * @generated
+	 */
+	int ENUMERATED_ITEM_VALUE_DISPLAY = 12;
+
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.Instance <em>Instance</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1253,6 +1273,17 @@ public interface InstancesPackage extends EPackage {
 	EReference getValueSet_Values();
 
 	/**
+	 * Returns the meta object for the attribute '{@link conml.instances.ValueSet#getEnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Enumerated Item Value Display</em>'.
+	 * @see conml.instances.ValueSet#getEnumeratedItemValueDisplay()
+	 * @see #getValueSet()
+	 * @generated
+	 */
+	EAttribute getValueSet_EnumeratedItemValueDisplay();
+
+  /**
 	 * Returns the meta object for class '{@link conml.instances.ReferenceSet <em>Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1566,6 +1597,16 @@ public interface InstancesPackage extends EPackage {
 	EEnum getDegreeOfCertainty();
 
 	/**
+	 * Returns the meta object for enum '{@link conml.instances.EnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for enum '<em>Enumerated Item Value Display</em>'.
+	 * @see conml.instances.EnumeratedItemValueDisplay
+	 * @generated
+	 */
+	EEnum getEnumeratedItemValueDisplay();
+
+  /**
 	 * Returns the factory that creates the instances of the model.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1737,6 +1778,14 @@ public interface InstancesPackage extends EPackage {
 		EReference VALUE_SET__VALUES = eINSTANCE.getValueSet_Values();
 
 		/**
+		 * The meta object literal for the '<em><b>Enumerated Item Value Display</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY = eINSTANCE.getValueSet_EnumeratedItemValueDisplay();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.impl.ReferenceSetImpl <em>Reference Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1979,6 +2028,16 @@ public interface InstancesPackage extends EPackage {
 		 * @generated
 		 */
 		EEnum DEGREE_OF_CERTAINTY = eINSTANCE.getDegreeOfCertainty();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.EnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}' enum.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.EnumeratedItemValueDisplay
+		 * @see conml.instances.impl.InstancesPackageImpl#getEnumeratedItemValueDisplay()
+		 * @generated
+		 */
+		EEnum ENUMERATED_ITEM_VALUE_DISPLAY = eINSTANCE.getEnumeratedItemValueDisplay();
 
 	}
 

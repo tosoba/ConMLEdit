@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.instances.ValueSet#getInstancedAttribute <em>Instanced Attribute</em>}</li>
  *   <li>{@link conml.instances.ValueSet#getValues <em>Values</em>}</li>
+ *   <li>{@link conml.instances.ValueSet#getEnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValueSet()
@@ -60,5 +61,31 @@ public interface ValueSet extends FacetSet {
 	 * @generated
 	 */
 	EList<Value> getValues();
+
+        /**
+	 * Returns the value of the '<em><b>Enumerated Item Value Display</b></em>' attribute.
+	 * The default value is <code>""</code>.
+	 * The literals are from the enumeration {@link conml.instances.EnumeratedItemValueDisplay}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Enumerated Item Value Display</em>' attribute.
+	 * @see conml.instances.EnumeratedItemValueDisplay
+	 * @see #setEnumeratedItemValueDisplay(EnumeratedItemValueDisplay)
+	 * @see conml.instances.InstancesPackage#getValueSet_EnumeratedItemValueDisplay()
+	 * @model default="" required="true"
+	 * @generated
+	 */
+	EnumeratedItemValueDisplay getEnumeratedItemValueDisplay();
+
+        /**
+	 * Sets the value of the '{@link conml.instances.ValueSet#getEnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Enumerated Item Value Display</em>' attribute.
+	 * @see conml.instances.EnumeratedItemValueDisplay
+	 * @see #getEnumeratedItemValueDisplay()
+	 * @generated
+	 */
+	void setEnumeratedItemValueDisplay(EnumeratedItemValueDisplay value);
 
 } // ValueSet

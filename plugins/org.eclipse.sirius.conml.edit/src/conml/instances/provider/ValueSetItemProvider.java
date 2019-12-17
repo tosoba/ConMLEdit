@@ -3,6 +3,7 @@
 package conml.instances.provider;
 
 
+import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 
@@ -16,6 +17,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -48,6 +50,7 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 
 			addInstancedAttributePropertyDescriptor(object);
 			addValuesPropertyDescriptor(object);
+			addEnumeratedItemValueDisplayPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -97,6 +100,28 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Enumerated Item Value Display feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addEnumeratedItemValueDisplayPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ValueSet_enumeratedItemValueDisplay_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ValueSet_enumeratedItemValueDisplay_feature", "_UI_ValueSet_type"),
+				 InstancesPackage.Literals.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
 	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
 	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
@@ -145,7 +170,11 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ValueSet_type");
+		EnumeratedItemValueDisplay labelValue = ((ValueSet)object).getEnumeratedItemValueDisplay();
+		String label = labelValue == null ? null : labelValue.toString();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ValueSet_type") :
+			getString("_UI_ValueSet_type") + " " + label;
 	}
 
 
@@ -161,6 +190,9 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(ValueSet.class)) {
+			case InstancesPackage.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
 			case InstancesPackage.VALUE_SET__VALUES:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;

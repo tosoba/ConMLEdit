@@ -7,6 +7,7 @@ import conml.conmlPackage;
 import conml.impl.conmlPackageImpl;
 
 import conml.instances.DegreeOfCertainty;
+import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
 import conml.instances.Instance;
@@ -126,6 +127,13 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	private EEnum degreeOfCertaintyEEnum = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EEnum enumeratedItemValueDisplayEEnum = null;
+
+  /**
 	 * Creates an instance of the model <b>Package</b>, registered with
 	 * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
 	 * package URI value.
@@ -370,6 +378,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	}
 
     /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getValueSet_EnumeratedItemValueDisplay() {
+		return (EAttribute)valueSetEClass.getEStructuralFeatures().get(2);
+	}
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -665,6 +683,16 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EEnum getEnumeratedItemValueDisplay() {
+		return enumeratedItemValueDisplayEEnum;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public InstancesFactory getInstancesFactory() {
 		return (InstancesFactory)getEFactoryInstance();
 	}
@@ -710,6 +738,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		valueSetEClass = createEClass(VALUE_SET);
 		createEReference(valueSetEClass, VALUE_SET__INSTANCED_ATTRIBUTE);
 		createEReference(valueSetEClass, VALUE_SET__VALUES);
+		createEAttribute(valueSetEClass, VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY);
 
 		referenceSetEClass = createEClass(REFERENCE_SET);
 		createEReference(referenceSetEClass, REFERENCE_SET__INSTANCED_SEMI_ASSOCIATION);
@@ -746,6 +775,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		// Create enums
 		degreeOfCertaintyEEnum = createEEnum(DEGREE_OF_CERTAINTY);
+		enumeratedItemValueDisplayEEnum = createEEnum(ENUMERATED_ITEM_VALUE_DISPLAY);
 	}
 
 	/**
@@ -816,6 +846,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEClass(valueSetEClass, ValueSet.class, "ValueSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getValueSet_InstancedAttribute(), theTypesPackage.getAttribute(), theTypesPackage.getAttribute_InstanceValueSets(), "InstancedAttribute", null, 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValueSet_Values(), this.getValue(), this.getValue_OwnerValueSet(), "Values", null, 0, -1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getValueSet_EnumeratedItemValueDisplay(), this.getEnumeratedItemValueDisplay(), "enumeratedItemValueDisplay", "", 1, 1, ValueSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(referenceSetEClass, ReferenceSet.class, "ReferenceSet", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getReferenceSet_InstancedSemiAssociation(), theTypesPackage.getSemiAssociation(), theTypesPackage.getSemiAssociation_InstanceReferenceSets(), "InstancedSemiAssociation", null, 1, 1, ReferenceSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -857,6 +888,11 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		addEEnumLiteral(degreeOfCertaintyEEnum, DegreeOfCertainty.POSSIBLE);
 		addEEnumLiteral(degreeOfCertaintyEEnum, DegreeOfCertainty.IMPROBABLE);
 		addEEnumLiteral(degreeOfCertaintyEEnum, DegreeOfCertainty.IMPOSSIBLE);
+
+		initEEnum(enumeratedItemValueDisplayEEnum, EnumeratedItemValueDisplay.class, "EnumeratedItemValueDisplay");
+		addEEnumLiteral(enumeratedItemValueDisplayEEnum, EnumeratedItemValueDisplay.ABSOLUTE);
+		addEEnumLiteral(enumeratedItemValueDisplayEEnum, EnumeratedItemValueDisplay.FULL_NAME);
+		addEEnumLiteral(enumeratedItemValueDisplayEEnum, EnumeratedItemValueDisplay.FULLY_QUALIFIED_NAME);
 	}
 
 } //InstancesPackageImpl

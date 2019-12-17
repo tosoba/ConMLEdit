@@ -4,6 +4,7 @@
  */
 package conml.instances.validation;
 
+import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.Value;
 import conml.types.Attribute;
 import org.eclipse.emf.common.util.EList;
@@ -21,6 +22,8 @@ public interface ValueSetValidator {
 
   boolean validateValues(EList<Value> value);
 
-    boolean validateIsAnInstanceOf(Attribute value);
+    boolean validateEnumeratedItemValueDisplay(EnumeratedItemValueDisplay value);
+
+        boolean validateIsAnInstanceOf(Attribute value);
 	boolean validateOwner(conml.instances.Object value);
 }

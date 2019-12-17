@@ -5,6 +5,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
+import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.Facet;
@@ -13,6 +14,7 @@ import conml.instances.ValueSet;
 import conml.types.Attribute;
 import conml.types.BaseDataType;
 import conml.types.DataType;
+import conml.types.EnumeratedItem;
 import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
 
@@ -127,19 +129,22 @@ public class ValueSetServices {
             // TODO:
             break;
         }
-        // TODO: think about what to do when there is a lot of values... CONTENT_LABELS_LIMIT is a
-        // temporary solution
+
         sb.append(
             contentLabels.stream().limit(CONTENT_LABELS_LIMIT).collect(Collectors.joining("; ")));
         if (contentLabels.size() > CONTENT_LABELS_LIMIT) sb.append(";...");
-
       } else if (dataType instanceof EnumeratedType) {
-        final EnumeratedType enumType = (EnumeratedType) dataType;
-        // TODO: depending on the situation (p. 52)? Maybe add a style radioGroup to ValueSet or
-        // Value with options below:
-        // absolute name: subItemOf/Item
-        // full name: enumTypeName.subItemOf/Item
-        // fully qualified name: packageName.enumTypeName.subItemOf/Item
+        for (final Facet facet : valueSet.getValues()) {
+          final FacetValidation facetValidation =
+              validateFacet(
+                  facet,
+                  EnumeratedItem.class,
+                  (contents) ->
+                      EnumeratedItemServices.getInstance()
+                          .getFullNameOfEnumeratedItem((EnumeratedItem) contents));
+          if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
+          else return facetValidation.errorMsg;
+        }
       }
     }
 
