@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.services.types.label.PackageLabelServices;
 
 import conml.types.EnumeratedItem;
 
@@ -21,5 +22,17 @@ public final class EnumeratedItemServices {
     }
     Collections.reverse(names);
     return names.stream().collect(Collectors.joining("/"));
+  }
+
+  public String getFullNameOfEnumeratedItem(final EnumeratedItem enumItem) {
+    return enumItem.getOwnerType().getName() + "." + getAbsoluteNameOfEnumeratedItem(enumItem);
+  }
+
+  public String getFullyQualifiedNameOfEnumeratedItem(final EnumeratedItem enumItem) {
+    if (enumItem.getOwnerType().getPackage() == null) return getFullNameOfEnumeratedItem(enumItem);
+    else
+      return PackageLabelServices.getInstance().packageLabel(enumItem.getOwnerType().getPackage())
+          + "."
+          + getFullNameOfEnumeratedItem(enumItem);
   }
 }

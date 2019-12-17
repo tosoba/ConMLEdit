@@ -2798,6 +2798,15 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="if_it_is_textValue" predicateExpression="service:self.isTextValue">
+            <widget xsi:type="properties:TextDescription" name="PR_GeneralGroup isTextValueText" labelExpression="Content" helpExpression="Content of the text value" valueExpression="aql:self.textValueContent()">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.setTextValueContent(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_numberValue" predicateExpression="service:self.isNumberValue"/>
+          <ifs name="if_it_is_timeValue" predicateExpression="service:self.isTimeValue"/>
         </controls>
         <controls xsi:type="properties:DynamicMappingForDescription" name="GeneralDynamicMapping" iterator="eStructuralFeature" iterableExpression="service:self.sortedCreationDialogStructuralFeatures">
           <ifs name="general_mono_string_if" predicateExpression="aql:input.emfEditServices(self).needsTextWidget(eStructuralFeature) and not input.emfEditServices(self).isMultiline(eStructuralFeature)">

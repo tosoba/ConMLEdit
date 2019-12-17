@@ -16,18 +16,45 @@ public class ValueServices {
     return hasSimpleDataType(object, BaseDataType.BOOLEAN);
   }
 
-  public boolean booleanValueContent(final EObject object) {
+  public boolean isTextValue(final EObject object) {
+    return hasSimpleDataType(object, BaseDataType.TEXT);
+  }
+
+  public boolean isNumberValue(final EObject object) {
+    return hasSimpleDataType(object, BaseDataType.NUMBER);
+  }
+
+  public boolean isTimeValue(final EObject object) {
+    return hasSimpleDataType(object, BaseDataType.TIME);
+  }
+
+  public Boolean booleanValueContent(final EObject object) {
     return ConML.castAndRunOrReturn(
         object,
         Value.class,
         value -> {
-          if (value.getContents() == null) value.setContents(false);
-          return (boolean) value.getContents();
+          if (value.getContents() == null) return null;
+          return (Boolean) value.getContents();
         },
         false);
   }
 
+  public String textValueContent(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Value.class,
+        value -> {
+          if (value.getContents() == null) return null;
+          return (String) value.getContents();
+        },
+        null);
+  }
+
   public void setBooleanValueContent(final Value value, final Boolean content) {
+    value.setContents(content);
+  }
+
+  public void setTextValueContent(final Value value, final String content) {
     value.setContents(content);
   }
 

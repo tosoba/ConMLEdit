@@ -67,7 +67,6 @@ public class ValueSetServices {
     if (valueSet == null) return "";
 
     final Attribute attribute = valueSet.getInstancedAttribute();
-    // TODO: think what to show here if instanced attribute is not set
     if (attribute == null) return "<No instanced attribute specified>";
 
     final DataType dataType = attribute.getDatatype();
@@ -130,11 +129,11 @@ public class ValueSetServices {
 
       } else if (dataType instanceof EnumeratedType) {
         final EnumeratedType enumType = (EnumeratedType) dataType;
-        // TODO: depending on the situation (p. 52)?
+        // TODO: depending on the situation (p. 52)? Maybe add a style radioGroup to ValueSet or
+        // Value with options below:
         // absolute name: subItemOf/Item
         // full name: enumTypeName.subItemOf/Item
         // fully qualified name: packageName.enumTypeName.subItemOf/Item
-
       }
     }
 
