@@ -3,24 +3,17 @@ package org.eclipse.sirius.conml.design.services.types;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Objects;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.sirius.conml.design.Activator;
-import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
-import org.eclipse.sirius.conml.design.util.messages.Messages;
 
-import conml.Domain;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.types.Association;
 import conml.types.Class;
 import conml.types.SemiAssociation;
-import conml.types.TypeModel;
-import conml.types.TypesFactory;
 
 public final class AssociationServices {
 
@@ -33,15 +26,7 @@ public final class AssociationServices {
   }
 
   public void compactAssociation(final Association association) {
-    if (!association.isCompact()
-        && compactSemiAssociationCardinalitiesAreValid(
-            association.getPrimarySemiAssociation(),
-            association.getSecondarySemiAssociation().getReferredClass(),
-            false)
-        && compactSemiAssociationTargetIsValid(
-            association.getPrimarySemiAssociation(),
-            association.getSecondarySemiAssociation().getReferredClass(),
-            false)) {
+    if (!association.isCompact()) {
       association.setCompact(true);
     }
   }
@@ -76,95 +61,6 @@ public final class AssociationServices {
         : null;
   }
 
-  private boolean compactSemiAssociationCardinalitiesAreValid(
-      final SemiAssociation primary, final Class source, final boolean removePrimaryIfInvalid) {
-    final int minPrimaryCardinality = primary.getMinimumCardinality();
-    final Integer maxPrimaryCardinality = primary.getMaximumCardinality();
-    // TODO: should this allow more options (for example maxCardinality = 2 or
-    // minCardinality=1)?
-    if (minPrimaryCardinality != 0
-        || (maxPrimaryCardinality != null && !Objects.equals(maxPrimaryCardinality, 1))) {
-      if (removePrimaryIfInvalid) {
-        source.getSemiAssociations().remove(primary);
-        EcoreUtil.delete(primary);
-      }
-      Dialogs.showError(Messages.getString("Error.CompactCardinalities"));
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  // TODO: should this stay like that? Why not let the user create the invalid compact semi and then
-  // set referredClass after validating the diagram?
-  private boolean compactSemiAssociationTargetIsValid(
-      final SemiAssociation primary, final Class source, final boolean removePrimaryIfInvalid) {
-    final Class target = primary.getReferredClass();
-    if (target == null) {
-      if (removePrimaryIfInvalid) {
-        source.getSemiAssociations().remove(primary);
-        EcoreUtil.delete(primary);
-      }
-      Dialogs.showError(Messages.getString("Error.AssociationTargetIsNull"));
-      return false;
-    } else if (EcoreUtil.equals(source, target)) {
-      if (removePrimaryIfInvalid) {
-        source.getSemiAssociations().remove(primary);
-        EcoreUtil.delete(primary);
-      }
-      Dialogs.showError(Messages.getString("Error.CompactSymmetricAssociation"));
-      return false;
-    } else {
-      return true;
-    }
-  }
-
-  public void addToAssociation(final SemiAssociation primary, final Class source) {
-    // TODO: maybe remove these checks from here and put them in validations instead...
-    if (!compactSemiAssociationCardinalitiesAreValid(primary, source, true)
-        || !compactSemiAssociationTargetIsValid(primary, source, true)) return;
-
-    final TypeModel sourceTypeModel = source.getTypeModel();
-    if (sourceTypeModel == null) {
-      Activator.logError(
-          new IllegalStateException(
-              Messages.getString("ExceptionMessage.IsNull", "Source TypeModel")));
-      return;
-    }
-
-    final Association association = TypesFactory.eINSTANCE.createAssociation();
-    association.setDefinition(ModelElementServices.getInstance().defaultDefinition(association));
-    association.setCompact(true);
-    final String primaryName = source.getName() + "s";
-    association.setName(primaryName);
-    primary.setPrimaryInAssociation(association);
-
-    // TODO: cardinalities for secondary association
-    final Class target = primary.getReferredClass();
-    final SemiAssociation secondary = TypesFactory.eINSTANCE.createSemiAssociation();
-    final String secondaryName = target.getName() + "s";
-    secondary.setName(secondaryName);
-    secondary.setRole(secondaryName);
-    secondary.setSecondaryInAssociation(association);
-    secondary.setReferredClass(source);
-    association.setSecondarySemiAssociation(secondary);
-
-    primary.setInverseSemiAssociation(secondary);
-    secondary.setInverseSemiAssociation(primary);
-
-    addToOwnedSemiAssociations(primary, source);
-    addToOwnedSemiAssociations(secondary, target);
-
-    final Domain domain = (Domain) source.eContainer();
-    domain.getParts().add(association);
-  }
-
-  private void addToOwnedSemiAssociations(
-      final SemiAssociation semiAssociation, final Class clazz) {
-    clazz.getSemiAssociations().add(semiAssociation);
-    semiAssociation.setOwnerClass(clazz);
-  }
-
   public void moveAssociationUp(final EObject object) {
     ConML.castAndRun(
         object,
@@ -173,7 +69,6 @@ public final class AssociationServices {
             ModelElementServices.getInstance()
                 .moveTypeModelElement(
                     association, Association.class, ConML.ElementMovementDirection.UP));
-    ;
   }
 
   public void moveAssociationDown(final EObject object) {
