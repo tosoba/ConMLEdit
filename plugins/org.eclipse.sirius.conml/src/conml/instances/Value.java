@@ -13,37 +13,37 @@ import java.lang.Object;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.Value#getContents <em>Contents</em>}</li>
  *   <li>{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}</li>
  *   <li>{@link conml.instances.Value#isUnknown <em>Unknown</em>}</li>
+ *   <li>{@link conml.instances.Value#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValue()
  * @model
  * @generated
  */
-public interface Value extends Facet {
+public interface Value<T> extends Facet {
 	/**
-	 * Returns the value of the '<em><b>Contents</b></em>' attribute.
+	 * Returns the value of the '<em><b>Contents</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contents</em>' attribute.
+	 * @return the value of the '<em>Contents</em>' reference.
 	 * @see #setContents(Object)
 	 * @see conml.instances.InstancesPackage#getValue_Contents()
-	 * @model dataType="org.eclipse.emf.ecore.xml.type.AnySimpleType" required="true"
+	 * @model kind="reference"
 	 * @generated
 	 */
-	Object getContents();
+	T getContents();
 
 	/**
-	 * Sets the value of the '{@link conml.instances.Value#getContents <em>Contents</em>}' attribute.
+	 * Sets the value of the '{@link conml.instances.Value#getContents <em>Contents</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contents</em>' attribute.
+	 * @param value the new value of the '<em>Contents</em>' reference.
 	 * @see #getContents()
 	 * @generated
 	 */
-	void setContents(Object value);
+	void setContents(T value);
 
   /**
 	 * Returns the value of the '<em><b>Owner Value Set</b></em>' container reference.

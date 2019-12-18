@@ -2,14 +2,20 @@
  */
 package conml.instances.impl;
 
+import conml.instances.BoolValue;
+import conml.instances.DataValue;
 import conml.instances.DegreeOfCertainty;
+import conml.instances.EnumValue;
 import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.InstanceModel;
 import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
+import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
+import conml.instances.StringValue;
+import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 
@@ -73,6 +79,12 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 			case InstancesPackage.OBJECT: return createObject();
 			case InstancesPackage.LINK: return createLink();
 			case InstancesPackage.VALUE: return createValue();
+			case InstancesPackage.STRING_VALUE: return createStringValue();
+			case InstancesPackage.BOOL_VALUE: return createBoolValue();
+			case InstancesPackage.TIME_VALUE: return createTimeValue();
+			case InstancesPackage.NUMBER_VALUE: return createNumberValue();
+			case InstancesPackage.DATA_VALUE: return createDataValue();
+			case InstancesPackage.ENUM_VALUE: return createEnumValue();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -184,12 +196,78 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 	 * @generated
 	 */
 	@Override
-	public Value createValue() {
-		ValueImpl value = new ValueImpl();
+	public <T> Value<T> createValue() {
+		ValueImpl<T> value = new ValueImpl<T>();
 		return value;
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public StringValue createStringValue() {
+		StringValueImpl stringValue = new StringValueImpl();
+		return stringValue;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public BoolValue createBoolValue() {
+		BoolValueImpl boolValue = new BoolValueImpl();
+		return boolValue;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public TimeValue createTimeValue() {
+		TimeValueImpl timeValue = new TimeValueImpl();
+		return timeValue;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NumberValue createNumberValue() {
+		NumberValueImpl numberValue = new NumberValueImpl();
+		return numberValue;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DataValue createDataValue() {
+		DataValueImpl dataValue = new DataValueImpl();
+		return dataValue;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EnumValue createEnumValue() {
+		EnumValueImpl enumValue = new EnumValueImpl();
+		return enumValue;
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

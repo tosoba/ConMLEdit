@@ -82,9 +82,63 @@ public interface InstancesFactory extends EFactory {
 	 * @return a new object of class '<em>Value</em>'.
 	 * @generated
 	 */
-	Value createValue();
+	<T> Value<T> createValue();
 
 	/**
+	 * Returns a new object of class '<em>String Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>String Value</em>'.
+	 * @generated
+	 */
+	StringValue createStringValue();
+
+  /**
+	 * Returns a new object of class '<em>Bool Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Bool Value</em>'.
+	 * @generated
+	 */
+	BoolValue createBoolValue();
+
+  /**
+	 * Returns a new object of class '<em>Time Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Time Value</em>'.
+	 * @generated
+	 */
+	TimeValue createTimeValue();
+
+  /**
+	 * Returns a new object of class '<em>Number Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Number Value</em>'.
+	 * @generated
+	 */
+	NumberValue createNumberValue();
+
+  /**
+	 * Returns a new object of class '<em>Data Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Data Value</em>'.
+	 * @generated
+	 */
+	DataValue createDataValue();
+
+  /**
+	 * Returns a new object of class '<em>Enum Value</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Enum Value</em>'.
+	 * @generated
+	 */
+	EnumValue createEnumValue();
+
+  /**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -1025,22 +1025,13 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__CERTAINTY = FACET__CERTAINTY;
 
 	/**
-	 * The feature id for the '<em><b>Contents</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__CONTENTS = FACET_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__OWNER_VALUE_SET = FACET_FEATURE_COUNT + 1;
+	int VALUE__OWNER_VALUE_SET = FACET_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
@@ -1049,9 +1040,18 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE__UNKNOWN = FACET_FEATURE_COUNT + 2;
+	int VALUE__UNKNOWN = FACET_FEATURE_COUNT + 1;
 
   /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE__CONTENTS = FACET_FEATURE_COUNT + 2;
+
+    /**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1070,6 +1070,552 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_OPERATION_COUNT = FACET_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link conml.instances.impl.StringValueImpl <em>String Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.StringValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getStringValue()
+	 * @generated
+	 */
+	int STRING_VALUE = 11;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>String Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>String Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
+	 * The meta object id for the '{@link conml.instances.impl.BoolValueImpl <em>Bool Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.BoolValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getBoolValue()
+	 * @generated
+	 */
+	int BOOL_VALUE = 12;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>Bool Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>Bool Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BOOL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
+	 * The meta object id for the '{@link conml.instances.impl.TimeValueImpl <em>Time Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.TimeValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getTimeValue()
+	 * @generated
+	 */
+	int TIME_VALUE = 13;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>Time Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>Time Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TIME_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
+	 * The meta object id for the '{@link conml.instances.impl.NumberValueImpl <em>Number Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.NumberValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getNumberValue()
+	 * @generated
+	 */
+	int NUMBER_VALUE = 14;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>Number Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>Number Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NUMBER_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
+	 * The meta object id for the '{@link conml.instances.impl.DataValueImpl <em>Data Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.DataValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getDataValue()
+	 * @generated
+	 */
+	int DATA_VALUE = 15;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>Data Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>Data Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
+	 * The meta object id for the '{@link conml.instances.impl.EnumValueImpl <em>Enum Value</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.EnumValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getEnumValue()
+	 * @generated
+	 */
+	int ENUM_VALUE = 16;
+
+  /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__TAGS = VALUE__TAGS;
+
+  /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+
+  /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+
+  /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__CERTAINTY = VALUE__CERTAINTY;
+
+  /**
+	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+
+  /**
+	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__UNKNOWN = VALUE__UNKNOWN;
+
+  /**
+	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE__CONTENTS = VALUE__CONTENTS;
+
+  /**
+	 * The number of structural features of the '<em>Enum Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of operations of the '<em>Enum Value</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENUM_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+
+  /**
 	 * The meta object id for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1077,7 +1623,7 @@ public interface InstancesPackage extends EPackage {
 	 * @see conml.instances.impl.InstancesPackageImpl#getDegreeOfCertainty()
 	 * @generated
 	 */
-	int DEGREE_OF_CERTAINTY = 11;
+	int DEGREE_OF_CERTAINTY = 17;
 
 
 	/**
@@ -1088,7 +1634,7 @@ public interface InstancesPackage extends EPackage {
 	 * @see conml.instances.impl.InstancesPackageImpl#getEnumeratedItemValueDisplay()
 	 * @generated
 	 */
-	int ENUMERATED_ITEM_VALUE_DISPLAY = 12;
+	int ENUMERATED_ITEM_VALUE_DISPLAY = 18;
 
 
   /**
@@ -1511,17 +2057,6 @@ public interface InstancesPackage extends EPackage {
 	EClass getValue();
 
 	/**
-	 * Returns the meta object for the attribute '{@link conml.instances.Value#getContents <em>Contents</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Contents</em>'.
-	 * @see conml.instances.Value#getContents()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EAttribute getValue_Contents();
-
-	/**
 	 * Returns the meta object for the container reference '{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1544,6 +2079,17 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getValue_Unknown();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.instances.Value#getContents <em>Contents</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Contents</em>'.
+	 * @see conml.instances.Value#getContents()
+	 * @see #getValue()
+	 * @generated
+	 */
+	EReference getValue_Contents();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.FacetSet <em>Facet Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1587,6 +2133,66 @@ public interface InstancesPackage extends EPackage {
 	EReference getFacetSet_PerspectiveQualifier();
 
 	/**
+	 * Returns the meta object for class '{@link conml.instances.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>String Value</em>'.
+	 * @see conml.instances.StringValue
+	 * @generated
+	 */
+	EClass getStringValue();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.BoolValue <em>Bool Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Bool Value</em>'.
+	 * @see conml.instances.BoolValue
+	 * @generated
+	 */
+	EClass getBoolValue();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.TimeValue <em>Time Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Time Value</em>'.
+	 * @see conml.instances.TimeValue
+	 * @generated
+	 */
+	EClass getTimeValue();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.NumberValue <em>Number Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Number Value</em>'.
+	 * @see conml.instances.NumberValue
+	 * @generated
+	 */
+	EClass getNumberValue();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.DataValue <em>Data Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Data Value</em>'.
+	 * @see conml.instances.DataValue
+	 * @generated
+	 */
+	EClass getDataValue();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.EnumValue <em>Enum Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Enum Value</em>'.
+	 * @see conml.instances.EnumValue
+	 * @generated
+	 */
+	EClass getEnumValue();
+
+  /**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1962,14 +2568,6 @@ public interface InstancesPackage extends EPackage {
 		EClass VALUE = eINSTANCE.getValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Contents</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute VALUE__CONTENTS = eINSTANCE.getValue_Contents();
-
-		/**
 		 * The meta object literal for the '<em><b>Owner Value Set</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1986,6 +2584,14 @@ public interface InstancesPackage extends EPackage {
 		EAttribute VALUE__UNKNOWN = eINSTANCE.getValue_Unknown();
 
     /**
+		 * The meta object literal for the '<em><b>Contents</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE__CONTENTS = eINSTANCE.getValue_Contents();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.FacetSetImpl <em>Facet Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2020,6 +2626,66 @@ public interface InstancesPackage extends EPackage {
 		EReference FACET_SET__PERSPECTIVE_QUALIFIER = eINSTANCE.getFacetSet_PerspectiveQualifier();
 
 		/**
+		 * The meta object literal for the '{@link conml.instances.impl.StringValueImpl <em>String Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.StringValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getStringValue()
+		 * @generated
+		 */
+		EClass STRING_VALUE = eINSTANCE.getStringValue();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.BoolValueImpl <em>Bool Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.BoolValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getBoolValue()
+		 * @generated
+		 */
+		EClass BOOL_VALUE = eINSTANCE.getBoolValue();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.TimeValueImpl <em>Time Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.TimeValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getTimeValue()
+		 * @generated
+		 */
+		EClass TIME_VALUE = eINSTANCE.getTimeValue();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.NumberValueImpl <em>Number Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.NumberValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getNumberValue()
+		 * @generated
+		 */
+		EClass NUMBER_VALUE = eINSTANCE.getNumberValue();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.DataValueImpl <em>Data Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.DataValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getDataValue()
+		 * @generated
+		 */
+		EClass DATA_VALUE = eINSTANCE.getDataValue();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.EnumValueImpl <em>Enum Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.EnumValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getEnumValue()
+		 * @generated
+		 */
+		EClass ENUM_VALUE = eINSTANCE.getEnumValue();
+
+    /**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

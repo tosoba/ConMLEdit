@@ -290,6 +290,36 @@ public class DomainItemProvider
 			(createChildParameter
 				(conmlPackage.Literals.DOMAIN__PARTS,
 				 InstancesFactory.eINSTANCE.createValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createStringValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createBoolValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createTimeValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createNumberValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createDataValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createEnumValue()));
 	}
 
 	/**

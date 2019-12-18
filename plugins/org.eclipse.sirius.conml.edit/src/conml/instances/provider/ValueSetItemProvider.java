@@ -215,6 +215,36 @@ public class ValueSetItemProvider extends FacetSetItemProvider {
 			(createChildParameter
 				(InstancesPackage.Literals.VALUE_SET__VALUES,
 				 InstancesFactory.eINSTANCE.createValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createStringValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createBoolValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createTimeValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createNumberValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createDataValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(InstancesPackage.Literals.VALUE_SET__VALUES,
+				 InstancesFactory.eINSTANCE.createEnumValue()));
 	}
 
 }

@@ -8,6 +8,9 @@ import conml.ModelElement;
 import conml.ModelPart;
 
 import conml.NamedElement;
+import conml.instances.BoolValue;
+import conml.instances.DataValue;
+import conml.instances.EnumValue;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
 import conml.instances.Instance;
@@ -15,8 +18,11 @@ import conml.instances.InstanceModel;
 import conml.instances.InstanceModelElement;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
+import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
+import conml.instances.StringValue;
+import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 
@@ -120,12 +126,36 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 				return createLinkAdapter();
 			}
 			@Override
-			public Adapter caseValue(Value object) {
+			public <T> Adapter caseValue(Value<T> object) {
 				return createValueAdapter();
 			}
 			@Override
 			public Adapter caseFacetSet(FacetSet object) {
 				return createFacetSetAdapter();
+			}
+			@Override
+			public Adapter caseStringValue(StringValue object) {
+				return createStringValueAdapter();
+			}
+			@Override
+			public Adapter caseBoolValue(BoolValue object) {
+				return createBoolValueAdapter();
+			}
+			@Override
+			public Adapter caseTimeValue(TimeValue object) {
+				return createTimeValueAdapter();
+			}
+			@Override
+			public Adapter caseNumberValue(NumberValue object) {
+				return createNumberValueAdapter();
+			}
+			@Override
+			public Adapter caseDataValue(DataValue object) {
+				return createDataValueAdapter();
+			}
+			@Override
+			public Adapter caseEnumValue(EnumValue object) {
+				return createEnumValueAdapter();
 			}
 			@Override
 			public Adapter caseModelPart(ModelPart object) {
@@ -322,6 +352,90 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
+	 * Creates a new adapter for an object of class '{@link conml.instances.StringValue <em>String Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.StringValue
+	 * @generated
+	 */
+	public Adapter createStringValueAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.BoolValue <em>Bool Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.BoolValue
+	 * @generated
+	 */
+	public Adapter createBoolValueAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.TimeValue <em>Time Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.TimeValue
+	 * @generated
+	 */
+	public Adapter createTimeValueAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.NumberValue <em>Number Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.NumberValue
+	 * @generated
+	 */
+	public Adapter createNumberValueAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.DataValue <em>Data Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.DataValue
+	 * @generated
+	 */
+	public Adapter createDataValueAdapter() {
+		return null;
+	}
+
+  /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.EnumValue <em>Enum Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.EnumValue
+	 * @generated
+	 */
+	public Adapter createEnumValueAdapter() {
+		return null;
+	}
+
+  /**
 	 * Creates a new adapter for an object of class '{@link conml.ModelPart <em>Model Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

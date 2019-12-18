@@ -2,18 +2,18 @@
  */
 package conml.instances.tests;
 
+import conml.instances.DataValue;
 import conml.instances.InstancesFactory;
-import conml.instances.Value;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Value</b></em>'.
+ * A test case for the model object '<em><b>Data Value</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class ValueTest extends FacetTest {
+public class DataValueTest extends ValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class ValueTest extends FacetTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(ValueTest.class);
+		TestRunner.run(DataValueTest.class);
 	}
 
 	/**
-	 * Constructs a new Value test case with the given name.
+	 * Constructs a new Data Value test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ValueTest(String name) {
+	public DataValueTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Value test case.
+	 * Returns the fixture for this Data Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected Value<?> getFixture() {
-		return (Value<?>)fixture;
+	protected DataValue getFixture() {
+		return (DataValue)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class ValueTest extends FacetTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(InstancesFactory.eINSTANCE.createValue());
+		setFixture(InstancesFactory.eINSTANCE.createDataValue());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class ValueTest extends FacetTest {
 		setFixture(null);
 	}
 
-} //ValueTest
+} //DataValueTest

@@ -6,7 +6,10 @@ import conml.conmlPackage;
 
 import conml.impl.conmlPackageImpl;
 
+import conml.instances.BoolValue;
+import conml.instances.DataValue;
 import conml.instances.DegreeOfCertainty;
+import conml.instances.EnumValue;
 import conml.instances.EnumeratedItemValueDisplay;
 import conml.instances.Facet;
 import conml.instances.FacetSet;
@@ -16,8 +19,11 @@ import conml.instances.InstanceModelElement;
 import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
+import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
+import conml.instances.StringValue;
+import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 
@@ -28,9 +34,11 @@ import conml.types.impl.TypesPackageImpl;
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
+import org.eclipse.emf.ecore.ETypeParameter;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.eclipse.emf.ecore.xml.type.XMLTypePackage;
@@ -120,6 +128,48 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	private EClass facetSetEClass = null;
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass stringValueEClass = null;
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass boolValueEClass = null;
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass timeValueEClass = null;
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass numberValueEClass = null;
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass dataValueEClass = null;
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass enumValueEClass = null;
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -603,8 +653,8 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
-	public EAttribute getValue_Contents() {
-		return (EAttribute)valueEClass.getEStructuralFeatures().get(0);
+	public EReference getValue_Contents() {
+		return (EReference)valueEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -614,7 +664,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getValue_OwnerValueSet() {
-		return (EReference)valueEClass.getEStructuralFeatures().get(1);
+		return (EReference)valueEClass.getEStructuralFeatures().get(0);
 	}
 
   /**
@@ -624,7 +674,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EAttribute getValue_Unknown() {
-		return (EAttribute)valueEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)valueEClass.getEStructuralFeatures().get(1);
 	}
 
     /**
@@ -668,6 +718,66 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getStringValue() {
+		return stringValueEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getBoolValue() {
+		return boolValueEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getTimeValue() {
+		return timeValueEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getNumberValue() {
+		return numberValueEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDataValue() {
+		return dataValueEClass;
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEnumValue() {
+		return enumValueEClass;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -764,14 +874,26 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEAttribute(linkEClass, LINK__COMPACT);
 
 		valueEClass = createEClass(VALUE);
-		createEAttribute(valueEClass, VALUE__CONTENTS);
 		createEReference(valueEClass, VALUE__OWNER_VALUE_SET);
 		createEAttribute(valueEClass, VALUE__UNKNOWN);
+		createEReference(valueEClass, VALUE__CONTENTS);
 
 		facetSetEClass = createEClass(FACET_SET);
 		createEReference(facetSetEClass, FACET_SET__TRANSLATION_QUALIFIERS);
 		createEReference(facetSetEClass, FACET_SET__PHASE_QUALIFIER);
 		createEReference(facetSetEClass, FACET_SET__PERSPECTIVE_QUALIFIER);
+
+		stringValueEClass = createEClass(STRING_VALUE);
+
+		boolValueEClass = createEClass(BOOL_VALUE);
+
+		timeValueEClass = createEClass(TIME_VALUE);
+
+		numberValueEClass = createEClass(NUMBER_VALUE);
+
+		dataValueEClass = createEClass(DATA_VALUE);
+
+		enumValueEClass = createEClass(ENUM_VALUE);
 
 		// Create enums
 		degreeOfCertaintyEEnum = createEEnum(DEGREE_OF_CERTAINTY);
@@ -807,6 +929,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		XMLTypePackage theXMLTypePackage = (XMLTypePackage)EPackage.Registry.INSTANCE.getEPackage(XMLTypePackage.eNS_URI);
 
 		// Create type parameters
+		ETypeParameter valueEClass_T = addETypeParameter(valueEClass, "T");
 
 		// Set bounds for type parameters
 
@@ -822,6 +945,30 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		linkEClass.getESuperTypes().add(this.getInstance());
 		valueEClass.getESuperTypes().add(this.getFacet());
 		facetSetEClass.getESuperTypes().add(this.getInstance());
+		EGenericType g1 = createEGenericType(this.getValue());
+		EGenericType g2 = createEGenericType(theXMLTypePackage.getString());
+		g1.getETypeArguments().add(g2);
+		stringValueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getValue());
+		g2 = createEGenericType(theXMLTypePackage.getBooleanObject());
+		g1.getETypeArguments().add(g2);
+		boolValueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getValue());
+		g2 = createEGenericType(ecorePackage.getEDate());
+		g1.getETypeArguments().add(g2);
+		timeValueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getValue());
+		g2 = createEGenericType(ecorePackage.getEDoubleObject());
+		g1.getETypeArguments().add(g2);
+		numberValueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getValue());
+		g2 = createEGenericType(theXMLTypePackage.getAnySimpleType());
+		g1.getETypeArguments().add(g2);
+		dataValueEClass.getEGenericSuperTypes().add(g1);
+		g1 = createEGenericType(this.getValue());
+		g2 = createEGenericType(theTypesPackage.getEnumeratedItem());
+		g1.getETypeArguments().add(g2);
+		enumValueEClass.getEGenericSuperTypes().add(g1);
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instanceEClass, Instance.class, "Instance", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -872,14 +1019,27 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEAttribute(getLink_Compact(), theXMLTypePackage.getBoolean(), "compact", "false", 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(valueEClass, Value.class, "Value", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getValue_Contents(), theXMLTypePackage.getAnySimpleType(), "contents", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getValue_OwnerValueSet(), this.getValueSet(), this.getValueSet_Values(), "OwnerValueSet", null, 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getValue_Unknown(), ecorePackage.getEBoolean(), "unknown", "false", 1, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		g1 = createEGenericType(valueEClass_T);
+		initEReference(getValue_Contents(), g1, null, "contents", null, 0, 1, Value.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(facetSetEClass, FacetSet.class, "FacetSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFacetSet_TranslationQualifiers(), theconmlPackage.getLanguage(), null, "TranslationQualifiers", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFacetSet_PhaseQualifier(), this.getObject(), null, "PhaseQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getFacetSet_PerspectiveQualifier(), this.getObject(), null, "PerspectiveQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(stringValueEClass, StringValue.class, "StringValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(boolValueEClass, BoolValue.class, "BoolValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(timeValueEClass, TimeValue.class, "TimeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(numberValueEClass, NumberValue.class, "NumberValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(dataValueEClass, DataValue.class, "DataValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(degreeOfCertaintyEEnum, DegreeOfCertainty.class, "DegreeOfCertainty");

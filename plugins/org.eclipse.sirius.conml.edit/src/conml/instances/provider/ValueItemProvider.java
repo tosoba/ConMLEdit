@@ -46,33 +46,11 @@ public class ValueItemProvider extends FacetItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addContentsPropertyDescriptor(object);
 			addOwnerValueSetPropertyDescriptor(object);
 			addUnknownPropertyDescriptor(object);
+			addContentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
-	}
-
-	/**
-	 * This adds a property descriptor for the Contents feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Value_contents_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_contents_feature", "_UI_Value_type"),
-				 InstancesPackage.Literals.VALUE__CONTENTS,
-				 true,
-				 false,
-				 false,
-				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
-				 null,
-				 null));
 	}
 
 	/**
@@ -120,6 +98,28 @@ public class ValueItemProvider extends FacetItemProvider {
 	}
 
     /**
+	 * This adds a property descriptor for the Contents feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Value_contents_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Value_contents_feature", "_UI_Value_type"),
+				 InstancesPackage.Literals.VALUE__CONTENTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+        /**
 	 * This returns Value.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +138,7 @@ public class ValueItemProvider extends FacetItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		DegreeOfCertainty labelValue = ((Value)object).getCertainty();
+		DegreeOfCertainty labelValue = ((Value<?>)object).getCertainty();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Value_type") :
@@ -158,7 +158,6 @@ public class ValueItemProvider extends FacetItemProvider {
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(Value.class)) {
-			case InstancesPackage.VALUE__CONTENTS:
 			case InstancesPackage.VALUE__UNKNOWN:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;

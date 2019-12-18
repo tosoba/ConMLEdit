@@ -233,6 +233,144 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link conml.instances.StringValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected StringValueItemProvider stringValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.StringValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createStringValueAdapter() {
+		if (stringValueItemProvider == null) {
+			stringValueItemProvider = new StringValueItemProvider(this);
+		}
+
+		return stringValueItemProvider;
+	}
+
+  /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.BoolValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected BoolValueItemProvider boolValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.BoolValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createBoolValueAdapter() {
+		if (boolValueItemProvider == null) {
+			boolValueItemProvider = new BoolValueItemProvider(this);
+		}
+
+		return boolValueItemProvider;
+	}
+
+  /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.TimeValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected TimeValueItemProvider timeValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.TimeValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createTimeValueAdapter() {
+		if (timeValueItemProvider == null) {
+			timeValueItemProvider = new TimeValueItemProvider(this);
+		}
+
+		return timeValueItemProvider;
+	}
+
+  /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.NumberValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected NumberValueItemProvider numberValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.NumberValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createNumberValueAdapter() {
+		if (numberValueItemProvider == null) {
+			numberValueItemProvider = new NumberValueItemProvider(this);
+		}
+
+		return numberValueItemProvider;
+	}
+
+  /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.DataValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected DataValueItemProvider dataValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.DataValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createDataValueAdapter() {
+		if (dataValueItemProvider == null) {
+			dataValueItemProvider = new DataValueItemProvider(this);
+		}
+
+		return dataValueItemProvider;
+	}
+
+  /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.EnumValue} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumValueItemProvider enumValueItemProvider;
+
+  /**
+	 * This creates an adapter for a {@link conml.instances.EnumValue}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createEnumValueAdapter() {
+		if (enumValueItemProvider == null) {
+			enumValueItemProvider = new EnumValueItemProvider(this);
+		}
+
+		return enumValueItemProvider;
+	}
+
+  /**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -344,6 +482,12 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 		if (objectItemProvider != null) objectItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
 		if (valueItemProvider != null) valueItemProvider.dispose();
+		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
+		if (boolValueItemProvider != null) boolValueItemProvider.dispose();
+		if (timeValueItemProvider != null) timeValueItemProvider.dispose();
+		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
+		if (dataValueItemProvider != null) dataValueItemProvider.dispose();
+		if (enumValueItemProvider != null) enumValueItemProvider.dispose();
 	}
 
 }

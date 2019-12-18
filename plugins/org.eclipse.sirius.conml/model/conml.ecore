@@ -294,13 +294,15 @@
           defaultValueLiteral="false"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Value" eSuperTypes="#//instances/Facet">
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="contents" lowerBound="1"
-          eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+      <eTypeParameters name="T"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerValueSet" lowerBound="1"
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/Values"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="unknown" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
           defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="contents">
+        <eGenericType eTypeParameter="#//instances/Value/T"/>
+      </eStructuralFeatures>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="TranslationQualifiers"
@@ -313,6 +315,36 @@
       <eLiterals name="ABSOLUTE"/>
       <eLiterals name="FULL_NAME" value="1"/>
       <eLiterals name="FULLY_QUALIFIED_NAME" value="2"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//String"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BoolValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//BooleanObject"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TimeValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDoubleObject"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//AnySimpleType"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumValue">
+      <eGenericSuperTypes eClassifier="#//instances/Value">
+        <eTypeArguments eClassifier="#//types/EnumeratedItem"/>
+      </eGenericSuperTypes>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

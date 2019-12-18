@@ -13,6 +13,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -25,34 +26,14 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.ValueImpl#getContents <em>Contents</em>}</li>
  *   <li>{@link conml.instances.impl.ValueImpl#getOwnerValueSet <em>Owner Value Set</em>}</li>
  *   <li>{@link conml.instances.impl.ValueImpl#isUnknown <em>Unknown</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueImpl#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ValueImpl extends FacetImpl implements Value {
-	/**
-	 * The default value of the '{@link #getContents() <em>Contents</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContents()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object CONTENTS_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getContents() <em>Contents</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getContents()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object contents = CONTENTS_EDEFAULT;
-
+public class ValueImpl<T> extends FacetImpl implements Value<T> {
 	/**
 	 * The default value of the '{@link #isUnknown() <em>Unknown</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -72,6 +53,16 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * @ordered
 	 */
 	protected boolean unknown = UNKNOWN_EDEFAULT;
+
+    /**
+	 * The cached value of the '{@link #getContents() <em>Contents</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getContents()
+	 * @generated
+	 * @ordered
+	 */
+    protected T contents;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -97,8 +88,17 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public Object getContents() {
+	@SuppressWarnings("unchecked")
+  @Override
+	public T getContents() {
+		if (contents != null && ((EObject)contents).eIsProxy()) {
+			InternalEObject oldContents = (InternalEObject)contents;
+			contents = (T)eResolveProxy(oldContents);
+			if (contents != oldContents) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.VALUE__CONTENTS, oldContents, contents));
+			}
+		}
 		return contents;
 	}
 
@@ -107,15 +107,24 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public T basicGetContents() {
+		return contents;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
-	public void setContents(Object newContents) {
-		Object oldContents = contents;
+	public void setContents(T newContents) {
+		T oldContents = contents;
 		contents = newContents;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE__CONTENTS, oldContents, contents));
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -233,12 +242,13 @@ public class ValueImpl extends FacetImpl implements Value {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.VALUE__CONTENTS:
-				return getContents();
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				return getOwnerValueSet();
 			case InstancesPackage.VALUE__UNKNOWN:
 				return isUnknown();
+			case InstancesPackage.VALUE__CONTENTS:
+				if (resolve) return getContents();
+				return basicGetContents();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -248,17 +258,18 @@ public class ValueImpl extends FacetImpl implements Value {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
+	@SuppressWarnings("unchecked")
+  @Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.VALUE__CONTENTS:
-				setContents(newValue);
-				return;
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				setOwnerValueSet((ValueSet)newValue);
 				return;
 			case InstancesPackage.VALUE__UNKNOWN:
 				setUnknown((Boolean)newValue);
+				return;
+			case InstancesPackage.VALUE__CONTENTS:
+				setContents((T)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -272,14 +283,14 @@ public class ValueImpl extends FacetImpl implements Value {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.VALUE__CONTENTS:
-				setContents(CONTENTS_EDEFAULT);
-				return;
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				setOwnerValueSet((ValueSet)null);
 				return;
 			case InstancesPackage.VALUE__UNKNOWN:
 				setUnknown(UNKNOWN_EDEFAULT);
+				return;
+			case InstancesPackage.VALUE__CONTENTS:
+				setContents((T)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -293,12 +304,12 @@ public class ValueImpl extends FacetImpl implements Value {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.VALUE__CONTENTS:
-				return CONTENTS_EDEFAULT == null ? contents != null : !CONTENTS_EDEFAULT.equals(contents);
 			case InstancesPackage.VALUE__OWNER_VALUE_SET:
 				return getOwnerValueSet() != null;
 			case InstancesPackage.VALUE__UNKNOWN:
 				return unknown != UNKNOWN_EDEFAULT;
+			case InstancesPackage.VALUE__CONTENTS:
+				return contents != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -313,9 +324,7 @@ public class ValueImpl extends FacetImpl implements Value {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (contents: ");
-		result.append(contents);
-		result.append(", unknown: ");
+		result.append(" (unknown: ");
 		result.append(unknown);
 		result.append(')');
 		return result.toString();
