@@ -107,7 +107,7 @@
             </endLabelStyleDescription>
           </style>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndStrongAndSecondaryStrong">
-            <style targetArrow="Diamond">
+            <style targetArrow="Diamond" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -121,7 +121,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryStrongAndWhole">
-            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -135,7 +135,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.areBothSemiAssociationsStrong">
-            <style targetArrow="NoDecoration">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -149,7 +149,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimaryAssociationWholeAndStrong">
-            <style targetArrow="Diamond">
+            <style targetArrow="Diamond" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -163,7 +163,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isSecondaryAssociationWholeAndStrong">
-            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -177,7 +177,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryWhole">
-            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -191,7 +191,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndSecondaryStrong">
-            <style targetArrow="Diamond">
+            <style targetArrow="Diamond" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -205,7 +205,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWhole">
-            <style targetArrow="Diamond">
+            <style targetArrow="Diamond" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -219,7 +219,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationWhole">
-            <style sourceArrow="Diamond" targetArrow="NoDecoration">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -233,7 +233,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrong">
-            <style targetArrow="NoDecoration">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -247,7 +247,7 @@
             </style>
           </conditionnalStyles>
           <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationStrong">
-            <style targetArrow="NoDecoration">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
