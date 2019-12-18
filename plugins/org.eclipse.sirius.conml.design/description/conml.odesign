@@ -956,83 +956,85 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Association" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="true">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Association" referenceName="Parts" variableName="association">
-                  <subModelOperations xsi:type="tool:Let" variableName="primaryName" valueExpression="aql:source.name + 's'"/>
-                  <subModelOperations xsi:type="tool:Let" variableName="secondaryName" valueExpression="aql:target.name + 's'"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:false"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:primaryName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:''"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:source.getTypeModelOfElement()"/>
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="PrimarySemiAssociation" variableName="primary">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:primaryName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="var:primaryName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="PrimaryInAssociation" valueExpression="var:association"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:target"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:source"/>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="PrimarySemiAssociation" valueExpression="var:primary"/>
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SecondarySemiAssociation" variableName="secondary">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:secondaryName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="var:secondaryName"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="SecondaryInAssociation" valueExpression="var:association"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:source"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:target"/>
-                    </subModelOperations>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="SecondarySemiAssociation" valueExpression="var:secondary"/>
-                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:primary.setInverses(secondary)">
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association">
-                        <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
-                          <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                            <initialOperation/>
-                          </buttons>
-                          <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                            <initialOperation>
-                              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association"/>
-                            </initialOperation>
-                          </buttons>
-                          <page name="D_CD_CreateAssociation_DefaultPage" labelExpression="New Association" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Association']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.0 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Association']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.1 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Association']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.2"/>
-                          <groups name="D_CD_CreateAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8" filterControlsFromExtendedGroupExpression="aql:false"/>
-                          <groups name="D_CD_CreateAssociation_PrimaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.3"/>
-                          <groups name="D_CD_CreateAssociation_SecondaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.4"/>
+          <ownedTools xsi:type="tool_1:ToolGroup" name="Associations">
+            <tools xsi:type="tool_1:EdgeCreationDescription" name="Association" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@edgeMappings[name='CD_Association']" connectionStartPrecondition="true">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Association" referenceName="Parts" variableName="association">
+                    <subModelOperations xsi:type="tool:Let" variableName="primaryName" valueExpression="aql:source.name + 's'"/>
+                    <subModelOperations xsi:type="tool:Let" variableName="secondaryName" valueExpression="aql:target.name + 's'"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:false"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:primaryName"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="aql:''"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:source.getTypeModelOfElement()"/>
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="PrimarySemiAssociation" variableName="primary">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:primaryName"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="var:primaryName"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="PrimaryInAssociation" valueExpression="var:association"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:source"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="PrimarySemiAssociation" valueExpression="var:primary"/>
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SecondarySemiAssociation" variableName="secondary">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="var:secondaryName"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="var:secondaryName"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="SecondaryInAssociation" valueExpression="var:association"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:source"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:target"/>
+                      </subModelOperations>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="SecondarySemiAssociation" valueExpression="var:secondary"/>
+                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:primary.setInverses(secondary)">
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association">
+                          <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                            <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                              <initialOperation/>
+                            </buttons>
+                            <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                              <initialOperation>
+                                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:association"/>
+                              </initialOperation>
+                            </buttons>
+                            <page name="D_CD_CreateAssociation_DefaultPage" labelExpression="New Association" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.0 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.1 //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Associations']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.6/@subModelOperations.4/@subModelOperations.0/@subModelOperations.0/@groups.2"/>
+                            <groups name="D_CD_CreateAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8" filterControlsFromExtendedGroupExpression="aql:false"/>
+                            <groups name="D_CD_CreateAssociation_PrimaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.3"/>
+                            <groups name="D_CD_CreateAssociation_SecondaryGroup" domainClass="types::Association" extends="//@extensions.0/@categories.0/@groups.4"/>
+                          </subModelOperations>
                         </subModelOperations>
                       </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool_1:NodeCreationDescription" name="CompactAssociation" label="Compact Association" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association']" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SemiAssociations" variableName="primary">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="primaryName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="primaryRole"/>
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Association">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation/>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.addToAssociation(container)"/>
-                      </initialOperation>
-                    </buttons>
-                    <page name="D_CD_CreateCompactAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='CompactAssociation']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:NodeCreationDescription" name="CompactAssociation" label="Compact Association" nodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']/@subNodeMappings[name='CD_Compact_Association']" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container">
+                  <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SemiAssociations" variableName="primary">
+                    <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="primaryName"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="role" valueExpression="primaryRole"/>
+                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Association">
+                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                        <initialOperation/>
+                      </buttons>
+                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.addToAssociation(container)"/>
+                        </initialOperation>
+                      </buttons>
+                      <page name="D_CD_CreateCompactAssociation_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Associations']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                      <groups name="D_CD_CreateCompactAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
+                    </subModelOperations>
                   </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
           <ownedTools xsi:type="tool_1:DeleteElementDescription" name="Delete Association">
             <element name="element"/>
@@ -1364,25 +1366,27 @@
           </ownedTools>
         </toolSections>
         <toolSections name="OD_Section_Relationships" label="Relationships">
-          <ownedTools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@edgeMappings[name='OD_Link']" connectionStartPrecondition="true">
-            <sourceVariable name="source"/>
-            <targetVariable name="target"/>
-            <sourceViewVariable name="sourceView"/>
-            <targetViewVariable name="targetView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:Let" variableName="instancedAssociation" valueExpression="aql:source.showAssociationSelectionDialog(target, sourceView)">
-                <subModelOperations xsi:type="tool:If" conditionExpression="aql:instancedAssociation &lt;> null">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
-                    <subModelOperations xsi:type="tool:CreateInstance" typeName="instances::Link" referenceName="Parts" variableName="newLink">
-                      <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:false"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="aql:source.getInstanceModelOfElement()"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="InstancedAssociation" valueExpression="var:instancedAssociation"/>
-                      <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newLink.createLinkReferences(source, target)"/>
+          <ownedTools xsi:type="tool_1:ToolGroup" name="Links">
+            <tools xsi:type="tool_1:EdgeCreationDescription" name="Link" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@edgeMappings[name='OD_Link']" connectionStartPrecondition="true">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:Let" variableName="instancedAssociation" valueExpression="aql:source.showAssociationSelectionDialog(target, sourceView)">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:instancedAssociation &lt;> null">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="instances::Link" referenceName="Parts" variableName="newLink">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:false"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="aql:source.getInstanceModelOfElement()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="InstancedAssociation" valueExpression="var:instancedAssociation"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newLink.createLinkReferences(source, target)"/>
+                      </subModelOperations>
                     </subModelOperations>
                   </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
           </ownedTools>
         </toolSections>
         <toolSections name="OD_Section_Types" label="Types">
