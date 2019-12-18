@@ -1,6 +1,10 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.sirius.conml.design.services.types.EnumeratedTypeServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.instances.Value;
@@ -8,6 +12,8 @@ import conml.instances.ValueSet;
 import conml.types.Attribute;
 import conml.types.BaseDataType;
 import conml.types.DataType;
+import conml.types.EnumeratedItem;
+import conml.types.EnumeratedType;
 import conml.types.SimpleDataType;
 
 public class ValueServices {
@@ -50,12 +56,39 @@ public class ValueServices {
         null);
   }
 
+  public EnumeratedItem enumValueContent(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Value.class,
+        value -> {
+          if (value.getContents() == null) return null;
+          return (EnumeratedItem) value.getContents();
+        },
+        null);
+  }
+
+  public List<EObject> enumValueCandidates(final Value value) {
+    if (value.getOwnerValueSet() == null
+        || value.getOwnerValueSet().getInstancedAttribute() == null
+        || !(value.getOwnerValueSet().getInstancedAttribute().getDatatype()
+            instanceof EnumeratedType)) {
+      return new ArrayList<>();
+    }
+    return EnumeratedTypeServices.getInstance()
+        .superEnumItemChildren(
+            (EnumeratedType) value.getOwnerValueSet().getInstancedAttribute().getDatatype());
+  }
+
   public void setBooleanValueContent(final Value value, final Boolean content) {
     value.setContents(content);
   }
 
   public void setTextValueContent(final Value value, final String content) {
     value.setContents(content);
+  }
+
+  public void setEnumValueContent(final Value value, final EnumeratedItem enumItem) {
+    value.setContents(enumItem);
   }
 
   public void nullifyValueContent(final Value value) {
@@ -79,6 +112,22 @@ public class ValueServices {
           final SimpleDataType simpleDataType = (SimpleDataType) dataType;
           final BaseDataType baseDataType = simpleDataType.getBase();
           return baseDataType != null && baseDataType == base;
+        },
+        false);
+  }
+
+  public boolean isEnumValue(final EObject object) {
+    return ConML.castAndRunOrReturn(
+        object,
+        Value.class,
+        value -> {
+          final ValueSet valueSet = value.getOwnerValueSet();
+          if (valueSet == null) return false;
+
+          final Attribute attribute = valueSet.getInstancedAttribute();
+          if (attribute == null) return false;
+
+          return attribute.getDatatype() instanceof EnumeratedType;
         },
         false);
   }

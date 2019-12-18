@@ -130,22 +130,33 @@ public class ValueSetServices {
             break;
         }
 
-        sb.append(
-            contentLabels.stream().limit(CONTENT_LABELS_LIMIT).collect(Collectors.joining("; ")));
-        if (contentLabels.size() > CONTENT_LABELS_LIMIT) sb.append(";...");
       } else if (dataType instanceof EnumeratedType) {
         for (final Facet facet : valueSet.getValues()) {
           final FacetValidation facetValidation =
               validateFacet(
                   facet,
                   EnumeratedItem.class,
-                  (contents) ->
-                      EnumeratedItemServices.getInstance()
-                          .getFullNameOfEnumeratedItem((EnumeratedItem) contents));
+                  (contents) -> {
+                    switch (valueSet.getEnumeratedItemValueDisplay()) {
+                      case FULL_NAME:
+                        return EnumeratedItemServices.getInstance()
+                            .getFullNameOfEnumeratedItem((EnumeratedItem) contents);
+                      case ABSOLUTE:
+                        return EnumeratedItemServices.getInstance()
+                            .getAbsoluteNameOfEnumeratedItem((EnumeratedItem) contents);
+                      case FULLY_QUALIFIED_NAME:
+                        return EnumeratedItemServices.getInstance()
+                            .getFullyQualifiedNameOfEnumeratedItem((EnumeratedItem) contents);
+                    }
+                    throw new IllegalStateException();
+                  });
           if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
           else return facetValidation.errorMsg;
         }
       }
+      sb.append(
+          contentLabels.stream().limit(CONTENT_LABELS_LIMIT).collect(Collectors.joining("; ")));
+      if (contentLabels.size() > CONTENT_LABELS_LIMIT) sb.append(";...");
     }
 
     return sb.toString();

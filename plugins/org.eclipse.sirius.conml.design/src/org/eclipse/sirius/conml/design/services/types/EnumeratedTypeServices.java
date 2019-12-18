@@ -17,6 +17,14 @@ import conml.types.Package;
 
 public final class EnumeratedTypeServices {
 
+  private static final class InstanceHolder {
+    static final EnumeratedTypeServices INSTANCE = new EnumeratedTypeServices();
+  }
+
+  public static EnumeratedTypeServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public boolean enumTypeGeneralizationPrecondition(
       final EnumeratedType preSubType, final EnumeratedType preSuperType) {
     EnumeratedType enumTypeIt = preSuperType;
