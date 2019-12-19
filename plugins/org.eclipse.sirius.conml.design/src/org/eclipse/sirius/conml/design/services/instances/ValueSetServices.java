@@ -8,6 +8,10 @@ import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
+import conml.instances.BooleanValue;
+import conml.instances.EnumValue;
+import conml.instances.NumberValue;
+import conml.instances.TextValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
@@ -42,15 +46,16 @@ public class ValueSetServices {
     }
   }
 
-  private <T> ValueValidation validateValue(
-      final Value<T> value,
-      final Class<?> contentsClass,
-      final Function<T, String> contentsTransformer) {
-    final T contents = value.getContents();
+  private <V extends Value, C> ValueValidation validateValue(
+      final V value,
+      final Class<C> contentClass,
+      final Function<V, C> contentGetter,
+      final Function<C, String> contentsTransformer) {
+    final C contents = contentGetter.apply(value);
     if (value.isUnknown()) return ValueValidation.SUCCESS("unknown");
     else if (contents == null) return ValueValidation.SUCCESS("null");
     else {
-      if (!contentsClass.isInstance(contents))
+      if (!contentClass.isInstance(contents))
         return ValueValidation.FAILURE(
             "<Contents of one of the values does not match specified DataType>");
       else return ValueValidation.SUCCESS(contentsTransformer.apply(contents));
@@ -78,32 +83,35 @@ public class ValueSetServices {
         final BaseDataType baseDataType = simpleDataType.getBase();
         switch (baseDataType) {
           case BOOLEAN:
-            for (final Value<?> value : valueSet.getValues()) {
+            for (final Value value : valueSet.getValues()) {
+              if (!(value instanceof BooleanValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
                   validateValue(
-                      value,
+                      (BooleanValue) value,
                       Boolean.class,
-                      contents -> String.valueOf(Boolean.class.cast(contents)));
+                      BooleanValue::getContent,
+                      String::valueOf);
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
             break;
-          case DATA:
-            contentLabels.add("...");
-            break;
+
           case NUMBER:
-            for (final Value<?> value : valueSet.getValues()) {
+            for (final Value value : valueSet.getValues()) {
+              if (!(value instanceof NumberValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
                   validateValue(
-                      value, Number.class, contents -> String.valueOf(Number.class.cast(contents)));
+                      (NumberValue) value, Number.class, NumberValue::getContent, String::valueOf);
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
             break;
           case TEXT:
-            for (final Value<?> value : valueSet.getValues()) {
+            for (final Value value : valueSet.getValues()) {
+              if (!(value instanceof TextValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
-                  validateValue(value, String.class, String.class::cast);
+                  validateValue(
+                      (TextValue) value, String.class, TextValue::getContent, Function.identity());
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
@@ -111,14 +119,19 @@ public class ValueSetServices {
           case TIME:
             // TODO:
             break;
+          case DATA:
+            contentLabels.add("...");
+            break;
         }
 
       } else if (dataType instanceof EnumeratedType) {
-        for (final Value<?> value : valueSet.getValues()) {
+        for (final Value value : valueSet.getValues()) {
+          if (!(value instanceof EnumValue)) return "<Invalid Value DataType>";
           final ValueValidation facetValidation =
               validateValue(
-                  value,
+                  (EnumValue) value,
                   EnumeratedItem.class,
+                  EnumValue::getContent,
                   (contents) -> {
                     switch (valueSet.getEnumeratedItemValueDisplay()) {
                       case FULL_NAME:

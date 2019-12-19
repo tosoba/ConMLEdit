@@ -2,8 +2,6 @@
  */
 package conml.instances;
 
-import java.lang.Object;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Value</b></em>'.
@@ -15,37 +13,14 @@ import java.lang.Object;
  * <ul>
  *   <li>{@link conml.instances.Value#getOwnerValueSet <em>Owner Value Set</em>}</li>
  *   <li>{@link conml.instances.Value#isUnknown <em>Unknown</em>}</li>
- *   <li>{@link conml.instances.Value#getContents <em>Contents</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getValue()
- * @model
+ * @model abstract="true"
  * @generated
  */
-public interface Value<T> extends Facet {
+public interface Value extends Facet {
 	/**
-	 * Returns the value of the '<em><b>Contents</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Contents</em>' reference.
-	 * @see #setContents(Object)
-	 * @see conml.instances.InstancesPackage#getValue_Contents()
-	 * @model kind="reference"
-	 * @generated
-	 */
-	T getContents();
-
-	/**
-	 * Sets the value of the '{@link conml.instances.Value#getContents <em>Contents</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Contents</em>' reference.
-	 * @see #getContents()
-	 * @generated
-	 */
-	void setContents(T value);
-
-  /**
 	 * Returns the value of the '<em><b>Owner Value Set</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.instances.ValueSet#getValues <em>Values</em>}'.
 	 * <!-- begin-user-doc -->

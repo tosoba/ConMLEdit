@@ -7,9 +7,12 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedTypeServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
-import conml.instances.BoolValue;
+import conml.instances.BooleanValue;
+import conml.instances.DataValue;
 import conml.instances.EnumValue;
-import conml.instances.StringValue;
+import conml.instances.NumberValue;
+import conml.instances.TextValue;
+import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
@@ -38,18 +41,18 @@ public class ValueServices {
   }
 
   public Boolean booleanValueContent(final EObject object) {
-    return ConML.castAndRunOrReturn(object, BoolValue.class, Value::getContents, false);
+    return ConML.castAndRunOrReturn(object, BooleanValue.class, BooleanValue::getContent, false);
   }
 
   public String textValueContent(final EObject object) {
-    return ConML.castAndRunOrReturn(object, StringValue.class, Value::getContents, null);
+    return ConML.castAndRunOrReturn(object, TextValue.class, TextValue::getContent, null);
   }
 
   public EnumeratedItem enumValueContent(final EObject object) {
-    return ConML.castAndRunOrReturn(object, EnumValue.class, Value::getContents, null);
+    return ConML.castAndRunOrReturn(object, EnumValue.class, EnumValue::getContent, null);
   }
 
-  public List<EObject> enumValueCandidates(final Value<?> value) {
+  public List<EObject> enumValueCandidates(final Value value) {
     if (value.getOwnerValueSet() == null
         || value.getOwnerValueSet().getInstancedAttribute() == null
         || !(value.getOwnerValueSet().getInstancedAttribute().getDatatype()
@@ -61,20 +64,25 @@ public class ValueServices {
             (EnumeratedType) value.getOwnerValueSet().getInstancedAttribute().getDatatype());
   }
 
-  public void setBooleanValueContent(final BoolValue value, final Boolean content) {
-    value.setContents(content);
+  public void setBooleanValueContent(final BooleanValue value, final Boolean content) {
+    value.setContent(content);
   }
 
-  public void setTextValueContent(final StringValue value, final String content) {
-    value.setContents(content);
+  public void setTextValueContent(final TextValue value, final String content) {
+    value.setContent(content);
   }
 
   public void setEnumValueContent(final EnumValue value, final EnumeratedItem enumItem) {
-    value.setContents(enumItem);
+    value.setContent(enumItem);
   }
 
-  public void nullifyValueContent(final Value<?> value) {
-    value.setContents(null);
+  public void nullifyValueContent(final Value value) {
+    if (value instanceof BooleanValue) ((BooleanValue) value).setContent(null);
+    else if (value instanceof TextValue) ((TextValue) value).setContent(null);
+    else if (value instanceof NumberValue) ((NumberValue) value).setContent(null);
+    else if (value instanceof TimeValue) ((TimeValue) value).setContent(null);
+    else if (value instanceof DataValue) ((DataValue) value).setContent(null);
+    else if (value instanceof EnumValue) ((EnumValue) value).setContent(null);
   }
 
   private boolean hasSimpleDataType(final EObject object, final BaseDataType base) {

@@ -8,7 +8,7 @@ import conml.ModelElement;
 import conml.ModelPart;
 
 import conml.NamedElement;
-import conml.instances.BoolValue;
+import conml.instances.BooleanValue;
 import conml.instances.DataValue;
 import conml.instances.EnumValue;
 import conml.instances.Facet;
@@ -21,7 +21,7 @@ import conml.instances.Link;
 import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
-import conml.instances.StringValue;
+import conml.instances.TextValue;
 import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
@@ -44,7 +44,7 @@ import org.eclipse.emf.ecore.util.Switch;
  * @see conml.instances.InstancesPackage
  * @generated
  */
-public class InstancesSwitch<T1> extends Switch<T1> {
+public class InstancesSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -86,11 +86,11 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	protected T1 doSwitch(int classifierID, EObject theEObject) {
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case InstancesPackage.INSTANCE: {
 				Instance instance = (Instance)theEObject;
-				T1 result = caseInstance(instance);
+				T result = caseInstance(instance);
 				if (result == null) result = caseInstanceModelElement(instance);
 				if (result == null) result = caseModelElement(instance);
 				if (result == null) result = caseModelPart(instance);
@@ -99,7 +99,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.FACET: {
 				Facet facet = (Facet)theEObject;
-				T1 result = caseFacet(facet);
+				T result = caseFacet(facet);
 				if (result == null) result = caseInstanceModelElement(facet);
 				if (result == null) result = caseModelElement(facet);
 				if (result == null) result = caseModelPart(facet);
@@ -108,7 +108,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.REFERENCE: {
 				Reference reference = (Reference)theEObject;
-				T1 result = caseReference(reference);
+				T result = caseReference(reference);
 				if (result == null) result = caseFacet(reference);
 				if (result == null) result = caseInstanceModelElement(reference);
 				if (result == null) result = caseModelElement(reference);
@@ -118,7 +118,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.INSTANCE_MODEL_ELEMENT: {
 				InstanceModelElement instanceModelElement = (InstanceModelElement)theEObject;
-				T1 result = caseInstanceModelElement(instanceModelElement);
+				T result = caseInstanceModelElement(instanceModelElement);
 				if (result == null) result = caseModelElement(instanceModelElement);
 				if (result == null) result = caseModelPart(instanceModelElement);
 				if (result == null) result = defaultCase(theEObject);
@@ -126,7 +126,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.INSTANCE_MODEL: {
 				InstanceModel instanceModel = (InstanceModel)theEObject;
-				T1 result = caseInstanceModel(instanceModel);
+				T result = caseInstanceModel(instanceModel);
 				if (result == null) result = caseModel(instanceModel);
 				if (result == null) result = caseNamedElement(instanceModel);
 				if (result == null) result = caseDescribableElement(instanceModel);
@@ -135,7 +135,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.VALUE_SET: {
 				ValueSet valueSet = (ValueSet)theEObject;
-				T1 result = caseValueSet(valueSet);
+				T result = caseValueSet(valueSet);
 				if (result == null) result = caseFacetSet(valueSet);
 				if (result == null) result = caseInstance(valueSet);
 				if (result == null) result = caseInstanceModelElement(valueSet);
@@ -146,7 +146,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.REFERENCE_SET: {
 				ReferenceSet referenceSet = (ReferenceSet)theEObject;
-				T1 result = caseReferenceSet(referenceSet);
+				T result = caseReferenceSet(referenceSet);
 				if (result == null) result = caseFacetSet(referenceSet);
 				if (result == null) result = caseInstance(referenceSet);
 				if (result == null) result = caseInstanceModelElement(referenceSet);
@@ -157,7 +157,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.OBJECT: {
 				conml.instances.Object object = (conml.instances.Object)theEObject;
-				T1 result = caseObject(object);
+				T result = caseObject(object);
 				if (result == null) result = caseInstance(object);
 				if (result == null) result = caseInstanceModelElement(object);
 				if (result == null) result = caseModelElement(object);
@@ -167,7 +167,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.LINK: {
 				Link link = (Link)theEObject;
-				T1 result = caseLink(link);
+				T result = caseLink(link);
 				if (result == null) result = caseInstance(link);
 				if (result == null) result = caseInstanceModelElement(link);
 				if (result == null) result = caseModelElement(link);
@@ -176,8 +176,8 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 				return result;
 			}
 			case InstancesPackage.VALUE: {
-				Value<?> value = (Value<?>)theEObject;
-				T1 result = caseValue(value);
+				Value value = (Value)theEObject;
+				T result = caseValue(value);
 				if (result == null) result = caseFacet(value);
 				if (result == null) result = caseInstanceModelElement(value);
 				if (result == null) result = caseModelElement(value);
@@ -187,7 +187,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.FACET_SET: {
 				FacetSet facetSet = (FacetSet)theEObject;
-				T1 result = caseFacetSet(facetSet);
+				T result = caseFacetSet(facetSet);
 				if (result == null) result = caseInstance(facetSet);
 				if (result == null) result = caseInstanceModelElement(facetSet);
 				if (result == null) result = caseModelElement(facetSet);
@@ -195,31 +195,31 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InstancesPackage.STRING_VALUE: {
-				StringValue stringValue = (StringValue)theEObject;
-				T1 result = caseStringValue(stringValue);
-				if (result == null) result = caseValue(stringValue);
-				if (result == null) result = caseFacet(stringValue);
-				if (result == null) result = caseInstanceModelElement(stringValue);
-				if (result == null) result = caseModelElement(stringValue);
-				if (result == null) result = caseModelPart(stringValue);
+			case InstancesPackage.TEXT_VALUE: {
+				TextValue textValue = (TextValue)theEObject;
+				T result = caseTextValue(textValue);
+				if (result == null) result = caseValue(textValue);
+				if (result == null) result = caseFacet(textValue);
+				if (result == null) result = caseInstanceModelElement(textValue);
+				if (result == null) result = caseModelElement(textValue);
+				if (result == null) result = caseModelPart(textValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case InstancesPackage.BOOL_VALUE: {
-				BoolValue boolValue = (BoolValue)theEObject;
-				T1 result = caseBoolValue(boolValue);
-				if (result == null) result = caseValue(boolValue);
-				if (result == null) result = caseFacet(boolValue);
-				if (result == null) result = caseInstanceModelElement(boolValue);
-				if (result == null) result = caseModelElement(boolValue);
-				if (result == null) result = caseModelPart(boolValue);
+			case InstancesPackage.BOOLEAN_VALUE: {
+				BooleanValue booleanValue = (BooleanValue)theEObject;
+				T result = caseBooleanValue(booleanValue);
+				if (result == null) result = caseValue(booleanValue);
+				if (result == null) result = caseFacet(booleanValue);
+				if (result == null) result = caseInstanceModelElement(booleanValue);
+				if (result == null) result = caseModelElement(booleanValue);
+				if (result == null) result = caseModelPart(booleanValue);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case InstancesPackage.TIME_VALUE: {
 				TimeValue timeValue = (TimeValue)theEObject;
-				T1 result = caseTimeValue(timeValue);
+				T result = caseTimeValue(timeValue);
 				if (result == null) result = caseValue(timeValue);
 				if (result == null) result = caseFacet(timeValue);
 				if (result == null) result = caseInstanceModelElement(timeValue);
@@ -230,7 +230,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.NUMBER_VALUE: {
 				NumberValue numberValue = (NumberValue)theEObject;
-				T1 result = caseNumberValue(numberValue);
+				T result = caseNumberValue(numberValue);
 				if (result == null) result = caseValue(numberValue);
 				if (result == null) result = caseFacet(numberValue);
 				if (result == null) result = caseInstanceModelElement(numberValue);
@@ -241,7 +241,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.DATA_VALUE: {
 				DataValue dataValue = (DataValue)theEObject;
-				T1 result = caseDataValue(dataValue);
+				T result = caseDataValue(dataValue);
 				if (result == null) result = caseValue(dataValue);
 				if (result == null) result = caseFacet(dataValue);
 				if (result == null) result = caseInstanceModelElement(dataValue);
@@ -252,7 +252,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 			}
 			case InstancesPackage.ENUM_VALUE: {
 				EnumValue enumValue = (EnumValue)theEObject;
-				T1 result = caseEnumValue(enumValue);
+				T result = caseEnumValue(enumValue);
 				if (result == null) result = caseValue(enumValue);
 				if (result == null) result = caseFacet(enumValue);
 				if (result == null) result = caseInstanceModelElement(enumValue);
@@ -276,7 +276,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInstance(Instance object) {
+	public T caseInstance(Instance object) {
 		return null;
 	}
 
@@ -291,7 +291,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFacet(Facet object) {
+	public T caseFacet(Facet object) {
 		return null;
 	}
 
@@ -306,7 +306,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseReference(Reference object) {
+	public T caseReference(Reference object) {
 		return null;
 	}
 
@@ -321,7 +321,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInstanceModelElement(InstanceModelElement object) {
+	public T caseInstanceModelElement(InstanceModelElement object) {
 		return null;
 	}
 
@@ -336,7 +336,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseInstanceModel(InstanceModel object) {
+	public T caseInstanceModel(InstanceModel object) {
 		return null;
 	}
 
@@ -351,7 +351,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseValueSet(ValueSet object) {
+	public T caseValueSet(ValueSet object) {
 		return null;
 	}
 
@@ -366,7 +366,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseReferenceSet(ReferenceSet object) {
+	public T caseReferenceSet(ReferenceSet object) {
 		return null;
 	}
 
@@ -381,7 +381,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseObject(conml.instances.Object object) {
+	public T caseObject(conml.instances.Object object) {
 		return null;
 	}
 
@@ -396,7 +396,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseLink(Link object) {
+	public T caseLink(Link object) {
 		return null;
 	}
 
@@ -411,7 +411,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public <T> T1 caseValue(Value<T> object) {
+	public T caseValue(Value object) {
 		return null;
 	}
 
@@ -426,37 +426,37 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseFacetSet(FacetSet object) {
+	public T caseFacetSet(FacetSet object) {
 		return null;
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>String Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Text Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseStringValue(StringValue object) {
+	public T caseTextValue(TextValue object) {
 		return null;
 	}
 
   /**
-	 * Returns the result of interpreting the object as an instance of '<em>Bool Value</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Boolean Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Bool Value</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Boolean Value</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseBoolValue(BoolValue object) {
+	public T caseBooleanValue(BooleanValue object) {
 		return null;
 	}
 
@@ -471,7 +471,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseTimeValue(TimeValue object) {
+	public T caseTimeValue(TimeValue object) {
 		return null;
 	}
 
@@ -486,7 +486,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNumberValue(NumberValue object) {
+	public T caseNumberValue(NumberValue object) {
 		return null;
 	}
 
@@ -501,7 +501,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseDataValue(DataValue object) {
+	public T caseDataValue(DataValue object) {
 		return null;
 	}
 
@@ -516,7 +516,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseEnumValue(EnumValue object) {
+	public T caseEnumValue(EnumValue object) {
 		return null;
 	}
 
@@ -531,7 +531,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModelPart(ModelPart object) {
+	public T caseModelPart(ModelPart object) {
 		return null;
 	}
 
@@ -546,7 +546,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModelElement(ModelElement object) {
+	public T caseModelElement(ModelElement object) {
 		return null;
 	}
 
@@ -561,7 +561,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseNamedElement(NamedElement object) {
+	public T caseNamedElement(NamedElement object) {
 		return null;
 	}
 
@@ -576,7 +576,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseDescribableElement(DescribableElement object) {
+	public T caseDescribableElement(DescribableElement object) {
 		return null;
 	}
 
@@ -591,7 +591,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T1 caseModel(Model object) {
+	public T caseModel(Model object) {
 		return null;
 	}
 
@@ -607,7 +607,7 @@ public class InstancesSwitch<T1> extends Switch<T1> {
 	 * @generated
 	 */
 	@Override
-	public T1 defaultCase(EObject object) {
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

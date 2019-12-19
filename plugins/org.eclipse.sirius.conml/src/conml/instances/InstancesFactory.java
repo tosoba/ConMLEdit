@@ -76,31 +76,22 @@ public interface InstancesFactory extends EFactory {
 	Link createLink();
 
 	/**
-	 * Returns a new object of class '<em>Value</em>'.
+	 * Returns a new object of class '<em>Text Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Value</em>'.
+	 * @return a new object of class '<em>Text Value</em>'.
 	 * @generated
 	 */
-	<T> Value<T> createValue();
-
-	/**
-	 * Returns a new object of class '<em>String Value</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>String Value</em>'.
-	 * @generated
-	 */
-	StringValue createStringValue();
+	TextValue createTextValue();
 
   /**
-	 * Returns a new object of class '<em>Bool Value</em>'.
+	 * Returns a new object of class '<em>Boolean Value</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Bool Value</em>'.
+	 * @return a new object of class '<em>Boolean Value</em>'.
 	 * @generated
 	 */
-	BoolValue createBoolValue();
+	BooleanValue createBooleanValue();
 
   /**
 	 * Returns a new object of class '<em>Time Value</em>'.

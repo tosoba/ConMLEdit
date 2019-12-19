@@ -1043,22 +1043,13 @@ public interface InstancesPackage extends EPackage {
 	int VALUE__UNKNOWN = FACET_FEATURE_COUNT + 1;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE__CONTENTS = FACET_FEATURE_COUNT + 2;
-
-    /**
 	 * The number of structural features of the '<em>Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 3;
+	int VALUE_FEATURE_COUNT = FACET_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>Value</em>' class.
@@ -1070,14 +1061,14 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_OPERATION_COUNT = FACET_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link conml.instances.impl.StringValueImpl <em>String Value</em>}' class.
+	 * The meta object id for the '{@link conml.instances.impl.TextValueImpl <em>Text Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.instances.impl.StringValueImpl
-	 * @see conml.instances.impl.InstancesPackageImpl#getStringValue()
+	 * @see conml.instances.impl.TextValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getTextValue()
 	 * @generated
 	 */
-	int STRING_VALUE = 11;
+	int TEXT_VALUE = 11;
 
   /**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -1086,7 +1077,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__TAGS = VALUE__TAGS;
+	int TEXT_VALUE__TAGS = VALUE__TAGS;
 
   /**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
@@ -1095,7 +1086,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+	int TEXT_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
 
   /**
 	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
@@ -1104,7 +1095,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+	int TEXT_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
 
   /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
@@ -1113,7 +1104,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__CERTAINTY = VALUE__CERTAINTY;
+	int TEXT_VALUE__CERTAINTY = VALUE__CERTAINTY;
 
   /**
 	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
@@ -1122,7 +1113,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+	int TEXT_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
 
   /**
 	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
@@ -1131,44 +1122,44 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__UNKNOWN = VALUE__UNKNOWN;
+	int TEXT_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE__CONTENTS = VALUE__CONTENTS;
+	int TEXT_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
   /**
-	 * The number of structural features of the '<em>String Value</em>' class.
+	 * The number of structural features of the '<em>Text Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int TEXT_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
-	 * The number of operations of the '<em>String Value</em>' class.
+	 * The number of operations of the '<em>Text Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int STRING_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int TEXT_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
   /**
-	 * The meta object id for the '{@link conml.instances.impl.BoolValueImpl <em>Bool Value</em>}' class.
+	 * The meta object id for the '{@link conml.instances.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.instances.impl.BoolValueImpl
-	 * @see conml.instances.impl.InstancesPackageImpl#getBoolValue()
+	 * @see conml.instances.impl.BooleanValueImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getBooleanValue()
 	 * @generated
 	 */
-	int BOOL_VALUE = 12;
+	int BOOLEAN_VALUE = 12;
 
   /**
 	 * The feature id for the '<em><b>Tags</b></em>' reference list.
@@ -1177,7 +1168,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__TAGS = VALUE__TAGS;
+	int BOOLEAN_VALUE__TAGS = VALUE__TAGS;
 
   /**
 	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
@@ -1186,7 +1177,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
+	int BOOLEAN_VALUE__META_INFORMATION_OBJECTS = VALUE__META_INFORMATION_OBJECTS;
 
   /**
 	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
@@ -1195,7 +1186,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
+	int BOOLEAN_VALUE__INSTANCE_MODEL = VALUE__INSTANCE_MODEL;
 
   /**
 	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
@@ -1204,7 +1195,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__CERTAINTY = VALUE__CERTAINTY;
+	int BOOLEAN_VALUE__CERTAINTY = VALUE__CERTAINTY;
 
   /**
 	 * The feature id for the '<em><b>Owner Value Set</b></em>' container reference.
@@ -1213,7 +1204,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
+	int BOOLEAN_VALUE__OWNER_VALUE_SET = VALUE__OWNER_VALUE_SET;
 
   /**
 	 * The feature id for the '<em><b>Unknown</b></em>' attribute.
@@ -1222,34 +1213,34 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__UNKNOWN = VALUE__UNKNOWN;
+	int BOOLEAN_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE__CONTENTS = VALUE__CONTENTS;
+	int BOOLEAN_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
   /**
-	 * The number of structural features of the '<em>Bool Value</em>' class.
+	 * The number of structural features of the '<em>Boolean Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int BOOLEAN_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
-	 * The number of operations of the '<em>Bool Value</em>' class.
+	 * The number of operations of the '<em>Boolean Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BOOL_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
+	int BOOLEAN_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
   /**
 	 * The meta object id for the '{@link conml.instances.impl.TimeValueImpl <em>Time Value</em>}' class.
@@ -1316,22 +1307,22 @@ public interface InstancesPackage extends EPackage {
 	int TIME_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_VALUE__CONTENTS = VALUE__CONTENTS;
+	int TIME_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Time Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TIME_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int TIME_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
 	 * The number of operations of the '<em>Time Value</em>' class.
@@ -1407,22 +1398,22 @@ public interface InstancesPackage extends EPackage {
 	int NUMBER_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_VALUE__CONTENTS = VALUE__CONTENTS;
+	int NUMBER_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Number Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int NUMBER_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
 	 * The number of operations of the '<em>Number Value</em>' class.
@@ -1498,22 +1489,22 @@ public interface InstancesPackage extends EPackage {
 	int DATA_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_VALUE__CONTENTS = VALUE__CONTENTS;
+	int DATA_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Data Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DATA_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int DATA_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
 	 * The number of operations of the '<em>Data Value</em>' class.
@@ -1589,22 +1580,22 @@ public interface InstancesPackage extends EPackage {
 	int ENUM_VALUE__UNKNOWN = VALUE__UNKNOWN;
 
   /**
-	 * The feature id for the '<em><b>Contents</b></em>' reference.
+	 * The feature id for the '<em><b>Content</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_VALUE__CONTENTS = VALUE__CONTENTS;
+	int ENUM_VALUE__CONTENT = VALUE_FEATURE_COUNT + 0;
 
-  /**
+    /**
 	 * The number of structural features of the '<em>Enum Value</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUM_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 0;
+	int ENUM_VALUE_FEATURE_COUNT = VALUE_FEATURE_COUNT + 1;
 
   /**
 	 * The number of operations of the '<em>Enum Value</em>' class.
@@ -2079,17 +2070,6 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getValue_Unknown();
 
   /**
-	 * Returns the meta object for the reference '{@link conml.instances.Value#getContents <em>Contents</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Contents</em>'.
-	 * @see conml.instances.Value#getContents()
-	 * @see #getValue()
-	 * @generated
-	 */
-	EReference getValue_Contents();
-
-    /**
 	 * Returns the meta object for class '{@link conml.instances.FacetSet <em>Facet Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2133,24 +2113,46 @@ public interface InstancesPackage extends EPackage {
 	EReference getFacetSet_PerspectiveQualifier();
 
 	/**
-	 * Returns the meta object for class '{@link conml.instances.StringValue <em>String Value</em>}'.
+	 * Returns the meta object for class '{@link conml.instances.TextValue <em>Text Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>String Value</em>'.
-	 * @see conml.instances.StringValue
+	 * @return the meta object for class '<em>Text Value</em>'.
+	 * @see conml.instances.TextValue
 	 * @generated
 	 */
-	EClass getStringValue();
+	EClass getTextValue();
 
   /**
-	 * Returns the meta object for class '{@link conml.instances.BoolValue <em>Bool Value</em>}'.
+	 * Returns the meta object for the attribute '{@link conml.instances.TextValue#getContent <em>Content</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Bool Value</em>'.
-	 * @see conml.instances.BoolValue
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see conml.instances.TextValue#getContent()
+	 * @see #getTextValue()
 	 * @generated
 	 */
-	EClass getBoolValue();
+	EAttribute getTextValue_Content();
+
+  /**
+	 * Returns the meta object for class '{@link conml.instances.BooleanValue <em>Boolean Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Boolean Value</em>'.
+	 * @see conml.instances.BooleanValue
+	 * @generated
+	 */
+	EClass getBooleanValue();
+
+  /**
+	 * Returns the meta object for the attribute '{@link conml.instances.BooleanValue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see conml.instances.BooleanValue#getContent()
+	 * @see #getBooleanValue()
+	 * @generated
+	 */
+	EAttribute getBooleanValue_Content();
 
   /**
 	 * Returns the meta object for class '{@link conml.instances.TimeValue <em>Time Value</em>}'.
@@ -2163,6 +2165,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getTimeValue();
 
   /**
+	 * Returns the meta object for the attribute '{@link conml.instances.TimeValue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see conml.instances.TimeValue#getContent()
+	 * @see #getTimeValue()
+	 * @generated
+	 */
+	EAttribute getTimeValue_Content();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.NumberValue <em>Number Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2173,6 +2186,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getNumberValue();
 
   /**
+	 * Returns the meta object for the attribute '{@link conml.instances.NumberValue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see conml.instances.NumberValue#getContent()
+	 * @see #getNumberValue()
+	 * @generated
+	 */
+	EAttribute getNumberValue_Content();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.DataValue <em>Data Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2183,6 +2207,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getDataValue();
 
   /**
+	 * Returns the meta object for the attribute '{@link conml.instances.DataValue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Content</em>'.
+	 * @see conml.instances.DataValue#getContent()
+	 * @see #getDataValue()
+	 * @generated
+	 */
+	EAttribute getDataValue_Content();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.EnumValue <em>Enum Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2193,6 +2228,17 @@ public interface InstancesPackage extends EPackage {
 	EClass getEnumValue();
 
   /**
+	 * Returns the meta object for the reference '{@link conml.instances.EnumValue#getContent <em>Content</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Content</em>'.
+	 * @see conml.instances.EnumValue#getContent()
+	 * @see #getEnumValue()
+	 * @generated
+	 */
+	EReference getEnumValue_Content();
+
+    /**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2584,14 +2630,6 @@ public interface InstancesPackage extends EPackage {
 		EAttribute VALUE__UNKNOWN = eINSTANCE.getValue_Unknown();
 
     /**
-		 * The meta object literal for the '<em><b>Contents</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference VALUE__CONTENTS = eINSTANCE.getValue_Contents();
-
-        /**
 		 * The meta object literal for the '{@link conml.instances.impl.FacetSetImpl <em>Facet Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2626,24 +2664,40 @@ public interface InstancesPackage extends EPackage {
 		EReference FACET_SET__PERSPECTIVE_QUALIFIER = eINSTANCE.getFacetSet_PerspectiveQualifier();
 
 		/**
-		 * The meta object literal for the '{@link conml.instances.impl.StringValueImpl <em>String Value</em>}' class.
+		 * The meta object literal for the '{@link conml.instances.impl.TextValueImpl <em>Text Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.instances.impl.StringValueImpl
-		 * @see conml.instances.impl.InstancesPackageImpl#getStringValue()
+		 * @see conml.instances.impl.TextValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getTextValue()
 		 * @generated
 		 */
-		EClass STRING_VALUE = eINSTANCE.getStringValue();
+		EClass TEXT_VALUE = eINSTANCE.getTextValue();
 
     /**
-		 * The meta object literal for the '{@link conml.instances.impl.BoolValueImpl <em>Bool Value</em>}' class.
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.instances.impl.BoolValueImpl
-		 * @see conml.instances.impl.InstancesPackageImpl#getBoolValue()
 		 * @generated
 		 */
-		EClass BOOL_VALUE = eINSTANCE.getBoolValue();
+		EAttribute TEXT_VALUE__CONTENT = eINSTANCE.getTextValue_Content();
+
+    /**
+		 * The meta object literal for the '{@link conml.instances.impl.BooleanValueImpl <em>Boolean Value</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.BooleanValueImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getBooleanValue()
+		 * @generated
+		 */
+		EClass BOOLEAN_VALUE = eINSTANCE.getBooleanValue();
+
+    /**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BOOLEAN_VALUE__CONTENT = eINSTANCE.getBooleanValue_Content();
 
     /**
 		 * The meta object literal for the '{@link conml.instances.impl.TimeValueImpl <em>Time Value</em>}' class.
@@ -2656,6 +2710,14 @@ public interface InstancesPackage extends EPackage {
 		EClass TIME_VALUE = eINSTANCE.getTimeValue();
 
     /**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TIME_VALUE__CONTENT = eINSTANCE.getTimeValue_Content();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.NumberValueImpl <em>Number Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2666,6 +2728,14 @@ public interface InstancesPackage extends EPackage {
 		EClass NUMBER_VALUE = eINSTANCE.getNumberValue();
 
     /**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute NUMBER_VALUE__CONTENT = eINSTANCE.getNumberValue_Content();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.DataValueImpl <em>Data Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2676,6 +2746,14 @@ public interface InstancesPackage extends EPackage {
 		EClass DATA_VALUE = eINSTANCE.getDataValue();
 
     /**
+		 * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DATA_VALUE__CONTENT = eINSTANCE.getDataValue_Content();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.EnumValueImpl <em>Enum Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2686,6 +2764,14 @@ public interface InstancesPackage extends EPackage {
 		EClass ENUM_VALUE = eINSTANCE.getEnumValue();
 
     /**
+		 * The meta object literal for the '<em><b>Content</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ENUM_VALUE__CONTENT = eINSTANCE.getEnumValue_Content();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

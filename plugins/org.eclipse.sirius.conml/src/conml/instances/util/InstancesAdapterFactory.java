@@ -8,7 +8,7 @@ import conml.ModelElement;
 import conml.ModelPart;
 
 import conml.NamedElement;
-import conml.instances.BoolValue;
+import conml.instances.BooleanValue;
 import conml.instances.DataValue;
 import conml.instances.EnumValue;
 import conml.instances.Facet;
@@ -21,7 +21,7 @@ import conml.instances.Link;
 import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
-import conml.instances.StringValue;
+import conml.instances.TextValue;
 import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
@@ -126,7 +126,7 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 				return createLinkAdapter();
 			}
 			@Override
-			public <T> Adapter caseValue(Value<T> object) {
+			public Adapter caseValue(Value object) {
 				return createValueAdapter();
 			}
 			@Override
@@ -134,12 +134,12 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 				return createFacetSetAdapter();
 			}
 			@Override
-			public Adapter caseStringValue(StringValue object) {
-				return createStringValueAdapter();
+			public Adapter caseTextValue(TextValue object) {
+				return createTextValueAdapter();
 			}
 			@Override
-			public Adapter caseBoolValue(BoolValue object) {
-				return createBoolValueAdapter();
+			public Adapter caseBooleanValue(BooleanValue object) {
+				return createBooleanValueAdapter();
 			}
 			@Override
 			public Adapter caseTimeValue(TimeValue object) {
@@ -352,30 +352,30 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link conml.instances.StringValue <em>String Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link conml.instances.TextValue <em>Text Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conml.instances.StringValue
+	 * @see conml.instances.TextValue
 	 * @generated
 	 */
-	public Adapter createStringValueAdapter() {
+	public Adapter createTextValueAdapter() {
 		return null;
 	}
 
   /**
-	 * Creates a new adapter for an object of class '{@link conml.instances.BoolValue <em>Bool Value</em>}'.
+	 * Creates a new adapter for an object of class '{@link conml.instances.BooleanValue <em>Boolean Value</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see conml.instances.BoolValue
+	 * @see conml.instances.BooleanValue
 	 * @generated
 	 */
-	public Adapter createBoolValueAdapter() {
+	public Adapter createBooleanValueAdapter() {
 		return null;
 	}
 

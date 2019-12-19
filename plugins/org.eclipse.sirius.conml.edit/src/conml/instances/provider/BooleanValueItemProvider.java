@@ -3,8 +3,9 @@
 package conml.instances.provider;
 
 
+import conml.instances.BooleanValue;
 import conml.instances.DegreeOfCertainty;
-import conml.instances.NewEClass12;
+import conml.instances.InstancesPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -12,22 +13,25 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link conml.instances.NewEClass12} object.
+ * This is the item provider adapter for a {@link conml.instances.BooleanValue} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class NewEClass12ItemProvider extends ValueItemProvider {
+public class BooleanValueItemProvider extends ValueItemProvider {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NewEClass12ItemProvider(AdapterFactory adapterFactory) {
+	public BooleanValueItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -42,19 +46,42 @@ public class NewEClass12ItemProvider extends ValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This returns NewEClass12.gif.
+	 * This adds a property descriptor for the Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_BooleanValue_content_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_BooleanValue_content_feature", "_UI_BooleanValue_type"),
+				 InstancesPackage.Literals.BOOLEAN_VALUE__CONTENT,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This returns BooleanValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/NewEClass12"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/BooleanValue"));
 	}
 
 	/**
@@ -65,11 +92,11 @@ public class NewEClass12ItemProvider extends ValueItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		DegreeOfCertainty labelValue = ((NewEClass12)object).getCertainty();
+		DegreeOfCertainty labelValue = ((BooleanValue)object).getCertainty();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
-			getString("_UI_NewEClass12_type") :
-			getString("_UI_NewEClass12_type") + " " + label;
+			getString("_UI_BooleanValue_type") :
+			getString("_UI_BooleanValue_type") + " " + label;
 	}
 
 
@@ -83,6 +110,12 @@ public class NewEClass12ItemProvider extends ValueItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(BooleanValue.class)) {
+			case InstancesPackage.BOOLEAN_VALUE__CONTENT:
+				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+				return;
+		}
 		super.notifyChanged(notification);
 	}
 

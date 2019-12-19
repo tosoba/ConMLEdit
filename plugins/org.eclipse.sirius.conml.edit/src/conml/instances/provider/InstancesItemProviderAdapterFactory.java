@@ -210,72 +210,49 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link conml.instances.Value} instances.
+	 * This keeps track of the one adapter used for all {@link conml.instances.TextValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ValueItemProvider valueItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link conml.instances.Value}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createValueAdapter() {
-		if (valueItemProvider == null) {
-			valueItemProvider = new ValueItemProvider(this);
-		}
-
-		return valueItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link conml.instances.StringValue} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected StringValueItemProvider stringValueItemProvider;
+	protected TextValueItemProvider textValueItemProvider;
 
   /**
-	 * This creates an adapter for a {@link conml.instances.StringValue}.
+	 * This creates an adapter for a {@link conml.instances.TextValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createStringValueAdapter() {
-		if (stringValueItemProvider == null) {
-			stringValueItemProvider = new StringValueItemProvider(this);
+	public Adapter createTextValueAdapter() {
+		if (textValueItemProvider == null) {
+			textValueItemProvider = new TextValueItemProvider(this);
 		}
 
-		return stringValueItemProvider;
+		return textValueItemProvider;
 	}
 
   /**
-	 * This keeps track of the one adapter used for all {@link conml.instances.BoolValue} instances.
+	 * This keeps track of the one adapter used for all {@link conml.instances.BooleanValue} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected BoolValueItemProvider boolValueItemProvider;
+	protected BooleanValueItemProvider booleanValueItemProvider;
 
   /**
-	 * This creates an adapter for a {@link conml.instances.BoolValue}.
+	 * This creates an adapter for a {@link conml.instances.BooleanValue}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createBoolValueAdapter() {
-		if (boolValueItemProvider == null) {
-			boolValueItemProvider = new BoolValueItemProvider(this);
+	public Adapter createBooleanValueAdapter() {
+		if (booleanValueItemProvider == null) {
+			booleanValueItemProvider = new BooleanValueItemProvider(this);
 		}
 
-		return boolValueItemProvider;
+		return booleanValueItemProvider;
 	}
 
   /**
@@ -481,9 +458,8 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 		if (referenceSetItemProvider != null) referenceSetItemProvider.dispose();
 		if (objectItemProvider != null) objectItemProvider.dispose();
 		if (linkItemProvider != null) linkItemProvider.dispose();
-		if (valueItemProvider != null) valueItemProvider.dispose();
-		if (stringValueItemProvider != null) stringValueItemProvider.dispose();
-		if (boolValueItemProvider != null) boolValueItemProvider.dispose();
+		if (textValueItemProvider != null) textValueItemProvider.dispose();
+		if (booleanValueItemProvider != null) booleanValueItemProvider.dispose();
 		if (timeValueItemProvider != null) timeValueItemProvider.dispose();
 		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
 		if (dataValueItemProvider != null) dataValueItemProvider.dispose();

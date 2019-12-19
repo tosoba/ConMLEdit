@@ -6,12 +6,14 @@ package conml.instances.provider;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.EnumValue;
 
+import conml.instances.InstancesPackage;
 import java.util.Collection;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 
 /**
@@ -42,11 +44,34 @@ public class EnumValueItemProvider extends ValueItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
+			addContentPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
+	 * This adds a property descriptor for the Content feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addContentPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_EnumValue_content_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_EnumValue_content_feature", "_UI_EnumValue_type"),
+				 InstancesPackage.Literals.ENUM_VALUE__CONTENT,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This returns EnumValue.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -2,7 +2,7 @@
  */
 package conml.instances.impl;
 
-import conml.instances.BoolValue;
+import conml.instances.BooleanValue;
 import conml.instances.DataValue;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.EnumValue;
@@ -14,9 +14,8 @@ import conml.instances.Link;
 import conml.instances.NumberValue;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
-import conml.instances.StringValue;
+import conml.instances.TextValue;
 import conml.instances.TimeValue;
-import conml.instances.Value;
 import conml.instances.ValueSet;
 
 import org.eclipse.emf.ecore.EClass;
@@ -78,9 +77,8 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 			case InstancesPackage.REFERENCE_SET: return createReferenceSet();
 			case InstancesPackage.OBJECT: return createObject();
 			case InstancesPackage.LINK: return createLink();
-			case InstancesPackage.VALUE: return createValue();
-			case InstancesPackage.STRING_VALUE: return createStringValue();
-			case InstancesPackage.BOOL_VALUE: return createBoolValue();
+			case InstancesPackage.TEXT_VALUE: return createTextValue();
+			case InstancesPackage.BOOLEAN_VALUE: return createBooleanValue();
 			case InstancesPackage.TIME_VALUE: return createTimeValue();
 			case InstancesPackage.NUMBER_VALUE: return createNumberValue();
 			case InstancesPackage.DATA_VALUE: return createDataValue();
@@ -196,20 +194,9 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 	 * @generated
 	 */
 	@Override
-	public <T> Value<T> createValue() {
-		ValueImpl<T> value = new ValueImpl<T>();
-		return value;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public StringValue createStringValue() {
-		StringValueImpl stringValue = new StringValueImpl();
-		return stringValue;
+	public TextValue createTextValue() {
+		TextValueImpl textValue = new TextValueImpl();
+		return textValue;
 	}
 
   /**
@@ -218,9 +205,9 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 	 * @generated
 	 */
 	@Override
-	public BoolValue createBoolValue() {
-		BoolValueImpl boolValue = new BoolValueImpl();
-		return boolValue;
+	public BooleanValue createBooleanValue() {
+		BooleanValueImpl booleanValue = new BooleanValueImpl();
+		return booleanValue;
 	}
 
   /**

@@ -4,6 +4,8 @@
  */
 package conml.instances.validation;
 
+import java.util.Date;
+
 
 /**
  * A sample validator interface for {@link conml.instances.TimeValue}.
@@ -13,5 +15,7 @@ package conml.instances.validation;
  */
 public interface TimeValueValidator {
 	boolean validate();
+
+  boolean validateContent(Date value);
 
 }

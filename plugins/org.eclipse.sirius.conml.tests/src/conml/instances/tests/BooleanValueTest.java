@@ -2,18 +2,18 @@
  */
 package conml.instances.tests;
 
+import conml.instances.BooleanValue;
 import conml.instances.InstancesFactory;
-import conml.instances.StringValue;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>String Value</b></em>'.
+ * A test case for the model object '<em><b>Boolean Value</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class StringValueTest extends ValueTest {
+public class BooleanValueTest extends ValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class StringValueTest extends ValueTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(StringValueTest.class);
+		TestRunner.run(BooleanValueTest.class);
 	}
 
 	/**
-	 * Constructs a new String Value test case with the given name.
+	 * Constructs a new Boolean Value test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public StringValueTest(String name) {
+	public BooleanValueTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this String Value test case.
+	 * Returns the fixture for this Boolean Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected StringValue getFixture() {
-		return (StringValue)fixture;
+	protected BooleanValue getFixture() {
+		return (BooleanValue)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class StringValueTest extends ValueTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(InstancesFactory.eINSTANCE.createStringValue());
+		setFixture(InstancesFactory.eINSTANCE.createBooleanValue());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class StringValueTest extends ValueTest {
 		setFixture(null);
 	}
 
-} //StringValueTest
+} //BooleanValueTest

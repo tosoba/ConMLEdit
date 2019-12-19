@@ -2,18 +2,18 @@
  */
 package conml.instances.tests;
 
-import conml.instances.BoolValue;
 import conml.instances.InstancesFactory;
+import conml.instances.TextValue;
 
 import junit.textui.TestRunner;
 
 /**
  * <!-- begin-user-doc -->
- * A test case for the model object '<em><b>Bool Value</b></em>'.
+ * A test case for the model object '<em><b>Text Value</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public class BoolValueTest extends ValueTest {
+public class TextValueTest extends ValueTest {
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -21,28 +21,28 @@ public class BoolValueTest extends ValueTest {
 	 * @generated
 	 */
 	public static void main(String[] args) {
-		TestRunner.run(BoolValueTest.class);
+		TestRunner.run(TextValueTest.class);
 	}
 
 	/**
-	 * Constructs a new Bool Value test case with the given name.
+	 * Constructs a new Text Value test case with the given name.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public BoolValueTest(String name) {
+	public TextValueTest(String name) {
 		super(name);
 	}
 
 	/**
-	 * Returns the fixture for this Bool Value test case.
+	 * Returns the fixture for this Text Value test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	protected BoolValue getFixture() {
-		return (BoolValue)fixture;
+	protected TextValue getFixture() {
+		return (TextValue)fixture;
 	}
 
 	/**
@@ -53,7 +53,7 @@ public class BoolValueTest extends ValueTest {
 	 */
 	@Override
 	protected void setUp() throws Exception {
-		setFixture(InstancesFactory.eINSTANCE.createBoolValue());
+		setFixture(InstancesFactory.eINSTANCE.createTextValue());
 	}
 
 	/**
@@ -67,4 +67,4 @@ public class BoolValueTest extends ValueTest {
 		setFixture(null);
 	}
 
-} //BoolValueTest
+} //TextValueTest

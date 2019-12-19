@@ -48,7 +48,6 @@ public class ValueItemProvider extends FacetItemProvider {
 
 			addOwnerValueSetPropertyDescriptor(object);
 			addUnknownPropertyDescriptor(object);
-			addContentsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -98,28 +97,6 @@ public class ValueItemProvider extends FacetItemProvider {
 	}
 
     /**
-	 * This adds a property descriptor for the Contents feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addContentsPropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Value_contents_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Value_contents_feature", "_UI_Value_type"),
-				 InstancesPackage.Literals.VALUE__CONTENTS,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-        /**
 	 * This returns Value.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,7 +115,7 @@ public class ValueItemProvider extends FacetItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		DegreeOfCertainty labelValue = ((Value<?>)object).getCertainty();
+		DegreeOfCertainty labelValue = ((Value)object).getCertainty();
 		String label = labelValue == null ? null : labelValue.toString();
 		return label == null || label.length() == 0 ?
 			getString("_UI_Value_type") :

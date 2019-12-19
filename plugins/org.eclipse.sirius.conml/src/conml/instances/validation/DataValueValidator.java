@@ -14,4 +14,6 @@ package conml.instances.validation;
 public interface DataValueValidator {
 	boolean validate();
 
+  boolean validateContent(Object value);
+
 }

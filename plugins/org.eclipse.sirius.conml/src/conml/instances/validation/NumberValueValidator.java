@@ -14,4 +14,6 @@ package conml.instances.validation;
 public interface NumberValueValidator {
 	boolean validate();
 
+  boolean validateContent(Double value);
+
 }

@@ -289,17 +289,12 @@ public class DomainItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(conmlPackage.Literals.DOMAIN__PARTS,
-				 InstancesFactory.eINSTANCE.createValue()));
+				 InstancesFactory.eINSTANCE.createTextValue()));
 
 		newChildDescriptors.add
 			(createChildParameter
 				(conmlPackage.Literals.DOMAIN__PARTS,
-				 InstancesFactory.eINSTANCE.createStringValue()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(conmlPackage.Literals.DOMAIN__PARTS,
-				 InstancesFactory.eINSTANCE.createBoolValue()));
+				 InstancesFactory.eINSTANCE.createBooleanValue()));
 
 		newChildDescriptors.add
 			(createChildParameter

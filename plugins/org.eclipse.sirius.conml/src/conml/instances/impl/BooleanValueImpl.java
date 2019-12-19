@@ -2,29 +2,29 @@
  */
 package conml.instances.impl;
 
-import conml.instances.DataValue;
+import conml.instances.BooleanValue;
 import conml.instances.InstancesPackage;
 
-import java.lang.Object;
-
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Data Value</b></em>'.
+ * An implementation of the model object '<em><b>Boolean Value</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link conml.instances.impl.DataValueImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link conml.instances.impl.BooleanValueImpl#getContent <em>Content</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class DataValueImpl extends ValueImpl implements DataValue {
+public class BooleanValueImpl extends ValueImpl implements BooleanValue {
 	/**
 	 * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -33,8 +33,9 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object CONTENT_EDEFAULT = null;
-  /**
+	protected static final Boolean CONTENT_EDEFAULT = null;
+
+	/**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -42,14 +43,14 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Object content = CONTENT_EDEFAULT;
+	protected Boolean content = CONTENT_EDEFAULT;
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataValueImpl() {
+	protected BooleanValueImpl() {
 		super();
 	}
 
@@ -60,7 +61,7 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	 */
 	@Override
 	protected EClass eStaticClass() {
-		return InstancesPackage.Literals.DATA_VALUE;
+		return InstancesPackage.Literals.BOOLEAN_VALUE;
 	}
 
 	/**
@@ -69,24 +70,24 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	 * @generated
 	 */
 	@Override
-	public Object getContent() {
+	public Boolean getContent() {
 		return content;
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public void setContent(Object newContent) {
-		Object oldContent = content;
+	public void setContent(Boolean newContent) {
+		Boolean oldContent = content;
 		content = newContent;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.DATA_VALUE__CONTENT, oldContent, content));
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.BOOLEAN_VALUE__CONTENT, oldContent, content));
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -94,13 +95,13 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case InstancesPackage.DATA_VALUE__CONTENT:
+			case InstancesPackage.BOOLEAN_VALUE__CONTENT:
 				return getContent();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -108,14 +109,14 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case InstancesPackage.DATA_VALUE__CONTENT:
-				setContent(newValue);
+			case InstancesPackage.BOOLEAN_VALUE__CONTENT:
+				setContent((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -123,14 +124,14 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.DATA_VALUE__CONTENT:
+			case InstancesPackage.BOOLEAN_VALUE__CONTENT:
 				setContent(CONTENT_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -138,13 +139,13 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case InstancesPackage.DATA_VALUE__CONTENT:
+			case InstancesPackage.BOOLEAN_VALUE__CONTENT:
 				return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
 		}
 		return super.eIsSet(featureID);
 	}
 
-  /**
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -160,4 +161,4 @@ public class DataValueImpl extends ValueImpl implements DataValue {
 		return result.toString();
 	}
 
-} //DataValueImpl
+} //BooleanValueImpl

@@ -4,6 +4,8 @@
  */
 package conml.instances.validation;
 
+import conml.types.EnumeratedItem;
+
 
 /**
  * A sample validator interface for {@link conml.instances.EnumValue}.
@@ -13,5 +15,7 @@ package conml.instances.validation;
  */
 public interface EnumValueValidator {
 	boolean validate();
+
+  boolean validateContent(EnumeratedItem value);
 
 }

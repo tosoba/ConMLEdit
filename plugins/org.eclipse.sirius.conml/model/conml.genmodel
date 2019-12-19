@@ -272,12 +272,9 @@
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Link/compact"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Value">
-        <genTypeParameters ecoreTypeParameter="conml.ecore#//instances/Value/T"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Value/OwnerValueSet"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Value/unknown"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/Value/contents"/>
       </genClasses>
       <genClasses image="false" ecoreClass="conml.ecore#//instances/FacetSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -287,12 +284,25 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PerspectiveQualifier"/>
       </genClasses>
-      <genClasses ecoreClass="conml.ecore#//instances/StringValue"/>
-      <genClasses ecoreClass="conml.ecore#//instances/BoolValue"/>
-      <genClasses ecoreClass="conml.ecore#//instances/TimeValue"/>
-      <genClasses ecoreClass="conml.ecore#//instances/NumberValue"/>
-      <genClasses ecoreClass="conml.ecore#//instances/DataValue"/>
-      <genClasses ecoreClass="conml.ecore#//instances/EnumValue"/>
+      <genClasses ecoreClass="conml.ecore#//instances/TextValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/TextValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/BooleanValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/BooleanValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/TimeValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/TimeValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/NumberValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/NumberValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/DataValue">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/DataValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/EnumValue">
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/EnumValue/content"/>
+      </genClasses>
     </nestedGenPackages>
   </genPackages>
 </genmodel:GenModel>
