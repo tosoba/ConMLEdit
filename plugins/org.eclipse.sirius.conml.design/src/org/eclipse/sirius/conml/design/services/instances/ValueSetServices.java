@@ -8,7 +8,6 @@ import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
-import conml.instances.Facet;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
@@ -22,55 +21,39 @@ public class ValueSetServices {
 
   private static final int CONTENT_LABELS_LIMIT = 3;
 
-  private static class FacetValidation {
+  private static class ValueValidation {
     final boolean success;
     final String errorMsg;
     final String contentLabel;
 
-    private FacetValidation(
+    private ValueValidation(
         final boolean success, final String errorMsg, final String transformedContents) {
       this.success = success;
       this.errorMsg = errorMsg;
       this.contentLabel = transformedContents;
     }
 
-    public static FacetValidation SUCCESS(final String transformedContents) {
-      return new FacetValidation(true, null, transformedContents);
+    public static ValueValidation SUCCESS(final String transformedContents) {
+      return new ValueValidation(true, null, transformedContents);
     }
 
-    public static FacetValidation FAILURE(final String errorMsg) {
-      return new FacetValidation(false, errorMsg, null);
+    public static ValueValidation FAILURE(final String errorMsg) {
+      return new ValueValidation(false, errorMsg, null);
     }
   }
 
-  private FacetValidation validateFacet(
-      final Facet facet,
+  private <T> ValueValidation validateValue(
+      final Value<T> value,
       final Class<?> contentsClass,
-      final Function<Object, String> contentsTransformer) {
-    if (!(facet instanceof Value))
-      return FacetValidation.FAILURE("<One of the facets in not of type Value>");
-    final Value value = (Value) facet;
-    Object contents = value.getContents();
-    if (contents instanceof String && !String.class.equals(contentsClass)) {
-      if (Number.class.equals(contentsClass)) {
-        try {
-          contents = Double.parseDouble((String) contents);
-          value.setContents(contents);
-        } catch (NumberFormatException ex) {
-        }
-      } else if (Boolean.class.equals(contentsClass)) {
-        contents = Boolean.parseBoolean((String) contents);
-        value.setContents(contents);
-      }
-    }
-
-    if (value.isUnknown()) return FacetValidation.SUCCESS("unknown");
-    else if (contents == null) return FacetValidation.SUCCESS("null");
+      final Function<T, String> contentsTransformer) {
+    final T contents = value.getContents();
+    if (value.isUnknown()) return ValueValidation.SUCCESS("unknown");
+    else if (contents == null) return ValueValidation.SUCCESS("null");
     else {
       if (!contentsClass.isInstance(contents))
-        return FacetValidation.FAILURE(
+        return ValueValidation.FAILURE(
             "<Contents of one of the values does not match specified DataType>");
-      else return FacetValidation.SUCCESS(contentsTransformer.apply(contents));
+      else return ValueValidation.SUCCESS(contentsTransformer.apply(contents));
     }
   }
 
@@ -95,10 +78,10 @@ public class ValueSetServices {
         final BaseDataType baseDataType = simpleDataType.getBase();
         switch (baseDataType) {
           case BOOLEAN:
-            for (final Facet facet : valueSet.getValues()) {
-              final FacetValidation facetValidation =
-                  validateFacet(
-                      facet,
+            for (final Value<?> value : valueSet.getValues()) {
+              final ValueValidation facetValidation =
+                  validateValue(
+                      value,
                       Boolean.class,
                       contents -> String.valueOf(Boolean.class.cast(contents)));
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
@@ -109,18 +92,18 @@ public class ValueSetServices {
             contentLabels.add("...");
             break;
           case NUMBER:
-            for (final Facet facet : valueSet.getValues()) {
-              final FacetValidation facetValidation =
-                  validateFacet(
-                      facet, Number.class, contents -> String.valueOf(Number.class.cast(contents)));
+            for (final Value<?> value : valueSet.getValues()) {
+              final ValueValidation facetValidation =
+                  validateValue(
+                      value, Number.class, contents -> String.valueOf(Number.class.cast(contents)));
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
             break;
           case TEXT:
-            for (final Facet facet : valueSet.getValues()) {
-              final FacetValidation facetValidation =
-                  validateFacet(facet, String.class, String.class::cast);
+            for (final Value<?> value : valueSet.getValues()) {
+              final ValueValidation facetValidation =
+                  validateValue(value, String.class, String.class::cast);
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
@@ -131,10 +114,10 @@ public class ValueSetServices {
         }
 
       } else if (dataType instanceof EnumeratedType) {
-        for (final Facet facet : valueSet.getValues()) {
-          final FacetValidation facetValidation =
-              validateFacet(
-                  facet,
+        for (final Value<?> value : valueSet.getValues()) {
+          final ValueValidation facetValidation =
+              validateValue(
+                  value,
                   EnumeratedItem.class,
                   (contents) -> {
                     switch (valueSet.getEnumeratedItemValueDisplay()) {
@@ -170,5 +153,14 @@ public class ValueSetServices {
             "Error.ObjectsInstanceDifferentClasses",
             oldContainer.getIdentifier(),
             newContainer.getIdentifier()));
+  }
+
+  public Integer getValueSetDataTypeValue(final ValueSet valueSet) {
+    if (valueSet.getInstancedAttribute() == null) return null;
+    final DataType dataType = valueSet.getInstancedAttribute().getDatatype();
+    if (dataType == null) return null;
+    if (dataType instanceof SimpleDataType) return ((SimpleDataType) dataType).getBase().getValue();
+    else if (dataType instanceof EnumeratedType) return 5;
+    else return null;
   }
 }
