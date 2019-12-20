@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
 import org.eclipse.sirius.conml.design.util.DateUtils;
@@ -191,5 +192,13 @@ public class ValueSetServices {
     if (dataType instanceof SimpleDataType) return ((SimpleDataType) dataType).getBase().getValue();
     else if (dataType instanceof EnumeratedType) return 5;
     else return null;
+  }
+
+  public boolean canAddNewValueToValueSet(final EObject object) {
+    if (!(object instanceof ValueSet)) return false;
+    final ValueSet valueSet = (ValueSet) object;
+    if (valueSet.getInstancedAttribute() == null) return false;
+    return valueSet.getInstancedAttribute().getMaximumCardinality() == null
+        || valueSet.getInstancedAttribute().getMaximumCardinality() > valueSet.getValues().size();
   }
 }

@@ -1340,7 +1340,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="NewValue" label="Value" precondition="aql:container.oclIsTypeOf(instances::ValueSet)">
+          <ownedTools xsi:type="tool:ToolDescription" name="NewValue" label="Value" precondition="aql:container.canAddNewValueToValueSet()">
             <element name="valueSet"/>
             <elementView name="elementView"/>
             <initialOperation>
