@@ -2074,8 +2074,6 @@
               </initialOperation>
             </widget>
           </ifs>
-          <ifs name="if_it_is_numberValue" predicateExpression="service:self.isNumberValue"/>
-          <ifs name="if_it_is_timeValue" predicateExpression="service:self.isTimeValue"/>
           <ifs name="if_it_is_enumValue" predicateExpression="service:self.isEnumValue">
             <widget xsi:type="properties:SelectDescription" name="PR_GeneralGroup isEnumValueItem" labelExpression="Content" helpExpression="Content of the EnumeratedType Value. If control is disabled - it means EnumeratedType of this Value does not have any items." isEnabledExpression="aql:self.enumValueCandidates()->size() > 0" valueExpression="aql:self.enumValueContent()" candidatesExpression="aql:self.enumValueCandidates()" candidateDisplayExpression="aql:candidate.getFullNameOfEnumeratedItem()">
               <initialOperation>
@@ -2119,7 +2117,7 @@
                             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:typeModel"/>
                           </initialOperation>
                         </buttons>
-                        <page name="D_PR_CreateTypeModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.4/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                        <page name="D_PR_CreateTypeModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.2/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                         <groups name="D_PR_CreateTypeModel_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                       </subModelOperations>
                     </subModelOperations>
@@ -2166,7 +2164,7 @@
                             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instanceModel"/>
                           </initialOperation>
                         </buttons>
-                        <page name="D_PR_CreateInstanceModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.5/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                        <page name="D_PR_CreateInstanceModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.1/@controls.0/@ifs.3/@widget/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                         <groups name="D_PR_CreateInstanceModel_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                       </subModelOperations>
                     </subModelOperations>
@@ -2947,8 +2945,6 @@
               </initialOperation>
             </widget>
           </ifs>
-          <ifs name="if_it_is_numberValue" predicateExpression="service:self.isNumberValue"/>
-          <ifs name="if_it_is_timeValue" predicateExpression="service:self.isTimeValue"/>
           <ifs name="if_it_is_enumValue" predicateExpression="service:self.isEnumValue">
             <widget xsi:type="properties:SelectDescription" name="PR_GeneralGroup isEnumValueItem" labelExpression="Content" helpExpression="Content of the EnumeratedType Value. If control is disabled - it means EnumeratedType of this Value does not have any items." isEnabledExpression="aql:self.enumValueCandidates()->size() > 0" valueExpression="aql:self.enumValueContent()" candidatesExpression="aql:self.enumValueCandidates()" candidateDisplayExpression="aql:candidate.getFullNameOfEnumeratedItem()">
               <initialOperation>

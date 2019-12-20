@@ -1,17 +1,20 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
+import org.eclipse.sirius.conml.design.util.DateUtils;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.BooleanValue;
 import conml.instances.EnumValue;
 import conml.instances.NumberValue;
 import conml.instances.TextValue;
+import conml.instances.TimeValue;
 import conml.instances.Value;
 import conml.instances.ValueSet;
 import conml.types.Attribute;
@@ -117,13 +120,26 @@ public class ValueSetServices {
             }
             break;
           case TIME:
-            // TODO:
+            for (final Value value : valueSet.getValues()) {
+              if (!(value instanceof TimeValue)) return "<Invalid Value DataType>";
+              final ValueValidation facetValidation =
+                  validateValue(
+                      (TimeValue) value,
+                      Date.class,
+                      TimeValue::getContent,
+                      (date) -> {
+                        String formatted = DateUtils.tryFormatYYYYMMDD(date);
+                        if (date != null) return formatted;
+                        else return "<Invalid Date format>";
+                      });
+              if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
+              else return facetValidation.errorMsg;
+            }
             break;
           case DATA:
             contentLabels.add("...");
             break;
         }
-
       } else if (dataType instanceof EnumeratedType) {
         for (final Value value : valueSet.getValues()) {
           if (!(value instanceof EnumValue)) return "<Invalid Value DataType>";
