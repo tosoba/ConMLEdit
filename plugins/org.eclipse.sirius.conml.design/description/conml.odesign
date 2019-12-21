@@ -1192,6 +1192,12 @@
         <ownedRules xsi:type="validation:SemanticValidationRule" name="InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
           <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
         </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValueSet Validation SatisfiesMinCardinality" level="ERROR" message="ValueSet does not contain enough Values to satisfy its Attribute's minimum cardinality" targetClass="instances::ValueSet">
+          <audits auditExpression="service:self.valueSetSatisfiesMinCardinality"/>
+        </ownedRules>
+        <ownedRules xsi:type="validation:SemanticValidationRule" name="ValueSet Validation SatisfiesMaxCardinality" level="ERROR" message="ValueSet contains more Values than the limit specified by its Attribute's maximum cardinality" targetClass="instances::ValueSet">
+          <audits auditExpression="service:self.valueSetSatisfiesMaxCardinality"/>
+        </ownedRules>
       </validationSet>
       <defaultLayer name="InstanceModelElement">
         <edgeMappings name="OD_Link" preconditionExpression="service:self.shouldDisplayLinkEdge" semanticElements="service:self.referencesList" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@containerMappings[name='OD_Object']" targetFinderExpression="service:self.getLinkTargetType" sourceFinderExpression="service:self.getLinkSourceType" targetExpression="var:self" domainClass="instances::Link" useDomainElement="true">
@@ -2001,6 +2007,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.ValueSetServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.ValueServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.validation.InstanceModelValidationServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.validation.ValueSetValidationServices"/>
   </ownedViewpoints>
   <ownedViewpoints name="Reused" modelFileExtension="conml types instances">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Reused Description" preconditionExpression="false">
@@ -2311,6 +2318,12 @@
           </semanticValidationRules>
           <semanticValidationRules name="Props_InstanceModel Validation ConformsToAtLeastOneTypeModel" level="ERROR" message="InstanceModel has to conform to at least one TypeModel." targetClass="instances::InstanceModel">
             <audits auditExpression="service:self.instanceModelConformsToAtLeastOneTypeModel"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_ValueSet Validation SatisfiesMinCardinality" level="ERROR" message="ValueSet does not contain enough Values to satisfy its Attribute's minimum cardinality" targetClass="instances::ValueSet">
+            <audits auditExpression="service:self.valueSetSatisfiesMinCardinality"/>
+          </semanticValidationRules>
+          <semanticValidationRules name="Props_ValueSet Validation SatisfiesMaxCardinality" level="ERROR" message="ValueSet contains more Values than the limit specified by its Attribute's maximum cardinality" targetClass="instances::ValueSet">
+            <audits auditExpression="service:self.valueSetSatisfiesMaxCardinality"/>
           </semanticValidationRules>
         </validationSet>
       </groups>
