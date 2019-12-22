@@ -13,8 +13,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
-import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.Activator;
+import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.dialog.ExistingSemanticElementsSelectionDialog;
 import org.eclipse.sirius.conml.design.services.common.ExistingElementsServices;
 import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
@@ -25,8 +25,6 @@ import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
 import org.eclipse.swt.graphics.Image;
-import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 
 import conml.Domain;
 import conml.NamedElement;
@@ -65,74 +63,65 @@ public final class ClassServices {
   }
 
   public Feature showRedefinedFeatureSelectionDialog(final Class inputClass) {
-    final ElementTreeSelectionDialog dialog =
-        new ElementTreeSelectionDialog(
-            PlatformUI.getWorkbench().getDisplay().getActiveShell(),
-            new LabelProvider() {
-              @Override
-              public String getText(Object element) {
-                if (element instanceof Class) return "Class " + ((Class) element).getName();
-                else if (element instanceof SemiAssociation) {
-                  final SemiAssociation semi = (SemiAssociation) element;
-                  final StringBuilder label = new StringBuilder(semi.getName());
-                  if (semi.getReferredClass() != null)
-                    label.append(" -> ").append(semi.getReferredClass().getName());
-                  return label.toString();
-                }
-                return ((NamedElement) element).getName();
-              }
+    return Dialogs.showSingleTreeSelectionDialog(
+        inputClass,
+        Messages.getString("Dialog.RedefineFeature"),
+        Messages.getString("Dialog.FeatureToRedefine"),
+        new LabelProvider() {
+          @Override
+          public String getText(Object element) {
+            if (element instanceof Class) return "Class " + ((Class) element).getName();
+            else if (element instanceof SemiAssociation) {
+              final SemiAssociation semi = (SemiAssociation) element;
+              final StringBuilder label = new StringBuilder(semi.getName());
+              if (semi.getReferredClass() != null)
+                label.append(" -> ").append(semi.getReferredClass().getName());
+              return label.toString();
+            }
+            return ((NamedElement) element).getName();
+          }
 
-              @Override
-              public Image getImage(Object element) {
-                if (element instanceof Class)
-                  return Activator.getDefault().getImage("icons/Class.gif");
-                else if (element instanceof SemiAssociation)
-                  return Activator.getDefault().getImage("icons/Association.gif");
-                else if (element instanceof Attribute)
-                  return Activator.getDefault().getImage("icons/Attribute.gif");
-                else if (element instanceof Property)
-                  return Activator.getDefault().getImage("icons/Property.gif");
-                return super.getImage(element);
-              }
-            },
-            new ITreeContentProvider() {
-              @Override
-              public boolean hasChildren(Object element) {
-                if (!(element instanceof Class)) return false;
-                final Class clazz = (Class) element;
-                return ownsAnyFeatures(clazz);
-              }
+          @Override
+          public Image getImage(Object element) {
+            if (element instanceof Class) return Activator.getDefault().getImage("icons/Class.gif");
+            else if (element instanceof SemiAssociation)
+              return Activator.getDefault().getImage("icons/Association.gif");
+            else if (element instanceof Attribute)
+              return Activator.getDefault().getImage("icons/Attribute.gif");
+            else if (element instanceof Property)
+              return Activator.getDefault().getImage("icons/Property.gif");
+            return super.getImage(element);
+          }
+        },
+        new ITreeContentProvider() {
+          @Override
+          public boolean hasChildren(Object element) {
+            if (!(element instanceof Class)) return false;
+            return ownsAnyFeatures((Class) element);
+          }
 
-              @Override
-              public Object getParent(Object element) {
-                if (element instanceof Property) return ((Property) element).getOwnerClass();
-                else if (element instanceof Attribute) return ((Attribute) element).getOwnerClass();
-                else if (element instanceof SemiAssociation)
-                  return ((SemiAssociation) element).getOwnerClass();
-                return null;
-              }
+          @Override
+          public Object getParent(Object element) {
+            if (element instanceof Property) return ((Property) element).getOwnerClass();
+            else if (element instanceof Attribute) return ((Attribute) element).getOwnerClass();
+            else if (element instanceof SemiAssociation)
+              return ((SemiAssociation) element).getOwnerClass();
+            return null;
+          }
 
-              @Override
-              public Object[] getElements(Object inputElement) {
-                return getAllAncestorsOf((Class) inputElement, ClassServices.this::ownsAnyFeatures)
-                    .stream()
-                    .toArray();
-              }
+          @Override
+          public Object[] getElements(Object inputElement) {
+            return getAllAncestorsOf((Class) inputElement, ClassServices.this::ownsAnyFeatures)
+                .toArray();
+          }
 
-              @Override
-              public Object[] getChildren(Object parentElement) {
-                if (!(parentElement instanceof Class)) return new Object[] {};
-                return allFeaturesArray((Class) parentElement);
-              }
-            });
-    dialog.setInput(inputClass);
-    dialog.setTitle(Messages.getString("Dialog.RedefineFeature"));
-    dialog.setMessage(Messages.getString("Dialog.FeatureToRedefine"));
-    if (dialog.open() != Window.OK) return null;
-    final Object[] result = dialog.getResult();
-    if (result != null && result.length == 1 && result[0] instanceof Feature)
-      return (Feature) result[0];
-    else return null;
+          @Override
+          public Object[] getChildren(Object parentElement) {
+            if (!(parentElement instanceof Class)) return new Object[] {};
+            return allFeaturesArray((Class) parentElement);
+          }
+        },
+        Feature.class);
   }
 
   private Set<Class> getAllAncestorsOf(final Class clazz, final Predicate<Class> includeCondition) {

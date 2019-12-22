@@ -1,21 +1,21 @@
 package org.eclipse.sirius.conml.design.dialog;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Function;
 
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.MultiStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.InputDialog;
 import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.jface.viewers.ILabelProvider;
+import org.eclipse.jface.viewers.ITreeContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.window.Window;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
+import org.eclipse.ui.dialogs.ElementTreeSelectionDialog;
 
 public class Dialogs {
 
@@ -90,20 +90,25 @@ public class Dialogs {
     return new Status(IStatus.ERROR, pluginId, msg);
   }
 
-  private static MultiStatus createMultiStatus(String msg, Throwable trowable) {
-    final List<Status> childStatuses = new ArrayList<>();
-    final StackTraceElement[] stackTraces = Thread.currentThread().getStackTrace();
-
-    for (StackTraceElement stackTrace : stackTraces) {
-      final Status status = new Status(IStatus.ERROR, pluginId, stackTrace.toString());
-      childStatuses.add(status);
-    }
-
-    return new MultiStatus(
-        pluginId,
-        IStatus.ERROR,
-        childStatuses.toArray(new Status[] {}),
-        trowable.toString(),
-        trowable);
+  public static <T> T showSingleTreeSelectionDialog(
+      final Object input,
+      final String title,
+      final String message,
+      final ILabelProvider labelProvider,
+      final ITreeContentProvider treeContentProvider,
+      final Class<T> resultClass) {
+    final ElementTreeSelectionDialog dialog =
+        new ElementTreeSelectionDialog(
+            PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+            labelProvider,
+            treeContentProvider);
+    dialog.setInput(input);
+    dialog.setTitle(title);
+    dialog.setMessage(message);
+    if (dialog.open() != Window.OK) return null;
+    final Object[] result = dialog.getResult();
+    if (result != null && result.length == 1 && resultClass.isInstance(result[0]))
+      return resultClass.cast(result[0]);
+    else return null;
   }
 }
