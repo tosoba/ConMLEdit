@@ -485,6 +485,16 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getGeneralization_DiscriminantDisplayed() {
+		return (EAttribute)generalizationEClass.getEStructuralFeatures().get(4);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getFeature() {
 		return featureEClass;
 	}
@@ -1076,6 +1086,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(generalizationEClass, GENERALIZATION__SPECIALIZED_CLASSES);
 		createEReference(generalizationEClass, GENERALIZATION__GENERALIZED_CLASS);
 		createEReference(generalizationEClass, GENERALIZATION__DOMINATED_CLASSES);
+		createEAttribute(generalizationEClass, GENERALIZATION__DISCRIMINANT_DISPLAYED);
 
 		featureEClass = createEClass(FEATURE);
 		createEAttribute(featureEClass, FEATURE__MINIMUM_CARDINALITY);
@@ -1230,6 +1241,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getGeneralization_SpecializedClasses(), this.getClass_(), this.getClass_Generalizations(), "SpecializedClasses", null, 1, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_GeneralizedClass(), this.getClass_(), this.getClass_Specialization(), "GeneralizedClass", null, 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getGeneralization_DominatedClasses(), this.getClass_(), this.getClass_DominantGeneralization(), "DominatedClasses", null, 0, -1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getGeneralization_DiscriminantDisplayed(), theXMLTypePackage.getBoolean(), "discriminantDisplayed", "true", 1, 1, Generalization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(featureEClass, Feature.class, "Feature", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getFeature_MinimumCardinality(), ecorePackage.getEInt(), "minimumCardinality", null, 1, 1, Feature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -32,6 +32,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.GeneralizationImpl#getSpecializedClasses <em>Specialized Classes</em>}</li>
  *   <li>{@link conml.types.impl.GeneralizationImpl#getGeneralizedClass <em>Generalized Class</em>}</li>
  *   <li>{@link conml.types.impl.GeneralizationImpl#getDominatedClasses <em>Dominated Classes</em>}</li>
+ *   <li>{@link conml.types.impl.GeneralizationImpl#isDiscriminantDisplayed <em>Discriminant Displayed</em>}</li>
  * </ul>
  *
  * @generated
@@ -88,6 +89,26 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	protected EList<conml.types.Class> dominatedClasses;
 
   /**
+	 * The default value of the '{@link #isDiscriminantDisplayed() <em>Discriminant Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDiscriminantDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean DISCRIMINANT_DISPLAYED_EDEFAULT = true;
+
+  /**
+	 * The cached value of the '{@link #isDiscriminantDisplayed() <em>Discriminant Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isDiscriminantDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean discriminantDisplayed = DISCRIMINANT_DISPLAYED_EDEFAULT;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -222,6 +243,29 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isDiscriminantDisplayed() {
+		return discriminantDisplayed;
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDiscriminantDisplayed(boolean newDiscriminantDisplayed) {
+		boolean oldDiscriminantDisplayed = discriminantDisplayed;
+		discriminantDisplayed = newDiscriminantDisplayed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED, oldDiscriminantDisplayed, discriminantDisplayed));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -273,6 +317,8 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 				return basicGetGeneralizedClass();
 			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
 				return getDominatedClasses();
+			case TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED:
+				return isDiscriminantDisplayed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -300,6 +346,9 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 				getDominatedClasses().clear();
 				getDominatedClasses().addAll((Collection<? extends conml.types.Class>)newValue);
 				return;
+			case TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED:
+				setDiscriminantDisplayed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -324,6 +373,9 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
 				getDominatedClasses().clear();
 				return;
+			case TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED:
+				setDiscriminantDisplayed(DISCRIMINANT_DISPLAYED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -344,6 +396,8 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 				return generalizedClass != null;
 			case TypesPackage.GENERALIZATION__DOMINATED_CLASSES:
 				return dominatedClasses != null && !dominatedClasses.isEmpty();
+			case TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED:
+				return discriminantDisplayed != DISCRIMINANT_DISPLAYED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -360,6 +414,8 @@ public class GeneralizationImpl extends TypeModelElementImpl implements Generali
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (discriminant: ");
 		result.append(discriminant);
+		result.append(", discriminantDisplayed: ");
+		result.append(discriminantDisplayed);
 		result.append(')');
 		return result.toString();
 	}

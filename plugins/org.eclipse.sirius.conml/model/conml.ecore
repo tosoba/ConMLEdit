@@ -95,6 +95,9 @@
           eType="#//types/Class" eOpposite="#//types/Class/Specialization"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DominatedClasses" upperBound="-1"
           eType="#//types/Class" eOpposite="#//types/Class/DominantGeneralization"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="discriminantDisplayed"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Feature" abstract="true" eSuperTypes="#//types/Type">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="minimumCardinality" lowerBound="1"

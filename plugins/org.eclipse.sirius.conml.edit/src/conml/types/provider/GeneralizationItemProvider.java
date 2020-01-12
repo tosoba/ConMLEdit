@@ -49,6 +49,7 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 			addSpecializedClassesPropertyDescriptor(object);
 			addGeneralizedClassPropertyDescriptor(object);
 			addDominatedClassesPropertyDescriptor(object);
+			addDiscriminantDisplayedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -142,6 +143,28 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Discriminant Displayed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDiscriminantDisplayedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Generalization_discriminantDisplayed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Generalization_discriminantDisplayed_feature", "_UI_Generalization_type"),
+				 TypesPackage.Literals.GENERALIZATION__DISCRIMINANT_DISPLAYED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This returns Generalization.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -180,6 +203,7 @@ public class GeneralizationItemProvider extends TypeModelElementItemProvider {
 
 		switch (notification.getFeatureID(Generalization.class)) {
 			case TypesPackage.GENERALIZATION__DISCRIMINANT:
+			case TypesPackage.GENERALIZATION__DISCRIMINANT_DISPLAYED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

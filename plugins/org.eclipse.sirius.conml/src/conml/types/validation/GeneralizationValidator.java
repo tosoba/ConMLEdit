@@ -22,5 +22,9 @@ public interface GeneralizationValidator {
 	boolean validateGeneralizedClass(conml.types.Class value);
 	boolean validateDominatedClasses(EList<conml.types.Class> value);
 
-  boolean validateDominatesInheritanceOn(EList<conml.types.Class> value);
+  boolean validateDiscriminantDisplayed(boolean value);
+
+    boolean validateShowDiscriminant(boolean value);
+
+    boolean validateDominatesInheritanceOn(EList<conml.types.Class> value);
 }

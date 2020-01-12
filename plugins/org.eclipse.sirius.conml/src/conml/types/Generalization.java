@@ -17,6 +17,7 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.Generalization#getSpecializedClasses <em>Specialized Classes</em>}</li>
  *   <li>{@link conml.types.Generalization#getGeneralizedClass <em>Generalized Class</em>}</li>
  *   <li>{@link conml.types.Generalization#getDominatedClasses <em>Dominated Classes</em>}</li>
+ *   <li>{@link conml.types.Generalization#isDiscriminantDisplayed <em>Discriminant Displayed</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getGeneralization()
@@ -97,5 +98,28 @@ public interface Generalization extends TypeModelElement {
 	 * @generated
 	 */
 	EList<conml.types.Class> getDominatedClasses();
+
+  /**
+	 * Returns the value of the '<em><b>Discriminant Displayed</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Discriminant Displayed</em>' attribute.
+	 * @see #setDiscriminantDisplayed(boolean)
+	 * @see conml.types.TypesPackage#getGeneralization_DiscriminantDisplayed()
+	 * @model default="true" dataType="org.eclipse.emf.ecore.xml.type.Boolean" required="true"
+	 * @generated
+	 */
+	boolean isDiscriminantDisplayed();
+
+  /**
+	 * Sets the value of the '{@link conml.types.Generalization#isDiscriminantDisplayed <em>Discriminant Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Discriminant Displayed</em>' attribute.
+	 * @see #isDiscriminantDisplayed()
+	 * @generated
+	 */
+	void setDiscriminantDisplayed(boolean value);
 
 } // Generalization

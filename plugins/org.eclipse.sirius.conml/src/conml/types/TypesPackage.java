@@ -578,13 +578,22 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int GENERALIZATION__DOMINATED_CLASSES = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 3;
 
   /**
+	 * The feature id for the '<em><b>Discriminant Displayed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int GENERALIZATION__DISCRIMINANT_DISPLAYED = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 4;
+
+    /**
 	 * The number of structural features of the '<em>Generalization</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int GENERALIZATION_FEATURE_COUNT = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 4;
+	int GENERALIZATION_FEATURE_COUNT = TYPE_MODEL_ELEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Generalization</em>' class.
@@ -2121,6 +2130,17 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	EReference getGeneralization_DominatedClasses();
 
   /**
+	 * Returns the meta object for the attribute '{@link conml.types.Generalization#isDiscriminantDisplayed <em>Discriminant Displayed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Discriminant Displayed</em>'.
+	 * @see conml.types.Generalization#isDiscriminantDisplayed()
+	 * @see #getGeneralization()
+	 * @generated
+	 */
+	EAttribute getGeneralization_DiscriminantDisplayed();
+
+    /**
 	 * Returns the meta object for class '{@link conml.types.Feature <em>Feature</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2934,6 +2954,14 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 		EReference GENERALIZATION__DOMINATED_CLASSES = eINSTANCE.getGeneralization_DominatedClasses();
 
     /**
+		 * The meta object literal for the '<em><b>Discriminant Displayed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute GENERALIZATION__DISCRIMINANT_DISPLAYED = eINSTANCE.getGeneralization_DiscriminantDisplayed();
+
+        /**
 		 * The meta object literal for the '{@link conml.types.impl.FeatureImpl <em>Feature</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

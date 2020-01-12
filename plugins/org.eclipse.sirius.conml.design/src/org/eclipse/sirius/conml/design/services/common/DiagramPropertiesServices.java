@@ -21,7 +21,9 @@ import org.eclipse.sirius.conml.design.services.types.AssociationServices;
 import org.eclipse.sirius.conml.design.services.types.PackageServices;
 import org.eclipse.sirius.conml.design.services.types.SemiAssociationServices;
 
+import conml.Domain;
 import conml.instances.InstanceModel;
+import conml.instances.InstanceModelElement;
 import conml.instances.Link;
 import conml.instances.Value;
 import conml.instances.ValueSet;
@@ -46,7 +48,7 @@ public final class DiagramPropertiesServices {
   private static final List<Predicate<EStructuralFeature>> structFeatureCreationDialogPredicates =
       new ArrayList<>();
 
-  private static final boolean ignorePropertyReferences = false;
+  private static final boolean ignorePropertyReferences = true;
   private static final boolean ignoreCreationDialogReferences = true;
 
   static {
@@ -203,7 +205,9 @@ public final class DiagramPropertiesServices {
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
     ignoredCreationDialogReferences.put(Property.class, new HashSet<>(Arrays.asList("OwnerClass")));
     ignoredCreationDialogReferences.put(
-        Attribute.class, new HashSet<>(Arrays.asList("OwnerClass")));
+        Attribute.class,
+        new HashSet<>(
+            Arrays.asList("OwnerClass", "RedefiningAttribute", "RedefinedAttribute", "DataType")));
     ignoredCreationDialogReferences.put(
         SemiAssociation.class,
         new HashSet<>(
@@ -216,14 +220,20 @@ public final class DiagramPropertiesServices {
         Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass")));
 
     // Instances
+    ignoredCreationDialogReferences.put(
+        InstanceModelElement.class, new HashSet<>(Arrays.asList("InstanceModel")));
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredCreationDialogReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
   }
 
   private static void setupIgnoredPropertiesReferences() {
+    ignoredPropertyReferences.put(Domain.class, new HashSet<>(Arrays.asList("Parts", "Models")));
+
     // Types
     ignoredPropertyReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
+    ignoredCreationDialogReferences.put(
+        TypeModelElement.class, new HashSet<>(Arrays.asList("TypeModel")));
     ignoredPropertyReferences.put(
         conml.types.Class.class,
         new HashSet<>(
@@ -250,6 +260,8 @@ public final class DiagramPropertiesServices {
 
     // Instances
     ignoredPropertyReferences.put(InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
+    ignoredCreationDialogReferences.put(
+        InstanceModelElement.class, new HashSet<>(Arrays.asList("InstanceModel")));
     ignoredPropertyReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredPropertyReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));

@@ -20,6 +20,10 @@ import conml.types.Generalization;
 
 public final class GeneralizationServices {
 
+  public String generalizationEdgeLabel(final Generalization generalization) {
+    return generalization.isDiscriminantDisplayed() ? generalization.getDiscriminant() : "";
+  }
+
   public boolean abstractGeneralizationPrecondition(final Class source, final Class target) {
     return !(source.isAbstract() && !target.isAbstract());
   }
