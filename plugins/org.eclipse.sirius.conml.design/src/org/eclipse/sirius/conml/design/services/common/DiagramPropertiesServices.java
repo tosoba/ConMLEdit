@@ -33,6 +33,7 @@ import conml.types.Package;
 import conml.types.Property;
 import conml.types.SemiAssociation;
 import conml.types.TypeModel;
+import conml.types.TypeModelElement;
 
 public final class DiagramPropertiesServices {
 
@@ -138,6 +139,11 @@ public final class DiagramPropertiesServices {
         .collect(Collectors.toList());
   }
 
+  private static boolean referenceFeaturePredicate(final EStructuralFeature feature) {
+    return !(feature instanceof EReference)
+        || ((feature instanceof EReference) && ((EReference) feature).getUpperBound() == 1);
+  }
+
   private static boolean compactAssociationFeaturePredicate(final EStructuralFeature feature) {
     return !(Association.class.isAssignableFrom(feature.getContainerClass())
         && "compact".equalsIgnoreCase(feature.getName()));
@@ -173,6 +179,7 @@ public final class DiagramPropertiesServices {
         DiagramPropertiesServices::overallPackageFeaturePredicate);
     structFeatureCreationDialogPredicates.add(
         DiagramPropertiesServices::compactLinkFeaturePredicate);
+    structFeatureCreationDialogPredicates.add(DiagramPropertiesServices::referenceFeaturePredicate);
   }
 
   private static void setupStructuralFeaturesPropertiesPredicates() {
@@ -187,13 +194,10 @@ public final class DiagramPropertiesServices {
     // Types
     ignoredCreationDialogReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredCreationDialogReferences.put(
+        TypeModelElement.class, new HashSet<>(Arrays.asList("TypeModel")));
+    ignoredCreationDialogReferences.put(
         conml.types.Class.class,
-        new HashSet<>(
-            Arrays.asList(
-                "SemiAssociations",
-                "Specialization",
-                "Generalizations",
-                "DominantGeneralization")));
+        new HashSet<>(Arrays.asList("Specialization", "DominantGeneralization")));
     ignoredCreationDialogReferences.put(
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
@@ -209,12 +213,9 @@ public final class DiagramPropertiesServices {
                 "PrimaryInAssociation",
                 "SecondaryInAssociation")));
     ignoredCreationDialogReferences.put(
-        Generalization.class,
-        new HashSet<>(Arrays.asList("GeneralizedClass", "SpecializedClasses")));
+        Generalization.class, new HashSet<>(Arrays.asList("GeneralizedClass")));
 
     // Instances
-    ignoredCreationDialogReferences.put(
-        InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredCreationDialogReferences.put(
         Link.class, new HashSet<>(Arrays.asList("PrimaryReference", "SecondaryReference")));
