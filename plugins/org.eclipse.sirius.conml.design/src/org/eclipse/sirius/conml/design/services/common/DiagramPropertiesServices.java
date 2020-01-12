@@ -207,7 +207,7 @@ public final class DiagramPropertiesServices {
     ignoredCreationDialogReferences.put(
         Attribute.class,
         new HashSet<>(
-            Arrays.asList("OwnerClass", "RedefiningAttribute", "RedefinedAttribute", "DataType")));
+            Arrays.asList("OwnerClass", "RedefiningAttribute", "RedefinedAttribute", "Datatype")));
     ignoredCreationDialogReferences.put(
         SemiAssociation.class,
         new HashSet<>(
@@ -232,7 +232,7 @@ public final class DiagramPropertiesServices {
 
     // Types
     ignoredPropertyReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
-    ignoredCreationDialogReferences.put(
+    ignoredPropertyReferences.put(
         TypeModelElement.class, new HashSet<>(Arrays.asList("TypeModel")));
     ignoredPropertyReferences.put(
         conml.types.Class.class,
@@ -246,7 +246,10 @@ public final class DiagramPropertiesServices {
         Association.class,
         new HashSet<>(Arrays.asList("PrimarySemiAssociation", "SecondarySemiAssociation")));
     ignoredPropertyReferences.put(Property.class, new HashSet<>(Arrays.asList("OwnerClass")));
-    ignoredPropertyReferences.put(Attribute.class, new HashSet<>(Arrays.asList("OwnerClass")));
+    ignoredPropertyReferences.put(
+        Attribute.class,
+        new HashSet<>(
+            Arrays.asList("OwnerClass", "RedefiningAttribute", "RedefinedAttribute", "Datatype")));
     ignoredPropertyReferences.put(
         SemiAssociation.class,
         new HashSet<>(
@@ -260,7 +263,7 @@ public final class DiagramPropertiesServices {
 
     // Instances
     ignoredPropertyReferences.put(InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
-    ignoredCreationDialogReferences.put(
+    ignoredPropertyReferences.put(
         InstanceModelElement.class, new HashSet<>(Arrays.asList("InstanceModel")));
     ignoredPropertyReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredPropertyReferences.put(

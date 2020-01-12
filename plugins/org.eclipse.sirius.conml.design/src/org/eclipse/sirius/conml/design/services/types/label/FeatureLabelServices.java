@@ -54,7 +54,7 @@ public final class FeatureLabelServices {
         sb.append('?');
       }
 
-      if (attr.isMultilingual()) markers.add("M");
+      if (attr.isMultilingual()) markers.add("L");
     } else if (feature instanceof Property) {
       sb.append('?');
     }

@@ -2053,7 +2053,6 @@
       <pages name="PR_InstanceModelElementsPage" labelExpression="Elements" domainClass="instances::InstanceModel" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.6"/>
       <pages name="PR_SemiAssociationsPage" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.3 //@extensions.0/@categories.0/@groups.4"/>
       <pages name="PR_ActionPage" labelExpression="Actions" semanticCandidateExpression="var:self" preconditionExpression="aql:self.shouldShowActionPage()" groups="//@extensions.0/@categories.0/@groups.0"/>
-      <pages name="PR_FeatureRedefinitionPage" labelExpression="General" semanticCandidateExpression="var:self"/>
       <groups name="PR_ActionGroup" labelExpression="Actions" semanticCandidateExpression="var:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="AdditionalDynamicMappings" iterator="it" iterableExpression="var:self">
           <ifs name="if_it_is_compactAssociation" predicateExpression="service:self.isPrimarySemiInCompactAssociation">
