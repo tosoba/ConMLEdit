@@ -97,6 +97,14 @@ public final class SemiAssociationServices {
     semiAssociation.setRole(role);
   }
 
+  public void setNameDisplayed(final SemiAssociation semiAssociation, final Boolean nameDisplayed) {
+    semiAssociation.setNameDisplayed(nameDisplayed);
+  }
+
+  public void setRoleDisplayed(final SemiAssociation semiAssociation, final Boolean roleDisplayed) {
+    semiAssociation.setRoleDisplayed(roleDisplayed);
+  }
+
   public Set<Class> getRedefinedSemiAssociationReferredClassCandidates(
       final SemiAssociation semiAssociation) {
     final SemiAssociation redefined = semiAssociation.getRedefinedSemiAssociation();

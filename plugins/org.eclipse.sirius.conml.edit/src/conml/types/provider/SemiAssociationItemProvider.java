@@ -55,6 +55,8 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			addReferredClassPropertyDescriptor(object);
 			addRedefinedSemiAssociationPropertyDescriptor(object);
 			addOwnerClassPropertyDescriptor(object);
+			addNameDisplayedPropertyDescriptor(object);
+			addRoleDisplayedPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -280,6 +282,50 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 	}
 
         /**
+	 * This adds a property descriptor for the Name Displayed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNameDisplayedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_nameDisplayed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_nameDisplayed_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__NAME_DISPLAYED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+        /**
+	 * This adds a property descriptor for the Role Displayed feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addRoleDisplayedPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_SemiAssociation_roleDisplayed_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_SemiAssociation_roleDisplayed_feature", "_UI_SemiAssociation_type"),
+				 TypesPackage.Literals.SEMI_ASSOCIATION__ROLE_DISPLAYED,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.BOOLEAN_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+                /**
 	 * This returns SemiAssociation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -320,6 +366,8 @@ public class SemiAssociationItemProvider extends FeatureItemProvider {
 			case TypesPackage.SEMI_ASSOCIATION__ROLE:
 			case TypesPackage.SEMI_ASSOCIATION__WHOLE:
 			case TypesPackage.SEMI_ASSOCIATION__STRONG:
+			case TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED:
+			case TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

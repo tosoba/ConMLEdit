@@ -9,7 +9,7 @@ public final class AssociationLabelServices {
 
   public String associationCenterLabel(final Association association) {
     return associationCenterTopLabel(association)
-        + "\n"
+        + "\n\n"
         + associationCenterBottomLabel(association);
   }
 
@@ -18,31 +18,51 @@ public final class AssociationLabelServices {
   }
 
   public String associationCenterTopLabel(final Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getPrimarySemiAssociation(), SemiAssociation::getName)
-        .toString();
+    final StringBuilder sb =
+        association.getPrimarySemiAssociation().isNameDisplayed()
+            ? buildSemiAssociationAttributeLabel(
+                    association.getPrimarySemiAssociation(), SemiAssociation::getName)
+                .append(' ')
+            : new StringBuilder();
+    SemiAssociationLabelServices.getInstance()
+        .appendMarkersString(sb, association.getPrimarySemiAssociation());
+    if (association.getPrimarySemiAssociation().isNameDisplayed() || sb.length() > 0)
+      sb.append(" \u25B6");
+    return sb.toString();
   }
 
   public String associationCenterBottomLabel(final Association association) {
-    return buildSemiAssociationAttributeLabel(
-            association.getSecondarySemiAssociation(), SemiAssociation::getName)
-        .toString();
+    final StringBuilder sb =
+        association.getSecondarySemiAssociation().isNameDisplayed()
+            ? buildSemiAssociationAttributeLabel(
+                    association.getSecondarySemiAssociation(), SemiAssociation::getName)
+                .append(' ')
+            : new StringBuilder();
+    SemiAssociationLabelServices.getInstance()
+        .appendMarkersString(sb, association.getSecondarySemiAssociation());
+    if (association.getSecondarySemiAssociation().isNameDisplayed() || sb.length() > 0)
+      sb.insert(0, "\u25C0 ");
+    return sb.toString();
   }
 
   public String associationBeginLabel(final Association association) {
     final StringBuilder sb =
-        buildSemiAssociationAttributeLabel(
-                association.getPrimarySemiAssociation(), SemiAssociation::getRole)
-            .append(' ');
+        association.getPrimarySemiAssociation().isRoleDisplayed()
+            ? buildSemiAssociationAttributeLabel(
+                    association.getPrimarySemiAssociation(), SemiAssociation::getRole)
+                .append(' ')
+            : new StringBuilder();
     Labels.buildCardinalityLabelPart(association.getPrimarySemiAssociation(), sb);
     return sb.toString();
   }
 
   public String associationEndLabel(final Association association) {
     final StringBuilder sb =
-        buildSemiAssociationAttributeLabel(
-                association.getSecondarySemiAssociation(), SemiAssociation::getRole)
-            .append(' ');
+        association.getSecondarySemiAssociation().isRoleDisplayed()
+            ? buildSemiAssociationAttributeLabel(
+                    association.getSecondarySemiAssociation(), SemiAssociation::getRole)
+                .append(' ')
+            : new StringBuilder();
     Labels.buildCardinalityLabelPart(association.getSecondarySemiAssociation(), sb);
     return sb.toString();
   }
@@ -50,7 +70,8 @@ public final class AssociationLabelServices {
   private StringBuilder buildSemiAssociationAttributeLabel(
       final SemiAssociation semiAssociation,
       final Function<SemiAssociation, String> attributeNameGetter) {
-    return SemiAssociationLabelServices.getInstance().buildSemiAssociationAttributeLabel(
-        semiAssociation, attributeNameGetter, new StringBuilder());
+    return SemiAssociationLabelServices.getInstance()
+        .buildSemiAssociationAttributeLabel(
+            semiAssociation, attributeNameGetter, new StringBuilder());
   }
 }

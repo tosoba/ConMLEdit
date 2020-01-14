@@ -1530,13 +1530,31 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	int SEMI_ASSOCIATION__OWNER_CLASS = FEATURE_FEATURE_COUNT + 9;
 
         /**
+	 * The feature id for the '<em><b>Name Displayed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__NAME_DISPLAYED = FEATURE_FEATURE_COUNT + 10;
+
+        /**
+	 * The feature id for the '<em><b>Role Displayed</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SEMI_ASSOCIATION__ROLE_DISPLAYED = FEATURE_FEATURE_COUNT + 11;
+
+                /**
 	 * The number of structural features of the '<em>Semi Association</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 10;
+	int SEMI_ASSOCIATION_FEATURE_COUNT = FEATURE_FEATURE_COUNT + 12;
 
 	/**
 	 * The number of operations of the '<em>Semi Association</em>' class.
@@ -2607,6 +2625,28 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	EReference getSemiAssociation_OwnerClass();
 
         /**
+	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isNameDisplayed <em>Name Displayed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name Displayed</em>'.
+	 * @see conml.types.SemiAssociation#isNameDisplayed()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EAttribute getSemiAssociation_NameDisplayed();
+
+        /**
+	 * Returns the meta object for the attribute '{@link conml.types.SemiAssociation#isRoleDisplayed <em>Role Displayed</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Role Displayed</em>'.
+	 * @see conml.types.SemiAssociation#isRoleDisplayed()
+	 * @see #getSemiAssociation()
+	 * @generated
+	 */
+	EAttribute getSemiAssociation_RoleDisplayed();
+
+                /**
 	 * Returns the meta object for class '{@link conml.types.Property <em>Property</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3320,6 +3360,22 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 		EReference SEMI_ASSOCIATION__OWNER_CLASS = eINSTANCE.getSemiAssociation_OwnerClass();
 
                 /**
+		 * The meta object literal for the '<em><b>Name Displayed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMI_ASSOCIATION__NAME_DISPLAYED = eINSTANCE.getSemiAssociation_NameDisplayed();
+
+                /**
+		 * The meta object literal for the '<em><b>Role Displayed</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SEMI_ASSOCIATION__ROLE_DISPLAYED = eINSTANCE.getSemiAssociation_RoleDisplayed();
+
+                                /**
 		 * The meta object literal for the '{@link conml.types.impl.PropertyImpl <em>Property</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

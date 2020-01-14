@@ -2333,6 +2333,20 @@
       </groups>
       <groups name="PR_SemiAssociationsGroup" labelExpression="SemiAssociations" domainClass="types::Association" semanticCandidateExpression="aql:self">
         <controls xsi:type="properties:DynamicMappingForDescription" name="SemiAssociationsDynamicMapping" iterator="semi" iterableExpression="service:self.semiAssociationsList">
+          <ifs name="semiAssociationNameDisplayedIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_NameDisplayed_Checkbox" labelExpression="Name displayed" helpExpression="Indicates whether the SemiAssociation's name is displayed on the diagram" valueExpression="aql:semi.nameDisplayed">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:semi.setNameDisplayed(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationRoleDisplayedIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_RoleDisplayed_Checkbox" labelExpression="Role displayed" helpExpression="Indicates whether the SemiAssociation's role is displayed on the diagram" valueExpression="aql:semi.roleDisplayed">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:semi.setRoleDisplayed(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
           <ifs name="semiAssociationNameIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
             <widget xsi:type="properties:TextDescription" name="PR_SemiAssociation_Name_Text" labelExpression="Name:" helpExpression="Name of the SemiAssociation" valueExpression="aql:semi.name">
               <initialOperation>

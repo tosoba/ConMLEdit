@@ -190,6 +190,12 @@
           eType="#//types/SemiAssociation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/SemiAssociations"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="nameDisplayed" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="roleDisplayed" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+          defaultValueLiteral="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Property" eSuperTypes="#//types/Feature">
       <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedProperty" eType="#//types/Property"/>

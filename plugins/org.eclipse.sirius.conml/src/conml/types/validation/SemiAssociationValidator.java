@@ -48,7 +48,15 @@ public interface SemiAssociationValidator {
 
     boolean validateOwnerClass(conml.types.Class value);
 
-        boolean validateRedefinedSemiassociations(EList<SemiAssociation> value);
+        boolean validateNameDisplayed(boolean value);
+
+        boolean validateRoleDisplayed(boolean value);
+
+                boolean validateDisplayName(boolean value);
+
+        boolean validateDisplayRole(boolean value);
+
+                boolean validateRedefinedSemiassociations(EList<SemiAssociation> value);
 
     boolean validateIsPrimaryIn(Association value);
 	boolean validateIsSecondaryIn(Association value);

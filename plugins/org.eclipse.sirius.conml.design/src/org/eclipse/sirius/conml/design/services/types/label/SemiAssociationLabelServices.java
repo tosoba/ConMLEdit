@@ -62,13 +62,17 @@ public final class SemiAssociationLabelServices {
 
     sb.append(primary.getReferredClass().getName());
 
-    final ArrayList<String> markers = new ArrayList<>();
-    if (primary.isConstant()) markers.add("K");
-    if (primary.isSubjective()) markers.add("S");
-    if (primary.isTemporal()) markers.add("T");
-    if (!markers.isEmpty())
-      sb.append(" (").append(markers.stream().collect(Collectors.joining(","))).append(")");
+    appendMarkersString(sb, primary);
 
     return sb.toString();
+  }
+
+  public void appendMarkersString(final StringBuilder sb, final SemiAssociation semi) {
+    final ArrayList<String> markers = new ArrayList<>();
+    if (semi.isConstant()) markers.add("K");
+    if (semi.isSubjective()) markers.add("S");
+    if (semi.isTemporal()) markers.add("T");
+    if (!markers.isEmpty())
+      sb.append(" (").append(markers.stream().collect(Collectors.joining(","))).append(")");
   }
 }

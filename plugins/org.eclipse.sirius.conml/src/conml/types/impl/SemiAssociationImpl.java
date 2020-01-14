@@ -42,6 +42,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getReferredClass <em>Referred Class</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}</li>
  *   <li>{@link conml.types.impl.SemiAssociationImpl#getOwnerClass <em>Owner Class</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#isNameDisplayed <em>Name Displayed</em>}</li>
+ *   <li>{@link conml.types.impl.SemiAssociationImpl#isRoleDisplayed <em>Role Displayed</em>}</li>
  * </ul>
  *
  * @generated
@@ -168,6 +170,46 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	protected SemiAssociation redefinedSemiAssociation;
 
     /**
+	 * The default value of the '{@link #isNameDisplayed() <em>Name Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNameDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean NAME_DISPLAYED_EDEFAULT = true;
+
+    /**
+	 * The cached value of the '{@link #isNameDisplayed() <em>Name Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isNameDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean nameDisplayed = NAME_DISPLAYED_EDEFAULT;
+
+    /**
+	 * The default value of the '{@link #isRoleDisplayed() <em>Role Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRoleDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean ROLE_DISPLAYED_EDEFAULT = true;
+
+    /**
+	 * The cached value of the '{@link #isRoleDisplayed() <em>Role Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isRoleDisplayed()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean roleDisplayed = ROLE_DISPLAYED_EDEFAULT;
+
+        /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -560,6 +602,52 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public boolean isNameDisplayed() {
+		return nameDisplayed;
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setNameDisplayed(boolean newNameDisplayed) {
+		boolean oldNameDisplayed = nameDisplayed;
+		nameDisplayed = newNameDisplayed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED, oldNameDisplayed, nameDisplayed));
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public boolean isRoleDisplayed() {
+		return roleDisplayed;
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRoleDisplayed(boolean newRoleDisplayed) {
+		boolean oldRoleDisplayed = roleDisplayed;
+		roleDisplayed = newRoleDisplayed;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED, oldRoleDisplayed, roleDisplayed));
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -649,6 +737,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return basicGetRedefinedSemiAssociation();
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				return getOwnerClass();
+			case TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED:
+				return isNameDisplayed();
+			case TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED:
+				return isRoleDisplayed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -693,6 +785,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)newValue);
 				return;
+			case TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED:
+				setNameDisplayed((Boolean)newValue);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED:
+				setRoleDisplayed((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -735,6 +833,12 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)null);
 				return;
+			case TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED:
+				setNameDisplayed(NAME_DISPLAYED_EDEFAULT);
+				return;
+			case TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED:
+				setRoleDisplayed(ROLE_DISPLAYED_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -767,6 +871,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 				return redefinedSemiAssociation != null;
 			case TypesPackage.SEMI_ASSOCIATION__OWNER_CLASS:
 				return getOwnerClass() != null;
+			case TypesPackage.SEMI_ASSOCIATION__NAME_DISPLAYED:
+				return nameDisplayed != NAME_DISPLAYED_EDEFAULT;
+			case TypesPackage.SEMI_ASSOCIATION__ROLE_DISPLAYED:
+				return roleDisplayed != ROLE_DISPLAYED_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -787,6 +895,10 @@ public class SemiAssociationImpl extends FeatureImpl implements SemiAssociation 
 		result.append(whole);
 		result.append(", strong: ");
 		result.append(strong);
+		result.append(", nameDisplayed: ");
+		result.append(nameDisplayed);
+		result.append(", roleDisplayed: ");
+		result.append(roleDisplayed);
 		result.append(')');
 		return result.toString();
 	}

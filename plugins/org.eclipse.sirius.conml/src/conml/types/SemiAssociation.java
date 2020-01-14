@@ -25,6 +25,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.types.SemiAssociation#getReferredClass <em>Referred Class</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getRedefinedSemiAssociation <em>Redefined Semi Association</em>}</li>
  *   <li>{@link conml.types.SemiAssociation#getOwnerClass <em>Owner Class</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#isNameDisplayed <em>Name Displayed</em>}</li>
+ *   <li>{@link conml.types.SemiAssociation#isRoleDisplayed <em>Role Displayed</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getSemiAssociation()
@@ -249,5 +251,51 @@ public interface SemiAssociation extends Feature {
 	 * @generated
 	 */
 	void setOwnerClass(conml.types.Class value);
+
+                /**
+	 * Returns the value of the '<em><b>Name Displayed</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Name Displayed</em>' attribute.
+	 * @see #setNameDisplayed(boolean)
+	 * @see conml.types.TypesPackage#getSemiAssociation_NameDisplayed()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isNameDisplayed();
+
+                /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#isNameDisplayed <em>Name Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Name Displayed</em>' attribute.
+	 * @see #isNameDisplayed()
+	 * @generated
+	 */
+	void setNameDisplayed(boolean value);
+
+                /**
+	 * Returns the value of the '<em><b>Role Displayed</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Role Displayed</em>' attribute.
+	 * @see #setRoleDisplayed(boolean)
+	 * @see conml.types.TypesPackage#getSemiAssociation_RoleDisplayed()
+	 * @model default="true" required="true"
+	 * @generated
+	 */
+	boolean isRoleDisplayed();
+
+                /**
+	 * Sets the value of the '{@link conml.types.SemiAssociation#isRoleDisplayed <em>Role Displayed</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Role Displayed</em>' attribute.
+	 * @see #isRoleDisplayed()
+	 * @generated
+	 */
+	void setRoleDisplayed(boolean value);
 
 } // SemiAssociation

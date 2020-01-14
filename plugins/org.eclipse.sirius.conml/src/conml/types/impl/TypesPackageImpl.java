@@ -925,6 +925,26 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EAttribute getSemiAssociation_NameDisplayed() {
+		return (EAttribute)semiAssociationEClass.getEStructuralFeatures().get(10);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getSemiAssociation_RoleDisplayed() {
+		return (EAttribute)semiAssociationEClass.getEStructuralFeatures().get(11);
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getProperty() {
 		return propertyEClass;
 	}
@@ -1137,6 +1157,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REFERRED_CLASS);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__REDEFINED_SEMI_ASSOCIATION);
 		createEReference(semiAssociationEClass, SEMI_ASSOCIATION__OWNER_CLASS);
+		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__NAME_DISPLAYED);
+		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__ROLE_DISPLAYED);
 
 		propertyEClass = createEClass(PROPERTY);
 		createEReference(propertyEClass, PROPERTY__REDEFINED_PROPERTY);
@@ -1292,6 +1314,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEReference(getSemiAssociation_ReferredClass(), this.getClass_(), null, "ReferredClass", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_RedefinedSemiAssociation(), this.getSemiAssociation(), null, "RedefinedSemiAssociation", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSemiAssociation_OwnerClass(), this.getClass_(), this.getClass_SemiAssociations(), "OwnerClass", null, 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemiAssociation_NameDisplayed(), ecorePackage.getEBoolean(), "nameDisplayed", "true", 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSemiAssociation_RoleDisplayed(), ecorePackage.getEBoolean(), "roleDisplayed", "true", 1, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(propertyEClass, Property.class, "Property", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getProperty_RedefinedProperty(), this.getProperty(), null, "RedefinedProperty", null, 0, 1, Property.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
