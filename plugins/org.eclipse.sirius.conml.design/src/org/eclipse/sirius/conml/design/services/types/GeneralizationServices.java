@@ -24,15 +24,24 @@ import conml.types.Generalization;
 @SuppressWarnings("restriction")
 public final class GeneralizationServices {
 
-  public String generalizationEdgeLabel(final Generalization generalization) {
-    return generalization.isDiscriminantDisplayed() ? generalization.getDiscriminant() : "";
+  public String generalizationEdgeLabel(
+      final Generalization generalization, final DDiagramElement view) {
+    final DEdgeSpec edge = (DEdgeSpec) view;
+    final Class source = (Class) ((DNodeListSpec) edge.basicGetSourceNode()).getTarget();
+    return generalization.isDiscriminantDisplayed()
+            && generalization.getSpecializedClasses().indexOf(source) == 0
+        ? generalization.getDiscriminant()
+        : "";
   }
 
   public String generalizationDotLabel(
       final Generalization generalization, final DDiagramElement view) {
     final DEdgeSpec edge = (DEdgeSpec) view;
     final Class source = (Class) ((DNodeListSpec) edge.basicGetSourceNode()).getTarget();
-    return EcoreUtil.equals(source.getDominantGeneralization(), generalization) ? "\u25A0" : "";
+    return source.getGeneralizations().size() > 1
+            && EcoreUtil.equals(source.getDominantGeneralization(), generalization)
+        ? "\u25A0"
+        : "";
   }
 
   public boolean abstractGeneralizationPrecondition(final Class source, final Class target) {

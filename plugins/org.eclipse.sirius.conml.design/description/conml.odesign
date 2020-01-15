@@ -267,7 +267,7 @@
             <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationDotLabel(view)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
-            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationEdgeLabel()">
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationEdgeLabel(view)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
