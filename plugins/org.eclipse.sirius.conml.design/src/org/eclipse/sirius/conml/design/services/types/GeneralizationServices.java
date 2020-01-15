@@ -14,14 +14,25 @@ import org.eclipse.sirius.conml.design.services.common.UIServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 import org.eclipse.sirius.diagram.DDiagram;
+import org.eclipse.sirius.diagram.DDiagramElement;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DEdgeSpec;
+import org.eclipse.sirius.diagram.business.internal.metamodel.spec.DNodeListSpec;
 
 import conml.types.Class;
 import conml.types.Generalization;
 
+@SuppressWarnings("restriction")
 public final class GeneralizationServices {
 
   public String generalizationEdgeLabel(final Generalization generalization) {
     return generalization.isDiscriminantDisplayed() ? generalization.getDiscriminant() : "";
+  }
+
+  public String generalizationDotLabel(
+      final Generalization generalization, final DDiagramElement view) {
+    final DEdgeSpec edge = (DEdgeSpec) view;
+    final Class source = (Class) ((DNodeListSpec) edge.basicGetSourceNode()).getTarget();
+    return EcoreUtil.equals(source.getDominantGeneralization(), generalization) ? "\u25A0" : "";
   }
 
   public boolean abstractGeneralizationPrecondition(final Class source, final Class target) {
