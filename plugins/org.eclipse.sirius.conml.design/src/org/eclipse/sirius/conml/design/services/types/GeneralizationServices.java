@@ -54,6 +54,12 @@ public final class GeneralizationServices {
         Messages.getString("Error.CyclicInheritance"));
   }
 
+  public void showAlreadyInheritedDialog(final EObject object) {
+    Dialogs.showError(
+        Messages.getString("Message.GeneralizationWasNotCreated"),
+        Messages.getString("Error.AlreadyInherited"));
+  }
+
   public boolean targetHasSpecialization(final Class target) {
     return target.getSpecialization() != null;
   }
@@ -93,6 +99,24 @@ public final class GeneralizationServices {
           .anyMatch(
               specializedClass ->
                   wouldCauseCyclicInheritanceRelationship(specializedClass, target));
+    }
+  }
+
+  public boolean alreadyInheritsFrom(final Class source, final Class target) {
+    if (target.getSpecialization() == null) {
+      return false;
+    } else if (target
+        .getSpecialization()
+        .getSpecializedClasses()
+        .stream()
+        .anyMatch(clazz -> EcoreUtil.equals(clazz, source))) {
+      return true;
+    } else {
+      return target
+          .getSpecialization()
+          .getSpecializedClasses()
+          .stream()
+          .anyMatch(specializedClass -> alreadyInheritsFrom(source, specializedClass));
     }
   }
 
