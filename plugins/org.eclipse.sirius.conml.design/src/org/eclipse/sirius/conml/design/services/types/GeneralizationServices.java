@@ -85,12 +85,6 @@ public final class GeneralizationServices {
       return true;
     } else if (source.getSpecialization() == null) {
       return false;
-    } else if (source
-        .getSpecialization()
-        .getSpecializedClasses()
-        .stream()
-        .anyMatch(clazz -> EcoreUtil.equals(clazz, target))) {
-      return true;
     } else {
       return source
           .getSpecialization()
@@ -103,14 +97,10 @@ public final class GeneralizationServices {
   }
 
   public boolean alreadyInheritsFrom(final Class source, final Class target) {
-    if (target.getSpecialization() == null) {
-      return false;
-    } else if (target
-        .getSpecialization()
-        .getSpecializedClasses()
-        .stream()
-        .anyMatch(clazz -> EcoreUtil.equals(clazz, source))) {
+    if (EcoreUtil.equals(source, target)) {
       return true;
+    } else if (target.getSpecialization() == null) {
+      return false;
     } else {
       return target
           .getSpecialization()
