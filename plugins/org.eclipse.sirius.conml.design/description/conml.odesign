@@ -262,12 +262,12 @@
           </conditionnalStyles>
         </edgeMappings>
         <edgeMappings name="CD_Generalization" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Delete%20Generalization']" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@containerMappings[name='CD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
-          <style targetArrow="InputClosedArrow" routingStyle="manhattan">
+          <style targetArrow="InputClosedArrow" routingStyle="tree">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationDotLabel(view)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </beginLabelStyleDescription>
-            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationEdgeLabel(view)">
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationDiscriminantLabel(view)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
@@ -1483,6 +1483,26 @@
                     <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="instances::Link" referenceName="Parts" variableName="newLink">
                         <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:false"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="aql:source.getInstanceModelOfElement()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="InstancedAssociation" valueExpression="var:instancedAssociation"/>
+                        <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newLink.createLinkReferences(source, target)"/>
+                      </subModelOperations>
+                    </subModelOperations>
+                  </subModelOperations>
+                </firstModelOperations>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool_1:EdgeCreationDescription" name="Compact Link" precondition="true" edgeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@edgeMappings[name='OD_Link']" connectionStartPrecondition="true">
+              <sourceVariable name="source"/>
+              <targetVariable name="target"/>
+              <sourceViewVariable name="sourceView"/>
+              <targetViewVariable name="targetView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:Let" variableName="instancedAssociation" valueExpression="aql:source.showAssociationSelectionDialog(target, sourceView)">
+                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:instancedAssociation &lt;> null">
+                    <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:source.eContainer()">
+                      <subModelOperations xsi:type="tool:CreateInstance" typeName="instances::Link" referenceName="Parts" variableName="newLink">
+                        <subModelOperations xsi:type="tool:SetValue" featureName="compact" valueExpression="aql:true"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="aql:source.getInstanceModelOfElement()"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="InstancedAssociation" valueExpression="var:instancedAssociation"/>
                         <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:newLink.createLinkReferences(source, target)"/>

@@ -24,7 +24,7 @@ import conml.types.Generalization;
 @SuppressWarnings("restriction")
 public final class GeneralizationServices {
 
-  public String generalizationEdgeLabel(
+  public String generalizationDiscriminantLabel(
       final Generalization generalization, final DDiagramElement view) {
     final DEdgeSpec edge = (DEdgeSpec) view;
     final Class source = (Class) ((DNodeListSpec) edge.basicGetSourceNode()).getTarget();
