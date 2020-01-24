@@ -477,6 +477,7 @@
                 <subModelOperations xsi:type="tool:CreateInstance" typeName="types::Property" referenceName="Properties" variableName="newProperty">
                   <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
                   <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
+                  <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                   <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New property">
                     <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                       <initialOperation>
@@ -488,7 +489,7 @@
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <page name="D_CD_CreateProperty_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Node%20Creation%20Property']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
                     <groups name="D_CD_CreateProperty_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -510,6 +511,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.booleanSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Boolean Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                         <initialOperation>
@@ -521,7 +523,7 @@
                           <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateBooleanAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                      <page name="D_CD_CreateBooleanAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                       <groups name="D_CD_CreateBooleanAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -542,6 +544,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.numberSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Number Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                         <initialOperation>
@@ -553,7 +556,7 @@
                           <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateNumberAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                      <page name="D_CD_CreateNumberAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.1/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                       <groups name="D_CD_CreateNumberAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -574,6 +577,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.textSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Text Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                         <initialOperation>
@@ -585,7 +589,7 @@
                           <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateTextAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.2/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                      <page name="D_CD_CreateTextAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.2/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                       <groups name="D_CD_CreateTextAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -606,6 +610,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.timeSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Time Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                         <initialOperation>
@@ -617,7 +622,7 @@
                           <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateTimeAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.3/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                      <page name="D_CD_CreateTimeAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.3/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                       <groups name="D_CD_CreateTimeAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -638,6 +643,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.rawDataSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Raw Data Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                         <initialOperation>
@@ -649,7 +655,7 @@
                           <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                         </initialOperation>
                       </buttons>
-                      <page name="D_CD_CreateRawDataAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.4/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                      <page name="D_CD_CreateRawDataAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.4/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                       <groups name="D_CD_CreateRawDataAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                     </subModelOperations>
                   </subModelOperations>
@@ -672,6 +678,7 @@
                       <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="var:element"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                       <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create EnumeratedType Attribute">
                         <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                           <initialOperation>
@@ -683,7 +690,7 @@
                             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                           </initialOperation>
                         </buttons>
-                        <page name="D_CD_CreateEnumeratedTypeAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.5/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.8/@groups.0"/>
+                        <page name="D_CD_CreateEnumeratedTypeAttribute_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='AttributeCreationGroup']/@tools.5/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.9/@groups.0"/>
                         <groups name="D_CD_CreateEnumeratedTypeAttribute_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                       </subModelOperations>
                     </subModelOperations>

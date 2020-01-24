@@ -49,7 +49,7 @@ public final class ClassServices {
     return InstanceHolder.INSTANCE;
   }
 
-  private boolean ownsAnyFeatures(final Class clazz) {
+  public boolean ownsAnyFeatures(final Class clazz) {
     return !clazz.getProperties().isEmpty()
         || !clazz.getAttributes().isEmpty()
         || !clazz.getSemiAssociations().isEmpty();
@@ -124,7 +124,7 @@ public final class ClassServices {
         Feature.class);
   }
 
-  private Set<Class> getAllAncestorsOf(final Class clazz, final Predicate<Class> includeCondition) {
+  public Set<Class> getAllAncestorsOf(final Class clazz, final Predicate<Class> includeCondition) {
     final Set<Class> ancestors = new HashSet<>();
     iterateThroughGeneralizationsAndAddAncestors(clazz, ancestors, includeCondition);
     return ancestors;

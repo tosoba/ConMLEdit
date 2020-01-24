@@ -1,5 +1,6 @@
 package org.eclipse.sirius.conml.design.services.types.validation;
 
+import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
@@ -9,6 +10,7 @@ import java.util.stream.Stream;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.sirius.conml.design.services.types.ClassServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
 import conml.types.Attribute;
@@ -72,24 +74,22 @@ public final class ClassValidationServices {
 
   public boolean ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures(final EObject object) {
     return ConML.castAndRunOrReturn(
-        object,
-        Class.class,
-        (final Class clazz) -> {
-          final Set<String> inheritedFeatureNames =
-              allFeaturesFromAncestorsStream(clazz).collect(Collectors.toSet());
-          return !featuresNamesStream(clazz).anyMatch(inheritedFeatureNames::contains);
-        },
-        true);
+        object, Class.class, this::ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures, true);
+  }
+
+  public boolean ownedClassFeaturesHaveNoNameClashesWithInheritedFeatures(final Class clazz) {
+    final Set<String> inheritedFeatureNames =
+        allFeaturesFromAncestorsStream(clazz).collect(Collectors.toSet());
+    return !featuresNamesStream(clazz).anyMatch(inheritedFeatureNames::contains);
   }
 
   public boolean inheritedFeaturesFromAncestorClassesHaveNoNameClashes(final EObject object) {
     return ConML.castAndRunOrReturn(
-        object,
-        Class.class,
-        (final Class clazz) ->
-            allFeaturesFromAncestorsStream(clazz).distinct().count()
-                == allFeaturesFromAncestorsStream(clazz).count(),
-        true);
+        object, Class.class, this::inheritedFeaturesFromAncestorClassesHaveNoNameClashes, true);
+  }
+
+  public boolean inheritedFeaturesFromAncestorClassesHaveNoNameClashes(final Class clazz) {
+    return allFeaturesFromAncestorsStream(clazz).allMatch(new HashSet<>()::add);
   }
 
   private Stream<String> featuresNamesStream(final Class clazz) {
@@ -101,10 +101,10 @@ public final class ClassValidationServices {
   }
 
   private Stream<String> allFeaturesFromAncestorsStream(final Class clazz) {
-    return clazz
-        .getGeneralizations()
+    final ClassServices classServices = ClassServices.getInstance();
+    return classServices
+        .getAllAncestorsOf(clazz, classServices::ownsAnyFeatures)
         .stream()
-        .map(Generalization::getGeneralizedClass)
         .flatMap(this::featuresNamesStream);
   }
 
