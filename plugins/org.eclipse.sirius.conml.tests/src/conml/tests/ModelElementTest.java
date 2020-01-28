@@ -4,13 +4,23 @@ package conml.tests;
 
 import conml.ModelElement;
 
+import junit.framework.TestCase;
+
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Model Element</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class ModelElementTest extends ModelPartTest {
+public abstract class ModelElementTest extends TestCase {
+
+	/**
+	 * The fixture for this Model Element test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ModelElement fixture = null;
 
 	/**
 	 * Constructs a new Model Element test case with the given name.
@@ -23,14 +33,23 @@ public abstract class ModelElementTest extends ModelPartTest {
 	}
 
 	/**
+	 * Sets the fixture for this Model Element test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(ModelElement fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Model Element test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected ModelElement getFixture() {
-		return (ModelElement)fixture;
+		return fixture;
 	}
 
 } //ModelElementTest

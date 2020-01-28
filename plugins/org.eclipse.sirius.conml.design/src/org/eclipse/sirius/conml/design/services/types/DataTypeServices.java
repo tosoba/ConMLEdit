@@ -19,26 +19,6 @@ public final class DataTypeServices {
     return dataType.getName();
   }
 
-  public void moveSimpleDataTypeUp(final EObject object) {
-    ConML.castAndRun(
-        object,
-        SimpleDataType.class,
-        clazz ->
-            ModelElementServices.getInstance()
-                .moveTypeModelElement(
-                    clazz, SimpleDataType.class, ConML.ElementMovementDirection.UP));
-  }
-
-  public void moveSimpleDataTypeDown(final EObject object) {
-    ConML.castAndRun(
-        object,
-        SimpleDataType.class,
-        clazz ->
-            ModelElementServices.getInstance()
-                .moveTypeModelElement(
-                    clazz, SimpleDataType.class, ConML.ElementMovementDirection.DOWN));
-  }
-
   public void moveEnumTypeUp(final EObject object) {
     ConML.castAndRun(
         object,

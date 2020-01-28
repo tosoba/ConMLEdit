@@ -176,10 +176,10 @@ public interface conmlPackage extends EPackage {
 	int MODEL_OPERATION_COUNT = NAMED_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link conml.impl.ModelPartImpl <em>Model Part</em>}' class.
+	 * The meta object id for the '{@link conml.ModelPart <em>Model Part</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.impl.ModelPartImpl
+	 * @see conml.ModelPart
 	 * @see conml.impl.conmlPackageImpl#getModelPart()
 	 * @generated
 	 */
@@ -890,10 +890,10 @@ public interface conmlPackage extends EPackage {
 		EReference MODEL__LANGUAGES = eINSTANCE.getModel_Languages();
 
 		/**
-		 * The meta object literal for the '{@link conml.impl.ModelPartImpl <em>Model Part</em>}' class.
+		 * The meta object literal for the '{@link conml.ModelPart <em>Model Part</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.impl.ModelPartImpl
+		 * @see conml.ModelPart
 		 * @see conml.impl.conmlPackageImpl#getModelPart()
 		 * @generated
 		 */

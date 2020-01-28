@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  *
  * @see conml.conmlPackage#getModelPart()
- * @model abstract="true"
+ * @model interface="true" abstract="true"
  * @generated
  */
 public interface ModelPart extends EObject {

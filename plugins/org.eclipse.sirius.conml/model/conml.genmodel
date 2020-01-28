@@ -144,13 +144,13 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/InstanceValueSets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/Datatype"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/OwnerClass"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/RedefinedAttribute"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/RedefiningAttribute"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//types/Attribute/datatype"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//types/SemiAssociation">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SemiAssociation/role"/>
@@ -182,7 +182,6 @@
       <genClasses ecoreClass="conml.ecore#//types/SimpleDataType">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//types/SimpleDataType/base"/>
       </genClasses>
-      <genClasses ecoreClass="conml.ecore#//types/DataType"/>
       <genClasses ecoreClass="conml.ecore#//types/EnumeratedItem">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/EnumeratedItem/OwnerType"/>
@@ -191,6 +190,7 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//types/EnumeratedItem/SuperItem"/>
       </genClasses>
+      <genClasses image="false" ecoreClass="conml.ecore#//types/DataType"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Instances" basePackage="conml" disposableProviderFactory="true"
         ecorePackage="conml.ecore#//instances">

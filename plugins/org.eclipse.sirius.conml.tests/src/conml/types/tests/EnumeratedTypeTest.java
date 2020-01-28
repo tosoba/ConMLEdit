@@ -5,6 +5,8 @@ package conml.types.tests;
 import conml.types.EnumeratedType;
 import conml.types.TypesFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumeratedTypeTest extends DataTypeTest {
+public class EnumeratedTypeTest extends TestCase {
+
+	/**
+	 * The fixture for this Enumerated Type test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected EnumeratedType fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class EnumeratedTypeTest extends DataTypeTest {
 	}
 
 	/**
+	 * Sets the fixture for this Enumerated Type test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(EnumeratedType fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Enumerated Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected EnumeratedType getFixture() {
-		return (EnumeratedType)fixture;
+		return fixture;
 	}
 
 	/**

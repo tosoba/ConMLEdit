@@ -24,7 +24,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface EnumeratedType extends DataType, CommentableElement {
+public interface EnumeratedType extends CommentableElement, DataType, Type {
 	/**
 	 * Returns the value of the '<em><b>Owned Items</b></em>' containment reference list.
 	 * The list contents are of type {@link conml.types.EnumeratedItem}.

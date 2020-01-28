@@ -775,18 +775,8 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
-	public EReference getAttribute_Datatype() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(2);
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getAttribute_RedefinedAttribute() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(4);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(3);
 	}
 
     /**
@@ -796,7 +786,7 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 */
 	@Override
 	public EReference getAttribute_RedefiningAttribute() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(5);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(4);
 	}
 
         /**
@@ -805,8 +795,18 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 	 * @generated
 	 */
 	@Override
+	public EReference getAttribute_Datatype() {
+		return (EReference)attributeEClass.getEStructuralFeatures().get(5);
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EReference getAttribute_OwnerClass() {
-		return (EReference)attributeEClass.getEStructuralFeatures().get(3);
+		return (EReference)attributeEClass.getEStructuralFeatures().get(2);
 	}
 
         /**
@@ -1141,10 +1141,10 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__MULTILINGUAL);
 		createEReference(attributeEClass, ATTRIBUTE__INSTANCE_VALUE_SETS);
-		createEReference(attributeEClass, ATTRIBUTE__DATATYPE);
 		createEReference(attributeEClass, ATTRIBUTE__OWNER_CLASS);
 		createEReference(attributeEClass, ATTRIBUTE__REDEFINED_ATTRIBUTE);
 		createEReference(attributeEClass, ATTRIBUTE__REDEFINING_ATTRIBUTE);
+		createEReference(attributeEClass, ATTRIBUTE__DATATYPE);
 
 		semiAssociationEClass = createEClass(SEMI_ASSOCIATION);
 		createEAttribute(semiAssociationEClass, SEMI_ASSOCIATION__ROLE);
@@ -1167,12 +1167,12 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		simpleDataTypeEClass = createEClass(SIMPLE_DATA_TYPE);
 		createEAttribute(simpleDataTypeEClass, SIMPLE_DATA_TYPE__BASE);
 
-		dataTypeEClass = createEClass(DATA_TYPE);
-
 		enumeratedItemEClass = createEClass(ENUMERATED_ITEM);
 		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__OWNER_TYPE);
 		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUB_ITEMS);
 		createEReference(enumeratedItemEClass, ENUMERATED_ITEM__SUPER_ITEM);
+
+		dataTypeEClass = createEClass(DATA_TYPE);
 
 		// Create enums
 		baseDataTypeEEnum = createEEnum(BASE_DATA_TYPE);
@@ -1219,8 +1219,9 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		classEClass.getESuperTypes().add(theconmlPackage.getCommentableElement());
 		generalizationEClass.getESuperTypes().add(this.getTypeModelElement());
 		featureEClass.getESuperTypes().add(this.getType());
-		enumeratedTypeEClass.getESuperTypes().add(this.getDataType());
 		enumeratedTypeEClass.getESuperTypes().add(theconmlPackage.getCommentableElement());
+		enumeratedTypeEClass.getESuperTypes().add(this.getDataType());
+		enumeratedTypeEClass.getESuperTypes().add(this.getType());
 		typeModelElementEClass.getESuperTypes().add(theconmlPackage.getModelElement());
 		associationEClass.getESuperTypes().add(this.getType());
 		packageEClass.getESuperTypes().add(this.getTypeModelElement());
@@ -1230,9 +1231,10 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		semiAssociationEClass.getESuperTypes().add(this.getFeature());
 		propertyEClass.getESuperTypes().add(this.getFeature());
 		simpleDataTypeEClass.getESuperTypes().add(this.getDataType());
-		dataTypeEClass.getESuperTypes().add(this.getType());
 		enumeratedItemEClass.getESuperTypes().add(theconmlPackage.getNamedElement());
 		enumeratedItemEClass.getESuperTypes().add(theconmlPackage.getDefinableElement());
+		dataTypeEClass.getESuperTypes().add(theconmlPackage.getModelPart());
+		dataTypeEClass.getESuperTypes().add(theconmlPackage.getNamedElement());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(typeModelEClass, TypeModel.class, "TypeModel", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1298,10 +1300,10 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEClass(attributeEClass, Attribute.class, "Attribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getAttribute_Multilingual(), ecorePackage.getEBoolean(), "multilingual", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_InstanceValueSets(), theInstancesPackage.getValueSet(), theInstancesPackage.getValueSet_InstancedAttribute(), "InstanceValueSets", null, 0, -1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getAttribute_Datatype(), this.getDataType(), null, "Datatype", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_OwnerClass(), this.getClass_(), this.getClass_Attributes(), "OwnerClass", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_RedefinedAttribute(), this.getAttribute(), this.getAttribute_RedefiningAttribute(), "RedefinedAttribute", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAttribute_RedefiningAttribute(), this.getAttribute(), this.getAttribute_RedefinedAttribute(), "RedefiningAttribute", null, 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAttribute_Datatype(), this.getDataType(), null, "datatype", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(semiAssociationEClass, SemiAssociation.class, "SemiAssociation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSemiAssociation_Role(), ecorePackage.getEString(), "role", null, 0, 1, SemiAssociation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1324,12 +1326,12 @@ public class TypesPackageImpl extends EPackageImpl implements TypesPackage {
 		initEClass(simpleDataTypeEClass, SimpleDataType.class, "SimpleDataType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSimpleDataType_Base(), this.getBaseDataType(), "base", null, 1, 1, SimpleDataType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(enumeratedItemEClass, EnumeratedItem.class, "EnumeratedItem", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnumeratedItem_OwnerType(), this.getEnumeratedType(), this.getEnumeratedType_OwnedItems(), "OwnerType", null, 1, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumeratedItem_SubItems(), this.getEnumeratedItem(), this.getEnumeratedItem_SuperItem(), "SubItems", null, 0, -1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getEnumeratedItem_SuperItem(), this.getEnumeratedItem(), this.getEnumeratedItem_SubItems(), "SuperItem", null, 0, 1, EnumeratedItem.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(dataTypeEClass, DataType.class, "DataType", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		// Initialize enums and add enum literals
 		initEEnum(baseDataTypeEEnum, BaseDataType.class, "BaseDataType");

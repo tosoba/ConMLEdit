@@ -4,13 +4,23 @@ package conml.tests;
 
 import conml.Language;
 
+import junit.framework.TestCase;
+
 /**
  * <!-- begin-user-doc -->
  * A test case for the model object '<em><b>Language</b></em>'.
  * <!-- end-user-doc -->
  * @generated
  */
-public abstract class LanguageTest extends ModelPartTest {
+public abstract class LanguageTest extends TestCase {
+
+	/**
+	 * The fixture for this Language test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Language fixture = null;
 
 	/**
 	 * Constructs a new Language test case with the given name.
@@ -23,14 +33,23 @@ public abstract class LanguageTest extends ModelPartTest {
 	}
 
 	/**
+	 * Sets the fixture for this Language test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Language fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Language test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Language getFixture() {
-		return (Language)fixture;
+		return fixture;
 	}
 
 } //LanguageTest

@@ -5,6 +5,8 @@ package conml.types.tests;
 import conml.types.SimpleDataType;
 import conml.types.TypesFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class SimpleDataTypeTest extends DataTypeTest {
+public class SimpleDataTypeTest extends TestCase {
+
+	/**
+	 * The fixture for this Simple Data Type test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected SimpleDataType fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class SimpleDataTypeTest extends DataTypeTest {
 	}
 
 	/**
+	 * Sets the fixture for this Simple Data Type test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(SimpleDataType fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Simple Data Type test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected SimpleDataType getFixture() {
-		return (SimpleDataType)fixture;
+		return fixture;
 	}
 
 	/**

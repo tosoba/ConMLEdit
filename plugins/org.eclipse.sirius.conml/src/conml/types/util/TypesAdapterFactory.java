@@ -141,12 +141,12 @@ public class TypesAdapterFactory extends AdapterFactoryImpl {
 				return createSimpleDataTypeAdapter();
 			}
 			@Override
-			public Adapter caseDataType(DataType object) {
-				return createDataTypeAdapter();
-			}
-			@Override
 			public Adapter caseEnumeratedItem(EnumeratedItem object) {
 				return createEnumeratedItemAdapter();
+			}
+			@Override
+			public Adapter caseDataType(DataType object) {
+				return createDataTypeAdapter();
 			}
 			@Override
 			public Adapter caseNamedElement(NamedElement object) {

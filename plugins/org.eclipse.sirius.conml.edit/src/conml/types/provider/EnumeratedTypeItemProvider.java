@@ -4,6 +4,7 @@ package conml.types.provider;
 
 
 import conml.conmlPackage;
+import conml.provider.ConmlEditPlugin;
 import conml.types.EnumeratedType;
 import conml.types.TypesFactory;
 import conml.types.TypesPackage;
@@ -14,10 +15,17 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.util.ResourceLocator;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
+import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.IItemPropertySource;
+import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
+import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
 import org.eclipse.emf.edit.provider.ItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
@@ -26,7 +34,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * <!-- end-user-doc -->
  * @generated
  */
-public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
+public class EnumeratedTypeItemProvider extends ItemProviderAdapter implements IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider, IItemPropertySource {
 	/**
 	 * This constructs an instance from a factory and a notifier.
 	 * <!-- begin-user-doc -->
@@ -49,6 +57,11 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addCommentsPropertyDescriptor(object);
+			addNamePropertyDescriptor(object);
+			addTagsPropertyDescriptor(object);
+			addMetaInformationObjectsPropertyDescriptor(object);
+			addTypeModelPropertyDescriptor(object);
+			addDefinitionPropertyDescriptor(object);
 			addOwnedItemsPropertyDescriptor(object);
 			addSubTypesPropertyDescriptor(object);
 			addSuperTypePropertyDescriptor(object);
@@ -80,6 +93,116 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 	}
 
   /**
+	 * This adds a property descriptor for the Tags feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTagsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelElement_Tags_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_Tags_feature", "_UI_ModelElement_type"),
+				 conmlPackage.Literals.MODEL_ELEMENT__TAGS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Meta Information Objects feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addMetaInformationObjectsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ModelElement_MetaInformationObjects_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ModelElement_MetaInformationObjects_feature", "_UI_ModelElement_type"),
+				 conmlPackage.Literals.MODEL_ELEMENT__META_INFORMATION_OBJECTS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Type Model feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addTypeModelPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_TypeModelElement_TypeModel_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_TypeModelElement_TypeModel_feature", "_UI_TypeModelElement_type"),
+				 TypesPackage.Literals.TYPE_MODEL_ELEMENT__TYPE_MODEL,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_NamedElement_name_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_NamedElement_name_feature", "_UI_NamedElement_type"),
+				 conmlPackage.Literals.NAMED_ELEMENT__NAME,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+  /**
+	 * This adds a property descriptor for the Definition feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDefinitionPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_DefinableElement_definition_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_DefinableElement_definition_feature", "_UI_DefinableElement_type"),
+				 conmlPackage.Literals.DEFINABLE_ELEMENT__DEFINITION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+    /**
 	 * This adds a property descriptor for the Owned Items feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -236,6 +359,8 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 
 		switch (notification.getFeatureID(EnumeratedType.class)) {
 			case TypesPackage.ENUMERATED_TYPE__COMMENTS:
+			case TypesPackage.ENUMERATED_TYPE__NAME:
+			case TypesPackage.ENUMERATED_TYPE__DEFINITION:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 			case TypesPackage.ENUMERATED_TYPE__OWNED_ITEMS:
@@ -260,6 +385,17 @@ public class EnumeratedTypeItemProvider extends DataTypeItemProvider {
 			(createChildParameter
 				(TypesPackage.Literals.ENUMERATED_TYPE__OWNED_ITEMS,
 				 TypesFactory.eINSTANCE.createEnumeratedItem()));
+	}
+
+  /**
+	 * Return the resource locator for this item provider's resources.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public ResourceLocator getResourceLocator() {
+		return ConmlEditPlugin.INSTANCE;
 	}
 
 }

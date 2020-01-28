@@ -3,6 +3,7 @@
 package conml.tests;
 
 import conml.Model;
+
 import junit.framework.TestCase;
 
 /**

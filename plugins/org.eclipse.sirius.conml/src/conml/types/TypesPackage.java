@@ -732,77 +732,14 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int FEATURE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link conml.types.impl.DataTypeImpl <em>Data Type</em>}' class.
+	 * The meta object id for the '{@link conml.types.DataType <em>Data Type</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see conml.types.impl.DataTypeImpl
+	 * @see conml.types.DataType
 	 * @see conml.types.impl.TypesPackageImpl#getDataType()
 	 * @generated
 	 */
-	int DATA_TYPE = 13;
-
-	/**
-	 * The feature id for the '<em><b>Tags</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__TAGS = TYPE__TAGS;
-
-  /**
-	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__META_INFORMATION_OBJECTS = TYPE__META_INFORMATION_OBJECTS;
-
-    /**
-	 * The feature id for the '<em><b>Type Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__TYPE_MODEL = TYPE__TYPE_MODEL;
-
-        /**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__NAME = TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE__DEFINITION = TYPE__DEFINITION;
-
-	/**
-	 * The number of structural features of the '<em>Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 0;
-
-	/**
-	 * The number of operations of the '<em>Data Type</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DATA_TYPE_OPERATION_COUNT = TYPE_OPERATION_COUNT + 0;
+	int DATA_TYPE = 14;
 
 	/**
 	 * The meta object id for the '{@link conml.types.impl.EnumeratedTypeImpl <em>Enumerated Type</em>}' class.
@@ -815,58 +752,58 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int ENUMERATED_TYPE = 5;
 
 	/**
-	 * The feature id for the '<em><b>Tags</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__TAGS = DATA_TYPE__TAGS;
-
-  /**
-	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__META_INFORMATION_OBJECTS = DATA_TYPE__META_INFORMATION_OBJECTS;
-
-    /**
-	 * The feature id for the '<em><b>Type Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__TYPE_MODEL = DATA_TYPE__TYPE_MODEL;
-
-        /**
-	 * The feature id for the '<em><b>Name</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__NAME = DATA_TYPE__NAME;
-
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENUMERATED_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
-
-	/**
 	 * The feature id for the '<em><b>Comments</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__COMMENTS = DATA_TYPE_FEATURE_COUNT + 0;
+	int ENUMERATED_TYPE__COMMENTS = conmlPackage.COMMENTABLE_ELEMENT__COMMENTS;
+
+  /**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+* <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int ENUMERATED_TYPE__NAME = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 0;
+
+    /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+    int ENUMERATED_TYPE__TAGS = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 1;
+
+    /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+    * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int ENUMERATED_TYPE__META_INFORMATION_OBJECTS = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 2;
+
+    /**
+	 * The feature id for the '<em><b>Type Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+* <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+int ENUMERATED_TYPE__TYPE_MODEL = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 3;
+
+  /**
+	 * The feature id for the '<em><b>Definition</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int ENUMERATED_TYPE__DEFINITION = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 4;
 
   /**
 	 * The feature id for the '<em><b>Owned Items</b></em>' containment reference list.
@@ -875,7 +812,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__OWNED_ITEMS = DATA_TYPE_FEATURE_COUNT + 1;
+	int ENUMERATED_TYPE__OWNED_ITEMS = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 5;
 
   /**
 	 * The feature id for the '<em><b>Sub Types</b></em>' reference list.
@@ -884,7 +821,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SUB_TYPES = DATA_TYPE_FEATURE_COUNT + 2;
+	int ENUMERATED_TYPE__SUB_TYPES = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 6;
 
   /**
 	 * The feature id for the '<em><b>Super Type</b></em>' reference.
@@ -893,7 +830,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__SUPER_TYPE = DATA_TYPE_FEATURE_COUNT + 3;
+	int ENUMERATED_TYPE__SUPER_TYPE = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 7;
 
     /**
 	 * The feature id for the '<em><b>Package</b></em>' reference.
@@ -902,7 +839,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE__PACKAGE = DATA_TYPE_FEATURE_COUNT + 4;
+	int ENUMERATED_TYPE__PACKAGE = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 8;
 
 	/**
 	 * The number of structural features of the '<em>Enumerated Type</em>' class.
@@ -911,7 +848,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE_FEATURE_COUNT = DATA_TYPE_FEATURE_COUNT + 5;
+	int ENUMERATED_TYPE_FEATURE_COUNT = conmlPackage.COMMENTABLE_ELEMENT_FEATURE_COUNT + 9;
 
 	/**
 	 * The number of operations of the '<em>Enumerated Type</em>' class.
@@ -920,7 +857,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ENUMERATED_TYPE_OPERATION_COUNT = DATA_TYPE_OPERATION_COUNT + 0;
+	int ENUMERATED_TYPE_OPERATION_COUNT = conmlPackage.COMMENTABLE_ELEMENT_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link conml.types.impl.AssociationImpl <em>Association</em>}' class.
@@ -1277,22 +1214,13 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	int ATTRIBUTE__INSTANCE_VALUE_SETS = FEATURE_FEATURE_COUNT + 1;
 
     /**
-	 * The feature id for the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ATTRIBUTE__DATATYPE = FEATURE_FEATURE_COUNT + 2;
-
-  /**
 	 * The feature id for the '<em><b>Owner Class</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 3;
+	int ATTRIBUTE__OWNER_CLASS = FEATURE_FEATURE_COUNT + 2;
 
         /**
 	 * The feature id for the '<em><b>Redefined Attribute</b></em>' reference.
@@ -1301,7 +1229,7 @@ int TYPE_MODEL__TEMPORAL_ASPECT = conmlPackage.MODEL_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
+int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 3;
 
         /**
 	 * The feature id for the '<em><b>Redefining Attribute</b></em>' reference.
@@ -1310,9 +1238,18 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE__REDEFINING_ATTRIBUTE = FEATURE_FEATURE_COUNT + 5;
+	int ATTRIBUTE__REDEFINING_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 
         /**
+	 * The feature id for the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__DATATYPE = FEATURE_FEATURE_COUNT + 5;
+
+                /**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1710,6 +1647,33 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	 */
 	int PROPERTY_OPERATION_COUNT = FEATURE_OPERATION_COUNT + 0;
 
+  /**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DATA_TYPE__NAME = conmlPackage.MODEL_PART_FEATURE_COUNT + 0;
+
+  /**
+	 * The number of structural features of the '<em>Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int DATA_TYPE_FEATURE_COUNT = conmlPackage.MODEL_PART_FEATURE_COUNT + 1;
+
+  /**
+	 * The number of operations of the '<em>Data Type</em>' class.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int DATA_TYPE_OPERATION_COUNT = conmlPackage.MODEL_PART_OPERATION_COUNT + 0;
+
 	/**
 	 * The meta object id for the '{@link conml.types.impl.SimpleDataTypeImpl <em>Simple Data Type</em>}' class.
 	 * <!-- begin-user-doc -->
@@ -1721,33 +1685,6 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	int SIMPLE_DATA_TYPE = 12;
 
 	/**
-	 * The feature id for the '<em><b>Tags</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__TAGS = DATA_TYPE__TAGS;
-
-  /**
-	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__META_INFORMATION_OBJECTS = DATA_TYPE__META_INFORMATION_OBJECTS;
-
-    /**
-	 * The feature id for the '<em><b>Type Model</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__TYPE_MODEL = DATA_TYPE__TYPE_MODEL;
-
-        /**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1756,16 +1693,7 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	 */
 	int SIMPLE_DATA_TYPE__NAME = DATA_TYPE__NAME;
 
-	/**
-	 * The feature id for the '<em><b>Definition</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SIMPLE_DATA_TYPE__DEFINITION = DATA_TYPE__DEFINITION;
-
-	/**
+  /**
 	 * The feature id for the '<em><b>Base</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1800,7 +1728,7 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	 * @see conml.types.impl.TypesPackageImpl#getEnumeratedItem()
 	 * @generated
 	 */
-	int ENUMERATED_ITEM = 14;
+	int ENUMERATED_ITEM = 13;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -2461,17 +2389,6 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	EReference getAttribute_InstanceValueSets();
 
     /**
-	 * Returns the meta object for the reference '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Datatype</em>'.
-	 * @see conml.types.Attribute#getDatatype()
-	 * @see #getAttribute()
-	 * @generated
-	 */
-	EReference getAttribute_Datatype();
-
-  /**
 	 * Returns the meta object for the reference '{@link conml.types.Attribute#getRedefinedAttribute <em>Redefined Attribute</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2494,6 +2411,17 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 	EReference getAttribute_RedefiningAttribute();
 
         /**
+	 * Returns the meta object for the reference '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Datatype</em>'.
+	 * @see conml.types.Attribute#getDatatype()
+	 * @see #getAttribute()
+	 * @generated
+	 */
+	EReference getAttribute_Datatype();
+
+                /**
 	 * Returns the meta object for the container reference '{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3238,14 +3166,6 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 		EReference ATTRIBUTE__INSTANCE_VALUE_SETS = eINSTANCE.getAttribute_InstanceValueSets();
 
         /**
-		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ATTRIBUTE__DATATYPE = eINSTANCE.getAttribute_Datatype();
-
-    /**
 		 * The meta object literal for the '<em><b>Redefined Attribute</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3262,6 +3182,14 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 		EReference ATTRIBUTE__REDEFINING_ATTRIBUTE = eINSTANCE.getAttribute_RedefiningAttribute();
 
                 /**
+		 * The meta object literal for the '<em><b>Datatype</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ATTRIBUTE__DATATYPE = eINSTANCE.getAttribute_Datatype();
+
+                                /**
 		 * The meta object literal for the '<em><b>Owner Class</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -3420,10 +3348,10 @@ int ATTRIBUTE__REDEFINED_ATTRIBUTE = FEATURE_FEATURE_COUNT + 4;
 		EAttribute SIMPLE_DATA_TYPE__BASE = eINSTANCE.getSimpleDataType_Base();
 
 		/**
-		 * The meta object literal for the '{@link conml.types.impl.DataTypeImpl <em>Data Type</em>}' class.
+		 * The meta object literal for the '{@link conml.types.DataType <em>Data Type</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see conml.types.impl.DataTypeImpl
+		 * @see conml.types.DataType
 		 * @see conml.types.impl.TypesPackageImpl#getDataType()
 		 * @generated
 		 */

@@ -144,11 +144,11 @@ public class TypesSwitch<T> extends Switch<T> {
 			case TypesPackage.ENUMERATED_TYPE: {
 				EnumeratedType enumeratedType = (EnumeratedType)theEObject;
 				T result = caseEnumeratedType(enumeratedType);
-				if (result == null) result = caseDataType(enumeratedType);
 				if (result == null) result = caseCommentableElement(enumeratedType);
+				if (result == null) result = caseDataType(enumeratedType);
 				if (result == null) result = caseType(enumeratedType);
-				if (result == null) result = caseTypeModelElement(enumeratedType);
 				if (result == null) result = caseNamedElement(enumeratedType);
+				if (result == null) result = caseTypeModelElement(enumeratedType);
 				if (result == null) result = caseDefinableElement(enumeratedType);
 				if (result == null) result = caseModelElement(enumeratedType);
 				if (result == null) result = caseModelPart(enumeratedType);
@@ -229,24 +229,8 @@ public class TypesSwitch<T> extends Switch<T> {
 				SimpleDataType simpleDataType = (SimpleDataType)theEObject;
 				T result = caseSimpleDataType(simpleDataType);
 				if (result == null) result = caseDataType(simpleDataType);
-				if (result == null) result = caseType(simpleDataType);
-				if (result == null) result = caseTypeModelElement(simpleDataType);
-				if (result == null) result = caseNamedElement(simpleDataType);
-				if (result == null) result = caseDefinableElement(simpleDataType);
-				if (result == null) result = caseModelElement(simpleDataType);
 				if (result == null) result = caseModelPart(simpleDataType);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case TypesPackage.DATA_TYPE: {
-				DataType dataType = (DataType)theEObject;
-				T result = caseDataType(dataType);
-				if (result == null) result = caseType(dataType);
-				if (result == null) result = caseTypeModelElement(dataType);
-				if (result == null) result = caseNamedElement(dataType);
-				if (result == null) result = caseDefinableElement(dataType);
-				if (result == null) result = caseModelElement(dataType);
-				if (result == null) result = caseModelPart(dataType);
+				if (result == null) result = caseNamedElement(simpleDataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -255,6 +239,14 @@ public class TypesSwitch<T> extends Switch<T> {
 				T result = caseEnumeratedItem(enumeratedItem);
 				if (result == null) result = caseNamedElement(enumeratedItem);
 				if (result == null) result = caseDefinableElement(enumeratedItem);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case TypesPackage.DATA_TYPE: {
+				DataType dataType = (DataType)theEObject;
+				T result = caseDataType(dataType);
+				if (result == null) result = caseModelPart(dataType);
+				if (result == null) result = caseNamedElement(dataType);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

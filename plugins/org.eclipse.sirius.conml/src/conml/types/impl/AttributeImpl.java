@@ -34,10 +34,10 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <ul>
  *   <li>{@link conml.types.impl.AttributeImpl#isMultilingual <em>Multilingual</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getInstanceValueSets <em>Instance Value Sets</em>}</li>
- *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getOwnerClass <em>Owner Class</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getRedefinedAttribute <em>Redefined Attribute</em>}</li>
  *   <li>{@link conml.types.impl.AttributeImpl#getRedefiningAttribute <em>Redefining Attribute</em>}</li>
+ *   <li>{@link conml.types.impl.AttributeImpl#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
  * @generated
@@ -74,16 +74,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	protected EList<ValueSet> instanceValueSets;
 
     /**
-	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDatatype()
-	 * @generated
-	 * @ordered
-	 */
-	protected DataType datatype;
-
-  /**
 	 * The cached value of the '{@link #getRedefinedAttribute() <em>Redefined Attribute</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -104,6 +94,16 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	protected Attribute redefiningAttribute;
 
         /**
+	 * The cached value of the '{@link #getDatatype() <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDatatype()
+	 * @generated
+	 * @ordered
+	 */
+	protected DataType datatype;
+
+                /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -159,46 +159,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	}
 
     /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public DataType getDatatype() {
-		if (datatype != null && datatype.eIsProxy()) {
-			InternalEObject oldDatatype = (InternalEObject)datatype;
-			datatype = (DataType)eResolveProxy(oldDatatype);
-			if (datatype != oldDatatype) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
-			}
-		}
-		return datatype;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DataType basicGetDatatype() {
-		return datatype;
-	}
-
-  /**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDatatype(DataType newDatatype) {
-		DataType oldDatatype = datatype;
-		datatype = newDatatype;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
-	}
-
-  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -328,6 +288,46 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 	 * @generated
 	 */
 	@Override
+	public DataType getDatatype() {
+		if (datatype != null && datatype.eIsProxy()) {
+			InternalEObject oldDatatype = (InternalEObject)datatype;
+			datatype = (DataType)eResolveProxy(oldDatatype);
+			if (datatype != oldDatatype) {
+				if (eNotificationRequired())
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
+			}
+		}
+		return datatype;
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public DataType basicGetDatatype() {
+		return datatype;
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setDatatype(DataType newDatatype) {
+		DataType oldDatatype = datatype;
+		datatype = newDatatype;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, TypesPackage.ATTRIBUTE__DATATYPE, oldDatatype, datatype));
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public conml.types.Class getOwnerClass() {
 		if (eContainerFeatureID() != TypesPackage.ATTRIBUTE__OWNER_CLASS) return null;
 		return (conml.types.Class)eInternalContainer();
@@ -438,9 +438,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return isMultilingual();
 			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
 				return getInstanceValueSets();
-			case TypesPackage.ATTRIBUTE__DATATYPE:
-				if (resolve) return getDatatype();
-				return basicGetDatatype();
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				return getOwnerClass();
 			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
@@ -449,6 +446,9 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
 				if (resolve) return getRedefiningAttribute();
 				return basicGetRedefiningAttribute();
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				if (resolve) return getDatatype();
+				return basicGetDatatype();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -469,9 +469,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				getInstanceValueSets().clear();
 				getInstanceValueSets().addAll((Collection<? extends ValueSet>)newValue);
 				return;
-			case TypesPackage.ATTRIBUTE__DATATYPE:
-				setDatatype((DataType)newValue);
-				return;
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)newValue);
 				return;
@@ -480,6 +477,9 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return;
 			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
 				setRedefiningAttribute((Attribute)newValue);
+				return;
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				setDatatype((DataType)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -499,9 +499,6 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
 				getInstanceValueSets().clear();
 				return;
-			case TypesPackage.ATTRIBUTE__DATATYPE:
-				setDatatype((DataType)null);
-				return;
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				setOwnerClass((conml.types.Class)null);
 				return;
@@ -510,6 +507,9 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return;
 			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
 				setRedefiningAttribute((Attribute)null);
+				return;
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				setDatatype((DataType)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -527,14 +527,14 @@ public class AttributeImpl extends FeatureImpl implements Attribute {
 				return multilingual != MULTILINGUAL_EDEFAULT;
 			case TypesPackage.ATTRIBUTE__INSTANCE_VALUE_SETS:
 				return instanceValueSets != null && !instanceValueSets.isEmpty();
-			case TypesPackage.ATTRIBUTE__DATATYPE:
-				return datatype != null;
 			case TypesPackage.ATTRIBUTE__OWNER_CLASS:
 				return getOwnerClass() != null;
 			case TypesPackage.ATTRIBUTE__REDEFINED_ATTRIBUTE:
 				return redefinedAttribute != null;
 			case TypesPackage.ATTRIBUTE__REDEFINING_ATTRIBUTE:
 				return redefiningAttribute != null;
+			case TypesPackage.ATTRIBUTE__DATATYPE:
+				return datatype != null;
 		}
 		return super.eIsSet(featureID);
 	}

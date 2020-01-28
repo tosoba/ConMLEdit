@@ -17,10 +17,10 @@ import org.eclipse.emf.common.util.EList;
  * <ul>
  *   <li>{@link conml.types.Attribute#isMultilingual <em>Multilingual</em>}</li>
  *   <li>{@link conml.types.Attribute#getInstanceValueSets <em>Instance Value Sets</em>}</li>
- *   <li>{@link conml.types.Attribute#getDatatype <em>Datatype</em>}</li>
  *   <li>{@link conml.types.Attribute#getOwnerClass <em>Owner Class</em>}</li>
  *   <li>{@link conml.types.Attribute#getRedefinedAttribute <em>Redefined Attribute</em>}</li>
  *   <li>{@link conml.types.Attribute#getRedefiningAttribute <em>Redefining Attribute</em>}</li>
+ *   <li>{@link conml.types.Attribute#getDatatype <em>Datatype</em>}</li>
  * </ul>
  *
  * @see conml.types.TypesPackage#getAttribute()
@@ -63,28 +63,6 @@ public interface Attribute extends Feature {
 	 * @generated
 	 */
 	EList<ValueSet> getInstanceValueSets();
-
-    /**
-	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Datatype</em>' reference.
-	 * @see #setDatatype(DataType)
-	 * @see conml.types.TypesPackage#getAttribute_Datatype()
-	 * @model required="true"
-	 * @generated
-	 */
-	DataType getDatatype();
-
-  /**
-	 * Sets the value of the '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Datatype</em>' reference.
-	 * @see #getDatatype()
-	 * @generated
-	 */
-	void setDatatype(DataType value);
 
     /**
 	 * Returns the value of the '<em><b>Redefined Attribute</b></em>' reference.
@@ -135,6 +113,28 @@ public interface Attribute extends Feature {
 	void setRedefiningAttribute(Attribute value);
 
                 /**
+	 * Returns the value of the '<em><b>Datatype</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Datatype</em>' reference.
+	 * @see #setDatatype(DataType)
+	 * @see conml.types.TypesPackage#getAttribute_Datatype()
+	 * @model required="true"
+	 * @generated
+	 */
+	DataType getDatatype();
+
+                /**
+	 * Sets the value of the '{@link conml.types.Attribute#getDatatype <em>Datatype</em>}' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Datatype</em>' reference.
+	 * @see #getDatatype()
+	 * @generated
+	 */
+	void setDatatype(DataType value);
+
+                                /**
 	 * Returns the value of the '<em><b>Owner Class</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link conml.types.Class#getAttributes <em>Attributes</em>}'.
 	 * <!-- begin-user-doc -->

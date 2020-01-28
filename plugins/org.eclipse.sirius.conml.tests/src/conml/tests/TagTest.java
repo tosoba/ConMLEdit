@@ -5,6 +5,8 @@ package conml.tests;
 import conml.Tag;
 import conml.conmlFactory;
 
+import junit.framework.TestCase;
+
 import junit.textui.TestRunner;
 
 /**
@@ -13,7 +15,15 @@ import junit.textui.TestRunner;
  * <!-- end-user-doc -->
  * @generated
  */
-public class TagTest extends ModelPartTest {
+public class TagTest extends TestCase {
+
+	/**
+	 * The fixture for this Tag test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected Tag fixture = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -35,14 +45,23 @@ public class TagTest extends ModelPartTest {
 	}
 
 	/**
+	 * Sets the fixture for this Tag test case.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void setFixture(Tag fixture) {
+		this.fixture = fixture;
+	}
+
+	/**
 	 * Returns the fixture for this Tag test case.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
 	protected Tag getFixture() {
-		return (Tag)fixture;
+		return fixture;
 	}
 
 	/**

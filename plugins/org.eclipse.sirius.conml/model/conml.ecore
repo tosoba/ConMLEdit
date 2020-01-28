@@ -11,7 +11,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="Languages" upperBound="-1"
         eType="#//Language" eOpposite="#//Language/Model"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelPart" abstract="true" interface="true"/>
   <eClassifiers xsi:type="ecore:EClass" name="ModelElement" abstract="true" eSuperTypes="#//ModelPart">
     <eStructuralFeatures xsi:type="ecore:EReference" name="Tags" upperBound="-1" eType="#//Tag"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="MetaInformationObjects"
@@ -112,7 +112,7 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximumCardinality" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//types/DataType #//CommentableElement">
+    <eClassifiers xsi:type="ecore:EClass" name="EnumeratedType" eSuperTypes="#//CommentableElement #//types/DataType #//types/Type">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnedItems" upperBound="-1"
           eType="#//types/EnumeratedItem" containment="true" eOpposite="#//types/EnumeratedItem/OwnerType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="SubTypes" upperBound="-1"
@@ -156,14 +156,14 @@
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstanceValueSets" upperBound="-1"
           eType="#//instances/ValueSet" eOpposite="#//instances/ValueSet/InstancedAttribute"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="Datatype" lowerBound="1"
-          eType="#//types/DataType"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerClass" lowerBound="1"
           eType="#//types/Class" eOpposite="#//types/Class/Attributes"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="RedefinedAttribute" eType="#//types/Attribute"
           eOpposite="#//types/Attribute/RedefiningAttribute"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="RedefiningAttribute"
           eType="#//types/Attribute" eOpposite="#//types/Attribute/RedefinedAttribute"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="datatype" lowerBound="1"
+          eType="#//types/DataType"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="BaseDataType">
       <eLiterals name="Boolean"/>
@@ -206,7 +206,6 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" lowerBound="1"
           eType="#//types/BaseDataType"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" eSuperTypes="#//types/Type"/>
     <eClassifiers xsi:type="ecore:EClass" name="EnumeratedItem" eSuperTypes="#//NamedElement #//DefinableElement">
       <eStructuralFeatures xsi:type="ecore:EReference" name="OwnerType" lowerBound="1"
           eType="#//types/EnumeratedType" eOpposite="#//types/EnumeratedType/OwnedItems"/>
@@ -215,6 +214,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="SuperItem" eType="#//types/EnumeratedItem"
           eOpposite="#//types/EnumeratedItem/SubItems"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataType" abstract="true" interface="true"
+        eSuperTypes="#//ModelPart #//NamedElement"/>
   </eSubpackages>
   <eSubpackages name="instances" nsURI="http://instances.ecore" nsPrefix="instances">
     <eClassifiers xsi:type="ecore:EClass" name="Instance" abstract="true" eSuperTypes="#//instances/InstanceModelElement"/>

@@ -2657,74 +2657,6 @@
             </initialOperation>
           </actions>
         </controls>
-        <controls xsi:type="properties:ListDescription" name="PR_SimpleDataTypes_List" labelExpression="SimpleDataTypes:" helpExpression="SimpleDataTypes owned by this model" valueExpression="aql:input.getSemanticElement().getOwnedSimpleDataTypeElements()" displayExpression="aql:value.dataTypeLabel()">
-          <onClickOperation>
-            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-              <subModelOperations xsi:type="tool:If" conditionExpression="aql:selection->size()=1">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:selection->at(1)">
-                  <subModelOperations xsi:type="tool:If" conditionExpression="aql:onClickEventKind='DOUBLE_CLICK'">
-                    <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Edit SimpleDataType">
-                      <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                        <initialOperation/>
-                      </buttons>
-                      <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                        <initialOperation/>
-                      </buttons>
-                      <page name="Edit Page" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@pages.0"/>
-                    </subModelOperations>
-                  </subModelOperations>
-                </subModelOperations>
-              </subModelOperations>
-            </firstModelOperations>
-          </onClickOperation>
-          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SimpleDataType" referenceName="Parts">
-                  <subModelOperations xsi:type="tool:SetValue" featureName="name" valueExpression="service:self.defaultName"/>
-                  <subModelOperations xsi:type="tool:SetValue" featureName="definition" valueExpression="service:self.defaultDefinition"/>
-                  <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create SimpleDataType">
-                    <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:container"/>
-                      </initialOperation>
-                    </buttons>
-                    <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
-                      <initialOperation>
-                        <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance"/>
-                      </initialOperation>
-                    </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
-                    <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
-                <subModelOperations xsi:type="tool:For" expression="var:selection" iteratorName="dataType">
-                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:dataType.removeElement"/>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/up.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="aql:selection" iteratorName="dataType">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:dataType.moveSimpleDataTypeUp()"/>
-              </firstModelOperations>
-            </initialOperation>
-          </actions>
-          <actions imageExpression="/org.eclipse.sirius.conml.edit/icons/full/obj16/down.gif">
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:For" expression="aql:selection->reverse()" iteratorName="dataType">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:dataType.moveSimpleDataTypeDown()"/>
-              </firstModelOperations>
-            </initialOperation>
-          </actions>
-        </controls>
         <controls xsi:type="properties:ListDescription" name="PR_EnumeratedTypes_List" labelExpression="EnumeratedTypes:" helpExpression="EnumeratedTypes owned by this model" valueExpression="aql:input.getSemanticElement().getOwnedEnumeratedTypeElements()" displayExpression="aql:value.dataTypeLabel()">
           <onClickOperation>
             <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self">
@@ -2762,7 +2694,7 @@
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instance"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.4/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <page name="D_CD_CreatePackage_DefaultPage" semanticCandidateExpression="var:self" groups="//@extensions.0/@categories.0/@groups.5/@controls.3/@actions.0/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_CD_CreatePackage_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.1"/>
                   </subModelOperations>
                 </subModelOperations>

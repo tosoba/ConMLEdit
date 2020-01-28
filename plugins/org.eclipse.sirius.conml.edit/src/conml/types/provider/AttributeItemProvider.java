@@ -47,10 +47,10 @@ public class AttributeItemProvider extends FeatureItemProvider {
 
 			addMultilingualPropertyDescriptor(object);
 			addInstanceValueSetsPropertyDescriptor(object);
-			addDatatypePropertyDescriptor(object);
 			addOwnerClassPropertyDescriptor(object);
 			addRedefinedAttributePropertyDescriptor(object);
 			addRedefiningAttributePropertyDescriptor(object);
+			addDatatypePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -100,28 +100,6 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
     /**
-	 * This adds a property descriptor for the Datatype feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addDatatypePropertyDescriptor(Object object) {
-		itemPropertyDescriptors.add
-			(createItemPropertyDescriptor
-				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
-				 getResourceLocator(),
-				 getString("_UI_Attribute_Datatype_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_Datatype_feature", "_UI_Attribute_type"),
-				 TypesPackage.Literals.ATTRIBUTE__DATATYPE,
-				 true,
-				 false,
-				 true,
-				 null,
-				 null,
-				 null));
-	}
-
-  /**
 	 * This adds a property descriptor for the Redefined Attribute feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -166,6 +144,28 @@ public class AttributeItemProvider extends FeatureItemProvider {
 	}
 
         /**
+	 * This adds a property descriptor for the Datatype feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addDatatypePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Attribute_datatype_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Attribute_datatype_feature", "_UI_Attribute_type"),
+				 TypesPackage.Literals.ATTRIBUTE__DATATYPE,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+                /**
 	 * This adds a property descriptor for the Owner Class feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
