@@ -31,6 +31,15 @@ public interface conmlFactory extends EFactory {
 	Tag createTag();
 
 	/**
+	 * Returns a new object of class '<em>Language</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Language</em>'.
+	 * @generated
+	 */
+	Language createLanguage();
+
+  /**
 	 * Returns a new object of class '<em>Meta Information</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

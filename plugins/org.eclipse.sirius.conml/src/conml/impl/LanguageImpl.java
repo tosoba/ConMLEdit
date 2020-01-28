@@ -30,7 +30,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *
  * @generated
  */
-public abstract class LanguageImpl extends MinimalEObjectImpl.Container implements Language {
+public class LanguageImpl extends MinimalEObjectImpl.Container implements Language {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->

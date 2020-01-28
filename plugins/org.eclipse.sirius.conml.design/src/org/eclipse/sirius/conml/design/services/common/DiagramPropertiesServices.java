@@ -22,6 +22,7 @@ import org.eclipse.sirius.conml.design.services.types.PackageServices;
 import org.eclipse.sirius.conml.design.services.types.SemiAssociationServices;
 
 import conml.Domain;
+import conml.Model;
 import conml.instances.InstanceModel;
 import conml.instances.InstanceModelElement;
 import conml.instances.Link;
@@ -193,6 +194,9 @@ public final class DiagramPropertiesServices {
   }
 
   private static void setupIgnoredCreationDialogReferences() {
+    ignoredCreationDialogReferences.put(
+        Model.class, new HashSet<>(Arrays.asList("DefaultLanguage")));
+
     // Types
     ignoredCreationDialogReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
     ignoredCreationDialogReferences.put(
@@ -221,6 +225,8 @@ public final class DiagramPropertiesServices {
 
     // Instances
     ignoredCreationDialogReferences.put(
+        InstanceModel.class, new HashSet<>(Arrays.asList("Elements")));
+    ignoredCreationDialogReferences.put(
         InstanceModelElement.class, new HashSet<>(Arrays.asList("InstanceModel")));
     ignoredCreationDialogReferences.put(Value.class, new HashSet<>(Arrays.asList("OwnerValueSet")));
     ignoredCreationDialogReferences.put(
@@ -229,6 +235,7 @@ public final class DiagramPropertiesServices {
 
   private static void setupIgnoredPropertiesReferences() {
     ignoredPropertyReferences.put(Domain.class, new HashSet<>(Arrays.asList("Parts", "Models")));
+    ignoredPropertyReferences.put(Model.class, new HashSet<>(Arrays.asList("DefaultLanguage")));
 
     // Types
     ignoredPropertyReferences.put(TypeModel.class, new HashSet<>(Arrays.asList("Elements")));
