@@ -228,6 +228,13 @@ public final class ClassServices {
       ObjectServices.getInstance().deleteObject(instance);
     }
 
+    final Generalization specialization = clazz.getSpecialization();
+    if (specialization != null) EcoreUtil.delete(specialization);
+
+    for (final Generalization generalization : new ArrayList<>(clazz.getGeneralizations())) {
+      if (generalization.getSpecializedClasses().size() == 1) EcoreUtil.delete(generalization);
+    }
+
     EcoreUtil.delete(clazz);
   }
 
