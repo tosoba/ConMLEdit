@@ -254,16 +254,16 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/InstancedClass"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/IsReferredByReferences"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/TemporalExistentialQualifier"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/SubjectiveExistentialQualifer"/>
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ValueSets"/>
         <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ReferenceSets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/DocumentedElements"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/Object/documenting"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/SubjectiveExistentialQualifer"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/TemporalExistentialQualifier"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Link">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -283,9 +283,9 @@
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/TranslationQualifiers"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PhaseQualifier"/>
-        <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PerspectiveQualifier"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/FacetSet/PhaseQualifier"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/TextValue">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/TextValue/content"/>
@@ -305,6 +305,17 @@
       <genClasses ecoreClass="conml.ecore#//instances/EnumValue">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/EnumValue/content"/>
+      </genClasses>
+      <genClasses ecoreClass="conml.ecore#//instances/QualifierObject">
+        <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/QualifierObject/qualifier"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/QualifierObject/SubjectiveQualifiedObjects"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/QualifierObject/TemporalQualifiedObjects"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/QualifierObject/PerspectiveQualifiedFacetSets"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/QualifierObject/PhaseQualifiedFacetSets"/>
       </genClasses>
     </nestedGenPackages>
   </genPackages>

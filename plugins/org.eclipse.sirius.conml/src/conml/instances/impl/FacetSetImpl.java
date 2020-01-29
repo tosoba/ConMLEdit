@@ -6,9 +6,11 @@ import conml.Language;
 import conml.instances.FacetSet;
 import conml.instances.InstancesPackage;
 
+import conml.instances.QualifierObject;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
@@ -26,8 +28,8 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
- *   <li>{@link conml.instances.impl.FacetSetImpl#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.impl.FacetSetImpl#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
+ *   <li>{@link conml.instances.impl.FacetSetImpl#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -44,16 +46,6 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	protected EList<Language> translationQualifiers;
 
 	/**
-	 * The cached value of the '{@link #getPhaseQualifier() <em>Phase Qualifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPhaseQualifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.instances.Object phaseQualifier;
-
-  /**
 	 * The cached value of the '{@link #getPerspectiveQualifier() <em>Perspective Qualifier</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -61,7 +53,17 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * @generated
 	 * @ordered
 	 */
-	protected conml.instances.Object perspectiveQualifier;
+	protected QualifierObject perspectiveQualifier;
+
+    /**
+	 * The cached value of the '{@link #getPhaseQualifier() <em>Phase Qualifier</em>}' reference.
+	 * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+	 * @see #getPhaseQualifier()
+	 * @generated
+	 * @ordered
+	 */
+    protected QualifierObject phaseQualifier;
 
     /**
 	 * <!-- begin-user-doc -->
@@ -101,10 +103,10 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * @generated
 	 */
 	@Override
-	public conml.instances.Object getPhaseQualifier() {
+	public QualifierObject getPhaseQualifier() {
 		if (phaseQualifier != null && phaseQualifier.eIsProxy()) {
 			InternalEObject oldPhaseQualifier = (InternalEObject)phaseQualifier;
-			phaseQualifier = (conml.instances.Object)eResolveProxy(oldPhaseQualifier);
+			phaseQualifier = (QualifierObject)eResolveProxy(oldPhaseQualifier);
 			if (phaseQualifier != oldPhaseQualifier) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.FACET_SET__PHASE_QUALIFIER, oldPhaseQualifier, phaseQualifier));
@@ -118,7 +120,7 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetPhaseQualifier() {
+	public QualifierObject basicGetPhaseQualifier() {
 		return phaseQualifier;
 	}
 
@@ -127,24 +129,82 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPhaseQualifier(conml.instances.Object newPhaseQualifier) {
-		conml.instances.Object oldPhaseQualifier = phaseQualifier;
+	public NotificationChain basicSetPhaseQualifier(QualifierObject newPhaseQualifier, NotificationChain msgs) {
+		QualifierObject oldPhaseQualifier = phaseQualifier;
 		phaseQualifier = newPhaseQualifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PHASE_QUALIFIER, oldPhaseQualifier, phaseQualifier));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PHASE_QUALIFIER, oldPhaseQualifier, newPhaseQualifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public conml.instances.Object getPerspectiveQualifier() {
+	public void setPhaseQualifier(QualifierObject newPhaseQualifier) {
+		if (newPhaseQualifier != phaseQualifier) {
+			NotificationChain msgs = null;
+			if (phaseQualifier != null)
+				msgs = ((InternalEObject)phaseQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+			if (newPhaseQualifier != null)
+				msgs = ((InternalEObject)newPhaseQualifier).eInverseAdd(this, InstancesPackage.QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+			msgs = basicSetPhaseQualifier(newPhaseQualifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PHASE_QUALIFIER, newPhaseQualifier, newPhaseQualifier));
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
+				if (perspectiveQualifier != null)
+					msgs = ((InternalEObject)perspectiveQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+				return basicSetPerspectiveQualifier((QualifierObject)otherEnd, msgs);
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				if (phaseQualifier != null)
+					msgs = ((InternalEObject)phaseQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+				return basicSetPhaseQualifier((QualifierObject)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
+				return basicSetPerspectiveQualifier(null, msgs);
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				return basicSetPhaseQualifier(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public QualifierObject getPerspectiveQualifier() {
 		if (perspectiveQualifier != null && perspectiveQualifier.eIsProxy()) {
 			InternalEObject oldPerspectiveQualifier = (InternalEObject)perspectiveQualifier;
-			perspectiveQualifier = (conml.instances.Object)eResolveProxy(oldPerspectiveQualifier);
+			perspectiveQualifier = (QualifierObject)eResolveProxy(oldPerspectiveQualifier);
 			if (perspectiveQualifier != oldPerspectiveQualifier) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER, oldPerspectiveQualifier, perspectiveQualifier));
@@ -158,7 +218,7 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetPerspectiveQualifier() {
+	public QualifierObject basicGetPerspectiveQualifier() {
 		return perspectiveQualifier;
 	}
 
@@ -167,15 +227,37 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPerspectiveQualifier(conml.instances.Object newPerspectiveQualifier) {
-		conml.instances.Object oldPerspectiveQualifier = perspectiveQualifier;
+	public NotificationChain basicSetPerspectiveQualifier(QualifierObject newPerspectiveQualifier, NotificationChain msgs) {
+		QualifierObject oldPerspectiveQualifier = perspectiveQualifier;
 		perspectiveQualifier = newPerspectiveQualifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER, oldPerspectiveQualifier, perspectiveQualifier));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER, oldPerspectiveQualifier, newPerspectiveQualifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
-  /**
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPerspectiveQualifier(QualifierObject newPerspectiveQualifier) {
+		if (newPerspectiveQualifier != perspectiveQualifier) {
+			NotificationChain msgs = null;
+			if (perspectiveQualifier != null)
+				msgs = ((InternalEObject)perspectiveQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+			if (newPerspectiveQualifier != null)
+				msgs = ((InternalEObject)newPerspectiveQualifier).eInverseAdd(this, InstancesPackage.QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS, QualifierObject.class, msgs);
+			msgs = basicSetPerspectiveQualifier(newPerspectiveQualifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER, newPerspectiveQualifier, newPerspectiveQualifier));
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -185,12 +267,12 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 		switch (featureID) {
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return getTranslationQualifiers();
-			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
-				if (resolve) return getPhaseQualifier();
-				return basicGetPhaseQualifier();
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				if (resolve) return getPerspectiveQualifier();
 				return basicGetPerspectiveQualifier();
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				if (resolve) return getPhaseQualifier();
+				return basicGetPhaseQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -208,11 +290,11 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 				getTranslationQualifiers().clear();
 				getTranslationQualifiers().addAll((Collection<? extends Language>)newValue);
 				return;
-			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
-				setPhaseQualifier((conml.instances.Object)newValue);
-				return;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
-				setPerspectiveQualifier((conml.instances.Object)newValue);
+				setPerspectiveQualifier((QualifierObject)newValue);
+				return;
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				setPhaseQualifier((QualifierObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -229,11 +311,11 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				getTranslationQualifiers().clear();
 				return;
-			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
-				setPhaseQualifier((conml.instances.Object)null);
-				return;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
-				setPerspectiveQualifier((conml.instances.Object)null);
+				setPerspectiveQualifier((QualifierObject)null);
+				return;
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				setPhaseQualifier((QualifierObject)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -249,10 +331,10 @@ public abstract class FacetSetImpl extends InstanceImpl implements FacetSet {
 		switch (featureID) {
 			case InstancesPackage.FACET_SET__TRANSLATION_QUALIFIERS:
 				return translationQualifiers != null && !translationQualifiers.isEmpty();
-			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
-				return phaseQualifier != null;
 			case InstancesPackage.FACET_SET__PERSPECTIVE_QUALIFIER:
 				return perspectiveQualifier != null;
+			case InstancesPackage.FACET_SET__PHASE_QUALIFIER:
+				return phaseQualifier != null;
 		}
 		return super.eIsSet(featureID);
 	}

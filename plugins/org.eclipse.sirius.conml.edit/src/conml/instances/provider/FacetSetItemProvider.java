@@ -42,8 +42,8 @@ public class FacetSetItemProvider extends InstanceItemProvider {
 			super.getPropertyDescriptors(object);
 
 			addTranslationQualifiersPropertyDescriptor(object);
-			addPhaseQualifierPropertyDescriptor(object);
 			addPerspectiveQualifierPropertyDescriptor(object);
+			addPhaseQualifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

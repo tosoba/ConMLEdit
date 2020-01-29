@@ -348,6 +348,29 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 	}
 
   /**
+	 * This keeps track of the one adapter used for all {@link conml.instances.QualifierObject} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected QualifierObjectItemProvider qualifierObjectItemProvider;
+
+    /**
+	 * This creates an adapter for a {@link conml.instances.QualifierObject}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createQualifierObjectAdapter() {
+		if (qualifierObjectItemProvider == null) {
+			qualifierObjectItemProvider = new QualifierObjectItemProvider(this);
+		}
+
+		return qualifierObjectItemProvider;
+	}
+
+    /**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -464,6 +487,7 @@ public class InstancesItemProviderAdapterFactory extends InstancesAdapterFactory
 		if (numberValueItemProvider != null) numberValueItemProvider.dispose();
 		if (dataValueItemProvider != null) dataValueItemProvider.dispose();
 		if (enumValueItemProvider != null) enumValueItemProvider.dispose();
+		if (qualifierObjectItemProvider != null) qualifierObjectItemProvider.dispose();
 	}
 
 }

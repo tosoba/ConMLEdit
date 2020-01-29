@@ -12,6 +12,7 @@ import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
 import conml.instances.NumberValue;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.TextValue;
@@ -83,6 +84,7 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 			case InstancesPackage.NUMBER_VALUE: return createNumberValue();
 			case InstancesPackage.DATA_VALUE: return createDataValue();
 			case InstancesPackage.ENUM_VALUE: return createEnumValue();
+			case InstancesPackage.QUALIFIER_OBJECT: return createQualifierObject();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -255,6 +257,17 @@ public class InstancesFactoryImpl extends EFactoryImpl implements InstancesFacto
 	}
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public QualifierObject createQualifierObject() {
+		QualifierObjectImpl qualifierObject = new QualifierObjectImpl();
+		return qualifierObject;
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated

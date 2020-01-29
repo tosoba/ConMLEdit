@@ -19,6 +19,7 @@ import conml.instances.InstanceModelElement;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
 import conml.instances.NumberValue;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.TextValue;
@@ -258,6 +259,17 @@ public class InstancesSwitch<T> extends Switch<T> {
 				if (result == null) result = caseInstanceModelElement(enumValue);
 				if (result == null) result = caseModelElement(enumValue);
 				if (result == null) result = caseModelPart(enumValue);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case InstancesPackage.QUALIFIER_OBJECT: {
+				QualifierObject qualifierObject = (QualifierObject)theEObject;
+				T result = caseQualifierObject(qualifierObject);
+				if (result == null) result = caseObject(qualifierObject);
+				if (result == null) result = caseInstance(qualifierObject);
+				if (result == null) result = caseInstanceModelElement(qualifierObject);
+				if (result == null) result = caseModelElement(qualifierObject);
+				if (result == null) result = caseModelPart(qualifierObject);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -521,6 +533,21 @@ public class InstancesSwitch<T> extends Switch<T> {
 	}
 
   /**
+	 * Returns the result of interpreting the object as an instance of '<em>Qualifier Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Qualifier Object</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseQualifierObject(QualifierObject object) {
+		return null;
+	}
+
+    /**
 	 * Returns the result of interpreting the object as an instance of '<em>Model Part</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;

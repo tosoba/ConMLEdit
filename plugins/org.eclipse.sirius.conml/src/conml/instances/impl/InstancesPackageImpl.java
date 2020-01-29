@@ -19,6 +19,7 @@ import conml.instances.InstancesFactory;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
 import conml.instances.NumberValue;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.TextValue;
@@ -166,6 +167,13 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	private EClass enumValueEClass = null;
 
   /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass qualifierObjectEClass = null;
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -530,7 +538,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_TemporalExistentialQualifier() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(4);
+		return (EReference)objectEClass.getEStructuralFeatures().get(9);
 	}
 
 	/**
@@ -540,7 +548,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_SubjectiveExistentialQualifer() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(5);
+		return (EReference)objectEClass.getEStructuralFeatures().get(8);
 	}
 
   /**
@@ -550,7 +558,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_ReferenceSets() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(7);
+		return (EReference)objectEClass.getEStructuralFeatures().get(5);
 	}
 
   /**
@@ -560,7 +568,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_DocumentedElements() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(8);
+		return (EReference)objectEClass.getEStructuralFeatures().get(6);
 	}
 
                 /**
@@ -570,7 +578,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EAttribute getObject_Documenting() {
-		return (EAttribute)objectEClass.getEStructuralFeatures().get(9);
+		return (EAttribute)objectEClass.getEStructuralFeatures().get(7);
 	}
 
                                 /**
@@ -580,7 +588,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getObject_ValueSets() {
-		return (EReference)objectEClass.getEStructuralFeatures().get(6);
+		return (EReference)objectEClass.getEStructuralFeatures().get(4);
 	}
 
     /**
@@ -690,7 +698,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getFacetSet_PhaseQualifier() {
-		return (EReference)facetSetEClass.getEStructuralFeatures().get(1);
+		return (EReference)facetSetEClass.getEStructuralFeatures().get(2);
 	}
 
   /**
@@ -700,7 +708,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 */
 	@Override
 	public EReference getFacetSet_PerspectiveQualifier() {
-		return (EReference)facetSetEClass.getEStructuralFeatures().get(2);
+		return (EReference)facetSetEClass.getEStructuralFeatures().get(1);
 	}
 
   /**
@@ -829,6 +837,66 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 	 * @generated
 	 */
 	@Override
+	public EClass getQualifierObject() {
+		return qualifierObjectEClass;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getQualifierObject_Qualifier() {
+		return (EAttribute)qualifierObjectEClass.getEStructuralFeatures().get(0);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQualifierObject_SubjectiveQualifiedObjects() {
+		return (EReference)qualifierObjectEClass.getEStructuralFeatures().get(1);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQualifierObject_TemporalQualifiedObjects() {
+		return (EReference)qualifierObjectEClass.getEStructuralFeatures().get(2);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQualifierObject_PerspectiveQualifiedFacetSets() {
+		return (EReference)qualifierObjectEClass.getEStructuralFeatures().get(3);
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getQualifierObject_PhaseQualifiedFacetSets() {
+		return (EReference)qualifierObjectEClass.getEStructuralFeatures().get(4);
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EEnum getDegreeOfCertainty() {
 		return degreeOfCertaintyEEnum;
 	}
@@ -906,12 +974,12 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		createEAttribute(objectEClass, OBJECT__CERTAINTY);
 		createEReference(objectEClass, OBJECT__INSTANCED_CLASS);
 		createEReference(objectEClass, OBJECT__IS_REFERRED_BY_REFERENCES);
-		createEReference(objectEClass, OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER);
-		createEReference(objectEClass, OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER);
 		createEReference(objectEClass, OBJECT__VALUE_SETS);
 		createEReference(objectEClass, OBJECT__REFERENCE_SETS);
 		createEReference(objectEClass, OBJECT__DOCUMENTED_ELEMENTS);
 		createEAttribute(objectEClass, OBJECT__DOCUMENTING);
+		createEReference(objectEClass, OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER);
+		createEReference(objectEClass, OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER);
 
 		linkEClass = createEClass(LINK);
 		createEReference(linkEClass, LINK__INSTANCED_ASSOCIATION);
@@ -925,8 +993,8 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		facetSetEClass = createEClass(FACET_SET);
 		createEReference(facetSetEClass, FACET_SET__TRANSLATION_QUALIFIERS);
-		createEReference(facetSetEClass, FACET_SET__PHASE_QUALIFIER);
 		createEReference(facetSetEClass, FACET_SET__PERSPECTIVE_QUALIFIER);
+		createEReference(facetSetEClass, FACET_SET__PHASE_QUALIFIER);
 
 		textValueEClass = createEClass(TEXT_VALUE);
 		createEAttribute(textValueEClass, TEXT_VALUE__CONTENT);
@@ -945,6 +1013,13 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		enumValueEClass = createEClass(ENUM_VALUE);
 		createEReference(enumValueEClass, ENUM_VALUE__CONTENT);
+
+		qualifierObjectEClass = createEClass(QUALIFIER_OBJECT);
+		createEAttribute(qualifierObjectEClass, QUALIFIER_OBJECT__QUALIFIER);
+		createEReference(qualifierObjectEClass, QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS);
+		createEReference(qualifierObjectEClass, QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS);
+		createEReference(qualifierObjectEClass, QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS);
+		createEReference(qualifierObjectEClass, QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS);
 
 		// Create enums
 		degreeOfCertaintyEEnum = createEEnum(DEGREE_OF_CERTAINTY);
@@ -1001,6 +1076,7 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		numberValueEClass.getESuperTypes().add(this.getValue());
 		dataValueEClass.getESuperTypes().add(this.getValue());
 		enumValueEClass.getESuperTypes().add(this.getValue());
+		qualifierObjectEClass.getESuperTypes().add(this.getObject());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(instanceEClass, Instance.class, "Instance", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1037,12 +1113,12 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 		initEAttribute(getObject_Certainty(), this.getDegreeOfCertainty(), "certainty", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_InstancedClass(), theTypesPackage.getClass_(), theTypesPackage.getClass_InstanceObjects(), "InstancedClass", null, 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_IsReferredByReferences(), this.getReference(), this.getReference_ReferredObject(), "IsReferredByReferences", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_TemporalExistentialQualifier(), this.getObject(), null, "TemporalExistentialQualifier", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getObject_SubjectiveExistentialQualifer(), this.getObject(), null, "SubjectiveExistentialQualifer", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_ValueSets(), this.getValueSet(), null, "ValueSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_ReferenceSets(), this.getReferenceSet(), this.getReferenceSet_Owner(), "ReferenceSets", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getObject_DocumentedElements(), theconmlPackage.getModelElement(), theconmlPackage.getModelElement_MetaInformationObjects(), "DocumentedElements", null, 0, -1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getObject_Documenting(), theXMLTypePackage.getBoolean(), "documenting", "false", 1, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_SubjectiveExistentialQualifer(), this.getQualifierObject(), this.getQualifierObject_SubjectiveQualifiedObjects(), "SubjectiveExistentialQualifer", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getObject_TemporalExistentialQualifier(), this.getQualifierObject(), this.getQualifierObject_TemporalQualifiedObjects(), "TemporalExistentialQualifier", null, 0, 1, conml.instances.Object.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(linkEClass, Link.class, "Link", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLink_InstancedAssociation(), theTypesPackage.getAssociation(), theTypesPackage.getAssociation_InstanceLinks(), "InstancedAssociation", null, 1, 1, Link.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1056,8 +1132,8 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(facetSetEClass, FacetSet.class, "FacetSet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getFacetSet_TranslationQualifiers(), theconmlPackage.getLanguage(), null, "TranslationQualifiers", null, 0, -1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFacetSet_PhaseQualifier(), this.getObject(), null, "PhaseQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFacetSet_PerspectiveQualifier(), this.getObject(), null, "PerspectiveQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFacetSet_PerspectiveQualifier(), this.getQualifierObject(), this.getQualifierObject_PerspectiveQualifiedFacetSets(), "PerspectiveQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFacetSet_PhaseQualifier(), this.getQualifierObject(), this.getQualifierObject_PhaseQualifiedFacetSets(), "PhaseQualifier", null, 0, 1, FacetSet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(textValueEClass, TextValue.class, "TextValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getTextValue_Content(), theXMLTypePackage.getString(), "content", null, 0, 1, TextValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1076,6 +1152,13 @@ public class InstancesPackageImpl extends EPackageImpl implements InstancesPacka
 
 		initEClass(enumValueEClass, EnumValue.class, "EnumValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getEnumValue_Content(), theTypesPackage.getEnumeratedItem(), null, "content", null, 0, 1, EnumValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(qualifierObjectEClass, QualifierObject.class, "QualifierObject", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getQualifierObject_Qualifier(), ecorePackage.getEString(), "qualifier", null, 1, 1, QualifierObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQualifierObject_SubjectiveQualifiedObjects(), this.getObject(), this.getObject_SubjectiveExistentialQualifer(), "SubjectiveQualifiedObjects", null, 0, -1, QualifierObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQualifierObject_TemporalQualifiedObjects(), this.getObject(), this.getObject_TemporalExistentialQualifier(), "TemporalQualifiedObjects", null, 0, -1, QualifierObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQualifierObject_PerspectiveQualifiedFacetSets(), this.getFacetSet(), this.getFacetSet_PerspectiveQualifier(), "PerspectiveQualifiedFacetSets", null, 0, -1, QualifierObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getQualifierObject_PhaseQualifiedFacetSets(), this.getFacetSet(), this.getFacetSet_PhaseQualifier(), "PhaseQualifiedFacetSets", null, 0, 1, QualifierObject.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(degreeOfCertaintyEEnum, DegreeOfCertainty.class, "DegreeOfCertainty");

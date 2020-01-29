@@ -50,11 +50,11 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addCertaintyPropertyDescriptor(object);
 			addInstancedClassPropertyDescriptor(object);
 			addIsReferredByReferencesPropertyDescriptor(object);
-			addTemporalExistentialQualifierPropertyDescriptor(object);
-			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 			addReferenceSetsPropertyDescriptor(object);
 			addDocumentedElementsPropertyDescriptor(object);
 			addDocumentingPropertyDescriptor(object);
+			addSubjectiveExistentialQualiferPropertyDescriptor(object);
+			addTemporalExistentialQualifierPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}

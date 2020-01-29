@@ -19,6 +19,7 @@ import conml.instances.InstanceModelElement;
 import conml.instances.InstancesPackage;
 import conml.instances.Link;
 import conml.instances.NumberValue;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.TextValue;
@@ -156,6 +157,10 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseEnumValue(EnumValue object) {
 				return createEnumValueAdapter();
+			}
+			@Override
+			public Adapter caseQualifierObject(QualifierObject object) {
+				return createQualifierObjectAdapter();
 			}
 			@Override
 			public Adapter caseModelPart(ModelPart object) {
@@ -436,6 +441,20 @@ public class InstancesAdapterFactory extends AdapterFactoryImpl {
 	}
 
   /**
+	 * Creates a new adapter for an object of class '{@link conml.instances.QualifierObject <em>Qualifier Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see conml.instances.QualifierObject
+	 * @generated
+	 */
+	public Adapter createQualifierObjectAdapter() {
+		return null;
+	}
+
+    /**
 	 * Creates a new adapter for an object of class '{@link conml.ModelPart <em>Model Part</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;

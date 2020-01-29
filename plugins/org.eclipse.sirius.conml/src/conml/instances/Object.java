@@ -18,12 +18,12 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link conml.instances.Object#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.Object#getInstancedClass <em>Instanced Class</em>}</li>
  *   <li>{@link conml.instances.Object#getIsReferredByReferences <em>Is Referred By References</em>}</li>
- *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
- *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.Object#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.Object#getDocumentedElements <em>Documented Elements</em>}</li>
  *   <li>{@link conml.instances.Object#isDocumenting <em>Documenting</em>}</li>
+ *   <li>{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
+ *   <li>{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getObject()
@@ -118,15 +118,17 @@ public interface Object extends Instance {
 
     /**
 	 * Returns the value of the '<em><b>Temporal Existential Qualifier</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.QualifierObject#getTemporalQualifiedObjects <em>Temporal Qualified Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Temporal Existential Qualifier</em>' reference.
-	 * @see #setTemporalExistentialQualifier(Object)
+	 * @see #setTemporalExistentialQualifier(QualifierObject)
 	 * @see conml.instances.InstancesPackage#getObject_TemporalExistentialQualifier()
-	 * @model
+	 * @see conml.instances.QualifierObject#getTemporalQualifiedObjects
+	 * @model opposite="TemporalQualifiedObjects"
 	 * @generated
 	 */
-	Object getTemporalExistentialQualifier();
+	QualifierObject getTemporalExistentialQualifier();
 
 	/**
 	 * Sets the value of the '{@link conml.instances.Object#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}' reference.
@@ -136,19 +138,21 @@ public interface Object extends Instance {
 	 * @see #getTemporalExistentialQualifier()
 	 * @generated
 	 */
-	void setTemporalExistentialQualifier(Object value);
+	void setTemporalExistentialQualifier(QualifierObject value);
 
-	/**
+  /**
 	 * Returns the value of the '<em><b>Subjective Existential Qualifer</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.QualifierObject#getSubjectiveQualifiedObjects <em>Subjective Qualified Objects</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Subjective Existential Qualifer</em>' reference.
-	 * @see #setSubjectiveExistentialQualifer(Object)
+	 * @see #setSubjectiveExistentialQualifer(QualifierObject)
 	 * @see conml.instances.InstancesPackage#getObject_SubjectiveExistentialQualifer()
-	 * @model
+	 * @see conml.instances.QualifierObject#getSubjectiveQualifiedObjects
+	 * @model opposite="SubjectiveQualifiedObjects"
 	 * @generated
 	 */
-	Object getSubjectiveExistentialQualifer();
+	QualifierObject getSubjectiveExistentialQualifer();
 
   /**
 	 * Sets the value of the '{@link conml.instances.Object#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}' reference.
@@ -158,7 +162,7 @@ public interface Object extends Instance {
 	 * @see #getSubjectiveExistentialQualifer()
 	 * @generated
 	 */
-	void setSubjectiveExistentialQualifer(Object value);
+	void setSubjectiveExistentialQualifer(QualifierObject value);
 
     /**
 	 * Returns the value of the '<em><b>Reference Sets</b></em>' containment reference list.

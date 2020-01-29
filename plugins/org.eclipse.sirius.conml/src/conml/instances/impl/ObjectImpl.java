@@ -6,6 +6,7 @@ import conml.ModelElement;
 import conml.conmlPackage;
 import conml.instances.DegreeOfCertainty;
 import conml.instances.InstancesPackage;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.ValueSet;
@@ -41,12 +42,12 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ObjectImpl#getCertainty <em>Certainty</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getInstancedClass <em>Instanced Class</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getIsReferredByReferences <em>Is Referred By References</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
- *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getValueSets <em>Value Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getReferenceSets <em>Reference Sets</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#getDocumentedElements <em>Documented Elements</em>}</li>
  *   <li>{@link conml.instances.impl.ObjectImpl#isDocumenting <em>Documenting</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getSubjectiveExistentialQualifer <em>Subjective Existential Qualifer</em>}</li>
+ *   <li>{@link conml.instances.impl.ObjectImpl#getTemporalExistentialQualifier <em>Temporal Existential Qualifier</em>}</li>
  * </ul>
  *
  * @generated
@@ -113,26 +114,6 @@ public class ObjectImpl extends InstanceImpl implements conml.instances.Object {
 	protected EList<Reference> isReferredByReferences;
 
     /**
-	 * The cached value of the '{@link #getTemporalExistentialQualifier() <em>Temporal Existential Qualifier</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getTemporalExistentialQualifier()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.instances.Object temporalExistentialQualifier;
-
-	/**
-	 * The cached value of the '{@link #getSubjectiveExistentialQualifer() <em>Subjective Existential Qualifer</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSubjectiveExistentialQualifer()
-	 * @generated
-	 * @ordered
-	 */
-	protected conml.instances.Object subjectiveExistentialQualifer;
-
-  /**
 	 * The cached value of the '{@link #getValueSets() <em>Value Sets</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,6 +162,26 @@ protected EList<ReferenceSet> referenceSets;
 	 * @ordered
 	 */
 	protected boolean documenting = DOCUMENTING_EDEFAULT;
+
+                /**
+	 * The cached value of the '{@link #getSubjectiveExistentialQualifer() <em>Subjective Existential Qualifer</em>}' reference.
+	 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+	 * @see #getSubjectiveExistentialQualifer()
+	 * @generated
+	 * @ordered
+	 */
+                protected QualifierObject subjectiveExistentialQualifer;
+
+                /**
+	 * The cached value of the '{@link #getTemporalExistentialQualifier() <em>Temporal Existential Qualifier</em>}' reference.
+	 * <!-- begin-user-doc -->
+* <!-- end-user-doc -->
+	 * @see #getTemporalExistentialQualifier()
+	 * @generated
+	 * @ordered
+	 */
+protected QualifierObject temporalExistentialQualifier;
 
                                                                 /**
 	 * <!-- begin-user-doc -->
@@ -328,10 +329,10 @@ protected EList<ReferenceSet> referenceSets;
 	 * @generated
 	 */
 	@Override
-	public conml.instances.Object getTemporalExistentialQualifier() {
+	public QualifierObject getTemporalExistentialQualifier() {
 		if (temporalExistentialQualifier != null && temporalExistentialQualifier.eIsProxy()) {
 			InternalEObject oldTemporalExistentialQualifier = (InternalEObject)temporalExistentialQualifier;
-			temporalExistentialQualifier = (conml.instances.Object)eResolveProxy(oldTemporalExistentialQualifier);
+			temporalExistentialQualifier = (QualifierObject)eResolveProxy(oldTemporalExistentialQualifier);
 			if (temporalExistentialQualifier != oldTemporalExistentialQualifier) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, oldTemporalExistentialQualifier, temporalExistentialQualifier));
@@ -345,7 +346,7 @@ protected EList<ReferenceSet> referenceSets;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetTemporalExistentialQualifier() {
+	public QualifierObject basicGetTemporalExistentialQualifier() {
 		return temporalExistentialQualifier;
 	}
 
@@ -354,24 +355,46 @@ protected EList<ReferenceSet> referenceSets;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setTemporalExistentialQualifier(conml.instances.Object newTemporalExistentialQualifier) {
-		conml.instances.Object oldTemporalExistentialQualifier = temporalExistentialQualifier;
+	public NotificationChain basicSetTemporalExistentialQualifier(QualifierObject newTemporalExistentialQualifier, NotificationChain msgs) {
+		QualifierObject oldTemporalExistentialQualifier = temporalExistentialQualifier;
 		temporalExistentialQualifier = newTemporalExistentialQualifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, oldTemporalExistentialQualifier, temporalExistentialQualifier));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, oldTemporalExistentialQualifier, newTemporalExistentialQualifier);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
-	/**
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public conml.instances.Object getSubjectiveExistentialQualifer() {
+	public void setTemporalExistentialQualifier(QualifierObject newTemporalExistentialQualifier) {
+		if (newTemporalExistentialQualifier != temporalExistentialQualifier) {
+			NotificationChain msgs = null;
+			if (temporalExistentialQualifier != null)
+				msgs = ((InternalEObject)temporalExistentialQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+			if (newTemporalExistentialQualifier != null)
+				msgs = ((InternalEObject)newTemporalExistentialQualifier).eInverseAdd(this, InstancesPackage.QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+			msgs = basicSetTemporalExistentialQualifier(newTemporalExistentialQualifier, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER, newTemporalExistentialQualifier, newTemporalExistentialQualifier));
+	}
+
+  /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public QualifierObject getSubjectiveExistentialQualifer() {
 		if (subjectiveExistentialQualifer != null && subjectiveExistentialQualifer.eIsProxy()) {
 			InternalEObject oldSubjectiveExistentialQualifer = (InternalEObject)subjectiveExistentialQualifer;
-			subjectiveExistentialQualifer = (conml.instances.Object)eResolveProxy(oldSubjectiveExistentialQualifer);
+			subjectiveExistentialQualifer = (QualifierObject)eResolveProxy(oldSubjectiveExistentialQualifer);
 			if (subjectiveExistentialQualifer != oldSubjectiveExistentialQualifer) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, oldSubjectiveExistentialQualifer, subjectiveExistentialQualifer));
@@ -385,7 +408,7 @@ protected EList<ReferenceSet> referenceSets;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public conml.instances.Object basicGetSubjectiveExistentialQualifer() {
+	public QualifierObject basicGetSubjectiveExistentialQualifer() {
 		return subjectiveExistentialQualifer;
 	}
 
@@ -394,15 +417,37 @@ protected EList<ReferenceSet> referenceSets;
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setSubjectiveExistentialQualifer(conml.instances.Object newSubjectiveExistentialQualifer) {
-		conml.instances.Object oldSubjectiveExistentialQualifer = subjectiveExistentialQualifer;
+	public NotificationChain basicSetSubjectiveExistentialQualifer(QualifierObject newSubjectiveExistentialQualifer, NotificationChain msgs) {
+		QualifierObject oldSubjectiveExistentialQualifer = subjectiveExistentialQualifer;
 		subjectiveExistentialQualifer = newSubjectiveExistentialQualifer;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, oldSubjectiveExistentialQualifer, subjectiveExistentialQualifer));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, oldSubjectiveExistentialQualifer, newSubjectiveExistentialQualifer);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
-  /**
+    /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSubjectiveExistentialQualifer(QualifierObject newSubjectiveExistentialQualifer) {
+		if (newSubjectiveExistentialQualifer != subjectiveExistentialQualifer) {
+			NotificationChain msgs = null;
+			if (subjectiveExistentialQualifer != null)
+				msgs = ((InternalEObject)subjectiveExistentialQualifer).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+			if (newSubjectiveExistentialQualifer != null)
+				msgs = ((InternalEObject)newSubjectiveExistentialQualifer).eInverseAdd(this, InstancesPackage.QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+			msgs = basicSetSubjectiveExistentialQualifer(newSubjectiveExistentialQualifer, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER, newSubjectiveExistentialQualifer, newSubjectiveExistentialQualifer));
+	}
+
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -483,6 +528,14 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getReferenceSets()).basicAdd(otherEnd, msgs);
 			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDocumentedElements()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				if (subjectiveExistentialQualifer != null)
+					msgs = ((InternalEObject)subjectiveExistentialQualifer).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+				return basicSetSubjectiveExistentialQualifer((QualifierObject)otherEnd, msgs);
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				if (temporalExistentialQualifier != null)
+					msgs = ((InternalEObject)temporalExistentialQualifier).eInverseRemove(this, InstancesPackage.QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS, QualifierObject.class, msgs);
+				return basicSetTemporalExistentialQualifier((QualifierObject)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -505,6 +558,10 @@ protected EList<ReferenceSet> referenceSets;
 				return ((InternalEList<?>)getReferenceSets()).basicRemove(otherEnd, msgs);
 			case InstancesPackage.OBJECT__DOCUMENTED_ELEMENTS:
 				return ((InternalEList<?>)getDocumentedElements()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				return basicSetSubjectiveExistentialQualifer(null, msgs);
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				return basicSetTemporalExistentialQualifier(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -526,12 +583,6 @@ protected EList<ReferenceSet> referenceSets;
 				return basicGetInstancedClass();
 			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
 				return getIsReferredByReferences();
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				if (resolve) return getTemporalExistentialQualifier();
-				return basicGetTemporalExistentialQualifier();
-			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
-				if (resolve) return getSubjectiveExistentialQualifer();
-				return basicGetSubjectiveExistentialQualifer();
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				return getValueSets();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
@@ -540,6 +591,12 @@ protected EList<ReferenceSet> referenceSets;
 				return getDocumentedElements();
 			case InstancesPackage.OBJECT__DOCUMENTING:
 				return isDocumenting();
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				if (resolve) return getSubjectiveExistentialQualifer();
+				return basicGetSubjectiveExistentialQualifer();
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				if (resolve) return getTemporalExistentialQualifier();
+				return basicGetTemporalExistentialQualifier();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -566,12 +623,6 @@ protected EList<ReferenceSet> referenceSets;
 				getIsReferredByReferences().clear();
 				getIsReferredByReferences().addAll((Collection<? extends Reference>)newValue);
 				return;
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				setTemporalExistentialQualifier((conml.instances.Object)newValue);
-				return;
-			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
-				setSubjectiveExistentialQualifer((conml.instances.Object)newValue);
-				return;
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				getValueSets().clear();
 				getValueSets().addAll((Collection<? extends ValueSet>)newValue);
@@ -586,6 +637,12 @@ protected EList<ReferenceSet> referenceSets;
 				return;
 			case InstancesPackage.OBJECT__DOCUMENTING:
 				setDocumenting((Boolean)newValue);
+				return;
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				setSubjectiveExistentialQualifer((QualifierObject)newValue);
+				return;
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				setTemporalExistentialQualifier((QualifierObject)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -611,12 +668,6 @@ protected EList<ReferenceSet> referenceSets;
 			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
 				getIsReferredByReferences().clear();
 				return;
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				setTemporalExistentialQualifier((conml.instances.Object)null);
-				return;
-			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
-				setSubjectiveExistentialQualifer((conml.instances.Object)null);
-				return;
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				getValueSets().clear();
 				return;
@@ -628,6 +679,12 @@ protected EList<ReferenceSet> referenceSets;
 				return;
 			case InstancesPackage.OBJECT__DOCUMENTING:
 				setDocumenting(DOCUMENTING_EDEFAULT);
+				return;
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				setSubjectiveExistentialQualifer((QualifierObject)null);
+				return;
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				setTemporalExistentialQualifier((QualifierObject)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -649,10 +706,6 @@ protected EList<ReferenceSet> referenceSets;
 				return instancedClass != null;
 			case InstancesPackage.OBJECT__IS_REFERRED_BY_REFERENCES:
 				return isReferredByReferences != null && !isReferredByReferences.isEmpty();
-			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
-				return temporalExistentialQualifier != null;
-			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
-				return subjectiveExistentialQualifer != null;
 			case InstancesPackage.OBJECT__VALUE_SETS:
 				return valueSets != null && !valueSets.isEmpty();
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
@@ -661,6 +714,10 @@ protected EList<ReferenceSet> referenceSets;
 				return documentedElements != null && !documentedElements.isEmpty();
 			case InstancesPackage.OBJECT__DOCUMENTING:
 				return documenting != DOCUMENTING_EDEFAULT;
+			case InstancesPackage.OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER:
+				return subjectiveExistentialQualifer != null;
+			case InstancesPackage.OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER:
+				return temporalExistentialQualifier != null;
 		}
 		return super.eIsSet(featureID);
 	}

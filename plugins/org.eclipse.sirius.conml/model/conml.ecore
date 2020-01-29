@@ -278,10 +278,6 @@
           eType="#//types/Class" eOpposite="#//types/Class/InstanceObjects"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsReferredByReferences"
           upperBound="-1" eType="#//instances/Reference" eOpposite="#//instances/Reference/ReferredObject"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
-          eType="#//instances/Object"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveExistentialQualifer"
-          eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ValueSets" upperBound="-1"
           eType="#//instances/ValueSet" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
@@ -291,6 +287,10 @@
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="documenting" lowerBound="1"
           eType="ecore:EDataType http://www.eclipse.org/emf/2003/XMLType#//Boolean"
           defaultValueLiteral="false"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveExistentialQualifer"
+          eType="#//instances/QualifierObject" eOpposite="#//instances/QualifierObject/SubjectiveQualifiedObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
+          eType="#//instances/QualifierObject" eOpposite="#//instances/QualifierObject/TemporalQualifiedObjects"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"
@@ -313,9 +313,10 @@
     <eClassifiers xsi:type="ecore:EClass" name="FacetSet" abstract="true" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="TranslationQualifiers"
           upperBound="-1" eType="#//Language"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/Object"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="PerspectiveQualifier"
-          eType="#//instances/Object"/>
+          eType="#//instances/QualifierObject" eOpposite="#//instances/QualifierObject/PerspectiveQualifiedFacetSets"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifier" eType="#//instances/QualifierObject"
+          eOpposite="#//instances/QualifierObject/PhaseQualifiedFacetSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="EnumeratedItemValueDisplay">
       <eLiterals name="ABSOLUTE"/>
@@ -339,6 +340,18 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="EnumValue" eSuperTypes="#//instances/Value">
       <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//types/EnumeratedItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QualifierObject" eSuperTypes="#//instances/Object">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifier" lowerBound="1"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="SubjectiveQualifiedObjects"
+          upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/SubjectiveExistentialQualifer"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalQualifiedObjects"
+          upperBound="-1" eType="#//instances/Object" eOpposite="#//instances/Object/TemporalExistentialQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PerspectiveQualifiedFacetSets"
+          upperBound="-1" eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/PerspectiveQualifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="PhaseQualifiedFacetSets"
+          eType="#//instances/FacetSet" eOpposite="#//instances/FacetSet/PhaseQualifier"/>
     </eClassifiers>
   </eSubpackages>
 </ecore:EPackage>

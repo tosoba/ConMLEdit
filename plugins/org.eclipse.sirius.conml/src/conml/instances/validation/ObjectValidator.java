@@ -10,6 +10,8 @@ import conml.ModelElement;
 
 import conml.instances.DegreeOfCertainty;
 import conml.instances.FacetSet;
+import conml.instances.QualifierObject;
+import conml.instances.QualifyingObject;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.instances.ValueSet;
@@ -55,7 +57,15 @@ public interface ObjectValidator {
 
                 boolean validateDocumenting(boolean value);
 
-                                boolean validateMetaInformation(EList<MetaInformation> value);
+                                boolean validateSubjectiveExistentialQualifer(QualifierObject value);
+
+                                boolean validateTemporalExistentialQualifier(QualifierObject value);
+
+                                                                boolean validateSubjectiveExistentialQualifer(QualifyingObject value);
+
+                                boolean validateTemporalExistentialQualifier(QualifyingObject value);
+
+                                                                boolean validateMetaInformation(EList<MetaInformation> value);
 
     boolean validateMetaInfoInModel(Model value);
 

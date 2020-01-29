@@ -130,6 +130,15 @@ public interface InstancesFactory extends EFactory {
 	EnumValue createEnumValue();
 
   /**
+	 * Returns a new object of class '<em>Qualifier Object</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Qualifier Object</em>'.
+	 * @generated
+	 */
+	QualifierObject createQualifierObject();
+
+    /**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

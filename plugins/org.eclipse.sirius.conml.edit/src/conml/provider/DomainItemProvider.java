@@ -320,6 +320,11 @@ public class DomainItemProvider
 			(createChildParameter
 				(conmlPackage.Literals.DOMAIN__PARTS,
 				 InstancesFactory.eINSTANCE.createEnumValue()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(conmlPackage.Literals.DOMAIN__PARTS,
+				 InstancesFactory.eINSTANCE.createQualifierObject()));
 	}
 
 	/**

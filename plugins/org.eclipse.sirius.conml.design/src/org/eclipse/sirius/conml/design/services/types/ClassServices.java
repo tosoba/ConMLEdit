@@ -362,8 +362,55 @@ public final class ClassServices {
           .collect(Collectors.toList());
   }
 
+  public Class showSubjectiveAspectClassSelectionFromConformedTypeModelsDialog(
+      final EObject selectedContainer, final DDiagram diagram, final InstanceModel instanceModel) {
+    return showClassSelectionFromConformedTypeModelsDialog(
+        selectedContainer,
+        diagram,
+        instanceModel,
+        (Object object) -> {
+          if (!(object instanceof Class)) return false;
+          final Class clazz = (Class) object;
+          return clazz.getTypeModel() != null
+              && clazz.isUsedAsSubjectiveAspect()
+              && instanceModel.getConformedTypeModels().contains(clazz.getTypeModel());
+        });
+  }
+
+  public Class showTemporalAspectClassSelectionFromConformedTypeModelsDialog(
+      final EObject selectedContainer, final DDiagram diagram, final InstanceModel instanceModel) {
+    return showClassSelectionFromConformedTypeModelsDialog(
+        selectedContainer,
+        diagram,
+        instanceModel,
+        (Object object) -> {
+          if (!(object instanceof Class)) return false;
+          final Class clazz = (Class) object;
+          return clazz.getTypeModel() != null
+              && clazz.isUsedAsTemporalAspect()
+              && instanceModel.getConformedTypeModels().contains(clazz.getTypeModel());
+        });
+  }
+
   public Class showClassSelectionFromConformedTypeModelsDialog(
       final EObject selectedContainer, final DDiagram diagram, final InstanceModel instanceModel) {
+    return showClassSelectionFromConformedTypeModelsDialog(
+        selectedContainer,
+        diagram,
+        instanceModel,
+        (Object object) -> {
+          if (!(object instanceof Class)) return false;
+          final Class clazz = (Class) object;
+          return clazz.getTypeModel() != null
+              && instanceModel.getConformedTypeModels().contains(clazz.getTypeModel());
+        });
+  }
+
+  public Class showClassSelectionFromConformedTypeModelsDialog(
+      final EObject selectedContainer,
+      final DDiagram diagram,
+      final InstanceModel instanceModel,
+      final com.google.common.base.Predicate<Object> isValidEObjectPredicate) {
     final List<Object> result =
         ExistingElementsServices.getInstance()
             .openSelectExistingElementsDialog(
@@ -372,12 +419,7 @@ public final class ClassServices {
                 new ExistingSemanticElementsSelectionDialog(
                     Messages.getString("Dialog.SelectClass"),
                     Messages.getString("Dialog.SelectInstancedClass"),
-                    (Object object) -> {
-                      if (!(object instanceof Class)) return false;
-                      final Class clazz = (Class) object;
-                      return clazz.getTypeModel() != null
-                          && instanceModel.getConformedTypeModels().contains(clazz.getTypeModel());
-                    },
+                    isValidEObjectPredicate,
                     false),
                 false);
     if (result.size() == 1 && result.get(0) instanceof Class) return (Class) result.get(0);

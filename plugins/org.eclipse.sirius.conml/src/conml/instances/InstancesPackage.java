@@ -489,22 +489,22 @@ public interface InstancesPackage extends EPackage {
 	int FACET_SET__TRANSLATION_QUALIFIERS = INSTANCE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 1;
-
-	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
+	int FACET_SET__PERSPECTIVE_QUALIFIER = INSTANCE_FEATURE_COUNT + 1;
+
+  /**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int FACET_SET__PHASE_QUALIFIER = INSTANCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Facet Set</em>' class.
@@ -571,15 +571,6 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VALUE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
-
-	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -587,6 +578,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int VALUE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+  /**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int VALUE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Instanced Attribute</b></em>' reference.
@@ -680,15 +680,6 @@ public interface InstancesPackage extends EPackage {
 	int REFERENCE_SET__TRANSLATION_QUALIFIERS = FACET_SET__TRANSLATION_QUALIFIERS;
 
 	/**
-	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int REFERENCE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
-
-	/**
 	 * The feature id for the '<em><b>Perspective Qualifier</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -696,6 +687,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int REFERENCE_SET__PERSPECTIVE_QUALIFIER = FACET_SET__PERSPECTIVE_QUALIFIER;
+
+  /**
+	 * The feature id for the '<em><b>Phase Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+  int REFERENCE_SET__PHASE_QUALIFIER = FACET_SET__PHASE_QUALIFIER;
 
 	/**
 	 * The feature id for the '<em><b>Instanced Semi Association</b></em>' reference.
@@ -816,31 +816,13 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__IS_REFERRED_BY_REFERENCES = INSTANCE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 4;
-
-	/**
-	 * The feature id for the '<em><b>Subjective Existential Qualifer</b></em>' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 5;
-
-	/**
 	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 6;
+	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
@@ -849,7 +831,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 7;
+	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 5;
 
 	/**
 	 * The feature id for the '<em><b>Documented Elements</b></em>' reference list.
@@ -858,7 +840,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 8;
+	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 6;
 
         /**
 	 * The feature id for the '<em><b>Documenting</b></em>' attribute.
@@ -867,7 +849,25 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__DOCUMENTING = INSTANCE_FEATURE_COUNT + 9;
+	int OBJECT__DOCUMENTING = INSTANCE_FEATURE_COUNT + 7;
+
+                /**
+	 * The feature id for the '<em><b>Subjective Existential Qualifer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+                int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 8;
+
+                /**
+	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+                 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+                int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 9;
 
                 /**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -1607,6 +1607,196 @@ public interface InstancesPackage extends EPackage {
 	int ENUM_VALUE_OPERATION_COUNT = VALUE_OPERATION_COUNT + 0;
 
   /**
+	 * The meta object id for the '{@link conml.instances.impl.QualifierObjectImpl <em>Qualifier Object</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see conml.instances.impl.QualifierObjectImpl
+	 * @see conml.instances.impl.InstancesPackageImpl#getQualifierObject()
+	 * @generated
+	 */
+	int QUALIFIER_OBJECT = 17;
+
+    /**
+	 * The feature id for the '<em><b>Tags</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__TAGS = OBJECT__TAGS;
+
+    /**
+	 * The feature id for the '<em><b>Meta Information Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__META_INFORMATION_OBJECTS = OBJECT__META_INFORMATION_OBJECTS;
+
+    /**
+	 * The feature id for the '<em><b>Instance Model</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__INSTANCE_MODEL = OBJECT__INSTANCE_MODEL;
+
+    /**
+	 * The feature id for the '<em><b>Identifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__IDENTIFIER = OBJECT__IDENTIFIER;
+
+    /**
+	 * The feature id for the '<em><b>Certainty</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__CERTAINTY = OBJECT__CERTAINTY;
+
+    /**
+	 * The feature id for the '<em><b>Instanced Class</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__INSTANCED_CLASS = OBJECT__INSTANCED_CLASS;
+
+    /**
+	 * The feature id for the '<em><b>Is Referred By References</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__IS_REFERRED_BY_REFERENCES = OBJECT__IS_REFERRED_BY_REFERENCES;
+
+    /**
+	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__VALUE_SETS = OBJECT__VALUE_SETS;
+
+    /**
+	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__REFERENCE_SETS = OBJECT__REFERENCE_SETS;
+
+    /**
+	 * The feature id for the '<em><b>Documented Elements</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__DOCUMENTED_ELEMENTS = OBJECT__DOCUMENTED_ELEMENTS;
+
+    /**
+	 * The feature id for the '<em><b>Documenting</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__DOCUMENTING = OBJECT__DOCUMENTING;
+
+    /**
+	 * The feature id for the '<em><b>Subjective Existential Qualifer</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER;
+
+    /**
+	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER;
+
+    /**
+	 * The feature id for the '<em><b>Qualifier</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__QUALIFIER = OBJECT_FEATURE_COUNT + 0;
+
+    /**
+	 * The feature id for the '<em><b>Subjective Qualified Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS = OBJECT_FEATURE_COUNT + 1;
+
+    /**
+	 * The feature id for the '<em><b>Temporal Qualified Objects</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS = OBJECT_FEATURE_COUNT + 2;
+
+    /**
+	 * The feature id for the '<em><b>Perspective Qualified Facet Sets</b></em>' reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS = OBJECT_FEATURE_COUNT + 3;
+
+    /**
+	 * The feature id for the '<em><b>Phase Qualified Facet Sets</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS = OBJECT_FEATURE_COUNT + 4;
+
+    /**
+	 * The number of structural features of the '<em>Qualifier Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT_FEATURE_COUNT = OBJECT_FEATURE_COUNT + 5;
+
+    /**
+	 * The number of operations of the '<em>Qualifier Object</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALIFIER_OBJECT_OPERATION_COUNT = OBJECT_OPERATION_COUNT + 0;
+
+    /**
 	 * The meta object id for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1614,7 +1804,7 @@ public interface InstancesPackage extends EPackage {
 	 * @see conml.instances.impl.InstancesPackageImpl#getDegreeOfCertainty()
 	 * @generated
 	 */
-	int DEGREE_OF_CERTAINTY = 17;
+	int DEGREE_OF_CERTAINTY = 18;
 
 
 	/**
@@ -1625,7 +1815,7 @@ public interface InstancesPackage extends EPackage {
 	 * @see conml.instances.impl.InstancesPackageImpl#getEnumeratedItemValueDisplay()
 	 * @generated
 	 */
-	int ENUMERATED_ITEM_VALUE_DISPLAY = 18;
+	int ENUMERATED_ITEM_VALUE_DISPLAY = 19;
 
 
   /**
@@ -2239,6 +2429,71 @@ public interface InstancesPackage extends EPackage {
 	EReference getEnumValue_Content();
 
     /**
+	 * Returns the meta object for class '{@link conml.instances.QualifierObject <em>Qualifier Object</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Qualifier Object</em>'.
+	 * @see conml.instances.QualifierObject
+	 * @generated
+	 */
+	EClass getQualifierObject();
+
+    /**
+	 * Returns the meta object for the attribute '{@link conml.instances.QualifierObject#getQualifier <em>Qualifier</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualifier</em>'.
+	 * @see conml.instances.QualifierObject#getQualifier()
+	 * @see #getQualifierObject()
+	 * @generated
+	 */
+	EAttribute getQualifierObject_Qualifier();
+
+    /**
+	 * Returns the meta object for the reference list '{@link conml.instances.QualifierObject#getSubjectiveQualifiedObjects <em>Subjective Qualified Objects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Subjective Qualified Objects</em>'.
+	 * @see conml.instances.QualifierObject#getSubjectiveQualifiedObjects()
+	 * @see #getQualifierObject()
+	 * @generated
+	 */
+	EReference getQualifierObject_SubjectiveQualifiedObjects();
+
+    /**
+	 * Returns the meta object for the reference list '{@link conml.instances.QualifierObject#getTemporalQualifiedObjects <em>Temporal Qualified Objects</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Temporal Qualified Objects</em>'.
+	 * @see conml.instances.QualifierObject#getTemporalQualifiedObjects()
+	 * @see #getQualifierObject()
+	 * @generated
+	 */
+	EReference getQualifierObject_TemporalQualifiedObjects();
+
+    /**
+	 * Returns the meta object for the reference list '{@link conml.instances.QualifierObject#getPerspectiveQualifiedFacetSets <em>Perspective Qualified Facet Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference list '<em>Perspective Qualified Facet Sets</em>'.
+	 * @see conml.instances.QualifierObject#getPerspectiveQualifiedFacetSets()
+	 * @see #getQualifierObject()
+	 * @generated
+	 */
+	EReference getQualifierObject_PerspectiveQualifiedFacetSets();
+
+    /**
+	 * Returns the meta object for the reference '{@link conml.instances.QualifierObject#getPhaseQualifiedFacetSets <em>Phase Qualified Facet Sets</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Phase Qualified Facet Sets</em>'.
+	 * @see conml.instances.QualifierObject#getPhaseQualifiedFacetSets()
+	 * @see #getQualifierObject()
+	 * @generated
+	 */
+	EReference getQualifierObject_PhaseQualifiedFacetSets();
+
+        /**
 	 * Returns the meta object for enum '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2772,6 +3027,56 @@ public interface InstancesPackage extends EPackage {
 		EReference ENUM_VALUE__CONTENT = eINSTANCE.getEnumValue_Content();
 
         /**
+		 * The meta object literal for the '{@link conml.instances.impl.QualifierObjectImpl <em>Qualifier Object</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see conml.instances.impl.QualifierObjectImpl
+		 * @see conml.instances.impl.InstancesPackageImpl#getQualifierObject()
+		 * @generated
+		 */
+		EClass QUALIFIER_OBJECT = eINSTANCE.getQualifierObject();
+
+        /**
+		 * The meta object literal for the '<em><b>Qualifier</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute QUALIFIER_OBJECT__QUALIFIER = eINSTANCE.getQualifierObject_Qualifier();
+
+        /**
+		 * The meta object literal for the '<em><b>Subjective Qualified Objects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUALIFIER_OBJECT__SUBJECTIVE_QUALIFIED_OBJECTS = eINSTANCE.getQualifierObject_SubjectiveQualifiedObjects();
+
+        /**
+		 * The meta object literal for the '<em><b>Temporal Qualified Objects</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUALIFIER_OBJECT__TEMPORAL_QUALIFIED_OBJECTS = eINSTANCE.getQualifierObject_TemporalQualifiedObjects();
+
+        /**
+		 * The meta object literal for the '<em><b>Perspective Qualified Facet Sets</b></em>' reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUALIFIER_OBJECT__PERSPECTIVE_QUALIFIED_FACET_SETS = eINSTANCE.getQualifierObject_PerspectiveQualifiedFacetSets();
+
+        /**
+		 * The meta object literal for the '<em><b>Phase Qualified Facet Sets</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUALIFIER_OBJECT__PHASE_QUALIFIED_FACET_SETS = eINSTANCE.getQualifierObject_PhaseQualifiedFacetSets();
+
+                /**
 		 * The meta object literal for the '{@link conml.instances.DegreeOfCertainty <em>Degree Of Certainty</em>}' enum.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->

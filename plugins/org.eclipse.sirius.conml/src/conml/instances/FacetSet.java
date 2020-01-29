@@ -15,8 +15,8 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  * <ul>
  *   <li>{@link conml.instances.FacetSet#getTranslationQualifiers <em>Translation Qualifiers</em>}</li>
- *   <li>{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  *   <li>{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}</li>
+ *   <li>{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}</li>
  * </ul>
  *
  * @see conml.instances.InstancesPackage#getFacetSet()
@@ -38,15 +38,17 @@ public interface FacetSet extends Instance {
 
   /**
 	 * Returns the value of the '<em><b>Phase Qualifier</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.QualifierObject#getPhaseQualifiedFacetSets <em>Phase Qualified Facet Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Phase Qualifier</em>' reference.
-	 * @see #setPhaseQualifier(conml.instances.Object)
+	 * @see #setPhaseQualifier(QualifierObject)
 	 * @see conml.instances.InstancesPackage#getFacetSet_PhaseQualifier()
-	 * @model
+	 * @see conml.instances.QualifierObject#getPhaseQualifiedFacetSets
+	 * @model opposite="PhaseQualifiedFacetSets"
 	 * @generated
 	 */
-	conml.instances.Object getPhaseQualifier();
+	QualifierObject getPhaseQualifier();
 
   /**
 	 * Sets the value of the '{@link conml.instances.FacetSet#getPhaseQualifier <em>Phase Qualifier</em>}' reference.
@@ -56,19 +58,21 @@ public interface FacetSet extends Instance {
 	 * @see #getPhaseQualifier()
 	 * @generated
 	 */
-	void setPhaseQualifier(conml.instances.Object value);
+	void setPhaseQualifier(QualifierObject value);
 
-  /**
+    /**
 	 * Returns the value of the '<em><b>Perspective Qualifier</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link conml.instances.QualifierObject#getPerspectiveQualifiedFacetSets <em>Perspective Qualified Facet Sets</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Perspective Qualifier</em>' reference.
-	 * @see #setPerspectiveQualifier(conml.instances.Object)
+	 * @see #setPerspectiveQualifier(QualifierObject)
 	 * @see conml.instances.InstancesPackage#getFacetSet_PerspectiveQualifier()
-	 * @model
+	 * @see conml.instances.QualifierObject#getPerspectiveQualifiedFacetSets
+	 * @model opposite="PerspectiveQualifiedFacetSets"
 	 * @generated
 	 */
-	conml.instances.Object getPerspectiveQualifier();
+	QualifierObject getPerspectiveQualifier();
 
   /**
 	 * Sets the value of the '{@link conml.instances.FacetSet#getPerspectiveQualifier <em>Perspective Qualifier</em>}' reference.
@@ -78,6 +82,6 @@ public interface FacetSet extends Instance {
 	 * @see #getPerspectiveQualifier()
 	 * @generated
 	 */
-	void setPerspectiveQualifier(conml.instances.Object value);
+	void setPerspectiveQualifier(QualifierObject value);
 
 } // FacetSet
