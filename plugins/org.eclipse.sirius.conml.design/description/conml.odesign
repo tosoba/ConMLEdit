@@ -2166,6 +2166,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.InstanceModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.LinkServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.ObjectServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.QualifierObjectServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.ValueSetServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.ValueServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.instances.validation.InstanceModelValidationServices"/>
