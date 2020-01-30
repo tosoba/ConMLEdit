@@ -8,12 +8,15 @@ import java.util.stream.Collectors;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
+import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.DateUtils;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.BooleanValue;
+import conml.instances.DegreeOfCertainty;
 import conml.instances.EnumValue;
 import conml.instances.NumberValue;
+import conml.instances.QualifierObject;
 import conml.instances.TextValue;
 import conml.instances.TimeValue;
 import conml.instances.Value;
@@ -62,7 +65,12 @@ public class ValueSetServices {
       if (!contentClass.isInstance(contents))
         return ValueValidation.FAILURE(
             "<Contents of one of the values does not match specified DataType>");
-      else return ValueValidation.SUCCESS(contentsTransformer.apply(contents));
+      else {
+        final StringBuilder contentLabel = new StringBuilder(contentsTransformer.apply(contents));
+        if (value.getCertainty() != DegreeOfCertainty.CERTAIN)
+          contentLabel.append(" (").append(ConML.markerFor(value.getCertainty())).append(")");
+        return ValueValidation.SUCCESS(contentLabel.toString());
+      }
     }
   }
 
@@ -75,7 +83,14 @@ public class ValueSetServices {
     final DataType dataType = attribute.getDatatype();
     if (dataType == null) return "<No attribute dataType specified>";
 
-    final StringBuilder sb = new StringBuilder(attribute.getName()).append(" = ");
+    final StringBuilder sb = new StringBuilder(attribute.getName());
+    final QualifierObject perspective = valueSet.getPerspectiveQualifier();
+    if (perspective != null) sb.append(" $").append(perspective.getQualifier());
+
+    final QualifierObject moment = valueSet.getPhaseQualifier();
+    if (moment != null) sb.append(" @").append(moment.getQualifier());
+
+    sb.append(" = ");
 
     if (valueSet.getValues() == null || valueSet.getValues().isEmpty()) {
       sb.append("null");

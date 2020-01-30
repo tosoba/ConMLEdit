@@ -17,8 +17,10 @@ import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
 import conml.ModelElement;
+import conml.instances.DegreeOfCertainty;
 import conml.instances.Link;
 import conml.instances.Object;
+import conml.instances.QualifierObject;
 import conml.instances.Reference;
 import conml.types.Attribute;
 import conml.types.Class;
@@ -75,14 +77,28 @@ public class ObjectServices {
       objects.forEach(obj -> obj.setDocumenting(true));
       ExistingElementsServices.getInstance()
           .addExistingElements(
-              selectedContainerView, objects, ConMLPredicates.isInstanceOfAnyOfClasses(Object.class));
+              selectedContainerView,
+              objects,
+              ConMLPredicates.isInstanceOfAnyOfClasses(Object.class));
     }
   }
 
   public String objectLabel(final Object object) {
-    return object.getIdentifier()
-        + ": "
-        + (object.getInstancedClass() != null ? object.getInstancedClass().getName() : "?");
+    final StringBuilder sb =
+        new StringBuilder(object.getIdentifier())
+            .append(": ")
+            .append(
+                object.getInstancedClass() != null ? object.getInstancedClass().getName() : "?");
+    final QualifierObject subjectiveQualifier = object.getSubjectiveExistentialQualifer();
+    if (subjectiveQualifier != null) sb.append(" $").append(subjectiveQualifier.getQualifier());
+
+    final QualifierObject temporalQualifier = object.getTemporalExistentialQualifier();
+    if (temporalQualifier != null) sb.append(" @").append(temporalQualifier.getQualifier());
+
+    if (object.getCertainty() != DegreeOfCertainty.CERTAIN)
+      sb.append(" (").append(ConML.markerFor(object.getCertainty())).append(")");
+
+    return sb.toString();
   }
 
   public void moveObjectUp(final EObject object) {

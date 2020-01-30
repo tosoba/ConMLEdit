@@ -510,7 +510,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.booleanSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:container.booleanSimpleDataType()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Boolean Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -543,7 +543,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.numberSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:container.numberSimpleDataType()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Number Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -576,7 +576,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.textSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:container.textSimpleDataType()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Text Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -609,7 +609,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.timeSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:container.timeSimpleDataType()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Time Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -642,7 +642,7 @@
                     <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                    <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:container.rawDataSimpleDataType()"/>
+                    <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:container.rawDataSimpleDataType()"/>
                     <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                     <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Raw Data Attribute">
                       <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -677,7 +677,7 @@
                       <subModelOperations xsi:type="tool:SetValue" featureName="subjective" valueExpression="false"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="false"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="false"/>
-                      <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="var:element"/>
+                      <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="var:element"/>
                       <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:container.TypeModel"/>
                       <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create EnumeratedType Attribute">
                         <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
@@ -780,7 +780,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="constant" valueExpression="aql:featureToRedefine.constant"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="multilingual" valueExpression="aql:featureToRedefine.multilingual"/>
-                        <subModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:featureToRedefine.getDataType()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:featureToRedefine.getDataType()"/>
                         <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine Attribute">
                           <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                             <initialOperation/>
@@ -809,7 +809,7 @@
                             </controls>
                             <controls xsi:type="properties:SelectDescription" name="D_CD_CreateRedefiningAttribute_DataType_Select" labelExpression="DataType" helpExpression="DataType of this Attribute" isEnabledExpression="aql:featureToRedefine.hasSimpleDataType()" valueExpression="aql:self.getDataType()" candidatesExpression="aql:self.getAllDataTypesForRedefiningAttribute()" candidateDisplayExpression="aql:candidate.dataTypeLabel()">
                               <initialOperation>
-                                <firstModelOperations xsi:type="tool:SetValue" featureName="Datatype" valueExpression="aql:newValue"/>
+                                <firstModelOperations xsi:type="tool:SetValue" featureName="datatype" valueExpression="aql:newValue"/>
                               </initialOperation>
                             </controls>
                             <validationSet/>
@@ -1598,7 +1598,7 @@
       </additionalLayers>
       <additionalLayers name="InstanceModelQualifiers" activeByDefault="true">
         <toolSections name="OD_Section_Qualifiers" label="Qualifiers">
-          <ownedTools xsi:type="tool:ToolDescription" name="New SubjectiveQualifier Object Creation With InstanceModel" label="Subjective Qualifier" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="New SubjectiveQualifier Object Creation With InstanceModel" label="Perspective" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
             <element name="domain"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1614,7 +1614,7 @@
                               <subModelOperations xsi:type="tool:SetValue" featureName="certainty" valueExpression="aql:instances::DegreeOfCertainty::Certain"/>
                               <subModelOperations xsi:type="tool:SetValue" featureName="InstancedClass" valueExpression="var:instancedClass"/>
                               <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="var:instanceModel"/>
-                              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Subjective Qualifier">
+                              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Perspective">
                                 <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                                   <initialOperation>
                                     <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:domain"/>
@@ -1643,7 +1643,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="New TemporalQualifier Object Creation With InstanceModel" label="Temporal Qualifier" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
+          <ownedTools xsi:type="tool:ToolDescription" name="New TemporalQualifier Object Creation With InstanceModel" label="Moment" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
             <element name="domain"/>
             <elementView name="elementView"/>
             <initialOperation>
@@ -1659,7 +1659,7 @@
                               <subModelOperations xsi:type="tool:SetValue" featureName="certainty" valueExpression="aql:instances::DegreeOfCertainty::Certain"/>
                               <subModelOperations xsi:type="tool:SetValue" featureName="InstancedClass" valueExpression="var:instancedClass"/>
                               <subModelOperations xsi:type="tool:SetValue" featureName="InstanceModel" valueExpression="var:instanceModel"/>
-                              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Temporal Qualifier">
+                              <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Create Moment">
                                 <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                                   <initialOperation>
                                     <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:domain"/>
@@ -1686,6 +1686,22 @@
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:domain.openModelDiagramForInstanceModelCreation()"/>
                 </subModelOperations>
               </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Assign Perspective Wizard" label="Assign Perspective" precondition="aql:container.oclIsKindOf(instances::Object) or container.oclIsKindOf(instances::ValueSet) or container.oclIsKindOf(instances::ReferenceSet) or container.oclIsKindOf(instances::Link)" candidatesExpression="aql:container.getSubjectiveQualifierObjectCandidates()" message="Select Perspective">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.assignPerspective(element)"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:SelectionWizardDescription" name="Assign Moment Wizard" label="Assign Moment" precondition="aql:container.oclIsKindOf(instances::Object) or container.oclIsKindOf(instances::ValueSet) or container.oclIsKindOf(instances::ReferenceSet) or container.oclIsKindOf(instances::Link)" candidatesExpression="aql:container.getTemporalQualifierObjectCandidates()" message="Select Moment">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:container.assignMoment(element)"/>
             </initialOperation>
           </ownedTools>
         </toolSections>

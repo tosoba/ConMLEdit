@@ -23,6 +23,7 @@ import org.eclipse.sirius.business.api.session.SessionManager;
 import conml.Domain;
 import conml.Model;
 import conml.ModelElement;
+import conml.instances.DegreeOfCertainty;
 import conml.instances.InstanceModel;
 import conml.types.BaseDataType;
 import conml.types.Generalization;
@@ -219,6 +220,8 @@ public class ConML {
         .collect(Collectors.toSet());
   }
 
+  private static final HashMap<DegreeOfCertainty, String> certaintyMarkers = new HashMap<>();
+
   static {
     typeCoersionMap.put(
         BaseDataType.BOOLEAN,
@@ -232,6 +235,16 @@ public class ConML {
     typeCoersionMap.put(
         BaseDataType.TEXT, new HashSet<>(Arrays.asList(BaseDataType.TEXT, BaseDataType.DATA)));
     typeCoersionMap.put(BaseDataType.DATA, new HashSet<>(Arrays.asList(BaseDataType.DATA)));
+
+    certaintyMarkers.put(DegreeOfCertainty.CERTAIN, "*");
+    certaintyMarkers.put(DegreeOfCertainty.PROBABLE, "+");
+    certaintyMarkers.put(DegreeOfCertainty.POSSIBLE, "~");
+    certaintyMarkers.put(DegreeOfCertainty.IMPROBABLE, "-");
+    certaintyMarkers.put(DegreeOfCertainty.IMPOSSIBLE, "!");
+  }
+
+  public static String markerFor(final DegreeOfCertainty degreeOfCertainty) {
+    return certaintyMarkers.get(degreeOfCertainty);
   }
 
   public static boolean canBaseDataTypeCoerceInto(
