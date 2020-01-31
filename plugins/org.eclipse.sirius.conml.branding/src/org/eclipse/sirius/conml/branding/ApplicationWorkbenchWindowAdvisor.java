@@ -10,44 +10,47 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 
 public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
 
-	public ApplicationWorkbenchWindowAdvisor(
-			IWorkbenchWindowConfigurer configurer) {
-		super(configurer);
-	}
+  private static final String PERSPECTIVE_ID = "org.eclipse.sirius.ui.tools.perspective.modeling";
 
-	public ActionBarAdvisor createActionBarAdvisor(
-			IActionBarConfigurer configurer) {
-		return new ApplicationActionBarAdvisor(configurer);
-	}
+  public String getInitialWindowPerspectiveId() {
+    return PERSPECTIVE_ID;
+  }
 
-	public void preWindowOpen() {
-		IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
-		configurer.setInitialSize(new Point(1024,768));
-		configurer.setShowCoolBar(true);
-		configurer.setShowStatusLine(false);
-		configurer.setTitle("ConML Edit"); 
-	}
+  public ApplicationWorkbenchWindowAdvisor(IWorkbenchWindowConfigurer configurer) {
+    super(configurer);
+  }
 
-	@Override
-	public void postWindowOpen() {
-		super.postWindowOpen();
+  public ActionBarAdvisor createActionBarAdvisor(IActionBarConfigurer configurer) {
+    return new ApplicationActionBarAdvisor(configurer);
+  }
 
-		IWorkbenchWindowConfigurer workbenchWindowConfigurer = getWindowConfigurer();
-		IActionBarConfigurer actionBarConfigurer = workbenchWindowConfigurer
-				.getActionBarConfigurer();
-		IMenuManager menuManager = actionBarConfigurer.getMenuManager();
+  public void preWindowOpen() {
+    IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
+    configurer.setInitialSize(new Point(1024, 768));
+    configurer.setShowCoolBar(true);
+    configurer.setShowStatusLine(false);
+    configurer.setTitle("ConML Edit");
+  }
 
-		IContributionItem[] menuItems = menuManager.getItems();
-		for (int i = 0; i < menuItems.length; i++) {
-			IContributionItem menuItem = menuItems[i];
+  @Override
+  public void postWindowOpen() {
+    super.postWindowOpen();
 
-			// Hack to remove the Run menu - it seems you cannot do this using
-			// the "org.eclipse.ui.activities" extension
-			if ("org.eclipse.ui.run".equals(menuItem.getId())) {
-				menuManager.remove(menuItem);
-			}
-		}
+    IWorkbenchWindowConfigurer workbenchWindowConfigurer = getWindowConfigurer();
+    IActionBarConfigurer actionBarConfigurer = workbenchWindowConfigurer.getActionBarConfigurer();
+    IMenuManager menuManager = actionBarConfigurer.getMenuManager();
 
-		menuManager.update(true);
-	}
+    IContributionItem[] menuItems = menuManager.getItems();
+    for (int i = 0; i < menuItems.length; i++) {
+      IContributionItem menuItem = menuItems[i];
+
+      // Hack to remove the Run menu - it seems you cannot do this using
+      // the "org.eclipse.ui.activities" extension
+      if ("org.eclipse.ui.run".equals(menuItem.getId())) {
+        menuManager.remove(menuItem);
+      }
+    }
+
+    menuManager.update(true);
+  }
 }
