@@ -13,10 +13,10 @@
     </td>
     <td class="ColumnType">
         <span>
-		[if (anAttribute.Datatype.oclIsTypeOf(EnumeratedType))]
-			<a class="EmbeddedLink" href="[namedElementFilePath(anAttribute.Datatype, '../enum/', '.html')/]">enum [anAttribute.Datatype.name/]</a>
+		[if (anAttribute.datatype.oclIsTypeOf(EnumeratedType))]
+			<a class="EmbeddedLink" href="[namedElementFilePath(anAttribute.datatype, '../enum/', '.html')/]">enum [anAttribute.datatype.name/]</a>
 		[else]
-			[anAttribute.Datatype.name/]
+			[anAttribute.datatype.name/]
 		[/if]
 		</span>
     </td>
