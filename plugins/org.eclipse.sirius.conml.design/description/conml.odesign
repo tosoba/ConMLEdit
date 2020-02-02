@@ -2568,6 +2568,20 @@
               </initialOperation>
             </widget>
           </ifs>
+          <ifs name="semiAssociationSubjectiveIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Subjective_Checkbox" labelExpression="Subjective" helpExpression="Indicates whether the SemiAssociation has subjective semantics" valueExpression="aql:semi.subjective">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:semi.setSubjective(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="semiAssociationTemporalIf" predicateExpression="aql:self.oclIsKindOf(types::Association)">
+            <widget xsi:type="properties:CheckboxDescription" name="PR_SemiAssociation_Temporal_Checkbox" labelExpression="Temporal" helpExpression="Indicates whether the SemiAssociation has temporal semantics" valueExpression="aql:semi.temporal">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:semi.setTemporal(newValue)"/>
+              </initialOperation>
+            </widget>
+          </ifs>
         </controls>
         <validationSet>
           <semanticValidationRules name="Props_SemiAssociation Validation StrongSemantics" level="ERROR" message="If redefined SemiAssociation is strong, redefining SemiAssociation has to be strong as well." targetClass="types::SemiAssociation">

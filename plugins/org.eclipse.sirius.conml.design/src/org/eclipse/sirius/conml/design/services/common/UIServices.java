@@ -126,7 +126,7 @@ public class UIServices {
   }
 
   public int defaultHeight(final EObject object) {
-    return 10;
+    return 7;
   }
 
   public int defaultSingleDimensionSize(final EObject object) {

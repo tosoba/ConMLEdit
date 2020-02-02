@@ -93,6 +93,14 @@ public final class SemiAssociationServices {
     semiAssociation.setStrong(strong);
   }
 
+  public void setSubjective(final SemiAssociation semiAssociation, final Boolean subjective) {
+    semiAssociation.setSubjective(subjective);
+  }
+
+  public void setTemporal(final SemiAssociation semiAssociation, final Boolean temporal) {
+    semiAssociation.setTemporal(temporal);
+  }
+
   public void setRole(final SemiAssociation semiAssociation, final String role) {
     semiAssociation.setRole(role);
   }

@@ -9,7 +9,7 @@ public final class AssociationLabelServices {
 
   public String associationCenterLabel(final Association association) {
     return associationCenterTopLabel(association)
-        + "\n\n"
+        + "\n\n\n\n"
         + associationCenterBottomLabel(association);
   }
 

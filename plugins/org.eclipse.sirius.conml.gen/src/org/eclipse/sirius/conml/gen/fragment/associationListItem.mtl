@@ -15,7 +15,7 @@
         <a class="EmbeddedLink" href="[namedElementFilePath(aSemiAssociation.ReferredClass, './', '.html')/]">
             [aSemiAssociation.ReferredClass.name/]
         </a>
-		[if (aSemiAssociation.role <> null and aSemiAssociation.role->size() > 0)]
+		[if (aSemiAssociation.role <> null and aSemiAssociation.roleDisplayed and aSemiAssociation.role->size() > 0)]
         <br />([aSemiAssociation.role/])
 		[/if]
     </td>
