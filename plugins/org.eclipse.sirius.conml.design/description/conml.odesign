@@ -1114,6 +1114,13 @@
           </style>
         </edgeMappings>
         <containerMappings name="CD_DocumentingObject" preconditionExpression="service:self.isDocumenting()" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@additionalLayers[name='TypeModelMetaInfo']/@toolSections.0/@ownedTools[name='Delete%20DocumentingObject']" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" childrenPresentation="List">
+          <subNodeMappings name="CD_Value_Set" semanticCandidatesExpression="feature:ValueSets" domainClass="instances::ValueSet">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.objectLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Object.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
