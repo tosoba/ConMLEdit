@@ -186,7 +186,7 @@ public final class SemiAssociationServices {
     inverseSemi.setConstant(inverseOfRedefined.isConstant());
     inverseSemi.setMaximumCardinality(inverseOfRedefined.getMaximumCardinality());
     inverseSemi.setMinimumCardinality(inverseOfRedefined.getMinimumCardinality());
-    inverseSemi.setOwnerClass(inverseOfRedefined.getOwnerClass());
+    inverseSemi.setOwnerClass(semi.getReferredClass());
     inverseSemi.setSorted(inverseOfRedefined.isSorted());
     inverseSemi.setStrong(inverseOfRedefined.isStrong());
     inverseSemi.setSubjective(inverseOfRedefined.isSubjective());

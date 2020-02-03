@@ -831,6 +831,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="sorted" valueExpression="aql:featureToRedefine.sorted"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="strong" valueExpression="aql:featureToRedefine.strong"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="aql:featureToRedefine.getReferredClass()"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:element"/>
                         <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Redefine SemiAssociation">
                           <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
                             <initialOperation/>
@@ -840,7 +841,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:self.createInverseAndAddRedefinedSemiToAssociation()"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_CD_CreateRedefiningSemiAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Feature']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@subModelOperations.0/@subModelOperations.0/@subModelOperations.10/@groups.0"/>
+                          <page name="D_CD_CreateRedefiningSemiAssociation_DefaultPage" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.3/@ownedTools[name='Redefine%20Feature']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@subModelOperations.0/@subModelOperations.0/@subModelOperations.11/@groups.0"/>
                           <groups name="D_CD_CreateRedefiningSemiAssociation_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.7">
                             <controls xsi:type="properties:CheckboxDescription" name="D_CD_CreateRedefiningSemiAssociation_Constant_Checkbox" labelExpression="Constant" helpExpression="Indicates whether the Feature has constant semantics" isEnabledExpression="aql:featureToRedefine.constant = false" valueExpression="aql:self.constant">
                               <initialOperation>
