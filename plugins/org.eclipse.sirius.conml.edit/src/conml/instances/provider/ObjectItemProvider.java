@@ -55,6 +55,7 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			addDocumentingPropertyDescriptor(object);
 			addSubjectiveExistentialQualiferPropertyDescriptor(object);
 			addTemporalExistentialQualifierPropertyDescriptor(object);
+			addValueSetsPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -170,6 +171,28 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	}
 
 	/**
+	 * This adds a property descriptor for the Value Sets feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addValueSetsPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_Object_ValueSets_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_Object_ValueSets_feature", "_UI_Object_type"),
+				 InstancesPackage.Literals.OBJECT__VALUE_SETS,
+				 true,
+				 false,
+				 true,
+				 null,
+				 null,
+				 null));
+	}
+
+  /**
 	 * This adds a property descriptor for the Subjective Existential Qualifer feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,8 +292,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(InstancesPackage.Literals.OBJECT__VALUE_SETS);
 			childrenFeatures.add(InstancesPackage.Literals.OBJECT__REFERENCE_SETS);
+			childrenFeatures.add(InstancesPackage.Literals.OBJECT__VALUE_SETS);
 		}
 		return childrenFeatures;
 	}
@@ -331,8 +354,8 @@ public class ObjectItemProvider extends InstanceItemProvider {
 			case InstancesPackage.OBJECT__DOCUMENTING:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
-			case InstancesPackage.OBJECT__VALUE_SETS:
 			case InstancesPackage.OBJECT__REFERENCE_SETS:
+			case InstancesPackage.OBJECT__VALUE_SETS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -352,13 +375,13 @@ public class ObjectItemProvider extends InstanceItemProvider {
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InstancesPackage.Literals.OBJECT__VALUE_SETS,
-				 InstancesFactory.eINSTANCE.createValueSet()));
+				(InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
+				 InstancesFactory.eINSTANCE.createReferenceSet()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(InstancesPackage.Literals.OBJECT__REFERENCE_SETS,
-				 InstancesFactory.eINSTANCE.createReferenceSet()));
+				(InstancesPackage.Literals.OBJECT__VALUE_SETS,
+				 InstancesFactory.eINSTANCE.createValueSet()));
 	}
 
 }

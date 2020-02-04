@@ -238,6 +238,8 @@
         <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Values"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute conml.ecore#//instances/ValueSet/enumeratedItemValueDisplay"/>
+        <genFeatures notify="false" createChild="false" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/ValueSet/Owner"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/ReferenceSet">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -254,7 +256,6 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/InstancedClass"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/IsReferredByReferences"/>
-        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ValueSets"/>
         <genFeatures children="true" createChild="true" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ReferenceSets"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
@@ -264,6 +265,8 @@
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/SubjectiveExistentialQualifer"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference conml.ecore#//instances/Object/TemporalExistentialQualifier"/>
+        <genFeatures children="true" createChild="true" propertySortChoices="true"
+            ecoreFeature="ecore:EReference conml.ecore#//instances/Object/ValueSets"/>
       </genClasses>
       <genClasses ecoreClass="conml.ecore#//instances/Link">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"

@@ -20,6 +20,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link conml.instances.impl.ValueSetImpl#getInstancedAttribute <em>Instanced Attribute</em>}</li>
  *   <li>{@link conml.instances.impl.ValueSetImpl#getValues <em>Values</em>}</li>
  *   <li>{@link conml.instances.impl.ValueSetImpl#getEnumeratedItemValueDisplay <em>Enumerated Item Value Display</em>}</li>
+ *   <li>{@link conml.instances.impl.ValueSetImpl#getOwner <em>Owner</em>}</li>
  * </ul>
  *
  * @generated
@@ -200,6 +202,49 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
+	public conml.instances.Object getOwner() {
+		if (eContainerFeatureID() != InstancesPackage.VALUE_SET__OWNER) return null;
+		return (conml.instances.Object)eInternalContainer();
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetOwner(conml.instances.Object newOwner, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newOwner, InstancesPackage.VALUE_SET__OWNER, msgs);
+		return msgs;
+	}
+
+        /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setOwner(conml.instances.Object newOwner) {
+		if (newOwner != eInternalContainer() || (eContainerFeatureID() != InstancesPackage.VALUE_SET__OWNER && newOwner != null)) {
+			if (EcoreUtil.isAncestor(this, newOwner))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newOwner != null)
+				msgs = ((InternalEObject)newOwner).eInverseAdd(this, InstancesPackage.OBJECT__VALUE_SETS, conml.instances.Object.class, msgs);
+			msgs = basicSetOwner(newOwner, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.VALUE_SET__OWNER, newOwner, newOwner));
+	}
+
+                /**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@SuppressWarnings("unchecked")
   @Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
@@ -210,6 +255,10 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 				return basicSetInstancedAttribute((Attribute)otherEnd, msgs);
 			case InstancesPackage.VALUE_SET__VALUES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getValues()).basicAdd(otherEnd, msgs);
+			case InstancesPackage.VALUE_SET__OWNER:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetOwner((conml.instances.Object)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -226,11 +275,27 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 				return basicSetInstancedAttribute(null, msgs);
 			case InstancesPackage.VALUE_SET__VALUES:
 				return ((InternalEList<?>)getValues()).basicRemove(otherEnd, msgs);
+			case InstancesPackage.VALUE_SET__OWNER:
+				return basicSetOwner(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
+		switch (eContainerFeatureID()) {
+			case InstancesPackage.VALUE_SET__OWNER:
+				return eInternalContainer().eInverseRemove(this, InstancesPackage.OBJECT__VALUE_SETS, conml.instances.Object.class, msgs);
+		}
+		return super.eBasicRemoveFromContainerFeature(msgs);
+	}
+
+  /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -245,6 +310,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 				return getValues();
 			case InstancesPackage.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY:
 				return getEnumeratedItemValueDisplay();
+			case InstancesPackage.VALUE_SET__OWNER:
+				return getOwner();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -268,6 +335,9 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 			case InstancesPackage.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY:
 				setEnumeratedItemValueDisplay((EnumeratedItemValueDisplay)newValue);
 				return;
+			case InstancesPackage.VALUE_SET__OWNER:
+				setOwner((conml.instances.Object)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -289,6 +359,9 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 			case InstancesPackage.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY:
 				setEnumeratedItemValueDisplay(ENUMERATED_ITEM_VALUE_DISPLAY_EDEFAULT);
 				return;
+			case InstancesPackage.VALUE_SET__OWNER:
+				setOwner((conml.instances.Object)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -307,6 +380,8 @@ public class ValueSetImpl extends FacetSetImpl implements ValueSet {
 				return values != null && !values.isEmpty();
 			case InstancesPackage.VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY:
 				return enumeratedItemValueDisplay != ENUMERATED_ITEM_VALUE_DISPLAY_EDEFAULT;
+			case InstancesPackage.VALUE_SET__OWNER:
+				return getOwner() != null;
 		}
 		return super.eIsSet(featureID);
 	}

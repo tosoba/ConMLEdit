@@ -1,6 +1,5 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +12,8 @@ import conml.instances.InstanceModel;
 import conml.instances.Link;
 import conml.instances.Object;
 import conml.instances.QualifierObject;
+import conml.instances.ReferenceSet;
+import conml.instances.ValueSet;
 
 public final class QualifierObjectServices {
 
@@ -63,9 +64,26 @@ public final class QualifierObjectServices {
         throw new IllegalArgumentException(
             Messages.getString("ExceptionMessage.IsNull", "Object's InstanceModel"));
       return getQualifierObjectsListFrom(instanceModel, qualifierObjectType);
-    } else if (container instanceof FacetSet) {
-      // final Object object = ((FacetSet) container).getOwnerObject(); //TODO:
-      return new ArrayList<>();
+    } else if (container instanceof ValueSet) {
+      final Object object = ((ValueSet) container).getOwner();
+      if (object == null)
+        throw new IllegalArgumentException(
+            Messages.getString("ExceptionMessage.IsNull", "ValueSet's Owner Object"));
+      final InstanceModel instanceModel = object.getInstanceModel();
+      if (instanceModel == null)
+        throw new IllegalArgumentException(
+            Messages.getString("ExceptionMessage.IsNull", "Object's InstanceModel"));
+      return getQualifierObjectsListFrom(instanceModel, qualifierObjectType);
+    } else if (container instanceof ReferenceSet) {
+      final Object object = ((ReferenceSet) container).getOwner();
+      if (object == null)
+        throw new IllegalArgumentException(
+            Messages.getString("ExceptionMessage.IsNull", "ReferenceSet's Owner Object"));
+      final InstanceModel instanceModel = object.getInstanceModel();
+      if (instanceModel == null)
+        throw new IllegalArgumentException(
+            Messages.getString("ExceptionMessage.IsNull", "Object's InstanceModel"));
+      return getQualifierObjectsListFrom(instanceModel, qualifierObjectType);
     } else if (container instanceof Link) {
       final InstanceModel instanceModel = ((Link) container).getInstanceModel();
       if (instanceModel == null)

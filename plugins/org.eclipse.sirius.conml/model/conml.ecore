@@ -260,6 +260,8 @@
           eType="#//instances/Value" containment="true" eOpposite="#//instances/Value/OwnerValueSet"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="enumeratedItemValueDisplay"
           lowerBound="1" eType="#//instances/EnumeratedItemValueDisplay" defaultValueLiteral=""/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="Owner" lowerBound="1"
+          eType="#//instances/Object" eOpposite="#//instances/Object/ValueSets"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ReferenceSet" eSuperTypes="#//instances/FacetSet">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedSemiAssociation"
@@ -278,8 +280,6 @@
           eType="#//types/Class" eOpposite="#//types/Class/InstanceObjects"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="IsReferredByReferences"
           upperBound="-1" eType="#//instances/Reference" eOpposite="#//instances/Reference/ReferredObject"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="ValueSets" upperBound="-1"
-          eType="#//instances/ValueSet" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="ReferenceSets" upperBound="-1"
           eType="#//instances/ReferenceSet" containment="true" eOpposite="#//instances/ReferenceSet/Owner"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="DocumentedElements" upperBound="-1"
@@ -291,6 +291,8 @@
           eType="#//instances/QualifierObject" eOpposite="#//instances/QualifierObject/SubjectiveQualifiedObjects"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="TemporalExistentialQualifier"
           eType="#//instances/QualifierObject" eOpposite="#//instances/QualifierObject/TemporalQualifiedObjects"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="ValueSets" upperBound="-1"
+          eType="#//instances/ValueSet" containment="true" eOpposite="#//instances/ValueSet/Owner"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//instances/Instance">
       <eStructuralFeatures xsi:type="ecore:EReference" name="InstancedAssociation"

@@ -616,13 +616,22 @@ public interface InstancesPackage extends EPackage {
 	int VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY = FACET_SET_FEATURE_COUNT + 2;
 
   /**
+	 * The feature id for the '<em><b>Owner</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VALUE_SET__OWNER = FACET_SET_FEATURE_COUNT + 3;
+
+    /**
 	 * The number of structural features of the '<em>Value Set</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 3;
+	int VALUE_SET_FEATURE_COUNT = FACET_SET_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Value Set</em>' class.
@@ -816,22 +825,13 @@ public interface InstancesPackage extends EPackage {
 	int OBJECT__IS_REFERRED_BY_REFERENCES = INSTANCE_FEATURE_COUNT + 3;
 
 	/**
-	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 4;
-
-	/**
 	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 5;
+	int OBJECT__REFERENCE_SETS = INSTANCE_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Documented Elements</b></em>' reference list.
@@ -840,7 +840,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 6;
+	int OBJECT__DOCUMENTED_ELEMENTS = INSTANCE_FEATURE_COUNT + 5;
 
         /**
 	 * The feature id for the '<em><b>Documenting</b></em>' attribute.
@@ -849,7 +849,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OBJECT__DOCUMENTING = INSTANCE_FEATURE_COUNT + 7;
+	int OBJECT__DOCUMENTING = INSTANCE_FEATURE_COUNT + 6;
 
                 /**
 	 * The feature id for the '<em><b>Subjective Existential Qualifer</b></em>' reference.
@@ -858,7 +858,7 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-                int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 8;
+                int OBJECT__SUBJECTIVE_EXISTENTIAL_QUALIFER = INSTANCE_FEATURE_COUNT + 7;
 
                 /**
 	 * The feature id for the '<em><b>Temporal Existential Qualifier</b></em>' reference.
@@ -867,7 +867,16 @@ public interface InstancesPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-                int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 9;
+                int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 8;
+
+                                /**
+                                 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
+                                 * <!-- begin-user-doc -->
+                                 * <!-- end-user-doc -->
+                                 * @generated
+                                 * @ordered
+                                 */
+                                int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 9;
 
                 /**
 	 * The number of structural features of the '<em>Object</em>' class.
@@ -1680,15 +1689,6 @@ public interface InstancesPackage extends EPackage {
 	int QUALIFIER_OBJECT__IS_REFERRED_BY_REFERENCES = OBJECT__IS_REFERRED_BY_REFERENCES;
 
     /**
-	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUALIFIER_OBJECT__VALUE_SETS = OBJECT__VALUE_SETS;
-
-    /**
 	 * The feature id for the '<em><b>Reference Sets</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1732,6 +1732,15 @@ public interface InstancesPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUALIFIER_OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER;
+
+        /**
+* The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
+* <!-- begin-user-doc -->
+* <!-- end-user-doc -->
+* @generated
+* @ordered
+*/
+int QUALIFIER_OBJECT__VALUE_SETS = OBJECT__VALUE_SETS;
 
     /**
 	 * The feature id for the '<em><b>Qualifier</b></em>' attribute.
@@ -2011,6 +2020,17 @@ public interface InstancesPackage extends EPackage {
 	EAttribute getValueSet_EnumeratedItemValueDisplay();
 
   /**
+	 * Returns the meta object for the container reference '{@link conml.instances.ValueSet#getOwner <em>Owner</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Owner</em>'.
+	 * @see conml.instances.ValueSet#getOwner()
+	 * @see #getValueSet()
+	 * @generated
+	 */
+	EReference getValueSet_Owner();
+
+    /**
 	 * Returns the meta object for class '{@link conml.instances.ReferenceSet <em>Reference Set</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2693,6 +2713,14 @@ public interface InstancesPackage extends EPackage {
 		EAttribute VALUE_SET__ENUMERATED_ITEM_VALUE_DISPLAY = eINSTANCE.getValueSet_EnumeratedItemValueDisplay();
 
     /**
+		 * The meta object literal for the '<em><b>Owner</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference VALUE_SET__OWNER = eINSTANCE.getValueSet_Owner();
+
+        /**
 		 * The meta object literal for the '{@link conml.instances.impl.ReferenceSetImpl <em>Reference Set</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
