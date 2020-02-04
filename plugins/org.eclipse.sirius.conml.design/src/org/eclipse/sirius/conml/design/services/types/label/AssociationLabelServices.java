@@ -1,23 +1,28 @@
 package org.eclipse.sirius.conml.design.services.types.label;
 
+import static org.eclipse.sirius.conml.design.services.types.AssociationServices.getCorrespondingAssociation;
+
 import java.util.function.Function;
+
+import org.eclipse.emf.ecore.EObject;
 
 import conml.types.Association;
 import conml.types.SemiAssociation;
 
 public final class AssociationLabelServices {
 
-  public String associationCenterLabel(final Association association) {
-    return associationCenterTopLabel(association)
-        + "\n\n\n\n"
-        + associationCenterBottomLabel(association);
+  public String associationCenterLabel(final EObject object) {
+    return associationCenterTopLabel(object) + "\n\n\n\n" + associationCenterBottomLabel(object);
   }
 
   public String associationPropertiesLabel(final Association association) {
     return associationCenterTopLabel(association) + " " + associationCenterBottomLabel(association);
   }
 
-  public String associationCenterTopLabel(final Association association) {
+  public String associationCenterTopLabel(final EObject object) {
+    final Association association = getCorrespondingAssociation(object);
+    if (association == null) return null;
+
     final StringBuilder sb =
         association.getPrimarySemiAssociation().isNameDisplayed()
             ? buildSemiAssociationAttributeLabel(
@@ -31,7 +36,10 @@ public final class AssociationLabelServices {
     return sb.toString();
   }
 
-  public String associationCenterBottomLabel(final Association association) {
+  public String associationCenterBottomLabel(final EObject object) {
+    final Association association = getCorrespondingAssociation(object);
+    if (association == null) return null;
+
     final StringBuilder sb =
         association.getSecondarySemiAssociation().isNameDisplayed()
             ? buildSemiAssociationAttributeLabel(
@@ -45,25 +53,33 @@ public final class AssociationLabelServices {
     return sb.toString();
   }
 
-  public String associationBeginLabel(final Association association) {
+  public String associationBeginLabel(final EObject object) {
+    final Association association = getCorrespondingAssociation(object);
+    if (association == null) return null;
+
     final StringBuilder sb =
         association.getPrimarySemiAssociation().isRoleDisplayed()
             ? buildSemiAssociationAttributeLabel(
                     association.getPrimarySemiAssociation(), SemiAssociation::getRole)
                 .append(' ')
             : new StringBuilder();
-    Labels.buildCardinalityLabelPart(association.getPrimarySemiAssociation(), sb);
+    if (object instanceof Association)
+      Labels.buildCardinalityLabelPart(association.getPrimarySemiAssociation(), sb);
     return sb.toString();
   }
 
-  public String associationEndLabel(final Association association) {
+  public String associationEndLabel(final EObject object) {
+    final Association association = getCorrespondingAssociation(object);
+    if (association == null) return null;
+
     final StringBuilder sb =
         association.getSecondarySemiAssociation().isRoleDisplayed()
             ? buildSemiAssociationAttributeLabel(
                     association.getSecondarySemiAssociation(), SemiAssociation::getRole)
                 .append(' ')
             : new StringBuilder();
-    Labels.buildCardinalityLabelPart(association.getSecondarySemiAssociation(), sb);
+    if (object instanceof Association)
+      Labels.buildCardinalityLabelPart(association.getSecondarySemiAssociation(), sb);
     return sb.toString();
   }
 

@@ -3,12 +3,14 @@ package org.eclipse.sirius.conml.design.services.types;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 
+import conml.instances.Link;
 import conml.instances.Reference;
 import conml.instances.ReferenceSet;
 import conml.types.Association;
@@ -23,6 +25,19 @@ public final class AssociationServices {
 
   public static AssociationServices getInstance() {
     return InstanceHolder.INSTANCE;
+  }
+
+  public static Association getCorrespondingAssociation(final EObject object) {
+    if (object instanceof Association) return (Association) object;
+    else if (object instanceof Link) return ((Link) object).getInstancedAssociation();
+    else return null;
+  }
+
+  public static boolean checkCorrespondingAssociation(
+      final EObject object, final Predicate<Association> predicate) {
+    final Association association = getCorrespondingAssociation(object);
+    if (association == null) return false;
+    else return predicate.test(association);
   }
 
   public void compactAssociation(final Association association) {
