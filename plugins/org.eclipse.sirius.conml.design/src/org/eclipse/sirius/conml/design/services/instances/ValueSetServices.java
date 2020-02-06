@@ -120,7 +120,14 @@ public class ValueSetServices {
               if (!(value instanceof NumberValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
                   validateValue(
-                      (NumberValue) value, Number.class, NumberValue::getContent, String::valueOf);
+                      (NumberValue) value,
+                      Number.class,
+                      NumberValue::getContent,
+                      (number) -> {
+                        if (number.intValue() == number.doubleValue())
+                          return String.valueOf(number.intValue());
+                        else return String.valueOf(number);
+                      });
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }
@@ -130,7 +137,10 @@ public class ValueSetServices {
               if (!(value instanceof TextValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
                   validateValue(
-                      (TextValue) value, String.class, TextValue::getContent, Function.identity());
+                      (TextValue) value,
+                      String.class,
+                      TextValue::getContent,
+                      (content) -> "\"" + content + "\"");
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }

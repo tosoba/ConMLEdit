@@ -31,6 +31,14 @@ import conml.types.SemiAssociation;
 
 public class ConMLDocServices {
 
+  private static final class InstanceHolder {
+    static final ConMLDocServices INSTANCE = new ConMLDocServices();
+  }
+
+  public static ConMLDocServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
+
   public String namedElementFilePath(
       final NamedElement namedElement, final String pathBeginning, final String pathEnd) {
     final StringBuilder sb = new StringBuilder();

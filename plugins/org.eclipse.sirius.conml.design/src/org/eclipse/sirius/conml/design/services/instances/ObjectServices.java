@@ -1,6 +1,7 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -13,6 +14,7 @@ import org.eclipse.sirius.conml.design.services.common.ModelElementServices;
 import org.eclipse.sirius.conml.design.util.ConML;
 import org.eclipse.sirius.conml.design.util.ConMLPredicates;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
+import org.eclipse.sirius.conml.gen.services.ConMLDocServices;
 import org.eclipse.sirius.diagram.DDiagram;
 
 import conml.Domain;
@@ -151,7 +153,7 @@ public class ObjectServices {
     EcoreUtil.delete(object);
   }
 
-  public List<Attribute> getInstancedClassAttributes(final EObject eObject) {
+  public Collection<Attribute> getInstancedClassAttributes(final EObject eObject) {
     return ConML.castAndRunOrReturn(
         eObject,
         Object.class,
@@ -160,7 +162,9 @@ public class ObjectServices {
           if (instancedClass == null) {
             Activator.logError(Messages.getString("InstancedClassIsNull"));
             return Arrays.asList();
-          } else return instancedClass.getAttributes();
+          } else
+            return ConMLDocServices.getInstance()
+                .getAttributesIncludingInheritedFilteringRedefined(instancedClass);
         },
         Arrays.asList());
   }
