@@ -1389,7 +1389,7 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
-        <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Delete%20Object']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Drop%20ValueSets']" childrenPresentation="List">
+        <containerMappings name="OD_Object" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Delete%20Object']" createElements="false" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::Object" dropDescriptions="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Drop%20ValueSets']" childrenPresentation="List">
           <subNodeMappings name="OD_Value_Set" semanticCandidatesExpression="feature:ValueSets" doubleClickDescription="//@ownedViewpoints[name='Reused']/@ownedRepresentations[name='Reused%20Description']/@defaultLayer/@toolSections.0/@ownedTools[name='Open%20properties%20wizard']" domainClass="instances::ValueSet">
             <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.valueSetLabel" labelAlignment="LEFT" sizeComputationExpression="1">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -1405,6 +1405,31 @@
             <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
           </style>
         </containerMappings>
+        <toolSections name="CD_Section_General" label="General">
+          <ownedTools xsi:type="tool:ToolDescription" name="AddExistingElement" label="Add existing element" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:Switch">
+                <cases conditionExpression="aql:element.oclIsTypeOf(types::Class)">
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.showExistingFeaturesSelectionDialog(elementView, diagram)"/>
+                </cases>
+                <default>
+                  <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.openSelectExistingClassesWithFeaturesDialog(elementView, diagram)"/>
+                </default>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolDescription" name="CD_RemoveElement" label="Remove element" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/unset.gif">
+            <element name="element"/>
+            <elementView name="elementView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
+                <subModelOperations xsi:type="tool:DeleteView"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
         <toolSections name="OD_Section_Instances" label="Instances">
           <ownedTools xsi:type="tool:ToolDescription" name="New Object Creation With InstanceModel" label="Object" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif">
             <element name="domain"/>
@@ -1435,7 +1460,7 @@
                                     </firstModelOperations>
                                   </initialOperation>
                                 </buttons>
-                                <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20Object%20Creation%20With%20InstanceModel']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.4/@groups.0"/>
+                                <page name="D_OD_CreateObject_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='New%20Object%20Creation%20With%20InstanceModel']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.0/@subModelOperations.4/@groups.0"/>
                                 <groups name="D_OD_CreateObject_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                               </subModelOperations>
                             </subModelOperations>
@@ -1448,15 +1473,6 @@
                 <subModelOperations xsi:type="tool:If" conditionExpression="aql:instanceModelsExist = false">
                   <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:domain.openModelDiagramForInstanceModelCreation()"/>
                 </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:ToolDescription" name="AddExistingObjects" label="Add existing Object" precondition="service:containerView.isValidContainerMapping" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/create.gif">
-            <element name="element"/>
-            <elementView name="elementView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:elementView">
-                <subModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:element.openSelectExistingObjectsDialog(elementView, diagram)"/>
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
@@ -1480,7 +1496,7 @@
                         <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                       </initialOperation>
                     </buttons>
-                    <page name="D_OD_CreateValueSet_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='ValueSet']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                    <page name="D_OD_CreateValueSet_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='ValueSet']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                     <groups name="D_OD_CreateValueSet_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                   </subModelOperations>
                 </subModelOperations>
@@ -1509,7 +1525,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.0/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.0/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1529,7 +1545,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.1/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.1/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1549,7 +1565,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.2/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.2/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1569,7 +1585,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.3/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.3/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1589,7 +1605,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.4/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.4/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1609,7 +1625,7 @@
                               <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:self"/>
                             </initialOperation>
                           </buttons>
-                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.5/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
+                          <page name="D_OD_CreateValue_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='NewValue']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.0/@cases.5/@subModelOperations.0/@subModelOperations.2/@groups.0"/>
                           <groups name="D_OD_CreateValue_GeneralGroup" labelExpression="General" semanticCandidateExpression="var:self" extends="//@extensions.0/@categories.0/@groups.8"/>
                         </subModelOperations>
                       </subModelOperations>
@@ -1700,12 +1716,183 @@
           </style>
         </edgeMappings>
         <edgeMappings name="OD_Generalization" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']" targetFinderExpression="service:self.getGeneralizationTargetType" sourceFinderExpression="service:self.getGeneralizationSourceType" targetExpression="var:self" domainClass="types::Generalization" useDomainElement="true">
-          <style targetArrow="InputClosedArrow" routingStyle="manhattan">
+          <style targetArrow="InputClosedArrow" routingStyle="tree">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <endLabelStyleDescription showIcon="false" labelExpression="feature:discriminant">
+            <beginLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationDotLabel(view)">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false" labelExpression="aql:self.generalizationDiscriminantLabel(view)">
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </endLabelStyleDescription>
           </style>
+        </edgeMappings>
+        <edgeMappings name="OD_Association" preconditionExpression="service:self.shouldDisplayAssociationEdge" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Delete%20Association']" semanticElements="service:self.semiAssociationsList" sourceMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']" targetMapping="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']" targetFinderExpression="service:self.getAssociationTargetType" sourceFinderExpression="service:self.getAssociationSourceType" targetExpression="var:self" domainClass="types::Association" useDomainElement="true">
+          <style targetArrow="NoDecoration" routingStyle="manhattan">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </beginLabelStyleDescription>
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+            <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </endLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndStrongAndSecondaryStrong">
+            <style targetArrow="Diamond" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryStrongAndWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.areBothSemiAssociationsStrong">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimaryAssociationWholeAndStrong">
+            <style targetArrow="Diamond" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondaryAssociationWholeAndStrong">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrongAndSecondaryWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWholeAndSecondaryStrong">
+            <style targetArrow="Diamond" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationWhole">
+            <style targetArrow="Diamond" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationWhole">
+            <style sourceArrow="Diamond" targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isPrimarySemiAssociationStrong">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription labelExpression="service:self.associationBeginLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription showIcon="false" labelExpression="service:self.associationEndLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="service:self.isSecondarySemiAssociationStrong">
+            <style targetArrow="NoDecoration" routingStyle="manhattan">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <beginLabelStyleDescription showIcon="false" labelExpression="service:self.associationBeginLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </beginLabelStyleDescription>
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:self.associationCenterLabel">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+              <endLabelStyleDescription labelExpression="service:self.associationEndLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Strong.gif">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </endLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <containerMappings name="OD_Class" createElements="false" domainClass="types::Class" reusedNodeMappings="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Attribute'] //@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Object%20Diagram']/@additionalLayers[name='InstanceModelTypeModelElement']/@containerMappings[name='OD_Class']/@subNodeMappings[name='OD_Property']" childrenPresentation="List">
           <subNodeMappings name="OD_Attribute" semanticCandidatesExpression="feature:Attributes" domainClass="types::Attribute">
@@ -1729,7 +1916,7 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.classLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
+          <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="aql:self.classLabel(diagram)" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Class.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
