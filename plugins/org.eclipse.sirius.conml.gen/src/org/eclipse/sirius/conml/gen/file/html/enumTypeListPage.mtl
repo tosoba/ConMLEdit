@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>[projectName/] enumerated type list</title>
+    <title>[projectName.toUpperFirst()/] enumerated type list</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 	<script src="../js/jquery-3.4.1.min.js"></script>
 	<script src="../js/enumTypeList.js"></script>
@@ -23,7 +23,7 @@
                 <td class="EmptySubSection">&nbsp;</td>
 
                 <td class="TitleSubSection">
-                    <h1>[projectName/]</h1>
+                    <h1>[projectName.toUpperFirst()/] enumerated type list</h1>
                 </td>
             </tr>
             <tr>

@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>[projectName/] class list</title>
+    <title>[projectName.toUpperFirst()/] class list</title>
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <script src="../js/jquery-3.4.1.min.js"></script>
 	<script src="../js/classList.js"></script>
@@ -23,7 +23,7 @@
                 <td class="EmptySubSection">&nbsp;</td>
 
                 <td class="TitleSubSection">
-                    <h1>[projectName/] class list</h1>
+                    <h1>[projectName.toUpperFirst()/] class list</h1>
                 </td>
             </tr>
 

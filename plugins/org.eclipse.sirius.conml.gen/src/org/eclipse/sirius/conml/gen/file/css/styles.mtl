@@ -12,7 +12,7 @@ h1
 {
 	font-family: Calibri, Verdana, Arial, sans-serif;
 	font-size: xx-large;
-	color: #FF8103;
+	color: #27426f;
 	margin-top: 10px;
 	margin-bottom: -10px;
 }
@@ -21,7 +21,7 @@ h2
 {
 	font-family: Calibri, Verdana, Arial, sans-serif;
 	font-size: large;
-	color: #FF8103;
+	color: #27426f;
 	margin-top: 10px;
 	margin-bottom: 4px;	
 }
@@ -73,7 +73,7 @@ blockquote
 .HeaderSection
 {
 	vertical-align: top;
-	color: #9D4E2E;
+	color: #6b90b4;
 	padding: 5px;
 }
 
@@ -144,7 +144,7 @@ blockquote
 .MainMenuItem
 {
 	font-weight: bold;
-	color: #9D4E2E;
+	color: #6b90b4;
 }
 a.MainMenuItem
 {
@@ -167,7 +167,7 @@ a.MainMenuItem:active
 .MainMenuSep
 {
 	font-weight: normal;
-	color: #7E4025;
+	color: #27426f;
 }
 
 /* Main section elements */
@@ -175,19 +175,19 @@ a.MainMenuItem:active
 a.EmbeddedLink
 {
 	text-decoration: none;
-	color: #9D4E2E;
+	color: #6b90b4;
 }
 a.EmbeddedLink:link
 {
-	color: #9D4E2E;
+	color: #6b90b4;
 }
 a.EmbeddedLink:visited
 {
-	color: #7E4025;
+	color: #27426f;
 }
 a.EmbeddedLink:hover
 {
-	color: #C66300;
+	color: #6da4fb;
 }
 a.EmbeddedLink:active
 {
@@ -223,12 +223,12 @@ a.EmbeddedLink:active
 {
 	width: 172px;
 	height: 172px;
-	border: 1px solid #C66300;
+	border: 1px solid #6da4fb;
 }
 
 .DiagramBrowserCaption
 {
-	color: #9D4E2E;
+	color: #6b90b4;
 	font-size: small;
 	font-weight: bold;
 }
