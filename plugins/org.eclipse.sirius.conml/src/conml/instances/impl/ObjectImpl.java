@@ -172,13 +172,13 @@ protected EList<ReferenceSet> referenceSets;
 protected QualifierObject temporalExistentialQualifier;
 
                                 /**
-* The cached value of the '{@link #getValueSets() <em>Value Sets</em>}' containment reference list.
-* <!-- begin-user-doc -->
+	 * The cached value of the '{@link #getValueSets() <em>Value Sets</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
-* @see #getValueSets()
-* @generated
-* @ordered
-*/
+	 * @see #getValueSets()
+	 * @generated
+	 * @ordered
+	 */
 protected EList<ValueSet> valueSets;
 
                                                                 /**

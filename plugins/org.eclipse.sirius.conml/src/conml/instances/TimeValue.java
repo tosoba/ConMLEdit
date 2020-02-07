@@ -2,8 +2,6 @@
  */
 package conml.instances;
 
-import java.util.Date;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Time Value</b></em>'.
@@ -27,12 +25,12 @@ public interface TimeValue extends Value {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Content</em>' attribute.
-	 * @see #setContent(Date)
+	 * @see #setContent(String)
 	 * @see conml.instances.InstancesPackage#getTimeValue_Content()
-	 * @model
+	 * @model dataType="org.eclipse.emf.ecore.xml.type.String"
 	 * @generated
 	 */
-	Date getContent();
+	String getContent();
 
   /**
 	 * Sets the value of the '{@link conml.instances.TimeValue#getContent <em>Content</em>}' attribute.
@@ -42,5 +40,5 @@ public interface TimeValue extends Value {
 	 * @see #getContent()
 	 * @generated
 	 */
-	void setContent(Date value);
+	void setContent(String value);
 } // TimeValue

@@ -4,9 +4,6 @@ package conml.instances.impl;
 
 import conml.instances.InstancesPackage;
 import conml.instances.TimeValue;
-
-import java.util.Date;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -33,7 +30,7 @@ public class TimeValueImpl extends ValueImpl implements TimeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Date CONTENT_EDEFAULT = null;
+	protected static final String CONTENT_EDEFAULT = null;
   /**
 	 * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -42,7 +39,7 @@ public class TimeValueImpl extends ValueImpl implements TimeValue {
 	 * @generated
 	 * @ordered
 	 */
-	protected Date content = CONTENT_EDEFAULT;
+	protected String content = CONTENT_EDEFAULT;
 
   /**
 	 * <!-- begin-user-doc -->
@@ -69,7 +66,7 @@ public class TimeValueImpl extends ValueImpl implements TimeValue {
 	 * @generated
 	 */
 	@Override
-	public Date getContent() {
+	public String getContent() {
 		return content;
 	}
 
@@ -79,14 +76,14 @@ public class TimeValueImpl extends ValueImpl implements TimeValue {
 	 * @generated
 	 */
 	@Override
-	public void setContent(Date newContent) {
-		Date oldContent = content;
+	public void setContent(String newContent) {
+		String oldContent = content;
 		content = newContent;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, InstancesPackage.TIME_VALUE__CONTENT, oldContent, content));
 	}
 
-  /**
+    /**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -109,7 +106,7 @@ public class TimeValueImpl extends ValueImpl implements TimeValue {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case InstancesPackage.TIME_VALUE__CONTENT:
-				setContent((Date)newValue);
+				setContent((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

@@ -870,12 +870,12 @@ public interface InstancesPackage extends EPackage {
                 int OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = INSTANCE_FEATURE_COUNT + 8;
 
                                 /**
-                                 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
-                                 * <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
                                  * <!-- end-user-doc -->
-                                 * @generated
-                                 * @ordered
-                                 */
+	 * @generated
+	 * @ordered
+	 */
                                 int OBJECT__VALUE_SETS = INSTANCE_FEATURE_COUNT + 9;
 
                 /**
@@ -1734,12 +1734,12 @@ public interface InstancesPackage extends EPackage {
 	int QUALIFIER_OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER = OBJECT__TEMPORAL_EXISTENTIAL_QUALIFIER;
 
         /**
-* The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
-* <!-- begin-user-doc -->
+	 * The feature id for the '<em><b>Value Sets</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
 * <!-- end-user-doc -->
-* @generated
-* @ordered
-*/
+	 * @generated
+	 * @ordered
+	 */
 int QUALIFIER_OBJECT__VALUE_SETS = OBJECT__VALUE_SETS;
 
     /**

@@ -1,7 +1,6 @@
 package org.eclipse.sirius.conml.design.services.instances;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -9,7 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.conml.design.dialog.Dialogs;
 import org.eclipse.sirius.conml.design.services.types.EnumeratedItemServices;
 import org.eclipse.sirius.conml.design.util.ConML;
-import org.eclipse.sirius.conml.design.util.DateUtils;
 import org.eclipse.sirius.conml.design.util.messages.Messages;
 
 import conml.instances.BooleanValue;
@@ -150,14 +148,7 @@ public class ValueSetServices {
               if (!(value instanceof TimeValue)) return "<Invalid Value DataType>";
               final ValueValidation facetValidation =
                   validateValue(
-                      (TimeValue) value,
-                      Date.class,
-                      TimeValue::getContent,
-                      (date) -> {
-                        String formatted = DateUtils.tryFormatYYYYMMDD(date);
-                        if (date != null) return formatted;
-                        else return "<Invalid Date format>";
-                      });
+                      (TimeValue) value, String.class, TimeValue::getContent, Function.identity());
               if (facetValidation.success) contentLabels.add(facetValidation.contentLabel);
               else return facetValidation.errorMsg;
             }

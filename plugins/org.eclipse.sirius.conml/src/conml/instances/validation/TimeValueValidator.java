@@ -16,6 +16,8 @@ import java.util.Date;
 public interface TimeValueValidator {
 	boolean validate();
 
-  boolean validateContent(Date value);
+  boolean validateContent(String value);
+
+    boolean validateContent(Date value);
 
 }
