@@ -26,7 +26,7 @@
     <td class="ColumnInheritedFrom">
         <div>
 		[if anAttribute.OwnerClass <> aClass]
-		[let redefinedAttrClass : Class = anAttribute.RedefinedAttribute.OwnerClass]
+		[let redefinedAttrClass : Class = anAttribute.OwnerClass]
 			<a class="EmbeddedLink" href="[namedElementFilePath(redefinedAttrClass, './', '.html')/]">
 	            [redefinedAttrClass.name/]
 	        </a>

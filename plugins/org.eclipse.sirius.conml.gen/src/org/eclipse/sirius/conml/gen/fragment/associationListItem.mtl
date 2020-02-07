@@ -25,7 +25,7 @@
     <td class="ColumnInheritedFrom">
         <div>
             [if aSemiAssociation.OwnerClass <> aClass]
-			[let redefinedSemiClass : Class = aSemiAssociation.RedefinedSemiAssociation.OwnerClass]
+			[let redefinedSemiClass : Class = aSemiAssociation.OwnerClass]
 			<a class="EmbeddedLink" href="[namedElementFilePath(redefinedSemiClass, './', '.html')/]">
                 [redefinedSemiClass.name/]
             </a>
