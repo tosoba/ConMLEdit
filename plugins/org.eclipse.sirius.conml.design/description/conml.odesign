@@ -1397,6 +1397,13 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
             </style>
           </subNodeMappings>
+          <subNodeMappings name="OD_Compact_Link" preconditionExpression="service:self.shouldDisplayCompactLabel" deletionDescription="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Class%20Diagram']/@defaultLayer/@toolSections.4/@ownedTools[name='Delete%20CompactAssociation']" semanticCandidatesExpression="feature:ReferenceSets" domainClass="instances::ReferenceSet">
+            <style xsi:type="style:SquareDescription" labelSize="9" showIcon="false" labelExpression="service:self.compactLinkLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/CompactAssociation.gif" labelAlignment="LEFT" sizeComputationExpression="1">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            </style>
+          </subNodeMappings>
           <style xsi:type="style:FlatContainerStyleDescription" arcWidth="0" arcHeight="0" borderSizeComputationExpression="1" labelSize="10" showIcon="false" labelExpression="service:self.objectLabel" iconPath="/org.eclipse.sirius.conml.edit/icons/full/obj16/Object.gif" widthComputationExpression="service:defaultWidth" heightComputationExpression="service:defaultHeight" backgroundStyle="Liquid">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
@@ -2589,6 +2596,20 @@
             <widget xsi:type="properties:ButtonDescription" helpExpression="Make this package overall in TypeModel" buttonLabelExpression="Make overall">
               <initialOperation>
                 <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.setOverall"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_compactLink" predicateExpression="service:self.isCompactLink">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Display association using expanded style." buttonLabelExpression="Expand">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.expandLink"/>
+              </initialOperation>
+            </widget>
+          </ifs>
+          <ifs name="if_it_is_expandedLink" predicateExpression="service:self.isExpandedLink">
+            <widget xsi:type="properties:ButtonDescription" helpExpression="Display association using expanded style." buttonLabelExpression="Compact">
+              <initialOperation>
+                <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="service:self.compactLink"/>
               </initialOperation>
             </widget>
           </ifs>

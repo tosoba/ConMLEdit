@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.sirius.conml.design.services.instances.LinkServices;
 import org.eclipse.sirius.conml.design.services.types.AssociationServices;
 import org.eclipse.sirius.conml.design.services.types.PackageServices;
 import org.eclipse.sirius.conml.design.services.types.SemiAssociationServices;
@@ -69,7 +70,9 @@ public final class DiagramPropertiesServices {
   public boolean shouldShowActionPage(final EObject object) {
     return AssociationServices.getInstance().isExpandedAssociation(object)
         || SemiAssociationServices.getInstance().isPrimarySemiInCompactAssociation(object)
-        || PackageServices.getInstance().isNonOverallPackage(object);
+        || PackageServices.getInstance().isNonOverallPackage(object)
+        || LinkServices.getInstance().isExpandedLink(object)
+        || LinkServices.getInstance().isCompactLink(object);
   }
 
   public boolean referenceIfCreationDialogPredicate(final EStructuralFeature feature) {

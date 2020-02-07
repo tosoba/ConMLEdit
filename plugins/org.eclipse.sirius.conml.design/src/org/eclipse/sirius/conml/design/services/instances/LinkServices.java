@@ -3,6 +3,7 @@ package org.eclipse.sirius.conml.design.services.instances;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -23,6 +24,14 @@ import conml.types.Association;
 import conml.types.SemiAssociation;
 
 public final class LinkServices {
+
+  private static final class InstanceHolder {
+    private static final LinkServices INSTANCE = new LinkServices();
+  }
+
+  public static LinkServices getInstance() {
+    return InstanceHolder.INSTANCE;
+  }
 
   public conml.instances.Object getLinkSourceType(final Link link) {
     return link.getPrimaryReference() != null
@@ -140,5 +149,52 @@ public final class LinkServices {
     if (result.size() == 1 && result.get(0) instanceof Association)
       return (Association) result.get(0);
     else return null;
+  }
+
+  public String compactLinkLabel(final ReferenceSet referenceSet) {
+    final SemiAssociation semiAssociation = referenceSet.getInstancedSemiAssociation();
+    if (semiAssociation == null) {
+      return null;
+    }
+
+    final StringBuilder sb = new StringBuilder(semiAssociation.getRole()).append(" = ");
+    if (referenceSet.getReferences().isEmpty()) sb.append("null");
+    else
+      sb.append(
+          referenceSet
+              .getReferences()
+              .stream()
+              .map(
+                  reference ->
+                      reference.getReferredObject() == null
+                          ? "unknown"
+                          : reference.getReferredObject().getIdentifier())
+              .collect(Collectors.joining(", ")));
+    return sb.toString();
+  }
+
+  public boolean isExpandedLink(final EObject object) {
+    return object instanceof Link && !((Link) object).isCompact();
+  }
+
+  public boolean isCompactLink(final EObject object) {
+    return object instanceof ReferenceSet
+        && ((ReferenceSet) object)
+            .getReferences()
+            .stream()
+            .allMatch(ref -> ref.getPrimaryLink() != null || ref.getPrimaryLink().isCompact());
+  }
+
+  public void expandLink(ReferenceSet referenceSet) {
+    referenceSet
+        .getReferences()
+        .forEach(
+            ref -> {
+              if (ref.getPrimaryLink() != null) ref.getPrimaryLink().setCompact(false);
+            });
+  }
+
+  public void compactLink(Link link) {
+    link.setCompact(true);
   }
 }

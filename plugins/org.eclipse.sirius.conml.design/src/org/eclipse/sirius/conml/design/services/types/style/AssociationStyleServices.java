@@ -4,6 +4,7 @@ import static org.eclipse.sirius.conml.design.services.types.AssociationServices
 
 import org.eclipse.emf.ecore.EObject;
 
+import conml.instances.ReferenceSet;
 import conml.types.Association;
 import conml.types.SemiAssociation;
 
@@ -87,10 +88,22 @@ public final class AssociationStyleServices {
                 && association.getSecondarySemiAssociation().isStrong());
   }
 
-  public boolean shouldDisplayCompactLabel(final SemiAssociation semiAssociation) {
-    final Association association = semiAssociation.getPrimaryInAssociation();
-    if (association == null) return false;
-    else return association.isCompact();
+  public boolean shouldDisplayCompactLabel(final EObject object) {
+    if (object instanceof SemiAssociation) {
+      final SemiAssociation semiAssociation = (SemiAssociation) object;
+      final Association association = semiAssociation.getPrimaryInAssociation();
+      if (association == null) return false;
+      else return association.isCompact();
+    } else if (object instanceof ReferenceSet) {
+      final ReferenceSet referenceSet = (ReferenceSet) object;
+      if (referenceSet.getReferences().isEmpty()
+          || referenceSet
+              .getReferences()
+              .stream()
+              .anyMatch(ref -> ref.getPrimaryLink() == null || !ref.getPrimaryLink().isCompact()))
+        return false;
+      else return true;
+    } else return false;
   }
 
   public boolean shouldDisplayAssociationEdge(final Association association) {
