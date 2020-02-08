@@ -29,6 +29,10 @@ public final class QualifierObjectServices {
       ((FacetSet) container).setPhaseQualifier(qualifierObject);
     } else if (container instanceof Link) {
       // TODO: show a dialog to pick a ReferenceSet
+      final Link link = (Link) container;
+      if (link.getPrimaryReference() == null || link.getSecondaryReference() == null) return;
+      link.getPrimaryReference().getOwnerReferenceSet().setPhaseQualifier(qualifierObject);
+      link.getSecondaryReference().getOwnerReferenceSet().setPhaseQualifier(qualifierObject);
     } else {
       throw new IllegalArgumentException(
           Messages.getString("ExceptionMessage.InvalidContainerType"));
@@ -42,6 +46,10 @@ public final class QualifierObjectServices {
       ((FacetSet) container).setPerspectiveQualifier(qualifierObject);
     } else if (container instanceof Link) {
       // TODO: show a dialog to pick a ReferenceSet
+      final Link link = (Link) container;
+      if (link.getPrimaryReference() == null || link.getSecondaryReference() == null) return;
+      link.getPrimaryReference().getOwnerReferenceSet().setPerspectiveQualifier(qualifierObject);
+      link.getSecondaryReference().getOwnerReferenceSet().setPerspectiveQualifier(qualifierObject);
     } else {
       throw new IllegalArgumentException(
           Messages.getString("ExceptionMessage.InvalidContainerType"));

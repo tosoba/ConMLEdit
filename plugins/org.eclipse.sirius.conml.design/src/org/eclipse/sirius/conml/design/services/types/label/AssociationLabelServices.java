@@ -6,6 +6,8 @@ import java.util.function.Function;
 
 import org.eclipse.emf.ecore.EObject;
 
+import conml.instances.Link;
+import conml.instances.Reference;
 import conml.types.Association;
 import conml.types.SemiAssociation;
 
@@ -31,9 +33,36 @@ public final class AssociationLabelServices {
             : new StringBuilder();
     SemiAssociationLabelServices.getInstance()
         .appendMarkersString(sb, association.getPrimarySemiAssociation());
+    if (object instanceof Link) {
+      final Link link = (Link) object;
+      if (link.getPrimaryReference() != null
+          && link.getPrimaryReference().getOwnerReferenceSet() != null) {
+        appendQualifierPartIfNeeded(sb, link, Link::getPrimaryReference);
+      }
+    }
     if (association.getPrimarySemiAssociation().isNameDisplayed() || sb.length() > 0)
       sb.append(" \u25B6");
     return sb.toString();
+  }
+
+  private void appendQualifierPartIfNeeded(
+      final StringBuilder sb, final Link link, final Function<Link, Reference> referenceGetter) {
+    if (referenceGetter.apply(link).getOwnerReferenceSet().getPerspectiveQualifier() != null)
+      sb.append(" $")
+          .append(
+              referenceGetter
+                  .apply(link)
+                  .getOwnerReferenceSet()
+                  .getPerspectiveQualifier()
+                  .getQualifier());
+    if (referenceGetter.apply(link).getOwnerReferenceSet().getPhaseQualifier() != null)
+      sb.append(" @")
+          .append(
+              referenceGetter
+                  .apply(link)
+                  .getOwnerReferenceSet()
+                  .getPhaseQualifier()
+                  .getQualifier());
   }
 
   public String associationCenterBottomLabel(final EObject object) {
@@ -50,6 +79,13 @@ public final class AssociationLabelServices {
         .appendMarkersString(sb, association.getSecondarySemiAssociation());
     if (association.getSecondarySemiAssociation().isNameDisplayed() || sb.length() > 0)
       sb.insert(0, "\u25C0 ");
+    if (object instanceof Link) {
+      final Link link = (Link) object;
+      if (link.getSecondaryReference() != null
+          && link.getSecondaryReference().getOwnerReferenceSet() != null) {
+        appendQualifierPartIfNeeded(sb, link, Link::getSecondaryReference);
+      }
+    }
     return sb.toString();
   }
 
