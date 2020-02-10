@@ -31,7 +31,7 @@
 	<properties>
 		<tycho-version>0.22.0</tycho-version>
 		<root-path>../..</root-path>
-		<platform-version-name>luna</platform-version-name>
+		<platform-version-name>capella</platform-version-name>
 	</properties>
 
 	<pluginRepositories>
