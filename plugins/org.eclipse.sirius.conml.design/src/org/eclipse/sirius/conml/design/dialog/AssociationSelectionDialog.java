@@ -1,6 +1,8 @@
 package org.eclipse.sirius.conml.design.dialog;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
+import java.util.Set;
+
+import org.eclipse.sirius.conml.design.services.types.ClassServices;
 
 import conml.Domain;
 import conml.types.Association;
@@ -19,9 +21,13 @@ public final class AssociationSelectionDialog extends ExistingSemanticElementsSe
           final Association association = (Association) obj;
           if (association.getPrimarySemiAssociation() == null
               || association.getSecondarySemiAssociation() == null) return false;
-          return EcoreUtil.equals(association.getPrimarySemiAssociation().getOwnerClass(), source)
-              && EcoreUtil.equals(
-                  association.getSecondarySemiAssociation().getOwnerClass(), target);
+          final Set<Class> sourceAncestors =
+              ClassServices.getInstance().getAllAncestorsOf(source, null);
+          final Set<Class> targetAncestors =
+              ClassServices.getInstance().getAllAncestorsOf(target, null);
+          return sourceAncestors.contains(association.getPrimarySemiAssociation().getOwnerClass())
+              && targetAncestors.contains(
+                  association.getSecondarySemiAssociation().getOwnerClass());
         },
         false,
         null);
