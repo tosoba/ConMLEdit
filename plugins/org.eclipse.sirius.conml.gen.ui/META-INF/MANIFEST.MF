@@ -2,20 +2,20 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ConML Gen UI
 Bundle-SymbolicName: org.eclipse.sirius.conml.gen.ui;singleton:=true
-Bundle-Version: 1.0.0
+Bundle-Version: 1.0.0.qualifier
 Automatic-Module-Name: org.eclipse.sirius.conml.gen.ui
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Localization: plugin
-Require-Bundle: org.eclipse.core.resources;bundle-version="3.13.200",
- org.eclipse.core.runtime;bundle-version="3.15.100",
- org.eclipse.ui;bundle-version="3.111.0",
- org.eclipse.ui.ide;bundle-version="3.14.200",
- org.eclipse.debug.core;bundle-version="3.13.100",
- org.eclipse.debug.ui;bundle-version="3.13.200",
- org.eclipse.jdt.core;bundle-version="3.16.0",
- org.eclipse.jdt.launching;bundle-version="3.12.0",
- org.eclipse.jdt.ui;bundle-version="3.16.0",
- org.eclipse.acceleo.engine;bundle-version="3.7.8",
+Require-Bundle: org.eclipse.core.resources;bundle-version="3.12.0",
+ org.eclipse.core.runtime;bundle-version="3.13.0",
+ org.eclipse.ui;bundle-version="3.109.0",
+ org.eclipse.ui.ide;bundle-version="3.13.1",
+ org.eclipse.debug.core;bundle-version="3.11.0",
+ org.eclipse.debug.ui;bundle-version="3.11.0",
+ org.eclipse.jdt.core;bundle-version="3.13.0",
+ org.eclipse.jdt.launching;bundle-version="3.9.100",
+ org.eclipse.jdt.ui;bundle-version="3.13.0",
+ org.eclipse.acceleo.engine;bundle-version="3.7.4",
  org.eclipse.sirius.conml.gen;bundle-version="1.0.0",
  org.eclipse.equinox.registry
 Bundle-Activator: org.eclipse.sirius.conml.gen.ui.ConMLGenUiActivator

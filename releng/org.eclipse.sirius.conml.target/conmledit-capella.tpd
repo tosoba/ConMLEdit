@@ -10,9 +10,9 @@ location amalgam-1.10.0 "http://download.eclipse.org/modeling/amalgam/updates/st
 }
 
 // Acceleo 3.7.4
-
 location "http://download.eclipse.org/acceleo/updates/releases/3.7/R201807201001" {
 	org.eclipse.acceleo.feature.group lazy
+	org.eclipse.acceleo.runtime.feature.group lazy
 }
 
 // UML compare 3.3.2
@@ -24,4 +24,16 @@ location "http://download.eclipse.org/modeling/emf/compare/updates/releases/3.3/
 	org.eclipse.emf.compare.uml2.feature.group lazy
 	org.eclipse.emf.compare.diagram.ide.ui.sirius lazy
 	org.eclipse.emf.compare.diagram.sirius lazy
+}
+
+location "http://download.eclipse.org/sirius/updates/releases/6.1.0/oxygen" {
+	//runtime
+	org.eclipse.sirius.runtime.feature.group
+	org.eclipse.sirius.runtime.acceleo.feature.group
+	//IDE
+	org.eclipse.sirius.runtime.ide.ui.acceleo.feature.group
+	org.eclipse.sirius.runtime.ide.eef.feature.group
+	org.eclipse.sirius.runtime.ide.ui.feature.group
+	org.eclipse.sirius.specifier.ide.ui.feature.group
+	org.eclipse.sirius.specifier.ide.ui.acceleo.feature.group
 }
