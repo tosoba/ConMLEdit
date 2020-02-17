@@ -25,9 +25,12 @@ public final class AssociationSelectionDialog extends ExistingSemanticElementsSe
               ClassServices.getInstance().getAllAncestorsOf(source, null);
           final Set<Class> targetAncestors =
               ClassServices.getInstance().getAllAncestorsOf(target, null);
-          return sourceAncestors.contains(association.getPrimarySemiAssociation().getOwnerClass())
-              && targetAncestors.contains(
-                  association.getSecondarySemiAssociation().getOwnerClass());
+          return (sourceAncestors.contains(association.getPrimarySemiAssociation().getOwnerClass())
+                  && targetAncestors.contains(
+                      association.getSecondarySemiAssociation().getOwnerClass()))
+              || (targetAncestors.contains(association.getPrimarySemiAssociation().getOwnerClass())
+                  && sourceAncestors.contains(
+                      association.getSecondarySemiAssociation().getOwnerClass()));
         },
         false,
         null);

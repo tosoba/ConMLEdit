@@ -95,9 +95,26 @@ public final class ClassValidationServices {
   private Stream<String> featuresNamesStream(final Class clazz) {
     return Stream.concat(
         Stream.concat(
-            clazz.getSemiAssociations().stream().map(SemiAssociation::getName),
-            clazz.getAttributes().stream().map(Attribute::getName)),
-        clazz.getProperties().stream().map(Property::getName));
+            clazz
+                .getSemiAssociations()
+                .stream()
+                .filter(
+                    semi ->
+                        semi.getRedefinedSemiAssociation() == null
+                            && semi.getInverseSemiAssociation() != null
+                            && semi.getInverseSemiAssociation().getRedefinedSemiAssociation()
+                                == null)
+                .map(SemiAssociation::getName),
+            clazz
+                .getAttributes()
+                .stream()
+                .filter(attr -> attr.getRedefinedAttribute() == null)
+                .map(Attribute::getName)),
+        clazz
+            .getProperties()
+            .stream()
+            .filter(prop -> prop.getRedefinedProperty() == null)
+            .map(Property::getName));
   }
 
   private Stream<String> allFeaturesFromAncestorsStream(final Class clazz) {

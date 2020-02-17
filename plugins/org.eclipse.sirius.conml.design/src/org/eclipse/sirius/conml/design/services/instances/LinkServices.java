@@ -81,12 +81,15 @@ public final class LinkServices {
 
     final Reference primaryRef = InstancesFactory.eINSTANCE.createReference();
     primaryRef.setReferredObject(target);
+    primaryRef.setInstanceModel(link.getInstanceModel());
     link.setPrimaryReference(primaryRef);
 
     final Reference secondaryRef = InstancesFactory.eINSTANCE.createReference();
     secondaryRef.setReferredObject(source);
+    secondaryRef.setInstanceModel(link.getInstanceModel());
     link.setSecondaryReference(secondaryRef);
 
+    //TODO: check if this is bidirectional
     primaryRef.setInverseReference(secondaryRef);
     secondaryRef.setInverseReference(primaryRef);
 
@@ -115,6 +118,7 @@ public final class LinkServices {
       refSet.setInstancedSemiAssociation(instancedSemiAssociation);
       referenceSetContainer.getReferenceSets().add(refSet);
       refSet.setOwner(referenceSetContainer);
+      refSet.setInstanceModel(referenceSetContainer.getInstanceModel());
       refSet.getReferences().add(reference);
     }
   }
