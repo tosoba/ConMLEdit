@@ -992,6 +992,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="PrimaryInAssociation" valueExpression="var:association"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:target"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:source"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:source.getTypeModelOfElement()"/>
                       </subModelOperations>
                       <subModelOperations xsi:type="tool:SetValue" featureName="PrimarySemiAssociation" valueExpression="var:primary"/>
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SecondarySemiAssociation" variableName="secondary">
@@ -1000,6 +1001,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="SecondaryInAssociation" valueExpression="var:association"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:source"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:target.getTypeModelOfElement()"/>
                       </subModelOperations>
                       <subModelOperations xsi:type="tool:SetValue" featureName="SecondarySemiAssociation" valueExpression="var:secondary"/>
                       <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:primary.setInverses(secondary)">
@@ -1046,6 +1048,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="PrimaryInAssociation" valueExpression="var:association"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:target"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:source"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:source.getTypeModelOfElement()"/>
                       </subModelOperations>
                       <subModelOperations xsi:type="tool:SetValue" featureName="PrimarySemiAssociation" valueExpression="var:primary"/>
                       <subModelOperations xsi:type="tool:CreateInstance" typeName="types::SemiAssociation" referenceName="SecondarySemiAssociation" variableName="secondary">
@@ -1054,6 +1057,7 @@
                         <subModelOperations xsi:type="tool:SetValue" featureName="SecondaryInAssociation" valueExpression="var:association"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="ReferredClass" valueExpression="var:source"/>
                         <subModelOperations xsi:type="tool:SetValue" featureName="OwnerClass" valueExpression="var:target"/>
+                        <subModelOperations xsi:type="tool:SetValue" featureName="TypeModel" valueExpression="aql:target.getTypeModelOfElement()"/>
                       </subModelOperations>
                       <subModelOperations xsi:type="tool:SetValue" featureName="SecondarySemiAssociation" valueExpression="var:secondary"/>
                       <subModelOperations xsi:type="tool:ChangeContext" browseExpression="service:primary.setInverses(secondary)">
@@ -2396,7 +2400,9 @@
                         </buttons>
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:typeModel"/>
+                            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:defaultLang.setLanguageModel(typeModel)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:typeModel"/>
+                            </firstModelOperations>
                           </initialOperation>
                         </buttons>
                         <page name="D_MD_CreateTypeModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Model%20Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='New%20TypeModel']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
@@ -2462,7 +2468,9 @@
                         </buttons>
                         <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
                           <initialOperation>
-                            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instanceModel"/>
+                            <firstModelOperations xsi:type="tool:ChangeContext" browseExpression="aql:defaultLang.setLanguageModel(instanceModel)">
+                              <subModelOperations xsi:type="tool:ChangeContext" browseExpression="var:instanceModel"/>
+                            </firstModelOperations>
                           </initialOperation>
                         </buttons>
                         <page name="D_MD_CreateInstanceModel_DefaultPage" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='ConML']/@ownedRepresentations[name='Model%20Diagram']/@additionalLayers[name='InstanceModel']/@toolSections.0/@ownedTools[name='New%20InstanceModel']/@initialOperation/@firstModelOperations/@subModelOperations.0/@subModelOperations.2/@subModelOperations.0/@subModelOperations.3/@groups.0"/>
@@ -2498,6 +2506,7 @@
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DiagramPropertiesServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.DomainServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ExistingElementsServices"/>
+    <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.LanguageServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.ModelElementServices"/>
     <ownedJavaExtensions qualifiedClassName="org.eclipse.sirius.conml.design.services.common.UIServices"/>

@@ -192,8 +192,11 @@ public final class SemiAssociationServices {
     inverseSemi.setSubjective(inverseOfRedefined.isSubjective());
     inverseSemi.setTemporal(inverseOfRedefined.isTemporal());
     inverseSemi.setWhole(inverseOfRedefined.isWhole());
+    inverseSemi.setTypeModel(inverseOfRedefined.getTypeModel());
 
+    // TODO: make bidirectional
     semi.setInverseSemiAssociation(inverseSemi);
+    inverseSemi.setInverseSemiAssociation(semi);
 
     if (createPrimary) inverseSemi.setPrimaryInAssociation(association);
     else inverseSemi.setSecondaryInAssociation(association);
